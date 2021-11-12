@@ -27,6 +27,8 @@ type CapacityReservation struct {
 	InstanceMatchCriteria  pulumi.StringPtrOutput                         `pulumi:"instanceMatchCriteria"`
 	InstancePlatform       pulumi.StringOutput                            `pulumi:"instancePlatform"`
 	InstanceType           pulumi.StringOutput                            `pulumi:"instanceType"`
+	OutPostArn             pulumi.StringPtrOutput                         `pulumi:"outPostArn"`
+	PlacementGroupArn      pulumi.StringPtrOutput                         `pulumi:"placementGroupArn"`
 	TagSpecifications      CapacityReservationTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	Tenancy                pulumi.StringPtrOutput                         `pulumi:"tenancy"`
 	TotalInstanceCount     pulumi.IntOutput                               `pulumi:"totalInstanceCount"`
@@ -92,6 +94,8 @@ type capacityReservationArgs struct {
 	InstanceMatchCriteria *string                               `pulumi:"instanceMatchCriteria"`
 	InstancePlatform      string                                `pulumi:"instancePlatform"`
 	InstanceType          string                                `pulumi:"instanceType"`
+	OutPostArn            *string                               `pulumi:"outPostArn"`
+	PlacementGroupArn     *string                               `pulumi:"placementGroupArn"`
 	TagSpecifications     []CapacityReservationTagSpecification `pulumi:"tagSpecifications"`
 	Tenancy               *string                               `pulumi:"tenancy"`
 }
@@ -107,6 +111,8 @@ type CapacityReservationArgs struct {
 	InstanceMatchCriteria pulumi.StringPtrInput
 	InstancePlatform      pulumi.StringInput
 	InstanceType          pulumi.StringInput
+	OutPostArn            pulumi.StringPtrInput
+	PlacementGroupArn     pulumi.StringPtrInput
 	TagSpecifications     CapacityReservationTagSpecificationArrayInput
 	Tenancy               pulumi.StringPtrInput
 }

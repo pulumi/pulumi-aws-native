@@ -1701,14 +1701,14 @@ class PackagingConfigurationDashPackage(dict):
                  dash_manifests: Sequence['outputs.PackagingConfigurationDashManifest'],
                  encryption: Optional['outputs.PackagingConfigurationDashEncryption'] = None,
                  include_encoder_configuration_in_segments: Optional[bool] = None,
-                 period_triggers: Optional[Sequence[str]] = None,
+                 period_triggers: Optional[Sequence['PackagingConfigurationDashPackagePeriodTriggersItem']] = None,
                  segment_duration_seconds: Optional[int] = None,
                  segment_template_format: Optional['PackagingConfigurationDashPackageSegmentTemplateFormat'] = None):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param Sequence['PackagingConfigurationDashManifest'] dash_manifests: A list of DASH manifest configurations.
         :param bool include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
-        :param Sequence[str] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
+        :param Sequence['PackagingConfigurationDashPackagePeriodTriggersItem'] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         :param 'PackagingConfigurationDashPackageSegmentTemplateFormat' segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
         pulumi.set(__self__, "dash_manifests", dash_manifests)
@@ -1746,7 +1746,7 @@ class PackagingConfigurationDashPackage(dict):
 
     @property
     @pulumi.getter(name="periodTriggers")
-    def period_triggers(self) -> Optional[Sequence[str]]:
+    def period_triggers(self) -> Optional[Sequence['PackagingConfigurationDashPackagePeriodTriggersItem']]:
         """
         A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         """

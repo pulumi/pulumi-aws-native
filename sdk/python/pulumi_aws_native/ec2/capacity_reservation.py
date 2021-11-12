@@ -24,6 +24,8 @@ class CapacityReservationArgs:
                  end_date_type: Optional[pulumi.Input[str]] = None,
                  ephemeral_storage: Optional[pulumi.Input[bool]] = None,
                  instance_match_criteria: Optional[pulumi.Input[str]] = None,
+                 out_post_arn: Optional[pulumi.Input[str]] = None,
+                 placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None):
         """
@@ -43,6 +45,10 @@ class CapacityReservationArgs:
             pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if instance_match_criteria is not None:
             pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
+        if out_post_arn is not None:
+            pulumi.set(__self__, "out_post_arn", out_post_arn)
+        if placement_group_arn is not None:
+            pulumi.set(__self__, "placement_group_arn", placement_group_arn)
         if tag_specifications is not None:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if tenancy is not None:
@@ -130,6 +136,24 @@ class CapacityReservationArgs:
         pulumi.set(self, "instance_match_criteria", value)
 
     @property
+    @pulumi.getter(name="outPostArn")
+    def out_post_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "out_post_arn")
+
+    @out_post_arn.setter
+    def out_post_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "out_post_arn", value)
+
+    @property
+    @pulumi.getter(name="placementGroupArn")
+    def placement_group_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "placement_group_arn")
+
+    @placement_group_arn.setter
+    def placement_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_group_arn", value)
+
+    @property
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]]:
         return pulumi.get(self, "tag_specifications")
@@ -167,6 +191,8 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_match_criteria: Optional[pulumi.Input[str]] = None,
                  instance_platform: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 out_post_arn: Optional[pulumi.Input[str]] = None,
+                 placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationTagSpecificationArgs']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -209,6 +235,8 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_match_criteria: Optional[pulumi.Input[str]] = None,
                  instance_platform: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 out_post_arn: Optional[pulumi.Input[str]] = None,
+                 placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationTagSpecificationArgs']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -241,6 +269,8 @@ class CapacityReservation(pulumi.CustomResource):
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["out_post_arn"] = out_post_arn
+            __props__.__dict__["placement_group_arn"] = placement_group_arn
             __props__.__dict__["tag_specifications"] = tag_specifications
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["available_instance_count"] = None
@@ -277,6 +307,8 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["instance_match_criteria"] = None
         __props__.__dict__["instance_platform"] = None
         __props__.__dict__["instance_type"] = None
+        __props__.__dict__["out_post_arn"] = None
+        __props__.__dict__["placement_group_arn"] = None
         __props__.__dict__["tag_specifications"] = None
         __props__.__dict__["tenancy"] = None
         __props__.__dict__["total_instance_count"] = None
@@ -331,6 +363,16 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="outPostArn")
+    def out_post_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "out_post_arn")
+
+    @property
+    @pulumi.getter(name="placementGroupArn")
+    def placement_group_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "placement_group_arn")
 
     @property
     @pulumi.getter(name="tagSpecifications")

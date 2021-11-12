@@ -11,7 +11,9 @@ from . import outputs
 
 __all__ = [
     'FileSystemAuditLogConfiguration',
+    'FileSystemDiskIopsConfiguration',
     'FileSystemLustreConfiguration',
+    'FileSystemOntapConfiguration',
     'FileSystemSelfManagedActiveDirectoryConfiguration',
     'FileSystemTag',
     'FileSystemWindowsConfiguration',
@@ -63,6 +65,27 @@ class FileSystemAuditLogConfiguration(dict):
     @pulumi.getter(name="auditLogDestination")
     def audit_log_destination(self) -> Optional[str]:
         return pulumi.get(self, "audit_log_destination")
+
+
+@pulumi.output_type
+class FileSystemDiskIopsConfiguration(dict):
+    def __init__(__self__, *,
+                 iops: Optional[int] = None,
+                 mode: Optional[str] = None):
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -198,6 +221,125 @@ class FileSystemLustreConfiguration(dict):
     @pulumi.getter(name="perUnitStorageThroughput")
     def per_unit_storage_throughput(self) -> Optional[int]:
         return pulumi.get(self, "per_unit_storage_throughput")
+
+    @property
+    @pulumi.getter(name="weeklyMaintenanceStartTime")
+    def weekly_maintenance_start_time(self) -> Optional[str]:
+        return pulumi.get(self, "weekly_maintenance_start_time")
+
+
+@pulumi.output_type
+class FileSystemOntapConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "automaticBackupRetentionDays":
+            suggest = "automatic_backup_retention_days"
+        elif key == "dailyAutomaticBackupStartTime":
+            suggest = "daily_automatic_backup_start_time"
+        elif key == "diskIopsConfiguration":
+            suggest = "disk_iops_configuration"
+        elif key == "endpointIpAddressRange":
+            suggest = "endpoint_ip_address_range"
+        elif key == "fsxAdminPassword":
+            suggest = "fsx_admin_password"
+        elif key == "preferredSubnetId":
+            suggest = "preferred_subnet_id"
+        elif key == "routeTableIds":
+            suggest = "route_table_ids"
+        elif key == "throughputCapacity":
+            suggest = "throughput_capacity"
+        elif key == "weeklyMaintenanceStartTime":
+            suggest = "weekly_maintenance_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemOntapConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemOntapConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemOntapConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_type: str,
+                 automatic_backup_retention_days: Optional[int] = None,
+                 daily_automatic_backup_start_time: Optional[str] = None,
+                 disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
+                 endpoint_ip_address_range: Optional[str] = None,
+                 fsx_admin_password: Optional[str] = None,
+                 preferred_subnet_id: Optional[str] = None,
+                 route_table_ids: Optional[Sequence[str]] = None,
+                 throughput_capacity: Optional[int] = None,
+                 weekly_maintenance_start_time: Optional[str] = None):
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        if automatic_backup_retention_days is not None:
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+        if daily_automatic_backup_start_time is not None:
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+        if disk_iops_configuration is not None:
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
+        if endpoint_ip_address_range is not None:
+            pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
+        if fsx_admin_password is not None:
+            pulumi.set(__self__, "fsx_admin_password", fsx_admin_password)
+        if preferred_subnet_id is not None:
+            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+        if route_table_ids is not None:
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
+        if throughput_capacity is not None:
+            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
+        if weekly_maintenance_start_time is not None:
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> str:
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter(name="automaticBackupRetentionDays")
+    def automatic_backup_retention_days(self) -> Optional[int]:
+        return pulumi.get(self, "automatic_backup_retention_days")
+
+    @property
+    @pulumi.getter(name="dailyAutomaticBackupStartTime")
+    def daily_automatic_backup_start_time(self) -> Optional[str]:
+        return pulumi.get(self, "daily_automatic_backup_start_time")
+
+    @property
+    @pulumi.getter(name="diskIopsConfiguration")
+    def disk_iops_configuration(self) -> Optional['outputs.FileSystemDiskIopsConfiguration']:
+        return pulumi.get(self, "disk_iops_configuration")
+
+    @property
+    @pulumi.getter(name="endpointIpAddressRange")
+    def endpoint_ip_address_range(self) -> Optional[str]:
+        return pulumi.get(self, "endpoint_ip_address_range")
+
+    @property
+    @pulumi.getter(name="fsxAdminPassword")
+    def fsx_admin_password(self) -> Optional[str]:
+        return pulumi.get(self, "fsx_admin_password")
+
+    @property
+    @pulumi.getter(name="preferredSubnetId")
+    def preferred_subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "preferred_subnet_id")
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "route_table_ids")
+
+    @property
+    @pulumi.getter(name="throughputCapacity")
+    def throughput_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "throughput_capacity")
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")

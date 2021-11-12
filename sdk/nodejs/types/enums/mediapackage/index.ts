@@ -198,6 +198,12 @@ export const PackagingConfigurationDashManifestProfile = {
  */
 export type PackagingConfigurationDashManifestProfile = (typeof PackagingConfigurationDashManifestProfile)[keyof typeof PackagingConfigurationDashManifestProfile];
 
+export const PackagingConfigurationDashPackagePeriodTriggersItem = {
+    Ads: "ADS",
+} as const;
+
+export type PackagingConfigurationDashPackagePeriodTriggersItem = (typeof PackagingConfigurationDashPackagePeriodTriggersItem)[keyof typeof PackagingConfigurationDashPackagePeriodTriggersItem];
+
 export const PackagingConfigurationDashPackageSegmentTemplateFormat = {
     NumberWithTimeline: "NUMBER_WITH_TIMELINE",
     TimeWithTimeline: "TIME_WITH_TIMELINE",

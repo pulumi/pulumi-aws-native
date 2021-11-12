@@ -44,6 +44,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly retrievalRoleArn!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.appconfig.ConfigurationProfileTags[] | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     public readonly validators!: pulumi.Output<outputs.appconfig.ConfigurationProfileValidators[] | undefined>;
 
     /**
@@ -71,6 +72,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["validators"] = args ? args.validators : undefined;
         } else {
             inputs["applicationId"] = undefined /*out*/;
@@ -79,6 +81,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["retrievalRoleArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
             inputs["validators"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -98,5 +101,6 @@ export interface ConfigurationProfileArgs {
     name?: pulumi.Input<string>;
     retrievalRoleArn?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileTagsArgs>[]>;
+    type?: pulumi.Input<string>;
     validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidatorsArgs>[]>;
 }

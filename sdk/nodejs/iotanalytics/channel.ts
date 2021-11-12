@@ -38,7 +38,7 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
-    public readonly channelName!: pulumi.Output<string>;
+    public readonly channelName!: pulumi.Output<string | undefined>;
     public readonly channelStorage!: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
     public readonly tags!: pulumi.Output<outputs.iotanalytics.ChannelTag[] | undefined>;

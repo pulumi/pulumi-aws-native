@@ -11,13 +11,15 @@ import (
 )
 
 type RotationScheduleHostedRotationLambda struct {
-	KmsKeyArn             *string `pulumi:"kmsKeyArn"`
-	MasterSecretArn       *string `pulumi:"masterSecretArn"`
-	MasterSecretKmsKeyArn *string `pulumi:"masterSecretKmsKeyArn"`
-	RotationLambdaName    *string `pulumi:"rotationLambdaName"`
-	RotationType          string  `pulumi:"rotationType"`
-	VpcSecurityGroupIds   *string `pulumi:"vpcSecurityGroupIds"`
-	VpcSubnetIds          *string `pulumi:"vpcSubnetIds"`
+	KmsKeyArn                *string `pulumi:"kmsKeyArn"`
+	MasterSecretArn          *string `pulumi:"masterSecretArn"`
+	MasterSecretKmsKeyArn    *string `pulumi:"masterSecretKmsKeyArn"`
+	RotationLambdaName       *string `pulumi:"rotationLambdaName"`
+	RotationType             string  `pulumi:"rotationType"`
+	SuperuserSecretArn       *string `pulumi:"superuserSecretArn"`
+	SuperuserSecretKmsKeyArn *string `pulumi:"superuserSecretKmsKeyArn"`
+	VpcSecurityGroupIds      *string `pulumi:"vpcSecurityGroupIds"`
+	VpcSubnetIds             *string `pulumi:"vpcSubnetIds"`
 }
 
 // RotationScheduleHostedRotationLambdaInput is an input type that accepts RotationScheduleHostedRotationLambdaArgs and RotationScheduleHostedRotationLambdaOutput values.
@@ -32,13 +34,15 @@ type RotationScheduleHostedRotationLambdaInput interface {
 }
 
 type RotationScheduleHostedRotationLambdaArgs struct {
-	KmsKeyArn             pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	MasterSecretArn       pulumi.StringPtrInput `pulumi:"masterSecretArn"`
-	MasterSecretKmsKeyArn pulumi.StringPtrInput `pulumi:"masterSecretKmsKeyArn"`
-	RotationLambdaName    pulumi.StringPtrInput `pulumi:"rotationLambdaName"`
-	RotationType          pulumi.StringInput    `pulumi:"rotationType"`
-	VpcSecurityGroupIds   pulumi.StringPtrInput `pulumi:"vpcSecurityGroupIds"`
-	VpcSubnetIds          pulumi.StringPtrInput `pulumi:"vpcSubnetIds"`
+	KmsKeyArn                pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	MasterSecretArn          pulumi.StringPtrInput `pulumi:"masterSecretArn"`
+	MasterSecretKmsKeyArn    pulumi.StringPtrInput `pulumi:"masterSecretKmsKeyArn"`
+	RotationLambdaName       pulumi.StringPtrInput `pulumi:"rotationLambdaName"`
+	RotationType             pulumi.StringInput    `pulumi:"rotationType"`
+	SuperuserSecretArn       pulumi.StringPtrInput `pulumi:"superuserSecretArn"`
+	SuperuserSecretKmsKeyArn pulumi.StringPtrInput `pulumi:"superuserSecretKmsKeyArn"`
+	VpcSecurityGroupIds      pulumi.StringPtrInput `pulumi:"vpcSecurityGroupIds"`
+	VpcSubnetIds             pulumi.StringPtrInput `pulumi:"vpcSubnetIds"`
 }
 
 func (RotationScheduleHostedRotationLambdaArgs) ElementType() reflect.Type {
@@ -138,6 +142,14 @@ func (o RotationScheduleHostedRotationLambdaOutput) RotationType() pulumi.String
 	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) string { return v.RotationType }).(pulumi.StringOutput)
 }
 
+func (o RotationScheduleHostedRotationLambdaOutput) SuperuserSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.SuperuserSecretArn }).(pulumi.StringPtrOutput)
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) SuperuserSecretKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.SuperuserSecretKmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
 func (o RotationScheduleHostedRotationLambdaOutput) VpcSecurityGroupIds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.VpcSecurityGroupIds }).(pulumi.StringPtrOutput)
 }
@@ -212,6 +224,24 @@ func (o RotationScheduleHostedRotationLambdaPtrOutput) RotationType() pulumi.Str
 			return nil
 		}
 		return &v.RotationType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) SuperuserSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuperuserSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) SuperuserSecretKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuperuserSecretKmsKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 

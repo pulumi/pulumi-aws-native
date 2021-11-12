@@ -164,7 +164,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Output[str]:
+    def channel_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "channel_name")
 
     @property

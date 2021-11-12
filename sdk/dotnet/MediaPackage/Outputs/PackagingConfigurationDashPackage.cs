@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         /// </summary>
-        public readonly ImmutableArray<string> PeriodTriggers;
+        public readonly ImmutableArray<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackagePeriodTriggersItem> PeriodTriggers;
         public readonly int? SegmentDurationSeconds;
         /// <summary>
         /// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             bool? includeEncoderConfigurationInSegments,
 
-            ImmutableArray<string> periodTriggers,
+            ImmutableArray<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackagePeriodTriggersItem> periodTriggers,
 
             int? segmentDurationSeconds,
 

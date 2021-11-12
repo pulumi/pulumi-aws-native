@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<ImmutableArray<Outputs.AnomalyDetectorDimension>> Dimensions { get; private set; } = null!;
 
         [Output("metricName")]
-        public Output<string> MetricName { get; private set; } = null!;
+        public Output<string?> MetricName { get; private set; } = null!;
 
         [Output("namespace")]
-        public Output<string> Namespace { get; private set; } = null!;
+        public Output<string?> Namespace { get; private set; } = null!;
 
         [Output("stat")]
-        public Output<string> Stat { get; private set; } = null!;
+        public Output<string?> Stat { get; private set; } = null!;
 
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AnomalyDetector(string name, AnomalyDetectorArgs args, CustomResourceOptions? options = null)
+        public AnomalyDetector(string name, AnomalyDetectorArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:cloudwatch:AnomalyDetector", name, args ?? new AnomalyDetectorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -87,14 +87,14 @@ namespace Pulumi.AwsNative.CloudWatch
             set => _dimensions = value;
         }
 
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
+        [Input("metricName")]
+        public Input<string>? MetricName { get; set; }
 
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
 
-        [Input("stat", required: true)]
-        public Input<string> Stat { get; set; } = null!;
+        [Input("stat")]
+        public Input<string>? Stat { get; set; }
 
         public AnomalyDetectorArgs()
         {

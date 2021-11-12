@@ -31,6 +31,10 @@ class RotationScheduleHostedRotationLambda(dict):
             suggest = "master_secret_kms_key_arn"
         elif key == "rotationLambdaName":
             suggest = "rotation_lambda_name"
+        elif key == "superuserSecretArn":
+            suggest = "superuser_secret_arn"
+        elif key == "superuserSecretKmsKeyArn":
+            suggest = "superuser_secret_kms_key_arn"
         elif key == "vpcSecurityGroupIds":
             suggest = "vpc_security_group_ids"
         elif key == "vpcSubnetIds":
@@ -53,6 +57,8 @@ class RotationScheduleHostedRotationLambda(dict):
                  master_secret_arn: Optional[str] = None,
                  master_secret_kms_key_arn: Optional[str] = None,
                  rotation_lambda_name: Optional[str] = None,
+                 superuser_secret_arn: Optional[str] = None,
+                 superuser_secret_kms_key_arn: Optional[str] = None,
                  vpc_security_group_ids: Optional[str] = None,
                  vpc_subnet_ids: Optional[str] = None):
         pulumi.set(__self__, "rotation_type", rotation_type)
@@ -64,6 +70,10 @@ class RotationScheduleHostedRotationLambda(dict):
             pulumi.set(__self__, "master_secret_kms_key_arn", master_secret_kms_key_arn)
         if rotation_lambda_name is not None:
             pulumi.set(__self__, "rotation_lambda_name", rotation_lambda_name)
+        if superuser_secret_arn is not None:
+            pulumi.set(__self__, "superuser_secret_arn", superuser_secret_arn)
+        if superuser_secret_kms_key_arn is not None:
+            pulumi.set(__self__, "superuser_secret_kms_key_arn", superuser_secret_kms_key_arn)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
         if vpc_subnet_ids is not None:
@@ -93,6 +103,16 @@ class RotationScheduleHostedRotationLambda(dict):
     @pulumi.getter(name="rotationLambdaName")
     def rotation_lambda_name(self) -> Optional[str]:
         return pulumi.get(self, "rotation_lambda_name")
+
+    @property
+    @pulumi.getter(name="superuserSecretArn")
+    def superuser_secret_arn(self) -> Optional[str]:
+        return pulumi.get(self, "superuser_secret_arn")
+
+    @property
+    @pulumi.getter(name="superuserSecretKmsKeyArn")
+    def superuser_secret_kms_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "superuser_secret_kms_key_arn")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")

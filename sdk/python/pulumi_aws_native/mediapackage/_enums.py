@@ -23,6 +23,7 @@ __all__ = [
     'OriginEndpointStreamSelectionStreamOrder',
     'PackagingConfigurationDashManifestManifestLayout',
     'PackagingConfigurationDashManifestProfile',
+    'PackagingConfigurationDashPackagePeriodTriggersItem',
     'PackagingConfigurationDashPackageSegmentTemplateFormat',
     'PackagingConfigurationHlsEncryptionEncryptionMethod',
     'PackagingConfigurationHlsManifestAdMarkers',
@@ -188,6 +189,10 @@ class PackagingConfigurationDashManifestProfile(str, Enum):
     """
     NONE = "NONE"
     HBBTV15 = "HBBTV_1_5"
+
+
+class PackagingConfigurationDashPackagePeriodTriggersItem(str, Enum):
+    ADS = "ADS"
 
 
 class PackagingConfigurationDashPackageSegmentTemplateFormat(str, Enum):

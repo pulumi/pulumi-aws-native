@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastoreIotSiteWiseMultiLayerStorage
     {
-        public readonly Outputs.DatastoreCustomerManagedS3Storage? CustomerManagedS3Storage;
+        public readonly Outputs.DatastoreCustomerManagedS3Storage CustomerManagedS3Storage;
 
         [OutputConstructor]
-        private DatastoreIotSiteWiseMultiLayerStorage(Outputs.DatastoreCustomerManagedS3Storage? customerManagedS3Storage)
+        private DatastoreIotSiteWiseMultiLayerStorage(Outputs.DatastoreCustomerManagedS3Storage customerManagedS3Storage)
         {
             CustomerManagedS3Storage = customerManagedS3Storage;
         }

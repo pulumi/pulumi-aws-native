@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
         [Input("rotationType", required: true)]
         public Input<string> RotationType { get; set; } = null!;
 
+        [Input("superuserSecretArn")]
+        public Input<string>? SuperuserSecretArn { get; set; }
+
+        [Input("superuserSecretKmsKeyArn")]
+        public Input<string>? SuperuserSecretKmsKeyArn { get; set; }
+
         [Input("vpcSecurityGroupIds")]
         public Input<string>? VpcSecurityGroupIds { get; set; }
 

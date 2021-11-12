@@ -346,16 +346,17 @@ class DatasetContentDeliveryRuleArgs:
 @pulumi.input_type
 class DatasetContentVersionValueArgs:
     def __init__(__self__, *,
-                 dataset_name: pulumi.Input[str]):
-        pulumi.set(__self__, "dataset_name", dataset_name)
+                 dataset_name: Optional[pulumi.Input[str]] = None):
+        if dataset_name is not None:
+            pulumi.set(__self__, "dataset_name", dataset_name)
 
     @property
     @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> pulumi.Input[str]:
+    def dataset_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "dataset_name")
 
     @dataset_name.setter
-    def dataset_name(self, value: pulumi.Input[str]):
+    def dataset_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dataset_name", value)
 
 
@@ -521,16 +522,17 @@ class DatasetLateDataRuleArgs:
 @pulumi.input_type
 class DatasetOutputFileUriValueArgs:
     def __init__(__self__, *,
-                 file_name: pulumi.Input[str]):
-        pulumi.set(__self__, "file_name", file_name)
+                 file_name: Optional[pulumi.Input[str]] = None):
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> pulumi.Input[str]:
+    def file_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "file_name")
 
     @file_name.setter
-    def file_name(self, value: pulumi.Input[str]):
+    def file_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_name", value)
 
 
@@ -973,17 +975,16 @@ class DatastoreFileFormatConfigurationArgs:
 @pulumi.input_type
 class DatastoreIotSiteWiseMultiLayerStorageArgs:
     def __init__(__self__, *,
-                 customer_managed_s3_storage: Optional[pulumi.Input['DatastoreCustomerManagedS3StorageArgs']] = None):
-        if customer_managed_s3_storage is not None:
-            pulumi.set(__self__, "customer_managed_s3_storage", customer_managed_s3_storage)
+                 customer_managed_s3_storage: pulumi.Input['DatastoreCustomerManagedS3StorageArgs']):
+        pulumi.set(__self__, "customer_managed_s3_storage", customer_managed_s3_storage)
 
     @property
     @pulumi.getter(name="customerManagedS3Storage")
-    def customer_managed_s3_storage(self) -> Optional[pulumi.Input['DatastoreCustomerManagedS3StorageArgs']]:
+    def customer_managed_s3_storage(self) -> pulumi.Input['DatastoreCustomerManagedS3StorageArgs']:
         return pulumi.get(self, "customer_managed_s3_storage")
 
     @customer_managed_s3_storage.setter
-    def customer_managed_s3_storage(self, value: Optional[pulumi.Input['DatastoreCustomerManagedS3StorageArgs']]):
+    def customer_managed_s3_storage(self, value: pulumi.Input['DatastoreCustomerManagedS3StorageArgs']):
         pulumi.set(self, "customer_managed_s3_storage", value)
 
 
@@ -1332,30 +1333,32 @@ class PipelineActivityArgs:
 @pulumi.input_type
 class PipelineAddAttributesArgs:
     def __init__(__self__, *,
-                 attributes: Any,
-                 name: pulumi.Input[str],
+                 attributes: Optional[Any] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "name", name)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Any:
+    def attributes(self) -> Optional[Any]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Any):
+    def attributes(self, value: Optional[Any]):
         pulumi.set(self, "attributes", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -1371,30 +1374,32 @@ class PipelineAddAttributesArgs:
 @pulumi.input_type
 class PipelineChannelArgs:
     def __init__(__self__, *,
-                 channel_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 channel_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "channel_name", channel_name)
-        pulumi.set(__self__, "name", name)
+        if channel_name is not None:
+            pulumi.set(__self__, "channel_name", channel_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[str]:
+    def channel_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: pulumi.Input[str]):
+    def channel_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "channel_name", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -1410,80 +1415,68 @@ class PipelineChannelArgs:
 @pulumi.input_type
 class PipelineDatastoreArgs:
     def __init__(__self__, *,
-                 datastore_name: pulumi.Input[str],
-                 name: pulumi.Input[str]):
-        pulumi.set(__self__, "datastore_name", datastore_name)
-        pulumi.set(__self__, "name", name)
+                 datastore_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        if datastore_name is not None:
+            pulumi.set(__self__, "datastore_name", datastore_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="datastoreName")
-    def datastore_name(self) -> pulumi.Input[str]:
+    def datastore_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "datastore_name")
 
     @datastore_name.setter
-    def datastore_name(self, value: pulumi.Input[str]):
+    def datastore_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "datastore_name", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class PipelineDeviceRegistryEnrichArgs:
     def __init__(__self__, *,
-                 attribute: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str],
-                 thing_name: pulumi.Input[str],
-                 next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "thing_name", thing_name)
+                 attribute: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 next: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 thing_name: Optional[pulumi.Input[str]] = None):
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if thing_name is not None:
+            pulumi.set(__self__, "thing_name", thing_name)
 
     @property
     @pulumi.getter
-    def attribute(self) -> pulumi.Input[str]:
+    def attribute(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "attribute")
 
     @attribute.setter
-    def attribute(self, value: pulumi.Input[str]):
+    def attribute(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attribute", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_arn", value)
-
-    @property
-    @pulumi.getter(name="thingName")
-    def thing_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "thing_name")
-
-    @thing_name.setter
-    def thing_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "thing_name", value)
 
     @property
     @pulumi.getter
@@ -1493,58 +1486,62 @@ class PipelineDeviceRegistryEnrichArgs:
     @next.setter
     def next(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "next", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="thingName")
+    def thing_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "thing_name")
+
+    @thing_name.setter
+    def thing_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thing_name", value)
 
 
 @pulumi.input_type
 class PipelineDeviceShadowEnrichArgs:
     def __init__(__self__, *,
-                 attribute: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str],
-                 thing_name: pulumi.Input[str],
-                 next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "thing_name", thing_name)
+                 attribute: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 next: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 thing_name: Optional[pulumi.Input[str]] = None):
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if thing_name is not None:
+            pulumi.set(__self__, "thing_name", thing_name)
 
     @property
     @pulumi.getter
-    def attribute(self) -> pulumi.Input[str]:
+    def attribute(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "attribute")
 
     @attribute.setter
-    def attribute(self, value: pulumi.Input[str]):
+    def attribute(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attribute", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_arn", value)
-
-    @property
-    @pulumi.getter(name="thingName")
-    def thing_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "thing_name")
-
-    @thing_name.setter
-    def thing_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "thing_name", value)
 
     @property
     @pulumi.getter
@@ -1555,34 +1552,54 @@ class PipelineDeviceShadowEnrichArgs:
     def next(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "next", value)
 
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="thingName")
+    def thing_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "thing_name")
+
+    @thing_name.setter
+    def thing_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thing_name", value)
+
 
 @pulumi.input_type
 class PipelineFilterArgs:
     def __init__(__self__, *,
-                 filter: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 filter: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "name", name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
 
     @property
     @pulumi.getter
-    def filter(self) -> pulumi.Input[str]:
+    def filter(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: pulumi.Input[str]):
+    def filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filter", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -1598,41 +1615,44 @@ class PipelineFilterArgs:
 @pulumi.input_type
 class PipelineLambdaArgs:
     def __init__(__self__, *,
-                 batch_size: pulumi.Input[int],
-                 lambda_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 lambda_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "batch_size", batch_size)
-        pulumi.set(__self__, "lambda_name", lambda_name)
-        pulumi.set(__self__, "name", name)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if lambda_name is not None:
+            pulumi.set(__self__, "lambda_name", lambda_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
 
     @property
     @pulumi.getter(name="batchSize")
-    def batch_size(self) -> pulumi.Input[int]:
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "batch_size")
 
     @batch_size.setter
-    def batch_size(self, value: pulumi.Input[int]):
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_size", value)
 
     @property
     @pulumi.getter(name="lambdaName")
-    def lambda_name(self) -> pulumi.Input[str]:
+    def lambda_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "lambda_name")
 
     @lambda_name.setter
-    def lambda_name(self, value: pulumi.Input[str]):
+    def lambda_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lambda_name", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -1648,41 +1668,44 @@ class PipelineLambdaArgs:
 @pulumi.input_type
 class PipelineMathArgs:
     def __init__(__self__, *,
-                 attribute: pulumi.Input[str],
-                 math: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 attribute: Optional[pulumi.Input[str]] = None,
+                 math: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "math", math)
-        pulumi.set(__self__, "name", name)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if math is not None:
+            pulumi.set(__self__, "math", math)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
 
     @property
     @pulumi.getter
-    def attribute(self) -> pulumi.Input[str]:
+    def attribute(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "attribute")
 
     @attribute.setter
-    def attribute(self, value: pulumi.Input[str]):
+    def attribute(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attribute", value)
 
     @property
     @pulumi.getter
-    def math(self) -> pulumi.Input[str]:
+    def math(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "math")
 
     @math.setter
-    def math(self, value: pulumi.Input[str]):
+    def math(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "math", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -1698,30 +1721,32 @@ class PipelineMathArgs:
 @pulumi.input_type
 class PipelineRemoveAttributesArgs:
     def __init__(__self__, *,
-                 attributes: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str],
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "name", name)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -1737,30 +1762,32 @@ class PipelineRemoveAttributesArgs:
 @pulumi.input_type
 class PipelineSelectAttributesArgs:
     def __init__(__self__, *,
-                 attributes: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str],
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  next: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "name", name)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if next is not None:
             pulumi.set(__self__, "next", next)
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property

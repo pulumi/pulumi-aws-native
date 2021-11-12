@@ -21,6 +21,7 @@ class ConfigurationProfileArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileTagsArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
@@ -35,6 +36,8 @@ class ConfigurationProfileArgs:
             pulumi.set(__self__, "retrieval_role_arn", retrieval_role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if validators is not None:
             pulumi.set(__self__, "validators", validators)
 
@@ -94,6 +97,15 @@ class ConfigurationProfileArgs:
 
     @property
     @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
     def validators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]]:
         return pulumi.get(self, "validators")
 
@@ -118,6 +130,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileTagsArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorsArgs']]]]] = None,
                  __props__=None):
         """
@@ -156,6 +169,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileTagsArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorsArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""ConfigurationProfile is deprecated: ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -180,6 +194,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["retrieval_role_arn"] = retrieval_role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
             __props__.__dict__["validators"] = validators
         super(ConfigurationProfile, __self__).__init__(
             'aws-native:appconfig:ConfigurationProfile',
@@ -209,6 +224,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["retrieval_role_arn"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         __props__.__dict__["validators"] = None
         return ConfigurationProfile(resource_name, opts=opts, __props__=__props__)
 
@@ -241,6 +257,11 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationProfileTags']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter

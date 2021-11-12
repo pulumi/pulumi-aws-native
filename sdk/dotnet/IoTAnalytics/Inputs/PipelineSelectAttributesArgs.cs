@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PipelineSelectAttributesArgs : Pulumi.ResourceArgs
     {
-        [Input("attributes", required: true)]
+        [Input("attributes")]
         private InputList<string>? _attributes;
         public InputList<string> Attributes
         {
@@ -20,8 +20,8 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
             set => _attributes = value;
         }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("next")]
         public Input<string>? Next { get; set; }

@@ -3961,8 +3961,8 @@ type PackagingConfigurationDashPackage struct {
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
-	PeriodTriggers         []string `pulumi:"periodTriggers"`
-	SegmentDurationSeconds *int     `pulumi:"segmentDurationSeconds"`
+	PeriodTriggers         []PackagingConfigurationDashPackagePeriodTriggersItem `pulumi:"periodTriggers"`
+	SegmentDurationSeconds *int                                                  `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat *PackagingConfigurationDashPackageSegmentTemplateFormat `pulumi:"segmentTemplateFormat"`
 }
@@ -3986,8 +3986,8 @@ type PackagingConfigurationDashPackageArgs struct {
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
-	PeriodTriggers         pulumi.StringArrayInput `pulumi:"periodTriggers"`
-	SegmentDurationSeconds pulumi.IntPtrInput      `pulumi:"segmentDurationSeconds"`
+	PeriodTriggers         PackagingConfigurationDashPackagePeriodTriggersItemArrayInput `pulumi:"periodTriggers"`
+	SegmentDurationSeconds pulumi.IntPtrInput                                            `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat PackagingConfigurationDashPackageSegmentTemplateFormatPtrInput `pulumi:"segmentTemplateFormat"`
 }
@@ -4085,8 +4085,10 @@ func (o PackagingConfigurationDashPackageOutput) IncludeEncoderConfigurationInSe
 }
 
 // A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
-func (o PackagingConfigurationDashPackageOutput) PeriodTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PackagingConfigurationDashPackage) []string { return v.PeriodTriggers }).(pulumi.StringArrayOutput)
+func (o PackagingConfigurationDashPackageOutput) PeriodTriggers() PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
+	return o.ApplyT(func(v PackagingConfigurationDashPackage) []PackagingConfigurationDashPackagePeriodTriggersItem {
+		return v.PeriodTriggers
+	}).(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput)
 }
 
 func (o PackagingConfigurationDashPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
@@ -4154,13 +4156,13 @@ func (o PackagingConfigurationDashPackagePtrOutput) IncludeEncoderConfigurationI
 }
 
 // A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
-func (o PackagingConfigurationDashPackagePtrOutput) PeriodTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PackagingConfigurationDashPackage) []string {
+func (o PackagingConfigurationDashPackagePtrOutput) PeriodTriggers() PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
+	return o.ApplyT(func(v *PackagingConfigurationDashPackage) []PackagingConfigurationDashPackagePeriodTriggersItem {
 		if v == nil {
 			return nil
 		}
 		return v.PeriodTriggers
-	}).(pulumi.StringArrayOutput)
+	}).(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput)
 }
 
 func (o PackagingConfigurationDashPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {

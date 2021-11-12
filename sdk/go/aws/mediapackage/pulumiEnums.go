@@ -3184,6 +3184,214 @@ func (in *packagingConfigurationDashManifestProfilePtr) ToPackagingConfiguration
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashManifestProfilePtrOutput)
 }
 
+type PackagingConfigurationDashPackagePeriodTriggersItem string
+
+const (
+	PackagingConfigurationDashPackagePeriodTriggersItemAds = PackagingConfigurationDashPackagePeriodTriggersItem("ADS")
+)
+
+func (PackagingConfigurationDashPackagePeriodTriggersItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItem)(nil)).Elem()
+}
+
+func (e PackagingConfigurationDashPackagePeriodTriggersItem) ToPackagingConfigurationDashPackagePeriodTriggersItemOutput() PackagingConfigurationDashPackagePeriodTriggersItemOutput {
+	return pulumi.ToOutput(e).(PackagingConfigurationDashPackagePeriodTriggersItemOutput)
+}
+
+func (e PackagingConfigurationDashPackagePeriodTriggersItem) ToPackagingConfigurationDashPackagePeriodTriggersItemOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PackagingConfigurationDashPackagePeriodTriggersItemOutput)
+}
+
+func (e PackagingConfigurationDashPackagePeriodTriggersItem) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutput() PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
+	return e.ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(context.Background())
+}
+
+func (e PackagingConfigurationDashPackagePeriodTriggersItem) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
+	return PackagingConfigurationDashPackagePeriodTriggersItem(e).ToPackagingConfigurationDashPackagePeriodTriggersItemOutputWithContext(ctx).ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(ctx)
+}
+
+func (e PackagingConfigurationDashPackagePeriodTriggersItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PackagingConfigurationDashPackagePeriodTriggersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PackagingConfigurationDashPackagePeriodTriggersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PackagingConfigurationDashPackagePeriodTriggersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PackagingConfigurationDashPackagePeriodTriggersItemOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationDashPackagePeriodTriggersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItem)(nil)).Elem()
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemOutput() PackagingConfigurationDashPackagePeriodTriggersItemOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutput() PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
+	return o.ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationDashPackagePeriodTriggersItem) *PackagingConfigurationDashPackagePeriodTriggersItem {
+		return &v
+	}).(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput)
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PackagingConfigurationDashPackagePeriodTriggersItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PackagingConfigurationDashPackagePeriodTriggersItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingConfigurationDashPackagePeriodTriggersItem)(nil)).Elem()
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutput() PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) Elem() PackagingConfigurationDashPackagePeriodTriggersItemOutput {
+	return o.ApplyT(func(v *PackagingConfigurationDashPackagePeriodTriggersItem) PackagingConfigurationDashPackagePeriodTriggersItem {
+		if v != nil {
+			return *v
+		}
+		var ret PackagingConfigurationDashPackagePeriodTriggersItem
+		return ret
+	}).(PackagingConfigurationDashPackagePeriodTriggersItemOutput)
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PackagingConfigurationDashPackagePeriodTriggersItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PackagingConfigurationDashPackagePeriodTriggersItemInput is an input type that accepts PackagingConfigurationDashPackagePeriodTriggersItemArgs and PackagingConfigurationDashPackagePeriodTriggersItemOutput values.
+// You can construct a concrete instance of `PackagingConfigurationDashPackagePeriodTriggersItemInput` via:
+//
+//          PackagingConfigurationDashPackagePeriodTriggersItemArgs{...}
+type PackagingConfigurationDashPackagePeriodTriggersItemInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationDashPackagePeriodTriggersItemOutput() PackagingConfigurationDashPackagePeriodTriggersItemOutput
+	ToPackagingConfigurationDashPackagePeriodTriggersItemOutputWithContext(context.Context) PackagingConfigurationDashPackagePeriodTriggersItemOutput
+}
+
+var packagingConfigurationDashPackagePeriodTriggersItemPtrType = reflect.TypeOf((**PackagingConfigurationDashPackagePeriodTriggersItem)(nil)).Elem()
+
+type PackagingConfigurationDashPackagePeriodTriggersItemPtrInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutput() PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput
+	ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(context.Context) PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput
+}
+
+type packagingConfigurationDashPackagePeriodTriggersItemPtr string
+
+func PackagingConfigurationDashPackagePeriodTriggersItemPtr(v string) PackagingConfigurationDashPackagePeriodTriggersItemPtrInput {
+	return (*packagingConfigurationDashPackagePeriodTriggersItemPtr)(&v)
+}
+
+func (*packagingConfigurationDashPackagePeriodTriggersItemPtr) ElementType() reflect.Type {
+	return packagingConfigurationDashPackagePeriodTriggersItemPtrType
+}
+
+func (in *packagingConfigurationDashPackagePeriodTriggersItemPtr) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutput() PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
+	return pulumi.ToOutput(in).(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput)
+}
+
+func (in *packagingConfigurationDashPackagePeriodTriggersItemPtr) ToPackagingConfigurationDashPackagePeriodTriggersItemPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput)
+}
+
+// PackagingConfigurationDashPackagePeriodTriggersItemArrayInput is an input type that accepts PackagingConfigurationDashPackagePeriodTriggersItemArray and PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput values.
+// You can construct a concrete instance of `PackagingConfigurationDashPackagePeriodTriggersItemArrayInput` via:
+//
+//          PackagingConfigurationDashPackagePeriodTriggersItemArray{ PackagingConfigurationDashPackagePeriodTriggersItemArgs{...} }
+type PackagingConfigurationDashPackagePeriodTriggersItemArrayInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutput() PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput
+	ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutputWithContext(context.Context) PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput
+}
+
+type PackagingConfigurationDashPackagePeriodTriggersItemArray []PackagingConfigurationDashPackagePeriodTriggersItem
+
+func (PackagingConfigurationDashPackagePeriodTriggersItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PackagingConfigurationDashPackagePeriodTriggersItem)(nil)).Elem()
+}
+
+func (i PackagingConfigurationDashPackagePeriodTriggersItemArray) ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutput() PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
+	return i.ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutputWithContext(context.Background())
+}
+
+func (i PackagingConfigurationDashPackagePeriodTriggersItemArray) ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput)
+}
+
+type PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PackagingConfigurationDashPackagePeriodTriggersItem)(nil)).Elem()
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutput() PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) ToPackagingConfigurationDashPackagePeriodTriggersItemArrayOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
+	return o
+}
+
+func (o PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput) Index(i pulumi.IntInput) PackagingConfigurationDashPackagePeriodTriggersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PackagingConfigurationDashPackagePeriodTriggersItem {
+		return vs[0].([]PackagingConfigurationDashPackagePeriodTriggersItem)[vs[1].(int)]
+	}).(PackagingConfigurationDashPackagePeriodTriggersItemOutput)
+}
+
 // Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 type PackagingConfigurationDashPackageSegmentTemplateFormat string
 
@@ -3888,6 +4096,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestManifestLayoutPtrInput)(nil)).Elem(), PackagingConfigurationDashManifestManifestLayout("FULL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestProfileInput)(nil)).Elem(), PackagingConfigurationDashManifestProfile("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestProfilePtrInput)(nil)).Elem(), PackagingConfigurationDashManifestProfile("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItemInput)(nil)).Elem(), PackagingConfigurationDashPackagePeriodTriggersItem("ADS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItemPtrInput)(nil)).Elem(), PackagingConfigurationDashPackagePeriodTriggersItem("ADS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItemArrayInput)(nil)).Elem(), PackagingConfigurationDashPackagePeriodTriggersItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackageSegmentTemplateFormatInput)(nil)).Elem(), PackagingConfigurationDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackageSegmentTemplateFormatPtrInput)(nil)).Elem(), PackagingConfigurationDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationHlsEncryptionEncryptionMethodInput)(nil)).Elem(), PackagingConfigurationHlsEncryptionEncryptionMethod("AES_128"))
@@ -3936,6 +4147,9 @@ func init() {
 	pulumi.RegisterOutputType(PackagingConfigurationDashManifestManifestLayoutPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashManifestProfileOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashManifestProfilePtrOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationDashPackagePeriodTriggersItemOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationDashPackagePeriodTriggersItemPtrOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackageSegmentTemplateFormatOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationHlsEncryptionEncryptionMethodOutput{})

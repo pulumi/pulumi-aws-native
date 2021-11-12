@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetContentVersionValue
     {
-        public readonly string DatasetName;
+        public readonly string? DatasetName;
 
         [OutputConstructor]
-        private DatasetContentVersionValue(string datasetName)
+        private DatasetContentVersionValue(string? datasetName)
         {
             DatasetName = datasetName;
         }

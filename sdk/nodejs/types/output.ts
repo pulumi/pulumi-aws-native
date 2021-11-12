@@ -4346,6 +4346,7 @@ export namespace cloudfront {
         originRequestPolicyId?: string;
         pathPattern: string;
         realtimeLogConfigArn?: string;
+        responseHeadersPolicyId?: string;
         smoothStreaming?: boolean;
         targetOriginId: string;
         trustedKeyGroups?: string[];
@@ -4410,6 +4411,7 @@ export namespace cloudfront {
         minTTL?: number;
         originRequestPolicyId?: string;
         realtimeLogConfigArn?: string;
+        responseHeadersPolicyId?: string;
         smoothStreaming?: boolean;
         targetOriginId: string;
         trustedKeyGroups?: string[];
@@ -11568,6 +11570,11 @@ export namespace fsx {
         fileShareAccessAuditLogLevel: string;
     }
 
+    export interface FileSystemDiskIopsConfiguration {
+        iops?: number;
+        mode?: string;
+    }
+
     export interface FileSystemLustreConfiguration {
         autoImportPolicy?: string;
         automaticBackupRetentionDays?: number;
@@ -11580,6 +11587,19 @@ export namespace fsx {
         importPath?: string;
         importedFileChunkSize?: number;
         perUnitStorageThroughput?: number;
+        weeklyMaintenanceStartTime?: string;
+    }
+
+    export interface FileSystemOntapConfiguration {
+        automaticBackupRetentionDays?: number;
+        dailyAutomaticBackupStartTime?: string;
+        deploymentType: string;
+        diskIopsConfiguration?: outputs.fsx.FileSystemDiskIopsConfiguration;
+        endpointIpAddressRange?: string;
+        fsxAdminPassword?: string;
+        preferredSubnetId?: string;
+        routeTableIds?: string[];
+        throughputCapacity?: number;
         weeklyMaintenanceStartTime?: string;
     }
 
@@ -14175,7 +14195,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValue {
-        datasetName: string;
+        datasetName?: string;
     }
 
     export interface DatasetDeltaTime {
@@ -14211,7 +14231,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValue {
-        fileName: string;
+        fileName?: string;
     }
 
     export interface DatasetQueryAction {
@@ -14289,7 +14309,7 @@ export namespace iotanalytics {
     }
 
     export interface DatastoreIotSiteWiseMultiLayerStorage {
-        customerManagedS3Storage?: outputs.iotanalytics.DatastoreCustomerManagedS3Storage;
+        customerManagedS3Storage: outputs.iotanalytics.DatastoreCustomerManagedS3Storage;
     }
 
     export interface DatastoreJsonConfiguration {
@@ -14350,67 +14370,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributes {
-        attributes: any;
-        name: string;
+        attributes?: any;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineChannel {
-        channelName: string;
-        name: string;
+        channelName?: string;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineDatastore {
-        datastoreName: string;
-        name: string;
+        datastoreName?: string;
+        name?: string;
     }
 
     export interface PipelineDeviceRegistryEnrich {
-        attribute: string;
-        name: string;
+        attribute?: string;
+        name?: string;
         next?: string;
-        roleArn: string;
-        thingName: string;
+        roleArn?: string;
+        thingName?: string;
     }
 
     export interface PipelineDeviceShadowEnrich {
-        attribute: string;
-        name: string;
+        attribute?: string;
+        name?: string;
         next?: string;
-        roleArn: string;
-        thingName: string;
+        roleArn?: string;
+        thingName?: string;
     }
 
     export interface PipelineFilter {
-        filter: string;
-        name: string;
+        filter?: string;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineLambda {
-        batchSize: number;
-        lambdaName: string;
-        name: string;
+        batchSize?: number;
+        lambdaName?: string;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineMath {
-        attribute: string;
-        math: string;
-        name: string;
+        attribute?: string;
+        math?: string;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineRemoveAttributes {
-        attributes: string[];
-        name: string;
+        attributes?: string[];
+        name?: string;
         next?: string;
     }
 
     export interface PipelineSelectAttributes {
-        attributes: string[];
-        name: string;
+        attributes?: string[];
+        name?: string;
         next?: string;
     }
 
@@ -19326,7 +19346,7 @@ export namespace mediapackage {
         /**
          * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
          */
-        periodTriggers?: string[];
+        periodTriggers?: enums.mediapackage.PackagingConfigurationDashPackagePeriodTriggersItem[];
         segmentDurationSeconds?: number;
         /**
          * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
@@ -25962,6 +25982,8 @@ export namespace secretsmanager {
         masterSecretKmsKeyArn?: string;
         rotationLambdaName?: string;
         rotationType: string;
+        superuserSecretArn?: string;
+        superuserSecretKmsKeyArn?: string;
         vpcSecurityGroupIds?: string;
         vpcSubnetIds?: string;
     }

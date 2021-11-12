@@ -16,7 +16,7 @@ import (
 type Channel struct {
 	pulumi.CustomResourceState
 
-	ChannelName     pulumi.StringOutput             `pulumi:"channelName"`
+	ChannelName     pulumi.StringPtrOutput          `pulumi:"channelName"`
 	ChannelStorage  ChannelStoragePtrOutput         `pulumi:"channelStorage"`
 	RetentionPeriod ChannelRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
 	Tags            ChannelTagArrayOutput           `pulumi:"tags"`

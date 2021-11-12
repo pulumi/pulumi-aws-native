@@ -325,6 +325,7 @@ class DistributionCacheBehaviorArgs:
                  min_ttl: Optional[pulumi.Input[float]] = None,
                  origin_request_policy_id: Optional[pulumi.Input[str]] = None,
                  realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+                 response_headers_policy_id: Optional[pulumi.Input[str]] = None,
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
                  trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -357,6 +358,8 @@ class DistributionCacheBehaviorArgs:
             pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if response_headers_policy_id is not None:
+            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
@@ -507,6 +510,15 @@ class DistributionCacheBehaviorArgs:
     @realtime_log_config_arn.setter
     def realtime_log_config_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "realtime_log_config_arn", value)
+
+    @property
+    @pulumi.getter(name="responseHeadersPolicyId")
+    def response_headers_policy_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "response_headers_policy_id")
+
+    @response_headers_policy_id.setter
+    def response_headers_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_headers_policy_id", value)
 
     @property
     @pulumi.getter(name="smoothStreaming")
@@ -942,6 +954,7 @@ class DistributionDefaultCacheBehaviorArgs:
                  min_ttl: Optional[pulumi.Input[float]] = None,
                  origin_request_policy_id: Optional[pulumi.Input[str]] = None,
                  realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+                 response_headers_policy_id: Optional[pulumi.Input[str]] = None,
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
                  trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -973,6 +986,8 @@ class DistributionDefaultCacheBehaviorArgs:
             pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if response_headers_policy_id is not None:
+            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
@@ -1114,6 +1129,15 @@ class DistributionDefaultCacheBehaviorArgs:
     @realtime_log_config_arn.setter
     def realtime_log_config_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "realtime_log_config_arn", value)
+
+    @property
+    @pulumi.getter(name="responseHeadersPolicyId")
+    def response_headers_policy_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "response_headers_policy_id")
+
+    @response_headers_policy_id.setter
+    def response_headers_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_headers_policy_id", value)
 
     @property
     @pulumi.getter(name="smoothStreaming")

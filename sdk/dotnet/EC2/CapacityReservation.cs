@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.EC2
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
+        [Output("outPostArn")]
+        public Output<string?> OutPostArn { get; private set; } = null!;
+
+        [Output("placementGroupArn")]
+        public Output<string?> PlacementGroupArn { get; private set; } = null!;
+
         [Output("tagSpecifications")]
         public Output<ImmutableArray<Outputs.CapacityReservationTagSpecification>> TagSpecifications { get; private set; } = null!;
 
@@ -126,6 +132,12 @@ namespace Pulumi.AwsNative.EC2
 
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
+
+        [Input("outPostArn")]
+        public Input<string>? OutPostArn { get; set; }
+
+        [Input("placementGroupArn")]
+        public Input<string>? PlacementGroupArn { get; set; }
 
         [Input("tagSpecifications")]
         private InputList<Inputs.CapacityReservationTagSpecificationArgs>? _tagSpecifications;

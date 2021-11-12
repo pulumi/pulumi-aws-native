@@ -173,6 +173,154 @@ func (o FileSystemAuditLogConfigurationPtrOutput) FileShareAccessAuditLogLevel()
 	}).(pulumi.StringPtrOutput)
 }
 
+type FileSystemDiskIopsConfiguration struct {
+	Iops *int    `pulumi:"iops"`
+	Mode *string `pulumi:"mode"`
+}
+
+// FileSystemDiskIopsConfigurationInput is an input type that accepts FileSystemDiskIopsConfigurationArgs and FileSystemDiskIopsConfigurationOutput values.
+// You can construct a concrete instance of `FileSystemDiskIopsConfigurationInput` via:
+//
+//          FileSystemDiskIopsConfigurationArgs{...}
+type FileSystemDiskIopsConfigurationInput interface {
+	pulumi.Input
+
+	ToFileSystemDiskIopsConfigurationOutput() FileSystemDiskIopsConfigurationOutput
+	ToFileSystemDiskIopsConfigurationOutputWithContext(context.Context) FileSystemDiskIopsConfigurationOutput
+}
+
+type FileSystemDiskIopsConfigurationArgs struct {
+	Iops pulumi.IntPtrInput    `pulumi:"iops"`
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (FileSystemDiskIopsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i FileSystemDiskIopsConfigurationArgs) ToFileSystemDiskIopsConfigurationOutput() FileSystemDiskIopsConfigurationOutput {
+	return i.ToFileSystemDiskIopsConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileSystemDiskIopsConfigurationArgs) ToFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) FileSystemDiskIopsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemDiskIopsConfigurationOutput)
+}
+
+func (i FileSystemDiskIopsConfigurationArgs) ToFileSystemDiskIopsConfigurationPtrOutput() FileSystemDiskIopsConfigurationPtrOutput {
+	return i.ToFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemDiskIopsConfigurationArgs) ToFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemDiskIopsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemDiskIopsConfigurationOutput).ToFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx)
+}
+
+// FileSystemDiskIopsConfigurationPtrInput is an input type that accepts FileSystemDiskIopsConfigurationArgs, FileSystemDiskIopsConfigurationPtr and FileSystemDiskIopsConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileSystemDiskIopsConfigurationPtrInput` via:
+//
+//          FileSystemDiskIopsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemDiskIopsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemDiskIopsConfigurationPtrOutput() FileSystemDiskIopsConfigurationPtrOutput
+	ToFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Context) FileSystemDiskIopsConfigurationPtrOutput
+}
+
+type fileSystemDiskIopsConfigurationPtrType FileSystemDiskIopsConfigurationArgs
+
+func FileSystemDiskIopsConfigurationPtr(v *FileSystemDiskIopsConfigurationArgs) FileSystemDiskIopsConfigurationPtrInput {
+	return (*fileSystemDiskIopsConfigurationPtrType)(v)
+}
+
+func (*fileSystemDiskIopsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i *fileSystemDiskIopsConfigurationPtrType) ToFileSystemDiskIopsConfigurationPtrOutput() FileSystemDiskIopsConfigurationPtrOutput {
+	return i.ToFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemDiskIopsConfigurationPtrType) ToFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemDiskIopsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemDiskIopsConfigurationPtrOutput)
+}
+
+type FileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemDiskIopsConfigurationOutput) ToFileSystemDiskIopsConfigurationOutput() FileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o FileSystemDiskIopsConfigurationOutput) ToFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) FileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o FileSystemDiskIopsConfigurationOutput) ToFileSystemDiskIopsConfigurationPtrOutput() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ToFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemDiskIopsConfigurationOutput) ToFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemDiskIopsConfiguration) *FileSystemDiskIopsConfiguration {
+		return &v
+	}).(FileSystemDiskIopsConfigurationPtrOutput)
+}
+
+func (o FileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type FileSystemDiskIopsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemDiskIopsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemDiskIopsConfigurationPtrOutput) ToFileSystemDiskIopsConfigurationPtrOutput() FileSystemDiskIopsConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemDiskIopsConfigurationPtrOutput) ToFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemDiskIopsConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemDiskIopsConfigurationPtrOutput) Elem() FileSystemDiskIopsConfigurationOutput {
+	return o.ApplyT(func(v *FileSystemDiskIopsConfiguration) FileSystemDiskIopsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemDiskIopsConfiguration
+		return ret
+	}).(FileSystemDiskIopsConfigurationOutput)
+}
+
+func (o FileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemDiskIopsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemDiskIopsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
 type FileSystemLustreConfiguration struct {
 	AutoImportPolicy              *string `pulumi:"autoImportPolicy"`
 	AutomaticBackupRetentionDays  *int    `pulumi:"automaticBackupRetentionDays"`
@@ -464,6 +612,274 @@ func (o FileSystemLustreConfigurationPtrOutput) PerUnitStorageThroughput() pulum
 
 func (o FileSystemLustreConfigurationPtrOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemLustreConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklyMaintenanceStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileSystemOntapConfiguration struct {
+	AutomaticBackupRetentionDays  *int                             `pulumi:"automaticBackupRetentionDays"`
+	DailyAutomaticBackupStartTime *string                          `pulumi:"dailyAutomaticBackupStartTime"`
+	DeploymentType                string                           `pulumi:"deploymentType"`
+	DiskIopsConfiguration         *FileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
+	EndpointIpAddressRange        *string                          `pulumi:"endpointIpAddressRange"`
+	FsxAdminPassword              *string                          `pulumi:"fsxAdminPassword"`
+	PreferredSubnetId             *string                          `pulumi:"preferredSubnetId"`
+	RouteTableIds                 []string                         `pulumi:"routeTableIds"`
+	ThroughputCapacity            *int                             `pulumi:"throughputCapacity"`
+	WeeklyMaintenanceStartTime    *string                          `pulumi:"weeklyMaintenanceStartTime"`
+}
+
+// FileSystemOntapConfigurationInput is an input type that accepts FileSystemOntapConfigurationArgs and FileSystemOntapConfigurationOutput values.
+// You can construct a concrete instance of `FileSystemOntapConfigurationInput` via:
+//
+//          FileSystemOntapConfigurationArgs{...}
+type FileSystemOntapConfigurationInput interface {
+	pulumi.Input
+
+	ToFileSystemOntapConfigurationOutput() FileSystemOntapConfigurationOutput
+	ToFileSystemOntapConfigurationOutputWithContext(context.Context) FileSystemOntapConfigurationOutput
+}
+
+type FileSystemOntapConfigurationArgs struct {
+	AutomaticBackupRetentionDays  pulumi.IntPtrInput                      `pulumi:"automaticBackupRetentionDays"`
+	DailyAutomaticBackupStartTime pulumi.StringPtrInput                   `pulumi:"dailyAutomaticBackupStartTime"`
+	DeploymentType                pulumi.StringInput                      `pulumi:"deploymentType"`
+	DiskIopsConfiguration         FileSystemDiskIopsConfigurationPtrInput `pulumi:"diskIopsConfiguration"`
+	EndpointIpAddressRange        pulumi.StringPtrInput                   `pulumi:"endpointIpAddressRange"`
+	FsxAdminPassword              pulumi.StringPtrInput                   `pulumi:"fsxAdminPassword"`
+	PreferredSubnetId             pulumi.StringPtrInput                   `pulumi:"preferredSubnetId"`
+	RouteTableIds                 pulumi.StringArrayInput                 `pulumi:"routeTableIds"`
+	ThroughputCapacity            pulumi.IntPtrInput                      `pulumi:"throughputCapacity"`
+	WeeklyMaintenanceStartTime    pulumi.StringPtrInput                   `pulumi:"weeklyMaintenanceStartTime"`
+}
+
+func (FileSystemOntapConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemOntapConfiguration)(nil)).Elem()
+}
+
+func (i FileSystemOntapConfigurationArgs) ToFileSystemOntapConfigurationOutput() FileSystemOntapConfigurationOutput {
+	return i.ToFileSystemOntapConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileSystemOntapConfigurationArgs) ToFileSystemOntapConfigurationOutputWithContext(ctx context.Context) FileSystemOntapConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOntapConfigurationOutput)
+}
+
+func (i FileSystemOntapConfigurationArgs) ToFileSystemOntapConfigurationPtrOutput() FileSystemOntapConfigurationPtrOutput {
+	return i.ToFileSystemOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemOntapConfigurationArgs) ToFileSystemOntapConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOntapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOntapConfigurationOutput).ToFileSystemOntapConfigurationPtrOutputWithContext(ctx)
+}
+
+// FileSystemOntapConfigurationPtrInput is an input type that accepts FileSystemOntapConfigurationArgs, FileSystemOntapConfigurationPtr and FileSystemOntapConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileSystemOntapConfigurationPtrInput` via:
+//
+//          FileSystemOntapConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemOntapConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemOntapConfigurationPtrOutput() FileSystemOntapConfigurationPtrOutput
+	ToFileSystemOntapConfigurationPtrOutputWithContext(context.Context) FileSystemOntapConfigurationPtrOutput
+}
+
+type fileSystemOntapConfigurationPtrType FileSystemOntapConfigurationArgs
+
+func FileSystemOntapConfigurationPtr(v *FileSystemOntapConfigurationArgs) FileSystemOntapConfigurationPtrInput {
+	return (*fileSystemOntapConfigurationPtrType)(v)
+}
+
+func (*fileSystemOntapConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemOntapConfiguration)(nil)).Elem()
+}
+
+func (i *fileSystemOntapConfigurationPtrType) ToFileSystemOntapConfigurationPtrOutput() FileSystemOntapConfigurationPtrOutput {
+	return i.ToFileSystemOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemOntapConfigurationPtrType) ToFileSystemOntapConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOntapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOntapConfigurationPtrOutput)
+}
+
+type FileSystemOntapConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileSystemOntapConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemOntapConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemOntapConfigurationOutput) ToFileSystemOntapConfigurationOutput() FileSystemOntapConfigurationOutput {
+	return o
+}
+
+func (o FileSystemOntapConfigurationOutput) ToFileSystemOntapConfigurationOutputWithContext(ctx context.Context) FileSystemOntapConfigurationOutput {
+	return o
+}
+
+func (o FileSystemOntapConfigurationOutput) ToFileSystemOntapConfigurationPtrOutput() FileSystemOntapConfigurationPtrOutput {
+	return o.ToFileSystemOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemOntapConfigurationOutput) ToFileSystemOntapConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOntapConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemOntapConfiguration) *FileSystemOntapConfiguration {
+		return &v
+	}).(FileSystemOntapConfigurationPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *int { return v.AutomaticBackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *string { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) string { return v.DeploymentType }).(pulumi.StringOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *FileSystemDiskIopsConfiguration { return v.DiskIopsConfiguration }).(FileSystemDiskIopsConfigurationPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) EndpointIpAddressRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *string { return v.EndpointIpAddressRange }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) FsxAdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *string { return v.FsxAdminPassword }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) PreferredSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *string { return v.PreferredSubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) ThroughputCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *int { return v.ThroughputCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
+}
+
+type FileSystemOntapConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemOntapConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemOntapConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) ToFileSystemOntapConfigurationPtrOutput() FileSystemOntapConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) ToFileSystemOntapConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOntapConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) Elem() FileSystemOntapConfigurationOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) FileSystemOntapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemOntapConfiguration
+		return ret
+	}).(FileSystemOntapConfigurationOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticBackupRetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DailyAutomaticBackupStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) DeploymentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeploymentType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *FileSystemDiskIopsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DiskIopsConfiguration
+	}).(FileSystemDiskIopsConfigurationPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) EndpointIpAddressRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointIpAddressRange
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) FsxAdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FsxAdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) PreferredSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteTableIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) ThroughputCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThroughputCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1073,8 +1489,12 @@ func (o FileSystemWindowsConfigurationPtrOutput) WeeklyMaintenanceStartTime() pu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemDiskIopsConfigurationInput)(nil)).Elem(), FileSystemDiskIopsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), FileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLustreConfigurationInput)(nil)).Elem(), FileSystemLustreConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLustreConfigurationPtrInput)(nil)).Elem(), FileSystemLustreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOntapConfigurationInput)(nil)).Elem(), FileSystemOntapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOntapConfigurationPtrInput)(nil)).Elem(), FileSystemOntapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemTagInput)(nil)).Elem(), FileSystemTagArgs{})
@@ -1083,8 +1503,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationPtrInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemDiskIopsConfigurationOutput{})
+	pulumi.RegisterOutputType(FileSystemDiskIopsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLustreConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemLustreConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemOntapConfigurationOutput{})
+	pulumi.RegisterOutputType(FileSystemOntapConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemSelfManagedActiveDirectoryConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemTagOutput{})

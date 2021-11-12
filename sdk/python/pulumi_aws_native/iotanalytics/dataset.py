@@ -239,7 +239,7 @@ class Dataset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> pulumi.Output[str]:
+    def dataset_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "dataset_name")
 
     @property

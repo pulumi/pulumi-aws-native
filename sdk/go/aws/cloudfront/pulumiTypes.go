@@ -1011,6 +1011,7 @@ type DistributionCacheBehavior struct {
 	OriginRequestPolicyId      *string                                 `pulumi:"originRequestPolicyId"`
 	PathPattern                string                                  `pulumi:"pathPattern"`
 	RealtimeLogConfigArn       *string                                 `pulumi:"realtimeLogConfigArn"`
+	ResponseHeadersPolicyId    *string                                 `pulumi:"responseHeadersPolicyId"`
 	SmoothStreaming            *bool                                   `pulumi:"smoothStreaming"`
 	TargetOriginId             string                                  `pulumi:"targetOriginId"`
 	TrustedKeyGroups           []string                                `pulumi:"trustedKeyGroups"`
@@ -1044,6 +1045,7 @@ type DistributionCacheBehaviorArgs struct {
 	OriginRequestPolicyId      pulumi.StringPtrInput                           `pulumi:"originRequestPolicyId"`
 	PathPattern                pulumi.StringInput                              `pulumi:"pathPattern"`
 	RealtimeLogConfigArn       pulumi.StringPtrInput                           `pulumi:"realtimeLogConfigArn"`
+	ResponseHeadersPolicyId    pulumi.StringPtrInput                           `pulumi:"responseHeadersPolicyId"`
 	SmoothStreaming            pulumi.BoolPtrInput                             `pulumi:"smoothStreaming"`
 	TargetOriginId             pulumi.StringInput                              `pulumi:"targetOriginId"`
 	TrustedKeyGroups           pulumi.StringArrayInput                         `pulumi:"trustedKeyGroups"`
@@ -1158,6 +1160,10 @@ func (o DistributionCacheBehaviorOutput) PathPattern() pulumi.StringOutput {
 
 func (o DistributionCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionCacheBehaviorOutput) ResponseHeadersPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.ResponseHeadersPolicyId }).(pulumi.StringPtrOutput)
 }
 
 func (o DistributionCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
@@ -2085,6 +2091,7 @@ type DistributionDefaultCacheBehavior struct {
 	MinTTL                     *float64                                `pulumi:"minTTL"`
 	OriginRequestPolicyId      *string                                 `pulumi:"originRequestPolicyId"`
 	RealtimeLogConfigArn       *string                                 `pulumi:"realtimeLogConfigArn"`
+	ResponseHeadersPolicyId    *string                                 `pulumi:"responseHeadersPolicyId"`
 	SmoothStreaming            *bool                                   `pulumi:"smoothStreaming"`
 	TargetOriginId             string                                  `pulumi:"targetOriginId"`
 	TrustedKeyGroups           []string                                `pulumi:"trustedKeyGroups"`
@@ -2117,6 +2124,7 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	MinTTL                     pulumi.Float64PtrInput                          `pulumi:"minTTL"`
 	OriginRequestPolicyId      pulumi.StringPtrInput                           `pulumi:"originRequestPolicyId"`
 	RealtimeLogConfigArn       pulumi.StringPtrInput                           `pulumi:"realtimeLogConfigArn"`
+	ResponseHeadersPolicyId    pulumi.StringPtrInput                           `pulumi:"responseHeadersPolicyId"`
 	SmoothStreaming            pulumi.BoolPtrInput                             `pulumi:"smoothStreaming"`
 	TargetOriginId             pulumi.StringInput                              `pulumi:"targetOriginId"`
 	TrustedKeyGroups           pulumi.StringArrayInput                         `pulumi:"trustedKeyGroups"`
@@ -2255,6 +2263,10 @@ func (o DistributionDefaultCacheBehaviorOutput) OriginRequestPolicyId() pulumi.S
 
 func (o DistributionDefaultCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionDefaultCacheBehaviorOutput) ResponseHeadersPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.ResponseHeadersPolicyId }).(pulumi.StringPtrOutput)
 }
 
 func (o DistributionDefaultCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
@@ -2415,6 +2427,15 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) RealtimeLogConfigArn() pulumi
 			return nil
 		}
 		return v.RealtimeLogConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionDefaultCacheBehaviorPtrOutput) ResponseHeadersPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseHeadersPolicyId
 	}).(pulumi.StringPtrOutput)
 }
 

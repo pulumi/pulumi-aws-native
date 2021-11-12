@@ -4973,6 +4973,7 @@ export namespace cloudfront {
         originRequestPolicyId?: pulumi.Input<string>;
         pathPattern: pulumi.Input<string>;
         realtimeLogConfigArn?: pulumi.Input<string>;
+        responseHeadersPolicyId?: pulumi.Input<string>;
         smoothStreaming?: pulumi.Input<boolean>;
         targetOriginId: pulumi.Input<string>;
         trustedKeyGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -5037,6 +5038,7 @@ export namespace cloudfront {
         minTTL?: pulumi.Input<number>;
         originRequestPolicyId?: pulumi.Input<string>;
         realtimeLogConfigArn?: pulumi.Input<string>;
+        responseHeadersPolicyId?: pulumi.Input<string>;
         smoothStreaming?: pulumi.Input<boolean>;
         targetOriginId: pulumi.Input<string>;
         trustedKeyGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -11312,6 +11314,11 @@ export namespace fsx {
         fileShareAccessAuditLogLevel: pulumi.Input<string>;
     }
 
+    export interface FileSystemDiskIopsConfigurationArgs {
+        iops?: pulumi.Input<number>;
+        mode?: pulumi.Input<string>;
+    }
+
     export interface FileSystemLustreConfigurationArgs {
         autoImportPolicy?: pulumi.Input<string>;
         automaticBackupRetentionDays?: pulumi.Input<number>;
@@ -11324,6 +11331,19 @@ export namespace fsx {
         importPath?: pulumi.Input<string>;
         importedFileChunkSize?: pulumi.Input<number>;
         perUnitStorageThroughput?: pulumi.Input<number>;
+        weeklyMaintenanceStartTime?: pulumi.Input<string>;
+    }
+
+    export interface FileSystemOntapConfigurationArgs {
+        automaticBackupRetentionDays?: pulumi.Input<number>;
+        dailyAutomaticBackupStartTime?: pulumi.Input<string>;
+        deploymentType: pulumi.Input<string>;
+        diskIopsConfiguration?: pulumi.Input<inputs.fsx.FileSystemDiskIopsConfigurationArgs>;
+        endpointIpAddressRange?: pulumi.Input<string>;
+        fsxAdminPassword?: pulumi.Input<string>;
+        preferredSubnetId?: pulumi.Input<string>;
+        routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
+        throughputCapacity?: pulumi.Input<number>;
         weeklyMaintenanceStartTime?: pulumi.Input<string>;
     }
 
@@ -13886,7 +13906,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValueArgs {
-        datasetName: pulumi.Input<string>;
+        datasetName?: pulumi.Input<string>;
     }
 
     export interface DatasetDeltaTimeArgs {
@@ -13922,7 +13942,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValueArgs {
-        fileName: pulumi.Input<string>;
+        fileName?: pulumi.Input<string>;
     }
 
     export interface DatasetQueryActionArgs {
@@ -14000,7 +14020,7 @@ export namespace iotanalytics {
     }
 
     export interface DatastoreIotSiteWiseMultiLayerStorageArgs {
-        customerManagedS3Storage?: pulumi.Input<inputs.iotanalytics.DatastoreCustomerManagedS3StorageArgs>;
+        customerManagedS3Storage: pulumi.Input<inputs.iotanalytics.DatastoreCustomerManagedS3StorageArgs>;
     }
 
     export interface DatastoreJsonConfigurationArgs {
@@ -14061,67 +14081,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributesArgs {
-        attributes: any;
-        name: pulumi.Input<string>;
+        attributes?: any;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineChannelArgs {
-        channelName: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        channelName?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineDatastoreArgs {
-        datastoreName: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        datastoreName?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceRegistryEnrichArgs {
-        attribute: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        attribute?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn: pulumi.Input<string>;
-        thingName: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
+        thingName?: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceShadowEnrichArgs {
-        attribute: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        attribute?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn: pulumi.Input<string>;
-        thingName: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
+        thingName?: pulumi.Input<string>;
     }
 
     export interface PipelineFilterArgs {
-        filter: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        filter?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineLambdaArgs {
-        batchSize: pulumi.Input<number>;
-        lambdaName: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        batchSize?: pulumi.Input<number>;
+        lambdaName?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineMathArgs {
-        attribute: pulumi.Input<string>;
-        math: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        attribute?: pulumi.Input<string>;
+        math?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineRemoveAttributesArgs {
-        attributes: pulumi.Input<pulumi.Input<string>[]>;
-        name: pulumi.Input<string>;
+        attributes?: pulumi.Input<pulumi.Input<string>[]>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineSelectAttributesArgs {
-        attributes: pulumi.Input<pulumi.Input<string>[]>;
-        name: pulumi.Input<string>;
+        attributes?: pulumi.Input<pulumi.Input<string>[]>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
@@ -18943,7 +18963,7 @@ export namespace mediapackage {
         /**
          * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
          */
-        periodTriggers?: pulumi.Input<pulumi.Input<string>[]>;
+        periodTriggers?: pulumi.Input<pulumi.Input<enums.mediapackage.PackagingConfigurationDashPackagePeriodTriggersItem>[]>;
         segmentDurationSeconds?: pulumi.Input<number>;
         /**
          * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
@@ -25129,6 +25149,8 @@ export namespace secretsmanager {
         masterSecretKmsKeyArn?: pulumi.Input<string>;
         rotationLambdaName?: pulumi.Input<string>;
         rotationType: pulumi.Input<string>;
+        superuserSecretArn?: pulumi.Input<string>;
+        superuserSecretKmsKeyArn?: pulumi.Input<string>;
         vpcSecurityGroupIds?: pulumi.Input<string>;
         vpcSubnetIds?: pulumi.Input<string>;
     }

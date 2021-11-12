@@ -581,6 +581,33 @@ namespace Pulumi.AwsNative.MediaPackage
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct PackagingConfigurationDashPackagePeriodTriggersItem : IEquatable<PackagingConfigurationDashPackagePeriodTriggersItem>
+    {
+        private readonly string _value;
+
+        private PackagingConfigurationDashPackagePeriodTriggersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PackagingConfigurationDashPackagePeriodTriggersItem Ads { get; } = new PackagingConfigurationDashPackagePeriodTriggersItem("ADS");
+
+        public static bool operator ==(PackagingConfigurationDashPackagePeriodTriggersItem left, PackagingConfigurationDashPackagePeriodTriggersItem right) => left.Equals(right);
+        public static bool operator !=(PackagingConfigurationDashPackagePeriodTriggersItem left, PackagingConfigurationDashPackagePeriodTriggersItem right) => !left.Equals(right);
+
+        public static explicit operator string(PackagingConfigurationDashPackagePeriodTriggersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PackagingConfigurationDashPackagePeriodTriggersItem other && Equals(other);
+        public bool Equals(PackagingConfigurationDashPackagePeriodTriggersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
     /// </summary>

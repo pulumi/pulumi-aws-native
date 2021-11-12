@@ -18,8 +18,10 @@ class FileSystemArgs:
                  file_system_type: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  backup_id: Optional[pulumi.Input[str]] = None,
+                 file_system_type_version: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input['FileSystemLustreConfigurationArgs']] = None,
+                 ontap_configuration: Optional[pulumi.Input['FileSystemOntapConfigurationArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -32,10 +34,14 @@ class FileSystemArgs:
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if backup_id is not None:
             pulumi.set(__self__, "backup_id", backup_id)
+        if file_system_type_version is not None:
+            pulumi.set(__self__, "file_system_type_version", file_system_type_version)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if lustre_configuration is not None:
             pulumi.set(__self__, "lustre_configuration", lustre_configuration)
+        if ontap_configuration is not None:
+            pulumi.set(__self__, "ontap_configuration", ontap_configuration)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if storage_capacity is not None:
@@ -75,6 +81,15 @@ class FileSystemArgs:
         pulumi.set(self, "backup_id", value)
 
     @property
+    @pulumi.getter(name="fileSystemTypeVersion")
+    def file_system_type_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_system_type_version")
+
+    @file_system_type_version.setter
+    def file_system_type_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_type_version", value)
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "kms_key_id")
@@ -91,6 +106,15 @@ class FileSystemArgs:
     @lustre_configuration.setter
     def lustre_configuration(self, value: Optional[pulumi.Input['FileSystemLustreConfigurationArgs']]):
         pulumi.set(self, "lustre_configuration", value)
+
+    @property
+    @pulumi.getter(name="ontapConfiguration")
+    def ontap_configuration(self) -> Optional[pulumi.Input['FileSystemOntapConfigurationArgs']]:
+        return pulumi.get(self, "ontap_configuration")
+
+    @ontap_configuration.setter
+    def ontap_configuration(self, value: Optional[pulumi.Input['FileSystemOntapConfigurationArgs']]):
+        pulumi.set(self, "ontap_configuration", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -150,8 +174,10 @@ class FileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_id: Optional[pulumi.Input[str]] = None,
                  file_system_type: Optional[pulumi.Input[str]] = None,
+                 file_system_type_version: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemLustreConfigurationArgs']]] = None,
+                 ontap_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOntapConfigurationArgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -191,8 +217,10 @@ class FileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_id: Optional[pulumi.Input[str]] = None,
                  file_system_type: Optional[pulumi.Input[str]] = None,
+                 file_system_type_version: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemLustreConfigurationArgs']]] = None,
+                 ontap_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOntapConfigurationArgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -216,8 +244,10 @@ class FileSystem(pulumi.CustomResource):
             if file_system_type is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_type'")
             __props__.__dict__["file_system_type"] = file_system_type
+            __props__.__dict__["file_system_type_version"] = file_system_type_version
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["lustre_configuration"] = lustre_configuration
+            __props__.__dict__["ontap_configuration"] = ontap_configuration
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["storage_capacity"] = storage_capacity
             __props__.__dict__["storage_type"] = storage_type
@@ -253,9 +283,11 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["backup_id"] = None
         __props__.__dict__["d_ns_name"] = None
         __props__.__dict__["file_system_type"] = None
+        __props__.__dict__["file_system_type_version"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["lustre_configuration"] = None
         __props__.__dict__["lustre_mount_name"] = None
+        __props__.__dict__["ontap_configuration"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["storage_capacity"] = None
         __props__.__dict__["storage_type"] = None
@@ -280,6 +312,11 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "file_system_type")
 
     @property
+    @pulumi.getter(name="fileSystemTypeVersion")
+    def file_system_type_version(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "file_system_type_version")
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "kms_key_id")
@@ -293,6 +330,11 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter(name="lustreMountName")
     def lustre_mount_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "lustre_mount_name")
+
+    @property
+    @pulumi.getter(name="ontapConfiguration")
+    def ontap_configuration(self) -> pulumi.Output[Optional['outputs.FileSystemOntapConfiguration']]:
+        return pulumi.get(self, "ontap_configuration")
 
     @property
     @pulumi.getter(name="securityGroupIds")

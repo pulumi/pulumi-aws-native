@@ -19,7 +19,7 @@ type Dataset struct {
 
 	Actions                 DatasetActionArrayOutput                `pulumi:"actions"`
 	ContentDeliveryRules    DatasetContentDeliveryRuleArrayOutput   `pulumi:"contentDeliveryRules"`
-	DatasetName             pulumi.StringOutput                     `pulumi:"datasetName"`
+	DatasetName             pulumi.StringPtrOutput                  `pulumi:"datasetName"`
 	LateDataRules           DatasetLateDataRuleArrayOutput          `pulumi:"lateDataRules"`
 	RetentionPeriod         DatasetRetentionPeriodPtrOutput         `pulumi:"retentionPeriod"`
 	Tags                    DatasetTagArrayOutput                   `pulumi:"tags"`

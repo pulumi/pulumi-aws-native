@@ -71,6 +71,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("realtimeLogConfigArn")]
         public Input<string>? RealtimeLogConfigArn { get; set; }
 
+        [Input("responseHeadersPolicyId")]
+        public Input<string>? ResponseHeadersPolicyId { get; set; }
+
         [Input("smoothStreaming")]
         public Input<bool>? SmoothStreaming { get; set; }
 

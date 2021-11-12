@@ -40,9 +40,9 @@ export class AnomalyDetector extends pulumi.CustomResource {
 
     public readonly configuration!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorConfiguration | undefined>;
     public readonly dimensions!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorDimension[] | undefined>;
-    public readonly metricName!: pulumi.Output<string>;
-    public readonly namespace!: pulumi.Output<string>;
-    public readonly stat!: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string | undefined>;
+    public readonly namespace!: pulumi.Output<string | undefined>;
+    public readonly stat!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AnomalyDetector resource with the given unique name, arguments, and options.
@@ -52,20 +52,11 @@ export class AnomalyDetector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: AnomalyDetectorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AnomalyDetectorArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AnomalyDetector is deprecated: AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.metricName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'metricName'");
-            }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'namespace'");
-            }
-            if ((!args || args.stat === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'stat'");
-            }
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["dimensions"] = args ? args.dimensions : undefined;
             inputs["metricName"] = args ? args.metricName : undefined;
@@ -91,7 +82,7 @@ export class AnomalyDetector extends pulumi.CustomResource {
 export interface AnomalyDetectorArgs {
     configuration?: pulumi.Input<inputs.cloudwatch.AnomalyDetectorConfigurationArgs>;
     dimensions?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AnomalyDetectorDimensionArgs>[]>;
-    metricName: pulumi.Input<string>;
-    namespace: pulumi.Input<string>;
-    stat: pulumi.Input<string>;
+    metricName?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string>;
+    stat?: pulumi.Input<string>;
 }

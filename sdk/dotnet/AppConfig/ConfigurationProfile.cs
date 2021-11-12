@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ConfigurationProfileTags>> Tags { get; private set; } = null!;
 
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
+
         [Output("validators")]
         public Output<ImmutableArray<Outputs.ConfigurationProfileValidators>> Validators { get; private set; } = null!;
 
@@ -104,6 +107,9 @@ namespace Pulumi.AwsNative.AppConfig
             get => _tags ?? (_tags = new InputList<Inputs.ConfigurationProfileTagsArgs>());
             set => _tags = value;
         }
+
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         [Input("validators")]
         private InputList<Inputs.ConfigurationProfileValidatorsArgs>? _validators;

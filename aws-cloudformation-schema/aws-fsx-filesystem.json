@@ -18,6 +18,9 @@
     "BackupId" : {
       "type" : "string"
     },
+    "OntapConfiguration" : {
+      "$ref" : "#/definitions/OntapConfiguration"
+    },
     "DNSName" : {
       "type" : "string"
     },
@@ -37,6 +40,9 @@
     },
     "WindowsConfiguration" : {
       "$ref" : "#/definitions/WindowsConfiguration"
+    },
+    "FileSystemTypeVersion" : {
+      "type" : "string"
     },
     "FileSystemType" : {
       "type" : "string"
@@ -100,6 +106,18 @@
       },
       "required" : [ "FileAccessAuditLogLevel", "FileShareAccessAuditLogLevel" ]
     },
+    "DiskIopsConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Mode" : {
+          "type" : "string"
+        },
+        "Iops" : {
+          "type" : "integer"
+        }
+      }
+    },
     "LustreConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -141,6 +159,47 @@
           "type" : "integer"
         }
       }
+    },
+    "OntapConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "FsxAdminPassword" : {
+          "type" : "string"
+        },
+        "RouteTableIds" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "WeeklyMaintenanceStartTime" : {
+          "type" : "string"
+        },
+        "DiskIopsConfiguration" : {
+          "$ref" : "#/definitions/DiskIopsConfiguration"
+        },
+        "DeploymentType" : {
+          "type" : "string"
+        },
+        "DailyAutomaticBackupStartTime" : {
+          "type" : "string"
+        },
+        "ThroughputCapacity" : {
+          "type" : "integer"
+        },
+        "AutomaticBackupRetentionDays" : {
+          "type" : "integer"
+        },
+        "EndpointIpAddressRange" : {
+          "type" : "string"
+        },
+        "PreferredSubnetId" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "DeploymentType" ]
     },
     "Tag" : {
       "type" : "object",
@@ -201,7 +260,7 @@
     }
   },
   "required" : [ "FileSystemType", "SubnetIds" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/StorageType", "/properties/SecurityGroupIds", "/properties/FileSystemType", "/properties/SubnetIds", "/properties/BackupId" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/StorageType", "/properties/SecurityGroupIds", "/properties/FileSystemTypeVersion", "/properties/FileSystemType", "/properties/SubnetIds", "/properties/BackupId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/LustreMountName", "/properties/DNSName" ]
 }

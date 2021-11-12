@@ -48,6 +48,8 @@ export class CapacityReservation extends pulumi.CustomResource {
     public readonly instanceMatchCriteria!: pulumi.Output<string | undefined>;
     public readonly instancePlatform!: pulumi.Output<string>;
     public readonly instanceType!: pulumi.Output<string>;
+    public readonly outPostArn!: pulumi.Output<string | undefined>;
+    public readonly placementGroupArn!: pulumi.Output<string | undefined>;
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.CapacityReservationTagSpecification[] | undefined>;
     public readonly tenancy!: pulumi.Output<string | undefined>;
     public /*out*/ readonly totalInstanceCount!: pulumi.Output<number>;
@@ -86,6 +88,8 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
             inputs["instancePlatform"] = args ? args.instancePlatform : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
+            inputs["outPostArn"] = args ? args.outPostArn : undefined;
+            inputs["placementGroupArn"] = args ? args.placementGroupArn : undefined;
             inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
             inputs["availableInstanceCount"] = undefined /*out*/;
@@ -101,6 +105,8 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["instanceMatchCriteria"] = undefined /*out*/;
             inputs["instancePlatform"] = undefined /*out*/;
             inputs["instanceType"] = undefined /*out*/;
+            inputs["outPostArn"] = undefined /*out*/;
+            inputs["placementGroupArn"] = undefined /*out*/;
             inputs["tagSpecifications"] = undefined /*out*/;
             inputs["tenancy"] = undefined /*out*/;
             inputs["totalInstanceCount"] = undefined /*out*/;
@@ -125,6 +131,8 @@ export interface CapacityReservationArgs {
     instanceMatchCriteria?: pulumi.Input<string>;
     instancePlatform: pulumi.Input<string>;
     instanceType: pulumi.Input<string>;
+    outPostArn?: pulumi.Input<string>;
+    placementGroupArn?: pulumi.Input<string>;
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationTagSpecificationArgs>[]>;
     tenancy?: pulumi.Input<string>;
 }

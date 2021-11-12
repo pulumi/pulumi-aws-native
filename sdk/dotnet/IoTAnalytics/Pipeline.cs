@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<ImmutableArray<Outputs.PipelineActivity>> PipelineActivities { get; private set; } = null!;
 
         [Output("pipelineName")]
-        public Output<string> PipelineName { get; private set; } = null!;
+        public Output<string?> PipelineName { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.PipelineTag>> Tags { get; private set; } = null!;

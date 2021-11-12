@@ -15,48 +15,24 @@ __all__ = ['AnomalyDetectorArgs', 'AnomalyDetector']
 @pulumi.input_type
 class AnomalyDetectorArgs:
     def __init__(__self__, *,
-                 metric_name: pulumi.Input[str],
-                 namespace: pulumi.Input[str],
-                 stat: pulumi.Input[str],
                  configuration: Optional[pulumi.Input['AnomalyDetectorConfigurationArgs']] = None,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 stat: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AnomalyDetector resource.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "stat", stat)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-
-    @property
-    @pulumi.getter(name="metricName")
-    def metric_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "metric_name")
-
-    @metric_name.setter
-    def metric_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "metric_name", value)
-
-    @property
-    @pulumi.getter
-    def namespace(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "namespace")
-
-    @namespace.setter
-    def namespace(self, value: pulumi.Input[str]):
-        pulumi.set(self, "namespace", value)
-
-    @property
-    @pulumi.getter
-    def stat(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "stat")
-
-    @stat.setter
-    def stat(self, value: pulumi.Input[str]):
-        pulumi.set(self, "stat", value)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if stat is not None:
+            pulumi.set(__self__, "stat", stat)
 
     @property
     @pulumi.getter
@@ -75,6 +51,33 @@ class AnomalyDetectorArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def stat(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stat")
+
+    @stat.setter
+    def stat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stat", value)
 
 
 warnings.warn("""AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -103,7 +106,7 @@ class AnomalyDetector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AnomalyDetectorArgs,
+                 args: Optional[AnomalyDetectorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CloudWatch::AnomalyDetector
@@ -143,14 +146,8 @@ class AnomalyDetector(pulumi.CustomResource):
 
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["dimensions"] = dimensions
-            if metric_name is None and not opts.urn:
-                raise TypeError("Missing required property 'metric_name'")
             __props__.__dict__["metric_name"] = metric_name
-            if namespace is None and not opts.urn:
-                raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
-            if stat is None and not opts.urn:
-                raise TypeError("Missing required property 'stat'")
             __props__.__dict__["stat"] = stat
         super(AnomalyDetector, __self__).__init__(
             'aws-native:cloudwatch:AnomalyDetector',
@@ -193,16 +190,16 @@ class AnomalyDetector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> pulumi.Output[str]:
+    def metric_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter
-    def namespace(self) -> pulumi.Output[str]:
+    def namespace(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter
-    def stat(self) -> pulumi.Output[str]:
+    def stat(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "stat")
 

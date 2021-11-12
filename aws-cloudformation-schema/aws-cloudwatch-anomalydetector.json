@@ -3,17 +3,8 @@
   "description" : "Resource Type definition for AWS::CloudWatch::AnomalyDetector",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "MetricName" : {
       "type" : "string"
-    },
-    "Stat" : {
-      "type" : "string"
-    },
-    "Configuration" : {
-      "$ref" : "#/definitions/Configuration"
     },
     "Dimensions" : {
       "type" : "array",
@@ -21,6 +12,15 @@
       "items" : {
         "$ref" : "#/definitions/Dimension"
       }
+    },
+    "Stat" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "Configuration" : {
+      "$ref" : "#/definitions/Configuration"
     },
     "Namespace" : {
       "type" : "string"
@@ -70,8 +70,7 @@
       "required" : [ "EndTime", "StartTime" ]
     }
   },
-  "required" : [ "MetricName", "Stat", "Namespace" ],
-  "createOnlyProperties" : [ "/properties/MetricName", "/properties/Dimensions", "/properties/Namespace", "/properties/Stat" ],
+  "createOnlyProperties" : [ "/properties/Dimensions", "/properties/MetricName", "/properties/Namespace", "/properties/Stat" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

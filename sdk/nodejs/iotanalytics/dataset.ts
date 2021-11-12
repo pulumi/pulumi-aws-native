@@ -40,7 +40,7 @@ export class Dataset extends pulumi.CustomResource {
 
     public readonly actions!: pulumi.Output<outputs.iotanalytics.DatasetAction[]>;
     public readonly contentDeliveryRules!: pulumi.Output<outputs.iotanalytics.DatasetContentDeliveryRule[] | undefined>;
-    public readonly datasetName!: pulumi.Output<string>;
+    public readonly datasetName!: pulumi.Output<string | undefined>;
     public readonly lateDataRules!: pulumi.Output<outputs.iotanalytics.DatasetLateDataRule[] | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatasetRetentionPeriod | undefined>;
     public readonly tags!: pulumi.Output<outputs.iotanalytics.DatasetTag[] | undefined>;

@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.FSx
         [Output("fileSystemType")]
         public Output<string> FileSystemType { get; private set; } = null!;
 
+        [Output("fileSystemTypeVersion")]
+        public Output<string?> FileSystemTypeVersion { get; private set; } = null!;
+
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
@@ -33,6 +36,9 @@ namespace Pulumi.AwsNative.FSx
 
         [Output("lustreMountName")]
         public Output<string> LustreMountName { get; private set; } = null!;
+
+        [Output("ontapConfiguration")]
+        public Output<Outputs.FileSystemOntapConfiguration?> OntapConfiguration { get; private set; } = null!;
 
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
@@ -103,11 +109,17 @@ namespace Pulumi.AwsNative.FSx
         [Input("fileSystemType", required: true)]
         public Input<string> FileSystemType { get; set; } = null!;
 
+        [Input("fileSystemTypeVersion")]
+        public Input<string>? FileSystemTypeVersion { get; set; }
+
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         [Input("lustreConfiguration")]
         public Input<Inputs.FileSystemLustreConfigurationArgs>? LustreConfiguration { get; set; }
+
+        [Input("ontapConfiguration")]
+        public Input<Inputs.FileSystemOntapConfigurationArgs>? OntapConfiguration { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

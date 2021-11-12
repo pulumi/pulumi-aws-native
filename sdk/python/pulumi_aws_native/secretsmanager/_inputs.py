@@ -24,6 +24,8 @@ class RotationScheduleHostedRotationLambdaArgs:
                  master_secret_arn: Optional[pulumi.Input[str]] = None,
                  master_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  rotation_lambda_name: Optional[pulumi.Input[str]] = None,
+                 superuser_secret_arn: Optional[pulumi.Input[str]] = None,
+                 superuser_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[str]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "rotation_type", rotation_type)
@@ -35,6 +37,10 @@ class RotationScheduleHostedRotationLambdaArgs:
             pulumi.set(__self__, "master_secret_kms_key_arn", master_secret_kms_key_arn)
         if rotation_lambda_name is not None:
             pulumi.set(__self__, "rotation_lambda_name", rotation_lambda_name)
+        if superuser_secret_arn is not None:
+            pulumi.set(__self__, "superuser_secret_arn", superuser_secret_arn)
+        if superuser_secret_kms_key_arn is not None:
+            pulumi.set(__self__, "superuser_secret_kms_key_arn", superuser_secret_kms_key_arn)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
         if vpc_subnet_ids is not None:
@@ -84,6 +90,24 @@ class RotationScheduleHostedRotationLambdaArgs:
     @rotation_lambda_name.setter
     def rotation_lambda_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rotation_lambda_name", value)
+
+    @property
+    @pulumi.getter(name="superuserSecretArn")
+    def superuser_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "superuser_secret_arn")
+
+    @superuser_secret_arn.setter
+    def superuser_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "superuser_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="superuserSecretKmsKeyArn")
+    def superuser_secret_kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "superuser_secret_kms_key_arn")
+
+    @superuser_secret_kms_key_arn.setter
+    def superuser_secret_kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "superuser_secret_kms_key_arn", value)
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")

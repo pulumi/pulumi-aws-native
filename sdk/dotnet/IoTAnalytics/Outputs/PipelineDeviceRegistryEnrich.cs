@@ -13,23 +13,23 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineDeviceRegistryEnrich
     {
-        public readonly string Attribute;
-        public readonly string Name;
+        public readonly string? Attribute;
+        public readonly string? Name;
         public readonly string? Next;
-        public readonly string RoleArn;
-        public readonly string ThingName;
+        public readonly string? RoleArn;
+        public readonly string? ThingName;
 
         [OutputConstructor]
         private PipelineDeviceRegistryEnrich(
-            string attribute,
+            string? attribute,
 
-            string name,
+            string? name,
 
             string? next,
 
-            string roleArn,
+            string? roleArn,
 
-            string thingName)
+            string? thingName)
         {
             Attribute = attribute;
             Name = name;

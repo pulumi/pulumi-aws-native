@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetContentVersionValueArgs : Pulumi.ResourceArgs
     {
-        [Input("datasetName", required: true)]
-        public Input<string> DatasetName { get; set; } = null!;
+        [Input("datasetName")]
+        public Input<string>? DatasetName { get; set; }
 
         public DatasetContentVersionValueArgs()
         {

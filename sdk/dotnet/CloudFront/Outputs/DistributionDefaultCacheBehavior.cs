@@ -26,6 +26,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly double? MinTTL;
         public readonly string? OriginRequestPolicyId;
         public readonly string? RealtimeLogConfigArn;
+        public readonly string? ResponseHeadersPolicyId;
         public readonly bool? SmoothStreaming;
         public readonly string TargetOriginId;
         public readonly ImmutableArray<string> TrustedKeyGroups;
@@ -60,6 +61,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             string? realtimeLogConfigArn,
 
+            string? responseHeadersPolicyId,
+
             bool? smoothStreaming,
 
             string targetOriginId,
@@ -83,6 +86,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             MinTTL = minTTL;
             OriginRequestPolicyId = originRequestPolicyId;
             RealtimeLogConfigArn = realtimeLogConfigArn;
+            ResponseHeadersPolicyId = responseHeadersPolicyId;
             SmoothStreaming = smoothStreaming;
             TargetOriginId = targetOriginId;
             TrustedKeyGroups = trustedKeyGroups;

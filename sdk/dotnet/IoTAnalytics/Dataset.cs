@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<ImmutableArray<Outputs.DatasetContentDeliveryRule>> ContentDeliveryRules { get; private set; } = null!;
 
         [Output("datasetName")]
-        public Output<string> DatasetName { get; private set; } = null!;
+        public Output<string?> DatasetName { get; private set; } = null!;
 
         [Output("lateDataRules")]
         public Output<ImmutableArray<Outputs.DatasetLateDataRule>> LateDataRules { get; private set; } = null!;

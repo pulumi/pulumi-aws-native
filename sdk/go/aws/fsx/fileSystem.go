@@ -17,18 +17,20 @@ import (
 type FileSystem struct {
 	pulumi.CustomResourceState
 
-	BackupId             pulumi.StringPtrOutput                  `pulumi:"backupId"`
-	DNSName              pulumi.StringOutput                     `pulumi:"dNSName"`
-	FileSystemType       pulumi.StringOutput                     `pulumi:"fileSystemType"`
-	KmsKeyId             pulumi.StringPtrOutput                  `pulumi:"kmsKeyId"`
-	LustreConfiguration  FileSystemLustreConfigurationPtrOutput  `pulumi:"lustreConfiguration"`
-	LustreMountName      pulumi.StringOutput                     `pulumi:"lustreMountName"`
-	SecurityGroupIds     pulumi.StringArrayOutput                `pulumi:"securityGroupIds"`
-	StorageCapacity      pulumi.IntPtrOutput                     `pulumi:"storageCapacity"`
-	StorageType          pulumi.StringPtrOutput                  `pulumi:"storageType"`
-	SubnetIds            pulumi.StringArrayOutput                `pulumi:"subnetIds"`
-	Tags                 FileSystemTagArrayOutput                `pulumi:"tags"`
-	WindowsConfiguration FileSystemWindowsConfigurationPtrOutput `pulumi:"windowsConfiguration"`
+	BackupId              pulumi.StringPtrOutput                  `pulumi:"backupId"`
+	DNSName               pulumi.StringOutput                     `pulumi:"dNSName"`
+	FileSystemType        pulumi.StringOutput                     `pulumi:"fileSystemType"`
+	FileSystemTypeVersion pulumi.StringPtrOutput                  `pulumi:"fileSystemTypeVersion"`
+	KmsKeyId              pulumi.StringPtrOutput                  `pulumi:"kmsKeyId"`
+	LustreConfiguration   FileSystemLustreConfigurationPtrOutput  `pulumi:"lustreConfiguration"`
+	LustreMountName       pulumi.StringOutput                     `pulumi:"lustreMountName"`
+	OntapConfiguration    FileSystemOntapConfigurationPtrOutput   `pulumi:"ontapConfiguration"`
+	SecurityGroupIds      pulumi.StringArrayOutput                `pulumi:"securityGroupIds"`
+	StorageCapacity       pulumi.IntPtrOutput                     `pulumi:"storageCapacity"`
+	StorageType           pulumi.StringPtrOutput                  `pulumi:"storageType"`
+	SubnetIds             pulumi.StringArrayOutput                `pulumi:"subnetIds"`
+	Tags                  FileSystemTagArrayOutput                `pulumi:"tags"`
+	WindowsConfiguration  FileSystemWindowsConfigurationPtrOutput `pulumi:"windowsConfiguration"`
 }
 
 // NewFileSystem registers a new resource with the given unique name, arguments, and options.
@@ -76,30 +78,34 @@ func (FileSystemState) ElementType() reflect.Type {
 }
 
 type fileSystemArgs struct {
-	BackupId             *string                         `pulumi:"backupId"`
-	FileSystemType       string                          `pulumi:"fileSystemType"`
-	KmsKeyId             *string                         `pulumi:"kmsKeyId"`
-	LustreConfiguration  *FileSystemLustreConfiguration  `pulumi:"lustreConfiguration"`
-	SecurityGroupIds     []string                        `pulumi:"securityGroupIds"`
-	StorageCapacity      *int                            `pulumi:"storageCapacity"`
-	StorageType          *string                         `pulumi:"storageType"`
-	SubnetIds            []string                        `pulumi:"subnetIds"`
-	Tags                 []FileSystemTag                 `pulumi:"tags"`
-	WindowsConfiguration *FileSystemWindowsConfiguration `pulumi:"windowsConfiguration"`
+	BackupId              *string                         `pulumi:"backupId"`
+	FileSystemType        string                          `pulumi:"fileSystemType"`
+	FileSystemTypeVersion *string                         `pulumi:"fileSystemTypeVersion"`
+	KmsKeyId              *string                         `pulumi:"kmsKeyId"`
+	LustreConfiguration   *FileSystemLustreConfiguration  `pulumi:"lustreConfiguration"`
+	OntapConfiguration    *FileSystemOntapConfiguration   `pulumi:"ontapConfiguration"`
+	SecurityGroupIds      []string                        `pulumi:"securityGroupIds"`
+	StorageCapacity       *int                            `pulumi:"storageCapacity"`
+	StorageType           *string                         `pulumi:"storageType"`
+	SubnetIds             []string                        `pulumi:"subnetIds"`
+	Tags                  []FileSystemTag                 `pulumi:"tags"`
+	WindowsConfiguration  *FileSystemWindowsConfiguration `pulumi:"windowsConfiguration"`
 }
 
 // The set of arguments for constructing a FileSystem resource.
 type FileSystemArgs struct {
-	BackupId             pulumi.StringPtrInput
-	FileSystemType       pulumi.StringInput
-	KmsKeyId             pulumi.StringPtrInput
-	LustreConfiguration  FileSystemLustreConfigurationPtrInput
-	SecurityGroupIds     pulumi.StringArrayInput
-	StorageCapacity      pulumi.IntPtrInput
-	StorageType          pulumi.StringPtrInput
-	SubnetIds            pulumi.StringArrayInput
-	Tags                 FileSystemTagArrayInput
-	WindowsConfiguration FileSystemWindowsConfigurationPtrInput
+	BackupId              pulumi.StringPtrInput
+	FileSystemType        pulumi.StringInput
+	FileSystemTypeVersion pulumi.StringPtrInput
+	KmsKeyId              pulumi.StringPtrInput
+	LustreConfiguration   FileSystemLustreConfigurationPtrInput
+	OntapConfiguration    FileSystemOntapConfigurationPtrInput
+	SecurityGroupIds      pulumi.StringArrayInput
+	StorageCapacity       pulumi.IntPtrInput
+	StorageType           pulumi.StringPtrInput
+	SubnetIds             pulumi.StringArrayInput
+	Tags                  FileSystemTagArrayInput
+	WindowsConfiguration  FileSystemWindowsConfigurationPtrInput
 }
 
 func (FileSystemArgs) ElementType() reflect.Type {

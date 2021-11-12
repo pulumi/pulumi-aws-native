@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatastoreIotSiteWiseMultiLayerStorageArgs : Pulumi.ResourceArgs
     {
-        [Input("customerManagedS3Storage")]
-        public Input<Inputs.DatastoreCustomerManagedS3StorageArgs>? CustomerManagedS3Storage { get; set; }
+        [Input("customerManagedS3Storage", required: true)]
+        public Input<Inputs.DatastoreCustomerManagedS3StorageArgs> CustomerManagedS3Storage { get; set; } = null!;
 
         public DatastoreIotSiteWiseMultiLayerStorageArgs()
         {

@@ -23,6 +23,7 @@ type ConfigurationProfile struct {
 	Name             pulumi.StringOutput                       `pulumi:"name"`
 	RetrievalRoleArn pulumi.StringPtrOutput                    `pulumi:"retrievalRoleArn"`
 	Tags             ConfigurationProfileTagsArrayOutput       `pulumi:"tags"`
+	Type             pulumi.StringPtrOutput                    `pulumi:"type"`
 	Validators       ConfigurationProfileValidatorsArrayOutput `pulumi:"validators"`
 }
 
@@ -77,6 +78,7 @@ type configurationProfileArgs struct {
 	Name             *string                          `pulumi:"name"`
 	RetrievalRoleArn *string                          `pulumi:"retrievalRoleArn"`
 	Tags             []ConfigurationProfileTags       `pulumi:"tags"`
+	Type             *string                          `pulumi:"type"`
 	Validators       []ConfigurationProfileValidators `pulumi:"validators"`
 }
 
@@ -88,6 +90,7 @@ type ConfigurationProfileArgs struct {
 	Name             pulumi.StringPtrInput
 	RetrievalRoleArn pulumi.StringPtrInput
 	Tags             ConfigurationProfileTagsArrayInput
+	Type             pulumi.StringPtrInput
 	Validators       ConfigurationProfileValidatorsArrayInput
 }
 

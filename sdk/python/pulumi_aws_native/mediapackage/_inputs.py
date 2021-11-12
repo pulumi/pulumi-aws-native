@@ -1417,14 +1417,14 @@ class PackagingConfigurationDashPackageArgs:
                  dash_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]],
                  encryption: Optional[pulumi.Input['PackagingConfigurationDashEncryptionArgs']] = None,
                  include_encoder_configuration_in_segments: Optional[pulumi.Input[bool]] = None,
-                 period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]]] = None,
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
                  segment_template_format: Optional[pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat']] = None):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]] dash_manifests: A list of DASH manifest configurations.
         :param pulumi.Input[bool] include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
+        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         :param pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat'] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
         pulumi.set(__self__, "dash_manifests", dash_manifests)
@@ -1474,14 +1474,14 @@ class PackagingConfigurationDashPackageArgs:
 
     @property
     @pulumi.getter(name="periodTriggers")
-    def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]]]:
         """
         A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         """
         return pulumi.get(self, "period_triggers")
 
     @period_triggers.setter
-    def period_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def period_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]]]):
         pulumi.set(self, "period_triggers", value)
 
     @property

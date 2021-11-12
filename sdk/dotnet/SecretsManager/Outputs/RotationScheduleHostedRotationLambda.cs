@@ -18,6 +18,8 @@ namespace Pulumi.AwsNative.SecretsManager.Outputs
         public readonly string? MasterSecretKmsKeyArn;
         public readonly string? RotationLambdaName;
         public readonly string RotationType;
+        public readonly string? SuperuserSecretArn;
+        public readonly string? SuperuserSecretKmsKeyArn;
         public readonly string? VpcSecurityGroupIds;
         public readonly string? VpcSubnetIds;
 
@@ -33,6 +35,10 @@ namespace Pulumi.AwsNative.SecretsManager.Outputs
 
             string rotationType,
 
+            string? superuserSecretArn,
+
+            string? superuserSecretKmsKeyArn,
+
             string? vpcSecurityGroupIds,
 
             string? vpcSubnetIds)
@@ -42,6 +48,8 @@ namespace Pulumi.AwsNative.SecretsManager.Outputs
             MasterSecretKmsKeyArn = masterSecretKmsKeyArn;
             RotationLambdaName = rotationLambdaName;
             RotationType = rotationType;
+            SuperuserSecretArn = superuserSecretArn;
+            SuperuserSecretKmsKeyArn = superuserSecretKmsKeyArn;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
             VpcSubnetIds = vpcSubnetIds;
         }

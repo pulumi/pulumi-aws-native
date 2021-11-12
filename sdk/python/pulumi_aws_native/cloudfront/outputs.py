@@ -371,6 +371,8 @@ class DistributionCacheBehavior(dict):
             suggest = "origin_request_policy_id"
         elif key == "realtimeLogConfigArn":
             suggest = "realtime_log_config_arn"
+        elif key == "responseHeadersPolicyId":
+            suggest = "response_headers_policy_id"
         elif key == "smoothStreaming":
             suggest = "smooth_streaming"
         elif key == "trustedKeyGroups":
@@ -406,6 +408,7 @@ class DistributionCacheBehavior(dict):
                  min_ttl: Optional[float] = None,
                  origin_request_policy_id: Optional[str] = None,
                  realtime_log_config_arn: Optional[str] = None,
+                 response_headers_policy_id: Optional[str] = None,
                  smooth_streaming: Optional[bool] = None,
                  trusted_key_groups: Optional[Sequence[str]] = None,
                  trusted_signers: Optional[Sequence[str]] = None):
@@ -438,6 +441,8 @@ class DistributionCacheBehavior(dict):
             pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if response_headers_policy_id is not None:
+            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
@@ -524,6 +529,11 @@ class DistributionCacheBehavior(dict):
     @pulumi.getter(name="realtimeLogConfigArn")
     def realtime_log_config_arn(self) -> Optional[str]:
         return pulumi.get(self, "realtime_log_config_arn")
+
+    @property
+    @pulumi.getter(name="responseHeadersPolicyId")
+    def response_headers_policy_id(self) -> Optional[str]:
+        return pulumi.get(self, "response_headers_policy_id")
 
     @property
     @pulumi.getter(name="smoothStreaming")
@@ -946,6 +956,8 @@ class DistributionDefaultCacheBehavior(dict):
             suggest = "origin_request_policy_id"
         elif key == "realtimeLogConfigArn":
             suggest = "realtime_log_config_arn"
+        elif key == "responseHeadersPolicyId":
+            suggest = "response_headers_policy_id"
         elif key == "smoothStreaming":
             suggest = "smooth_streaming"
         elif key == "trustedKeyGroups":
@@ -980,6 +992,7 @@ class DistributionDefaultCacheBehavior(dict):
                  min_ttl: Optional[float] = None,
                  origin_request_policy_id: Optional[str] = None,
                  realtime_log_config_arn: Optional[str] = None,
+                 response_headers_policy_id: Optional[str] = None,
                  smooth_streaming: Optional[bool] = None,
                  trusted_key_groups: Optional[Sequence[str]] = None,
                  trusted_signers: Optional[Sequence[str]] = None):
@@ -1011,6 +1024,8 @@ class DistributionDefaultCacheBehavior(dict):
             pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if response_headers_policy_id is not None:
+            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
@@ -1092,6 +1107,11 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter(name="realtimeLogConfigArn")
     def realtime_log_config_arn(self) -> Optional[str]:
         return pulumi.get(self, "realtime_log_config_arn")
+
+    @property
+    @pulumi.getter(name="responseHeadersPolicyId")
+    def response_headers_policy_id(self) -> Optional[str]:
+        return pulumi.get(self, "response_headers_policy_id")
 
     @property
     @pulumi.getter(name="smoothStreaming")

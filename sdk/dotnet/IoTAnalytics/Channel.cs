@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     public partial class Channel : Pulumi.CustomResource
     {
         [Output("channelName")]
-        public Output<string> ChannelName { get; private set; } = null!;
+        public Output<string?> ChannelName { get; private set; } = null!;
 
         [Output("channelStorage")]
         public Output<Outputs.ChannelStorage?> ChannelStorage { get; private set; } = null!;

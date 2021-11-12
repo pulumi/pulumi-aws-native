@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,27 +18,18 @@ type AnomalyDetector struct {
 
 	Configuration AnomalyDetectorConfigurationPtrOutput `pulumi:"configuration"`
 	Dimensions    AnomalyDetectorDimensionArrayOutput   `pulumi:"dimensions"`
-	MetricName    pulumi.StringOutput                   `pulumi:"metricName"`
-	Namespace     pulumi.StringOutput                   `pulumi:"namespace"`
-	Stat          pulumi.StringOutput                   `pulumi:"stat"`
+	MetricName    pulumi.StringPtrOutput                `pulumi:"metricName"`
+	Namespace     pulumi.StringPtrOutput                `pulumi:"namespace"`
+	Stat          pulumi.StringPtrOutput                `pulumi:"stat"`
 }
 
 // NewAnomalyDetector registers a new resource with the given unique name, arguments, and options.
 func NewAnomalyDetector(ctx *pulumi.Context,
 	name string, args *AnomalyDetectorArgs, opts ...pulumi.ResourceOption) (*AnomalyDetector, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AnomalyDetectorArgs{}
 	}
 
-	if args.MetricName == nil {
-		return nil, errors.New("invalid value for required argument 'MetricName'")
-	}
-	if args.Namespace == nil {
-		return nil, errors.New("invalid value for required argument 'Namespace'")
-	}
-	if args.Stat == nil {
-		return nil, errors.New("invalid value for required argument 'Stat'")
-	}
 	var resource AnomalyDetector
 	err := ctx.RegisterResource("aws-native:cloudwatch:AnomalyDetector", name, args, &resource, opts...)
 	if err != nil {
@@ -74,18 +64,18 @@ func (AnomalyDetectorState) ElementType() reflect.Type {
 type anomalyDetectorArgs struct {
 	Configuration *AnomalyDetectorConfiguration `pulumi:"configuration"`
 	Dimensions    []AnomalyDetectorDimension    `pulumi:"dimensions"`
-	MetricName    string                        `pulumi:"metricName"`
-	Namespace     string                        `pulumi:"namespace"`
-	Stat          string                        `pulumi:"stat"`
+	MetricName    *string                       `pulumi:"metricName"`
+	Namespace     *string                       `pulumi:"namespace"`
+	Stat          *string                       `pulumi:"stat"`
 }
 
 // The set of arguments for constructing a AnomalyDetector resource.
 type AnomalyDetectorArgs struct {
 	Configuration AnomalyDetectorConfigurationPtrInput
 	Dimensions    AnomalyDetectorDimensionArrayInput
-	MetricName    pulumi.StringInput
-	Namespace     pulumi.StringInput
-	Stat          pulumi.StringInput
+	MetricName    pulumi.StringPtrInput
+	Namespace     pulumi.StringPtrInput
+	Stat          pulumi.StringPtrInput
 }
 
 func (AnomalyDetectorArgs) ElementType() reflect.Type {

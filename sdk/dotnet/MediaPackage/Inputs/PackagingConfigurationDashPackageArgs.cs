@@ -37,14 +37,14 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public Input<bool>? IncludeEncoderConfigurationInSegments { get; set; }
 
         [Input("periodTriggers")]
-        private InputList<string>? _periodTriggers;
+        private InputList<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackagePeriodTriggersItem>? _periodTriggers;
 
         /// <summary>
         /// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         /// </summary>
-        public InputList<string> PeriodTriggers
+        public InputList<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackagePeriodTriggersItem> PeriodTriggers
         {
-            get => _periodTriggers ?? (_periodTriggers = new InputList<string>());
+            get => _periodTriggers ?? (_periodTriggers = new InputList<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackagePeriodTriggersItem>());
             set => _periodTriggers = value;
         }
 
