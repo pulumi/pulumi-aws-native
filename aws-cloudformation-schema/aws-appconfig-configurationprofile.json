@@ -6,6 +6,9 @@
     "LocationUri" : {
       "type" : "string"
     },
+    "Type" : {
+      "type" : "string"
+    },
     "Description" : {
       "type" : "string"
     },
@@ -63,7 +66,7 @@
     }
   },
   "required" : [ "LocationUri", "ApplicationId", "Name" ],
-  "createOnlyProperties" : [ "/properties/LocationUri", "/properties/ApplicationId" ],
+  "createOnlyProperties" : [ "/properties/LocationUri", "/properties/Type", "/properties/ApplicationId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

@@ -3,29 +3,11 @@
   "description" : "Resource Type definition for AWS::EC2::CapacityReservation",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "Tenancy" : {
-      "type" : "string"
-    },
-    "AvailableInstanceCount" : {
-      "type" : "integer"
-    },
-    "AvailabilityZone" : {
-      "type" : "string"
-    },
-    "TotalInstanceCount" : {
-      "type" : "integer"
-    },
-    "InstanceType" : {
       "type" : "string"
     },
     "EndDateType" : {
       "type" : "string"
-    },
-    "InstanceCount" : {
-      "type" : "integer"
     },
     "TagSpecifications" : {
       "type" : "array",
@@ -34,7 +16,37 @@
         "$ref" : "#/definitions/TagSpecification"
       }
     },
+    "AvailabilityZone" : {
+      "type" : "string"
+    },
+    "TotalInstanceCount" : {
+      "type" : "integer"
+    },
+    "EndDate" : {
+      "type" : "string"
+    },
+    "EbsOptimized" : {
+      "type" : "boolean"
+    },
+    "OutPostArn" : {
+      "type" : "string"
+    },
+    "InstanceCount" : {
+      "type" : "integer"
+    },
+    "PlacementGroupArn" : {
+      "type" : "string"
+    },
+    "AvailableInstanceCount" : {
+      "type" : "integer"
+    },
     "InstancePlatform" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "InstanceType" : {
       "type" : "string"
     },
     "EphemeralStorage" : {
@@ -42,15 +54,22 @@
     },
     "InstanceMatchCriteria" : {
       "type" : "string"
-    },
-    "EndDate" : {
-      "type" : "string"
-    },
-    "EbsOptimized" : {
-      "type" : "boolean"
     }
   },
   "definitions" : {
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
+    },
     "TagSpecification" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -66,23 +85,10 @@
           }
         }
       }
-    },
-    "Tag" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Key" : {
-          "type" : "string"
-        },
-        "Value" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Value", "Key" ]
     }
   },
   "required" : [ "InstanceCount", "AvailabilityZone", "InstancePlatform", "InstanceType" ],
-  "readOnlyProperties" : [ "/properties/AvailableInstanceCount", "/properties/TotalInstanceCount", "/properties/Id" ],
-  "createOnlyProperties" : [ "/properties/Tenancy", "/properties/InstanceMatchCriteria", "/properties/InstancePlatform", "/properties/InstanceType", "/properties/AvailabilityZone", "/properties/TagSpecifications", "/properties/EphemeralStorage", "/properties/EbsOptimized" ],
-  "primaryIdentifier" : [ "/properties/Id" ]
+  "createOnlyProperties" : [ "/properties/Tenancy", "/properties/InstanceMatchCriteria", "/properties/InstancePlatform", "/properties/InstanceType", "/properties/AvailabilityZone", "/properties/TagSpecifications", "/properties/OutPostArn", "/properties/EphemeralStorage", "/properties/EbsOptimized", "/properties/PlacementGroupArn" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/AvailableInstanceCount", "/properties/TotalInstanceCount" ]
 }

@@ -69,6 +69,9 @@
         "RealtimeLogConfigArn" : {
           "type" : "string"
         },
+        "ResponseHeadersPolicyId" : {
+          "type" : "string"
+        },
         "SmoothStreaming" : {
           "default" : false,
           "type" : "boolean"
@@ -233,6 +236,10 @@
           "type" : "string"
         },
         "RealtimeLogConfigArn" : {
+          "default" : "",
+          "type" : "string"
+        },
+        "ResponseHeadersPolicyId" : {
           "default" : "",
           "type" : "string"
         },
