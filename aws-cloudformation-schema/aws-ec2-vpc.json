@@ -3,7 +3,7 @@
   "description" : "Resource Type definition for AWS::EC2::VPC",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
+    "VpcId" : {
       "type" : "string",
       "description" : "The Id for the model."
     },
@@ -80,8 +80,8 @@
   "required" : [ "CidrBlock" ],
   "createOnlyProperties" : [ "/properties/CidrBlock" ],
   "conditionalCreateOnlyProperties" : [ "/properties/InstanceTenancy" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/DefaultSecurityGroup", "/properties/CidrBlockAssociations", "/properties/DefaultNetworkAcl", "/properties/Ipv6CidrBlocks" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/VpcId", "/properties/DefaultSecurityGroup", "/properties/CidrBlockAssociations", "/properties/DefaultNetworkAcl", "/properties/Ipv6CidrBlocks" ],
+  "primaryIdentifier" : [ "/properties/VpcId" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateVpc", "ec2:CreateTags", "ec2:ModifyVpcAttribute", "ec2:DescribeVpcs", "ec2:DescribeVpcAttribute" ]
