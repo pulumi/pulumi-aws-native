@@ -191,6 +191,7 @@ class VPC(pulumi.CustomResource):
             __props__.__dict__["default_network_acl"] = None
             __props__.__dict__["default_security_group"] = None
             __props__.__dict__["ipv6_cidr_blocks"] = None
+            __props__.__dict__["vpc_id"] = None
         super(VPC, __self__).__init__(
             'aws-native:ec2:VPC',
             resource_name,
@@ -222,6 +223,7 @@ class VPC(pulumi.CustomResource):
         __props__.__dict__["instance_tenancy"] = None
         __props__.__dict__["ipv6_cidr_blocks"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_id"] = None
         return VPC(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -301,4 +303,12 @@ class VPC(pulumi.CustomResource):
         The tags for the VPC.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The Id for the model.
+        """
+        return pulumi.get(self, "vpc_id")
 

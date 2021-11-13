@@ -75,6 +75,12 @@ namespace Pulumi.AwsNative.EC2
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VPCTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The Id for the model.
+        /// </summary>
+        [Output("vpcId")]
+        public Output<string> VpcId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a VPC resource with the given unique name, arguments, and options.

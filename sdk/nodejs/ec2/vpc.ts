@@ -77,6 +77,10 @@ export class VPC extends pulumi.CustomResource {
      * The tags for the VPC.
      */
     public readonly tags!: pulumi.Output<outputs.ec2.VPCTag[] | undefined>;
+    /**
+     * The Id for the model.
+     */
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VPC resource with the given unique name, arguments, and options.
@@ -101,6 +105,7 @@ export class VPC extends pulumi.CustomResource {
             inputs["defaultNetworkAcl"] = undefined /*out*/;
             inputs["defaultSecurityGroup"] = undefined /*out*/;
             inputs["ipv6CidrBlocks"] = undefined /*out*/;
+            inputs["vpcId"] = undefined /*out*/;
         } else {
             inputs["cidrBlock"] = undefined /*out*/;
             inputs["cidrBlockAssociations"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class VPC extends pulumi.CustomResource {
             inputs["instanceTenancy"] = undefined /*out*/;
             inputs["ipv6CidrBlocks"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});

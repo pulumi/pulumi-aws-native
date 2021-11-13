@@ -59161,6 +59161,10 @@
                         "$ref": "#/types/aws-native:ec2:VPCTag"
                     },
                     "description": "The tags for the VPC."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The Id for the model."
                 }
             },
             "type": "object",
@@ -59169,7 +59173,8 @@
                 "cidrBlockAssociations",
                 "defaultNetworkAcl",
                 "defaultSecurityGroup",
-                "ipv6CidrBlocks"
+                "ipv6CidrBlocks",
+                "vpcId"
             ],
             "inputProperties": {
                 "cidrBlock": {

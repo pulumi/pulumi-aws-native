@@ -39,6 +39,8 @@ type VPC struct {
 	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// The tags for the VPC.
 	Tags VPCTagArrayOutput `pulumi:"tags"`
+	// The Id for the model.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVPC registers a new resource with the given unique name, arguments, and options.
