@@ -34,7 +34,8 @@ class JobArgs:
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input['JobRecipeArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTagArgs']]]] = None,
-                 timeout: Optional[pulumi.Input[int]] = None):
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Job resource.
         :param pulumi.Input[str] role_arn: Role arn
@@ -51,6 +52,7 @@ class JobArgs:
         :param pulumi.Input['JobProfileConfigurationArgs'] profile_configuration: Profile Job configuration
         :param pulumi.Input[str] project_name: Project name
         :param pulumi.Input[int] timeout: Timeout
+        :param pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]] validation_configurations: Data quality rules configuration
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "type", type)
@@ -88,6 +90,8 @@ class JobArgs:
             pulumi.set(__self__, "tags", tags)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
+        if validation_configurations is not None:
+            pulumi.set(__self__, "validation_configurations", validation_configurations)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -302,6 +306,18 @@ class JobArgs:
     def timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout", value)
 
+    @property
+    @pulumi.getter(name="validationConfigurations")
+    def validation_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]]:
+        """
+        Data quality rules configuration
+        """
+        return pulumi.get(self, "validation_configurations")
+
+    @validation_configurations.setter
+    def validation_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]]):
+        pulumi.set(self, "validation_configurations", value)
+
 
 class Job(pulumi.CustomResource):
     @overload
@@ -327,6 +343,7 @@ class Job(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['JobType']] = None,
+                 validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Job.
@@ -347,6 +364,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: Role arn
         :param pulumi.Input[int] timeout: Timeout
         :param pulumi.Input['JobType'] type: Job type
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]] validation_configurations: Data quality rules configuration
         """
         ...
     @overload
@@ -391,6 +409,7 @@ class Job(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['JobType']] = None,
+                 validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -426,6 +445,7 @@ class Job(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["validation_configurations"] = validation_configurations
         super(Job, __self__).__init__(
             'aws-native:databrew:Job',
             resource_name,
@@ -467,6 +487,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["timeout"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["validation_configurations"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -605,4 +626,12 @@ class Job(pulumi.CustomResource):
         Job type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validationConfigurations")
+    def validation_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.JobValidationConfiguration']]]:
+        """
+        Data quality rules configuration
+        """
+        return pulumi.get(self, "validation_configurations")
 

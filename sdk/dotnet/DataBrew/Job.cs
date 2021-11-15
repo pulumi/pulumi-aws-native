@@ -114,6 +114,12 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("type")]
         public Output<Pulumi.AwsNative.DataBrew.JobType> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Data quality rules configuration
+        /// </summary>
+        [Output("validationConfigurations")]
+        public Output<ImmutableArray<Outputs.JobValidationConfiguration>> ValidationConfigurations { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Job resource with the given unique name, arguments, and options.
@@ -277,6 +283,18 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.DataBrew.JobType> Type { get; set; } = null!;
+
+        [Input("validationConfigurations")]
+        private InputList<Inputs.JobValidationConfigurationArgs>? _validationConfigurations;
+
+        /// <summary>
+        /// Data quality rules configuration
+        /// </summary>
+        public InputList<Inputs.JobValidationConfigurationArgs> ValidationConfigurations
+        {
+            get => _validationConfigurations ?? (_validationConfigurations = new InputList<Inputs.JobValidationConfigurationArgs>());
+            set => _validationConfigurations = value;
+        }
 
         public JobArgs()
         {

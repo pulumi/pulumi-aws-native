@@ -356,6 +356,33 @@ namespace Pulumi.AwsNative.DataBrew
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct JobValidationMode : IEquatable<JobValidationMode>
+    {
+        private readonly string _value;
+
+        private JobValidationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobValidationMode CheckAll { get; } = new JobValidationMode("CHECK_ALL");
+
+        public static bool operator ==(JobValidationMode left, JobValidationMode right) => left.Equals(right);
+        public static bool operator !=(JobValidationMode left, JobValidationMode right) => !left.Equals(right);
+
+        public static explicit operator string(JobValidationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobValidationMode other && Equals(other);
+        public bool Equals(JobValidationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Sample type
     /// </summary>

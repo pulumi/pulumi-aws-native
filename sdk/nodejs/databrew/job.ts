@@ -96,6 +96,10 @@ export class Job extends pulumi.CustomResource {
      * Job type
      */
     public readonly type!: pulumi.Output<enums.databrew.JobType>;
+    /**
+     * Data quality rules configuration
+     */
+    public readonly validationConfigurations!: pulumi.Output<outputs.databrew.JobValidationConfiguration[] | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -133,6 +137,7 @@ export class Job extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["validationConfigurations"] = args ? args.validationConfigurations : undefined;
         } else {
             inputs["dataCatalogOutputs"] = undefined /*out*/;
             inputs["databaseOutputs"] = undefined /*out*/;
@@ -153,6 +158,7 @@ export class Job extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["timeout"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["validationConfigurations"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -226,4 +232,8 @@ export interface JobArgs {
      * Job type
      */
     type: pulumi.Input<enums.databrew.JobType>;
+    /**
+     * Data quality rules configuration
+     */
+    validationConfigurations?: pulumi.Input<pulumi.Input<inputs.databrew.JobValidationConfigurationArgs>[]>;
 }

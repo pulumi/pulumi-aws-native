@@ -120,6 +120,12 @@ export const JobType = {
  */
 export type JobType = (typeof JobType)[keyof typeof JobType];
 
+export const JobValidationMode = {
+    CheckAll: "CHECK_ALL",
+} as const;
+
+export type JobValidationMode = (typeof JobValidationMode)[keyof typeof JobValidationMode];
+
 export const ProjectSampleType = {
     FirstN: "FIRST_N",
     LastN: "LAST_N",

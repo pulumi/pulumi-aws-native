@@ -6916,6 +6916,17 @@ export namespace databrew {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Configuration to attach Rulesets to the job
+     */
+    export interface JobValidationConfigurationArgs {
+        /**
+         * Arn of the Ruleset
+         */
+        rulesetArn: pulumi.Input<string>;
+        validationMode?: pulumi.Input<enums.databrew.JobValidationMode>;
+    }
+
     export interface ProjectSampleArgs {
         /**
          * Sample size

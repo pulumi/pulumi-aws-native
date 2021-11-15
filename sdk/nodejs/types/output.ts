@@ -7008,6 +7008,17 @@ export namespace databrew {
         value: string;
     }
 
+    /**
+     * Configuration to attach Rulesets to the job
+     */
+    export interface JobValidationConfiguration {
+        /**
+         * Arn of the Ruleset
+         */
+        rulesetArn: string;
+        validationMode?: enums.databrew.JobValidationMode;
+    }
+
     export interface ProjectSample {
         /**
          * Sample size

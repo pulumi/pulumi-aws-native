@@ -1837,6 +1837,169 @@ func (in *jobTypePtr) ToJobTypePtrOutputWithContext(ctx context.Context) JobType
 	return pulumi.ToOutputWithContext(ctx, in).(JobTypePtrOutput)
 }
 
+type JobValidationMode string
+
+const (
+	JobValidationModeCheckAll = JobValidationMode("CHECK_ALL")
+)
+
+func (JobValidationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobValidationMode)(nil)).Elem()
+}
+
+func (e JobValidationMode) ToJobValidationModeOutput() JobValidationModeOutput {
+	return pulumi.ToOutput(e).(JobValidationModeOutput)
+}
+
+func (e JobValidationMode) ToJobValidationModeOutputWithContext(ctx context.Context) JobValidationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobValidationModeOutput)
+}
+
+func (e JobValidationMode) ToJobValidationModePtrOutput() JobValidationModePtrOutput {
+	return e.ToJobValidationModePtrOutputWithContext(context.Background())
+}
+
+func (e JobValidationMode) ToJobValidationModePtrOutputWithContext(ctx context.Context) JobValidationModePtrOutput {
+	return JobValidationMode(e).ToJobValidationModeOutputWithContext(ctx).ToJobValidationModePtrOutputWithContext(ctx)
+}
+
+func (e JobValidationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobValidationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobValidationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobValidationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobValidationModeOutput struct{ *pulumi.OutputState }
+
+func (JobValidationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobValidationMode)(nil)).Elem()
+}
+
+func (o JobValidationModeOutput) ToJobValidationModeOutput() JobValidationModeOutput {
+	return o
+}
+
+func (o JobValidationModeOutput) ToJobValidationModeOutputWithContext(ctx context.Context) JobValidationModeOutput {
+	return o
+}
+
+func (o JobValidationModeOutput) ToJobValidationModePtrOutput() JobValidationModePtrOutput {
+	return o.ToJobValidationModePtrOutputWithContext(context.Background())
+}
+
+func (o JobValidationModeOutput) ToJobValidationModePtrOutputWithContext(ctx context.Context) JobValidationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobValidationMode) *JobValidationMode {
+		return &v
+	}).(JobValidationModePtrOutput)
+}
+
+func (o JobValidationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobValidationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobValidationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobValidationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobValidationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobValidationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobValidationModePtrOutput struct{ *pulumi.OutputState }
+
+func (JobValidationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobValidationMode)(nil)).Elem()
+}
+
+func (o JobValidationModePtrOutput) ToJobValidationModePtrOutput() JobValidationModePtrOutput {
+	return o
+}
+
+func (o JobValidationModePtrOutput) ToJobValidationModePtrOutputWithContext(ctx context.Context) JobValidationModePtrOutput {
+	return o
+}
+
+func (o JobValidationModePtrOutput) Elem() JobValidationModeOutput {
+	return o.ApplyT(func(v *JobValidationMode) JobValidationMode {
+		if v != nil {
+			return *v
+		}
+		var ret JobValidationMode
+		return ret
+	}).(JobValidationModeOutput)
+}
+
+func (o JobValidationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobValidationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobValidationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobValidationModeInput is an input type that accepts JobValidationModeArgs and JobValidationModeOutput values.
+// You can construct a concrete instance of `JobValidationModeInput` via:
+//
+//          JobValidationModeArgs{...}
+type JobValidationModeInput interface {
+	pulumi.Input
+
+	ToJobValidationModeOutput() JobValidationModeOutput
+	ToJobValidationModeOutputWithContext(context.Context) JobValidationModeOutput
+}
+
+var jobValidationModePtrType = reflect.TypeOf((**JobValidationMode)(nil)).Elem()
+
+type JobValidationModePtrInput interface {
+	pulumi.Input
+
+	ToJobValidationModePtrOutput() JobValidationModePtrOutput
+	ToJobValidationModePtrOutputWithContext(context.Context) JobValidationModePtrOutput
+}
+
+type jobValidationModePtr string
+
+func JobValidationModePtr(v string) JobValidationModePtrInput {
+	return (*jobValidationModePtr)(&v)
+}
+
+func (*jobValidationModePtr) ElementType() reflect.Type {
+	return jobValidationModePtrType
+}
+
+func (in *jobValidationModePtr) ToJobValidationModePtrOutput() JobValidationModePtrOutput {
+	return pulumi.ToOutput(in).(JobValidationModePtrOutput)
+}
+
+func (in *jobValidationModePtr) ToJobValidationModePtrOutputWithContext(ctx context.Context) JobValidationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobValidationModePtrOutput)
+}
+
 // Sample type
 type ProjectSampleType string
 
@@ -2026,6 +2189,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobSampleModePtrInput)(nil)).Elem(), JobSampleMode("FULL_DATASET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTypeInput)(nil)).Elem(), JobType("PROFILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTypePtrInput)(nil)).Elem(), JobType("PROFILE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobValidationModeInput)(nil)).Elem(), JobValidationMode("CHECK_ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobValidationModePtrInput)(nil)).Elem(), JobValidationMode("CHECK_ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSampleTypeInput)(nil)).Elem(), ProjectSampleType("FIRST_N"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSampleTypePtrInput)(nil)).Elem(), ProjectSampleType("FIRST_N"))
 	pulumi.RegisterOutputType(DatasetFilesLimitOrderOutput{})
@@ -2050,6 +2215,8 @@ func init() {
 	pulumi.RegisterOutputType(JobSampleModePtrOutput{})
 	pulumi.RegisterOutputType(JobTypeOutput{})
 	pulumi.RegisterOutputType(JobTypePtrOutput{})
+	pulumi.RegisterOutputType(JobValidationModeOutput{})
+	pulumi.RegisterOutputType(JobValidationModePtrOutput{})
 	pulumi.RegisterOutputType(ProjectSampleTypeOutput{})
 	pulumi.RegisterOutputType(ProjectSampleTypePtrOutput{})
 }

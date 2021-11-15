@@ -4644,6 +4644,112 @@ func (o JobTagArrayOutput) Index(i pulumi.IntInput) JobTagOutput {
 	}).(JobTagOutput)
 }
 
+// Configuration to attach Rulesets to the job
+type JobValidationConfiguration struct {
+	// Arn of the Ruleset
+	RulesetArn     string             `pulumi:"rulesetArn"`
+	ValidationMode *JobValidationMode `pulumi:"validationMode"`
+}
+
+// JobValidationConfigurationInput is an input type that accepts JobValidationConfigurationArgs and JobValidationConfigurationOutput values.
+// You can construct a concrete instance of `JobValidationConfigurationInput` via:
+//
+//          JobValidationConfigurationArgs{...}
+type JobValidationConfigurationInput interface {
+	pulumi.Input
+
+	ToJobValidationConfigurationOutput() JobValidationConfigurationOutput
+	ToJobValidationConfigurationOutputWithContext(context.Context) JobValidationConfigurationOutput
+}
+
+// Configuration to attach Rulesets to the job
+type JobValidationConfigurationArgs struct {
+	// Arn of the Ruleset
+	RulesetArn     pulumi.StringInput        `pulumi:"rulesetArn"`
+	ValidationMode JobValidationModePtrInput `pulumi:"validationMode"`
+}
+
+func (JobValidationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobValidationConfiguration)(nil)).Elem()
+}
+
+func (i JobValidationConfigurationArgs) ToJobValidationConfigurationOutput() JobValidationConfigurationOutput {
+	return i.ToJobValidationConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobValidationConfigurationArgs) ToJobValidationConfigurationOutputWithContext(ctx context.Context) JobValidationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobValidationConfigurationOutput)
+}
+
+// JobValidationConfigurationArrayInput is an input type that accepts JobValidationConfigurationArray and JobValidationConfigurationArrayOutput values.
+// You can construct a concrete instance of `JobValidationConfigurationArrayInput` via:
+//
+//          JobValidationConfigurationArray{ JobValidationConfigurationArgs{...} }
+type JobValidationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToJobValidationConfigurationArrayOutput() JobValidationConfigurationArrayOutput
+	ToJobValidationConfigurationArrayOutputWithContext(context.Context) JobValidationConfigurationArrayOutput
+}
+
+type JobValidationConfigurationArray []JobValidationConfigurationInput
+
+func (JobValidationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobValidationConfiguration)(nil)).Elem()
+}
+
+func (i JobValidationConfigurationArray) ToJobValidationConfigurationArrayOutput() JobValidationConfigurationArrayOutput {
+	return i.ToJobValidationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i JobValidationConfigurationArray) ToJobValidationConfigurationArrayOutputWithContext(ctx context.Context) JobValidationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobValidationConfigurationArrayOutput)
+}
+
+// Configuration to attach Rulesets to the job
+type JobValidationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobValidationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobValidationConfiguration)(nil)).Elem()
+}
+
+func (o JobValidationConfigurationOutput) ToJobValidationConfigurationOutput() JobValidationConfigurationOutput {
+	return o
+}
+
+func (o JobValidationConfigurationOutput) ToJobValidationConfigurationOutputWithContext(ctx context.Context) JobValidationConfigurationOutput {
+	return o
+}
+
+// Arn of the Ruleset
+func (o JobValidationConfigurationOutput) RulesetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v JobValidationConfiguration) string { return v.RulesetArn }).(pulumi.StringOutput)
+}
+
+func (o JobValidationConfigurationOutput) ValidationMode() JobValidationModePtrOutput {
+	return o.ApplyT(func(v JobValidationConfiguration) *JobValidationMode { return v.ValidationMode }).(JobValidationModePtrOutput)
+}
+
+type JobValidationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (JobValidationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobValidationConfiguration)(nil)).Elem()
+}
+
+func (o JobValidationConfigurationArrayOutput) ToJobValidationConfigurationArrayOutput() JobValidationConfigurationArrayOutput {
+	return o
+}
+
+func (o JobValidationConfigurationArrayOutput) ToJobValidationConfigurationArrayOutputWithContext(ctx context.Context) JobValidationConfigurationArrayOutput {
+	return o
+}
+
+func (o JobValidationConfigurationArrayOutput) Index(i pulumi.IntInput) JobValidationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobValidationConfiguration {
+		return vs[0].([]JobValidationConfiguration)[vs[1].(int)]
+	}).(JobValidationConfigurationOutput)
+}
+
 type ProjectSample struct {
 	// Sample size
 	Size *int `pulumi:"size"`
@@ -6747,6 +6853,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobStatisticsConfigurationPtrInput)(nil)).Elem(), JobStatisticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTagInput)(nil)).Elem(), JobTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTagArrayInput)(nil)).Elem(), JobTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobValidationConfigurationInput)(nil)).Elem(), JobValidationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobValidationConfigurationArrayInput)(nil)).Elem(), JobValidationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSampleInput)(nil)).Elem(), ProjectSampleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSamplePtrInput)(nil)).Elem(), ProjectSampleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
@@ -6836,6 +6944,8 @@ func init() {
 	pulumi.RegisterOutputType(JobStatisticsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobTagOutput{})
 	pulumi.RegisterOutputType(JobTagArrayOutput{})
+	pulumi.RegisterOutputType(JobValidationConfigurationOutput{})
+	pulumi.RegisterOutputType(JobValidationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSampleOutput{})
 	pulumi.RegisterOutputType(ProjectSamplePtrOutput{})
 	pulumi.RegisterOutputType(ProjectTagOutput{})

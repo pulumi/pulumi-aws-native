@@ -48,6 +48,8 @@ type Job struct {
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Job type
 	Type JobTypeOutput `pulumi:"type"`
+	// Data quality rules configuration
+	ValidationConfigurations JobValidationConfigurationArrayOutput `pulumi:"validationConfigurations"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -128,6 +130,8 @@ type jobArgs struct {
 	Timeout *int `pulumi:"timeout"`
 	// Job type
 	Type JobType `pulumi:"type"`
+	// Data quality rules configuration
+	ValidationConfigurations []JobValidationConfiguration `pulumi:"validationConfigurations"`
 }
 
 // The set of arguments for constructing a Job resource.
@@ -165,6 +169,8 @@ type JobArgs struct {
 	Timeout pulumi.IntPtrInput
 	// Job type
 	Type JobTypeInput
+	// Data quality rules configuration
+	ValidationConfigurations JobValidationConfigurationArrayInput
 }
 
 func (JobArgs) ElementType() reflect.Type {

@@ -45,6 +45,7 @@ __all__ = [
     'JobStatisticOverride',
     'JobStatisticsConfiguration',
     'JobTag',
+    'JobValidationConfiguration',
     'ProjectSample',
     'ProjectTag',
     'RecipeAction',
@@ -1428,6 +1429,55 @@ class JobTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobValidationConfiguration(dict):
+    """
+    Configuration to attach Rulesets to the job
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rulesetArn":
+            suggest = "ruleset_arn"
+        elif key == "validationMode":
+            suggest = "validation_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobValidationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobValidationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobValidationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ruleset_arn: str,
+                 validation_mode: Optional['JobValidationMode'] = None):
+        """
+        Configuration to attach Rulesets to the job
+        :param str ruleset_arn: Arn of the Ruleset
+        """
+        pulumi.set(__self__, "ruleset_arn", ruleset_arn)
+        if validation_mode is not None:
+            pulumi.set(__self__, "validation_mode", validation_mode)
+
+    @property
+    @pulumi.getter(name="rulesetArn")
+    def ruleset_arn(self) -> str:
+        """
+        Arn of the Ruleset
+        """
+        return pulumi.get(self, "ruleset_arn")
+
+    @property
+    @pulumi.getter(name="validationMode")
+    def validation_mode(self) -> Optional['JobValidationMode']:
+        return pulumi.get(self, "validation_mode")
 
 
 @pulumi.output_type

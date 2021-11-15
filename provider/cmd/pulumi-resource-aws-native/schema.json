@@ -11719,6 +11719,31 @@
                 }
             ]
         },
+        "aws-native:databrew:JobValidationConfiguration": {
+            "description": "Configuration to attach Rulesets to the job",
+            "properties": {
+                "rulesetArn": {
+                    "type": "string",
+                    "description": "Arn of the Ruleset"
+                },
+                "validationMode": {
+                    "$ref": "#/types/aws-native:databrew:JobValidationMode"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rulesetArn"
+            ]
+        },
+        "aws-native:databrew:JobValidationMode": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "CheckAll",
+                    "value": "CHECK_ALL"
+                }
+            ]
+        },
         "aws-native:databrew:ProjectSample": {
             "properties": {
                 "size": {
@@ -55480,6 +55505,13 @@
                 "type": {
                     "$ref": "#/types/aws-native:databrew:JobType",
                     "description": "Job type"
+                },
+                "validationConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:JobValidationConfiguration"
+                    },
+                    "description": "Data quality rules configuration"
                 }
             },
             "type": "object",
@@ -55571,6 +55603,13 @@
                 "type": {
                     "$ref": "#/types/aws-native:databrew:JobType",
                     "description": "Job type"
+                },
+                "validationConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:JobValidationConfiguration"
+                    },
+                    "description": "Data quality rules configuration"
                 }
             },
             "requiredInputs": [

@@ -44,6 +44,7 @@ __all__ = [
     'JobStatisticOverrideArgs',
     'JobStatisticsConfigurationArgs',
     'JobTagArgs',
+    'JobValidationConfigurationArgs',
     'ProjectSampleArgs',
     'ProjectTagArgs',
     'RecipeActionArgs',
@@ -1345,6 +1346,41 @@ class JobTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class JobValidationConfigurationArgs:
+    def __init__(__self__, *,
+                 ruleset_arn: pulumi.Input[str],
+                 validation_mode: Optional[pulumi.Input['JobValidationMode']] = None):
+        """
+        Configuration to attach Rulesets to the job
+        :param pulumi.Input[str] ruleset_arn: Arn of the Ruleset
+        """
+        pulumi.set(__self__, "ruleset_arn", ruleset_arn)
+        if validation_mode is not None:
+            pulumi.set(__self__, "validation_mode", validation_mode)
+
+    @property
+    @pulumi.getter(name="rulesetArn")
+    def ruleset_arn(self) -> pulumi.Input[str]:
+        """
+        Arn of the Ruleset
+        """
+        return pulumi.get(self, "ruleset_arn")
+
+    @ruleset_arn.setter
+    def ruleset_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ruleset_arn", value)
+
+    @property
+    @pulumi.getter(name="validationMode")
+    def validation_mode(self) -> Optional[pulumi.Input['JobValidationMode']]:
+        return pulumi.get(self, "validation_mode")
+
+    @validation_mode.setter
+    def validation_mode(self, value: Optional[pulumi.Input['JobValidationMode']]):
+        pulumi.set(self, "validation_mode", value)
 
 
 @pulumi.input_type

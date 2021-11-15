@@ -16,6 +16,7 @@ __all__ = [
     'JobOutputFormat',
     'JobSampleMode',
     'JobType',
+    'JobValidationMode',
     'ProjectSampleType',
 ]
 
@@ -114,6 +115,10 @@ class JobType(str, Enum):
     """
     PROFILE = "PROFILE"
     RECIPE = "RECIPE"
+
+
+class JobValidationMode(str, Enum):
+    CHECK_ALL = "CHECK_ALL"
 
 
 class ProjectSampleType(str, Enum):
