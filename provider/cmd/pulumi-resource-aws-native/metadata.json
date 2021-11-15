@@ -6292,6 +6292,13 @@
                 "type": {
                     "$ref": "#/types/aws-native:databrew:JobType",
                     "description": "Job type"
+                },
+                "validationConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:JobValidationConfiguration"
+                    },
+                    "description": "Data quality rules configuration"
                 }
             },
             "outputs": {
@@ -6377,6 +6384,13 @@
                 "type": {
                     "$ref": "#/types/aws-native:databrew:JobType",
                     "description": "Job type"
+                },
+                "validationConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:JobValidationConfiguration"
+                    },
+                    "description": "Data quality rules configuration"
                 }
             },
             "autoNamingSpec": {
@@ -37795,6 +37809,21 @@
             }
         },
         "aws-native:databrew:JobType": {
+            "type": "string"
+        },
+        "aws-native:databrew:JobValidationConfiguration": {
+            "type": "object",
+            "properties": {
+                "rulesetArn": {
+                    "type": "string",
+                    "description": "Arn of the Ruleset"
+                },
+                "validationMode": {
+                    "$ref": "#/types/aws-native:databrew:JobValidationMode"
+                }
+            }
+        },
+        "aws-native:databrew:JobValidationMode": {
             "type": "string"
         },
         "aws-native:databrew:ProjectSample": {

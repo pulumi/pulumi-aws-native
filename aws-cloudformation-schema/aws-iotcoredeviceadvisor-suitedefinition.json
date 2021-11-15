@@ -1,7 +1,7 @@
 {
   "typeName" : "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
   "description" : "An example resource schema demonstrating some basic constructs and validation rules.",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-device-advisor.git",
   "definitions" : {
     "DeviceUnderTest" : {
       "type" : "object",
@@ -138,6 +138,9 @@
     },
     "delete" : {
       "permissions" : [ "iotdeviceadvisor:DeleteSuiteDefinition" ]
+    },
+    "list" : {
+      "permissions" : [ "iotdeviceadvisor:ListSuiteDefinitions" ]
     }
   }
 }
