@@ -1,9 +1,13 @@
 ## HEAD (Unreleased)
 
-- Improve retry logic to avoid excessive requests to APIs
-  [#192](https://github.com/pulumi/pulumi-aws-native/issues/192)
+(None)
 
 ---
+
+## 0.5.0 (November 15, 2021)
+
+- Improve retry logic to avoid excessive requests to APIs
+  [#192](https://github.com/pulumi/pulumi-aws-native/issues/192)
 
 ## 0.4.0 (November 8, 2021)
 
