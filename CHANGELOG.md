@@ -1,6 +1,6 @@
 ## HEAD (Unreleased)
-
-(None)
+- Add support for specifying max retries
+  [#112](https://github.com/pulumi/pulumi-aws-native/pull/227)
 
 ---
 

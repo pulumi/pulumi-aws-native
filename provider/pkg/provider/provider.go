@@ -26,10 +26,12 @@ import (
 	"path/filepath"
 	"regexp"
 	"runtime"
+	"strconv"
 	"strings"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/aws/retry"
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
@@ -57,9 +59,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-	"google.golang.org/protobuf/types/known/structpb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/structpb"
 )
 
 type cancellationContext struct {
@@ -181,9 +183,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 		case "insecure":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/111")})
-		case "maxRetries":
-			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/112")})
 		case "s3ForcePathStyle":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/113")})
@@ -362,6 +361,14 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 				}
 			})
 		cfg.Credentials = aws.NewCredentialsCache(creds)
+	}
+
+	if maxRetries, ok := vars["aws-native:config:maxRetries"]; ok && cfg.Retryer == nil {
+		num, err := strconv.Atoi(maxRetries)
+		if err != nil {
+			return nil, fmt.Errorf("invalid value for 'maxRetries': %q: %w", maxRetries, err)
+		}
+		cfg.Retryer = func() aws.Retryer { return retry.AddWithMaxAttempts(retry.NewStandard(), num) }
 	}
 
 	p.cfn, p.cctl, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), cloudcontrol.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
@@ -558,8 +565,6 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	}
 	return &pulumirpc.CheckResponse{Failures: checkFailures}, nil
 }
-
-
 
 func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
