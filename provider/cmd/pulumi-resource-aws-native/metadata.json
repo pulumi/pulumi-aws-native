@@ -18510,6 +18510,10 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the event source."
                 },
+                "filterCriteria": {
+                    "$ref": "#/types/aws-native:lambda:FilterCriteriaProperties",
+                    "description": "The filter criteria to control event filtering."
+                },
                 "functionName": {
                     "type": "string",
                     "description": "The name of the Lambda function."
@@ -18595,6 +18599,10 @@
                 "eventSourceArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the event source."
+                },
+                "filterCriteria": {
+                    "$ref": "#/types/aws-native:lambda:FilterCriteriaProperties",
+                    "description": "The filter criteria to control event filtering."
                 },
                 "functionName": {
                     "type": "string",
@@ -19875,6 +19883,13 @@
                 "retentionInDays": {
                     "type": "integer",
                     "description": "The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:logs:LogGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 }
             },
             "outputs": {
@@ -19893,6 +19908,13 @@
                 "retentionInDays": {
                     "type": "integer",
                     "description": "The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:logs:LogGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 }
             },
             "autoNamingSpec": {
@@ -42122,11 +42144,22 @@
         "aws-native:eks:ClusterKubernetesNetworkConfig": {
             "type": "object",
             "properties": {
+                "ipFamily": {
+                    "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfigIpFamily",
+                    "description": "Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21"
+                },
                 "serviceIpv4Cidr": {
                     "type": "string",
                     "description": "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. "
+                },
+                "serviceIpv6Cidr": {
+                    "type": "string",
+                    "description": "The CIDR block to assign Kubernetes service IP addresses from."
                 }
             }
+        },
+        "aws-native:eks:ClusterKubernetesNetworkConfigIpFamily": {
+            "type": "string"
         },
         "aws-native:eks:ClusterLogging": {
             "type": "object",
@@ -49595,6 +49628,15 @@
                 }
             }
         },
+        "aws-native:lambda:EventSourceMappingFilter": {
+            "type": "object",
+            "properties": {
+                "pattern": {
+                    "type": "string",
+                    "description": "The filter pattern that defines which events should be passed for invocations."
+                }
+            }
+        },
         "aws-native:lambda:EventSourceMappingFunctionResponseTypesItem": {
             "type": "string"
         },
@@ -49631,6 +49673,18 @@
         },
         "aws-native:lambda:EventSourceMappingSourceAccessConfigurationType": {
             "type": "string"
+        },
+        "aws-native:lambda:FilterCriteriaProperties": {
+            "type": "object",
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lambda:EventSourceMappingFilter"
+                    },
+                    "description": "List of filters of this FilterCriteria"
+                }
+            }
         },
         "aws-native:lambda:FunctionArchitecturesItem": {
             "type": "string"
@@ -50187,6 +50241,19 @@
         },
         "aws-native:location:TrackerPricingPlan": {
             "type": "string"
+        },
+        "aws-native:logs:LogGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @."
+                }
+            }
         },
         "aws-native:lookoutmetrics:AlertAction": {
             "type": "object",

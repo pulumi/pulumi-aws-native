@@ -141,6 +141,15 @@
         "ServiceIpv4Cidr" : {
           "description" : "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. ",
           "type" : "string"
+        },
+        "ServiceIpv6Cidr" : {
+          "description" : "The CIDR block to assign Kubernetes service IP addresses from.",
+          "type" : "string"
+        },
+        "IpFamily" : {
+          "description" : "Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21",
+          "type" : "string",
+          "enum" : [ "ipv4", "ipv6" ]
         }
       }
     }
@@ -218,7 +227,7 @@
   "required" : [ "RoleArn", "ResourcesVpcConfig" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "createOnlyProperties" : [ "/properties/EncryptionConfig", "/properties/KubernetesNetworkConfig", "/properties/Name", "/properties/RoleArn", "/properties/ResourcesVpcConfig/SubnetIds", "/properties/ResourcesVpcConfig/SecurityGroupIds" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Endpoint", "/properties/CertificateAuthorityData", "/properties/ClusterSecurityGroupId", "/properties/EncryptionConfigKeyArn", "/properties/OpenIdConnectIssuerUrl" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Endpoint", "/properties/CertificateAuthorityData", "/properties/ClusterSecurityGroupId", "/properties/EncryptionConfigKeyArn", "/properties/OpenIdConnectIssuerUrl", "/properties/KubernetesNetworkConfig/ServiceIpv6Cidr" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "eks:CreateCluster", "eks:DescribeCluster", "eks:TagResource", "iam:PassRole", "kms:DescribeKey", "kms:CreateGrant" ]
