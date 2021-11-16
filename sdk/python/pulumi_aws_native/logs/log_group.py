@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LogGroupArgs', 'LogGroup']
 
@@ -15,12 +17,14 @@ class LogGroupArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_in_days: Optional[pulumi.Input[int]] = None):
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a LogGroup resource.
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         :param pulumi.Input[str] log_group_name: The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         :param pulumi.Input[int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+        :param pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -28,6 +32,8 @@ class LogGroupArgs:
             pulumi.set(__self__, "log_group_name", log_group_name)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -65,6 +71,18 @@ class LogGroupArgs:
     def retention_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_in_days", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class LogGroup(pulumi.CustomResource):
     @overload
@@ -74,6 +92,7 @@ class LogGroup(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogGroupTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Logs::LogGroup
@@ -83,6 +102,7 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         :param pulumi.Input[str] log_group_name: The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         :param pulumi.Input[int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -111,6 +131,7 @@ class LogGroup(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogGroupTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -126,6 +147,7 @@ class LogGroup(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_group_name"] = log_group_name
             __props__.__dict__["retention_in_days"] = retention_in_days
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(LogGroup, __self__).__init__(
             'aws-native:logs:LogGroup',
@@ -153,6 +175,7 @@ class LogGroup(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["log_group_name"] = None
         __props__.__dict__["retention_in_days"] = None
+        __props__.__dict__["tags"] = None
         return LogGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -186,4 +209,12 @@ class LogGroup(pulumi.CustomResource):
         The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
         """
         return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LogGroupTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

@@ -37,4 +37,35 @@ namespace Pulumi.AwsNative.EKS
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterKubernetesNetworkConfigIpFamily : IEquatable<ClusterKubernetesNetworkConfigIpFamily>
+    {
+        private readonly string _value;
+
+        private ClusterKubernetesNetworkConfigIpFamily(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterKubernetesNetworkConfigIpFamily Ipv4 { get; } = new ClusterKubernetesNetworkConfigIpFamily("ipv4");
+        public static ClusterKubernetesNetworkConfigIpFamily Ipv6 { get; } = new ClusterKubernetesNetworkConfigIpFamily("ipv6");
+
+        public static bool operator ==(ClusterKubernetesNetworkConfigIpFamily left, ClusterKubernetesNetworkConfigIpFamily right) => left.Equals(right);
+        public static bool operator !=(ClusterKubernetesNetworkConfigIpFamily left, ClusterKubernetesNetworkConfigIpFamily right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterKubernetesNetworkConfigIpFamily value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterKubernetesNetworkConfigIpFamily other && Equals(other);
+        public bool Equals(ClusterKubernetesNetworkConfigIpFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -9976,9 +9976,17 @@ export namespace eks {
      */
     export interface ClusterKubernetesNetworkConfig {
         /**
+         * Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+         */
+        ipFamily?: enums.eks.ClusterKubernetesNetworkConfigIpFamily;
+        /**
          * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
          */
         serviceIpv4Cidr?: string;
+        /**
+         * The CIDR block to assign Kubernetes service IP addresses from.
+         */
+        serviceIpv6Cidr?: string;
     }
 
     /**
@@ -16779,6 +16787,16 @@ export namespace lambda {
     }
 
     /**
+     * The filter object that defines parameters for ESM filtering.
+     */
+    export interface EventSourceMappingFilter {
+        /**
+         * The filter pattern that defines which events should be passed for invocations.
+         */
+        pattern?: string;
+    }
+
+    /**
      * A destination for events that failed processing.
      */
     export interface EventSourceMappingOnFailure {
@@ -16810,6 +16828,16 @@ export namespace lambda {
          * The URI for the source access configuration resource.
          */
         uRI?: string;
+    }
+
+    /**
+     * The filter criteria to control event filtering.
+     */
+    export interface FilterCriteriaProperties {
+        /**
+         * List of filters of this FilterCriteria
+         */
+        filters?: outputs.lambda.EventSourceMappingFilter[];
     }
 
     export interface FunctionCode {
@@ -17273,6 +17301,20 @@ export namespace location {
 }
 
 export namespace logs {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LogGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @.
+         */
+        value: string;
+    }
+
     export interface MetricFilterMetricTransformation {
         defaultValue?: number;
         metricName: string;

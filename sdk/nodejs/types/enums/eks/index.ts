@@ -11,3 +11,13 @@ export const AddonResolveConflicts = {
  * Resolve parameter value conflicts
  */
 export type AddonResolveConflicts = (typeof AddonResolveConflicts)[keyof typeof AddonResolveConflicts];
+
+export const ClusterKubernetesNetworkConfigIpFamily = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+} as const;
+
+/**
+ * Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+ */
+export type ClusterKubernetesNetworkConfigIpFamily = (typeof ClusterKubernetesNetworkConfigIpFamily)[keyof typeof ClusterKubernetesNetworkConfigIpFamily];

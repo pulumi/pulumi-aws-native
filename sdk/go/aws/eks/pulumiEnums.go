@@ -175,9 +175,178 @@ func (in *addonResolveConflictsPtr) ToAddonResolveConflictsPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(AddonResolveConflictsPtrOutput)
 }
 
+// Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+type ClusterKubernetesNetworkConfigIpFamily string
+
+const (
+	ClusterKubernetesNetworkConfigIpFamilyIpv4 = ClusterKubernetesNetworkConfigIpFamily("ipv4")
+	ClusterKubernetesNetworkConfigIpFamilyIpv6 = ClusterKubernetesNetworkConfigIpFamily("ipv6")
+)
+
+func (ClusterKubernetesNetworkConfigIpFamily) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamily)(nil)).Elem()
+}
+
+func (e ClusterKubernetesNetworkConfigIpFamily) ToClusterKubernetesNetworkConfigIpFamilyOutput() ClusterKubernetesNetworkConfigIpFamilyOutput {
+	return pulumi.ToOutput(e).(ClusterKubernetesNetworkConfigIpFamilyOutput)
+}
+
+func (e ClusterKubernetesNetworkConfigIpFamily) ToClusterKubernetesNetworkConfigIpFamilyOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterKubernetesNetworkConfigIpFamilyOutput)
+}
+
+func (e ClusterKubernetesNetworkConfigIpFamily) ToClusterKubernetesNetworkConfigIpFamilyPtrOutput() ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
+	return e.ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterKubernetesNetworkConfigIpFamily) ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
+	return ClusterKubernetesNetworkConfigIpFamily(e).ToClusterKubernetesNetworkConfigIpFamilyOutputWithContext(ctx).ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx)
+}
+
+func (e ClusterKubernetesNetworkConfigIpFamily) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterKubernetesNetworkConfigIpFamily) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterKubernetesNetworkConfigIpFamily) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterKubernetesNetworkConfigIpFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterKubernetesNetworkConfigIpFamilyOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigIpFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamily)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToClusterKubernetesNetworkConfigIpFamilyOutput() ClusterKubernetesNetworkConfigIpFamilyOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToClusterKubernetesNetworkConfigIpFamilyOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToClusterKubernetesNetworkConfigIpFamilyPtrOutput() ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
+	return o.ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubernetesNetworkConfigIpFamily) *ClusterKubernetesNetworkConfigIpFamily {
+		return &v
+	}).(ClusterKubernetesNetworkConfigIpFamilyPtrOutput)
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterKubernetesNetworkConfigIpFamily) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterKubernetesNetworkConfigIpFamily) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigIpFamilyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfigIpFamily)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToClusterKubernetesNetworkConfigIpFamilyPtrOutput() ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) Elem() ClusterKubernetesNetworkConfigIpFamilyOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfigIpFamily) ClusterKubernetesNetworkConfigIpFamily {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubernetesNetworkConfigIpFamily
+		return ret
+	}).(ClusterKubernetesNetworkConfigIpFamilyOutput)
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterKubernetesNetworkConfigIpFamily) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterKubernetesNetworkConfigIpFamilyInput is an input type that accepts ClusterKubernetesNetworkConfigIpFamilyArgs and ClusterKubernetesNetworkConfigIpFamilyOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigIpFamilyInput` via:
+//
+//          ClusterKubernetesNetworkConfigIpFamilyArgs{...}
+type ClusterKubernetesNetworkConfigIpFamilyInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigIpFamilyOutput() ClusterKubernetesNetworkConfigIpFamilyOutput
+	ToClusterKubernetesNetworkConfigIpFamilyOutputWithContext(context.Context) ClusterKubernetesNetworkConfigIpFamilyOutput
+}
+
+var clusterKubernetesNetworkConfigIpFamilyPtrType = reflect.TypeOf((**ClusterKubernetesNetworkConfigIpFamily)(nil)).Elem()
+
+type ClusterKubernetesNetworkConfigIpFamilyPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigIpFamilyPtrOutput() ClusterKubernetesNetworkConfigIpFamilyPtrOutput
+	ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(context.Context) ClusterKubernetesNetworkConfigIpFamilyPtrOutput
+}
+
+type clusterKubernetesNetworkConfigIpFamilyPtr string
+
+func ClusterKubernetesNetworkConfigIpFamilyPtr(v string) ClusterKubernetesNetworkConfigIpFamilyPtrInput {
+	return (*clusterKubernetesNetworkConfigIpFamilyPtr)(&v)
+}
+
+func (*clusterKubernetesNetworkConfigIpFamilyPtr) ElementType() reflect.Type {
+	return clusterKubernetesNetworkConfigIpFamilyPtrType
+}
+
+func (in *clusterKubernetesNetworkConfigIpFamilyPtr) ToClusterKubernetesNetworkConfigIpFamilyPtrOutput() ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
+	return pulumi.ToOutput(in).(ClusterKubernetesNetworkConfigIpFamilyPtrOutput)
+}
+
+func (in *clusterKubernetesNetworkConfigIpFamilyPtr) ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterKubernetesNetworkConfigIpFamilyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonResolveConflictsInput)(nil)).Elem(), AddonResolveConflicts("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonResolveConflictsPtrInput)(nil)).Elem(), AddonResolveConflicts("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamilyInput)(nil)).Elem(), ClusterKubernetesNetworkConfigIpFamily("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamilyPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigIpFamily("ipv4"))
 	pulumi.RegisterOutputType(AddonResolveConflictsOutput{})
 	pulumi.RegisterOutputType(AddonResolveConflictsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigIpFamilyOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigIpFamilyPtrOutput{})
 }

@@ -21,9 +21,11 @@ __all__ = [
     'EventInvokeConfigOnSuccess',
     'EventSourceMappingDestinationConfig',
     'EventSourceMappingEndpoints',
+    'EventSourceMappingFilter',
     'EventSourceMappingOnFailure',
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSourceAccessConfiguration',
+    'FilterCriteriaProperties',
     'FunctionCode',
     'FunctionDeadLetterConfig',
     'FunctionEnvironment',
@@ -355,6 +357,29 @@ class EventSourceMappingEndpoints(dict):
 
 
 @pulumi.output_type
+class EventSourceMappingFilter(dict):
+    """
+    The filter object that defines parameters for ESM filtering.
+    """
+    def __init__(__self__, *,
+                 pattern: Optional[str] = None):
+        """
+        The filter object that defines parameters for ESM filtering.
+        :param str pattern: The filter pattern that defines which events should be passed for invocations.
+        """
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[str]:
+        """
+        The filter pattern that defines which events should be passed for invocations.
+        """
+        return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
 class EventSourceMappingOnFailure(dict):
     """
     A destination for events that failed processing.
@@ -450,6 +475,29 @@ class EventSourceMappingSourceAccessConfiguration(dict):
         The URI for the source access configuration resource.
         """
         return pulumi.get(self, "u_ri")
+
+
+@pulumi.output_type
+class FilterCriteriaProperties(dict):
+    """
+    The filter criteria to control event filtering.
+    """
+    def __init__(__self__, *,
+                 filters: Optional[Sequence['outputs.EventSourceMappingFilter']] = None):
+        """
+        The filter criteria to control event filtering.
+        :param Sequence['EventSourceMappingFilter'] filters: List of filters of this FilterCriteria
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.EventSourceMappingFilter']]:
+        """
+        List of filters of this FilterCriteria
+        """
+        return pulumi.get(self, "filters")
 
 
 @pulumi.output_type

@@ -144,8 +144,12 @@ class ClusterKubernetesNetworkConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "serviceIpv4Cidr":
+        if key == "ipFamily":
+            suggest = "ip_family"
+        elif key == "serviceIpv4Cidr":
             suggest = "service_ipv4_cidr"
+        elif key == "serviceIpv6Cidr":
+            suggest = "service_ipv6_cidr"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterKubernetesNetworkConfig. Access the value via the '{suggest}' property getter instead.")
@@ -159,13 +163,29 @@ class ClusterKubernetesNetworkConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 service_ipv4_cidr: Optional[str] = None):
+                 ip_family: Optional['ClusterKubernetesNetworkConfigIpFamily'] = None,
+                 service_ipv4_cidr: Optional[str] = None,
+                 service_ipv6_cidr: Optional[str] = None):
         """
         The Kubernetes network configuration for the cluster.
+        :param 'ClusterKubernetesNetworkConfigIpFamily' ip_family: Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
         :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
+        :param str service_ipv6_cidr: The CIDR block to assign Kubernetes service IP addresses from.
         """
+        if ip_family is not None:
+            pulumi.set(__self__, "ip_family", ip_family)
         if service_ipv4_cidr is not None:
             pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
+        if service_ipv6_cidr is not None:
+            pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
+
+    @property
+    @pulumi.getter(name="ipFamily")
+    def ip_family(self) -> Optional['ClusterKubernetesNetworkConfigIpFamily']:
+        """
+        Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+        """
+        return pulumi.get(self, "ip_family")
 
     @property
     @pulumi.getter(name="serviceIpv4Cidr")
@@ -174,6 +194,14 @@ class ClusterKubernetesNetworkConfig(dict):
         The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
         """
         return pulumi.get(self, "service_ipv4_cidr")
+
+    @property
+    @pulumi.getter(name="serviceIpv6Cidr")
+    def service_ipv6_cidr(self) -> Optional[str]:
+        """
+        The CIDR block to assign Kubernetes service IP addresses from.
+        """
+        return pulumi.get(self, "service_ipv6_cidr")
 
 
 @pulumi.output_type

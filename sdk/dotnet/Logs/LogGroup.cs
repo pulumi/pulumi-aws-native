@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.Logs
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.LogGroupTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LogGroup resource with the given unique name, arguments, and options.
@@ -101,6 +107,18 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.LogGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Inputs.LogGroupTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.LogGroupTagArgs>());
+            set => _tags = value;
+        }
 
         public LogGroupArgs()
         {

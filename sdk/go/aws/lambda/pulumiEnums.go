@@ -387,12 +387,14 @@ func (o EventSourceMappingFunctionResponseTypesItemArrayOutput) Index(i pulumi.I
 type EventSourceMappingSourceAccessConfigurationType string
 
 const (
-	EventSourceMappingSourceAccessConfigurationTypeBasicAuth        = EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeVpcSubnet        = EventSourceMappingSourceAccessConfigurationType("VPC_SUBNET")
-	EventSourceMappingSourceAccessConfigurationTypeVpcSecurityGroup = EventSourceMappingSourceAccessConfigurationType("VPC_SECURITY_GROUP")
-	EventSourceMappingSourceAccessConfigurationTypeSaslScram512Auth = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_512_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeSaslScram256Auth = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_256_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeVirtualHost      = EventSourceMappingSourceAccessConfigurationType("VIRTUAL_HOST")
+	EventSourceMappingSourceAccessConfigurationTypeBasicAuth                = EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeVpcSubnet                = EventSourceMappingSourceAccessConfigurationType("VPC_SUBNET")
+	EventSourceMappingSourceAccessConfigurationTypeVpcSecurityGroup         = EventSourceMappingSourceAccessConfigurationType("VPC_SECURITY_GROUP")
+	EventSourceMappingSourceAccessConfigurationTypeSaslScram512Auth         = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_512_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeSaslScram256Auth         = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_256_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeVirtualHost              = EventSourceMappingSourceAccessConfigurationType("VIRTUAL_HOST")
+	EventSourceMappingSourceAccessConfigurationTypeClientCertificateTlsAuth = EventSourceMappingSourceAccessConfigurationType("CLIENT_CERTIFICATE_TLS_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeServerRootCaCertificate  = EventSourceMappingSourceAccessConfigurationType("SERVER_ROOT_CA_CERTIFICATE")
 )
 
 func (EventSourceMappingSourceAccessConfigurationType) ElementType() reflect.Type {

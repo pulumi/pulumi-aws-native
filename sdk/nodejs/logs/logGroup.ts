@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -50,6 +51,10 @@ export class LogGroup extends pulumi.CustomResource {
      * The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.logs.LogGroupTag[] | undefined>;
 
     /**
      * Create a LogGroup resource with the given unique name, arguments, and options.
@@ -65,12 +70,14 @@ export class LogGroup extends pulumi.CustomResource {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["logGroupName"] = undefined /*out*/;
             inputs["retentionInDays"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -95,4 +102,8 @@ export interface LogGroupArgs {
      * The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
      */
     retentionInDays?: pulumi.Input<number>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.logs.LogGroupTagArgs>[]>;
 }

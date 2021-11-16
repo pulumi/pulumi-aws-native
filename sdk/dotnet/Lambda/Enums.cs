@@ -84,6 +84,8 @@ namespace Pulumi.AwsNative.Lambda
         public static EventSourceMappingSourceAccessConfigurationType SaslScram512Auth { get; } = new EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_512_AUTH");
         public static EventSourceMappingSourceAccessConfigurationType SaslScram256Auth { get; } = new EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_256_AUTH");
         public static EventSourceMappingSourceAccessConfigurationType VirtualHost { get; } = new EventSourceMappingSourceAccessConfigurationType("VIRTUAL_HOST");
+        public static EventSourceMappingSourceAccessConfigurationType ClientCertificateTlsAuth { get; } = new EventSourceMappingSourceAccessConfigurationType("CLIENT_CERTIFICATE_TLS_AUTH");
+        public static EventSourceMappingSourceAccessConfigurationType ServerRootCaCertificate { get; } = new EventSourceMappingSourceAccessConfigurationType("SERVER_ROOT_CA_CERTIFICATE");
 
         public static bool operator ==(EventSourceMappingSourceAccessConfigurationType left, EventSourceMappingSourceAccessConfigurationType right) => left.Equals(right);
         public static bool operator !=(EventSourceMappingSourceAccessConfigurationType left, EventSourceMappingSourceAccessConfigurationType right) => !left.Equals(right);

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AddonResolveConflicts',
+    'ClusterKubernetesNetworkConfigIpFamily',
 ]
 
 
@@ -15,3 +16,11 @@ class AddonResolveConflicts(str, Enum):
     """
     NONE = "NONE"
     OVERWRITE = "OVERWRITE"
+
+
+class ClusterKubernetesNetworkConfigIpFamily(str, Enum):
+    """
+    Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+    """
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"

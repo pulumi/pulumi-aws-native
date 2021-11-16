@@ -16,10 +16,22 @@ namespace Pulumi.AwsNative.EKS.Inputs
     public sealed class ClusterKubernetesNetworkConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+        /// </summary>
+        [Input("ipFamily")]
+        public Input<Pulumi.AwsNative.EKS.ClusterKubernetesNetworkConfigIpFamily>? IpFamily { get; set; }
+
+        /// <summary>
         /// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
         /// </summary>
         [Input("serviceIpv4Cidr")]
         public Input<string>? ServiceIpv4Cidr { get; set; }
+
+        /// <summary>
+        /// The CIDR block to assign Kubernetes service IP addresses from.
+        /// </summary>
+        [Input("serviceIpv6Cidr")]
+        public Input<string>? ServiceIpv6Cidr { get; set; }
 
         public ClusterKubernetesNetworkConfigArgs()
         {

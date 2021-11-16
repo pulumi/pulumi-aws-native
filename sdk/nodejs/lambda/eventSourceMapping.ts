@@ -56,6 +56,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly eventSourceArn!: pulumi.Output<string | undefined>;
     /**
+     * The filter criteria to control event filtering.
+     */
+    public readonly filterCriteria!: pulumi.Output<outputs.lambda.FilterCriteriaProperties | undefined>;
+    /**
      * The name of the Lambda function.
      */
     public readonly functionName!: pulumi.Output<string>;
@@ -127,6 +131,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["destinationConfig"] = args ? args.destinationConfig : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
+            inputs["filterCriteria"] = args ? args.filterCriteria : undefined;
             inputs["functionName"] = args ? args.functionName : undefined;
             inputs["functionResponseTypes"] = args ? args.functionResponseTypes : undefined;
             inputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
@@ -146,6 +151,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["destinationConfig"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
             inputs["eventSourceArn"] = undefined /*out*/;
+            inputs["filterCriteria"] = undefined /*out*/;
             inputs["functionName"] = undefined /*out*/;
             inputs["functionResponseTypes"] = undefined /*out*/;
             inputs["maximumBatchingWindowInSeconds"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface EventSourceMappingArgs {
      * The Amazon Resource Name (ARN) of the event source.
      */
     eventSourceArn?: pulumi.Input<string>;
+    /**
+     * The filter criteria to control event filtering.
+     */
+    filterCriteria?: pulumi.Input<inputs.lambda.FilterCriteriaPropertiesArgs>;
     /**
      * The name of the Lambda function.
      */
