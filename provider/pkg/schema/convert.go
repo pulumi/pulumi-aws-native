@@ -3,14 +3,12 @@
 package schema
 
 import (
-	"encoding/json"
 	"reflect"
 	"strings"
 
 	"github.com/mattbaird/jsonpatch"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // SdkToCfn converts Pulumi-SDK-shaped state to CloudFormation-shaped payload. In particular, SDK properties
@@ -132,9 +130,7 @@ func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.P
 	default:
 		sdkObj := value.MapRepl(nil, nil)
 		cfnObj := c.sdkTypedValueToCfn(&prop.TypeSpec, sdkObj)
-		jsonBytes, err := json.Marshal(cfnObj)
-		contract.AssertNoError(err)
-		op.Value = string(jsonBytes)
+		op.Value = cfnObj
 	}
 	return op
 }

@@ -50,7 +50,12 @@ func TestDiffToPatch(t *testing.T) {
 		jsonpatch.NewPatch("replace", "/EnableECSManagedTags", true),
 		jsonpatch.NewPatch("add", "/LaunchType", "FARGATE"),
 		jsonpatch.NewPatch("replace", "/LoadBalancers",
-			"[{\"ContainerName\":\"my-app\",\"ContainerPort\":80}]"),
+			[]interface{}{
+				map[string]interface{}{
+					"ContainerName": "my-app",
+					"ContainerPort": 80.,
+				},
+		}),
 		jsonpatch.NewPatch("remove", "/PlatformVersion", nil),
 	}
 	res := sampleSchema.Resources["aws-native:ecs:Service"]
