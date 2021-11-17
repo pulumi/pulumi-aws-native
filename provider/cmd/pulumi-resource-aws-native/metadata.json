@@ -2096,6 +2096,226 @@
                 "tags"
             ]
         },
+        "aws-native:appstream:AppBlock": {
+            "cf": "AWS::AppStream::AppBlock",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "setupScriptDetails": {
+                    "$ref": "#/types/aws-native:appstream:AppBlockScriptDetails"
+                },
+                "sourceS3Location": {
+                    "$ref": "#/types/aws-native:appstream:AppBlockS3Location"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appstream:AppBlockTag"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "setupScriptDetails": {
+                    "$ref": "#/types/aws-native:appstream:AppBlockScriptDetails"
+                },
+                "sourceS3Location": {
+                    "$ref": "#/types/aws-native:appstream:AppBlockS3Location"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appstream:AppBlockTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "setupScriptDetails",
+                "sourceS3Location"
+            ],
+            "createOnly": [
+                "description",
+                "displayName",
+                "name",
+                "setupScriptDetails",
+                "sourceS3Location"
+            ]
+        },
+        "aws-native:appstream:Application": {
+            "cf": "AWS::AppStream::Application",
+            "inputs": {
+                "appBlockArn": {
+                    "type": "string"
+                },
+                "attributesToDelete": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "iconS3Location": {
+                    "$ref": "#/types/aws-native:appstream:ApplicationS3Location"
+                },
+                "instanceFamilies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "launchParameters": {
+                    "type": "string"
+                },
+                "launchPath": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "platforms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appstream:ApplicationTag"
+                    }
+                },
+                "workingDirectory": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "appBlockArn": {
+                    "type": "string"
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "attributesToDelete": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "iconS3Location": {
+                    "$ref": "#/types/aws-native:appstream:ApplicationS3Location"
+                },
+                "instanceFamilies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "launchParameters": {
+                    "type": "string"
+                },
+                "launchPath": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "platforms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appstream:ApplicationTag"
+                    }
+                },
+                "workingDirectory": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "appBlockArn",
+                "iconS3Location",
+                "instanceFamilies",
+                "launchPath",
+                "platforms"
+            ],
+            "createOnly": [
+                "instanceFamilies",
+                "name",
+                "platforms"
+            ]
+        },
+        "aws-native:appstream:ApplicationFleetAssociation": {
+            "cf": "AWS::AppStream::ApplicationFleetAssociation",
+            "inputs": {
+                "applicationArn": {
+                    "type": "string"
+                },
+                "fleetName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "applicationArn": {
+                    "type": "string"
+                },
+                "fleetName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "applicationArn",
+                "fleetName"
+            ],
+            "createOnly": [
+                "applicationArn",
+                "fleetName"
+            ]
+        },
         "aws-native:aps:RuleGroupsNamespace": {
             "cf": "AWS::APS::RuleGroupsNamespace",
             "inputs": {
@@ -34416,6 +34636,67 @@
                     "type": "string"
                 },
                 "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:AppBlockS3Location": {
+            "type": "object",
+            "properties": {
+                "s3Bucket": {
+                    "type": "string"
+                },
+                "s3Key": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:AppBlockScriptDetails": {
+            "type": "object",
+            "properties": {
+                "executableParameters": {
+                    "type": "string"
+                },
+                "executablePath": {
+                    "type": "string"
+                },
+                "scriptS3Location": {
+                    "$ref": "#/types/aws-native:appstream:AppBlockS3Location"
+                },
+                "timeoutInSeconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:appstream:AppBlockTag": {
+            "type": "object",
+            "properties": {
+                "tagKey": {
+                    "type": "string"
+                },
+                "tagValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:ApplicationS3Location": {
+            "type": "object",
+            "properties": {
+                "s3Bucket": {
+                    "type": "string"
+                },
+                "s3Key": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:ApplicationTag": {
+            "type": "object",
+            "properties": {
+                "tagKey": {
+                    "type": "string"
+                },
+                "tagValue": {
                     "type": "string"
                 }
             }
