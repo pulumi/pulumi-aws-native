@@ -2924,6 +2924,33 @@ export namespace apprunner {
 }
 
 export namespace appstream {
+    export interface AppBlockS3Location {
+        s3Bucket: string;
+        s3Key: string;
+    }
+
+    export interface AppBlockScriptDetails {
+        executableParameters?: string;
+        executablePath: string;
+        scriptS3Location: outputs.appstream.AppBlockS3Location;
+        timeoutInSeconds: number;
+    }
+
+    export interface AppBlockTag {
+        tagKey: string;
+        tagValue: string;
+    }
+
+    export interface ApplicationS3Location {
+        s3Bucket: string;
+        s3Key: string;
+    }
+
+    export interface ApplicationTag {
+        tagKey: string;
+        tagValue: string;
+    }
+
     export interface DirectoryConfigServiceAccountCredentials {
         accountName: string;
         accountPassword: string;

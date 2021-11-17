@@ -7,8 +7,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'AppBlockS3Location',
+    'AppBlockScriptDetails',
+    'AppBlockTag',
+    'ApplicationS3Location',
+    'ApplicationTag',
     'DirectoryConfigServiceAccountCredentials',
     'FleetComputeCapacity',
     'FleetDomainJoinInfo',
@@ -24,6 +30,215 @@ __all__ = [
     'StackTag',
     'StackUserSetting',
 ]
+
+@pulumi.output_type
+class AppBlockS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Key":
+            suggest = "s3_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppBlockS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppBlockS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppBlockS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: str,
+                 s3_key: str):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> str:
+        return pulumi.get(self, "s3_key")
+
+
+@pulumi.output_type
+class AppBlockScriptDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executablePath":
+            suggest = "executable_path"
+        elif key == "scriptS3Location":
+            suggest = "script_s3_location"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+        elif key == "executableParameters":
+            suggest = "executable_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppBlockScriptDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppBlockScriptDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppBlockScriptDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 executable_path: str,
+                 script_s3_location: 'outputs.AppBlockS3Location',
+                 timeout_in_seconds: int,
+                 executable_parameters: Optional[str] = None):
+        pulumi.set(__self__, "executable_path", executable_path)
+        pulumi.set(__self__, "script_s3_location", script_s3_location)
+        pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if executable_parameters is not None:
+            pulumi.set(__self__, "executable_parameters", executable_parameters)
+
+    @property
+    @pulumi.getter(name="executablePath")
+    def executable_path(self) -> str:
+        return pulumi.get(self, "executable_path")
+
+    @property
+    @pulumi.getter(name="scriptS3Location")
+    def script_s3_location(self) -> 'outputs.AppBlockS3Location':
+        return pulumi.get(self, "script_s3_location")
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> int:
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="executableParameters")
+    def executable_parameters(self) -> Optional[str]:
+        return pulumi.get(self, "executable_parameters")
+
+
+@pulumi.output_type
+class AppBlockTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppBlockTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppBlockTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppBlockTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_key: str,
+                 tag_value: str):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> str:
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> str:
+        return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
+class ApplicationS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Key":
+            suggest = "s3_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: str,
+                 s3_key: str):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> str:
+        return pulumi.get(self, "s3_key")
+
+
+@pulumi.output_type
+class ApplicationTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_key: str,
+                 tag_value: str):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> str:
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> str:
+        return pulumi.get(self, "tag_value")
+
 
 @pulumi.output_type
 class DirectoryConfigServiceAccountCredentials(dict):

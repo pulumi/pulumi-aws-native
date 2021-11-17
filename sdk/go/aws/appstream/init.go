@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:appstream:AppBlock":
+		r = &AppBlock{}
+	case "aws-native:appstream:Application":
+		r = &Application{}
+	case "aws-native:appstream:ApplicationFleetAssociation":
+		r = &ApplicationFleetAssociation{}
 	case "aws-native:appstream:DirectoryConfig":
 		r = &DirectoryConfig{}
 	case "aws-native:appstream:Fleet":

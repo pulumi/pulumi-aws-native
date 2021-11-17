@@ -10,6 +10,680 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AppBlockS3Location struct {
+	S3Bucket string `pulumi:"s3Bucket"`
+	S3Key    string `pulumi:"s3Key"`
+}
+
+// AppBlockS3LocationInput is an input type that accepts AppBlockS3LocationArgs and AppBlockS3LocationOutput values.
+// You can construct a concrete instance of `AppBlockS3LocationInput` via:
+//
+//          AppBlockS3LocationArgs{...}
+type AppBlockS3LocationInput interface {
+	pulumi.Input
+
+	ToAppBlockS3LocationOutput() AppBlockS3LocationOutput
+	ToAppBlockS3LocationOutputWithContext(context.Context) AppBlockS3LocationOutput
+}
+
+type AppBlockS3LocationArgs struct {
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	S3Key    pulumi.StringInput `pulumi:"s3Key"`
+}
+
+func (AppBlockS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockS3Location)(nil)).Elem()
+}
+
+func (i AppBlockS3LocationArgs) ToAppBlockS3LocationOutput() AppBlockS3LocationOutput {
+	return i.ToAppBlockS3LocationOutputWithContext(context.Background())
+}
+
+func (i AppBlockS3LocationArgs) ToAppBlockS3LocationOutputWithContext(ctx context.Context) AppBlockS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockS3LocationOutput)
+}
+
+func (i AppBlockS3LocationArgs) ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput {
+	return i.ToAppBlockS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i AppBlockS3LocationArgs) ToAppBlockS3LocationPtrOutputWithContext(ctx context.Context) AppBlockS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockS3LocationOutput).ToAppBlockS3LocationPtrOutputWithContext(ctx)
+}
+
+// AppBlockS3LocationPtrInput is an input type that accepts AppBlockS3LocationArgs, AppBlockS3LocationPtr and AppBlockS3LocationPtrOutput values.
+// You can construct a concrete instance of `AppBlockS3LocationPtrInput` via:
+//
+//          AppBlockS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type AppBlockS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput
+	ToAppBlockS3LocationPtrOutputWithContext(context.Context) AppBlockS3LocationPtrOutput
+}
+
+type appBlockS3LocationPtrType AppBlockS3LocationArgs
+
+func AppBlockS3LocationPtr(v *AppBlockS3LocationArgs) AppBlockS3LocationPtrInput {
+	return (*appBlockS3LocationPtrType)(v)
+}
+
+func (*appBlockS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockS3Location)(nil)).Elem()
+}
+
+func (i *appBlockS3LocationPtrType) ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput {
+	return i.ToAppBlockS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *appBlockS3LocationPtrType) ToAppBlockS3LocationPtrOutputWithContext(ctx context.Context) AppBlockS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockS3LocationPtrOutput)
+}
+
+type AppBlockS3LocationOutput struct{ *pulumi.OutputState }
+
+func (AppBlockS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockS3Location)(nil)).Elem()
+}
+
+func (o AppBlockS3LocationOutput) ToAppBlockS3LocationOutput() AppBlockS3LocationOutput {
+	return o
+}
+
+func (o AppBlockS3LocationOutput) ToAppBlockS3LocationOutputWithContext(ctx context.Context) AppBlockS3LocationOutput {
+	return o
+}
+
+func (o AppBlockS3LocationOutput) ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput {
+	return o.ToAppBlockS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o AppBlockS3LocationOutput) ToAppBlockS3LocationPtrOutputWithContext(ctx context.Context) AppBlockS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppBlockS3Location) *AppBlockS3Location {
+		return &v
+	}).(AppBlockS3LocationPtrOutput)
+}
+
+func (o AppBlockS3LocationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+func (o AppBlockS3LocationOutput) S3Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockS3Location) string { return v.S3Key }).(pulumi.StringOutput)
+}
+
+type AppBlockS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (AppBlockS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockS3Location)(nil)).Elem()
+}
+
+func (o AppBlockS3LocationPtrOutput) ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput {
+	return o
+}
+
+func (o AppBlockS3LocationPtrOutput) ToAppBlockS3LocationPtrOutputWithContext(ctx context.Context) AppBlockS3LocationPtrOutput {
+	return o
+}
+
+func (o AppBlockS3LocationPtrOutput) Elem() AppBlockS3LocationOutput {
+	return o.ApplyT(func(v *AppBlockS3Location) AppBlockS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret AppBlockS3Location
+		return ret
+	}).(AppBlockS3LocationOutput)
+}
+
+func (o AppBlockS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlockS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlockS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppBlockScriptDetails struct {
+	ExecutableParameters *string            `pulumi:"executableParameters"`
+	ExecutablePath       string             `pulumi:"executablePath"`
+	ScriptS3Location     AppBlockS3Location `pulumi:"scriptS3Location"`
+	TimeoutInSeconds     int                `pulumi:"timeoutInSeconds"`
+}
+
+// AppBlockScriptDetailsInput is an input type that accepts AppBlockScriptDetailsArgs and AppBlockScriptDetailsOutput values.
+// You can construct a concrete instance of `AppBlockScriptDetailsInput` via:
+//
+//          AppBlockScriptDetailsArgs{...}
+type AppBlockScriptDetailsInput interface {
+	pulumi.Input
+
+	ToAppBlockScriptDetailsOutput() AppBlockScriptDetailsOutput
+	ToAppBlockScriptDetailsOutputWithContext(context.Context) AppBlockScriptDetailsOutput
+}
+
+type AppBlockScriptDetailsArgs struct {
+	ExecutableParameters pulumi.StringPtrInput   `pulumi:"executableParameters"`
+	ExecutablePath       pulumi.StringInput      `pulumi:"executablePath"`
+	ScriptS3Location     AppBlockS3LocationInput `pulumi:"scriptS3Location"`
+	TimeoutInSeconds     pulumi.IntInput         `pulumi:"timeoutInSeconds"`
+}
+
+func (AppBlockScriptDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockScriptDetails)(nil)).Elem()
+}
+
+func (i AppBlockScriptDetailsArgs) ToAppBlockScriptDetailsOutput() AppBlockScriptDetailsOutput {
+	return i.ToAppBlockScriptDetailsOutputWithContext(context.Background())
+}
+
+func (i AppBlockScriptDetailsArgs) ToAppBlockScriptDetailsOutputWithContext(ctx context.Context) AppBlockScriptDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockScriptDetailsOutput)
+}
+
+func (i AppBlockScriptDetailsArgs) ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput {
+	return i.ToAppBlockScriptDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i AppBlockScriptDetailsArgs) ToAppBlockScriptDetailsPtrOutputWithContext(ctx context.Context) AppBlockScriptDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockScriptDetailsOutput).ToAppBlockScriptDetailsPtrOutputWithContext(ctx)
+}
+
+// AppBlockScriptDetailsPtrInput is an input type that accepts AppBlockScriptDetailsArgs, AppBlockScriptDetailsPtr and AppBlockScriptDetailsPtrOutput values.
+// You can construct a concrete instance of `AppBlockScriptDetailsPtrInput` via:
+//
+//          AppBlockScriptDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type AppBlockScriptDetailsPtrInput interface {
+	pulumi.Input
+
+	ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput
+	ToAppBlockScriptDetailsPtrOutputWithContext(context.Context) AppBlockScriptDetailsPtrOutput
+}
+
+type appBlockScriptDetailsPtrType AppBlockScriptDetailsArgs
+
+func AppBlockScriptDetailsPtr(v *AppBlockScriptDetailsArgs) AppBlockScriptDetailsPtrInput {
+	return (*appBlockScriptDetailsPtrType)(v)
+}
+
+func (*appBlockScriptDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockScriptDetails)(nil)).Elem()
+}
+
+func (i *appBlockScriptDetailsPtrType) ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput {
+	return i.ToAppBlockScriptDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *appBlockScriptDetailsPtrType) ToAppBlockScriptDetailsPtrOutputWithContext(ctx context.Context) AppBlockScriptDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockScriptDetailsPtrOutput)
+}
+
+type AppBlockScriptDetailsOutput struct{ *pulumi.OutputState }
+
+func (AppBlockScriptDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockScriptDetails)(nil)).Elem()
+}
+
+func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsOutput() AppBlockScriptDetailsOutput {
+	return o
+}
+
+func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsOutputWithContext(ctx context.Context) AppBlockScriptDetailsOutput {
+	return o
+}
+
+func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput {
+	return o.ToAppBlockScriptDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsPtrOutputWithContext(ctx context.Context) AppBlockScriptDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppBlockScriptDetails) *AppBlockScriptDetails {
+		return &v
+	}).(AppBlockScriptDetailsPtrOutput)
+}
+
+func (o AppBlockScriptDetailsOutput) ExecutableParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppBlockScriptDetails) *string { return v.ExecutableParameters }).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockScriptDetailsOutput) ExecutablePath() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockScriptDetails) string { return v.ExecutablePath }).(pulumi.StringOutput)
+}
+
+func (o AppBlockScriptDetailsOutput) ScriptS3Location() AppBlockS3LocationOutput {
+	return o.ApplyT(func(v AppBlockScriptDetails) AppBlockS3Location { return v.ScriptS3Location }).(AppBlockS3LocationOutput)
+}
+
+func (o AppBlockScriptDetailsOutput) TimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AppBlockScriptDetails) int { return v.TimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+type AppBlockScriptDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (AppBlockScriptDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockScriptDetails)(nil)).Elem()
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput {
+	return o
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ToAppBlockScriptDetailsPtrOutputWithContext(ctx context.Context) AppBlockScriptDetailsPtrOutput {
+	return o
+}
+
+func (o AppBlockScriptDetailsPtrOutput) Elem() AppBlockScriptDetailsOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) AppBlockScriptDetails {
+		if v != nil {
+			return *v
+		}
+		var ret AppBlockScriptDetails
+		return ret
+	}).(AppBlockScriptDetailsOutput)
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ExecutableParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutableParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ExecutablePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutablePath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ScriptS3Location() AppBlockS3LocationPtrOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) *AppBlockS3Location {
+		if v == nil {
+			return nil
+		}
+		return &v.ScriptS3Location
+	}).(AppBlockS3LocationPtrOutput)
+}
+
+func (o AppBlockScriptDetailsPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type AppBlockTag struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
+}
+
+// AppBlockTagInput is an input type that accepts AppBlockTagArgs and AppBlockTagOutput values.
+// You can construct a concrete instance of `AppBlockTagInput` via:
+//
+//          AppBlockTagArgs{...}
+type AppBlockTagInput interface {
+	pulumi.Input
+
+	ToAppBlockTagOutput() AppBlockTagOutput
+	ToAppBlockTagOutputWithContext(context.Context) AppBlockTagOutput
+}
+
+type AppBlockTagArgs struct {
+	TagKey   pulumi.StringInput `pulumi:"tagKey"`
+	TagValue pulumi.StringInput `pulumi:"tagValue"`
+}
+
+func (AppBlockTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockTag)(nil)).Elem()
+}
+
+func (i AppBlockTagArgs) ToAppBlockTagOutput() AppBlockTagOutput {
+	return i.ToAppBlockTagOutputWithContext(context.Background())
+}
+
+func (i AppBlockTagArgs) ToAppBlockTagOutputWithContext(ctx context.Context) AppBlockTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockTagOutput)
+}
+
+// AppBlockTagArrayInput is an input type that accepts AppBlockTagArray and AppBlockTagArrayOutput values.
+// You can construct a concrete instance of `AppBlockTagArrayInput` via:
+//
+//          AppBlockTagArray{ AppBlockTagArgs{...} }
+type AppBlockTagArrayInput interface {
+	pulumi.Input
+
+	ToAppBlockTagArrayOutput() AppBlockTagArrayOutput
+	ToAppBlockTagArrayOutputWithContext(context.Context) AppBlockTagArrayOutput
+}
+
+type AppBlockTagArray []AppBlockTagInput
+
+func (AppBlockTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppBlockTag)(nil)).Elem()
+}
+
+func (i AppBlockTagArray) ToAppBlockTagArrayOutput() AppBlockTagArrayOutput {
+	return i.ToAppBlockTagArrayOutputWithContext(context.Background())
+}
+
+func (i AppBlockTagArray) ToAppBlockTagArrayOutputWithContext(ctx context.Context) AppBlockTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockTagArrayOutput)
+}
+
+type AppBlockTagOutput struct{ *pulumi.OutputState }
+
+func (AppBlockTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockTag)(nil)).Elem()
+}
+
+func (o AppBlockTagOutput) ToAppBlockTagOutput() AppBlockTagOutput {
+	return o
+}
+
+func (o AppBlockTagOutput) ToAppBlockTagOutputWithContext(ctx context.Context) AppBlockTagOutput {
+	return o
+}
+
+func (o AppBlockTagOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockTag) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o AppBlockTagOutput) TagValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockTag) string { return v.TagValue }).(pulumi.StringOutput)
+}
+
+type AppBlockTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AppBlockTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppBlockTag)(nil)).Elem()
+}
+
+func (o AppBlockTagArrayOutput) ToAppBlockTagArrayOutput() AppBlockTagArrayOutput {
+	return o
+}
+
+func (o AppBlockTagArrayOutput) ToAppBlockTagArrayOutputWithContext(ctx context.Context) AppBlockTagArrayOutput {
+	return o
+}
+
+func (o AppBlockTagArrayOutput) Index(i pulumi.IntInput) AppBlockTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppBlockTag {
+		return vs[0].([]AppBlockTag)[vs[1].(int)]
+	}).(AppBlockTagOutput)
+}
+
+type ApplicationS3Location struct {
+	S3Bucket string `pulumi:"s3Bucket"`
+	S3Key    string `pulumi:"s3Key"`
+}
+
+// ApplicationS3LocationInput is an input type that accepts ApplicationS3LocationArgs and ApplicationS3LocationOutput values.
+// You can construct a concrete instance of `ApplicationS3LocationInput` via:
+//
+//          ApplicationS3LocationArgs{...}
+type ApplicationS3LocationInput interface {
+	pulumi.Input
+
+	ToApplicationS3LocationOutput() ApplicationS3LocationOutput
+	ToApplicationS3LocationOutputWithContext(context.Context) ApplicationS3LocationOutput
+}
+
+type ApplicationS3LocationArgs struct {
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	S3Key    pulumi.StringInput `pulumi:"s3Key"`
+}
+
+func (ApplicationS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationS3Location)(nil)).Elem()
+}
+
+func (i ApplicationS3LocationArgs) ToApplicationS3LocationOutput() ApplicationS3LocationOutput {
+	return i.ToApplicationS3LocationOutputWithContext(context.Background())
+}
+
+func (i ApplicationS3LocationArgs) ToApplicationS3LocationOutputWithContext(ctx context.Context) ApplicationS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3LocationOutput)
+}
+
+func (i ApplicationS3LocationArgs) ToApplicationS3LocationPtrOutput() ApplicationS3LocationPtrOutput {
+	return i.ToApplicationS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationS3LocationArgs) ToApplicationS3LocationPtrOutputWithContext(ctx context.Context) ApplicationS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3LocationOutput).ToApplicationS3LocationPtrOutputWithContext(ctx)
+}
+
+// ApplicationS3LocationPtrInput is an input type that accepts ApplicationS3LocationArgs, ApplicationS3LocationPtr and ApplicationS3LocationPtrOutput values.
+// You can construct a concrete instance of `ApplicationS3LocationPtrInput` via:
+//
+//          ApplicationS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationS3LocationPtrOutput() ApplicationS3LocationPtrOutput
+	ToApplicationS3LocationPtrOutputWithContext(context.Context) ApplicationS3LocationPtrOutput
+}
+
+type applicationS3LocationPtrType ApplicationS3LocationArgs
+
+func ApplicationS3LocationPtr(v *ApplicationS3LocationArgs) ApplicationS3LocationPtrInput {
+	return (*applicationS3LocationPtrType)(v)
+}
+
+func (*applicationS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationS3Location)(nil)).Elem()
+}
+
+func (i *applicationS3LocationPtrType) ToApplicationS3LocationPtrOutput() ApplicationS3LocationPtrOutput {
+	return i.ToApplicationS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationS3LocationPtrType) ToApplicationS3LocationPtrOutputWithContext(ctx context.Context) ApplicationS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3LocationPtrOutput)
+}
+
+type ApplicationS3LocationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationS3Location)(nil)).Elem()
+}
+
+func (o ApplicationS3LocationOutput) ToApplicationS3LocationOutput() ApplicationS3LocationOutput {
+	return o
+}
+
+func (o ApplicationS3LocationOutput) ToApplicationS3LocationOutputWithContext(ctx context.Context) ApplicationS3LocationOutput {
+	return o
+}
+
+func (o ApplicationS3LocationOutput) ToApplicationS3LocationPtrOutput() ApplicationS3LocationPtrOutput {
+	return o.ToApplicationS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationS3LocationOutput) ToApplicationS3LocationPtrOutputWithContext(ctx context.Context) ApplicationS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationS3Location) *ApplicationS3Location {
+		return &v
+	}).(ApplicationS3LocationPtrOutput)
+}
+
+func (o ApplicationS3LocationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+func (o ApplicationS3LocationOutput) S3Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationS3Location) string { return v.S3Key }).(pulumi.StringOutput)
+}
+
+type ApplicationS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationS3Location)(nil)).Elem()
+}
+
+func (o ApplicationS3LocationPtrOutput) ToApplicationS3LocationPtrOutput() ApplicationS3LocationPtrOutput {
+	return o
+}
+
+func (o ApplicationS3LocationPtrOutput) ToApplicationS3LocationPtrOutputWithContext(ctx context.Context) ApplicationS3LocationPtrOutput {
+	return o
+}
+
+func (o ApplicationS3LocationPtrOutput) Elem() ApplicationS3LocationOutput {
+	return o.ApplyT(func(v *ApplicationS3Location) ApplicationS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationS3Location
+		return ret
+	}).(ApplicationS3LocationOutput)
+}
+
+func (o ApplicationS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationTag struct {
+	TagKey   string `pulumi:"tagKey"`
+	TagValue string `pulumi:"tagValue"`
+}
+
+// ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
+// You can construct a concrete instance of `ApplicationTagInput` via:
+//
+//          ApplicationTagArgs{...}
+type ApplicationTagInput interface {
+	pulumi.Input
+
+	ToApplicationTagOutput() ApplicationTagOutput
+	ToApplicationTagOutputWithContext(context.Context) ApplicationTagOutput
+}
+
+type ApplicationTagArgs struct {
+	TagKey   pulumi.StringInput `pulumi:"tagKey"`
+	TagValue pulumi.StringInput `pulumi:"tagValue"`
+}
+
+func (ApplicationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
+}
+
+func (i ApplicationTagArgs) ToApplicationTagOutput() ApplicationTagOutput {
+	return i.ToApplicationTagOutputWithContext(context.Background())
+}
+
+func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
+}
+
+// ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
+// You can construct a concrete instance of `ApplicationTagArrayInput` via:
+//
+//          ApplicationTagArray{ ApplicationTagArgs{...} }
+type ApplicationTagArrayInput interface {
+	pulumi.Input
+
+	ToApplicationTagArrayOutput() ApplicationTagArrayOutput
+	ToApplicationTagArrayOutputWithContext(context.Context) ApplicationTagArrayOutput
+}
+
+type ApplicationTagArray []ApplicationTagInput
+
+func (ApplicationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
+}
+
+func (i ApplicationTagArray) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
+	return i.ToApplicationTagArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
+}
+
+type ApplicationTagOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
+}
+
+func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
+	return o
+}
+
+func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
+	return o
+}
+
+func (o ApplicationTagOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTag) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o ApplicationTagOutput) TagValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTag) string { return v.TagValue }).(pulumi.StringOutput)
+}
+
+type ApplicationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
+}
+
+func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
+	return o
+}
+
+func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
+	return o
+}
+
+func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationTag {
+		return vs[0].([]ApplicationTag)[vs[1].(int)]
+	}).(ApplicationTagOutput)
+}
+
 type DirectoryConfigServiceAccountCredentials struct {
 	AccountName     string `pulumi:"accountName"`
 	AccountPassword string `pulumi:"accountPassword"`
@@ -1738,6 +2412,16 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockS3LocationInput)(nil)).Elem(), AppBlockS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockS3LocationPtrInput)(nil)).Elem(), AppBlockS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockScriptDetailsInput)(nil)).Elem(), AppBlockScriptDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockScriptDetailsPtrInput)(nil)).Elem(), AppBlockScriptDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockTagInput)(nil)).Elem(), AppBlockTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockTagArrayInput)(nil)).Elem(), AppBlockTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3LocationInput)(nil)).Elem(), ApplicationS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3LocationPtrInput)(nil)).Elem(), ApplicationS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagInput)(nil)).Elem(), ApplicationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsPtrInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityInput)(nil)).Elem(), FleetComputeCapacityArgs{})
@@ -1766,6 +2450,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackTagArrayInput)(nil)).Elem(), StackTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
+	pulumi.RegisterOutputType(AppBlockS3LocationOutput{})
+	pulumi.RegisterOutputType(AppBlockS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(AppBlockScriptDetailsOutput{})
+	pulumi.RegisterOutputType(AppBlockScriptDetailsPtrOutput{})
+	pulumi.RegisterOutputType(AppBlockTagOutput{})
+	pulumi.RegisterOutputType(AppBlockTagArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationS3LocationOutput{})
+	pulumi.RegisterOutputType(ApplicationS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationTagOutput{})
+	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityOutput{})

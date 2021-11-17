@@ -3583,6 +3583,33 @@ export namespace apprunner {
 }
 
 export namespace appstream {
+    export interface AppBlockS3LocationArgs {
+        s3Bucket: pulumi.Input<string>;
+        s3Key: pulumi.Input<string>;
+    }
+
+    export interface AppBlockScriptDetailsArgs {
+        executableParameters?: pulumi.Input<string>;
+        executablePath: pulumi.Input<string>;
+        scriptS3Location: pulumi.Input<inputs.appstream.AppBlockS3LocationArgs>;
+        timeoutInSeconds: pulumi.Input<number>;
+    }
+
+    export interface AppBlockTagArgs {
+        tagKey: pulumi.Input<string>;
+        tagValue: pulumi.Input<string>;
+    }
+
+    export interface ApplicationS3LocationArgs {
+        s3Bucket: pulumi.Input<string>;
+        s3Key: pulumi.Input<string>;
+    }
+
+    export interface ApplicationTagArgs {
+        tagKey: pulumi.Input<string>;
+        tagValue: pulumi.Input<string>;
+    }
+
     export interface DirectoryConfigServiceAccountCredentialsArgs {
         accountName: pulumi.Input<string>;
         accountPassword: pulumi.Input<string>;

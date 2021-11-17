@@ -713,6 +713,9 @@ _utilities.register(
   "mod": "appstream",
   "fqn": "pulumi_aws_native.appstream",
   "classes": {
+   "aws-native:appstream:AppBlock": "AppBlock",
+   "aws-native:appstream:Application": "Application",
+   "aws-native:appstream:ApplicationFleetAssociation": "ApplicationFleetAssociation",
    "aws-native:appstream:DirectoryConfig": "DirectoryConfig",
    "aws-native:appstream:Fleet": "Fleet",
    "aws-native:appstream:ImageBuilder": "ImageBuilder",

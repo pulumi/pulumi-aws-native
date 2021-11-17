@@ -9,6 +9,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AppBlockS3LocationArgs',
+    'AppBlockScriptDetailsArgs',
+    'AppBlockTagArgs',
+    'ApplicationS3LocationArgs',
+    'ApplicationTagArgs',
     'DirectoryConfigServiceAccountCredentialsArgs',
     'FleetComputeCapacityArgs',
     'FleetDomainJoinInfoArgs',
@@ -24,6 +29,164 @@ __all__ = [
     'StackTagArgs',
     'StackUserSettingArgs',
 ]
+
+@pulumi.input_type
+class AppBlockS3LocationArgs:
+    def __init__(__self__, *,
+                 s3_bucket: pulumi.Input[str],
+                 s3_key: pulumi.Input[str]):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_key")
+
+    @s3_key.setter
+    def s3_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_key", value)
+
+
+@pulumi.input_type
+class AppBlockScriptDetailsArgs:
+    def __init__(__self__, *,
+                 executable_path: pulumi.Input[str],
+                 script_s3_location: pulumi.Input['AppBlockS3LocationArgs'],
+                 timeout_in_seconds: pulumi.Input[int],
+                 executable_parameters: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "executable_path", executable_path)
+        pulumi.set(__self__, "script_s3_location", script_s3_location)
+        pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if executable_parameters is not None:
+            pulumi.set(__self__, "executable_parameters", executable_parameters)
+
+    @property
+    @pulumi.getter(name="executablePath")
+    def executable_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "executable_path")
+
+    @executable_path.setter
+    def executable_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "executable_path", value)
+
+    @property
+    @pulumi.getter(name="scriptS3Location")
+    def script_s3_location(self) -> pulumi.Input['AppBlockS3LocationArgs']:
+        return pulumi.get(self, "script_s3_location")
+
+    @script_s3_location.setter
+    def script_s3_location(self, value: pulumi.Input['AppBlockS3LocationArgs']):
+        pulumi.set(self, "script_s3_location", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="executableParameters")
+    def executable_parameters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "executable_parameters")
+
+    @executable_parameters.setter
+    def executable_parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "executable_parameters", value)
+
+
+@pulumi.input_type
+class AppBlockTagArgs:
+    def __init__(__self__, *,
+                 tag_key: pulumi.Input[str],
+                 tag_value: pulumi.Input[str]):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tag_key")
+
+    @tag_key.setter
+    def tag_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_key", value)
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tag_value")
+
+    @tag_value.setter
+    def tag_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_value", value)
+
+
+@pulumi.input_type
+class ApplicationS3LocationArgs:
+    def __init__(__self__, *,
+                 s3_bucket: pulumi.Input[str],
+                 s3_key: pulumi.Input[str]):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_key")
+
+    @s3_key.setter
+    def s3_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_key", value)
+
+
+@pulumi.input_type
+class ApplicationTagArgs:
+    def __init__(__self__, *,
+                 tag_key: pulumi.Input[str],
+                 tag_value: pulumi.Input[str]):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tag_key")
+
+    @tag_key.setter
+    def tag_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_key", value)
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tag_value")
+
+    @tag_value.setter
+    def tag_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_value", value)
+
 
 @pulumi.input_type
 class DirectoryConfigServiceAccountCredentialsArgs:

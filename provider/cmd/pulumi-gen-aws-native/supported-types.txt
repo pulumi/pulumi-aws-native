@@ -26,6 +26,9 @@ AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
 AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::Service
+AWS::AppStream::AppBlock
+AWS::AppStream::Application
+AWS::AppStream::ApplicationFleetAssociation
 AWS::ApplicationInsights::Application
 AWS::Athena::DataCatalog
 AWS::Athena::NamedQuery

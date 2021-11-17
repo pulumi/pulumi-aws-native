@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./appBlock";
+export * from "./application";
+export * from "./applicationFleetAssociation";
 export * from "./directoryConfig";
 export * from "./fleet";
 export * from "./imageBuilder";
@@ -14,6 +17,9 @@ export * from "./stackUserAssociation";
 export * from "./user";
 
 // Import resources to register:
+import { AppBlock } from "./appBlock";
+import { Application } from "./application";
+import { ApplicationFleetAssociation } from "./applicationFleetAssociation";
 import { DirectoryConfig } from "./directoryConfig";
 import { Fleet } from "./fleet";
 import { ImageBuilder } from "./imageBuilder";
@@ -26,6 +32,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:appstream:AppBlock":
+                return new AppBlock(name, <any>undefined, { urn })
+            case "aws-native:appstream:Application":
+                return new Application(name, <any>undefined, { urn })
+            case "aws-native:appstream:ApplicationFleetAssociation":
+                return new ApplicationFleetAssociation(name, <any>undefined, { urn })
             case "aws-native:appstream:DirectoryConfig":
                 return new DirectoryConfig(name, <any>undefined, { urn })
             case "aws-native:appstream:Fleet":
