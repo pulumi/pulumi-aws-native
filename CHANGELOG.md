@@ -1,6 +1,9 @@
 ## HEAD (Unreleased)
+
 - Add support for specifying max retries
-  [#112](https://github.com/pulumi/pulumi-aws-native/pull/227)
+  [#112](https://github.com/pulumi/pulumi-aws-native/issues/112)
+- Fix modifying S3 bucket tags
+  [#230](https://github.com/pulumi/pulumi-aws-native/issues/230)
 
 ---
 
