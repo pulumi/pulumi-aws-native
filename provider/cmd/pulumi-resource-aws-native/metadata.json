@@ -4167,6 +4167,10 @@
                     "type": "string",
                     "description": "The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation."
                 },
+                "managedExecution": {
+                    "$ref": "#/types/aws-native:cloudformation:ManagedExecutionProperties",
+                    "description": "Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations."
+                },
                 "operationPreferences": {
                     "$ref": "#/types/aws-native:cloudformation:StackSetOperationPreferences"
                 },
@@ -4235,6 +4239,10 @@
                 "executionRoleName": {
                     "type": "string",
                     "description": "The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation."
+                },
+                "managedExecution": {
+                    "$ref": "#/types/aws-native:cloudformation:ManagedExecutionProperties",
+                    "description": "Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations."
                 },
                 "operationPreferences": {
                     "$ref": "#/types/aws-native:cloudformation:StackSetOperationPreferences"
@@ -6758,6 +6766,76 @@
             "createOnly": [
                 "name",
                 "tags"
+            ]
+        },
+        "aws-native:databrew:Ruleset": {
+            "cf": "AWS::DataBrew::Ruleset",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Ruleset"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Ruleset"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetRule"
+                    },
+                    "description": "List of the data quality rules in the ruleset"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetTag"
+                    }
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "Arn of the target resource (dataset) to apply the ruleset to"
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Ruleset"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Ruleset"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetRule"
+                    },
+                    "description": "List of the data quality rules in the ruleset"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetTag"
+                    }
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "Arn of the target resource (dataset) to apply the ruleset to"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
+            "required": [
+                "rules",
+                "targetArn"
+            ],
+            "createOnly": [
+                "name",
+                "targetArn"
             ]
         },
         "aws-native:databrew:Schedule": {
@@ -9473,33 +9551,6 @@
             ],
             "createOnly": [
                 "networkAclId",
-                "subnetId"
-            ]
-        },
-        "aws-native:ec2:SubnetRouteTableAssociation": {
-            "cf": "AWS::EC2::SubnetRouteTableAssociation",
-            "inputs": {
-                "routeTableId": {
-                    "type": "string"
-                },
-                "subnetId": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "routeTableId": {
-                    "type": "string"
-                },
-                "subnetId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "routeTableId",
-                "subnetId"
-            ],
-            "createOnly": [
-                "routeTableId",
                 "subnetId"
             ]
         },
@@ -35612,6 +35663,14 @@
                 }
             }
         },
+        "aws-native:cloudformation:ManagedExecutionProperties": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                }
+            }
+        },
         "aws-native:cloudformation:ModuleVersionVisibility": {
             "type": "string"
         },
@@ -37654,6 +37713,10 @@
                     "type": "string",
                     "description": "Glue connection name"
                 },
+                "queryString": {
+                    "type": "string",
+                    "description": "Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs."
+                },
                 "tempDirectory": {
                     "$ref": "#/types/aws-native:databrew:DatasetS3Location"
                 }
@@ -37772,6 +37835,9 @@
                 "databaseInputDefinition": {
                     "$ref": "#/types/aws-native:databrew:DatasetDatabaseInputDefinition"
                 },
+                "metadata": {
+                    "$ref": "#/types/aws-native:databrew:DatasetMetadata"
+                },
                 "s3InputDefinition": {
                     "$ref": "#/types/aws-native:databrew:DatasetS3Location"
                 }
@@ -37782,6 +37848,15 @@
             "properties": {
                 "multiLine": {
                     "type": "boolean"
+                }
+            }
+        },
+        "aws-native:databrew:DatasetMetadata": {
+            "type": "object",
+            "properties": {
+                "sourceArn": {
+                    "type": "string",
+                    "description": "Arn of the source of the dataset. For e.g.: AppFlow Flow ARN."
                 }
             }
         },
@@ -37857,6 +37932,17 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:databrew:JobAllowedStatistics": {
+            "type": "object",
+            "properties": {
+                "statistics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },
@@ -37949,6 +38035,20 @@
         "aws-native:databrew:JobEncryptionMode": {
             "type": "string"
         },
+        "aws-native:databrew:JobEntityDetectorConfiguration": {
+            "type": "object",
+            "properties": {
+                "allowedStatistics": {
+                    "$ref": "#/types/aws-native:databrew:JobAllowedStatistics"
+                },
+                "entityTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "aws-native:databrew:JobLogSubscription": {
             "type": "string"
         },
@@ -38017,6 +38117,9 @@
                 },
                 "datasetStatisticsConfiguration": {
                     "$ref": "#/types/aws-native:databrew:JobStatisticsConfiguration"
+                },
+                "entityDetectorConfiguration": {
+                    "$ref": "#/types/aws-native:databrew:JobEntityDetectorConfiguration"
                 },
                 "profileColumns": {
                     "type": "array",
@@ -38591,6 +38694,93 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:databrew:RulesetColumnSelector": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of a column from a dataset"
+                },
+                "regex": {
+                    "type": "string",
+                    "description": "A regular expression for selecting a column from a dataset"
+                }
+            }
+        },
+        "aws-native:databrew:RulesetRule": {
+            "type": "object",
+            "properties": {
+                "checkExpression": {
+                    "type": "string"
+                },
+                "columnSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetColumnSelector"
+                    }
+                },
+                "disabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the rule"
+                },
+                "substitutionMap": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetSubstitutionValue"
+                    }
+                },
+                "threshold": {
+                    "$ref": "#/types/aws-native:databrew:RulesetThreshold"
+                }
+            }
+        },
+        "aws-native:databrew:RulesetSubstitutionValue": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "description": "Value or column name"
+                },
+                "valueReference": {
+                    "type": "string",
+                    "description": "Variable name"
+                }
+            }
+        },
+        "aws-native:databrew:RulesetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:databrew:RulesetThreshold": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:databrew:RulesetThresholdType"
+                },
+                "unit": {
+                    "$ref": "#/types/aws-native:databrew:RulesetThresholdUnit"
+                },
+                "value": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:databrew:RulesetThresholdType": {
+            "type": "string"
+        },
+        "aws-native:databrew:RulesetThresholdUnit": {
+            "type": "string"
         },
         "aws-native:databrew:ScheduleTag": {
             "type": "object",
