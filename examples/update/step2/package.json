@@ -1,0 +1,12 @@
+{
+  "name": "aws-update",
+  "devDependencies": {
+    "@types/node": "^8.0.0"
+  },
+  "dependencies": {
+    "@pulumi/pulumi": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@pulumi/aws-native": "dev"
+  }
+}
