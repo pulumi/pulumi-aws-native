@@ -1,11 +1,15 @@
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 0.6.0 (November 18, 2021)
+
 - Add support for specifying max retries
   [#112](https://github.com/pulumi/pulumi-aws-native/issues/112)
 - Fix modifying S3 bucket tags
   [#230](https://github.com/pulumi/pulumi-aws-native/issues/230)
-
----
 
 ## 0.5.0 (November 15, 2021)
 
