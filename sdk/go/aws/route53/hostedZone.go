@@ -22,7 +22,7 @@ type HostedZone struct {
 	// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
 	//
 	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
-	Name               pulumi.StringOutput                   `pulumi:"name"`
+	Name               pulumi.StringPtrOutput                `pulumi:"name"`
 	NameServers        pulumi.StringArrayOutput              `pulumi:"nameServers"`
 	QueryLoggingConfig HostedZoneQueryLoggingConfigPtrOutput `pulumi:"queryLoggingConfig"`
 	// A complex type that contains information about the VPCs that are associated with the specified hosted zone.

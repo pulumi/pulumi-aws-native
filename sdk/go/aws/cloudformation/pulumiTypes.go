@@ -10,6 +10,142 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+type ManagedExecutionProperties struct {
+	Active *bool `pulumi:"active"`
+}
+
+// ManagedExecutionPropertiesInput is an input type that accepts ManagedExecutionPropertiesArgs and ManagedExecutionPropertiesOutput values.
+// You can construct a concrete instance of `ManagedExecutionPropertiesInput` via:
+//
+//          ManagedExecutionPropertiesArgs{...}
+type ManagedExecutionPropertiesInput interface {
+	pulumi.Input
+
+	ToManagedExecutionPropertiesOutput() ManagedExecutionPropertiesOutput
+	ToManagedExecutionPropertiesOutputWithContext(context.Context) ManagedExecutionPropertiesOutput
+}
+
+// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+type ManagedExecutionPropertiesArgs struct {
+	Active pulumi.BoolPtrInput `pulumi:"active"`
+}
+
+func (ManagedExecutionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedExecutionProperties)(nil)).Elem()
+}
+
+func (i ManagedExecutionPropertiesArgs) ToManagedExecutionPropertiesOutput() ManagedExecutionPropertiesOutput {
+	return i.ToManagedExecutionPropertiesOutputWithContext(context.Background())
+}
+
+func (i ManagedExecutionPropertiesArgs) ToManagedExecutionPropertiesOutputWithContext(ctx context.Context) ManagedExecutionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedExecutionPropertiesOutput)
+}
+
+func (i ManagedExecutionPropertiesArgs) ToManagedExecutionPropertiesPtrOutput() ManagedExecutionPropertiesPtrOutput {
+	return i.ToManagedExecutionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedExecutionPropertiesArgs) ToManagedExecutionPropertiesPtrOutputWithContext(ctx context.Context) ManagedExecutionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedExecutionPropertiesOutput).ToManagedExecutionPropertiesPtrOutputWithContext(ctx)
+}
+
+// ManagedExecutionPropertiesPtrInput is an input type that accepts ManagedExecutionPropertiesArgs, ManagedExecutionPropertiesPtr and ManagedExecutionPropertiesPtrOutput values.
+// You can construct a concrete instance of `ManagedExecutionPropertiesPtrInput` via:
+//
+//          ManagedExecutionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedExecutionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToManagedExecutionPropertiesPtrOutput() ManagedExecutionPropertiesPtrOutput
+	ToManagedExecutionPropertiesPtrOutputWithContext(context.Context) ManagedExecutionPropertiesPtrOutput
+}
+
+type managedExecutionPropertiesPtrType ManagedExecutionPropertiesArgs
+
+func ManagedExecutionPropertiesPtr(v *ManagedExecutionPropertiesArgs) ManagedExecutionPropertiesPtrInput {
+	return (*managedExecutionPropertiesPtrType)(v)
+}
+
+func (*managedExecutionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedExecutionProperties)(nil)).Elem()
+}
+
+func (i *managedExecutionPropertiesPtrType) ToManagedExecutionPropertiesPtrOutput() ManagedExecutionPropertiesPtrOutput {
+	return i.ToManagedExecutionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *managedExecutionPropertiesPtrType) ToManagedExecutionPropertiesPtrOutputWithContext(ctx context.Context) ManagedExecutionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedExecutionPropertiesPtrOutput)
+}
+
+// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+type ManagedExecutionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ManagedExecutionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedExecutionProperties)(nil)).Elem()
+}
+
+func (o ManagedExecutionPropertiesOutput) ToManagedExecutionPropertiesOutput() ManagedExecutionPropertiesOutput {
+	return o
+}
+
+func (o ManagedExecutionPropertiesOutput) ToManagedExecutionPropertiesOutputWithContext(ctx context.Context) ManagedExecutionPropertiesOutput {
+	return o
+}
+
+func (o ManagedExecutionPropertiesOutput) ToManagedExecutionPropertiesPtrOutput() ManagedExecutionPropertiesPtrOutput {
+	return o.ToManagedExecutionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedExecutionPropertiesOutput) ToManagedExecutionPropertiesPtrOutputWithContext(ctx context.Context) ManagedExecutionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedExecutionProperties) *ManagedExecutionProperties {
+		return &v
+	}).(ManagedExecutionPropertiesPtrOutput)
+}
+
+func (o ManagedExecutionPropertiesOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedExecutionProperties) *bool { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+type ManagedExecutionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedExecutionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedExecutionProperties)(nil)).Elem()
+}
+
+func (o ManagedExecutionPropertiesPtrOutput) ToManagedExecutionPropertiesPtrOutput() ManagedExecutionPropertiesPtrOutput {
+	return o
+}
+
+func (o ManagedExecutionPropertiesPtrOutput) ToManagedExecutionPropertiesPtrOutputWithContext(ctx context.Context) ManagedExecutionPropertiesPtrOutput {
+	return o
+}
+
+func (o ManagedExecutionPropertiesPtrOutput) Elem() ManagedExecutionPropertiesOutput {
+	return o.ApplyT(func(v *ManagedExecutionProperties) ManagedExecutionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedExecutionProperties
+		return ret
+	}).(ManagedExecutionPropertiesOutput)
+}
+
+func (o ManagedExecutionPropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedExecutionProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Active
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ResourceVersionLoggingConfig struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -1184,6 +1320,8 @@ func (o TypeActivationLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedExecutionPropertiesInput)(nil)).Elem(), ManagedExecutionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedExecutionPropertiesPtrInput)(nil)).Elem(), ManagedExecutionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionLoggingConfigInput)(nil)).Elem(), ResourceVersionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionLoggingConfigPtrInput)(nil)).Elem(), ResourceVersionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
@@ -1201,6 +1339,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackTagArrayInput)(nil)).Elem(), StackTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigPtrInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
+	pulumi.RegisterOutputType(ManagedExecutionPropertiesOutput{})
+	pulumi.RegisterOutputType(ManagedExecutionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})

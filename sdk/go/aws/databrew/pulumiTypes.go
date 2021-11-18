@@ -355,8 +355,10 @@ type DatasetDatabaseInputDefinition struct {
 	// Database table name
 	DatabaseTableName *string `pulumi:"databaseTableName"`
 	// Glue connection name
-	GlueConnectionName *string            `pulumi:"glueConnectionName"`
-	TempDirectory      *DatasetS3Location `pulumi:"tempDirectory"`
+	GlueConnectionName string `pulumi:"glueConnectionName"`
+	// Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+	QueryString   *string            `pulumi:"queryString"`
+	TempDirectory *DatasetS3Location `pulumi:"tempDirectory"`
 }
 
 // DatasetDatabaseInputDefinitionInput is an input type that accepts DatasetDatabaseInputDefinitionArgs and DatasetDatabaseInputDefinitionOutput values.
@@ -374,8 +376,10 @@ type DatasetDatabaseInputDefinitionArgs struct {
 	// Database table name
 	DatabaseTableName pulumi.StringPtrInput `pulumi:"databaseTableName"`
 	// Glue connection name
-	GlueConnectionName pulumi.StringPtrInput     `pulumi:"glueConnectionName"`
-	TempDirectory      DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
+	GlueConnectionName pulumi.StringInput `pulumi:"glueConnectionName"`
+	// Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+	QueryString   pulumi.StringPtrInput     `pulumi:"queryString"`
+	TempDirectory DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
 }
 
 func (DatasetDatabaseInputDefinitionArgs) ElementType() reflect.Type {
@@ -461,8 +465,13 @@ func (o DatasetDatabaseInputDefinitionOutput) DatabaseTableName() pulumi.StringP
 }
 
 // Glue connection name
-func (o DatasetDatabaseInputDefinitionOutput) GlueConnectionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *string { return v.GlueConnectionName }).(pulumi.StringPtrOutput)
+func (o DatasetDatabaseInputDefinitionOutput) GlueConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetDatabaseInputDefinition) string { return v.GlueConnectionName }).(pulumi.StringOutput)
+}
+
+// Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+func (o DatasetDatabaseInputDefinitionOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
 
 func (o DatasetDatabaseInputDefinitionOutput) TempDirectory() DatasetS3LocationPtrOutput {
@@ -509,7 +518,17 @@ func (o DatasetDatabaseInputDefinitionPtrOutput) GlueConnectionName() pulumi.Str
 		if v == nil {
 			return nil
 		}
-		return v.GlueConnectionName
+		return &v.GlueConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+func (o DatasetDatabaseInputDefinitionPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1463,6 +1482,7 @@ func (o DatasetFormatOptionsPtrOutput) Json() DatasetJsonOptionsPtrOutput {
 type DatasetInputType struct {
 	DataCatalogInputDefinition *DatasetDataCatalogInputDefinition `pulumi:"dataCatalogInputDefinition"`
 	DatabaseInputDefinition    *DatasetDatabaseInputDefinition    `pulumi:"databaseInputDefinition"`
+	Metadata                   *DatasetMetadata                   `pulumi:"metadata"`
 	S3InputDefinition          *DatasetS3Location                 `pulumi:"s3InputDefinition"`
 }
 
@@ -1481,6 +1501,7 @@ type DatasetInputTypeInput interface {
 type DatasetInputTypeArgs struct {
 	DataCatalogInputDefinition DatasetDataCatalogInputDefinitionPtrInput `pulumi:"dataCatalogInputDefinition"`
 	DatabaseInputDefinition    DatasetDatabaseInputDefinitionPtrInput    `pulumi:"databaseInputDefinition"`
+	Metadata                   DatasetMetadataPtrInput                   `pulumi:"metadata"`
 	S3InputDefinition          DatasetS3LocationPtrInput                 `pulumi:"s3InputDefinition"`
 }
 
@@ -1570,6 +1591,10 @@ func (o DatasetInputTypeOutput) DatabaseInputDefinition() DatasetDatabaseInputDe
 	return o.ApplyT(func(v DatasetInputType) *DatasetDatabaseInputDefinition { return v.DatabaseInputDefinition }).(DatasetDatabaseInputDefinitionPtrOutput)
 }
 
+func (o DatasetInputTypeOutput) Metadata() DatasetMetadataPtrOutput {
+	return o.ApplyT(func(v DatasetInputType) *DatasetMetadata { return v.Metadata }).(DatasetMetadataPtrOutput)
+}
+
 func (o DatasetInputTypeOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v DatasetInputType) *DatasetS3Location { return v.S3InputDefinition }).(DatasetS3LocationPtrOutput)
 }
@@ -1614,6 +1639,15 @@ func (o DatasetInputTypePtrOutput) DatabaseInputDefinition() DatasetDatabaseInpu
 		}
 		return v.DatabaseInputDefinition
 	}).(DatasetDatabaseInputDefinitionPtrOutput)
+}
+
+func (o DatasetInputTypePtrOutput) Metadata() DatasetMetadataPtrOutput {
+	return o.ApplyT(func(v *DatasetInputType) *DatasetMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(DatasetMetadataPtrOutput)
 }
 
 func (o DatasetInputTypePtrOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
@@ -1759,6 +1793,143 @@ func (o DatasetJsonOptionsPtrOutput) MultiLine() pulumi.BoolPtrOutput {
 		}
 		return v.MultiLine
 	}).(pulumi.BoolPtrOutput)
+}
+
+type DatasetMetadata struct {
+	// Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+	SourceArn *string `pulumi:"sourceArn"`
+}
+
+// DatasetMetadataInput is an input type that accepts DatasetMetadataArgs and DatasetMetadataOutput values.
+// You can construct a concrete instance of `DatasetMetadataInput` via:
+//
+//          DatasetMetadataArgs{...}
+type DatasetMetadataInput interface {
+	pulumi.Input
+
+	ToDatasetMetadataOutput() DatasetMetadataOutput
+	ToDatasetMetadataOutputWithContext(context.Context) DatasetMetadataOutput
+}
+
+type DatasetMetadataArgs struct {
+	// Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
+}
+
+func (DatasetMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetMetadata)(nil)).Elem()
+}
+
+func (i DatasetMetadataArgs) ToDatasetMetadataOutput() DatasetMetadataOutput {
+	return i.ToDatasetMetadataOutputWithContext(context.Background())
+}
+
+func (i DatasetMetadataArgs) ToDatasetMetadataOutputWithContext(ctx context.Context) DatasetMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetMetadataOutput)
+}
+
+func (i DatasetMetadataArgs) ToDatasetMetadataPtrOutput() DatasetMetadataPtrOutput {
+	return i.ToDatasetMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetMetadataArgs) ToDatasetMetadataPtrOutputWithContext(ctx context.Context) DatasetMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetMetadataOutput).ToDatasetMetadataPtrOutputWithContext(ctx)
+}
+
+// DatasetMetadataPtrInput is an input type that accepts DatasetMetadataArgs, DatasetMetadataPtr and DatasetMetadataPtrOutput values.
+// You can construct a concrete instance of `DatasetMetadataPtrInput` via:
+//
+//          DatasetMetadataArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetMetadataPtrInput interface {
+	pulumi.Input
+
+	ToDatasetMetadataPtrOutput() DatasetMetadataPtrOutput
+	ToDatasetMetadataPtrOutputWithContext(context.Context) DatasetMetadataPtrOutput
+}
+
+type datasetMetadataPtrType DatasetMetadataArgs
+
+func DatasetMetadataPtr(v *DatasetMetadataArgs) DatasetMetadataPtrInput {
+	return (*datasetMetadataPtrType)(v)
+}
+
+func (*datasetMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetMetadata)(nil)).Elem()
+}
+
+func (i *datasetMetadataPtrType) ToDatasetMetadataPtrOutput() DatasetMetadataPtrOutput {
+	return i.ToDatasetMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetMetadataPtrType) ToDatasetMetadataPtrOutputWithContext(ctx context.Context) DatasetMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetMetadataPtrOutput)
+}
+
+type DatasetMetadataOutput struct{ *pulumi.OutputState }
+
+func (DatasetMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetMetadata)(nil)).Elem()
+}
+
+func (o DatasetMetadataOutput) ToDatasetMetadataOutput() DatasetMetadataOutput {
+	return o
+}
+
+func (o DatasetMetadataOutput) ToDatasetMetadataOutputWithContext(ctx context.Context) DatasetMetadataOutput {
+	return o
+}
+
+func (o DatasetMetadataOutput) ToDatasetMetadataPtrOutput() DatasetMetadataPtrOutput {
+	return o.ToDatasetMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetMetadataOutput) ToDatasetMetadataPtrOutputWithContext(ctx context.Context) DatasetMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetMetadata) *DatasetMetadata {
+		return &v
+	}).(DatasetMetadataPtrOutput)
+}
+
+// Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+func (o DatasetMetadataOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetMetadata) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
+}
+
+type DatasetMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetMetadata)(nil)).Elem()
+}
+
+func (o DatasetMetadataPtrOutput) ToDatasetMetadataPtrOutput() DatasetMetadataPtrOutput {
+	return o
+}
+
+func (o DatasetMetadataPtrOutput) ToDatasetMetadataPtrOutputWithContext(ctx context.Context) DatasetMetadataPtrOutput {
+	return o
+}
+
+func (o DatasetMetadataPtrOutput) Elem() DatasetMetadataOutput {
+	return o.ApplyT(func(v *DatasetMetadata) DatasetMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetMetadata
+		return ret
+	}).(DatasetMetadataOutput)
+}
+
+// Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+func (o DatasetMetadataPtrOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type DatasetParameter struct {
@@ -2361,6 +2532,139 @@ func (o DatasetTagArrayOutput) Index(i pulumi.IntInput) DatasetTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetTag {
 		return vs[0].([]DatasetTag)[vs[1].(int)]
 	}).(DatasetTagOutput)
+}
+
+type JobAllowedStatistics struct {
+	Statistics []string `pulumi:"statistics"`
+}
+
+// JobAllowedStatisticsInput is an input type that accepts JobAllowedStatisticsArgs and JobAllowedStatisticsOutput values.
+// You can construct a concrete instance of `JobAllowedStatisticsInput` via:
+//
+//          JobAllowedStatisticsArgs{...}
+type JobAllowedStatisticsInput interface {
+	pulumi.Input
+
+	ToJobAllowedStatisticsOutput() JobAllowedStatisticsOutput
+	ToJobAllowedStatisticsOutputWithContext(context.Context) JobAllowedStatisticsOutput
+}
+
+type JobAllowedStatisticsArgs struct {
+	Statistics pulumi.StringArrayInput `pulumi:"statistics"`
+}
+
+func (JobAllowedStatisticsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAllowedStatistics)(nil)).Elem()
+}
+
+func (i JobAllowedStatisticsArgs) ToJobAllowedStatisticsOutput() JobAllowedStatisticsOutput {
+	return i.ToJobAllowedStatisticsOutputWithContext(context.Background())
+}
+
+func (i JobAllowedStatisticsArgs) ToJobAllowedStatisticsOutputWithContext(ctx context.Context) JobAllowedStatisticsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAllowedStatisticsOutput)
+}
+
+func (i JobAllowedStatisticsArgs) ToJobAllowedStatisticsPtrOutput() JobAllowedStatisticsPtrOutput {
+	return i.ToJobAllowedStatisticsPtrOutputWithContext(context.Background())
+}
+
+func (i JobAllowedStatisticsArgs) ToJobAllowedStatisticsPtrOutputWithContext(ctx context.Context) JobAllowedStatisticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAllowedStatisticsOutput).ToJobAllowedStatisticsPtrOutputWithContext(ctx)
+}
+
+// JobAllowedStatisticsPtrInput is an input type that accepts JobAllowedStatisticsArgs, JobAllowedStatisticsPtr and JobAllowedStatisticsPtrOutput values.
+// You can construct a concrete instance of `JobAllowedStatisticsPtrInput` via:
+//
+//          JobAllowedStatisticsArgs{...}
+//
+//  or:
+//
+//          nil
+type JobAllowedStatisticsPtrInput interface {
+	pulumi.Input
+
+	ToJobAllowedStatisticsPtrOutput() JobAllowedStatisticsPtrOutput
+	ToJobAllowedStatisticsPtrOutputWithContext(context.Context) JobAllowedStatisticsPtrOutput
+}
+
+type jobAllowedStatisticsPtrType JobAllowedStatisticsArgs
+
+func JobAllowedStatisticsPtr(v *JobAllowedStatisticsArgs) JobAllowedStatisticsPtrInput {
+	return (*jobAllowedStatisticsPtrType)(v)
+}
+
+func (*jobAllowedStatisticsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobAllowedStatistics)(nil)).Elem()
+}
+
+func (i *jobAllowedStatisticsPtrType) ToJobAllowedStatisticsPtrOutput() JobAllowedStatisticsPtrOutput {
+	return i.ToJobAllowedStatisticsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobAllowedStatisticsPtrType) ToJobAllowedStatisticsPtrOutputWithContext(ctx context.Context) JobAllowedStatisticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAllowedStatisticsPtrOutput)
+}
+
+type JobAllowedStatisticsOutput struct{ *pulumi.OutputState }
+
+func (JobAllowedStatisticsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAllowedStatistics)(nil)).Elem()
+}
+
+func (o JobAllowedStatisticsOutput) ToJobAllowedStatisticsOutput() JobAllowedStatisticsOutput {
+	return o
+}
+
+func (o JobAllowedStatisticsOutput) ToJobAllowedStatisticsOutputWithContext(ctx context.Context) JobAllowedStatisticsOutput {
+	return o
+}
+
+func (o JobAllowedStatisticsOutput) ToJobAllowedStatisticsPtrOutput() JobAllowedStatisticsPtrOutput {
+	return o.ToJobAllowedStatisticsPtrOutputWithContext(context.Background())
+}
+
+func (o JobAllowedStatisticsOutput) ToJobAllowedStatisticsPtrOutputWithContext(ctx context.Context) JobAllowedStatisticsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobAllowedStatistics) *JobAllowedStatistics {
+		return &v
+	}).(JobAllowedStatisticsPtrOutput)
+}
+
+func (o JobAllowedStatisticsOutput) Statistics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobAllowedStatistics) []string { return v.Statistics }).(pulumi.StringArrayOutput)
+}
+
+type JobAllowedStatisticsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobAllowedStatisticsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobAllowedStatistics)(nil)).Elem()
+}
+
+func (o JobAllowedStatisticsPtrOutput) ToJobAllowedStatisticsPtrOutput() JobAllowedStatisticsPtrOutput {
+	return o
+}
+
+func (o JobAllowedStatisticsPtrOutput) ToJobAllowedStatisticsPtrOutputWithContext(ctx context.Context) JobAllowedStatisticsPtrOutput {
+	return o
+}
+
+func (o JobAllowedStatisticsPtrOutput) Elem() JobAllowedStatisticsOutput {
+	return o.ApplyT(func(v *JobAllowedStatistics) JobAllowedStatistics {
+		if v != nil {
+			return *v
+		}
+		var ret JobAllowedStatistics
+		return ret
+	}).(JobAllowedStatisticsOutput)
+}
+
+func (o JobAllowedStatisticsPtrOutput) Statistics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobAllowedStatistics) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Statistics
+	}).(pulumi.StringArrayOutput)
 }
 
 type JobColumnSelector struct {
@@ -3083,6 +3387,154 @@ func (o JobDatabaseTableOutputOptionsPtrOutput) TempDirectory() JobS3LocationPtr
 	}).(JobS3LocationPtrOutput)
 }
 
+type JobEntityDetectorConfiguration struct {
+	AllowedStatistics *JobAllowedStatistics `pulumi:"allowedStatistics"`
+	EntityTypes       []string              `pulumi:"entityTypes"`
+}
+
+// JobEntityDetectorConfigurationInput is an input type that accepts JobEntityDetectorConfigurationArgs and JobEntityDetectorConfigurationOutput values.
+// You can construct a concrete instance of `JobEntityDetectorConfigurationInput` via:
+//
+//          JobEntityDetectorConfigurationArgs{...}
+type JobEntityDetectorConfigurationInput interface {
+	pulumi.Input
+
+	ToJobEntityDetectorConfigurationOutput() JobEntityDetectorConfigurationOutput
+	ToJobEntityDetectorConfigurationOutputWithContext(context.Context) JobEntityDetectorConfigurationOutput
+}
+
+type JobEntityDetectorConfigurationArgs struct {
+	AllowedStatistics JobAllowedStatisticsPtrInput `pulumi:"allowedStatistics"`
+	EntityTypes       pulumi.StringArrayInput      `pulumi:"entityTypes"`
+}
+
+func (JobEntityDetectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEntityDetectorConfiguration)(nil)).Elem()
+}
+
+func (i JobEntityDetectorConfigurationArgs) ToJobEntityDetectorConfigurationOutput() JobEntityDetectorConfigurationOutput {
+	return i.ToJobEntityDetectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobEntityDetectorConfigurationArgs) ToJobEntityDetectorConfigurationOutputWithContext(ctx context.Context) JobEntityDetectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEntityDetectorConfigurationOutput)
+}
+
+func (i JobEntityDetectorConfigurationArgs) ToJobEntityDetectorConfigurationPtrOutput() JobEntityDetectorConfigurationPtrOutput {
+	return i.ToJobEntityDetectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobEntityDetectorConfigurationArgs) ToJobEntityDetectorConfigurationPtrOutputWithContext(ctx context.Context) JobEntityDetectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEntityDetectorConfigurationOutput).ToJobEntityDetectorConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobEntityDetectorConfigurationPtrInput is an input type that accepts JobEntityDetectorConfigurationArgs, JobEntityDetectorConfigurationPtr and JobEntityDetectorConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobEntityDetectorConfigurationPtrInput` via:
+//
+//          JobEntityDetectorConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type JobEntityDetectorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobEntityDetectorConfigurationPtrOutput() JobEntityDetectorConfigurationPtrOutput
+	ToJobEntityDetectorConfigurationPtrOutputWithContext(context.Context) JobEntityDetectorConfigurationPtrOutput
+}
+
+type jobEntityDetectorConfigurationPtrType JobEntityDetectorConfigurationArgs
+
+func JobEntityDetectorConfigurationPtr(v *JobEntityDetectorConfigurationArgs) JobEntityDetectorConfigurationPtrInput {
+	return (*jobEntityDetectorConfigurationPtrType)(v)
+}
+
+func (*jobEntityDetectorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobEntityDetectorConfiguration)(nil)).Elem()
+}
+
+func (i *jobEntityDetectorConfigurationPtrType) ToJobEntityDetectorConfigurationPtrOutput() JobEntityDetectorConfigurationPtrOutput {
+	return i.ToJobEntityDetectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobEntityDetectorConfigurationPtrType) ToJobEntityDetectorConfigurationPtrOutputWithContext(ctx context.Context) JobEntityDetectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobEntityDetectorConfigurationPtrOutput)
+}
+
+type JobEntityDetectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobEntityDetectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobEntityDetectorConfiguration)(nil)).Elem()
+}
+
+func (o JobEntityDetectorConfigurationOutput) ToJobEntityDetectorConfigurationOutput() JobEntityDetectorConfigurationOutput {
+	return o
+}
+
+func (o JobEntityDetectorConfigurationOutput) ToJobEntityDetectorConfigurationOutputWithContext(ctx context.Context) JobEntityDetectorConfigurationOutput {
+	return o
+}
+
+func (o JobEntityDetectorConfigurationOutput) ToJobEntityDetectorConfigurationPtrOutput() JobEntityDetectorConfigurationPtrOutput {
+	return o.ToJobEntityDetectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobEntityDetectorConfigurationOutput) ToJobEntityDetectorConfigurationPtrOutputWithContext(ctx context.Context) JobEntityDetectorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobEntityDetectorConfiguration) *JobEntityDetectorConfiguration {
+		return &v
+	}).(JobEntityDetectorConfigurationPtrOutput)
+}
+
+func (o JobEntityDetectorConfigurationOutput) AllowedStatistics() JobAllowedStatisticsPtrOutput {
+	return o.ApplyT(func(v JobEntityDetectorConfiguration) *JobAllowedStatistics { return v.AllowedStatistics }).(JobAllowedStatisticsPtrOutput)
+}
+
+func (o JobEntityDetectorConfigurationOutput) EntityTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobEntityDetectorConfiguration) []string { return v.EntityTypes }).(pulumi.StringArrayOutput)
+}
+
+type JobEntityDetectorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobEntityDetectorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobEntityDetectorConfiguration)(nil)).Elem()
+}
+
+func (o JobEntityDetectorConfigurationPtrOutput) ToJobEntityDetectorConfigurationPtrOutput() JobEntityDetectorConfigurationPtrOutput {
+	return o
+}
+
+func (o JobEntityDetectorConfigurationPtrOutput) ToJobEntityDetectorConfigurationPtrOutputWithContext(ctx context.Context) JobEntityDetectorConfigurationPtrOutput {
+	return o
+}
+
+func (o JobEntityDetectorConfigurationPtrOutput) Elem() JobEntityDetectorConfigurationOutput {
+	return o.ApplyT(func(v *JobEntityDetectorConfiguration) JobEntityDetectorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobEntityDetectorConfiguration
+		return ret
+	}).(JobEntityDetectorConfigurationOutput)
+}
+
+func (o JobEntityDetectorConfigurationPtrOutput) AllowedStatistics() JobAllowedStatisticsPtrOutput {
+	return o.ApplyT(func(v *JobEntityDetectorConfiguration) *JobAllowedStatistics {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedStatistics
+	}).(JobAllowedStatisticsPtrOutput)
+}
+
+func (o JobEntityDetectorConfigurationPtrOutput) EntityTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobEntityDetectorConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 type JobOutputType struct {
 	CompressionFormat *JobOutputCompressionFormat `pulumi:"compressionFormat"`
 	Format            *JobOutputFormat            `pulumi:"format"`
@@ -3540,6 +3992,7 @@ func (o JobParameterMapOutput) ToJobParameterMapOutputWithContext(ctx context.Co
 type JobProfileConfiguration struct {
 	ColumnStatisticsConfigurations []JobColumnStatisticsConfiguration `pulumi:"columnStatisticsConfigurations"`
 	DatasetStatisticsConfiguration *JobStatisticsConfiguration        `pulumi:"datasetStatisticsConfiguration"`
+	EntityDetectorConfiguration    *JobEntityDetectorConfiguration    `pulumi:"entityDetectorConfiguration"`
 	ProfileColumns                 []JobColumnSelector                `pulumi:"profileColumns"`
 }
 
@@ -3557,6 +4010,7 @@ type JobProfileConfigurationInput interface {
 type JobProfileConfigurationArgs struct {
 	ColumnStatisticsConfigurations JobColumnStatisticsConfigurationArrayInput `pulumi:"columnStatisticsConfigurations"`
 	DatasetStatisticsConfiguration JobStatisticsConfigurationPtrInput         `pulumi:"datasetStatisticsConfiguration"`
+	EntityDetectorConfiguration    JobEntityDetectorConfigurationPtrInput     `pulumi:"entityDetectorConfiguration"`
 	ProfileColumns                 JobColumnSelectorArrayInput                `pulumi:"profileColumns"`
 }
 
@@ -3647,6 +4101,10 @@ func (o JobProfileConfigurationOutput) DatasetStatisticsConfiguration() JobStati
 	return o.ApplyT(func(v JobProfileConfiguration) *JobStatisticsConfiguration { return v.DatasetStatisticsConfiguration }).(JobStatisticsConfigurationPtrOutput)
 }
 
+func (o JobProfileConfigurationOutput) EntityDetectorConfiguration() JobEntityDetectorConfigurationPtrOutput {
+	return o.ApplyT(func(v JobProfileConfiguration) *JobEntityDetectorConfiguration { return v.EntityDetectorConfiguration }).(JobEntityDetectorConfigurationPtrOutput)
+}
+
 func (o JobProfileConfigurationOutput) ProfileColumns() JobColumnSelectorArrayOutput {
 	return o.ApplyT(func(v JobProfileConfiguration) []JobColumnSelector { return v.ProfileColumns }).(JobColumnSelectorArrayOutput)
 }
@@ -3691,6 +4149,15 @@ func (o JobProfileConfigurationPtrOutput) DatasetStatisticsConfiguration() JobSt
 		}
 		return v.DatasetStatisticsConfiguration
 	}).(JobStatisticsConfigurationPtrOutput)
+}
+
+func (o JobProfileConfigurationPtrOutput) EntityDetectorConfiguration() JobEntityDetectorConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobProfileConfiguration) *JobEntityDetectorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EntityDetectorConfiguration
+	}).(JobEntityDetectorConfigurationPtrOutput)
 }
 
 func (o JobProfileConfigurationPtrOutput) ProfileColumns() JobColumnSelectorArrayOutput {
@@ -6683,6 +7150,620 @@ func (o RecipeTagArrayOutput) Index(i pulumi.IntInput) RecipeTagOutput {
 	}).(RecipeTagOutput)
 }
 
+// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+type RulesetColumnSelector struct {
+	// The name of a column from a dataset
+	Name *string `pulumi:"name"`
+	// A regular expression for selecting a column from a dataset
+	Regex *string `pulumi:"regex"`
+}
+
+// RulesetColumnSelectorInput is an input type that accepts RulesetColumnSelectorArgs and RulesetColumnSelectorOutput values.
+// You can construct a concrete instance of `RulesetColumnSelectorInput` via:
+//
+//          RulesetColumnSelectorArgs{...}
+type RulesetColumnSelectorInput interface {
+	pulumi.Input
+
+	ToRulesetColumnSelectorOutput() RulesetColumnSelectorOutput
+	ToRulesetColumnSelectorOutputWithContext(context.Context) RulesetColumnSelectorOutput
+}
+
+// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+type RulesetColumnSelectorArgs struct {
+	// The name of a column from a dataset
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A regular expression for selecting a column from a dataset
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+}
+
+func (RulesetColumnSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetColumnSelector)(nil)).Elem()
+}
+
+func (i RulesetColumnSelectorArgs) ToRulesetColumnSelectorOutput() RulesetColumnSelectorOutput {
+	return i.ToRulesetColumnSelectorOutputWithContext(context.Background())
+}
+
+func (i RulesetColumnSelectorArgs) ToRulesetColumnSelectorOutputWithContext(ctx context.Context) RulesetColumnSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetColumnSelectorOutput)
+}
+
+// RulesetColumnSelectorArrayInput is an input type that accepts RulesetColumnSelectorArray and RulesetColumnSelectorArrayOutput values.
+// You can construct a concrete instance of `RulesetColumnSelectorArrayInput` via:
+//
+//          RulesetColumnSelectorArray{ RulesetColumnSelectorArgs{...} }
+type RulesetColumnSelectorArrayInput interface {
+	pulumi.Input
+
+	ToRulesetColumnSelectorArrayOutput() RulesetColumnSelectorArrayOutput
+	ToRulesetColumnSelectorArrayOutputWithContext(context.Context) RulesetColumnSelectorArrayOutput
+}
+
+type RulesetColumnSelectorArray []RulesetColumnSelectorInput
+
+func (RulesetColumnSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetColumnSelector)(nil)).Elem()
+}
+
+func (i RulesetColumnSelectorArray) ToRulesetColumnSelectorArrayOutput() RulesetColumnSelectorArrayOutput {
+	return i.ToRulesetColumnSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i RulesetColumnSelectorArray) ToRulesetColumnSelectorArrayOutputWithContext(ctx context.Context) RulesetColumnSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetColumnSelectorArrayOutput)
+}
+
+// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+type RulesetColumnSelectorOutput struct{ *pulumi.OutputState }
+
+func (RulesetColumnSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetColumnSelector)(nil)).Elem()
+}
+
+func (o RulesetColumnSelectorOutput) ToRulesetColumnSelectorOutput() RulesetColumnSelectorOutput {
+	return o
+}
+
+func (o RulesetColumnSelectorOutput) ToRulesetColumnSelectorOutputWithContext(ctx context.Context) RulesetColumnSelectorOutput {
+	return o
+}
+
+// The name of a column from a dataset
+func (o RulesetColumnSelectorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesetColumnSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A regular expression for selecting a column from a dataset
+func (o RulesetColumnSelectorOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesetColumnSelector) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+type RulesetColumnSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesetColumnSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetColumnSelector)(nil)).Elem()
+}
+
+func (o RulesetColumnSelectorArrayOutput) ToRulesetColumnSelectorArrayOutput() RulesetColumnSelectorArrayOutput {
+	return o
+}
+
+func (o RulesetColumnSelectorArrayOutput) ToRulesetColumnSelectorArrayOutputWithContext(ctx context.Context) RulesetColumnSelectorArrayOutput {
+	return o
+}
+
+func (o RulesetColumnSelectorArrayOutput) Index(i pulumi.IntInput) RulesetColumnSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetColumnSelector {
+		return vs[0].([]RulesetColumnSelector)[vs[1].(int)]
+	}).(RulesetColumnSelectorOutput)
+}
+
+// Data quality rule for a target resource (dataset)
+type RulesetRule struct {
+	CheckExpression string                  `pulumi:"checkExpression"`
+	ColumnSelectors []RulesetColumnSelector `pulumi:"columnSelectors"`
+	Disabled        *bool                   `pulumi:"disabled"`
+	// Name of the rule
+	Name            string                     `pulumi:"name"`
+	SubstitutionMap []RulesetSubstitutionValue `pulumi:"substitutionMap"`
+	Threshold       *RulesetThreshold          `pulumi:"threshold"`
+}
+
+// RulesetRuleInput is an input type that accepts RulesetRuleArgs and RulesetRuleOutput values.
+// You can construct a concrete instance of `RulesetRuleInput` via:
+//
+//          RulesetRuleArgs{...}
+type RulesetRuleInput interface {
+	pulumi.Input
+
+	ToRulesetRuleOutput() RulesetRuleOutput
+	ToRulesetRuleOutputWithContext(context.Context) RulesetRuleOutput
+}
+
+// Data quality rule for a target resource (dataset)
+type RulesetRuleArgs struct {
+	CheckExpression pulumi.StringInput              `pulumi:"checkExpression"`
+	ColumnSelectors RulesetColumnSelectorArrayInput `pulumi:"columnSelectors"`
+	Disabled        pulumi.BoolPtrInput             `pulumi:"disabled"`
+	// Name of the rule
+	Name            pulumi.StringInput                 `pulumi:"name"`
+	SubstitutionMap RulesetSubstitutionValueArrayInput `pulumi:"substitutionMap"`
+	Threshold       RulesetThresholdPtrInput           `pulumi:"threshold"`
+}
+
+func (RulesetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRule)(nil)).Elem()
+}
+
+func (i RulesetRuleArgs) ToRulesetRuleOutput() RulesetRuleOutput {
+	return i.ToRulesetRuleOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleArgs) ToRulesetRuleOutputWithContext(ctx context.Context) RulesetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleOutput)
+}
+
+// RulesetRuleArrayInput is an input type that accepts RulesetRuleArray and RulesetRuleArrayOutput values.
+// You can construct a concrete instance of `RulesetRuleArrayInput` via:
+//
+//          RulesetRuleArray{ RulesetRuleArgs{...} }
+type RulesetRuleArrayInput interface {
+	pulumi.Input
+
+	ToRulesetRuleArrayOutput() RulesetRuleArrayOutput
+	ToRulesetRuleArrayOutputWithContext(context.Context) RulesetRuleArrayOutput
+}
+
+type RulesetRuleArray []RulesetRuleInput
+
+func (RulesetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRule)(nil)).Elem()
+}
+
+func (i RulesetRuleArray) ToRulesetRuleArrayOutput() RulesetRuleArrayOutput {
+	return i.ToRulesetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleArray) ToRulesetRuleArrayOutputWithContext(ctx context.Context) RulesetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleArrayOutput)
+}
+
+// Data quality rule for a target resource (dataset)
+type RulesetRuleOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRule)(nil)).Elem()
+}
+
+func (o RulesetRuleOutput) ToRulesetRuleOutput() RulesetRuleOutput {
+	return o
+}
+
+func (o RulesetRuleOutput) ToRulesetRuleOutputWithContext(ctx context.Context) RulesetRuleOutput {
+	return o
+}
+
+func (o RulesetRuleOutput) CheckExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v RulesetRule) string { return v.CheckExpression }).(pulumi.StringOutput)
+}
+
+func (o RulesetRuleOutput) ColumnSelectors() RulesetColumnSelectorArrayOutput {
+	return o.ApplyT(func(v RulesetRule) []RulesetColumnSelector { return v.ColumnSelectors }).(RulesetColumnSelectorArrayOutput)
+}
+
+func (o RulesetRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RulesetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the rule
+func (o RulesetRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RulesetRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RulesetRuleOutput) SubstitutionMap() RulesetSubstitutionValueArrayOutput {
+	return o.ApplyT(func(v RulesetRule) []RulesetSubstitutionValue { return v.SubstitutionMap }).(RulesetSubstitutionValueArrayOutput)
+}
+
+func (o RulesetRuleOutput) Threshold() RulesetThresholdPtrOutput {
+	return o.ApplyT(func(v RulesetRule) *RulesetThreshold { return v.Threshold }).(RulesetThresholdPtrOutput)
+}
+
+type RulesetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRule)(nil)).Elem()
+}
+
+func (o RulesetRuleArrayOutput) ToRulesetRuleArrayOutput() RulesetRuleArrayOutput {
+	return o
+}
+
+func (o RulesetRuleArrayOutput) ToRulesetRuleArrayOutputWithContext(ctx context.Context) RulesetRuleArrayOutput {
+	return o
+}
+
+func (o RulesetRuleArrayOutput) Index(i pulumi.IntInput) RulesetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetRule {
+		return vs[0].([]RulesetRule)[vs[1].(int)]
+	}).(RulesetRuleOutput)
+}
+
+// A key-value pair to associate expression's substitution variable names with their values
+type RulesetSubstitutionValue struct {
+	// Value or column name
+	Value string `pulumi:"value"`
+	// Variable name
+	ValueReference string `pulumi:"valueReference"`
+}
+
+// RulesetSubstitutionValueInput is an input type that accepts RulesetSubstitutionValueArgs and RulesetSubstitutionValueOutput values.
+// You can construct a concrete instance of `RulesetSubstitutionValueInput` via:
+//
+//          RulesetSubstitutionValueArgs{...}
+type RulesetSubstitutionValueInput interface {
+	pulumi.Input
+
+	ToRulesetSubstitutionValueOutput() RulesetSubstitutionValueOutput
+	ToRulesetSubstitutionValueOutputWithContext(context.Context) RulesetSubstitutionValueOutput
+}
+
+// A key-value pair to associate expression's substitution variable names with their values
+type RulesetSubstitutionValueArgs struct {
+	// Value or column name
+	Value pulumi.StringInput `pulumi:"value"`
+	// Variable name
+	ValueReference pulumi.StringInput `pulumi:"valueReference"`
+}
+
+func (RulesetSubstitutionValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetSubstitutionValue)(nil)).Elem()
+}
+
+func (i RulesetSubstitutionValueArgs) ToRulesetSubstitutionValueOutput() RulesetSubstitutionValueOutput {
+	return i.ToRulesetSubstitutionValueOutputWithContext(context.Background())
+}
+
+func (i RulesetSubstitutionValueArgs) ToRulesetSubstitutionValueOutputWithContext(ctx context.Context) RulesetSubstitutionValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetSubstitutionValueOutput)
+}
+
+// RulesetSubstitutionValueArrayInput is an input type that accepts RulesetSubstitutionValueArray and RulesetSubstitutionValueArrayOutput values.
+// You can construct a concrete instance of `RulesetSubstitutionValueArrayInput` via:
+//
+//          RulesetSubstitutionValueArray{ RulesetSubstitutionValueArgs{...} }
+type RulesetSubstitutionValueArrayInput interface {
+	pulumi.Input
+
+	ToRulesetSubstitutionValueArrayOutput() RulesetSubstitutionValueArrayOutput
+	ToRulesetSubstitutionValueArrayOutputWithContext(context.Context) RulesetSubstitutionValueArrayOutput
+}
+
+type RulesetSubstitutionValueArray []RulesetSubstitutionValueInput
+
+func (RulesetSubstitutionValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetSubstitutionValue)(nil)).Elem()
+}
+
+func (i RulesetSubstitutionValueArray) ToRulesetSubstitutionValueArrayOutput() RulesetSubstitutionValueArrayOutput {
+	return i.ToRulesetSubstitutionValueArrayOutputWithContext(context.Background())
+}
+
+func (i RulesetSubstitutionValueArray) ToRulesetSubstitutionValueArrayOutputWithContext(ctx context.Context) RulesetSubstitutionValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetSubstitutionValueArrayOutput)
+}
+
+// A key-value pair to associate expression's substitution variable names with their values
+type RulesetSubstitutionValueOutput struct{ *pulumi.OutputState }
+
+func (RulesetSubstitutionValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetSubstitutionValue)(nil)).Elem()
+}
+
+func (o RulesetSubstitutionValueOutput) ToRulesetSubstitutionValueOutput() RulesetSubstitutionValueOutput {
+	return o
+}
+
+func (o RulesetSubstitutionValueOutput) ToRulesetSubstitutionValueOutputWithContext(ctx context.Context) RulesetSubstitutionValueOutput {
+	return o
+}
+
+// Value or column name
+func (o RulesetSubstitutionValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RulesetSubstitutionValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// Variable name
+func (o RulesetSubstitutionValueOutput) ValueReference() pulumi.StringOutput {
+	return o.ApplyT(func(v RulesetSubstitutionValue) string { return v.ValueReference }).(pulumi.StringOutput)
+}
+
+type RulesetSubstitutionValueArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesetSubstitutionValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetSubstitutionValue)(nil)).Elem()
+}
+
+func (o RulesetSubstitutionValueArrayOutput) ToRulesetSubstitutionValueArrayOutput() RulesetSubstitutionValueArrayOutput {
+	return o
+}
+
+func (o RulesetSubstitutionValueArrayOutput) ToRulesetSubstitutionValueArrayOutputWithContext(ctx context.Context) RulesetSubstitutionValueArrayOutput {
+	return o
+}
+
+func (o RulesetSubstitutionValueArrayOutput) Index(i pulumi.IntInput) RulesetSubstitutionValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetSubstitutionValue {
+		return vs[0].([]RulesetSubstitutionValue)[vs[1].(int)]
+	}).(RulesetSubstitutionValueOutput)
+}
+
+// A key-value pair to associate with a resource
+type RulesetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// RulesetTagInput is an input type that accepts RulesetTagArgs and RulesetTagOutput values.
+// You can construct a concrete instance of `RulesetTagInput` via:
+//
+//          RulesetTagArgs{...}
+type RulesetTagInput interface {
+	pulumi.Input
+
+	ToRulesetTagOutput() RulesetTagOutput
+	ToRulesetTagOutputWithContext(context.Context) RulesetTagOutput
+}
+
+// A key-value pair to associate with a resource
+type RulesetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RulesetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetTag)(nil)).Elem()
+}
+
+func (i RulesetTagArgs) ToRulesetTagOutput() RulesetTagOutput {
+	return i.ToRulesetTagOutputWithContext(context.Background())
+}
+
+func (i RulesetTagArgs) ToRulesetTagOutputWithContext(ctx context.Context) RulesetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetTagOutput)
+}
+
+// RulesetTagArrayInput is an input type that accepts RulesetTagArray and RulesetTagArrayOutput values.
+// You can construct a concrete instance of `RulesetTagArrayInput` via:
+//
+//          RulesetTagArray{ RulesetTagArgs{...} }
+type RulesetTagArrayInput interface {
+	pulumi.Input
+
+	ToRulesetTagArrayOutput() RulesetTagArrayOutput
+	ToRulesetTagArrayOutputWithContext(context.Context) RulesetTagArrayOutput
+}
+
+type RulesetTagArray []RulesetTagInput
+
+func (RulesetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetTag)(nil)).Elem()
+}
+
+func (i RulesetTagArray) ToRulesetTagArrayOutput() RulesetTagArrayOutput {
+	return i.ToRulesetTagArrayOutputWithContext(context.Background())
+}
+
+func (i RulesetTagArray) ToRulesetTagArrayOutputWithContext(ctx context.Context) RulesetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource
+type RulesetTagOutput struct{ *pulumi.OutputState }
+
+func (RulesetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetTag)(nil)).Elem()
+}
+
+func (o RulesetTagOutput) ToRulesetTagOutput() RulesetTagOutput {
+	return o
+}
+
+func (o RulesetTagOutput) ToRulesetTagOutputWithContext(ctx context.Context) RulesetTagOutput {
+	return o
+}
+
+func (o RulesetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RulesetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o RulesetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RulesetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RulesetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetTag)(nil)).Elem()
+}
+
+func (o RulesetTagArrayOutput) ToRulesetTagArrayOutput() RulesetTagArrayOutput {
+	return o
+}
+
+func (o RulesetTagArrayOutput) ToRulesetTagArrayOutputWithContext(ctx context.Context) RulesetTagArrayOutput {
+	return o
+}
+
+func (o RulesetTagArrayOutput) Index(i pulumi.IntInput) RulesetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetTag {
+		return vs[0].([]RulesetTag)[vs[1].(int)]
+	}).(RulesetTagOutput)
+}
+
+type RulesetThreshold struct {
+	Type  *RulesetThresholdType `pulumi:"type"`
+	Unit  *RulesetThresholdUnit `pulumi:"unit"`
+	Value float64               `pulumi:"value"`
+}
+
+// RulesetThresholdInput is an input type that accepts RulesetThresholdArgs and RulesetThresholdOutput values.
+// You can construct a concrete instance of `RulesetThresholdInput` via:
+//
+//          RulesetThresholdArgs{...}
+type RulesetThresholdInput interface {
+	pulumi.Input
+
+	ToRulesetThresholdOutput() RulesetThresholdOutput
+	ToRulesetThresholdOutputWithContext(context.Context) RulesetThresholdOutput
+}
+
+type RulesetThresholdArgs struct {
+	Type  RulesetThresholdTypePtrInput `pulumi:"type"`
+	Unit  RulesetThresholdUnitPtrInput `pulumi:"unit"`
+	Value pulumi.Float64Input          `pulumi:"value"`
+}
+
+func (RulesetThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetThreshold)(nil)).Elem()
+}
+
+func (i RulesetThresholdArgs) ToRulesetThresholdOutput() RulesetThresholdOutput {
+	return i.ToRulesetThresholdOutputWithContext(context.Background())
+}
+
+func (i RulesetThresholdArgs) ToRulesetThresholdOutputWithContext(ctx context.Context) RulesetThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetThresholdOutput)
+}
+
+func (i RulesetThresholdArgs) ToRulesetThresholdPtrOutput() RulesetThresholdPtrOutput {
+	return i.ToRulesetThresholdPtrOutputWithContext(context.Background())
+}
+
+func (i RulesetThresholdArgs) ToRulesetThresholdPtrOutputWithContext(ctx context.Context) RulesetThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetThresholdOutput).ToRulesetThresholdPtrOutputWithContext(ctx)
+}
+
+// RulesetThresholdPtrInput is an input type that accepts RulesetThresholdArgs, RulesetThresholdPtr and RulesetThresholdPtrOutput values.
+// You can construct a concrete instance of `RulesetThresholdPtrInput` via:
+//
+//          RulesetThresholdArgs{...}
+//
+//  or:
+//
+//          nil
+type RulesetThresholdPtrInput interface {
+	pulumi.Input
+
+	ToRulesetThresholdPtrOutput() RulesetThresholdPtrOutput
+	ToRulesetThresholdPtrOutputWithContext(context.Context) RulesetThresholdPtrOutput
+}
+
+type rulesetThresholdPtrType RulesetThresholdArgs
+
+func RulesetThresholdPtr(v *RulesetThresholdArgs) RulesetThresholdPtrInput {
+	return (*rulesetThresholdPtrType)(v)
+}
+
+func (*rulesetThresholdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesetThreshold)(nil)).Elem()
+}
+
+func (i *rulesetThresholdPtrType) ToRulesetThresholdPtrOutput() RulesetThresholdPtrOutput {
+	return i.ToRulesetThresholdPtrOutputWithContext(context.Background())
+}
+
+func (i *rulesetThresholdPtrType) ToRulesetThresholdPtrOutputWithContext(ctx context.Context) RulesetThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetThresholdPtrOutput)
+}
+
+type RulesetThresholdOutput struct{ *pulumi.OutputState }
+
+func (RulesetThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetThreshold)(nil)).Elem()
+}
+
+func (o RulesetThresholdOutput) ToRulesetThresholdOutput() RulesetThresholdOutput {
+	return o
+}
+
+func (o RulesetThresholdOutput) ToRulesetThresholdOutputWithContext(ctx context.Context) RulesetThresholdOutput {
+	return o
+}
+
+func (o RulesetThresholdOutput) ToRulesetThresholdPtrOutput() RulesetThresholdPtrOutput {
+	return o.ToRulesetThresholdPtrOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdOutput) ToRulesetThresholdPtrOutputWithContext(ctx context.Context) RulesetThresholdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetThreshold) *RulesetThreshold {
+		return &v
+	}).(RulesetThresholdPtrOutput)
+}
+
+func (o RulesetThresholdOutput) Type() RulesetThresholdTypePtrOutput {
+	return o.ApplyT(func(v RulesetThreshold) *RulesetThresholdType { return v.Type }).(RulesetThresholdTypePtrOutput)
+}
+
+func (o RulesetThresholdOutput) Unit() RulesetThresholdUnitPtrOutput {
+	return o.ApplyT(func(v RulesetThreshold) *RulesetThresholdUnit { return v.Unit }).(RulesetThresholdUnitPtrOutput)
+}
+
+func (o RulesetThresholdOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v RulesetThreshold) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type RulesetThresholdPtrOutput struct{ *pulumi.OutputState }
+
+func (RulesetThresholdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesetThreshold)(nil)).Elem()
+}
+
+func (o RulesetThresholdPtrOutput) ToRulesetThresholdPtrOutput() RulesetThresholdPtrOutput {
+	return o
+}
+
+func (o RulesetThresholdPtrOutput) ToRulesetThresholdPtrOutputWithContext(ctx context.Context) RulesetThresholdPtrOutput {
+	return o
+}
+
+func (o RulesetThresholdPtrOutput) Elem() RulesetThresholdOutput {
+	return o.ApplyT(func(v *RulesetThreshold) RulesetThreshold {
+		if v != nil {
+			return *v
+		}
+		var ret RulesetThreshold
+		return ret
+	}).(RulesetThresholdOutput)
+}
+
+func (o RulesetThresholdPtrOutput) Type() RulesetThresholdTypePtrOutput {
+	return o.ApplyT(func(v *RulesetThreshold) *RulesetThresholdType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(RulesetThresholdTypePtrOutput)
+}
+
+func (o RulesetThresholdPtrOutput) Unit() RulesetThresholdUnitPtrOutput {
+	return o.ApplyT(func(v *RulesetThreshold) *RulesetThresholdUnit {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(RulesetThresholdUnitPtrOutput)
+}
+
+func (o RulesetThresholdPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RulesetThreshold) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ScheduleTag struct {
 	Key   string `pulumi:"key"`
@@ -6809,6 +7890,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetInputTypePtrInput)(nil)).Elem(), DatasetInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetJsonOptionsInput)(nil)).Elem(), DatasetJsonOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetJsonOptionsPtrInput)(nil)).Elem(), DatasetJsonOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMetadataInput)(nil)).Elem(), DatasetMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMetadataPtrInput)(nil)).Elem(), DatasetMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParameterInput)(nil)).Elem(), DatasetParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPathOptionsInput)(nil)).Elem(), DatasetPathOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPathOptionsPtrInput)(nil)).Elem(), DatasetPathOptionsArgs{})
@@ -6818,6 +7901,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetS3LocationPtrInput)(nil)).Elem(), DatasetS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTagInput)(nil)).Elem(), DatasetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTagArrayInput)(nil)).Elem(), DatasetTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAllowedStatisticsInput)(nil)).Elem(), JobAllowedStatisticsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAllowedStatisticsPtrInput)(nil)).Elem(), JobAllowedStatisticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobColumnSelectorInput)(nil)).Elem(), JobColumnSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobColumnSelectorArrayInput)(nil)).Elem(), JobColumnSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobColumnStatisticsConfigurationInput)(nil)).Elem(), JobColumnStatisticsConfigurationArgs{})
@@ -6830,6 +7915,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDatabaseOutputArrayInput)(nil)).Elem(), JobDatabaseOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDatabaseTableOutputOptionsInput)(nil)).Elem(), JobDatabaseTableOutputOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDatabaseTableOutputOptionsPtrInput)(nil)).Elem(), JobDatabaseTableOutputOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEntityDetectorConfigurationInput)(nil)).Elem(), JobEntityDetectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobEntityDetectorConfigurationPtrInput)(nil)).Elem(), JobEntityDetectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobOutputTypeInput)(nil)).Elem(), JobOutputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobOutputTypeArrayInput)(nil)).Elem(), JobOutputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobOutputFormatOptionsInput)(nil)).Elem(), JobOutputFormatOptionsArgs{})
@@ -6876,6 +7963,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeStepArrayInput)(nil)).Elem(), RecipeStepArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeTagInput)(nil)).Elem(), RecipeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeTagArrayInput)(nil)).Elem(), RecipeTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetColumnSelectorInput)(nil)).Elem(), RulesetColumnSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetColumnSelectorArrayInput)(nil)).Elem(), RulesetColumnSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleInput)(nil)).Elem(), RulesetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleArrayInput)(nil)).Elem(), RulesetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetSubstitutionValueInput)(nil)).Elem(), RulesetSubstitutionValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetSubstitutionValueArrayInput)(nil)).Elem(), RulesetSubstitutionValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetTagInput)(nil)).Elem(), RulesetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetTagArrayInput)(nil)).Elem(), RulesetTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdInput)(nil)).Elem(), RulesetThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdPtrInput)(nil)).Elem(), RulesetThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleTagInput)(nil)).Elem(), ScheduleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleTagArrayInput)(nil)).Elem(), ScheduleTagArray{})
 	pulumi.RegisterOutputType(DatasetCsvOptionsOutput{})
@@ -6900,6 +7997,8 @@ func init() {
 	pulumi.RegisterOutputType(DatasetInputTypePtrOutput{})
 	pulumi.RegisterOutputType(DatasetJsonOptionsOutput{})
 	pulumi.RegisterOutputType(DatasetJsonOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DatasetMetadataOutput{})
+	pulumi.RegisterOutputType(DatasetMetadataPtrOutput{})
 	pulumi.RegisterOutputType(DatasetParameterOutput{})
 	pulumi.RegisterOutputType(DatasetPathOptionsOutput{})
 	pulumi.RegisterOutputType(DatasetPathOptionsPtrOutput{})
@@ -6909,6 +8008,8 @@ func init() {
 	pulumi.RegisterOutputType(DatasetS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(DatasetTagOutput{})
 	pulumi.RegisterOutputType(DatasetTagArrayOutput{})
+	pulumi.RegisterOutputType(JobAllowedStatisticsOutput{})
+	pulumi.RegisterOutputType(JobAllowedStatisticsPtrOutput{})
 	pulumi.RegisterOutputType(JobColumnSelectorOutput{})
 	pulumi.RegisterOutputType(JobColumnSelectorArrayOutput{})
 	pulumi.RegisterOutputType(JobColumnStatisticsConfigurationOutput{})
@@ -6921,6 +8022,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDatabaseOutputArrayOutput{})
 	pulumi.RegisterOutputType(JobDatabaseTableOutputOptionsOutput{})
 	pulumi.RegisterOutputType(JobDatabaseTableOutputOptionsPtrOutput{})
+	pulumi.RegisterOutputType(JobEntityDetectorConfigurationOutput{})
+	pulumi.RegisterOutputType(JobEntityDetectorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobOutputTypeOutput{})
 	pulumi.RegisterOutputType(JobOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(JobOutputFormatOptionsOutput{})
@@ -6967,6 +8070,16 @@ func init() {
 	pulumi.RegisterOutputType(RecipeStepArrayOutput{})
 	pulumi.RegisterOutputType(RecipeTagOutput{})
 	pulumi.RegisterOutputType(RecipeTagArrayOutput{})
+	pulumi.RegisterOutputType(RulesetColumnSelectorOutput{})
+	pulumi.RegisterOutputType(RulesetColumnSelectorArrayOutput{})
+	pulumi.RegisterOutputType(RulesetRuleOutput{})
+	pulumi.RegisterOutputType(RulesetRuleArrayOutput{})
+	pulumi.RegisterOutputType(RulesetSubstitutionValueOutput{})
+	pulumi.RegisterOutputType(RulesetSubstitutionValueArrayOutput{})
+	pulumi.RegisterOutputType(RulesetTagOutput{})
+	pulumi.RegisterOutputType(RulesetTagArrayOutput{})
+	pulumi.RegisterOutputType(RulesetThresholdOutput{})
+	pulumi.RegisterOutputType(RulesetThresholdPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleTagOutput{})
 	pulumi.RegisterOutputType(ScheduleTagArrayOutput{})
 }

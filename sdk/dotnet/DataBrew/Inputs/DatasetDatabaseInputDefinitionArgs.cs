@@ -21,8 +21,14 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// <summary>
         /// Glue connection name
         /// </summary>
-        [Input("glueConnectionName")]
-        public Input<string>? GlueConnectionName { get; set; }
+        [Input("glueConnectionName", required: true)]
+        public Input<string> GlueConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+        /// </summary>
+        [Input("queryString")]
+        public Input<string>? QueryString { get; set; }
 
         [Input("tempDirectory")]
         public Input<Inputs.DatasetS3LocationArgs>? TempDirectory { get; set; }

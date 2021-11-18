@@ -6258,6 +6258,15 @@
             },
             "type": "object"
         },
+        "aws-native:cloudformation:ManagedExecutionProperties": {
+            "description": "Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
         "aws-native:cloudformation:ModuleVersionVisibility": {
             "description": "The scope at which the type is visible and usable in CloudFormation operations.\n\nThe only allowed value at present is:\n\nPRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.",
             "type": "string",
@@ -11085,11 +11094,18 @@
                     "type": "string",
                     "description": "Glue connection name"
                 },
+                "queryString": {
+                    "type": "string",
+                    "description": "Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs."
+                },
                 "tempDirectory": {
                     "$ref": "#/types/aws-native:databrew:DatasetS3Location"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "glueConnectionName"
+            ]
         },
         "aws-native:databrew:DatasetDatetimeOptions": {
             "properties": {
@@ -11257,6 +11273,9 @@
                 "databaseInputDefinition": {
                     "$ref": "#/types/aws-native:databrew:DatasetDatabaseInputDefinition"
                 },
+                "metadata": {
+                    "$ref": "#/types/aws-native:databrew:DatasetMetadata"
+                },
                 "s3InputDefinition": {
                     "$ref": "#/types/aws-native:databrew:DatasetS3Location"
                 }
@@ -11268,6 +11287,15 @@
             "properties": {
                 "multiLine": {
                     "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:databrew:DatasetMetadata": {
+            "properties": {
+                "sourceArn": {
+                    "type": "string",
+                    "description": "Arn of the source of the dataset. For e.g.: AppFlow Flow ARN."
                 }
             },
             "type": "object"
@@ -11379,6 +11407,20 @@
             "required": [
                 "key",
                 "value"
+            ]
+        },
+        "aws-native:databrew:JobAllowedStatistics": {
+            "properties": {
+                "statistics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "statistics"
             ]
         },
         "aws-native:databrew:JobColumnSelector": {
@@ -11501,6 +11543,23 @@
                     "name": "SseS3",
                     "value": "SSE-S3"
                 }
+            ]
+        },
+        "aws-native:databrew:JobEntityDetectorConfiguration": {
+            "properties": {
+                "allowedStatistics": {
+                    "$ref": "#/types/aws-native:databrew:JobAllowedStatistics"
+                },
+                "entityTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "entityTypes"
             ]
         },
         "aws-native:databrew:JobLogSubscription": {
@@ -11661,6 +11720,9 @@
                 },
                 "datasetStatisticsConfiguration": {
                     "$ref": "#/types/aws-native:databrew:JobStatisticsConfiguration"
+                },
+                "entityDetectorConfiguration": {
+                    "$ref": "#/types/aws-native:databrew:JobEntityDetectorConfiguration"
                 },
                 "profileColumns": {
                     "type": "array",
@@ -12332,6 +12394,142 @@
             "required": [
                 "key",
                 "value"
+            ]
+        },
+        "aws-native:databrew:RulesetColumnSelector": {
+            "description": "Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of a column from a dataset"
+                },
+                "regex": {
+                    "type": "string",
+                    "description": "A regular expression for selecting a column from a dataset"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:databrew:RulesetRule": {
+            "description": "Data quality rule for a target resource (dataset)",
+            "properties": {
+                "checkExpression": {
+                    "type": "string"
+                },
+                "columnSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetColumnSelector"
+                    }
+                },
+                "disabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the rule"
+                },
+                "substitutionMap": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetSubstitutionValue"
+                    }
+                },
+                "threshold": {
+                    "$ref": "#/types/aws-native:databrew:RulesetThreshold"
+                }
+            },
+            "type": "object",
+            "required": [
+                "checkExpression",
+                "name"
+            ]
+        },
+        "aws-native:databrew:RulesetSubstitutionValue": {
+            "description": "A key-value pair to associate expression's substitution variable names with their values",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "description": "Value or column name"
+                },
+                "valueReference": {
+                    "type": "string",
+                    "description": "Variable name"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value",
+                "valueReference"
+            ]
+        },
+        "aws-native:databrew:RulesetTag": {
+            "description": "A key-value pair to associate with a resource",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:databrew:RulesetThreshold": {
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:databrew:RulesetThresholdType"
+                },
+                "unit": {
+                    "$ref": "#/types/aws-native:databrew:RulesetThresholdUnit"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
+        },
+        "aws-native:databrew:RulesetThresholdType": {
+            "description": "Threshold type for a rule",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "GreaterThanOrEqual",
+                    "value": "GREATER_THAN_OR_EQUAL"
+                },
+                {
+                    "name": "LessThanOrEqual",
+                    "value": "LESS_THAN_OR_EQUAL"
+                },
+                {
+                    "name": "GreaterThan",
+                    "value": "GREATER_THAN"
+                },
+                {
+                    "name": "LessThan",
+                    "value": "LESS_THAN"
+                }
+            ]
+        },
+        "aws-native:databrew:RulesetThresholdUnit": {
+            "description": "Threshold unit for a rule",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Count",
+                    "value": "COUNT"
+                },
+                {
+                    "name": "Percentage",
+                    "value": "PERCENTAGE"
+                }
             ]
         },
         "aws-native:databrew:ScheduleTag": {
@@ -53515,6 +53713,10 @@
                     "type": "string",
                     "description": "The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation."
                 },
+                "managedExecution": {
+                    "$ref": "#/types/aws-native:cloudformation:ManagedExecutionProperties",
+                    "description": "Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations."
+                },
                 "operationPreferences": {
                     "$ref": "#/types/aws-native:cloudformation:StackSetOperationPreferences"
                 },
@@ -53593,6 +53795,10 @@
                 "executionRoleName": {
                     "type": "string",
                     "description": "The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation."
+                },
+                "managedExecution": {
+                    "$ref": "#/types/aws-native:cloudformation:ManagedExecutionProperties",
+                    "description": "Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations."
                 },
                 "operationPreferences": {
                     "$ref": "#/types/aws-native:cloudformation:StackSetOperationPreferences"
@@ -56116,6 +56322,73 @@
             },
             "requiredInputs": [
                 "steps"
+            ]
+        },
+        "aws-native:databrew:Ruleset": {
+            "description": "Resource schema for AWS::DataBrew::Ruleset.",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Ruleset"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Ruleset"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetRule"
+                    },
+                    "description": "List of the data quality rules in the ruleset"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetTag"
+                    }
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "Arn of the target resource (dataset) to apply the ruleset to"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "rules",
+                "targetArn"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the Ruleset"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Ruleset"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetRule"
+                    },
+                    "description": "List of the data quality rules in the ruleset"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:databrew:RulesetTag"
+                    }
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "Arn of the target resource (dataset) to apply the ruleset to"
+                }
+            },
+            "requiredInputs": [
+                "rules",
+                "targetArn"
             ]
         },
         "aws-native:databrew:Schedule": {
@@ -58884,34 +59157,6 @@
             },
             "requiredInputs": [
                 "networkAclId",
-                "subnetId"
-            ]
-        },
-        "aws-native:ec2:SubnetRouteTableAssociation": {
-            "description": "Resource Type definition for AWS::EC2::SubnetRouteTableAssociation",
-            "properties": {
-                "routeTableId": {
-                    "type": "string"
-                },
-                "subnetId": {
-                    "type": "string"
-                }
-            },
-            "type": "object",
-            "required": [
-                "routeTableId",
-                "subnetId"
-            ],
-            "inputProperties": {
-                "routeTableId": {
-                    "type": "string"
-                },
-                "subnetId": {
-                    "type": "string"
-                }
-            },
-            "requiredInputs": [
-                "routeTableId",
                 "subnetId"
             ]
         },
@@ -75718,7 +75963,6 @@
             },
             "type": "object",
             "required": [
-                "name",
                 "nameServers"
             ],
             "inputProperties": {

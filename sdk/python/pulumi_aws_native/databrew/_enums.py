@@ -18,6 +18,8 @@ __all__ = [
     'JobType',
     'JobValidationMode',
     'ProjectSampleType',
+    'RulesetThresholdType',
+    'RulesetThresholdUnit',
 ]
 
 
@@ -128,3 +130,21 @@ class ProjectSampleType(str, Enum):
     FIRST_N = "FIRST_N"
     LAST_N = "LAST_N"
     RANDOM = "RANDOM"
+
+
+class RulesetThresholdType(str, Enum):
+    """
+    Threshold type for a rule
+    """
+    GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL"
+    LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+
+
+class RulesetThresholdUnit(str, Enum):
+    """
+    Threshold unit for a rule
+    """
+    COUNT = "COUNT"
+    PERCENTAGE = "PERCENTAGE"

@@ -92,6 +92,7 @@ AWS::DataBrew::Dataset
 AWS::DataBrew::Job
 AWS::DataBrew::Project
 AWS::DataBrew::Recipe
+AWS::DataBrew::Ruleset
 AWS::DataBrew::Schedule
 AWS::DataSync::Agent
 AWS::DataSync::LocationEFS
@@ -133,7 +134,6 @@ AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
 AWS::EC2::SubnetNetworkAclAssociation
-AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayConnect
 AWS::EC2::TransitGatewayMulticastDomain

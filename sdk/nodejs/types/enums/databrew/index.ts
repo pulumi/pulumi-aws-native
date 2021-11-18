@@ -136,3 +136,25 @@ export const ProjectSampleType = {
  * Sample type
  */
 export type ProjectSampleType = (typeof ProjectSampleType)[keyof typeof ProjectSampleType];
+
+export const RulesetThresholdType = {
+    GreaterThanOrEqual: "GREATER_THAN_OR_EQUAL",
+    LessThanOrEqual: "LESS_THAN_OR_EQUAL",
+    GreaterThan: "GREATER_THAN",
+    LessThan: "LESS_THAN",
+} as const;
+
+/**
+ * Threshold type for a rule
+ */
+export type RulesetThresholdType = (typeof RulesetThresholdType)[keyof typeof RulesetThresholdType];
+
+export const RulesetThresholdUnit = {
+    Count: "COUNT",
+    Percentage: "PERCENTAGE",
+} as const;
+
+/**
+ * Threshold unit for a rule
+ */
+export type RulesetThresholdUnit = (typeof RulesetThresholdUnit)[keyof typeof RulesetThresholdUnit];

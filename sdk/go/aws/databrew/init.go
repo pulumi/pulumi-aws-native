@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "aws-native:databrew:Recipe":
 		r = &Recipe{}
+	case "aws-native:databrew:Ruleset":
+		r = &Ruleset{}
 	case "aws-native:databrew:Schedule":
 		r = &Schedule{}
 	default:

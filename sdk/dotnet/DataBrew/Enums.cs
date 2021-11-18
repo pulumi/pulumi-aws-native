@@ -414,4 +414,68 @@ namespace Pulumi.AwsNative.DataBrew
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Threshold type for a rule
+    /// </summary>
+    [EnumType]
+    public readonly struct RulesetThresholdType : IEquatable<RulesetThresholdType>
+    {
+        private readonly string _value;
+
+        private RulesetThresholdType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RulesetThresholdType GreaterThanOrEqual { get; } = new RulesetThresholdType("GREATER_THAN_OR_EQUAL");
+        public static RulesetThresholdType LessThanOrEqual { get; } = new RulesetThresholdType("LESS_THAN_OR_EQUAL");
+        public static RulesetThresholdType GreaterThan { get; } = new RulesetThresholdType("GREATER_THAN");
+        public static RulesetThresholdType LessThan { get; } = new RulesetThresholdType("LESS_THAN");
+
+        public static bool operator ==(RulesetThresholdType left, RulesetThresholdType right) => left.Equals(right);
+        public static bool operator !=(RulesetThresholdType left, RulesetThresholdType right) => !left.Equals(right);
+
+        public static explicit operator string(RulesetThresholdType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RulesetThresholdType other && Equals(other);
+        public bool Equals(RulesetThresholdType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Threshold unit for a rule
+    /// </summary>
+    [EnumType]
+    public readonly struct RulesetThresholdUnit : IEquatable<RulesetThresholdUnit>
+    {
+        private readonly string _value;
+
+        private RulesetThresholdUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RulesetThresholdUnit Count { get; } = new RulesetThresholdUnit("COUNT");
+        public static RulesetThresholdUnit Percentage { get; } = new RulesetThresholdUnit("PERCENTAGE");
+
+        public static bool operator ==(RulesetThresholdUnit left, RulesetThresholdUnit right) => left.Equals(right);
+        public static bool operator !=(RulesetThresholdUnit left, RulesetThresholdUnit right) => !left.Equals(right);
+
+        public static explicit operator string(RulesetThresholdUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RulesetThresholdUnit other && Equals(other);
+        public bool Equals(RulesetThresholdUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

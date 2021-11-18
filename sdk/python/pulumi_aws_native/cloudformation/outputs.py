@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ManagedExecutionProperties',
     'ResourceVersionLoggingConfig',
     'StackSetAutoDeployment',
     'StackSetDeploymentTargets',
@@ -21,6 +22,25 @@ __all__ = [
     'StackTag',
     'TypeActivationLoggingConfig',
 ]
+
+@pulumi.output_type
+class ManagedExecutionProperties(dict):
+    """
+    Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+    """
+    def __init__(__self__, *,
+                 active: Optional[bool] = None):
+        """
+        Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        return pulumi.get(self, "active")
+
 
 @pulumi.output_type
 class ResourceVersionLoggingConfig(dict):

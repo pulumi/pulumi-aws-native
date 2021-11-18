@@ -261,6 +261,7 @@
         "databrew/job.ts",
         "databrew/project.ts",
         "databrew/recipe.ts",
+        "databrew/ruleset.ts",
         "databrew/schedule.ts",
         "datapipeline/index.ts",
         "datapipeline/pipeline.ts",

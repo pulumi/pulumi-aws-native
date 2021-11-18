@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     {
         public readonly ImmutableArray<Outputs.JobColumnStatisticsConfiguration> ColumnStatisticsConfigurations;
         public readonly Outputs.JobStatisticsConfiguration? DatasetStatisticsConfiguration;
+        public readonly Outputs.JobEntityDetectorConfiguration? EntityDetectorConfiguration;
         public readonly ImmutableArray<Outputs.JobColumnSelector> ProfileColumns;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
             Outputs.JobStatisticsConfiguration? datasetStatisticsConfiguration,
 
+            Outputs.JobEntityDetectorConfiguration? entityDetectorConfiguration,
+
             ImmutableArray<Outputs.JobColumnSelector> profileColumns)
         {
             ColumnStatisticsConfigurations = columnStatisticsConfigurations;
             DatasetStatisticsConfiguration = datasetStatisticsConfiguration;
+            EntityDetectorConfiguration = entityDetectorConfiguration;
             ProfileColumns = profileColumns;
         }
     }

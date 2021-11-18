@@ -4843,6 +4843,13 @@ export namespace cloud9 {
 }
 
 export namespace cloudformation {
+    /**
+     * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+     */
+    export interface ManagedExecutionPropertiesArgs {
+        active?: pulumi.Input<boolean>;
+    }
+
     export interface ResourceVersionLoggingConfigArgs {
         /**
          * The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
@@ -6687,7 +6694,11 @@ export namespace databrew {
         /**
          * Glue connection name
          */
-        glueConnectionName?: pulumi.Input<string>;
+        glueConnectionName: pulumi.Input<string>;
+        /**
+         * Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+         */
+        queryString?: pulumi.Input<string>;
         tempDirectory?: pulumi.Input<inputs.databrew.DatasetS3LocationArgs>;
     }
 
@@ -6761,6 +6772,7 @@ export namespace databrew {
     export interface DatasetInputArgs {
         dataCatalogInputDefinition?: pulumi.Input<inputs.databrew.DatasetDataCatalogInputDefinitionArgs>;
         databaseInputDefinition?: pulumi.Input<inputs.databrew.DatasetDatabaseInputDefinitionArgs>;
+        metadata?: pulumi.Input<inputs.databrew.DatasetMetadataArgs>;
         s3InputDefinition?: pulumi.Input<inputs.databrew.DatasetS3LocationArgs>;
     }
 
@@ -6769,6 +6781,13 @@ export namespace databrew {
      */
     export interface DatasetJsonOptionsArgs {
         multiLine?: pulumi.Input<boolean>;
+    }
+
+    export interface DatasetMetadataArgs {
+        /**
+         * Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+         */
+        sourceArn?: pulumi.Input<string>;
     }
 
     export interface DatasetParameterArgs {
@@ -6818,6 +6837,10 @@ export namespace databrew {
         value: pulumi.Input<string>;
     }
 
+    export interface JobAllowedStatisticsArgs {
+        statistics: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface JobColumnSelectorArgs {
         name?: pulumi.Input<string>;
         regex?: pulumi.Input<string>;
@@ -6861,6 +6884,11 @@ export namespace databrew {
         tempDirectory?: pulumi.Input<inputs.databrew.JobS3LocationArgs>;
     }
 
+    export interface JobEntityDetectorConfigurationArgs {
+        allowedStatistics?: pulumi.Input<inputs.databrew.JobAllowedStatisticsArgs>;
+        entityTypes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface JobOutputArgs {
         compressionFormat?: pulumi.Input<enums.databrew.JobOutputCompressionFormat>;
         format?: pulumi.Input<enums.databrew.JobOutputFormat>;
@@ -6891,6 +6919,7 @@ export namespace databrew {
     export interface JobProfileConfigurationArgs {
         columnStatisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.databrew.JobColumnStatisticsConfigurationArgs>[]>;
         datasetStatisticsConfiguration?: pulumi.Input<inputs.databrew.JobStatisticsConfigurationArgs>;
+        entityDetectorConfiguration?: pulumi.Input<inputs.databrew.JobEntityDetectorConfigurationArgs>;
         profileColumns?: pulumi.Input<pulumi.Input<inputs.databrew.JobColumnSelectorArgs>[]>;
     }
 
@@ -7166,13 +7195,69 @@ export namespace databrew {
     }
 
     /**
+     * Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+     */
+    export interface RulesetColumnSelectorArgs {
+        /**
+         * The name of a column from a dataset
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A regular expression for selecting a column from a dataset
+         */
+        regex?: pulumi.Input<string>;
+    }
+
+    /**
+     * Data quality rule for a target resource (dataset)
+     */
+    export interface RulesetRuleArgs {
+        checkExpression: pulumi.Input<string>;
+        columnSelectors?: pulumi.Input<pulumi.Input<inputs.databrew.RulesetColumnSelectorArgs>[]>;
+        disabled?: pulumi.Input<boolean>;
+        /**
+         * Name of the rule
+         */
+        name: pulumi.Input<string>;
+        substitutionMap?: pulumi.Input<pulumi.Input<inputs.databrew.RulesetSubstitutionValueArgs>[]>;
+        threshold?: pulumi.Input<inputs.databrew.RulesetThresholdArgs>;
+    }
+
+    /**
+     * A key-value pair to associate expression's substitution variable names with their values
+     */
+    export interface RulesetSubstitutionValueArgs {
+        /**
+         * Value or column name
+         */
+        value: pulumi.Input<string>;
+        /**
+         * Variable name
+         */
+        valueReference: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource
+     */
+    export interface RulesetTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface RulesetThresholdArgs {
+        type?: pulumi.Input<enums.databrew.RulesetThresholdType>;
+        unit?: pulumi.Input<enums.databrew.RulesetThresholdUnit>;
+        value: pulumi.Input<number>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface ScheduleTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace datapipeline {

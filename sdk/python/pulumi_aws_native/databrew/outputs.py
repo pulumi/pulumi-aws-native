@@ -22,17 +22,20 @@ __all__ = [
     'DatasetFormatOptions',
     'DatasetInput',
     'DatasetJsonOptions',
+    'DatasetMetadata',
     'DatasetParameter',
     'DatasetPathOptions',
     'DatasetPathParameter',
     'DatasetS3Location',
     'DatasetTag',
+    'JobAllowedStatistics',
     'JobColumnSelector',
     'JobColumnStatisticsConfiguration',
     'JobCsvOutputOptions',
     'JobDataCatalogOutput',
     'JobDatabaseOutput',
     'JobDatabaseTableOutputOptions',
+    'JobEntityDetectorConfiguration',
     'JobOutput',
     'JobOutputFormatOptions',
     'JobOutputLocation',
@@ -58,6 +61,11 @@ __all__ = [
     'RecipeSecondaryInput',
     'RecipeStep',
     'RecipeTag',
+    'RulesetColumnSelector',
+    'RulesetRule',
+    'RulesetSubstitutionValue',
+    'RulesetTag',
+    'RulesetThreshold',
     'ScheduleTag',
 ]
 
@@ -184,10 +192,12 @@ class DatasetDatabaseInputDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "databaseTableName":
-            suggest = "database_table_name"
-        elif key == "glueConnectionName":
+        if key == "glueConnectionName":
             suggest = "glue_connection_name"
+        elif key == "databaseTableName":
+            suggest = "database_table_name"
+        elif key == "queryString":
+            suggest = "query_string"
         elif key == "tempDirectory":
             suggest = "temp_directory"
 
@@ -203,19 +213,30 @@ class DatasetDatabaseInputDefinition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 glue_connection_name: str,
                  database_table_name: Optional[str] = None,
-                 glue_connection_name: Optional[str] = None,
+                 query_string: Optional[str] = None,
                  temp_directory: Optional['outputs.DatasetS3Location'] = None):
         """
-        :param str database_table_name: Database table name
         :param str glue_connection_name: Glue connection name
+        :param str database_table_name: Database table name
+        :param str query_string: Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
         """
+        pulumi.set(__self__, "glue_connection_name", glue_connection_name)
         if database_table_name is not None:
             pulumi.set(__self__, "database_table_name", database_table_name)
-        if glue_connection_name is not None:
-            pulumi.set(__self__, "glue_connection_name", glue_connection_name)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
         if temp_directory is not None:
             pulumi.set(__self__, "temp_directory", temp_directory)
+
+    @property
+    @pulumi.getter(name="glueConnectionName")
+    def glue_connection_name(self) -> str:
+        """
+        Glue connection name
+        """
+        return pulumi.get(self, "glue_connection_name")
 
     @property
     @pulumi.getter(name="databaseTableName")
@@ -226,12 +247,12 @@ class DatasetDatabaseInputDefinition(dict):
         return pulumi.get(self, "database_table_name")
 
     @property
-    @pulumi.getter(name="glueConnectionName")
-    def glue_connection_name(self) -> Optional[str]:
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[str]:
         """
-        Glue connection name
+        Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
         """
-        return pulumi.get(self, "glue_connection_name")
+        return pulumi.get(self, "query_string")
 
     @property
     @pulumi.getter(name="tempDirectory")
@@ -563,6 +584,7 @@ class DatasetInput(dict):
     def __init__(__self__, *,
                  data_catalog_input_definition: Optional['outputs.DatasetDataCatalogInputDefinition'] = None,
                  database_input_definition: Optional['outputs.DatasetDatabaseInputDefinition'] = None,
+                 metadata: Optional['outputs.DatasetMetadata'] = None,
                  s3_input_definition: Optional['outputs.DatasetS3Location'] = None):
         """
         Input
@@ -571,6 +593,8 @@ class DatasetInput(dict):
             pulumi.set(__self__, "data_catalog_input_definition", data_catalog_input_definition)
         if database_input_definition is not None:
             pulumi.set(__self__, "database_input_definition", database_input_definition)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if s3_input_definition is not None:
             pulumi.set(__self__, "s3_input_definition", s3_input_definition)
 
@@ -583,6 +607,11 @@ class DatasetInput(dict):
     @pulumi.getter(name="databaseInputDefinition")
     def database_input_definition(self) -> Optional['outputs.DatasetDatabaseInputDefinition']:
         return pulumi.get(self, "database_input_definition")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.DatasetMetadata']:
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter(name="s3InputDefinition")
@@ -624,6 +653,42 @@ class DatasetJsonOptions(dict):
     @pulumi.getter(name="multiLine")
     def multi_line(self) -> Optional[bool]:
         return pulumi.get(self, "multi_line")
+
+
+@pulumi.output_type
+class DatasetMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceArn":
+            suggest = "source_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_arn: Optional[str] = None):
+        """
+        :param str source_arn: Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+        """
+        if source_arn is not None:
+            pulumi.set(__self__, "source_arn", source_arn)
+
+    @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> Optional[str]:
+        """
+        Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+        """
+        return pulumi.get(self, "source_arn")
 
 
 @pulumi.output_type
@@ -845,6 +910,18 @@ class DatasetTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobAllowedStatistics(dict):
+    def __init__(__self__, *,
+                 statistics: Sequence[str]):
+        pulumi.set(__self__, "statistics", statistics)
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> Sequence[str]:
+        return pulumi.get(self, "statistics")
 
 
 @pulumi.output_type
@@ -1081,6 +1158,45 @@ class JobDatabaseTableOutputOptions(dict):
 
 
 @pulumi.output_type
+class JobEntityDetectorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityTypes":
+            suggest = "entity_types"
+        elif key == "allowedStatistics":
+            suggest = "allowed_statistics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobEntityDetectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobEntityDetectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobEntityDetectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_types: Sequence[str],
+                 allowed_statistics: Optional['outputs.JobAllowedStatistics'] = None):
+        pulumi.set(__self__, "entity_types", entity_types)
+        if allowed_statistics is not None:
+            pulumi.set(__self__, "allowed_statistics", allowed_statistics)
+
+    @property
+    @pulumi.getter(name="entityTypes")
+    def entity_types(self) -> Sequence[str]:
+        return pulumi.get(self, "entity_types")
+
+    @property
+    @pulumi.getter(name="allowedStatistics")
+    def allowed_statistics(self) -> Optional['outputs.JobAllowedStatistics']:
+        return pulumi.get(self, "allowed_statistics")
+
+
+@pulumi.output_type
 class JobOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1213,6 +1329,8 @@ class JobProfileConfiguration(dict):
             suggest = "column_statistics_configurations"
         elif key == "datasetStatisticsConfiguration":
             suggest = "dataset_statistics_configuration"
+        elif key == "entityDetectorConfiguration":
+            suggest = "entity_detector_configuration"
         elif key == "profileColumns":
             suggest = "profile_columns"
 
@@ -1230,11 +1348,14 @@ class JobProfileConfiguration(dict):
     def __init__(__self__, *,
                  column_statistics_configurations: Optional[Sequence['outputs.JobColumnStatisticsConfiguration']] = None,
                  dataset_statistics_configuration: Optional['outputs.JobStatisticsConfiguration'] = None,
+                 entity_detector_configuration: Optional['outputs.JobEntityDetectorConfiguration'] = None,
                  profile_columns: Optional[Sequence['outputs.JobColumnSelector']] = None):
         if column_statistics_configurations is not None:
             pulumi.set(__self__, "column_statistics_configurations", column_statistics_configurations)
         if dataset_statistics_configuration is not None:
             pulumi.set(__self__, "dataset_statistics_configuration", dataset_statistics_configuration)
+        if entity_detector_configuration is not None:
+            pulumi.set(__self__, "entity_detector_configuration", entity_detector_configuration)
         if profile_columns is not None:
             pulumi.set(__self__, "profile_columns", profile_columns)
 
@@ -1247,6 +1368,11 @@ class JobProfileConfiguration(dict):
     @pulumi.getter(name="datasetStatisticsConfiguration")
     def dataset_statistics_configuration(self) -> Optional['outputs.JobStatisticsConfiguration']:
         return pulumi.get(self, "dataset_statistics_configuration")
+
+    @property
+    @pulumi.getter(name="entityDetectorConfiguration")
+    def entity_detector_configuration(self) -> Optional['outputs.JobEntityDetectorConfiguration']:
+        return pulumi.get(self, "entity_detector_configuration")
 
     @property
     @pulumi.getter(name="profileColumns")
@@ -2891,6 +3017,226 @@ class RecipeTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RulesetColumnSelector(dict):
+    """
+    Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 regex: Optional[str] = None):
+        """
+        Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+        :param str name: The name of a column from a dataset
+        :param str regex: A regular expression for selecting a column from a dataset
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of a column from a dataset
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        """
+        A regular expression for selecting a column from a dataset
+        """
+        return pulumi.get(self, "regex")
+
+
+@pulumi.output_type
+class RulesetRule(dict):
+    """
+    Data quality rule for a target resource (dataset)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "checkExpression":
+            suggest = "check_expression"
+        elif key == "columnSelectors":
+            suggest = "column_selectors"
+        elif key == "substitutionMap":
+            suggest = "substitution_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesetRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesetRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesetRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check_expression: str,
+                 name: str,
+                 column_selectors: Optional[Sequence['outputs.RulesetColumnSelector']] = None,
+                 disabled: Optional[bool] = None,
+                 substitution_map: Optional[Sequence['outputs.RulesetSubstitutionValue']] = None,
+                 threshold: Optional['outputs.RulesetThreshold'] = None):
+        """
+        Data quality rule for a target resource (dataset)
+        :param str name: Name of the rule
+        """
+        pulumi.set(__self__, "check_expression", check_expression)
+        pulumi.set(__self__, "name", name)
+        if column_selectors is not None:
+            pulumi.set(__self__, "column_selectors", column_selectors)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if substitution_map is not None:
+            pulumi.set(__self__, "substitution_map", substitution_map)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="checkExpression")
+    def check_expression(self) -> str:
+        return pulumi.get(self, "check_expression")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="columnSelectors")
+    def column_selectors(self) -> Optional[Sequence['outputs.RulesetColumnSelector']]:
+        return pulumi.get(self, "column_selectors")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[bool]:
+        return pulumi.get(self, "disabled")
+
+    @property
+    @pulumi.getter(name="substitutionMap")
+    def substitution_map(self) -> Optional[Sequence['outputs.RulesetSubstitutionValue']]:
+        return pulumi.get(self, "substitution_map")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.RulesetThreshold']:
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class RulesetSubstitutionValue(dict):
+    """
+    A key-value pair to associate expression's substitution variable names with their values
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueReference":
+            suggest = "value_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesetSubstitutionValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesetSubstitutionValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesetSubstitutionValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 value: str,
+                 value_reference: str):
+        """
+        A key-value pair to associate expression's substitution variable names with their values
+        :param str value: Value or column name
+        :param str value_reference: Variable name
+        """
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_reference", value_reference)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value or column name
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> str:
+        """
+        Variable name
+        """
+        return pulumi.get(self, "value_reference")
+
+
+@pulumi.output_type
+class RulesetTag(dict):
+    """
+    A key-value pair to associate with a resource
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RulesetThreshold(dict):
+    def __init__(__self__, *,
+                 value: float,
+                 type: Optional['RulesetThresholdType'] = None,
+                 unit: Optional['RulesetThresholdUnit'] = None):
+        pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['RulesetThresholdType']:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional['RulesetThresholdUnit']:
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

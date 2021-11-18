@@ -9,6 +9,7 @@ export * from "./dataset";
 export * from "./job";
 export * from "./project";
 export * from "./recipe";
+export * from "./ruleset";
 export * from "./schedule";
 
 // Export enums:
@@ -19,6 +20,7 @@ import { Dataset } from "./dataset";
 import { Job } from "./job";
 import { Project } from "./project";
 import { Recipe } from "./recipe";
+import { Ruleset } from "./ruleset";
 import { Schedule } from "./schedule";
 
 const _module = {
@@ -33,6 +35,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:databrew:Recipe":
                 return new Recipe(name, <any>undefined, { urn })
+            case "aws-native:databrew:Ruleset":
+                return new Ruleset(name, <any>undefined, { urn })
             case "aws-native:databrew:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
             default:

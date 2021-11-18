@@ -23,6 +23,7 @@ class StackSetArgs:
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
+                 managed_execution: Optional[pulumi.Input['ManagedExecutionPropertiesArgs']] = None,
                  operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]]] = None,
@@ -39,6 +40,7 @@ class StackSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         :param pulumi.Input[str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
+        :param pulumi.Input['ManagedExecutionPropertiesArgs'] managed_execution: Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameters: The input parameters for the stack set template.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
         :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
@@ -59,6 +61,8 @@ class StackSetArgs:
             pulumi.set(__self__, "description", description)
         if execution_role_name is not None:
             pulumi.set(__self__, "execution_role_name", execution_role_name)
+        if managed_execution is not None:
+            pulumi.set(__self__, "managed_execution", managed_execution)
         if operation_preferences is not None:
             pulumi.set(__self__, "operation_preferences", operation_preferences)
         if parameters is not None:
@@ -159,6 +163,18 @@ class StackSetArgs:
         pulumi.set(self, "execution_role_name", value)
 
     @property
+    @pulumi.getter(name="managedExecution")
+    def managed_execution(self) -> Optional[pulumi.Input['ManagedExecutionPropertiesArgs']]:
+        """
+        Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        """
+        return pulumi.get(self, "managed_execution")
+
+    @managed_execution.setter
+    def managed_execution(self, value: Optional[pulumi.Input['ManagedExecutionPropertiesArgs']]):
+        pulumi.set(self, "managed_execution", value)
+
+    @property
     @pulumi.getter(name="operationPreferences")
     def operation_preferences(self) -> Optional[pulumi.Input['StackSetOperationPreferencesArgs']]:
         return pulumi.get(self, "operation_preferences")
@@ -251,6 +267,7 @@ class StackSet(pulumi.CustomResource):
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
+                 managed_execution: Optional[pulumi.Input[pulumi.InputType['ManagedExecutionPropertiesArgs']]] = None,
                  operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]]] = None,
                  permission_model: Optional[pulumi.Input['StackSetPermissionModel']] = None,
@@ -271,6 +288,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         :param pulumi.Input[str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
+        :param pulumi.Input[pulumi.InputType['ManagedExecutionPropertiesArgs']] managed_execution: Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]] parameters: The input parameters for the stack set template.
         :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
@@ -309,6 +327,7 @@ class StackSet(pulumi.CustomResource):
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
+                 managed_execution: Optional[pulumi.Input[pulumi.InputType['ManagedExecutionPropertiesArgs']]] = None,
                  operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]]] = None,
                  permission_model: Optional[pulumi.Input['StackSetPermissionModel']] = None,
@@ -335,6 +354,7 @@ class StackSet(pulumi.CustomResource):
             __props__.__dict__["capabilities"] = capabilities
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_name"] = execution_role_name
+            __props__.__dict__["managed_execution"] = managed_execution
             __props__.__dict__["operation_preferences"] = operation_preferences
             __props__.__dict__["parameters"] = parameters
             if permission_model is None and not opts.urn:
@@ -374,6 +394,7 @@ class StackSet(pulumi.CustomResource):
         __props__.__dict__["capabilities"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["execution_role_name"] = None
+        __props__.__dict__["managed_execution"] = None
         __props__.__dict__["operation_preferences"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["permission_model"] = None
@@ -432,6 +453,14 @@ class StackSet(pulumi.CustomResource):
         The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         """
         return pulumi.get(self, "execution_role_name")
+
+    @property
+    @pulumi.getter(name="managedExecution")
+    def managed_execution(self) -> pulumi.Output[Optional['outputs.ManagedExecutionProperties']]:
+        """
+        Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        """
+        return pulumi.get(self, "managed_execution")
 
     @property
     @pulumi.getter(name="operationPreferences")

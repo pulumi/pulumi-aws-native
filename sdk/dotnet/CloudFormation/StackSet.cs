@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.CloudFormation
         [Output("executionRoleName")]
         public Output<string?> ExecutionRoleName { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Output("managedExecution")]
+        public Output<Outputs.ManagedExecutionProperties?> ManagedExecution { get; private set; } = null!;
+
         [Output("operationPreferences")]
         public Output<Outputs.StackSetOperationPreferences?> OperationPreferences { get; private set; } = null!;
 
@@ -188,6 +194,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
+
+        /// <summary>
+        /// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Input("managedExecution")]
+        public Input<Inputs.ManagedExecutionPropertiesArgs>? ManagedExecution { get; set; }
 
         [Input("operationPreferences")]
         public Input<Inputs.StackSetOperationPreferencesArgs>? OperationPreferences { get; set; }

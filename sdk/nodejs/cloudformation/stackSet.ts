@@ -59,6 +59,10 @@ export class StackSet extends pulumi.CustomResource {
      * The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
      */
     public readonly executionRoleName!: pulumi.Output<string | undefined>;
+    /**
+     * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+     */
+    public readonly managedExecution!: pulumi.Output<outputs.cloudformation.ManagedExecutionProperties | undefined>;
     public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetOperationPreferences | undefined>;
     /**
      * The input parameters for the stack set template.
@@ -113,6 +117,7 @@ export class StackSet extends pulumi.CustomResource {
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["executionRoleName"] = args ? args.executionRoleName : undefined;
+            inputs["managedExecution"] = args ? args.managedExecution : undefined;
             inputs["operationPreferences"] = args ? args.operationPreferences : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["permissionModel"] = args ? args.permissionModel : undefined;
@@ -129,6 +134,7 @@ export class StackSet extends pulumi.CustomResource {
             inputs["capabilities"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["executionRoleName"] = undefined /*out*/;
+            inputs["managedExecution"] = undefined /*out*/;
             inputs["operationPreferences"] = undefined /*out*/;
             inputs["parameters"] = undefined /*out*/;
             inputs["permissionModel"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface StackSetArgs {
      * The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
      */
     executionRoleName?: pulumi.Input<string>;
+    /**
+     * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+     */
+    managedExecution?: pulumi.Input<inputs.cloudformation.ManagedExecutionPropertiesArgs>;
     operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferencesArgs>;
     /**
      * The input parameters for the stack set template.

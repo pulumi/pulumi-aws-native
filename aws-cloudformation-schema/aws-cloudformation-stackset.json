@@ -66,6 +66,10 @@
       "type" : "string",
       "enum" : [ "SEQUENTIAL", "PARALLEL" ]
     },
+    "Active" : {
+      "description" : "When true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.",
+      "type" : "boolean"
+    },
     "OperationPreferences" : {
       "description" : "The user-specified preferences for how AWS CloudFormation performs a stack set operation.",
       "type" : "object",
@@ -267,6 +271,16 @@
       "description" : "Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.",
       "type" : "string",
       "enum" : [ "SELF", "DELEGATED_ADMIN" ]
+    },
+    "ManagedExecution" : {
+      "description" : "Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.",
+      "type" : "object",
+      "properties" : {
+        "Active" : {
+          "$ref" : "#/definitions/Active"
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "required" : [ "StackSetName", "PermissionModel" ],

@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("datasetStatisticsConfiguration")]
         public Input<Inputs.JobStatisticsConfigurationArgs>? DatasetStatisticsConfiguration { get; set; }
 
+        [Input("entityDetectorConfiguration")]
+        public Input<Inputs.JobEntityDetectorConfigurationArgs>? EntityDetectorConfiguration { get; set; }
+
         [Input("profileColumns")]
         private InputList<Inputs.JobColumnSelectorArgs>? _profileColumns;
         public InputList<Inputs.JobColumnSelectorArgs> ProfileColumns

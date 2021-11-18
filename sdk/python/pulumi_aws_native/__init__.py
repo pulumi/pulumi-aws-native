@@ -1091,6 +1091,7 @@ _utilities.register(
    "aws-native:databrew:Job": "Job",
    "aws-native:databrew:Project": "Project",
    "aws-native:databrew:Recipe": "Recipe",
+   "aws-native:databrew:Ruleset": "Ruleset",
    "aws-native:databrew:Schedule": "Schedule"
   }
  },

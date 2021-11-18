@@ -2166,6 +2166,338 @@ func (in *projectSampleTypePtr) ToProjectSampleTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ProjectSampleTypePtrOutput)
 }
 
+// Threshold type for a rule
+type RulesetThresholdType string
+
+const (
+	RulesetThresholdTypeGreaterThanOrEqual = RulesetThresholdType("GREATER_THAN_OR_EQUAL")
+	RulesetThresholdTypeLessThanOrEqual    = RulesetThresholdType("LESS_THAN_OR_EQUAL")
+	RulesetThresholdTypeGreaterThan        = RulesetThresholdType("GREATER_THAN")
+	RulesetThresholdTypeLessThan           = RulesetThresholdType("LESS_THAN")
+)
+
+func (RulesetThresholdType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetThresholdType)(nil)).Elem()
+}
+
+func (e RulesetThresholdType) ToRulesetThresholdTypeOutput() RulesetThresholdTypeOutput {
+	return pulumi.ToOutput(e).(RulesetThresholdTypeOutput)
+}
+
+func (e RulesetThresholdType) ToRulesetThresholdTypeOutputWithContext(ctx context.Context) RulesetThresholdTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RulesetThresholdTypeOutput)
+}
+
+func (e RulesetThresholdType) ToRulesetThresholdTypePtrOutput() RulesetThresholdTypePtrOutput {
+	return e.ToRulesetThresholdTypePtrOutputWithContext(context.Background())
+}
+
+func (e RulesetThresholdType) ToRulesetThresholdTypePtrOutputWithContext(ctx context.Context) RulesetThresholdTypePtrOutput {
+	return RulesetThresholdType(e).ToRulesetThresholdTypeOutputWithContext(ctx).ToRulesetThresholdTypePtrOutputWithContext(ctx)
+}
+
+func (e RulesetThresholdType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulesetThresholdType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulesetThresholdType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RulesetThresholdType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RulesetThresholdTypeOutput struct{ *pulumi.OutputState }
+
+func (RulesetThresholdTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetThresholdType)(nil)).Elem()
+}
+
+func (o RulesetThresholdTypeOutput) ToRulesetThresholdTypeOutput() RulesetThresholdTypeOutput {
+	return o
+}
+
+func (o RulesetThresholdTypeOutput) ToRulesetThresholdTypeOutputWithContext(ctx context.Context) RulesetThresholdTypeOutput {
+	return o
+}
+
+func (o RulesetThresholdTypeOutput) ToRulesetThresholdTypePtrOutput() RulesetThresholdTypePtrOutput {
+	return o.ToRulesetThresholdTypePtrOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdTypeOutput) ToRulesetThresholdTypePtrOutputWithContext(ctx context.Context) RulesetThresholdTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetThresholdType) *RulesetThresholdType {
+		return &v
+	}).(RulesetThresholdTypePtrOutput)
+}
+
+func (o RulesetThresholdTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulesetThresholdType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RulesetThresholdTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulesetThresholdType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RulesetThresholdTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RulesetThresholdTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesetThresholdType)(nil)).Elem()
+}
+
+func (o RulesetThresholdTypePtrOutput) ToRulesetThresholdTypePtrOutput() RulesetThresholdTypePtrOutput {
+	return o
+}
+
+func (o RulesetThresholdTypePtrOutput) ToRulesetThresholdTypePtrOutputWithContext(ctx context.Context) RulesetThresholdTypePtrOutput {
+	return o
+}
+
+func (o RulesetThresholdTypePtrOutput) Elem() RulesetThresholdTypeOutput {
+	return o.ApplyT(func(v *RulesetThresholdType) RulesetThresholdType {
+		if v != nil {
+			return *v
+		}
+		var ret RulesetThresholdType
+		return ret
+	}).(RulesetThresholdTypeOutput)
+}
+
+func (o RulesetThresholdTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RulesetThresholdType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RulesetThresholdTypeInput is an input type that accepts RulesetThresholdTypeArgs and RulesetThresholdTypeOutput values.
+// You can construct a concrete instance of `RulesetThresholdTypeInput` via:
+//
+//          RulesetThresholdTypeArgs{...}
+type RulesetThresholdTypeInput interface {
+	pulumi.Input
+
+	ToRulesetThresholdTypeOutput() RulesetThresholdTypeOutput
+	ToRulesetThresholdTypeOutputWithContext(context.Context) RulesetThresholdTypeOutput
+}
+
+var rulesetThresholdTypePtrType = reflect.TypeOf((**RulesetThresholdType)(nil)).Elem()
+
+type RulesetThresholdTypePtrInput interface {
+	pulumi.Input
+
+	ToRulesetThresholdTypePtrOutput() RulesetThresholdTypePtrOutput
+	ToRulesetThresholdTypePtrOutputWithContext(context.Context) RulesetThresholdTypePtrOutput
+}
+
+type rulesetThresholdTypePtr string
+
+func RulesetThresholdTypePtr(v string) RulesetThresholdTypePtrInput {
+	return (*rulesetThresholdTypePtr)(&v)
+}
+
+func (*rulesetThresholdTypePtr) ElementType() reflect.Type {
+	return rulesetThresholdTypePtrType
+}
+
+func (in *rulesetThresholdTypePtr) ToRulesetThresholdTypePtrOutput() RulesetThresholdTypePtrOutput {
+	return pulumi.ToOutput(in).(RulesetThresholdTypePtrOutput)
+}
+
+func (in *rulesetThresholdTypePtr) ToRulesetThresholdTypePtrOutputWithContext(ctx context.Context) RulesetThresholdTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RulesetThresholdTypePtrOutput)
+}
+
+// Threshold unit for a rule
+type RulesetThresholdUnit string
+
+const (
+	RulesetThresholdUnitCount      = RulesetThresholdUnit("COUNT")
+	RulesetThresholdUnitPercentage = RulesetThresholdUnit("PERCENTAGE")
+)
+
+func (RulesetThresholdUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetThresholdUnit)(nil)).Elem()
+}
+
+func (e RulesetThresholdUnit) ToRulesetThresholdUnitOutput() RulesetThresholdUnitOutput {
+	return pulumi.ToOutput(e).(RulesetThresholdUnitOutput)
+}
+
+func (e RulesetThresholdUnit) ToRulesetThresholdUnitOutputWithContext(ctx context.Context) RulesetThresholdUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RulesetThresholdUnitOutput)
+}
+
+func (e RulesetThresholdUnit) ToRulesetThresholdUnitPtrOutput() RulesetThresholdUnitPtrOutput {
+	return e.ToRulesetThresholdUnitPtrOutputWithContext(context.Background())
+}
+
+func (e RulesetThresholdUnit) ToRulesetThresholdUnitPtrOutputWithContext(ctx context.Context) RulesetThresholdUnitPtrOutput {
+	return RulesetThresholdUnit(e).ToRulesetThresholdUnitOutputWithContext(ctx).ToRulesetThresholdUnitPtrOutputWithContext(ctx)
+}
+
+func (e RulesetThresholdUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulesetThresholdUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulesetThresholdUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RulesetThresholdUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RulesetThresholdUnitOutput struct{ *pulumi.OutputState }
+
+func (RulesetThresholdUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetThresholdUnit)(nil)).Elem()
+}
+
+func (o RulesetThresholdUnitOutput) ToRulesetThresholdUnitOutput() RulesetThresholdUnitOutput {
+	return o
+}
+
+func (o RulesetThresholdUnitOutput) ToRulesetThresholdUnitOutputWithContext(ctx context.Context) RulesetThresholdUnitOutput {
+	return o
+}
+
+func (o RulesetThresholdUnitOutput) ToRulesetThresholdUnitPtrOutput() RulesetThresholdUnitPtrOutput {
+	return o.ToRulesetThresholdUnitPtrOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdUnitOutput) ToRulesetThresholdUnitPtrOutputWithContext(ctx context.Context) RulesetThresholdUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetThresholdUnit) *RulesetThresholdUnit {
+		return &v
+	}).(RulesetThresholdUnitPtrOutput)
+}
+
+func (o RulesetThresholdUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulesetThresholdUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RulesetThresholdUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulesetThresholdUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RulesetThresholdUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (RulesetThresholdUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesetThresholdUnit)(nil)).Elem()
+}
+
+func (o RulesetThresholdUnitPtrOutput) ToRulesetThresholdUnitPtrOutput() RulesetThresholdUnitPtrOutput {
+	return o
+}
+
+func (o RulesetThresholdUnitPtrOutput) ToRulesetThresholdUnitPtrOutputWithContext(ctx context.Context) RulesetThresholdUnitPtrOutput {
+	return o
+}
+
+func (o RulesetThresholdUnitPtrOutput) Elem() RulesetThresholdUnitOutput {
+	return o.ApplyT(func(v *RulesetThresholdUnit) RulesetThresholdUnit {
+		if v != nil {
+			return *v
+		}
+		var ret RulesetThresholdUnit
+		return ret
+	}).(RulesetThresholdUnitOutput)
+}
+
+func (o RulesetThresholdUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulesetThresholdUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RulesetThresholdUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RulesetThresholdUnitInput is an input type that accepts RulesetThresholdUnitArgs and RulesetThresholdUnitOutput values.
+// You can construct a concrete instance of `RulesetThresholdUnitInput` via:
+//
+//          RulesetThresholdUnitArgs{...}
+type RulesetThresholdUnitInput interface {
+	pulumi.Input
+
+	ToRulesetThresholdUnitOutput() RulesetThresholdUnitOutput
+	ToRulesetThresholdUnitOutputWithContext(context.Context) RulesetThresholdUnitOutput
+}
+
+var rulesetThresholdUnitPtrType = reflect.TypeOf((**RulesetThresholdUnit)(nil)).Elem()
+
+type RulesetThresholdUnitPtrInput interface {
+	pulumi.Input
+
+	ToRulesetThresholdUnitPtrOutput() RulesetThresholdUnitPtrOutput
+	ToRulesetThresholdUnitPtrOutputWithContext(context.Context) RulesetThresholdUnitPtrOutput
+}
+
+type rulesetThresholdUnitPtr string
+
+func RulesetThresholdUnitPtr(v string) RulesetThresholdUnitPtrInput {
+	return (*rulesetThresholdUnitPtr)(&v)
+}
+
+func (*rulesetThresholdUnitPtr) ElementType() reflect.Type {
+	return rulesetThresholdUnitPtrType
+}
+
+func (in *rulesetThresholdUnitPtr) ToRulesetThresholdUnitPtrOutput() RulesetThresholdUnitPtrOutput {
+	return pulumi.ToOutput(in).(RulesetThresholdUnitPtrOutput)
+}
+
+func (in *rulesetThresholdUnitPtr) ToRulesetThresholdUnitPtrOutputWithContext(ctx context.Context) RulesetThresholdUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RulesetThresholdUnitPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetFilesLimitOrderInput)(nil)).Elem(), DatasetFilesLimitOrder("ASCENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetFilesLimitOrderPtrInput)(nil)).Elem(), DatasetFilesLimitOrder("ASCENDING"))
@@ -2193,6 +2525,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobValidationModePtrInput)(nil)).Elem(), JobValidationMode("CHECK_ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSampleTypeInput)(nil)).Elem(), ProjectSampleType("FIRST_N"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSampleTypePtrInput)(nil)).Elem(), ProjectSampleType("FIRST_N"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdTypeInput)(nil)).Elem(), RulesetThresholdType("GREATER_THAN_OR_EQUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdTypePtrInput)(nil)).Elem(), RulesetThresholdType("GREATER_THAN_OR_EQUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdUnitInput)(nil)).Elem(), RulesetThresholdUnit("COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetThresholdUnitPtrInput)(nil)).Elem(), RulesetThresholdUnit("COUNT"))
 	pulumi.RegisterOutputType(DatasetFilesLimitOrderOutput{})
 	pulumi.RegisterOutputType(DatasetFilesLimitOrderPtrOutput{})
 	pulumi.RegisterOutputType(DatasetFilesLimitOrderedByOutput{})
@@ -2219,4 +2555,8 @@ func init() {
 	pulumi.RegisterOutputType(JobValidationModePtrOutput{})
 	pulumi.RegisterOutputType(ProjectSampleTypeOutput{})
 	pulumi.RegisterOutputType(ProjectSampleTypePtrOutput{})
+	pulumi.RegisterOutputType(RulesetThresholdTypeOutput{})
+	pulumi.RegisterOutputType(RulesetThresholdTypePtrOutput{})
+	pulumi.RegisterOutputType(RulesetThresholdUnitOutput{})
+	pulumi.RegisterOutputType(RulesetThresholdUnitPtrOutput{})
 }

@@ -10,6 +10,7 @@ from .dataset import *
 from .job import *
 from .project import *
 from .recipe import *
+from .ruleset import *
 from .schedule import *
 from ._inputs import *
 from . import outputs

@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     {
         public readonly Outputs.DatasetDataCatalogInputDefinition? DataCatalogInputDefinition;
         public readonly Outputs.DatasetDatabaseInputDefinition? DatabaseInputDefinition;
+        public readonly Outputs.DatasetMetadata? Metadata;
         public readonly Outputs.DatasetS3Location? S3InputDefinition;
 
         [OutputConstructor]
@@ -26,10 +27,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
             Outputs.DatasetDatabaseInputDefinition? databaseInputDefinition,
 
+            Outputs.DatasetMetadata? metadata,
+
             Outputs.DatasetS3Location? s3InputDefinition)
         {
             DataCatalogInputDefinition = dataCatalogInputDefinition;
             DatabaseInputDefinition = databaseInputDefinition;
+            Metadata = metadata;
             S3InputDefinition = s3InputDefinition;
         }
     }

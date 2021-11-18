@@ -26,7 +26,9 @@ type StackSet struct {
 	// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
-	ExecutionRoleName    pulumi.StringPtrOutput                `pulumi:"executionRoleName"`
+	ExecutionRoleName pulumi.StringPtrOutput `pulumi:"executionRoleName"`
+	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution     ManagedExecutionPropertiesPtrOutput   `pulumi:"managedExecution"`
 	OperationPreferences StackSetOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
 	// The input parameters for the stack set template.
 	Parameters StackSetParameterArrayOutput `pulumi:"parameters"`
@@ -99,7 +101,9 @@ type stackSetArgs struct {
 	// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
 	Description *string `pulumi:"description"`
 	// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
-	ExecutionRoleName    *string                       `pulumi:"executionRoleName"`
+	ExecutionRoleName *string `pulumi:"executionRoleName"`
+	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution     *ManagedExecutionProperties   `pulumi:"managedExecution"`
 	OperationPreferences *StackSetOperationPreferences `pulumi:"operationPreferences"`
 	// The input parameters for the stack set template.
 	Parameters []StackSetParameter `pulumi:"parameters"`
@@ -130,7 +134,9 @@ type StackSetArgs struct {
 	// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
 	Description pulumi.StringPtrInput
 	// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
-	ExecutionRoleName    pulumi.StringPtrInput
+	ExecutionRoleName pulumi.StringPtrInput
+	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution     ManagedExecutionPropertiesPtrInput
 	OperationPreferences StackSetOperationPreferencesPtrInput
 	// The input parameters for the stack set template.
 	Parameters StackSetParameterArrayInput

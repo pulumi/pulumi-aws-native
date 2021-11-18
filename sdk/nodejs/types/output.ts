@@ -4215,6 +4215,13 @@ export namespace cloud9 {
 }
 
 export namespace cloudformation {
+    /**
+     * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+     */
+    export interface ManagedExecutionProperties {
+        active?: boolean;
+    }
+
     export interface ResourceVersionLoggingConfig {
         /**
          * The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
@@ -6779,7 +6786,11 @@ export namespace databrew {
         /**
          * Glue connection name
          */
-        glueConnectionName?: string;
+        glueConnectionName: string;
+        /**
+         * Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+         */
+        queryString?: string;
         tempDirectory?: outputs.databrew.DatasetS3Location;
     }
 
@@ -6853,6 +6864,7 @@ export namespace databrew {
     export interface DatasetInput {
         dataCatalogInputDefinition?: outputs.databrew.DatasetDataCatalogInputDefinition;
         databaseInputDefinition?: outputs.databrew.DatasetDatabaseInputDefinition;
+        metadata?: outputs.databrew.DatasetMetadata;
         s3InputDefinition?: outputs.databrew.DatasetS3Location;
     }
 
@@ -6861,6 +6873,13 @@ export namespace databrew {
      */
     export interface DatasetJsonOptions {
         multiLine?: boolean;
+    }
+
+    export interface DatasetMetadata {
+        /**
+         * Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+         */
+        sourceArn?: string;
     }
 
     export interface DatasetParameter {
@@ -6910,6 +6929,10 @@ export namespace databrew {
         value: string;
     }
 
+    export interface JobAllowedStatistics {
+        statistics: string[];
+    }
+
     export interface JobColumnSelector {
         name?: string;
         regex?: string;
@@ -6953,6 +6976,11 @@ export namespace databrew {
         tempDirectory?: outputs.databrew.JobS3Location;
     }
 
+    export interface JobEntityDetectorConfiguration {
+        allowedStatistics?: outputs.databrew.JobAllowedStatistics;
+        entityTypes: string[];
+    }
+
     export interface JobOutput {
         compressionFormat?: enums.databrew.JobOutputCompressionFormat;
         format?: enums.databrew.JobOutputFormat;
@@ -6983,6 +7011,7 @@ export namespace databrew {
     export interface JobProfileConfiguration {
         columnStatisticsConfigurations?: outputs.databrew.JobColumnStatisticsConfiguration[];
         datasetStatisticsConfiguration?: outputs.databrew.JobStatisticsConfiguration;
+        entityDetectorConfiguration?: outputs.databrew.JobEntityDetectorConfiguration;
         profileColumns?: outputs.databrew.JobColumnSelector[];
     }
 
@@ -7255,6 +7284,63 @@ export namespace databrew {
     export interface RecipeTag {
         key: string;
         value: string;
+    }
+
+    /**
+     * Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+     */
+    export interface RulesetColumnSelector {
+        /**
+         * The name of a column from a dataset
+         */
+        name?: string;
+        /**
+         * A regular expression for selecting a column from a dataset
+         */
+        regex?: string;
+    }
+
+    /**
+     * Data quality rule for a target resource (dataset)
+     */
+    export interface RulesetRule {
+        checkExpression: string;
+        columnSelectors?: outputs.databrew.RulesetColumnSelector[];
+        disabled?: boolean;
+        /**
+         * Name of the rule
+         */
+        name: string;
+        substitutionMap?: outputs.databrew.RulesetSubstitutionValue[];
+        threshold?: outputs.databrew.RulesetThreshold;
+    }
+
+    /**
+     * A key-value pair to associate expression's substitution variable names with their values
+     */
+    export interface RulesetSubstitutionValue {
+        /**
+         * Value or column name
+         */
+        value: string;
+        /**
+         * Variable name
+         */
+        valueReference: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource
+     */
+    export interface RulesetTag {
+        key: string;
+        value: string;
+    }
+
+    export interface RulesetThreshold {
+        type?: enums.databrew.RulesetThresholdType;
+        unit?: enums.databrew.RulesetThresholdUnit;
+        value: number;
     }
 
     /**

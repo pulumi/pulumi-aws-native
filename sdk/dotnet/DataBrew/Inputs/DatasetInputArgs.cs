@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("databaseInputDefinition")]
         public Input<Inputs.DatasetDatabaseInputDefinitionArgs>? DatabaseInputDefinition { get; set; }
 
+        [Input("metadata")]
+        public Input<Inputs.DatasetMetadataArgs>? Metadata { get; set; }
+
         [Input("s3InputDefinition")]
         public Input<Inputs.DatasetS3LocationArgs>? S3InputDefinition { get; set; }
 

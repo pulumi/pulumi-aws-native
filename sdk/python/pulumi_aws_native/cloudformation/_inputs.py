@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ManagedExecutionPropertiesArgs',
     'ResourceVersionLoggingConfigArgs',
     'StackSetAutoDeploymentArgs',
     'StackSetDeploymentTargetsArgs',
@@ -20,6 +21,26 @@ __all__ = [
     'StackTagArgs',
     'TypeActivationLoggingConfigArgs',
 ]
+
+@pulumi.input_type
+class ManagedExecutionPropertiesArgs:
+    def __init__(__self__, *,
+                 active: Optional[pulumi.Input[bool]] = None):
+        """
+        Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
 
 @pulumi.input_type
 class ResourceVersionLoggingConfigArgs:
