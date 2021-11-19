@@ -40,12 +40,7 @@ class SubnetRouteTableAssociationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-warnings.warn("""SubnetRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SubnetRouteTableAssociation(pulumi.CustomResource):
-    warnings.warn("""SubnetRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -86,7 +81,6 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
                  route_table_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SubnetRouteTableAssociation is deprecated: SubnetRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

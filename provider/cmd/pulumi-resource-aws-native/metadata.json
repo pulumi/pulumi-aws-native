@@ -9278,6 +9278,120 @@
                 "sourceIp"
             ]
         },
+        "aws-native:ec2:NetworkInterface": {
+            "cf": "AWS::EC2::NetworkInterface",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "groupSet": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "interfaceType": {
+                    "type": "string"
+                },
+                "ipv6AddressCount": {
+                    "type": "integer"
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
+                    }
+                },
+                "privateIpAddress": {
+                    "type": "string"
+                },
+                "privateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
+                    }
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer"
+                },
+                "sourceDestCheck": {
+                    "type": "boolean"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
+                    }
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string"
+                },
+                "groupSet": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "interfaceType": {
+                    "type": "string"
+                },
+                "ipv6AddressCount": {
+                    "type": "integer"
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
+                    }
+                },
+                "primaryPrivateIpAddress": {
+                    "type": "string"
+                },
+                "privateIpAddress": {
+                    "type": "string"
+                },
+                "privateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
+                    }
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer"
+                },
+                "secondaryPrivateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sourceDestCheck": {
+                    "type": "boolean"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
+                    }
+                }
+            },
+            "required": [
+                "subnetId"
+            ],
+            "createOnly": [
+                "interfaceType",
+                "privateIpAddress",
+                "subnetId"
+            ]
+        },
         "aws-native:ec2:PrefixList": {
             "cf": "AWS::EC2::PrefixList",
             "inputs": {
@@ -9551,6 +9665,32 @@
             ],
             "createOnly": [
                 "networkAclId",
+                "subnetId"
+            ]
+        },
+        "aws-native:ec2:SubnetRouteTableAssociation": {
+            "cf": "AWS::EC2::SubnetRouteTableAssociation",
+            "inputs": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "routeTableId",
+                "subnetId"
+            ],
+            "createOnly": [
                 "subnetId"
             ]
         },
@@ -10220,6 +10360,32 @@
             ],
             "createOnly": [
                 "cidrBlock"
+            ]
+        },
+        "aws-native:ec2:VPCDHCPOptionsAssociation": {
+            "cf": "AWS::EC2::VPCDHCPOptionsAssociation",
+            "inputs": {
+                "dhcpOptionsId": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "dhcpOptionsId": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "dhcpOptionsId",
+                "vpcId"
+            ],
+            "createOnly": [
+                "vpcId"
             ]
         },
         "aws-native:ecr:RegistryPolicy": {
@@ -40513,6 +40679,36 @@
             "type": "string"
         },
         "aws-native:ec2:NetworkInsightsPathTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInterfaceInstanceIpv6Address": {
+            "type": "object",
+            "properties": {
+                "ipv6Address": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification": {
+            "type": "object",
+            "properties": {
+                "primary": {
+                    "type": "boolean"
+                },
+                "privateIpAddress": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInterfaceTag": {
             "type": "object",
             "properties": {
                 "key": {

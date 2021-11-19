@@ -15435,6 +15435,47 @@
                 "key"
             ]
         },
+        "aws-native:ec2:NetworkInterfaceInstanceIpv6Address": {
+            "properties": {
+                "ipv6Address": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ipv6Address"
+            ]
+        },
+        "aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification": {
+            "properties": {
+                "primary": {
+                    "type": "boolean"
+                },
+                "privateIpAddress": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "primary",
+                "privateIpAddress"
+            ]
+        },
+        "aws-native:ec2:NetworkInterfaceTag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "aws-native:ec2:OptionsProperties": {
             "description": "The options for the transit gateway vpc attachment.",
             "properties": {
@@ -58889,6 +58930,121 @@
                 "source"
             ]
         },
+        "aws-native:ec2:NetworkInterface": {
+            "description": "Resource Type definition for AWS::EC2::NetworkInterface",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "groupSet": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "interfaceType": {
+                    "type": "string"
+                },
+                "ipv6AddressCount": {
+                    "type": "integer"
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
+                    }
+                },
+                "primaryPrivateIpAddress": {
+                    "type": "string"
+                },
+                "privateIpAddress": {
+                    "type": "string"
+                },
+                "privateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
+                    }
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer"
+                },
+                "secondaryPrivateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sourceDestCheck": {
+                    "type": "boolean"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "primaryPrivateIpAddress",
+                "secondaryPrivateIpAddresses",
+                "subnetId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "groupSet": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "interfaceType": {
+                    "type": "string"
+                },
+                "ipv6AddressCount": {
+                    "type": "integer"
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
+                    }
+                },
+                "privateIpAddress": {
+                    "type": "string"
+                },
+                "privateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
+                    }
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer"
+                },
+                "sourceDestCheck": {
+                    "type": "boolean"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "subnetId"
+            ]
+        },
         "aws-native:ec2:PrefixList": {
             "description": "Resource schema of AWS::EC2::PrefixList Type\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var newPrefixList = new AwsNative.EC2.PrefixList(\"newPrefixList\", new AwsNative.EC2.PrefixListArgs\n        {\n            PrefixListName = \"vpc-1-servers\",\n            AddressFamily = \"IPv4\",\n            MaxEntries = 10,\n            Entries = \n            {\n                new AwsNative.EC2.Inputs.PrefixListEntryArgs\n                {\n                    Cidr = \"10.0.0.5/32\",\n                    Description = \"Server 1\",\n                },\n                new AwsNative.EC2.Inputs.PrefixListEntryArgs\n                {\n                    Cidr = \"10.0.0.10/32\",\n                    Description = \"Server 2\",\n                },\n            },\n            Tags = \n            {\n                new AwsNative.EC2.Inputs.PrefixListTagArgs\n                {\n                    Key = \"Name\",\n                    Value = \"VPC-1-Servers\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ec2.NewPrefixList(ctx, \"newPrefixList\", \u0026ec2.PrefixListArgs{\n\t\t\tPrefixListName: pulumi.String(\"vpc-1-servers\"),\n\t\t\tAddressFamily:  \"IPv4\",\n\t\t\tMaxEntries:     pulumi.Int(10),\n\t\t\tEntries: []ec2.PrefixListEntryArgs{\n\t\t\t\t\u0026ec2.PrefixListEntryArgs{\n\t\t\t\t\tCidr:        pulumi.String(\"10.0.0.5/32\"),\n\t\t\t\t\tDescription: pulumi.String(\"Server 1\"),\n\t\t\t\t},\n\t\t\t\t\u0026ec2.PrefixListEntryArgs{\n\t\t\t\t\tCidr:        pulumi.String(\"10.0.0.10/32\"),\n\t\t\t\t\tDescription: pulumi.String(\"Server 2\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTags: []ec2.PrefixListTagArgs{\n\t\t\t\t\u0026ec2.PrefixListTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"Name\"),\n\t\t\t\t\tValue: pulumi.String(\"VPC-1-Servers\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst newPrefixList = new aws_native.ec2.PrefixList(\"newPrefixList\", {\n    prefixListName: \"vpc-1-servers\",\n    addressFamily: \"IPv4\",\n    maxEntries: 10,\n    entries: [\n        {\n            cidr: \"10.0.0.5/32\",\n            description: \"Server 1\",\n        },\n        {\n            cidr: \"10.0.0.10/32\",\n            description: \"Server 2\",\n        },\n    ],\n    tags: [{\n        key: \"Name\",\n        value: \"VPC-1-Servers\",\n    }],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nnew_prefix_list = aws_native.ec2.PrefixList(\"newPrefixList\",\n    prefix_list_name=\"vpc-1-servers\",\n    address_family=\"IPv4\",\n    max_entries=10,\n    entries=[\n        aws_native.ec2.PrefixListEntryArgs(\n            cidr=\"10.0.0.5/32\",\n            description=\"Server 1\",\n        ),\n        aws_native.ec2.PrefixListEntryArgs(\n            cidr=\"10.0.0.10/32\",\n            description=\"Server 2\",\n        ),\n    ],\n    tags=[aws_native.ec2.PrefixListTagArgs(\n        key=\"Name\",\n        value=\"VPC-1-Servers\",\n    )])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var newPrefixList = new AwsNative.EC2.PrefixList(\"newPrefixList\", new AwsNative.EC2.PrefixListArgs\n        {\n            PrefixListName = \"vpc-1-servers\",\n            AddressFamily = \"IPv4\",\n            MaxEntries = 10,\n            Entries = \n            {\n                new AwsNative.EC2.Inputs.PrefixListEntryArgs\n                {\n                    Cidr = \"10.0.0.5/32\",\n                    Description = \"Server 1\",\n                },\n                new AwsNative.EC2.Inputs.PrefixListEntryArgs\n                {\n                    Cidr = \"10.0.0.10/32\",\n                    Description = \"Server 2\",\n                },\n            },\n            Tags = \n            {\n                new AwsNative.EC2.Inputs.PrefixListTagArgs\n                {\n                    Key = \"Name\",\n                    Value = \"VPC-1-Servers\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ec2.NewPrefixList(ctx, \"newPrefixList\", \u0026ec2.PrefixListArgs{\n\t\t\tPrefixListName: pulumi.String(\"vpc-1-servers\"),\n\t\t\tAddressFamily:  \"IPv4\",\n\t\t\tMaxEntries:     pulumi.Int(10),\n\t\t\tEntries: []ec2.PrefixListEntryArgs{\n\t\t\t\t\u0026ec2.PrefixListEntryArgs{\n\t\t\t\t\tCidr:        pulumi.String(\"10.0.0.5/32\"),\n\t\t\t\t\tDescription: pulumi.String(\"Server 1\"),\n\t\t\t\t},\n\t\t\t\t\u0026ec2.PrefixListEntryArgs{\n\t\t\t\t\tCidr:        pulumi.String(\"10.0.0.10/32\"),\n\t\t\t\t\tDescription: pulumi.String(\"Server 2\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTags: []ec2.PrefixListTagArgs{\n\t\t\t\t\u0026ec2.PrefixListTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"Name\"),\n\t\t\t\t\tValue: pulumi.String(\"VPC-1-Servers\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst newPrefixList = new aws_native.ec2.PrefixList(\"newPrefixList\", {\n    prefixListName: \"vpc-1-servers\",\n    addressFamily: \"IPv4\",\n    maxEntries: 10,\n    entries: [\n        {\n            cidr: \"10.0.0.5/32\",\n            description: \"Server 1\",\n        },\n        {\n            cidr: \"10.0.0.10/32\",\n            description: \"Server 2\",\n        },\n    ],\n    tags: [{\n        key: \"Name\",\n        value: \"VPC-1-Servers\",\n    }],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nnew_prefix_list = aws_native.ec2.PrefixList(\"newPrefixList\",\n    prefix_list_name=\"vpc-1-servers\",\n    address_family=\"IPv4\",\n    max_entries=10,\n    entries=[\n        aws_native.ec2.PrefixListEntryArgs(\n            cidr=\"10.0.0.5/32\",\n            description=\"Server 1\",\n        ),\n        aws_native.ec2.PrefixListEntryArgs(\n            cidr=\"10.0.0.10/32\",\n            description=\"Server 2\",\n        ),\n    ],\n    tags=[aws_native.ec2.PrefixListTagArgs(\n        key=\"Name\",\n        value=\"VPC-1-Servers\",\n    )])\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
@@ -59157,6 +59313,34 @@
             },
             "requiredInputs": [
                 "networkAclId",
+                "subnetId"
+            ]
+        },
+        "aws-native:ec2:SubnetRouteTableAssociation": {
+            "description": "Resource Type definition for AWS::EC2::SubnetRouteTableAssociation",
+            "properties": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "routeTableId",
+                "subnetId"
+            ],
+            "inputProperties": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "routeTableId",
                 "subnetId"
             ]
         },
@@ -59862,6 +60046,34 @@
             },
             "requiredInputs": [
                 "cidrBlock"
+            ]
+        },
+        "aws-native:ec2:VPCDHCPOptionsAssociation": {
+            "description": "Resource Type definition for AWS::EC2::VPCDHCPOptionsAssociation",
+            "properties": {
+                "dhcpOptionsId": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dhcpOptionsId",
+                "vpcId"
+            ],
+            "inputProperties": {
+                "dhcpOptionsId": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "dhcpOptionsId",
+                "vpcId"
             ]
         },
         "aws-native:ecr:RegistryPolicy": {
