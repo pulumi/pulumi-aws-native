@@ -98,7 +98,7 @@
           "type" : "number"
         }
       },
-      "required" : [ "ModelName", "VariantName", "InitialInstanceCount", "InstanceType", "InitialVariantWeight" ]
+      "required" : [ "ModelName", "VariantName", "InitialVariantWeight" ]
     },
     "AsyncInferenceConfig" : {
       "type" : "object",

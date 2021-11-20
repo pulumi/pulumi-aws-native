@@ -91,10 +91,13 @@ class ServerEndpointDetailsArgs:
 class ServerIdentityProviderDetailsArgs:
     def __init__(__self__, *,
                  directory_id: Optional[pulumi.Input[str]] = None,
+                 function: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         if directory_id is not None:
             pulumi.set(__self__, "directory_id", directory_id)
+        if function is not None:
+            pulumi.set(__self__, "function", function)
         if invocation_role is not None:
             pulumi.set(__self__, "invocation_role", invocation_role)
         if url is not None:
@@ -108,6 +111,15 @@ class ServerIdentityProviderDetailsArgs:
     @directory_id.setter
     def directory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "directory_id", value)
+
+    @property
+    @pulumi.getter
+    def function(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function", value)
 
     @property
     @pulumi.getter(name="invocationRole")

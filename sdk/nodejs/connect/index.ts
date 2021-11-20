@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./contactFlow";
+export * from "./contactFlowModule";
 export * from "./hoursOfOperation";
 export * from "./quickConnect";
 export * from "./user";
@@ -14,6 +16,8 @@ export * from "./userHierarchyGroup";
 export * from "../types/enums/connect";
 
 // Import resources to register:
+import { ContactFlow } from "./contactFlow";
+import { ContactFlowModule } from "./contactFlowModule";
 import { HoursOfOperation } from "./hoursOfOperation";
 import { QuickConnect } from "./quickConnect";
 import { User } from "./user";
@@ -23,6 +27,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:connect:ContactFlow":
+                return new ContactFlow(name, <any>undefined, { urn })
+            case "aws-native:connect:ContactFlowModule":
+                return new ContactFlowModule(name, <any>undefined, { urn })
             case "aws-native:connect:HoursOfOperation":
                 return new HoursOfOperation(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":

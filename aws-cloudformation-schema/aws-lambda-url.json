@@ -1,0 +1,132 @@
+{
+  "typeName" : "AWS::Lambda::Url",
+  "description" : "Resource Type definition for AWS::Lambda::Url",
+  "additionalProperties" : false,
+  "properties" : {
+    "TargetFunctionArn" : {
+      "description" : "The Amazon Resource Name (ARN) of the function associated with the Function URL.",
+      "type" : "string",
+      "pattern" : "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!^[0-9]+$)([a-zA-Z0-9-_]+))|(^\\$LATEST$))?"
+    },
+    "Qualifier" : {
+      "description" : "The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 128,
+      "pattern" : "((?!^[0-9]+$)([a-zA-Z0-9-_]+))|(^\\$LATEST$)"
+    },
+    "AuthorizationType" : {
+      "description" : "Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.",
+      "type" : "string",
+      "enum" : [ "AWS_IAM", "NONE" ]
+    },
+    "FunctionUrl" : {
+      "description" : "The generated url for this resource.",
+      "type" : "string"
+    },
+    "Arn" : {
+      "description" : "The Amazon Resource Name (ARN) of the Function URL.",
+      "type" : "string"
+    },
+    "Cors" : {
+      "$ref" : "#/definitions/Cors"
+    }
+  },
+  "definitions" : {
+    "AllowHeaders" : {
+      "items" : {
+        "type" : "string",
+        "minLength" : 1,
+        "maxLength" : 1024
+      },
+      "type" : "array",
+      "minItems" : 1,
+      "maxItems" : 100,
+      "insertionOrder" : true
+    },
+    "AllowMethods" : {
+      "items" : {
+        "type" : "string",
+        "enum" : [ "GET", "PUT", "HEAD", "POST", "PATCH", "DELETE", "*" ]
+      },
+      "type" : "array",
+      "minItems" : 1,
+      "maxItems" : 6,
+      "insertionOrder" : true
+    },
+    "AllowOrigins" : {
+      "items" : {
+        "type" : "string",
+        "minLength" : 1,
+        "maxLength" : 253
+      },
+      "type" : "array",
+      "minItems" : 1,
+      "maxItems" : 100,
+      "insertionOrder" : true
+    },
+    "ExposeHeaders" : {
+      "items" : {
+        "type" : "string",
+        "minLength" : 1,
+        "maxLength" : 1024
+      },
+      "type" : "array",
+      "minItems" : 1,
+      "maxItems" : 100,
+      "insertionOrder" : true
+    },
+    "Cors" : {
+      "additionalProperties" : false,
+      "properties" : {
+        "AllowCredentials" : {
+          "description" : "Specifies whether credentials are included in the CORS request.",
+          "type" : "boolean"
+        },
+        "AllowHeaders" : {
+          "description" : "Represents a collection of allowed headers.",
+          "$ref" : "#/definitions/AllowHeaders"
+        },
+        "AllowMethods" : {
+          "description" : "Represents a collection of allowed HTTP methods.",
+          "$ref" : "#/definitions/AllowMethods"
+        },
+        "AllowOrigins" : {
+          "description" : "Represents a collection of allowed origins.",
+          "$ref" : "#/definitions/AllowOrigins"
+        },
+        "ExposeHeaders" : {
+          "description" : "Represents a collection of exposed headers.",
+          "$ref" : "#/definitions/ExposeHeaders"
+        },
+        "MaxAge" : {
+          "type" : "integer",
+          "minimum" : 0,
+          "maximum" : 86400
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "required" : [ "TargetFunctionArn", "AuthorizationType" ],
+  "readOnlyProperties" : [ "/properties/FunctionUrl", "/properties/Arn" ],
+  "writeOnlyProperties" : [ "/properties/TargetFunctionArn", "/properties/Qualifier" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "lambda:CreateFunctionUrlConfig" ]
+    },
+    "read" : {
+      "permissions" : [ "lambda:GetFunctionUrlConfig" ]
+    },
+    "update" : {
+      "permissions" : [ "lambda:UpdateFunctionUrlConfig" ]
+    },
+    "list" : {
+      "permissions" : [ "lambda:ListFunctionUrlConfigs" ]
+    },
+    "delete" : {
+      "permissions" : [ "lambda:DeleteFunctionUrlConfig" ]
+    }
+  }
+}

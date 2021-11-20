@@ -474,3 +474,11 @@ export const SpotFleetTagSpecificationResourceType = {
 } as const;
 
 export type SpotFleetTagSpecificationResourceType = (typeof SpotFleetTagSpecificationResourceType)[keyof typeof SpotFleetTagSpecificationResourceType];
+
+export const VPCEndpointVpcEndpointType = {
+    Interface: "Interface",
+    Gateway: "Gateway",
+    GatewayLoadBalancer: "GatewayLoadBalancer",
+} as const;
+
+export type VPCEndpointVpcEndpointType = (typeof VPCEndpointVpcEndpointType)[keyof typeof VPCEndpointVpcEndpointType];

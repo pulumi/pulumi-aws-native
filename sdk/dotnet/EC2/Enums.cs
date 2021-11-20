@@ -1445,4 +1445,33 @@ namespace Pulumi.AwsNative.EC2
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct VPCEndpointVpcEndpointType : IEquatable<VPCEndpointVpcEndpointType>
+    {
+        private readonly string _value;
+
+        private VPCEndpointVpcEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VPCEndpointVpcEndpointType Interface { get; } = new VPCEndpointVpcEndpointType("Interface");
+        public static VPCEndpointVpcEndpointType Gateway { get; } = new VPCEndpointVpcEndpointType("Gateway");
+        public static VPCEndpointVpcEndpointType GatewayLoadBalancer { get; } = new VPCEndpointVpcEndpointType("GatewayLoadBalancer");
+
+        public static bool operator ==(VPCEndpointVpcEndpointType left, VPCEndpointVpcEndpointType right) => left.Equals(right);
+        public static bool operator !=(VPCEndpointVpcEndpointType left, VPCEndpointVpcEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(VPCEndpointVpcEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VPCEndpointVpcEndpointType other && Equals(other);
+        public bool Equals(VPCEndpointVpcEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

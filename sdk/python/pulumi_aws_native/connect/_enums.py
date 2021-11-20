@@ -5,10 +5,53 @@
 from enum import Enum
 
 __all__ = [
+    'ContactFlowModuleState',
+    'ContactFlowModuleStatus',
+    'ContactFlowState',
+    'ContactFlowType',
     'HoursOfOperationConfigDay',
     'QuickConnectType',
     'UserPhoneType',
 ]
+
+
+class ContactFlowModuleState(str, Enum):
+    """
+    The state of the contact flow module.
+    """
+    ACTIVE = "ACTIVE"
+    ARCHIVED = "ARCHIVED"
+
+
+class ContactFlowModuleStatus(str, Enum):
+    """
+    The status of the contact flow module.
+    """
+    PUBLISHED = "PUBLISHED"
+    SAVED = "SAVED"
+
+
+class ContactFlowState(str, Enum):
+    """
+    The state of the contact flow.
+    """
+    ACTIVE = "ACTIVE"
+    ARCHIVED = "ARCHIVED"
+
+
+class ContactFlowType(str, Enum):
+    """
+    The type of the contact flow.
+    """
+    CONTACT_FLOW = "CONTACT_FLOW"
+    CUSTOMER_QUEUE = "CUSTOMER_QUEUE"
+    CUSTOMER_HOLD = "CUSTOMER_HOLD"
+    CUSTOMER_WHISPER = "CUSTOMER_WHISPER"
+    AGENT_HOLD = "AGENT_HOLD"
+    AGENT_WHISPER = "AGENT_WHISPER"
+    OUTBOUND_WHISPER = "OUTBOUND_WHISPER"
+    AGENT_TRANSFER = "AGENT_TRANSFER"
+    QUEUE_TRANSFER = "QUEUE_TRANSFER"
 
 
 class HoursOfOperationConfigDay(str, Enum):

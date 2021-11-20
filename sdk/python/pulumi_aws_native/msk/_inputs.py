@@ -14,6 +14,7 @@ __all__ = [
     'ClusterClientAuthenticationArgs',
     'ClusterCloudWatchLogsArgs',
     'ClusterConfigurationInfoArgs',
+    'ClusterConnectivityInfoArgs',
     'ClusterEBSStorageInfoArgs',
     'ClusterEncryptionAtRestArgs',
     'ClusterEncryptionInTransitArgs',
@@ -25,6 +26,7 @@ __all__ = [
     'ClusterNodeExporterArgs',
     'ClusterOpenMonitoringArgs',
     'ClusterPrometheusArgs',
+    'ClusterPublicAccessArgs',
     'ClusterS3Args',
     'ClusterSaslArgs',
     'ClusterScramArgs',
@@ -80,12 +82,15 @@ class ClusterBrokerNodeGroupInfoArgs:
                  client_subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  instance_type: pulumi.Input[str],
                  broker_az_distribution: Optional[pulumi.Input[str]] = None,
+                 connectivity_info: Optional[pulumi.Input['ClusterConnectivityInfoArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_info: Optional[pulumi.Input['ClusterStorageInfoArgs']] = None):
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "instance_type", instance_type)
         if broker_az_distribution is not None:
             pulumi.set(__self__, "broker_az_distribution", broker_az_distribution)
+        if connectivity_info is not None:
+            pulumi.set(__self__, "connectivity_info", connectivity_info)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if storage_info is not None:
@@ -117,6 +122,15 @@ class ClusterBrokerNodeGroupInfoArgs:
     @broker_az_distribution.setter
     def broker_az_distribution(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "broker_az_distribution", value)
+
+    @property
+    @pulumi.getter(name="connectivityInfo")
+    def connectivity_info(self) -> Optional[pulumi.Input['ClusterConnectivityInfoArgs']]:
+        return pulumi.get(self, "connectivity_info")
+
+    @connectivity_info.setter
+    def connectivity_info(self, value: Optional[pulumi.Input['ClusterConnectivityInfoArgs']]):
+        pulumi.set(self, "connectivity_info", value)
 
     @property
     @pulumi.getter(name="securityGroups")
@@ -231,6 +245,23 @@ class ClusterConfigurationInfoArgs:
     @revision.setter
     def revision(self, value: pulumi.Input[int]):
         pulumi.set(self, "revision", value)
+
+
+@pulumi.input_type
+class ClusterConnectivityInfoArgs:
+    def __init__(__self__, *,
+                 public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None):
+        if public_access is not None:
+            pulumi.set(__self__, "public_access", public_access)
+
+    @property
+    @pulumi.getter(name="publicAccess")
+    def public_access(self) -> Optional[pulumi.Input['ClusterPublicAccessArgs']]:
+        return pulumi.get(self, "public_access")
+
+    @public_access.setter
+    def public_access(self, value: Optional[pulumi.Input['ClusterPublicAccessArgs']]):
+        pulumi.set(self, "public_access", value)
 
 
 @pulumi.input_type
@@ -459,6 +490,23 @@ class ClusterPrometheusArgs:
     @node_exporter.setter
     def node_exporter(self, value: Optional[pulumi.Input['ClusterNodeExporterArgs']]):
         pulumi.set(self, "node_exporter", value)
+
+
+@pulumi.input_type
+class ClusterPublicAccessArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

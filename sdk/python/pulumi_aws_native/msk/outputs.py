@@ -15,6 +15,7 @@ __all__ = [
     'ClusterClientAuthentication',
     'ClusterCloudWatchLogs',
     'ClusterConfigurationInfo',
+    'ClusterConnectivityInfo',
     'ClusterEBSStorageInfo',
     'ClusterEncryptionAtRest',
     'ClusterEncryptionInTransit',
@@ -26,6 +27,7 @@ __all__ = [
     'ClusterNodeExporter',
     'ClusterOpenMonitoring',
     'ClusterPrometheus',
+    'ClusterPublicAccess',
     'ClusterS3',
     'ClusterSasl',
     'ClusterScram',
@@ -91,6 +93,8 @@ class ClusterBrokerNodeGroupInfo(dict):
             suggest = "instance_type"
         elif key == "brokerAZDistribution":
             suggest = "broker_az_distribution"
+        elif key == "connectivityInfo":
+            suggest = "connectivity_info"
         elif key == "securityGroups":
             suggest = "security_groups"
         elif key == "storageInfo":
@@ -111,12 +115,15 @@ class ClusterBrokerNodeGroupInfo(dict):
                  client_subnets: Sequence[str],
                  instance_type: str,
                  broker_az_distribution: Optional[str] = None,
+                 connectivity_info: Optional['outputs.ClusterConnectivityInfo'] = None,
                  security_groups: Optional[Sequence[str]] = None,
                  storage_info: Optional['outputs.ClusterStorageInfo'] = None):
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "instance_type", instance_type)
         if broker_az_distribution is not None:
             pulumi.set(__self__, "broker_az_distribution", broker_az_distribution)
+        if connectivity_info is not None:
+            pulumi.set(__self__, "connectivity_info", connectivity_info)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if storage_info is not None:
@@ -136,6 +143,11 @@ class ClusterBrokerNodeGroupInfo(dict):
     @pulumi.getter(name="brokerAZDistribution")
     def broker_az_distribution(self) -> Optional[str]:
         return pulumi.get(self, "broker_az_distribution")
+
+    @property
+    @pulumi.getter(name="connectivityInfo")
+    def connectivity_info(self) -> Optional['outputs.ClusterConnectivityInfo']:
+        return pulumi.get(self, "connectivity_info")
 
     @property
     @pulumi.getter(name="securityGroups")
@@ -231,6 +243,36 @@ class ClusterConfigurationInfo(dict):
     @pulumi.getter
     def revision(self) -> int:
         return pulumi.get(self, "revision")
+
+
+@pulumi.output_type
+class ClusterConnectivityInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicAccess":
+            suggest = "public_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterConnectivityInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterConnectivityInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterConnectivityInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_access: Optional['outputs.ClusterPublicAccess'] = None):
+        if public_access is not None:
+            pulumi.set(__self__, "public_access", public_access)
+
+    @property
+    @pulumi.getter(name="publicAccess")
+    def public_access(self) -> Optional['outputs.ClusterPublicAccess']:
+        return pulumi.get(self, "public_access")
 
 
 @pulumi.output_type
@@ -558,6 +600,19 @@ class ClusterPrometheus(dict):
     @pulumi.getter(name="nodeExporter")
     def node_exporter(self) -> Optional['outputs.ClusterNodeExporter']:
         return pulumi.get(self, "node_exporter")
+
+
+@pulumi.output_type
+class ClusterPublicAccess(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

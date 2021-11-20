@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AppStream
     public partial class Fleet : Pulumi.CustomResource
     {
         [Output("computeCapacity")]
-        public Output<Outputs.FleetComputeCapacity> ComputeCapacity { get; private set; } = null!;
+        public Output<Outputs.FleetComputeCapacity?> ComputeCapacity { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -52,17 +52,26 @@ namespace Pulumi.AwsNative.AppStream
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
+        [Output("maxConcurrentSessions")]
+        public Output<int?> MaxConcurrentSessions { get; private set; } = null!;
+
         [Output("maxUserDurationInSeconds")]
         public Output<int?> MaxUserDurationInSeconds { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("platform")]
+        public Output<string?> Platform { get; private set; } = null!;
+
         [Output("streamView")]
         public Output<string?> StreamView { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.FleetTag>> Tags { get; private set; } = null!;
+
+        [Output("usbDeviceFilterStrings")]
+        public Output<ImmutableArray<string>> UsbDeviceFilterStrings { get; private set; } = null!;
 
         [Output("vpcConfig")]
         public Output<Outputs.FleetVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -112,8 +121,8 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class FleetArgs : Pulumi.ResourceArgs
     {
-        [Input("computeCapacity", required: true)]
-        public Input<Inputs.FleetComputeCapacityArgs> ComputeCapacity { get; set; } = null!;
+        [Input("computeCapacity")]
+        public Input<Inputs.FleetComputeCapacityArgs>? ComputeCapacity { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -148,11 +157,17 @@ namespace Pulumi.AwsNative.AppStream
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        [Input("maxConcurrentSessions")]
+        public Input<int>? MaxConcurrentSessions { get; set; }
+
         [Input("maxUserDurationInSeconds")]
         public Input<int>? MaxUserDurationInSeconds { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("platform")]
+        public Input<string>? Platform { get; set; }
 
         [Input("streamView")]
         public Input<string>? StreamView { get; set; }
@@ -163,6 +178,14 @@ namespace Pulumi.AwsNative.AppStream
         {
             get => _tags ?? (_tags = new InputList<Inputs.FleetTagArgs>());
             set => _tags = value;
+        }
+
+        [Input("usbDeviceFilterStrings")]
+        private InputList<string>? _usbDeviceFilterStrings;
+        public InputList<string> UsbDeviceFilterStrings
+        {
+            get => _usbDeviceFilterStrings ?? (_usbDeviceFilterStrings = new InputList<string>());
+            set => _usbDeviceFilterStrings = value;
         }
 
         [Input("vpcConfig")]

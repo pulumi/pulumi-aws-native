@@ -15,14 +15,14 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("acceleratorType")]
         public Input<string>? AcceleratorType { get; set; }
 
-        [Input("initialInstanceCount", required: true)]
-        public Input<int> InitialInstanceCount { get; set; } = null!;
+        [Input("initialInstanceCount")]
+        public Input<int>? InitialInstanceCount { get; set; }
 
         [Input("initialVariantWeight", required: true)]
         public Input<double> InitialVariantWeight { get; set; } = null!;
 
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
 
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;

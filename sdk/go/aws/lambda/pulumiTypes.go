@@ -3325,6 +3325,234 @@ func (o LayerVersionContentPtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type UrlCors struct {
+	// Specifies whether credentials are included in the CORS request.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// Represents a collection of allowed headers.
+	AllowHeaders []string `pulumi:"allowHeaders"`
+	// Represents a collection of allowed HTTP methods.
+	AllowMethods []UrlAllowMethodsItem `pulumi:"allowMethods"`
+	// Represents a collection of allowed origins.
+	AllowOrigins []string `pulumi:"allowOrigins"`
+	// Represents a collection of exposed headers.
+	ExposeHeaders []string `pulumi:"exposeHeaders"`
+	MaxAge        *int     `pulumi:"maxAge"`
+}
+
+// UrlCorsInput is an input type that accepts UrlCorsArgs and UrlCorsOutput values.
+// You can construct a concrete instance of `UrlCorsInput` via:
+//
+//          UrlCorsArgs{...}
+type UrlCorsInput interface {
+	pulumi.Input
+
+	ToUrlCorsOutput() UrlCorsOutput
+	ToUrlCorsOutputWithContext(context.Context) UrlCorsOutput
+}
+
+type UrlCorsArgs struct {
+	// Specifies whether credentials are included in the CORS request.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// Represents a collection of allowed headers.
+	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
+	// Represents a collection of allowed HTTP methods.
+	AllowMethods UrlAllowMethodsItemArrayInput `pulumi:"allowMethods"`
+	// Represents a collection of allowed origins.
+	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
+	// Represents a collection of exposed headers.
+	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	MaxAge        pulumi.IntPtrInput      `pulumi:"maxAge"`
+}
+
+func (UrlCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlCors)(nil)).Elem()
+}
+
+func (i UrlCorsArgs) ToUrlCorsOutput() UrlCorsOutput {
+	return i.ToUrlCorsOutputWithContext(context.Background())
+}
+
+func (i UrlCorsArgs) ToUrlCorsOutputWithContext(ctx context.Context) UrlCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlCorsOutput)
+}
+
+func (i UrlCorsArgs) ToUrlCorsPtrOutput() UrlCorsPtrOutput {
+	return i.ToUrlCorsPtrOutputWithContext(context.Background())
+}
+
+func (i UrlCorsArgs) ToUrlCorsPtrOutputWithContext(ctx context.Context) UrlCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlCorsOutput).ToUrlCorsPtrOutputWithContext(ctx)
+}
+
+// UrlCorsPtrInput is an input type that accepts UrlCorsArgs, UrlCorsPtr and UrlCorsPtrOutput values.
+// You can construct a concrete instance of `UrlCorsPtrInput` via:
+//
+//          UrlCorsArgs{...}
+//
+//  or:
+//
+//          nil
+type UrlCorsPtrInput interface {
+	pulumi.Input
+
+	ToUrlCorsPtrOutput() UrlCorsPtrOutput
+	ToUrlCorsPtrOutputWithContext(context.Context) UrlCorsPtrOutput
+}
+
+type urlCorsPtrType UrlCorsArgs
+
+func UrlCorsPtr(v *UrlCorsArgs) UrlCorsPtrInput {
+	return (*urlCorsPtrType)(v)
+}
+
+func (*urlCorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UrlCors)(nil)).Elem()
+}
+
+func (i *urlCorsPtrType) ToUrlCorsPtrOutput() UrlCorsPtrOutput {
+	return i.ToUrlCorsPtrOutputWithContext(context.Background())
+}
+
+func (i *urlCorsPtrType) ToUrlCorsPtrOutputWithContext(ctx context.Context) UrlCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlCorsPtrOutput)
+}
+
+type UrlCorsOutput struct{ *pulumi.OutputState }
+
+func (UrlCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlCors)(nil)).Elem()
+}
+
+func (o UrlCorsOutput) ToUrlCorsOutput() UrlCorsOutput {
+	return o
+}
+
+func (o UrlCorsOutput) ToUrlCorsOutputWithContext(ctx context.Context) UrlCorsOutput {
+	return o
+}
+
+func (o UrlCorsOutput) ToUrlCorsPtrOutput() UrlCorsPtrOutput {
+	return o.ToUrlCorsPtrOutputWithContext(context.Background())
+}
+
+func (o UrlCorsOutput) ToUrlCorsPtrOutputWithContext(ctx context.Context) UrlCorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UrlCors) *UrlCors {
+		return &v
+	}).(UrlCorsPtrOutput)
+}
+
+// Specifies whether credentials are included in the CORS request.
+func (o UrlCorsOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlCors) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// Represents a collection of allowed headers.
+func (o UrlCorsOutput) AllowHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlCors) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Represents a collection of allowed HTTP methods.
+func (o UrlCorsOutput) AllowMethods() UrlAllowMethodsItemArrayOutput {
+	return o.ApplyT(func(v UrlCors) []UrlAllowMethodsItem { return v.AllowMethods }).(UrlAllowMethodsItemArrayOutput)
+}
+
+// Represents a collection of allowed origins.
+func (o UrlCorsOutput) AllowOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlCors) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Represents a collection of exposed headers.
+func (o UrlCorsOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlCors) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o UrlCorsOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UrlCors) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+type UrlCorsPtrOutput struct{ *pulumi.OutputState }
+
+func (UrlCorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UrlCors)(nil)).Elem()
+}
+
+func (o UrlCorsPtrOutput) ToUrlCorsPtrOutput() UrlCorsPtrOutput {
+	return o
+}
+
+func (o UrlCorsPtrOutput) ToUrlCorsPtrOutputWithContext(ctx context.Context) UrlCorsPtrOutput {
+	return o
+}
+
+func (o UrlCorsPtrOutput) Elem() UrlCorsOutput {
+	return o.ApplyT(func(v *UrlCors) UrlCors {
+		if v != nil {
+			return *v
+		}
+		var ret UrlCors
+		return ret
+	}).(UrlCorsOutput)
+}
+
+// Specifies whether credentials are included in the CORS request.
+func (o UrlCorsPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlCors) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Represents a collection of allowed headers.
+func (o UrlCorsPtrOutput) AllowHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UrlCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// Represents a collection of allowed HTTP methods.
+func (o UrlCorsPtrOutput) AllowMethods() UrlAllowMethodsItemArrayOutput {
+	return o.ApplyT(func(v *UrlCors) []UrlAllowMethodsItem {
+		if v == nil {
+			return nil
+		}
+		return v.AllowMethods
+	}).(UrlAllowMethodsItemArrayOutput)
+}
+
+// Represents a collection of allowed origins.
+func (o UrlCorsPtrOutput) AllowOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UrlCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// Represents a collection of exposed headers.
+func (o UrlCorsPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UrlCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExposeHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o UrlCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UrlCors) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
 type VersionProvisionedConcurrencyConfiguration struct {
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
 }
@@ -3507,6 +3735,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigPtrInput)(nil)).Elem(), FunctionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionContentInput)(nil)).Elem(), LayerVersionContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionContentPtrInput)(nil)).Elem(), LayerVersionContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsInput)(nil)).Elem(), UrlCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsPtrInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationPtrInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
 	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationOutput{})
@@ -3557,6 +3787,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(LayerVersionContentOutput{})
 	pulumi.RegisterOutputType(LayerVersionContentPtrOutput{})
+	pulumi.RegisterOutputType(UrlCorsOutput{})
+	pulumi.RegisterOutputType(UrlCorsPtrOutput{})
 	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationOutput{})
 	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationPtrOutput{})
 }

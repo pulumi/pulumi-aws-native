@@ -14,6 +14,7 @@ from .function import *
 from .layer_version import *
 from .layer_version_permission import *
 from .permission import *
+from .url import *
 from .version import *
 from ._inputs import *
 from . import outputs

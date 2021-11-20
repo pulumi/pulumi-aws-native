@@ -6592,9 +6592,9 @@ func (o EndpointConfigDataCaptureConfigPtrOutput) KmsKeyId() pulumi.StringPtrOut
 
 type EndpointConfigProductionVariant struct {
 	AcceleratorType      *string `pulumi:"acceleratorType"`
-	InitialInstanceCount int     `pulumi:"initialInstanceCount"`
+	InitialInstanceCount *int    `pulumi:"initialInstanceCount"`
 	InitialVariantWeight float64 `pulumi:"initialVariantWeight"`
-	InstanceType         string  `pulumi:"instanceType"`
+	InstanceType         *string `pulumi:"instanceType"`
 	ModelName            string  `pulumi:"modelName"`
 	VariantName          string  `pulumi:"variantName"`
 }
@@ -6612,9 +6612,9 @@ type EndpointConfigProductionVariantInput interface {
 
 type EndpointConfigProductionVariantArgs struct {
 	AcceleratorType      pulumi.StringPtrInput `pulumi:"acceleratorType"`
-	InitialInstanceCount pulumi.IntInput       `pulumi:"initialInstanceCount"`
+	InitialInstanceCount pulumi.IntPtrInput    `pulumi:"initialInstanceCount"`
 	InitialVariantWeight pulumi.Float64Input   `pulumi:"initialVariantWeight"`
-	InstanceType         pulumi.StringInput    `pulumi:"instanceType"`
+	InstanceType         pulumi.StringPtrInput `pulumi:"instanceType"`
 	ModelName            pulumi.StringInput    `pulumi:"modelName"`
 	VariantName          pulumi.StringInput    `pulumi:"variantName"`
 }
@@ -6674,16 +6674,16 @@ func (o EndpointConfigProductionVariantOutput) AcceleratorType() pulumi.StringPt
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
-func (o EndpointConfigProductionVariantOutput) InitialInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v EndpointConfigProductionVariant) int { return v.InitialInstanceCount }).(pulumi.IntOutput)
+func (o EndpointConfigProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o EndpointConfigProductionVariantOutput) InitialVariantWeight() pulumi.Float64Output {
 	return o.ApplyT(func(v EndpointConfigProductionVariant) float64 { return v.InitialVariantWeight }).(pulumi.Float64Output)
 }
 
-func (o EndpointConfigProductionVariantOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointConfigProductionVariant) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o EndpointConfigProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointConfigProductionVariantOutput) ModelName() pulumi.StringOutput {

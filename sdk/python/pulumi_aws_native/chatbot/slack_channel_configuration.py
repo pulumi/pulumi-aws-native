@@ -17,25 +17,33 @@ class SlackChannelConfigurationArgs:
                  iam_role_arn: pulumi.Input[str],
                  slack_channel_id: pulumi.Input[str],
                  slack_workspace_id: pulumi.Input[str],
+                 guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
-                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_role_required: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
         :param pulumi.Input[str] configuration_name: The name of the configuration
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[str] slack_channel_id: The id of the Slack channel
         :param pulumi.Input[str] slack_workspace_id: The id of the Slack workspace
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] guardrail_policies: The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
+        :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
         pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "slack_channel_id", slack_channel_id)
         pulumi.set(__self__, "slack_workspace_id", slack_workspace_id)
+        if guardrail_policies is not None:
+            pulumi.set(__self__, "guardrail_policies", guardrail_policies)
         if logging_level is not None:
             pulumi.set(__self__, "logging_level", logging_level)
         if sns_topic_arns is not None:
             pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
+        if user_role_required is not None:
+            pulumi.set(__self__, "user_role_required", user_role_required)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -86,6 +94,18 @@ class SlackChannelConfigurationArgs:
         pulumi.set(self, "slack_workspace_id", value)
 
     @property
+    @pulumi.getter(name="guardrailPolicies")
+    def guardrail_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+        """
+        return pulumi.get(self, "guardrail_policies")
+
+    @guardrail_policies.setter
+    def guardrail_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "guardrail_policies", value)
+
+    @property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[str]]:
         """
@@ -109,6 +129,18 @@ class SlackChannelConfigurationArgs:
     def sns_topic_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "sns_topic_arns", value)
 
+    @property
+    @pulumi.getter(name="userRoleRequired")
+    def user_role_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables use of a user role requirement in your chat configuration
+        """
+        return pulumi.get(self, "user_role_required")
+
+    @user_role_required.setter
+    def user_role_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "user_role_required", value)
+
 
 class SlackChannelConfiguration(pulumi.CustomResource):
     @overload
@@ -116,11 +148,13 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
+                 guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  slack_channel_id: Optional[pulumi.Input[str]] = None,
                  slack_workspace_id: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_role_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Chatbot::SlackChannelConfiguration.
@@ -128,11 +162,13 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the configuration
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] guardrail_policies: The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[str] slack_channel_id: The id of the Slack channel
         :param pulumi.Input[str] slack_workspace_id: The id of the Slack workspace
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
+        :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
         ...
     @overload
@@ -159,11 +195,13 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
+                 guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  slack_channel_id: Optional[pulumi.Input[str]] = None,
                  slack_workspace_id: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_role_required: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -179,6 +217,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
             if configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
+            __props__.__dict__["guardrail_policies"] = guardrail_policies
             if iam_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'iam_role_arn'")
             __props__.__dict__["iam_role_arn"] = iam_role_arn
@@ -190,6 +229,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slack_workspace_id'")
             __props__.__dict__["slack_workspace_id"] = slack_workspace_id
             __props__.__dict__["sns_topic_arns"] = sns_topic_arns
+            __props__.__dict__["user_role_required"] = user_role_required
             __props__.__dict__["arn"] = None
         super(SlackChannelConfiguration, __self__).__init__(
             'aws-native:chatbot:SlackChannelConfiguration',
@@ -215,11 +255,13 @@ class SlackChannelConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["configuration_name"] = None
+        __props__.__dict__["guardrail_policies"] = None
         __props__.__dict__["iam_role_arn"] = None
         __props__.__dict__["logging_level"] = None
         __props__.__dict__["slack_channel_id"] = None
         __props__.__dict__["slack_workspace_id"] = None
         __props__.__dict__["sns_topic_arns"] = None
+        __props__.__dict__["user_role_required"] = None
         return SlackChannelConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -237,6 +279,14 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         The name of the configuration
         """
         return pulumi.get(self, "configuration_name")
+
+    @property
+    @pulumi.getter(name="guardrailPolicies")
+    def guardrail_policies(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+        """
+        return pulumi.get(self, "guardrail_policies")
 
     @property
     @pulumi.getter(name="iamRoleArn")
@@ -277,4 +327,12 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         """
         return pulumi.get(self, "sns_topic_arns")
+
+    @property
+    @pulumi.getter(name="userRoleRequired")
+    def user_role_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables use of a user role requirement in your chat configuration
+        """
+        return pulumi.get(self, "user_role_required")
 

@@ -11,12 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::VPCDHCPOptionsAssociation
+// Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
 type VPCDHCPOptionsAssociation struct {
 	pulumi.CustomResourceState
 
+	// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
 	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
-	VpcId         pulumi.StringOutput `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVPCDHCPOptionsAssociation registers a new resource with the given unique name, arguments, and options.
@@ -64,14 +66,18 @@ func (VPCDHCPOptionsAssociationState) ElementType() reflect.Type {
 }
 
 type vpcdhcpoptionsAssociationArgs struct {
+	// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
 	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
-	VpcId         string `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VPCDHCPOptionsAssociation resource.
 type VPCDHCPOptionsAssociationArgs struct {
+	// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
 	DhcpOptionsId pulumi.StringInput
-	VpcId         pulumi.StringInput
+	// The ID of the VPC.
+	VpcId pulumi.StringInput
 }
 
 func (VPCDHCPOptionsAssociationArgs) ElementType() reflect.Type {

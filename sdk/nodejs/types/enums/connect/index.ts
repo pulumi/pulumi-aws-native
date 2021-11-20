@@ -2,6 +2,53 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ContactFlowModuleState = {
+    Active: "ACTIVE",
+    Archived: "ARCHIVED",
+} as const;
+
+/**
+ * The state of the contact flow module.
+ */
+export type ContactFlowModuleState = (typeof ContactFlowModuleState)[keyof typeof ContactFlowModuleState];
+
+export const ContactFlowModuleStatus = {
+    Published: "PUBLISHED",
+    Saved: "SAVED",
+} as const;
+
+/**
+ * The status of the contact flow module.
+ */
+export type ContactFlowModuleStatus = (typeof ContactFlowModuleStatus)[keyof typeof ContactFlowModuleStatus];
+
+export const ContactFlowState = {
+    Active: "ACTIVE",
+    Archived: "ARCHIVED",
+} as const;
+
+/**
+ * The state of the contact flow.
+ */
+export type ContactFlowState = (typeof ContactFlowState)[keyof typeof ContactFlowState];
+
+export const ContactFlowType = {
+    ContactFlow: "CONTACT_FLOW",
+    CustomerQueue: "CUSTOMER_QUEUE",
+    CustomerHold: "CUSTOMER_HOLD",
+    CustomerWhisper: "CUSTOMER_WHISPER",
+    AgentHold: "AGENT_HOLD",
+    AgentWhisper: "AGENT_WHISPER",
+    OutboundWhisper: "OUTBOUND_WHISPER",
+    AgentTransfer: "AGENT_TRANSFER",
+    QueueTransfer: "QUEUE_TRANSFER",
+} as const;
+
+/**
+ * The type of the contact flow.
+ */
+export type ContactFlowType = (typeof ContactFlowType)[keyof typeof ContactFlowType];
+
 export const HoursOfOperationConfigDay = {
     Sunday: "SUNDAY",
     Monday: "MONDAY",

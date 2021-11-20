@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::VPCEndpoint
     /// </summary>
-    [Obsolete(@"VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCEndpoint")]
     public partial class VPCEndpoint : Pulumi.CustomResource
     {
@@ -25,27 +24,48 @@ namespace Pulumi.AwsNative.EC2
         [Output("networkInterfaceIds")]
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service.
+        /// </summary>
         [Output("policyDocument")]
-        public Output<object?> PolicyDocument { get; private set; } = null!;
+        public Output<string?> PolicyDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicate whether to associate a private hosted zone with the specified VPC.
+        /// </summary>
         [Output("privateDnsEnabled")]
         public Output<bool?> PrivateDnsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more route table IDs.
+        /// </summary>
         [Output("routeTableIds")]
         public Output<ImmutableArray<string>> RouteTableIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of one or more security groups to associate with the endpoint network interface.
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The service name.
+        /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of one or more subnets in which to create an endpoint network interface.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         [Output("vpcEndpointType")]
-        public Output<string?> VpcEndpointType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.VPCEndpointVpcEndpointType?> VpcEndpointType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC in which the endpoint will be used.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -94,14 +114,24 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class VPCEndpointArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service.
+        /// </summary>
         [Input("policyDocument")]
-        public Input<object>? PolicyDocument { get; set; }
+        public Input<string>? PolicyDocument { get; set; }
 
+        /// <summary>
+        /// Indicate whether to associate a private hosted zone with the specified VPC.
+        /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
 
         [Input("routeTableIds")]
         private InputList<string>? _routeTableIds;
+
+        /// <summary>
+        /// One or more route table IDs.
+        /// </summary>
         public InputList<string> RouteTableIds
         {
             get => _routeTableIds ?? (_routeTableIds = new InputList<string>());
@@ -110,17 +140,28 @@ namespace Pulumi.AwsNative.EC2
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The ID of one or more security groups to associate with the endpoint network interface.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
 
+        /// <summary>
+        /// The service name.
+        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The ID of one or more subnets in which to create an endpoint network interface.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -128,8 +169,11 @@ namespace Pulumi.AwsNative.EC2
         }
 
         [Input("vpcEndpointType")]
-        public Input<string>? VpcEndpointType { get; set; }
+        public Input<Pulumi.AwsNative.EC2.VPCEndpointVpcEndpointType>? VpcEndpointType { get; set; }
 
+        /// <summary>
+        /// The ID of the VPC in which the endpoint will be used.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

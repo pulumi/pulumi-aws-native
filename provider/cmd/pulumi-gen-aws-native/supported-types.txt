@@ -81,6 +81,8 @@ AWS::Config::ConfigurationAggregator
 AWS::Config::ConformancePack
 AWS::Config::OrganizationConformancePack
 AWS::Config::StoredQuery
+AWS::Connect::ContactFlow
+AWS::Connect::ContactFlowModule
 AWS::Connect::HoursOfOperation
 AWS::Connect::QuickConnect
 AWS::Connect::User
@@ -146,6 +148,7 @@ AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
+AWS::EC2::VPCEndpoint
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
 AWS::ECR::Repository
@@ -261,6 +264,7 @@ AWS::KinesisFirehose::DeliveryStream
 AWS::Lambda::CodeSigningConfig
 AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
+AWS::Lambda::Url
 AWS::LicenseManager::Grant
 AWS::LicenseManager::License
 AWS::Lightsail::Database

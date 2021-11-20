@@ -13,6 +13,7 @@ export * from "./function";
 export * from "./layerVersion";
 export * from "./layerVersionPermission";
 export * from "./permission";
+export * from "./url";
 export * from "./version";
 
 // Export enums:
@@ -27,6 +28,7 @@ import { Function } from "./function";
 import { LayerVersion } from "./layerVersion";
 import { LayerVersionPermission } from "./layerVersionPermission";
 import { Permission } from "./permission";
+import { Url } from "./url";
 import { Version } from "./version";
 
 const _module = {
@@ -49,6 +51,8 @@ const _module = {
                 return new LayerVersionPermission(name, <any>undefined, { urn })
             case "aws-native:lambda:Permission":
                 return new Permission(name, <any>undefined, { urn })
+            case "aws-native:lambda:Url":
+                return new Url(name, <any>undefined, { urn })
             case "aws-native:lambda:Version":
                 return new Version(name, <any>undefined, { urn })
             default:

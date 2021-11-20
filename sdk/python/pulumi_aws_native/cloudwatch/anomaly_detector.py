@@ -17,8 +17,10 @@ class AnomalyDetectorArgs:
     def __init__(__self__, *,
                  configuration: Optional[pulumi.Input['AnomalyDetectorConfigurationArgs']] = None,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]] = None,
+                 metric_math_anomaly_detector: Optional[pulumi.Input['AnomalyDetectorMetricMathAnomalyDetectorArgs']] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 single_metric_anomaly_detector: Optional[pulumi.Input['AnomalyDetectorSingleMetricAnomalyDetectorArgs']] = None,
                  stat: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AnomalyDetector resource.
@@ -27,10 +29,14 @@ class AnomalyDetectorArgs:
             pulumi.set(__self__, "configuration", configuration)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if metric_math_anomaly_detector is not None:
+            pulumi.set(__self__, "metric_math_anomaly_detector", metric_math_anomaly_detector)
         if metric_name is not None:
             pulumi.set(__self__, "metric_name", metric_name)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if single_metric_anomaly_detector is not None:
+            pulumi.set(__self__, "single_metric_anomaly_detector", single_metric_anomaly_detector)
         if stat is not None:
             pulumi.set(__self__, "stat", stat)
 
@@ -53,6 +59,15 @@ class AnomalyDetectorArgs:
         pulumi.set(self, "dimensions", value)
 
     @property
+    @pulumi.getter(name="metricMathAnomalyDetector")
+    def metric_math_anomaly_detector(self) -> Optional[pulumi.Input['AnomalyDetectorMetricMathAnomalyDetectorArgs']]:
+        return pulumi.get(self, "metric_math_anomaly_detector")
+
+    @metric_math_anomaly_detector.setter
+    def metric_math_anomaly_detector(self, value: Optional[pulumi.Input['AnomalyDetectorMetricMathAnomalyDetectorArgs']]):
+        pulumi.set(self, "metric_math_anomaly_detector", value)
+
+    @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "metric_name")
@@ -69,6 +84,15 @@ class AnomalyDetectorArgs:
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="singleMetricAnomalyDetector")
+    def single_metric_anomaly_detector(self) -> Optional[pulumi.Input['AnomalyDetectorSingleMetricAnomalyDetectorArgs']]:
+        return pulumi.get(self, "single_metric_anomaly_detector")
+
+    @single_metric_anomaly_detector.setter
+    def single_metric_anomaly_detector(self, value: Optional[pulumi.Input['AnomalyDetectorSingleMetricAnomalyDetectorArgs']]):
+        pulumi.set(self, "single_metric_anomaly_detector", value)
 
     @property
     @pulumi.getter
@@ -92,8 +116,10 @@ class AnomalyDetector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['AnomalyDetectorConfigurationArgs']]] = None,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyDetectorDimensionArgs']]]]] = None,
+                 metric_math_anomaly_detector: Optional[pulumi.Input[pulumi.InputType['AnomalyDetectorMetricMathAnomalyDetectorArgs']]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 single_metric_anomaly_detector: Optional[pulumi.Input[pulumi.InputType['AnomalyDetectorSingleMetricAnomalyDetectorArgs']]] = None,
                  stat: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -128,8 +154,10 @@ class AnomalyDetector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['AnomalyDetectorConfigurationArgs']]] = None,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyDetectorDimensionArgs']]]]] = None,
+                 metric_math_anomaly_detector: Optional[pulumi.Input[pulumi.InputType['AnomalyDetectorMetricMathAnomalyDetectorArgs']]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 single_metric_anomaly_detector: Optional[pulumi.Input[pulumi.InputType['AnomalyDetectorSingleMetricAnomalyDetectorArgs']]] = None,
                  stat: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""AnomalyDetector is deprecated: AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -146,8 +174,10 @@ class AnomalyDetector(pulumi.CustomResource):
 
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["dimensions"] = dimensions
+            __props__.__dict__["metric_math_anomaly_detector"] = metric_math_anomaly_detector
             __props__.__dict__["metric_name"] = metric_name
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["single_metric_anomaly_detector"] = single_metric_anomaly_detector
             __props__.__dict__["stat"] = stat
         super(AnomalyDetector, __self__).__init__(
             'aws-native:cloudwatch:AnomalyDetector',
@@ -173,8 +203,10 @@ class AnomalyDetector(pulumi.CustomResource):
 
         __props__.__dict__["configuration"] = None
         __props__.__dict__["dimensions"] = None
+        __props__.__dict__["metric_math_anomaly_detector"] = None
         __props__.__dict__["metric_name"] = None
         __props__.__dict__["namespace"] = None
+        __props__.__dict__["single_metric_anomaly_detector"] = None
         __props__.__dict__["stat"] = None
         return AnomalyDetector(resource_name, opts=opts, __props__=__props__)
 
@@ -189,6 +221,11 @@ class AnomalyDetector(pulumi.CustomResource):
         return pulumi.get(self, "dimensions")
 
     @property
+    @pulumi.getter(name="metricMathAnomalyDetector")
+    def metric_math_anomaly_detector(self) -> pulumi.Output[Optional['outputs.AnomalyDetectorMetricMathAnomalyDetector']]:
+        return pulumi.get(self, "metric_math_anomaly_detector")
+
+    @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "metric_name")
@@ -197,6 +234,11 @@ class AnomalyDetector(pulumi.CustomResource):
     @pulumi.getter
     def namespace(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="singleMetricAnomalyDetector")
+    def single_metric_anomaly_detector(self) -> pulumi.Output[Optional['outputs.AnomalyDetectorSingleMetricAnomalyDetector']]:
+        return pulumi.get(self, "single_metric_anomaly_detector")
 
     @property
     @pulumi.getter

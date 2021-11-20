@@ -40,8 +40,10 @@ export class AnomalyDetector extends pulumi.CustomResource {
 
     public readonly configuration!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorConfiguration | undefined>;
     public readonly dimensions!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorDimension[] | undefined>;
+    public readonly metricMathAnomalyDetector!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorMetricMathAnomalyDetector | undefined>;
     public readonly metricName!: pulumi.Output<string | undefined>;
     public readonly namespace!: pulumi.Output<string | undefined>;
+    public readonly singleMetricAnomalyDetector!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorSingleMetricAnomalyDetector | undefined>;
     public readonly stat!: pulumi.Output<string | undefined>;
 
     /**
@@ -59,14 +61,18 @@ export class AnomalyDetector extends pulumi.CustomResource {
         if (!opts.id) {
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["dimensions"] = args ? args.dimensions : undefined;
+            inputs["metricMathAnomalyDetector"] = args ? args.metricMathAnomalyDetector : undefined;
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["namespace"] = args ? args.namespace : undefined;
+            inputs["singleMetricAnomalyDetector"] = args ? args.singleMetricAnomalyDetector : undefined;
             inputs["stat"] = args ? args.stat : undefined;
         } else {
             inputs["configuration"] = undefined /*out*/;
             inputs["dimensions"] = undefined /*out*/;
+            inputs["metricMathAnomalyDetector"] = undefined /*out*/;
             inputs["metricName"] = undefined /*out*/;
             inputs["namespace"] = undefined /*out*/;
+            inputs["singleMetricAnomalyDetector"] = undefined /*out*/;
             inputs["stat"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -82,7 +88,9 @@ export class AnomalyDetector extends pulumi.CustomResource {
 export interface AnomalyDetectorArgs {
     configuration?: pulumi.Input<inputs.cloudwatch.AnomalyDetectorConfigurationArgs>;
     dimensions?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AnomalyDetectorDimensionArgs>[]>;
+    metricMathAnomalyDetector?: pulumi.Input<inputs.cloudwatch.AnomalyDetectorMetricMathAnomalyDetectorArgs>;
     metricName?: pulumi.Input<string>;
     namespace?: pulumi.Input<string>;
+    singleMetricAnomalyDetector?: pulumi.Input<inputs.cloudwatch.AnomalyDetectorSingleMetricAnomalyDetectorArgs>;
     stat?: pulumi.Input<string>;
 }

@@ -2302,18 +2302,18 @@ class EndpointConfigProductionVariant(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "initialInstanceCount":
-            suggest = "initial_instance_count"
-        elif key == "initialVariantWeight":
+        if key == "initialVariantWeight":
             suggest = "initial_variant_weight"
-        elif key == "instanceType":
-            suggest = "instance_type"
         elif key == "modelName":
             suggest = "model_name"
         elif key == "variantName":
             suggest = "variant_name"
         elif key == "acceleratorType":
             suggest = "accelerator_type"
+        elif key == "initialInstanceCount":
+            suggest = "initial_instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointConfigProductionVariant. Access the value via the '{suggest}' property getter instead.")
@@ -2327,34 +2327,26 @@ class EndpointConfigProductionVariant(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 initial_instance_count: int,
                  initial_variant_weight: float,
-                 instance_type: str,
                  model_name: str,
                  variant_name: str,
-                 accelerator_type: Optional[str] = None):
-        pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+                 accelerator_type: Optional[str] = None,
+                 initial_instance_count: Optional[int] = None,
+                 instance_type: Optional[str] = None):
         pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
-        pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "model_name", model_name)
         pulumi.set(__self__, "variant_name", variant_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
-
-    @property
-    @pulumi.getter(name="initialInstanceCount")
-    def initial_instance_count(self) -> int:
-        return pulumi.get(self, "initial_instance_count")
+        if initial_instance_count is not None:
+            pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
 
     @property
     @pulumi.getter(name="initialVariantWeight")
     def initial_variant_weight(self) -> float:
         return pulumi.get(self, "initial_variant_weight")
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="modelName")
@@ -2370,6 +2362,16 @@ class EndpointConfigProductionVariant(dict):
     @pulumi.getter(name="acceleratorType")
     def accelerator_type(self) -> Optional[str]:
         return pulumi.get(self, "accelerator_type")
+
+    @property
+    @pulumi.getter(name="initialInstanceCount")
+    def initial_instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "initial_instance_count")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        return pulumi.get(self, "instance_type")
 
 
 @pulumi.output_type

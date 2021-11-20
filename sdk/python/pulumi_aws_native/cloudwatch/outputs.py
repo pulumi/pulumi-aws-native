@@ -16,7 +16,12 @@ __all__ = [
     'AlarmMetricStat',
     'AnomalyDetectorConfiguration',
     'AnomalyDetectorDimension',
+    'AnomalyDetectorMetric',
+    'AnomalyDetectorMetricDataQuery',
+    'AnomalyDetectorMetricMathAnomalyDetector',
+    'AnomalyDetectorMetricStat',
     'AnomalyDetectorRange',
+    'AnomalyDetectorSingleMetricAnomalyDetector',
     'InsightRuleTags',
     'MetricStreamFilter',
     'MetricStreamTag',
@@ -262,6 +267,195 @@ class AnomalyDetectorDimension(dict):
 
 
 @pulumi.output_type
+class AnomalyDetectorMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: str,
+                 namespace: str,
+                 dimensions: Optional[Sequence['outputs.AnomalyDetectorDimension']] = None):
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "namespace", namespace)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> str:
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.AnomalyDetectorDimension']]:
+        return pulumi.get(self, "dimensions")
+
+
+@pulumi.output_type
+class AnomalyDetectorMetricDataQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "metricStat":
+            suggest = "metric_stat"
+        elif key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorMetricDataQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorMetricDataQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorMetricDataQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 account_id: Optional[str] = None,
+                 expression: Optional[str] = None,
+                 label: Optional[str] = None,
+                 metric_stat: Optional['outputs.AnomalyDetectorMetricStat'] = None,
+                 period: Optional[int] = None,
+                 return_data: Optional[bool] = None):
+        pulumi.set(__self__, "id", id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[str]:
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional['outputs.AnomalyDetectorMetricStat']:
+        return pulumi.get(self, "metric_stat")
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[int]:
+        return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[bool]:
+        return pulumi.get(self, "return_data")
+
+
+@pulumi.output_type
+class AnomalyDetectorMetricMathAnomalyDetector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDataQueries":
+            suggest = "metric_data_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorMetricMathAnomalyDetector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorMetricMathAnomalyDetector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorMetricMathAnomalyDetector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_data_queries: Optional[Sequence['outputs.AnomalyDetectorMetricDataQuery']] = None):
+        if metric_data_queries is not None:
+            pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> Optional[Sequence['outputs.AnomalyDetectorMetricDataQuery']]:
+        return pulumi.get(self, "metric_data_queries")
+
+
+@pulumi.output_type
+class AnomalyDetectorMetricStat(dict):
+    def __init__(__self__, *,
+                 metric: 'outputs.AnomalyDetectorMetric',
+                 period: int,
+                 stat: str,
+                 unit: Optional[str] = None):
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> 'outputs.AnomalyDetectorMetric':
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def period(self) -> int:
+        return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class AnomalyDetectorRange(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -297,6 +491,60 @@ class AnomalyDetectorRange(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
         return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class AnomalyDetectorSingleMetricAnomalyDetector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorSingleMetricAnomalyDetector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorSingleMetricAnomalyDetector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorSingleMetricAnomalyDetector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional[Sequence['outputs.AnomalyDetectorDimension']] = None,
+                 metric_name: Optional[str] = None,
+                 namespace: Optional[str] = None,
+                 stat: Optional[str] = None):
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if stat is not None:
+            pulumi.set(__self__, "stat", stat)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.AnomalyDetectorDimension']]:
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[str]:
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> Optional[str]:
+        return pulumi.get(self, "stat")
 
 
 @pulumi.output_type

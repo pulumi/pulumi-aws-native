@@ -38,7 +38,7 @@ export class Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Fleet.__pulumiType;
     }
 
-    public readonly computeCapacity!: pulumi.Output<outputs.appstream.FleetComputeCapacity>;
+    public readonly computeCapacity!: pulumi.Output<outputs.appstream.FleetComputeCapacity | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly disconnectTimeoutInSeconds!: pulumi.Output<number | undefined>;
     public readonly displayName!: pulumi.Output<string | undefined>;
@@ -50,10 +50,13 @@ export class Fleet extends pulumi.CustomResource {
     public readonly imageArn!: pulumi.Output<string | undefined>;
     public readonly imageName!: pulumi.Output<string | undefined>;
     public readonly instanceType!: pulumi.Output<string>;
+    public readonly maxConcurrentSessions!: pulumi.Output<number | undefined>;
     public readonly maxUserDurationInSeconds!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
+    public readonly platform!: pulumi.Output<string | undefined>;
     public readonly streamView!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.appstream.FleetTag[] | undefined>;
+    public readonly usbDeviceFilterStrings!: pulumi.Output<string[] | undefined>;
     public readonly vpcConfig!: pulumi.Output<outputs.appstream.FleetVpcConfig | undefined>;
 
     /**
@@ -69,9 +72,6 @@ export class Fleet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.computeCapacity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'computeCapacity'");
-            }
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
@@ -87,10 +87,13 @@ export class Fleet extends pulumi.CustomResource {
             inputs["imageArn"] = args ? args.imageArn : undefined;
             inputs["imageName"] = args ? args.imageName : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
+            inputs["maxConcurrentSessions"] = args ? args.maxConcurrentSessions : undefined;
             inputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["platform"] = args ? args.platform : undefined;
             inputs["streamView"] = args ? args.streamView : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["usbDeviceFilterStrings"] = args ? args.usbDeviceFilterStrings : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
         } else {
             inputs["computeCapacity"] = undefined /*out*/;
@@ -105,10 +108,13 @@ export class Fleet extends pulumi.CustomResource {
             inputs["imageArn"] = undefined /*out*/;
             inputs["imageName"] = undefined /*out*/;
             inputs["instanceType"] = undefined /*out*/;
+            inputs["maxConcurrentSessions"] = undefined /*out*/;
             inputs["maxUserDurationInSeconds"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["platform"] = undefined /*out*/;
             inputs["streamView"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["usbDeviceFilterStrings"] = undefined /*out*/;
             inputs["vpcConfig"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -122,7 +128,7 @@ export class Fleet extends pulumi.CustomResource {
  * The set of arguments for constructing a Fleet resource.
  */
 export interface FleetArgs {
-    computeCapacity: pulumi.Input<inputs.appstream.FleetComputeCapacityArgs>;
+    computeCapacity?: pulumi.Input<inputs.appstream.FleetComputeCapacityArgs>;
     description?: pulumi.Input<string>;
     disconnectTimeoutInSeconds?: pulumi.Input<number>;
     displayName?: pulumi.Input<string>;
@@ -134,9 +140,12 @@ export interface FleetArgs {
     imageArn?: pulumi.Input<string>;
     imageName?: pulumi.Input<string>;
     instanceType: pulumi.Input<string>;
+    maxConcurrentSessions?: pulumi.Input<number>;
     maxUserDurationInSeconds?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
+    platform?: pulumi.Input<string>;
     streamView?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.FleetTagArgs>[]>;
+    usbDeviceFilterStrings?: pulumi.Input<pulumi.Input<string>[]>;
     vpcConfig?: pulumi.Input<inputs.appstream.FleetVpcConfigArgs>;
 }

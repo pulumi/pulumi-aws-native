@@ -34,6 +34,7 @@ __all__ = [
     'FunctionTracingConfigArgs',
     'FunctionVpcConfigArgs',
     'LayerVersionContentArgs',
+    'UrlCorsArgs',
     'VersionProvisionedConcurrencyConfigurationArgs',
 ]
 
@@ -753,6 +754,105 @@ class LayerVersionContentArgs:
     @s3_object_version.setter
     def s3_object_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_object_version", value)
+
+
+@pulumi.input_type
+class UrlCorsArgs:
+    def __init__(__self__, *,
+                 allow_credentials: Optional[pulumi.Input[bool]] = None,
+                 allow_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allow_methods: Optional[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]] = None,
+                 allow_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_age: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] allow_credentials: Specifies whether credentials are included in the CORS request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_headers: Represents a collection of allowed headers.
+        :param pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]] allow_methods: Represents a collection of allowed HTTP methods.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_origins: Represents a collection of allowed origins.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: Represents a collection of exposed headers.
+        """
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if allow_headers is not None:
+            pulumi.set(__self__, "allow_headers", allow_headers)
+        if allow_methods is not None:
+            pulumi.set(__self__, "allow_methods", allow_methods)
+        if allow_origins is not None:
+            pulumi.set(__self__, "allow_origins", allow_origins)
+        if expose_headers is not None:
+            pulumi.set(__self__, "expose_headers", expose_headers)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether credentials are included in the CORS request.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @allow_credentials.setter
+    def allow_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_credentials", value)
+
+    @property
+    @pulumi.getter(name="allowHeaders")
+    def allow_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Represents a collection of allowed headers.
+        """
+        return pulumi.get(self, "allow_headers")
+
+    @allow_headers.setter
+    def allow_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allow_headers", value)
+
+    @property
+    @pulumi.getter(name="allowMethods")
+    def allow_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]:
+        """
+        Represents a collection of allowed HTTP methods.
+        """
+        return pulumi.get(self, "allow_methods")
+
+    @allow_methods.setter
+    def allow_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]):
+        pulumi.set(self, "allow_methods", value)
+
+    @property
+    @pulumi.getter(name="allowOrigins")
+    def allow_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Represents a collection of allowed origins.
+        """
+        return pulumi.get(self, "allow_origins")
+
+    @allow_origins.setter
+    def allow_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allow_origins", value)
+
+    @property
+    @pulumi.getter(name="exposeHeaders")
+    def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Represents a collection of exposed headers.
+        """
+        return pulumi.get(self, "expose_headers")
+
+    @expose_headers.setter
+    def expose_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "expose_headers", value)
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_age")
+
+    @max_age.setter
+    def max_age(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_age", value)
 
 
 @pulumi.input_type

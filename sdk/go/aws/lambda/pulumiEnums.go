@@ -1093,6 +1093,385 @@ func (in *functionTracingConfigModePtr) ToFunctionTracingConfigModePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionTracingConfigModePtrOutput)
 }
 
+type UrlAllowMethodsItem string
+
+const (
+	UrlAllowMethodsItemGet      = UrlAllowMethodsItem("GET")
+	UrlAllowMethodsItemPut      = UrlAllowMethodsItem("PUT")
+	UrlAllowMethodsItemHead     = UrlAllowMethodsItem("HEAD")
+	UrlAllowMethodsItemPost     = UrlAllowMethodsItem("POST")
+	UrlAllowMethodsItemPatch    = UrlAllowMethodsItem("PATCH")
+	UrlAllowMethodsItemDelete   = UrlAllowMethodsItem("DELETE")
+	UrlAllowMethodsItemAsterisk = UrlAllowMethodsItem("*")
+)
+
+func (UrlAllowMethodsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlAllowMethodsItem)(nil)).Elem()
+}
+
+func (e UrlAllowMethodsItem) ToUrlAllowMethodsItemOutput() UrlAllowMethodsItemOutput {
+	return pulumi.ToOutput(e).(UrlAllowMethodsItemOutput)
+}
+
+func (e UrlAllowMethodsItem) ToUrlAllowMethodsItemOutputWithContext(ctx context.Context) UrlAllowMethodsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UrlAllowMethodsItemOutput)
+}
+
+func (e UrlAllowMethodsItem) ToUrlAllowMethodsItemPtrOutput() UrlAllowMethodsItemPtrOutput {
+	return e.ToUrlAllowMethodsItemPtrOutputWithContext(context.Background())
+}
+
+func (e UrlAllowMethodsItem) ToUrlAllowMethodsItemPtrOutputWithContext(ctx context.Context) UrlAllowMethodsItemPtrOutput {
+	return UrlAllowMethodsItem(e).ToUrlAllowMethodsItemOutputWithContext(ctx).ToUrlAllowMethodsItemPtrOutputWithContext(ctx)
+}
+
+func (e UrlAllowMethodsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UrlAllowMethodsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UrlAllowMethodsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UrlAllowMethodsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UrlAllowMethodsItemOutput struct{ *pulumi.OutputState }
+
+func (UrlAllowMethodsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlAllowMethodsItem)(nil)).Elem()
+}
+
+func (o UrlAllowMethodsItemOutput) ToUrlAllowMethodsItemOutput() UrlAllowMethodsItemOutput {
+	return o
+}
+
+func (o UrlAllowMethodsItemOutput) ToUrlAllowMethodsItemOutputWithContext(ctx context.Context) UrlAllowMethodsItemOutput {
+	return o
+}
+
+func (o UrlAllowMethodsItemOutput) ToUrlAllowMethodsItemPtrOutput() UrlAllowMethodsItemPtrOutput {
+	return o.ToUrlAllowMethodsItemPtrOutputWithContext(context.Background())
+}
+
+func (o UrlAllowMethodsItemOutput) ToUrlAllowMethodsItemPtrOutputWithContext(ctx context.Context) UrlAllowMethodsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UrlAllowMethodsItem) *UrlAllowMethodsItem {
+		return &v
+	}).(UrlAllowMethodsItemPtrOutput)
+}
+
+func (o UrlAllowMethodsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UrlAllowMethodsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UrlAllowMethodsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UrlAllowMethodsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UrlAllowMethodsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UrlAllowMethodsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UrlAllowMethodsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (UrlAllowMethodsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UrlAllowMethodsItem)(nil)).Elem()
+}
+
+func (o UrlAllowMethodsItemPtrOutput) ToUrlAllowMethodsItemPtrOutput() UrlAllowMethodsItemPtrOutput {
+	return o
+}
+
+func (o UrlAllowMethodsItemPtrOutput) ToUrlAllowMethodsItemPtrOutputWithContext(ctx context.Context) UrlAllowMethodsItemPtrOutput {
+	return o
+}
+
+func (o UrlAllowMethodsItemPtrOutput) Elem() UrlAllowMethodsItemOutput {
+	return o.ApplyT(func(v *UrlAllowMethodsItem) UrlAllowMethodsItem {
+		if v != nil {
+			return *v
+		}
+		var ret UrlAllowMethodsItem
+		return ret
+	}).(UrlAllowMethodsItemOutput)
+}
+
+func (o UrlAllowMethodsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UrlAllowMethodsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UrlAllowMethodsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UrlAllowMethodsItemInput is an input type that accepts UrlAllowMethodsItemArgs and UrlAllowMethodsItemOutput values.
+// You can construct a concrete instance of `UrlAllowMethodsItemInput` via:
+//
+//          UrlAllowMethodsItemArgs{...}
+type UrlAllowMethodsItemInput interface {
+	pulumi.Input
+
+	ToUrlAllowMethodsItemOutput() UrlAllowMethodsItemOutput
+	ToUrlAllowMethodsItemOutputWithContext(context.Context) UrlAllowMethodsItemOutput
+}
+
+var urlAllowMethodsItemPtrType = reflect.TypeOf((**UrlAllowMethodsItem)(nil)).Elem()
+
+type UrlAllowMethodsItemPtrInput interface {
+	pulumi.Input
+
+	ToUrlAllowMethodsItemPtrOutput() UrlAllowMethodsItemPtrOutput
+	ToUrlAllowMethodsItemPtrOutputWithContext(context.Context) UrlAllowMethodsItemPtrOutput
+}
+
+type urlAllowMethodsItemPtr string
+
+func UrlAllowMethodsItemPtr(v string) UrlAllowMethodsItemPtrInput {
+	return (*urlAllowMethodsItemPtr)(&v)
+}
+
+func (*urlAllowMethodsItemPtr) ElementType() reflect.Type {
+	return urlAllowMethodsItemPtrType
+}
+
+func (in *urlAllowMethodsItemPtr) ToUrlAllowMethodsItemPtrOutput() UrlAllowMethodsItemPtrOutput {
+	return pulumi.ToOutput(in).(UrlAllowMethodsItemPtrOutput)
+}
+
+func (in *urlAllowMethodsItemPtr) ToUrlAllowMethodsItemPtrOutputWithContext(ctx context.Context) UrlAllowMethodsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UrlAllowMethodsItemPtrOutput)
+}
+
+// UrlAllowMethodsItemArrayInput is an input type that accepts UrlAllowMethodsItemArray and UrlAllowMethodsItemArrayOutput values.
+// You can construct a concrete instance of `UrlAllowMethodsItemArrayInput` via:
+//
+//          UrlAllowMethodsItemArray{ UrlAllowMethodsItemArgs{...} }
+type UrlAllowMethodsItemArrayInput interface {
+	pulumi.Input
+
+	ToUrlAllowMethodsItemArrayOutput() UrlAllowMethodsItemArrayOutput
+	ToUrlAllowMethodsItemArrayOutputWithContext(context.Context) UrlAllowMethodsItemArrayOutput
+}
+
+type UrlAllowMethodsItemArray []UrlAllowMethodsItem
+
+func (UrlAllowMethodsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlAllowMethodsItem)(nil)).Elem()
+}
+
+func (i UrlAllowMethodsItemArray) ToUrlAllowMethodsItemArrayOutput() UrlAllowMethodsItemArrayOutput {
+	return i.ToUrlAllowMethodsItemArrayOutputWithContext(context.Background())
+}
+
+func (i UrlAllowMethodsItemArray) ToUrlAllowMethodsItemArrayOutputWithContext(ctx context.Context) UrlAllowMethodsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlAllowMethodsItemArrayOutput)
+}
+
+type UrlAllowMethodsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (UrlAllowMethodsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlAllowMethodsItem)(nil)).Elem()
+}
+
+func (o UrlAllowMethodsItemArrayOutput) ToUrlAllowMethodsItemArrayOutput() UrlAllowMethodsItemArrayOutput {
+	return o
+}
+
+func (o UrlAllowMethodsItemArrayOutput) ToUrlAllowMethodsItemArrayOutputWithContext(ctx context.Context) UrlAllowMethodsItemArrayOutput {
+	return o
+}
+
+func (o UrlAllowMethodsItemArrayOutput) Index(i pulumi.IntInput) UrlAllowMethodsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UrlAllowMethodsItem {
+		return vs[0].([]UrlAllowMethodsItem)[vs[1].(int)]
+	}).(UrlAllowMethodsItemOutput)
+}
+
+// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+type UrlAuthorizationType string
+
+const (
+	UrlAuthorizationTypeAwsIam = UrlAuthorizationType("AWS_IAM")
+	UrlAuthorizationTypeNone   = UrlAuthorizationType("NONE")
+)
+
+func (UrlAuthorizationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlAuthorizationType)(nil)).Elem()
+}
+
+func (e UrlAuthorizationType) ToUrlAuthorizationTypeOutput() UrlAuthorizationTypeOutput {
+	return pulumi.ToOutput(e).(UrlAuthorizationTypeOutput)
+}
+
+func (e UrlAuthorizationType) ToUrlAuthorizationTypeOutputWithContext(ctx context.Context) UrlAuthorizationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UrlAuthorizationTypeOutput)
+}
+
+func (e UrlAuthorizationType) ToUrlAuthorizationTypePtrOutput() UrlAuthorizationTypePtrOutput {
+	return e.ToUrlAuthorizationTypePtrOutputWithContext(context.Background())
+}
+
+func (e UrlAuthorizationType) ToUrlAuthorizationTypePtrOutputWithContext(ctx context.Context) UrlAuthorizationTypePtrOutput {
+	return UrlAuthorizationType(e).ToUrlAuthorizationTypeOutputWithContext(ctx).ToUrlAuthorizationTypePtrOutputWithContext(ctx)
+}
+
+func (e UrlAuthorizationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UrlAuthorizationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UrlAuthorizationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UrlAuthorizationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UrlAuthorizationTypeOutput struct{ *pulumi.OutputState }
+
+func (UrlAuthorizationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlAuthorizationType)(nil)).Elem()
+}
+
+func (o UrlAuthorizationTypeOutput) ToUrlAuthorizationTypeOutput() UrlAuthorizationTypeOutput {
+	return o
+}
+
+func (o UrlAuthorizationTypeOutput) ToUrlAuthorizationTypeOutputWithContext(ctx context.Context) UrlAuthorizationTypeOutput {
+	return o
+}
+
+func (o UrlAuthorizationTypeOutput) ToUrlAuthorizationTypePtrOutput() UrlAuthorizationTypePtrOutput {
+	return o.ToUrlAuthorizationTypePtrOutputWithContext(context.Background())
+}
+
+func (o UrlAuthorizationTypeOutput) ToUrlAuthorizationTypePtrOutputWithContext(ctx context.Context) UrlAuthorizationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UrlAuthorizationType) *UrlAuthorizationType {
+		return &v
+	}).(UrlAuthorizationTypePtrOutput)
+}
+
+func (o UrlAuthorizationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UrlAuthorizationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UrlAuthorizationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UrlAuthorizationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UrlAuthorizationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UrlAuthorizationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UrlAuthorizationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UrlAuthorizationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UrlAuthorizationType)(nil)).Elem()
+}
+
+func (o UrlAuthorizationTypePtrOutput) ToUrlAuthorizationTypePtrOutput() UrlAuthorizationTypePtrOutput {
+	return o
+}
+
+func (o UrlAuthorizationTypePtrOutput) ToUrlAuthorizationTypePtrOutputWithContext(ctx context.Context) UrlAuthorizationTypePtrOutput {
+	return o
+}
+
+func (o UrlAuthorizationTypePtrOutput) Elem() UrlAuthorizationTypeOutput {
+	return o.ApplyT(func(v *UrlAuthorizationType) UrlAuthorizationType {
+		if v != nil {
+			return *v
+		}
+		var ret UrlAuthorizationType
+		return ret
+	}).(UrlAuthorizationTypeOutput)
+}
+
+func (o UrlAuthorizationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UrlAuthorizationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UrlAuthorizationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UrlAuthorizationTypeInput is an input type that accepts UrlAuthorizationTypeArgs and UrlAuthorizationTypeOutput values.
+// You can construct a concrete instance of `UrlAuthorizationTypeInput` via:
+//
+//          UrlAuthorizationTypeArgs{...}
+type UrlAuthorizationTypeInput interface {
+	pulumi.Input
+
+	ToUrlAuthorizationTypeOutput() UrlAuthorizationTypeOutput
+	ToUrlAuthorizationTypeOutputWithContext(context.Context) UrlAuthorizationTypeOutput
+}
+
+var urlAuthorizationTypePtrType = reflect.TypeOf((**UrlAuthorizationType)(nil)).Elem()
+
+type UrlAuthorizationTypePtrInput interface {
+	pulumi.Input
+
+	ToUrlAuthorizationTypePtrOutput() UrlAuthorizationTypePtrOutput
+	ToUrlAuthorizationTypePtrOutputWithContext(context.Context) UrlAuthorizationTypePtrOutput
+}
+
+type urlAuthorizationTypePtr string
+
+func UrlAuthorizationTypePtr(v string) UrlAuthorizationTypePtrInput {
+	return (*urlAuthorizationTypePtr)(&v)
+}
+
+func (*urlAuthorizationTypePtr) ElementType() reflect.Type {
+	return urlAuthorizationTypePtrType
+}
+
+func (in *urlAuthorizationTypePtr) ToUrlAuthorizationTypePtrOutput() UrlAuthorizationTypePtrOutput {
+	return pulumi.ToOutput(in).(UrlAuthorizationTypePtrOutput)
+}
+
+func (in *urlAuthorizationTypePtr) ToUrlAuthorizationTypePtrOutputWithContext(ctx context.Context) UrlAuthorizationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UrlAuthorizationTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
@@ -1108,6 +1487,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionPackageTypePtrInput)(nil)).Elem(), FunctionPackageType("Image"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModeInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModePtrInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemInput)(nil)).Elem(), UrlAllowMethodsItem("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemPtrInput)(nil)).Elem(), UrlAllowMethodsItem("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemArrayInput)(nil)).Elem(), UrlAllowMethodsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlAuthorizationTypeInput)(nil)).Elem(), UrlAuthorizationType("AWS_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UrlAuthorizationTypePtrInput)(nil)).Elem(), UrlAuthorizationType("AWS_IAM"))
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemOutput{})
@@ -1122,4 +1506,9 @@ func init() {
 	pulumi.RegisterOutputType(FunctionPackageTypePtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModeOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModePtrOutput{})
+	pulumi.RegisterOutputType(UrlAllowMethodsItemOutput{})
+	pulumi.RegisterOutputType(UrlAllowMethodsItemPtrOutput{})
+	pulumi.RegisterOutputType(UrlAllowMethodsItemArrayOutput{})
+	pulumi.RegisterOutputType(UrlAuthorizationTypeOutput{})
+	pulumi.RegisterOutputType(UrlAuthorizationTypePtrOutput{})
 }

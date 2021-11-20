@@ -43,6 +43,10 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
      */
     public readonly configurationName!: pulumi.Output<string>;
     /**
+     * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+     */
+    public readonly guardrailPolicies!: pulumi.Output<string[] | undefined>;
+    /**
      * The ARN of the IAM role that defines the permissions for AWS Chatbot
      */
     public readonly iamRoleArn!: pulumi.Output<string>;
@@ -62,6 +66,10 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
      * ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
      */
     public readonly snsTopicArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * Enables use of a user role requirement in your chat configuration
+     */
+    public readonly userRoleRequired!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SlackChannelConfiguration resource with the given unique name, arguments, and options.
@@ -87,20 +95,24 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'slackWorkspaceId'");
             }
             inputs["configurationName"] = args ? args.configurationName : undefined;
+            inputs["guardrailPolicies"] = args ? args.guardrailPolicies : undefined;
             inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             inputs["loggingLevel"] = args ? args.loggingLevel : undefined;
             inputs["slackChannelId"] = args ? args.slackChannelId : undefined;
             inputs["slackWorkspaceId"] = args ? args.slackWorkspaceId : undefined;
             inputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
+            inputs["userRoleRequired"] = args ? args.userRoleRequired : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["configurationName"] = undefined /*out*/;
+            inputs["guardrailPolicies"] = undefined /*out*/;
             inputs["iamRoleArn"] = undefined /*out*/;
             inputs["loggingLevel"] = undefined /*out*/;
             inputs["slackChannelId"] = undefined /*out*/;
             inputs["slackWorkspaceId"] = undefined /*out*/;
             inputs["snsTopicArns"] = undefined /*out*/;
+            inputs["userRoleRequired"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -117,6 +129,10 @@ export interface SlackChannelConfigurationArgs {
      * The name of the configuration
      */
     configurationName: pulumi.Input<string>;
+    /**
+     * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+     */
+    guardrailPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of the IAM role that defines the permissions for AWS Chatbot
      */
@@ -137,4 +153,8 @@ export interface SlackChannelConfigurationArgs {
      * ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
      */
     snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Enables use of a user role requirement in your chat configuration
+     */
+    userRoleRequired?: pulumi.Input<boolean>;
 }

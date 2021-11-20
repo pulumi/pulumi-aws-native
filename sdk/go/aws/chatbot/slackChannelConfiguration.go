@@ -19,6 +19,8 @@ type SlackChannelConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the configuration
 	ConfigurationName pulumi.StringOutput `pulumi:"configurationName"`
+	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+	GuardrailPolicies pulumi.StringArrayOutput `pulumi:"guardrailPolicies"`
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
@@ -29,6 +31,8 @@ type SlackChannelConfiguration struct {
 	SlackWorkspaceId pulumi.StringOutput `pulumi:"slackWorkspaceId"`
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns pulumi.StringArrayOutput `pulumi:"snsTopicArns"`
+	// Enables use of a user role requirement in your chat configuration
+	UserRoleRequired pulumi.BoolPtrOutput `pulumi:"userRoleRequired"`
 }
 
 // NewSlackChannelConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -84,6 +88,8 @@ func (SlackChannelConfigurationState) ElementType() reflect.Type {
 type slackChannelConfigurationArgs struct {
 	// The name of the configuration
 	ConfigurationName string `pulumi:"configurationName"`
+	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+	GuardrailPolicies []string `pulumi:"guardrailPolicies"`
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
@@ -94,12 +100,16 @@ type slackChannelConfigurationArgs struct {
 	SlackWorkspaceId string `pulumi:"slackWorkspaceId"`
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
+	// Enables use of a user role requirement in your chat configuration
+	UserRoleRequired *bool `pulumi:"userRoleRequired"`
 }
 
 // The set of arguments for constructing a SlackChannelConfiguration resource.
 type SlackChannelConfigurationArgs struct {
 	// The name of the configuration
 	ConfigurationName pulumi.StringInput
+	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+	GuardrailPolicies pulumi.StringArrayInput
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot
 	IamRoleArn pulumi.StringInput
 	// Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
@@ -110,6 +120,8 @@ type SlackChannelConfigurationArgs struct {
 	SlackWorkspaceId pulumi.StringInput
 	// ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
 	SnsTopicArns pulumi.StringArrayInput
+	// Enables use of a user role requirement in your chat configuration
+	UserRoleRequired pulumi.BoolPtrInput
 }
 
 func (SlackChannelConfigurationArgs) ElementType() reflect.Type {

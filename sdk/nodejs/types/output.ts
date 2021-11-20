@@ -4840,9 +4840,43 @@ export namespace cloudwatch {
         value: string;
     }
 
+    export interface AnomalyDetectorMetric {
+        dimensions?: outputs.cloudwatch.AnomalyDetectorDimension[];
+        metricName: string;
+        namespace: string;
+    }
+
+    export interface AnomalyDetectorMetricDataQuery {
+        accountId?: string;
+        expression?: string;
+        id: string;
+        label?: string;
+        metricStat?: outputs.cloudwatch.AnomalyDetectorMetricStat;
+        period?: number;
+        returnData?: boolean;
+    }
+
+    export interface AnomalyDetectorMetricMathAnomalyDetector {
+        metricDataQueries?: outputs.cloudwatch.AnomalyDetectorMetricDataQuery[];
+    }
+
+    export interface AnomalyDetectorMetricStat {
+        metric: outputs.cloudwatch.AnomalyDetectorMetric;
+        period: number;
+        stat: string;
+        unit?: string;
+    }
+
     export interface AnomalyDetectorRange {
         endTime: string;
         startTime: string;
+    }
+
+    export interface AnomalyDetectorSingleMetricAnomalyDetector {
+        dimensions?: outputs.cloudwatch.AnomalyDetectorDimension[];
+        metricName?: string;
+        namespace?: string;
+        stat?: string;
     }
 
     export interface InsightRuleTags {
@@ -6474,6 +6508,34 @@ export namespace configuration {
 }
 
 export namespace connect {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ContactFlowModuleTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ContactFlowTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
     /**
      * Contains information about the hours of operation.
      */
@@ -17063,6 +17125,30 @@ export namespace lambda {
         s3ObjectVersion?: string;
     }
 
+    export interface UrlCors {
+        /**
+         * Specifies whether credentials are included in the CORS request.
+         */
+        allowCredentials?: boolean;
+        /**
+         * Represents a collection of allowed headers.
+         */
+        allowHeaders?: string[];
+        /**
+         * Represents a collection of allowed HTTP methods.
+         */
+        allowMethods?: enums.lambda.UrlAllowMethodsItem[];
+        /**
+         * Represents a collection of allowed origins.
+         */
+        allowOrigins?: string[];
+        /**
+         * Represents a collection of exposed headers.
+         */
+        exposeHeaders?: string[];
+        maxAge?: number;
+    }
+
     export interface VersionProvisionedConcurrencyConfiguration {
         provisionedConcurrentExecutions: number;
     }
@@ -19796,6 +19882,7 @@ export namespace msk {
     export interface ClusterBrokerNodeGroupInfo {
         brokerAZDistribution?: string;
         clientSubnets: string[];
+        connectivityInfo?: outputs.msk.ClusterConnectivityInfo;
         instanceType: string;
         securityGroups?: string[];
         storageInfo?: outputs.msk.ClusterStorageInfo;
@@ -19815,6 +19902,10 @@ export namespace msk {
     export interface ClusterConfigurationInfo {
         arn: string;
         revision: number;
+    }
+
+    export interface ClusterConnectivityInfo {
+        publicAccess?: outputs.msk.ClusterPublicAccess;
     }
 
     export interface ClusterEBSStorageInfo {
@@ -19863,6 +19954,10 @@ export namespace msk {
     export interface ClusterPrometheus {
         jmxExporter?: outputs.msk.ClusterJmxExporter;
         nodeExporter?: outputs.msk.ClusterNodeExporter;
+    }
+
+    export interface ClusterPublicAccess {
+        type?: string;
     }
 
     export interface ClusterS3 {
@@ -24905,9 +25000,9 @@ export namespace sagemaker {
 
     export interface EndpointConfigProductionVariant {
         acceleratorType?: string;
-        initialInstanceCount: number;
+        initialInstanceCount?: number;
         initialVariantWeight: number;
-        instanceType: string;
+        instanceType?: string;
         modelName: string;
         variantName: string;
     }
@@ -27004,6 +27099,7 @@ export namespace transfer {
 
     export interface ServerIdentityProviderDetails {
         directoryId?: string;
+        function?: string;
         invocationRole?: string;
         url?: string;
     }

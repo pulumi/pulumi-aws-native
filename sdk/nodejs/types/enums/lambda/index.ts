@@ -60,3 +60,25 @@ export const FunctionTracingConfigMode = {
  * The tracing mode.
  */
 export type FunctionTracingConfigMode = (typeof FunctionTracingConfigMode)[keyof typeof FunctionTracingConfigMode];
+
+export const UrlAllowMethodsItem = {
+    Get: "GET",
+    Put: "PUT",
+    Head: "HEAD",
+    Post: "POST",
+    Patch: "PATCH",
+    Delete: "DELETE",
+    Asterisk: "*",
+} as const;
+
+export type UrlAllowMethodsItem = (typeof UrlAllowMethodsItem)[keyof typeof UrlAllowMethodsItem];
+
+export const UrlAuthorizationType = {
+    AwsIam: "AWS_IAM",
+    None: "NONE",
+} as const;
+
+/**
+ * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+ */
+export type UrlAuthorizationType = (typeof UrlAuthorizationType)[keyof typeof UrlAuthorizationType];

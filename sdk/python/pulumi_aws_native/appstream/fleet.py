@@ -15,8 +15,8 @@ __all__ = ['FleetArgs', 'Fleet']
 @pulumi.input_type
 class FleetArgs:
     def __init__(__self__, *,
-                 compute_capacity: pulumi.Input['FleetComputeCapacityArgs'],
                  instance_type: pulumi.Input[str],
+                 compute_capacity: Optional[pulumi.Input['FleetComputeCapacityArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -27,16 +27,20 @@ class FleetArgs:
                  idle_disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_sessions: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]] = None,
+                 usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Fleet resource.
         """
-        pulumi.set(__self__, "compute_capacity", compute_capacity)
         pulumi.set(__self__, "instance_type", instance_type)
+        if compute_capacity is not None:
+            pulumi.set(__self__, "compute_capacity", compute_capacity)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disconnect_timeout_in_seconds is not None:
@@ -57,25 +61,22 @@ class FleetArgs:
             pulumi.set(__self__, "image_arn", image_arn)
         if image_name is not None:
             pulumi.set(__self__, "image_name", image_name)
+        if max_concurrent_sessions is not None:
+            pulumi.set(__self__, "max_concurrent_sessions", max_concurrent_sessions)
         if max_user_duration_in_seconds is not None:
             pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
         if stream_view is not None:
             pulumi.set(__self__, "stream_view", stream_view)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if usb_device_filter_strings is not None:
+            pulumi.set(__self__, "usb_device_filter_strings", usb_device_filter_strings)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
-
-    @property
-    @pulumi.getter(name="computeCapacity")
-    def compute_capacity(self) -> pulumi.Input['FleetComputeCapacityArgs']:
-        return pulumi.get(self, "compute_capacity")
-
-    @compute_capacity.setter
-    def compute_capacity(self, value: pulumi.Input['FleetComputeCapacityArgs']):
-        pulumi.set(self, "compute_capacity", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -85,6 +86,15 @@ class FleetArgs:
     @instance_type.setter
     def instance_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="computeCapacity")
+    def compute_capacity(self) -> Optional[pulumi.Input['FleetComputeCapacityArgs']]:
+        return pulumi.get(self, "compute_capacity")
+
+    @compute_capacity.setter
+    def compute_capacity(self, value: Optional[pulumi.Input['FleetComputeCapacityArgs']]):
+        pulumi.set(self, "compute_capacity", value)
 
     @property
     @pulumi.getter
@@ -177,6 +187,15 @@ class FleetArgs:
         pulumi.set(self, "image_name", value)
 
     @property
+    @pulumi.getter(name="maxConcurrentSessions")
+    def max_concurrent_sessions(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_concurrent_sessions")
+
+    @max_concurrent_sessions.setter
+    def max_concurrent_sessions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_sessions", value)
+
+    @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "max_user_duration_in_seconds")
@@ -195,6 +214,15 @@ class FleetArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform", value)
+
+    @property
     @pulumi.getter(name="streamView")
     def stream_view(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "stream_view")
@@ -211,6 +239,15 @@ class FleetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="usbDeviceFilterStrings")
+    def usb_device_filter_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "usb_device_filter_strings")
+
+    @usb_device_filter_strings.setter
+    def usb_device_filter_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "usb_device_filter_strings", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
@@ -244,10 +281,13 @@ class Fleet(pulumi.CustomResource):
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_sessions: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetTagArgs']]]]] = None,
+                 usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
                  __props__=None):
         """
@@ -292,10 +332,13 @@ class Fleet(pulumi.CustomResource):
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_sessions: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetTagArgs']]]]] = None,
+                 usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Fleet is deprecated: Fleet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -310,8 +353,6 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetArgs.__new__(FleetArgs)
 
-            if compute_capacity is None and not opts.urn:
-                raise TypeError("Missing required property 'compute_capacity'")
             __props__.__dict__["compute_capacity"] = compute_capacity
             __props__.__dict__["description"] = description
             __props__.__dict__["disconnect_timeout_in_seconds"] = disconnect_timeout_in_seconds
@@ -326,10 +367,13 @@ class Fleet(pulumi.CustomResource):
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["max_concurrent_sessions"] = max_concurrent_sessions
             __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
             __props__.__dict__["name"] = name
+            __props__.__dict__["platform"] = platform
             __props__.__dict__["stream_view"] = stream_view
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["usb_device_filter_strings"] = usb_device_filter_strings
             __props__.__dict__["vpc_config"] = vpc_config
         super(Fleet, __self__).__init__(
             'aws-native:appstream:Fleet',
@@ -365,16 +409,19 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["image_arn"] = None
         __props__.__dict__["image_name"] = None
         __props__.__dict__["instance_type"] = None
+        __props__.__dict__["max_concurrent_sessions"] = None
         __props__.__dict__["max_user_duration_in_seconds"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["platform"] = None
         __props__.__dict__["stream_view"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["usb_device_filter_strings"] = None
         __props__.__dict__["vpc_config"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="computeCapacity")
-    def compute_capacity(self) -> pulumi.Output['outputs.FleetComputeCapacity']:
+    def compute_capacity(self) -> pulumi.Output[Optional['outputs.FleetComputeCapacity']]:
         return pulumi.get(self, "compute_capacity")
 
     @property
@@ -433,6 +480,11 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="maxConcurrentSessions")
+    def max_concurrent_sessions(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "max_concurrent_sessions")
+
+    @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "max_user_duration_in_seconds")
@@ -443,6 +495,11 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "platform")
+
+    @property
     @pulumi.getter(name="streamView")
     def stream_view(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "stream_view")
@@ -451,6 +508,11 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FleetTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="usbDeviceFilterStrings")
+    def usb_device_filter_strings(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "usb_device_filter_strings")
 
     @property
     @pulumi.getter(name="vpcConfig")

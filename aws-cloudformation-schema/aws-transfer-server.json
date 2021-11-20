@@ -59,6 +59,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Function" : {
+          "type" : "string"
+        },
         "DirectoryId" : {
           "type" : "string"
         },

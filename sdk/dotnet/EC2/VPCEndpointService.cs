@@ -25,9 +25,6 @@ namespace Pulumi.AwsNative.EC2
         [Output("networkLoadBalancerArns")]
         public Output<ImmutableArray<string>> NetworkLoadBalancerArns { get; private set; } = null!;
 
-        [Output("payerResponsibility")]
-        public Output<string?> PayerResponsibility { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a VPCEndpointService resource with the given unique name, arguments, and options.
@@ -91,9 +88,6 @@ namespace Pulumi.AwsNative.EC2
             get => _networkLoadBalancerArns ?? (_networkLoadBalancerArns = new InputList<string>());
             set => _networkLoadBalancerArns = value;
         }
-
-        [Input("payerResponsibility")]
-        public Input<string>? PayerResponsibility { get; set; }
 
         public VPCEndpointServiceArgs()
         {

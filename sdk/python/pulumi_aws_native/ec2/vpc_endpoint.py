@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['VPCEndpointArgs', 'VPCEndpoint']
 
@@ -15,14 +16,21 @@ class VPCEndpointArgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
-                 policy_document: Optional[Any] = None,
+                 policy_document: Optional[pulumi.Input[str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 vpc_endpoint_type: Optional[pulumi.Input[str]] = None):
+                 vpc_endpoint_type: Optional[pulumi.Input['VPCEndpointVpcEndpointType']] = None):
         """
         The set of arguments for constructing a VPCEndpoint resource.
+        :param pulumi.Input[str] service_name: The service name.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
+        :param pulumi.Input[str] policy_document: A policy to attach to the endpoint that controls access to the service.
+        :param pulumi.Input[bool] private_dns_enabled: Indicate whether to associate a private hosted zone with the specified VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: One or more route table IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
         """
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -42,6 +50,9 @@ class VPCEndpointArgs:
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[str]:
+        """
+        The service name.
+        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -51,6 +62,9 @@ class VPCEndpointArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC in which the endpoint will be used.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -59,16 +73,22 @@ class VPCEndpointArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[Any]:
+    def policy_document(self) -> Optional[pulumi.Input[str]]:
+        """
+        A policy to attach to the endpoint that controls access to the service.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Optional[Any]):
+    def policy_document(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_document", value)
 
     @property
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether to associate a private hosted zone with the specified VPC.
+        """
         return pulumi.get(self, "private_dns_enabled")
 
     @private_dns_enabled.setter
@@ -78,6 +98,9 @@ class VPCEndpointArgs:
     @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more route table IDs.
+        """
         return pulumi.get(self, "route_table_ids")
 
     @route_table_ids.setter
@@ -87,6 +110,9 @@ class VPCEndpointArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of one or more security groups to associate with the endpoint network interface.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -96,6 +122,9 @@ class VPCEndpointArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of one or more subnets in which to create an endpoint network interface.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -104,31 +133,26 @@ class VPCEndpointArgs:
 
     @property
     @pulumi.getter(name="vpcEndpointType")
-    def vpc_endpoint_type(self) -> Optional[pulumi.Input[str]]:
+    def vpc_endpoint_type(self) -> Optional[pulumi.Input['VPCEndpointVpcEndpointType']]:
         return pulumi.get(self, "vpc_endpoint_type")
 
     @vpc_endpoint_type.setter
-    def vpc_endpoint_type(self, value: Optional[pulumi.Input[str]]):
+    def vpc_endpoint_type(self, value: Optional[pulumi.Input['VPCEndpointVpcEndpointType']]):
         pulumi.set(self, "vpc_endpoint_type", value)
 
 
-warnings.warn("""VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VPCEndpoint(pulumi.CustomResource):
-    warnings.warn("""VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[Any] = None,
+                 policy_document: Optional[pulumi.Input[str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 vpc_endpoint_type: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_type: Optional[pulumi.Input['VPCEndpointVpcEndpointType']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -136,6 +160,13 @@ class VPCEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy_document: A policy to attach to the endpoint that controls access to the service.
+        :param pulumi.Input[bool] private_dns_enabled: Indicate whether to associate a private hosted zone with the specified VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: One or more route table IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface.
+        :param pulumi.Input[str] service_name: The service name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         """
         ...
     @overload
@@ -161,16 +192,15 @@ class VPCEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[Any] = None,
+                 policy_document: Optional[pulumi.Input[str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 vpc_endpoint_type: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_type: Optional[pulumi.Input['VPCEndpointVpcEndpointType']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPCEndpoint is deprecated: VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,41 +279,62 @@ class VPCEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Output[Optional[Any]]:
+    def policy_document(self) -> pulumi.Output[Optional[str]]:
+        """
+        A policy to attach to the endpoint that controls access to the service.
+        """
         return pulumi.get(self, "policy_document")
 
     @property
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicate whether to associate a private hosted zone with the specified VPC.
+        """
         return pulumi.get(self, "private_dns_enabled")
 
     @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        One or more route table IDs.
+        """
         return pulumi.get(self, "route_table_ids")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The ID of one or more security groups to associate with the endpoint network interface.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[str]:
+        """
+        The service name.
+        """
         return pulumi.get(self, "service_name")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The ID of one or more subnets in which to create an endpoint network interface.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcEndpointType")
-    def vpc_endpoint_type(self) -> pulumi.Output[Optional[str]]:
+    def vpc_endpoint_type(self) -> pulumi.Output[Optional['VPCEndpointVpcEndpointType']]:
         return pulumi.get(self, "vpc_endpoint_type")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC in which the endpoint will be used.
+        """
         return pulumi.get(self, "vpc_id")
 

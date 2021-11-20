@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .contact_flow import *
+from .contact_flow_module import *
 from .hours_of_operation import *
 from .quick_connect import *
 from .user import *

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
+        [Input("function")]
+        public Input<string>? Function { get; set; }
+
         [Input("invocationRole")]
         public Input<string>? InvocationRole { get; set; }
 

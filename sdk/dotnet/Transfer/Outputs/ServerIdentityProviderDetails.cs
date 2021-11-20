@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     public sealed class ServerIdentityProviderDetails
     {
         public readonly string? DirectoryId;
+        public readonly string? Function;
         public readonly string? InvocationRole;
         public readonly string? Url;
 
@@ -21,11 +22,14 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         private ServerIdentityProviderDetails(
             string? directoryId,
 
+            string? function,
+
             string? invocationRole,
 
             string? url)
         {
             DirectoryId = directoryId;
+            Function = function;
             InvocationRole = invocationRole;
             Url = url;
         }

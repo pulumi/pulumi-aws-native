@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.MSK.Outputs
     {
         public readonly string? BrokerAZDistribution;
         public readonly ImmutableArray<string> ClientSubnets;
+        public readonly Outputs.ClusterConnectivityInfo? ConnectivityInfo;
         public readonly string InstanceType;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly Outputs.ClusterStorageInfo? StorageInfo;
@@ -25,6 +26,8 @@ namespace Pulumi.AwsNative.MSK.Outputs
 
             ImmutableArray<string> clientSubnets,
 
+            Outputs.ClusterConnectivityInfo? connectivityInfo,
+
             string instanceType,
 
             ImmutableArray<string> securityGroups,
@@ -33,6 +36,7 @@ namespace Pulumi.AwsNative.MSK.Outputs
         {
             BrokerAZDistribution = brokerAZDistribution;
             ClientSubnets = clientSubnets;
+            ConnectivityInfo = connectivityInfo;
             InstanceType = instanceType;
             SecurityGroups = securityGroups;
             StorageInfo = storageInfo;

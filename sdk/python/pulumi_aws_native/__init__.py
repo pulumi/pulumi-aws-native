@@ -1058,6 +1058,8 @@ _utilities.register(
   "mod": "connect",
   "fqn": "pulumi_aws_native.connect",
   "classes": {
+   "aws-native:connect:ContactFlow": "ContactFlow",
+   "aws-native:connect:ContactFlowModule": "ContactFlowModule",
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
    "aws-native:connect:QuickConnect": "QuickConnect",
    "aws-native:connect:User": "User",
@@ -1850,6 +1852,7 @@ _utilities.register(
    "aws-native:lambda:LayerVersion": "LayerVersion",
    "aws-native:lambda:LayerVersionPermission": "LayerVersionPermission",
    "aws-native:lambda:Permission": "Permission",
+   "aws-native:lambda:Url": "Url",
    "aws-native:lambda:Version": "Version"
   }
  },

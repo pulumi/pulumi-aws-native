@@ -15,7 +15,12 @@ __all__ = [
     'AlarmMetricArgs',
     'AnomalyDetectorConfigurationArgs',
     'AnomalyDetectorDimensionArgs',
+    'AnomalyDetectorMetricDataQueryArgs',
+    'AnomalyDetectorMetricMathAnomalyDetectorArgs',
+    'AnomalyDetectorMetricStatArgs',
+    'AnomalyDetectorMetricArgs',
     'AnomalyDetectorRangeArgs',
+    'AnomalyDetectorSingleMetricAnomalyDetectorArgs',
     'InsightRuleTagsArgs',
     'MetricStreamFilterArgs',
     'MetricStreamTagArgs',
@@ -284,6 +289,200 @@ class AnomalyDetectorDimensionArgs:
 
 
 @pulumi.input_type
+class AnomalyDetectorMetricDataQueryArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 expression: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 metric_stat: Optional[pulumi.Input['AnomalyDetectorMetricStatArgs']] = None,
+                 period: Optional[pulumi.Input[int]] = None,
+                 return_data: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "id", id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional[pulumi.Input['AnomalyDetectorMetricStatArgs']]:
+        return pulumi.get(self, "metric_stat")
+
+    @metric_stat.setter
+    def metric_stat(self, value: Optional[pulumi.Input['AnomalyDetectorMetricStatArgs']]):
+        pulumi.set(self, "metric_stat", value)
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period", value)
+
+    @property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "return_data")
+
+    @return_data.setter
+    def return_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "return_data", value)
+
+
+@pulumi.input_type
+class AnomalyDetectorMetricMathAnomalyDetectorArgs:
+    def __init__(__self__, *,
+                 metric_data_queries: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricDataQueryArgs']]]] = None):
+        if metric_data_queries is not None:
+            pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricDataQueryArgs']]]]:
+        return pulumi.get(self, "metric_data_queries")
+
+    @metric_data_queries.setter
+    def metric_data_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricDataQueryArgs']]]]):
+        pulumi.set(self, "metric_data_queries", value)
+
+
+@pulumi.input_type
+class AnomalyDetectorMetricStatArgs:
+    def __init__(__self__, *,
+                 metric: pulumi.Input['AnomalyDetectorMetricArgs'],
+                 period: pulumi.Input[int],
+                 stat: pulumi.Input[str],
+                 unit: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> pulumi.Input['AnomalyDetectorMetricArgs']:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: pulumi.Input['AnomalyDetectorMetricArgs']):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def period(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: pulumi.Input[int]):
+        pulumi.set(self, "period", value)
+
+    @property
+    @pulumi.getter
+    def stat(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "stat")
+
+    @stat.setter
+    def stat(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stat", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class AnomalyDetectorMetricArgs:
+    def __init__(__self__, *,
+                 metric_name: pulumi.Input[str],
+                 namespace: pulumi.Input[str],
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]] = None):
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "namespace", namespace)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+
+@pulumi.input_type
 class AnomalyDetectorRangeArgs:
     def __init__(__self__, *,
                  end_time: pulumi.Input[str],
@@ -308,6 +507,59 @@ class AnomalyDetectorRangeArgs:
     @start_time.setter
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class AnomalyDetectorSingleMetricAnomalyDetectorArgs:
+    def __init__(__self__, *,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 stat: Optional[pulumi.Input[str]] = None):
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if stat is not None:
+            pulumi.set(__self__, "stat", stat)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def stat(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stat")
+
+    @stat.setter
+    def stat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stat", value)
 
 
 @pulumi.input_type

@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Chatbot
         public Output<string> ConfigurationName { get; private set; } = null!;
 
         /// <summary>
+        /// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+        /// </summary>
+        [Output("guardrailPolicies")]
+        public Output<ImmutableArray<string>> GuardrailPolicies { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role that defines the permissions for AWS Chatbot
         /// </summary>
         [Output("iamRoleArn")]
@@ -56,6 +62,12 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         [Output("snsTopicArns")]
         public Output<ImmutableArray<string>> SnsTopicArns { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables use of a user role requirement in your chat configuration
+        /// </summary>
+        [Output("userRoleRequired")]
+        public Output<bool?> UserRoleRequired { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,6 +120,18 @@ namespace Pulumi.AwsNative.Chatbot
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
 
+        [Input("guardrailPolicies")]
+        private InputList<string>? _guardrailPolicies;
+
+        /// <summary>
+        /// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
+        /// </summary>
+        public InputList<string> GuardrailPolicies
+        {
+            get => _guardrailPolicies ?? (_guardrailPolicies = new InputList<string>());
+            set => _guardrailPolicies = value;
+        }
+
         /// <summary>
         /// The ARN of the IAM role that defines the permissions for AWS Chatbot
         /// </summary>
@@ -143,6 +167,12 @@ namespace Pulumi.AwsNative.Chatbot
             get => _snsTopicArns ?? (_snsTopicArns = new InputList<string>());
             set => _snsTopicArns = value;
         }
+
+        /// <summary>
+        /// Enables use of a user role requirement in your chat configuration
+        /// </summary>
+        [Input("userRoleRequired")]
+        public Input<bool>? UserRoleRequired { get; set; }
 
         public SlackChannelConfigurationArgs()
         {

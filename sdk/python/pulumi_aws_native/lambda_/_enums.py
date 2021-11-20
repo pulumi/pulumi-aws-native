@@ -11,6 +11,8 @@ __all__ = [
     'FunctionArchitecturesItem',
     'FunctionPackageType',
     'FunctionTracingConfigMode',
+    'UrlAllowMethodsItem',
+    'UrlAuthorizationType',
 ]
 
 
@@ -59,3 +61,21 @@ class FunctionTracingConfigMode(str, Enum):
     """
     ACTIVE = "Active"
     PASS_THROUGH = "PassThrough"
+
+
+class UrlAllowMethodsItem(str, Enum):
+    GET = "GET"
+    PUT = "PUT"
+    HEAD = "HEAD"
+    POST = "POST"
+    PATCH = "PATCH"
+    DELETE = "DELETE"
+    ASTERISK = "*"
+
+
+class UrlAuthorizationType(str, Enum):
+    """
+    Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+    """
+    AWS_IAM = "AWS_IAM"
+    NONE = "NONE"

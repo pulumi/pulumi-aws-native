@@ -5465,9 +5465,43 @@ export namespace cloudwatch {
         value: pulumi.Input<string>;
     }
 
+    export interface AnomalyDetectorMetricArgs {
+        dimensions?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AnomalyDetectorDimensionArgs>[]>;
+        metricName: pulumi.Input<string>;
+        namespace: pulumi.Input<string>;
+    }
+
+    export interface AnomalyDetectorMetricDataQueryArgs {
+        accountId?: pulumi.Input<string>;
+        expression?: pulumi.Input<string>;
+        id: pulumi.Input<string>;
+        label?: pulumi.Input<string>;
+        metricStat?: pulumi.Input<inputs.cloudwatch.AnomalyDetectorMetricStatArgs>;
+        period?: pulumi.Input<number>;
+        returnData?: pulumi.Input<boolean>;
+    }
+
+    export interface AnomalyDetectorMetricMathAnomalyDetectorArgs {
+        metricDataQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AnomalyDetectorMetricDataQueryArgs>[]>;
+    }
+
+    export interface AnomalyDetectorMetricStatArgs {
+        metric: pulumi.Input<inputs.cloudwatch.AnomalyDetectorMetricArgs>;
+        period: pulumi.Input<number>;
+        stat: pulumi.Input<string>;
+        unit?: pulumi.Input<string>;
+    }
+
     export interface AnomalyDetectorRangeArgs {
         endTime: pulumi.Input<string>;
         startTime: pulumi.Input<string>;
+    }
+
+    export interface AnomalyDetectorSingleMetricAnomalyDetectorArgs {
+        dimensions?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AnomalyDetectorDimensionArgs>[]>;
+        metricName?: pulumi.Input<string>;
+        namespace?: pulumi.Input<string>;
+        stat?: pulumi.Input<string>;
     }
 
     export interface InsightRuleTagsArgs {
@@ -6383,6 +6417,34 @@ export namespace configuration {
 }
 
 export namespace connect {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ContactFlowModuleTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ContactFlowTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
     /**
      * Contains information about the hours of operation.
      */
@@ -16757,6 +16819,30 @@ export namespace lambda {
         s3ObjectVersion?: pulumi.Input<string>;
     }
 
+    export interface UrlCorsArgs {
+        /**
+         * Specifies whether credentials are included in the CORS request.
+         */
+        allowCredentials?: pulumi.Input<boolean>;
+        /**
+         * Represents a collection of allowed headers.
+         */
+        allowHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Represents a collection of allowed HTTP methods.
+         */
+        allowMethods?: pulumi.Input<pulumi.Input<enums.lambda.UrlAllowMethodsItem>[]>;
+        /**
+         * Represents a collection of allowed origins.
+         */
+        allowOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Represents a collection of exposed headers.
+         */
+        exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        maxAge?: pulumi.Input<number>;
+    }
+
     export interface VersionProvisionedConcurrencyConfigurationArgs {
         provisionedConcurrentExecutions: pulumi.Input<number>;
     }
@@ -19410,6 +19496,7 @@ export namespace msk {
     export interface ClusterBrokerNodeGroupInfoArgs {
         brokerAZDistribution?: pulumi.Input<string>;
         clientSubnets: pulumi.Input<pulumi.Input<string>[]>;
+        connectivityInfo?: pulumi.Input<inputs.msk.ClusterConnectivityInfoArgs>;
         instanceType: pulumi.Input<string>;
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         storageInfo?: pulumi.Input<inputs.msk.ClusterStorageInfoArgs>;
@@ -19429,6 +19516,10 @@ export namespace msk {
     export interface ClusterConfigurationInfoArgs {
         arn: pulumi.Input<string>;
         revision: pulumi.Input<number>;
+    }
+
+    export interface ClusterConnectivityInfoArgs {
+        publicAccess?: pulumi.Input<inputs.msk.ClusterPublicAccessArgs>;
     }
 
     export interface ClusterEBSStorageInfoArgs {
@@ -19479,6 +19570,10 @@ export namespace msk {
         nodeExporter?: pulumi.Input<inputs.msk.ClusterNodeExporterArgs>;
     }
 
+    export interface ClusterPublicAccessArgs {
+        type?: pulumi.Input<string>;
+    }
+
     export interface ClusterS3Args {
         bucket?: pulumi.Input<string>;
         enabled: pulumi.Input<boolean>;
@@ -19506,7 +19601,6 @@ export namespace msk {
     export interface ClusterUnauthenticatedArgs {
         enabled: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace mwaa {
@@ -24079,9 +24173,9 @@ export namespace sagemaker {
 
     export interface EndpointConfigProductionVariantArgs {
         acceleratorType?: pulumi.Input<string>;
-        initialInstanceCount: pulumi.Input<number>;
+        initialInstanceCount?: pulumi.Input<number>;
         initialVariantWeight: pulumi.Input<number>;
-        instanceType: pulumi.Input<string>;
+        instanceType?: pulumi.Input<string>;
         modelName: pulumi.Input<string>;
         variantName: pulumi.Input<string>;
     }
@@ -26155,6 +26249,7 @@ export namespace transfer {
 
     export interface ServerIdentityProviderDetailsArgs {
         directoryId?: pulumi.Input<string>;
+        function?: pulumi.Input<string>;
         invocationRole?: pulumi.Input<string>;
         url?: pulumi.Input<string>;
     }

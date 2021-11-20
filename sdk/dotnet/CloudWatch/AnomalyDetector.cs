@@ -22,11 +22,17 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("dimensions")]
         public Output<ImmutableArray<Outputs.AnomalyDetectorDimension>> Dimensions { get; private set; } = null!;
 
+        [Output("metricMathAnomalyDetector")]
+        public Output<Outputs.AnomalyDetectorMetricMathAnomalyDetector?> MetricMathAnomalyDetector { get; private set; } = null!;
+
         [Output("metricName")]
         public Output<string?> MetricName { get; private set; } = null!;
 
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
+
+        [Output("singleMetricAnomalyDetector")]
+        public Output<Outputs.AnomalyDetectorSingleMetricAnomalyDetector?> SingleMetricAnomalyDetector { get; private set; } = null!;
 
         [Output("stat")]
         public Output<string?> Stat { get; private set; } = null!;
@@ -87,11 +93,17 @@ namespace Pulumi.AwsNative.CloudWatch
             set => _dimensions = value;
         }
 
+        [Input("metricMathAnomalyDetector")]
+        public Input<Inputs.AnomalyDetectorMetricMathAnomalyDetectorArgs>? MetricMathAnomalyDetector { get; set; }
+
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
+
+        [Input("singleMetricAnomalyDetector")]
+        public Input<Inputs.AnomalyDetectorSingleMetricAnomalyDetectorArgs>? SingleMetricAnomalyDetector { get; set; }
 
         [Input("stat")]
         public Input<string>? Stat { get; set; }

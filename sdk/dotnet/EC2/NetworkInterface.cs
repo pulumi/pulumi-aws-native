@@ -10,47 +10,86 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::NetworkInterface
+    /// The AWS::EC2::NetworkInterface resource creates network interface
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInterface")]
     public partial class NetworkInterface : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A description for the network interface.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of security group IDs associated with this network interface.
+        /// </summary>
         [Output("groupSet")]
         public Output<ImmutableArray<string>> GroupSet { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates the type of network interface.
+        /// </summary>
         [Output("interfaceType")]
         public Output<string?> InterfaceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
+        /// </summary>
         [Output("ipv6AddressCount")]
         public Output<int?> Ipv6AddressCount { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
+        /// </summary>
         [Output("ipv6Addresses")]
         public Output<ImmutableArray<Outputs.NetworkInterfaceInstanceIpv6Address>> Ipv6Addresses { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the primary private IP address of the network interface.
+        /// </summary>
         [Output("primaryPrivateIpAddress")]
         public Output<string> PrimaryPrivateIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
+        /// </summary>
         [Output("privateIpAddress")]
         public Output<string?> PrivateIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
+        /// </summary>
         [Output("privateIpAddresses")]
         public Output<ImmutableArray<Outputs.NetworkInterfacePrivateIpAddressSpecification>> PrivateIpAddresses { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
+        /// </summary>
         [Output("secondaryPrivateIpAddressCount")]
         public Output<int?> SecondaryPrivateIpAddressCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the secondary private IP addresses of the network interface.
+        /// </summary>
         [Output("secondaryPrivateIpAddresses")]
         public Output<ImmutableArray<string>> SecondaryPrivateIpAddresses { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether traffic to or from the instance is validated.
+        /// </summary>
         [Output("sourceDestCheck")]
         public Output<bool?> SourceDestCheck { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet to associate with the network interface.
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// An arbitrary set of tags (key-value pairs) for this network interface.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.NetworkInterfaceTag>> Tags { get; private set; } = null!;
 
@@ -99,53 +138,90 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description for the network interface.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("groupSet")]
         private InputList<string>? _groupSet;
+
+        /// <summary>
+        /// A list of security group IDs associated with this network interface.
+        /// </summary>
         public InputList<string> GroupSet
         {
             get => _groupSet ?? (_groupSet = new InputList<string>());
             set => _groupSet = value;
         }
 
+        /// <summary>
+        /// Indicates the type of network interface.
+        /// </summary>
         [Input("interfaceType")]
         public Input<string>? InterfaceType { get; set; }
 
+        /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
+        /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
         [Input("ipv6Addresses")]
         private InputList<Inputs.NetworkInterfaceInstanceIpv6AddressArgs>? _ipv6Addresses;
+
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
+        /// </summary>
         public InputList<Inputs.NetworkInterfaceInstanceIpv6AddressArgs> Ipv6Addresses
         {
             get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<Inputs.NetworkInterfaceInstanceIpv6AddressArgs>());
             set => _ipv6Addresses = value;
         }
 
+        /// <summary>
+        /// Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
         [Input("privateIpAddresses")]
         private InputList<Inputs.NetworkInterfacePrivateIpAddressSpecificationArgs>? _privateIpAddresses;
+
+        /// <summary>
+        /// Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
+        /// </summary>
         public InputList<Inputs.NetworkInterfacePrivateIpAddressSpecificationArgs> PrivateIpAddresses
         {
             get => _privateIpAddresses ?? (_privateIpAddresses = new InputList<Inputs.NetworkInterfacePrivateIpAddressSpecificationArgs>());
             set => _privateIpAddresses = value;
         }
 
+        /// <summary>
+        /// The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
+        /// </summary>
         [Input("secondaryPrivateIpAddressCount")]
         public Input<int>? SecondaryPrivateIpAddressCount { get; set; }
 
+        /// <summary>
+        /// Indicates whether traffic to or from the instance is validated.
+        /// </summary>
         [Input("sourceDestCheck")]
         public Input<bool>? SourceDestCheck { get; set; }
 
+        /// <summary>
+        /// The ID of the subnet to associate with the network interface.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.NetworkInterfaceTagArgs>? _tags;
+
+        /// <summary>
+        /// An arbitrary set of tags (key-value pairs) for this network interface.
+        /// </summary>
         public InputList<Inputs.NetworkInterfaceTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.NetworkInterfaceTagArgs>());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::VPCDHCPOptionsAssociation
+ * Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
  */
 export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
     /**
@@ -34,7 +34,13 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VPCDHCPOptionsAssociation.__pulumiType;
     }
 
+    /**
+     * The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+     */
     public readonly dhcpOptionsId!: pulumi.Output<string>;
+    /**
+     * The ID of the VPC.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -71,6 +77,12 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a VPCDHCPOptionsAssociation resource.
  */
 export interface VPCDHCPOptionsAssociationArgs {
+    /**
+     * The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+     */
     dhcpOptionsId: pulumi.Input<string>;
+    /**
+     * The ID of the VPC.
+     */
     vpcId: pulumi.Input<string>;
 }

@@ -17,6 +17,8 @@ class VPCDHCPOptionsAssociationArgs:
                  vpc_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a VPCDHCPOptionsAssociation resource.
+        :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -24,6 +26,9 @@ class VPCDHCPOptionsAssociationArgs:
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @dhcp_options_id.setter
@@ -33,6 +38,9 @@ class VPCDHCPOptionsAssociationArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -49,10 +57,12 @@ class VPCDHCPOptionsAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::VPCDHCPOptionsAssociation
+        Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         ...
     @overload
@@ -61,7 +71,7 @@ class VPCDHCPOptionsAssociation(pulumi.CustomResource):
                  args: VPCDHCPOptionsAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::VPCDHCPOptionsAssociation
+        Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
 
         :param str resource_name: The name of the resource.
         :param VPCDHCPOptionsAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -127,10 +137,16 @@ class VPCDHCPOptionsAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

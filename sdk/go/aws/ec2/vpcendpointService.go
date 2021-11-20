@@ -19,7 +19,6 @@ type VPCEndpointService struct {
 	AcceptanceRequired      pulumi.BoolPtrOutput     `pulumi:"acceptanceRequired"`
 	GatewayLoadBalancerArns pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
 	NetworkLoadBalancerArns pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility     pulumi.StringPtrOutput   `pulumi:"payerResponsibility"`
 }
 
 // NewVPCEndpointService registers a new resource with the given unique name, arguments, and options.
@@ -64,7 +63,6 @@ type vpcendpointServiceArgs struct {
 	AcceptanceRequired      *bool    `pulumi:"acceptanceRequired"`
 	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility     *string  `pulumi:"payerResponsibility"`
 }
 
 // The set of arguments for constructing a VPCEndpointService resource.
@@ -72,7 +70,6 @@ type VPCEndpointServiceArgs struct {
 	AcceptanceRequired      pulumi.BoolPtrInput
 	GatewayLoadBalancerArns pulumi.StringArrayInput
 	NetworkLoadBalancerArns pulumi.StringArrayInput
-	PayerResponsibility     pulumi.StringPtrInput
 }
 
 func (VPCEndpointServiceArgs) ElementType() reflect.Type {

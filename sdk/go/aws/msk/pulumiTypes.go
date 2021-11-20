@@ -174,11 +174,12 @@ func (o ClusterBrokerLogsPtrOutput) S3() ClusterS3PtrOutput {
 }
 
 type ClusterBrokerNodeGroupInfo struct {
-	BrokerAZDistribution *string             `pulumi:"brokerAZDistribution"`
-	ClientSubnets        []string            `pulumi:"clientSubnets"`
-	InstanceType         string              `pulumi:"instanceType"`
-	SecurityGroups       []string            `pulumi:"securityGroups"`
-	StorageInfo          *ClusterStorageInfo `pulumi:"storageInfo"`
+	BrokerAZDistribution *string                  `pulumi:"brokerAZDistribution"`
+	ClientSubnets        []string                 `pulumi:"clientSubnets"`
+	ConnectivityInfo     *ClusterConnectivityInfo `pulumi:"connectivityInfo"`
+	InstanceType         string                   `pulumi:"instanceType"`
+	SecurityGroups       []string                 `pulumi:"securityGroups"`
+	StorageInfo          *ClusterStorageInfo      `pulumi:"storageInfo"`
 }
 
 // ClusterBrokerNodeGroupInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoArgs and ClusterBrokerNodeGroupInfoOutput values.
@@ -193,11 +194,12 @@ type ClusterBrokerNodeGroupInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoArgs struct {
-	BrokerAZDistribution pulumi.StringPtrInput      `pulumi:"brokerAZDistribution"`
-	ClientSubnets        pulumi.StringArrayInput    `pulumi:"clientSubnets"`
-	InstanceType         pulumi.StringInput         `pulumi:"instanceType"`
-	SecurityGroups       pulumi.StringArrayInput    `pulumi:"securityGroups"`
-	StorageInfo          ClusterStorageInfoPtrInput `pulumi:"storageInfo"`
+	BrokerAZDistribution pulumi.StringPtrInput           `pulumi:"brokerAZDistribution"`
+	ClientSubnets        pulumi.StringArrayInput         `pulumi:"clientSubnets"`
+	ConnectivityInfo     ClusterConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
+	InstanceType         pulumi.StringInput              `pulumi:"instanceType"`
+	SecurityGroups       pulumi.StringArrayInput         `pulumi:"securityGroups"`
+	StorageInfo          ClusterStorageInfoPtrInput      `pulumi:"storageInfo"`
 }
 
 func (ClusterBrokerNodeGroupInfoArgs) ElementType() reflect.Type {
@@ -285,6 +287,10 @@ func (o ClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutp
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
+func (o ClusterBrokerNodeGroupInfoOutput) ConnectivityInfo() ClusterConnectivityInfoPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterConnectivityInfo { return v.ConnectivityInfo }).(ClusterConnectivityInfoPtrOutput)
+}
+
 func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -337,6 +343,15 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayO
 		}
 		return v.ClientSubnets
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterConnectivityInfoPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterConnectivityInfo {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectivityInfo
+	}).(ClusterConnectivityInfoPtrOutput)
 }
 
 func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringPtrOutput {
@@ -823,6 +838,139 @@ func (o ClusterConfigurationInfoPtrOutput) Revision() pulumi.IntPtrOutput {
 		}
 		return &v.Revision
 	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterConnectivityInfo struct {
+	PublicAccess *ClusterPublicAccess `pulumi:"publicAccess"`
+}
+
+// ClusterConnectivityInfoInput is an input type that accepts ClusterConnectivityInfoArgs and ClusterConnectivityInfoOutput values.
+// You can construct a concrete instance of `ClusterConnectivityInfoInput` via:
+//
+//          ClusterConnectivityInfoArgs{...}
+type ClusterConnectivityInfoInput interface {
+	pulumi.Input
+
+	ToClusterConnectivityInfoOutput() ClusterConnectivityInfoOutput
+	ToClusterConnectivityInfoOutputWithContext(context.Context) ClusterConnectivityInfoOutput
+}
+
+type ClusterConnectivityInfoArgs struct {
+	PublicAccess ClusterPublicAccessPtrInput `pulumi:"publicAccess"`
+}
+
+func (ClusterConnectivityInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConnectivityInfo)(nil)).Elem()
+}
+
+func (i ClusterConnectivityInfoArgs) ToClusterConnectivityInfoOutput() ClusterConnectivityInfoOutput {
+	return i.ToClusterConnectivityInfoOutputWithContext(context.Background())
+}
+
+func (i ClusterConnectivityInfoArgs) ToClusterConnectivityInfoOutputWithContext(ctx context.Context) ClusterConnectivityInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConnectivityInfoOutput)
+}
+
+func (i ClusterConnectivityInfoArgs) ToClusterConnectivityInfoPtrOutput() ClusterConnectivityInfoPtrOutput {
+	return i.ToClusterConnectivityInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterConnectivityInfoArgs) ToClusterConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterConnectivityInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConnectivityInfoOutput).ToClusterConnectivityInfoPtrOutputWithContext(ctx)
+}
+
+// ClusterConnectivityInfoPtrInput is an input type that accepts ClusterConnectivityInfoArgs, ClusterConnectivityInfoPtr and ClusterConnectivityInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterConnectivityInfoPtrInput` via:
+//
+//          ClusterConnectivityInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterConnectivityInfoPtrInput interface {
+	pulumi.Input
+
+	ToClusterConnectivityInfoPtrOutput() ClusterConnectivityInfoPtrOutput
+	ToClusterConnectivityInfoPtrOutputWithContext(context.Context) ClusterConnectivityInfoPtrOutput
+}
+
+type clusterConnectivityInfoPtrType ClusterConnectivityInfoArgs
+
+func ClusterConnectivityInfoPtr(v *ClusterConnectivityInfoArgs) ClusterConnectivityInfoPtrInput {
+	return (*clusterConnectivityInfoPtrType)(v)
+}
+
+func (*clusterConnectivityInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConnectivityInfo)(nil)).Elem()
+}
+
+func (i *clusterConnectivityInfoPtrType) ToClusterConnectivityInfoPtrOutput() ClusterConnectivityInfoPtrOutput {
+	return i.ToClusterConnectivityInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterConnectivityInfoPtrType) ToClusterConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterConnectivityInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConnectivityInfoPtrOutput)
+}
+
+type ClusterConnectivityInfoOutput struct{ *pulumi.OutputState }
+
+func (ClusterConnectivityInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConnectivityInfo)(nil)).Elem()
+}
+
+func (o ClusterConnectivityInfoOutput) ToClusterConnectivityInfoOutput() ClusterConnectivityInfoOutput {
+	return o
+}
+
+func (o ClusterConnectivityInfoOutput) ToClusterConnectivityInfoOutputWithContext(ctx context.Context) ClusterConnectivityInfoOutput {
+	return o
+}
+
+func (o ClusterConnectivityInfoOutput) ToClusterConnectivityInfoPtrOutput() ClusterConnectivityInfoPtrOutput {
+	return o.ToClusterConnectivityInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterConnectivityInfoOutput) ToClusterConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterConnectivityInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterConnectivityInfo) *ClusterConnectivityInfo {
+		return &v
+	}).(ClusterConnectivityInfoPtrOutput)
+}
+
+func (o ClusterConnectivityInfoOutput) PublicAccess() ClusterPublicAccessPtrOutput {
+	return o.ApplyT(func(v ClusterConnectivityInfo) *ClusterPublicAccess { return v.PublicAccess }).(ClusterPublicAccessPtrOutput)
+}
+
+type ClusterConnectivityInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterConnectivityInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConnectivityInfo)(nil)).Elem()
+}
+
+func (o ClusterConnectivityInfoPtrOutput) ToClusterConnectivityInfoPtrOutput() ClusterConnectivityInfoPtrOutput {
+	return o
+}
+
+func (o ClusterConnectivityInfoPtrOutput) ToClusterConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterConnectivityInfoPtrOutput {
+	return o
+}
+
+func (o ClusterConnectivityInfoPtrOutput) Elem() ClusterConnectivityInfoOutput {
+	return o.ApplyT(func(v *ClusterConnectivityInfo) ClusterConnectivityInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterConnectivityInfo
+		return ret
+	}).(ClusterConnectivityInfoOutput)
+}
+
+func (o ClusterConnectivityInfoPtrOutput) PublicAccess() ClusterPublicAccessPtrOutput {
+	return o.ApplyT(func(v *ClusterConnectivityInfo) *ClusterPublicAccess {
+		if v == nil {
+			return nil
+		}
+		return v.PublicAccess
+	}).(ClusterPublicAccessPtrOutput)
 }
 
 type ClusterEBSStorageInfo struct {
@@ -2348,6 +2496,139 @@ func (o ClusterPrometheusPtrOutput) NodeExporter() ClusterNodeExporterPtrOutput 
 	}).(ClusterNodeExporterPtrOutput)
 }
 
+type ClusterPublicAccess struct {
+	Type *string `pulumi:"type"`
+}
+
+// ClusterPublicAccessInput is an input type that accepts ClusterPublicAccessArgs and ClusterPublicAccessOutput values.
+// You can construct a concrete instance of `ClusterPublicAccessInput` via:
+//
+//          ClusterPublicAccessArgs{...}
+type ClusterPublicAccessInput interface {
+	pulumi.Input
+
+	ToClusterPublicAccessOutput() ClusterPublicAccessOutput
+	ToClusterPublicAccessOutputWithContext(context.Context) ClusterPublicAccessOutput
+}
+
+type ClusterPublicAccessArgs struct {
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ClusterPublicAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPublicAccess)(nil)).Elem()
+}
+
+func (i ClusterPublicAccessArgs) ToClusterPublicAccessOutput() ClusterPublicAccessOutput {
+	return i.ToClusterPublicAccessOutputWithContext(context.Background())
+}
+
+func (i ClusterPublicAccessArgs) ToClusterPublicAccessOutputWithContext(ctx context.Context) ClusterPublicAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPublicAccessOutput)
+}
+
+func (i ClusterPublicAccessArgs) ToClusterPublicAccessPtrOutput() ClusterPublicAccessPtrOutput {
+	return i.ToClusterPublicAccessPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterPublicAccessArgs) ToClusterPublicAccessPtrOutputWithContext(ctx context.Context) ClusterPublicAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPublicAccessOutput).ToClusterPublicAccessPtrOutputWithContext(ctx)
+}
+
+// ClusterPublicAccessPtrInput is an input type that accepts ClusterPublicAccessArgs, ClusterPublicAccessPtr and ClusterPublicAccessPtrOutput values.
+// You can construct a concrete instance of `ClusterPublicAccessPtrInput` via:
+//
+//          ClusterPublicAccessArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterPublicAccessPtrInput interface {
+	pulumi.Input
+
+	ToClusterPublicAccessPtrOutput() ClusterPublicAccessPtrOutput
+	ToClusterPublicAccessPtrOutputWithContext(context.Context) ClusterPublicAccessPtrOutput
+}
+
+type clusterPublicAccessPtrType ClusterPublicAccessArgs
+
+func ClusterPublicAccessPtr(v *ClusterPublicAccessArgs) ClusterPublicAccessPtrInput {
+	return (*clusterPublicAccessPtrType)(v)
+}
+
+func (*clusterPublicAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPublicAccess)(nil)).Elem()
+}
+
+func (i *clusterPublicAccessPtrType) ToClusterPublicAccessPtrOutput() ClusterPublicAccessPtrOutput {
+	return i.ToClusterPublicAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterPublicAccessPtrType) ToClusterPublicAccessPtrOutputWithContext(ctx context.Context) ClusterPublicAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPublicAccessPtrOutput)
+}
+
+type ClusterPublicAccessOutput struct{ *pulumi.OutputState }
+
+func (ClusterPublicAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPublicAccess)(nil)).Elem()
+}
+
+func (o ClusterPublicAccessOutput) ToClusterPublicAccessOutput() ClusterPublicAccessOutput {
+	return o
+}
+
+func (o ClusterPublicAccessOutput) ToClusterPublicAccessOutputWithContext(ctx context.Context) ClusterPublicAccessOutput {
+	return o
+}
+
+func (o ClusterPublicAccessOutput) ToClusterPublicAccessPtrOutput() ClusterPublicAccessPtrOutput {
+	return o.ToClusterPublicAccessPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPublicAccessOutput) ToClusterPublicAccessPtrOutputWithContext(ctx context.Context) ClusterPublicAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPublicAccess) *ClusterPublicAccess {
+		return &v
+	}).(ClusterPublicAccessPtrOutput)
+}
+
+func (o ClusterPublicAccessOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPublicAccess) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ClusterPublicAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPublicAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPublicAccess)(nil)).Elem()
+}
+
+func (o ClusterPublicAccessPtrOutput) ToClusterPublicAccessPtrOutput() ClusterPublicAccessPtrOutput {
+	return o
+}
+
+func (o ClusterPublicAccessPtrOutput) ToClusterPublicAccessPtrOutputWithContext(ctx context.Context) ClusterPublicAccessPtrOutput {
+	return o
+}
+
+func (o ClusterPublicAccessPtrOutput) Elem() ClusterPublicAccessOutput {
+	return o.ApplyT(func(v *ClusterPublicAccess) ClusterPublicAccess {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPublicAccess
+		return ret
+	}).(ClusterPublicAccessOutput)
+}
+
+func (o ClusterPublicAccessPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPublicAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterS3 struct {
 	Bucket  *string `pulumi:"bucket"`
 	Enabled bool    `pulumi:"enabled"`
@@ -3217,6 +3498,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCloudWatchLogsPtrInput)(nil)).Elem(), ClusterCloudWatchLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationInfoInput)(nil)).Elem(), ClusterConfigurationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationInfoPtrInput)(nil)).Elem(), ClusterConfigurationInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConnectivityInfoInput)(nil)).Elem(), ClusterConnectivityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConnectivityInfoPtrInput)(nil)).Elem(), ClusterConnectivityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEBSStorageInfoInput)(nil)).Elem(), ClusterEBSStorageInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEBSStorageInfoPtrInput)(nil)).Elem(), ClusterEBSStorageInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionAtRestInput)(nil)).Elem(), ClusterEncryptionAtRestArgs{})
@@ -3239,6 +3522,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPtrInput)(nil)).Elem(), ClusterOpenMonitoringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrometheusInput)(nil)).Elem(), ClusterPrometheusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrometheusPtrInput)(nil)).Elem(), ClusterPrometheusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPublicAccessInput)(nil)).Elem(), ClusterPublicAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPublicAccessPtrInput)(nil)).Elem(), ClusterPublicAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterS3Input)(nil)).Elem(), ClusterS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterS3PtrInput)(nil)).Elem(), ClusterS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSaslInput)(nil)).Elem(), ClusterSaslArgs{})
@@ -3261,6 +3546,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterCloudWatchLogsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationInfoOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationInfoPtrOutput{})
+	pulumi.RegisterOutputType(ClusterConnectivityInfoOutput{})
+	pulumi.RegisterOutputType(ClusterConnectivityInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEBSStorageInfoOutput{})
 	pulumi.RegisterOutputType(ClusterEBSStorageInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionAtRestOutput{})
@@ -3283,6 +3570,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPrometheusOutput{})
 	pulumi.RegisterOutputType(ClusterPrometheusPtrOutput{})
+	pulumi.RegisterOutputType(ClusterPublicAccessOutput{})
+	pulumi.RegisterOutputType(ClusterPublicAccessPtrOutput{})
 	pulumi.RegisterOutputType(ClusterS3Output{})
 	pulumi.RegisterOutputType(ClusterS3PtrOutput{})
 	pulumi.RegisterOutputType(ClusterSaslOutput{})

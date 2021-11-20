@@ -829,6 +829,612 @@ func (o AnomalyDetectorDimensionArrayOutput) Index(i pulumi.IntInput) AnomalyDet
 	}).(AnomalyDetectorDimensionOutput)
 }
 
+type AnomalyDetectorMetric struct {
+	Dimensions []AnomalyDetectorDimension `pulumi:"dimensions"`
+	MetricName string                     `pulumi:"metricName"`
+	Namespace  string                     `pulumi:"namespace"`
+}
+
+// AnomalyDetectorMetricInput is an input type that accepts AnomalyDetectorMetricArgs and AnomalyDetectorMetricOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricInput` via:
+//
+//          AnomalyDetectorMetricArgs{...}
+type AnomalyDetectorMetricInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMetricOutput() AnomalyDetectorMetricOutput
+	ToAnomalyDetectorMetricOutputWithContext(context.Context) AnomalyDetectorMetricOutput
+}
+
+type AnomalyDetectorMetricArgs struct {
+	Dimensions AnomalyDetectorDimensionArrayInput `pulumi:"dimensions"`
+	MetricName pulumi.StringInput                 `pulumi:"metricName"`
+	Namespace  pulumi.StringInput                 `pulumi:"namespace"`
+}
+
+func (AnomalyDetectorMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMetric)(nil)).Elem()
+}
+
+func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricOutput() AnomalyDetectorMetricOutput {
+	return i.ToAnomalyDetectorMetricOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricOutputWithContext(ctx context.Context) AnomalyDetectorMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricOutput)
+}
+
+func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricPtrOutput() AnomalyDetectorMetricPtrOutput {
+	return i.ToAnomalyDetectorMetricPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricOutput).ToAnomalyDetectorMetricPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorMetricPtrInput is an input type that accepts AnomalyDetectorMetricArgs, AnomalyDetectorMetricPtr and AnomalyDetectorMetricPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricPtrInput` via:
+//
+//          AnomalyDetectorMetricArgs{...}
+//
+//  or:
+//
+//          nil
+type AnomalyDetectorMetricPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMetricPtrOutput() AnomalyDetectorMetricPtrOutput
+	ToAnomalyDetectorMetricPtrOutputWithContext(context.Context) AnomalyDetectorMetricPtrOutput
+}
+
+type anomalyDetectorMetricPtrType AnomalyDetectorMetricArgs
+
+func AnomalyDetectorMetricPtr(v *AnomalyDetectorMetricArgs) AnomalyDetectorMetricPtrInput {
+	return (*anomalyDetectorMetricPtrType)(v)
+}
+
+func (*anomalyDetectorMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMetric)(nil)).Elem()
+}
+
+func (i *anomalyDetectorMetricPtrType) ToAnomalyDetectorMetricPtrOutput() AnomalyDetectorMetricPtrOutput {
+	return i.ToAnomalyDetectorMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorMetricPtrType) ToAnomalyDetectorMetricPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricPtrOutput)
+}
+
+type AnomalyDetectorMetricOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMetric)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricOutput() AnomalyDetectorMetricOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricOutputWithContext(ctx context.Context) AnomalyDetectorMetricOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricPtrOutput() AnomalyDetectorMetricPtrOutput {
+	return o.ToAnomalyDetectorMetricPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorMetric) *AnomalyDetectorMetric {
+		return &v
+	}).(AnomalyDetectorMetricPtrOutput)
+}
+
+func (o AnomalyDetectorMetricOutput) Dimensions() AnomalyDetectorDimensionArrayOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetric) []AnomalyDetectorDimension { return v.Dimensions }).(AnomalyDetectorDimensionArrayOutput)
+}
+
+func (o AnomalyDetectorMetricOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetric) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+func (o AnomalyDetectorMetricOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetric) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type AnomalyDetectorMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMetric)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMetricPtrOutput) ToAnomalyDetectorMetricPtrOutput() AnomalyDetectorMetricPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricPtrOutput) ToAnomalyDetectorMetricPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricPtrOutput) Elem() AnomalyDetectorMetricOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetric) AnomalyDetectorMetric {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorMetric
+		return ret
+	}).(AnomalyDetectorMetricOutput)
+}
+
+func (o AnomalyDetectorMetricPtrOutput) Dimensions() AnomalyDetectorDimensionArrayOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetric) []AnomalyDetectorDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(AnomalyDetectorDimensionArrayOutput)
+}
+
+func (o AnomalyDetectorMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnomalyDetectorMetricDataQuery struct {
+	AccountId  *string                    `pulumi:"accountId"`
+	Expression *string                    `pulumi:"expression"`
+	Id         string                     `pulumi:"id"`
+	Label      *string                    `pulumi:"label"`
+	MetricStat *AnomalyDetectorMetricStat `pulumi:"metricStat"`
+	Period     *int                       `pulumi:"period"`
+	ReturnData *bool                      `pulumi:"returnData"`
+}
+
+// AnomalyDetectorMetricDataQueryInput is an input type that accepts AnomalyDetectorMetricDataQueryArgs and AnomalyDetectorMetricDataQueryOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricDataQueryInput` via:
+//
+//          AnomalyDetectorMetricDataQueryArgs{...}
+type AnomalyDetectorMetricDataQueryInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMetricDataQueryOutput() AnomalyDetectorMetricDataQueryOutput
+	ToAnomalyDetectorMetricDataQueryOutputWithContext(context.Context) AnomalyDetectorMetricDataQueryOutput
+}
+
+type AnomalyDetectorMetricDataQueryArgs struct {
+	AccountId  pulumi.StringPtrInput             `pulumi:"accountId"`
+	Expression pulumi.StringPtrInput             `pulumi:"expression"`
+	Id         pulumi.StringInput                `pulumi:"id"`
+	Label      pulumi.StringPtrInput             `pulumi:"label"`
+	MetricStat AnomalyDetectorMetricStatPtrInput `pulumi:"metricStat"`
+	Period     pulumi.IntPtrInput                `pulumi:"period"`
+	ReturnData pulumi.BoolPtrInput               `pulumi:"returnData"`
+}
+
+func (AnomalyDetectorMetricDataQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMetricDataQuery)(nil)).Elem()
+}
+
+func (i AnomalyDetectorMetricDataQueryArgs) ToAnomalyDetectorMetricDataQueryOutput() AnomalyDetectorMetricDataQueryOutput {
+	return i.ToAnomalyDetectorMetricDataQueryOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMetricDataQueryArgs) ToAnomalyDetectorMetricDataQueryOutputWithContext(ctx context.Context) AnomalyDetectorMetricDataQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricDataQueryOutput)
+}
+
+// AnomalyDetectorMetricDataQueryArrayInput is an input type that accepts AnomalyDetectorMetricDataQueryArray and AnomalyDetectorMetricDataQueryArrayOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricDataQueryArrayInput` via:
+//
+//          AnomalyDetectorMetricDataQueryArray{ AnomalyDetectorMetricDataQueryArgs{...} }
+type AnomalyDetectorMetricDataQueryArrayInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMetricDataQueryArrayOutput() AnomalyDetectorMetricDataQueryArrayOutput
+	ToAnomalyDetectorMetricDataQueryArrayOutputWithContext(context.Context) AnomalyDetectorMetricDataQueryArrayOutput
+}
+
+type AnomalyDetectorMetricDataQueryArray []AnomalyDetectorMetricDataQueryInput
+
+func (AnomalyDetectorMetricDataQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalyDetectorMetricDataQuery)(nil)).Elem()
+}
+
+func (i AnomalyDetectorMetricDataQueryArray) ToAnomalyDetectorMetricDataQueryArrayOutput() AnomalyDetectorMetricDataQueryArrayOutput {
+	return i.ToAnomalyDetectorMetricDataQueryArrayOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMetricDataQueryArray) ToAnomalyDetectorMetricDataQueryArrayOutputWithContext(ctx context.Context) AnomalyDetectorMetricDataQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricDataQueryArrayOutput)
+}
+
+type AnomalyDetectorMetricDataQueryOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMetricDataQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMetricDataQuery)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) ToAnomalyDetectorMetricDataQueryOutput() AnomalyDetectorMetricDataQueryOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) ToAnomalyDetectorMetricDataQueryOutputWithContext(ctx context.Context) AnomalyDetectorMetricDataQueryOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricDataQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricDataQuery) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricDataQuery) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricDataQuery) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) MetricStat() AnomalyDetectorMetricStatPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricDataQuery) *AnomalyDetectorMetricStat { return v.MetricStat }).(AnomalyDetectorMetricStatPtrOutput)
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) Period() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricDataQuery) *int { return v.Period }).(pulumi.IntPtrOutput)
+}
+
+func (o AnomalyDetectorMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricDataQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
+}
+
+type AnomalyDetectorMetricDataQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMetricDataQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalyDetectorMetricDataQuery)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMetricDataQueryArrayOutput) ToAnomalyDetectorMetricDataQueryArrayOutput() AnomalyDetectorMetricDataQueryArrayOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricDataQueryArrayOutput) ToAnomalyDetectorMetricDataQueryArrayOutputWithContext(ctx context.Context) AnomalyDetectorMetricDataQueryArrayOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricDataQueryArrayOutput) Index(i pulumi.IntInput) AnomalyDetectorMetricDataQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnomalyDetectorMetricDataQuery {
+		return vs[0].([]AnomalyDetectorMetricDataQuery)[vs[1].(int)]
+	}).(AnomalyDetectorMetricDataQueryOutput)
+}
+
+type AnomalyDetectorMetricMathAnomalyDetector struct {
+	MetricDataQueries []AnomalyDetectorMetricDataQuery `pulumi:"metricDataQueries"`
+}
+
+// AnomalyDetectorMetricMathAnomalyDetectorInput is an input type that accepts AnomalyDetectorMetricMathAnomalyDetectorArgs and AnomalyDetectorMetricMathAnomalyDetectorOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricMathAnomalyDetectorInput` via:
+//
+//          AnomalyDetectorMetricMathAnomalyDetectorArgs{...}
+type AnomalyDetectorMetricMathAnomalyDetectorInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMetricMathAnomalyDetectorOutput() AnomalyDetectorMetricMathAnomalyDetectorOutput
+	ToAnomalyDetectorMetricMathAnomalyDetectorOutputWithContext(context.Context) AnomalyDetectorMetricMathAnomalyDetectorOutput
+}
+
+type AnomalyDetectorMetricMathAnomalyDetectorArgs struct {
+	MetricDataQueries AnomalyDetectorMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
+}
+
+func (AnomalyDetectorMetricMathAnomalyDetectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMetricMathAnomalyDetector)(nil)).Elem()
+}
+
+func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToAnomalyDetectorMetricMathAnomalyDetectorOutput() AnomalyDetectorMetricMathAnomalyDetectorOutput {
+	return i.ToAnomalyDetectorMetricMathAnomalyDetectorOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToAnomalyDetectorMetricMathAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorMetricMathAnomalyDetectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricMathAnomalyDetectorOutput)
+}
+
+func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutput() AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return i.ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricMathAnomalyDetectorOutput).ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorMetricMathAnomalyDetectorPtrInput is an input type that accepts AnomalyDetectorMetricMathAnomalyDetectorArgs, AnomalyDetectorMetricMathAnomalyDetectorPtr and AnomalyDetectorMetricMathAnomalyDetectorPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricMathAnomalyDetectorPtrInput` via:
+//
+//          AnomalyDetectorMetricMathAnomalyDetectorArgs{...}
+//
+//  or:
+//
+//          nil
+type AnomalyDetectorMetricMathAnomalyDetectorPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutput() AnomalyDetectorMetricMathAnomalyDetectorPtrOutput
+	ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(context.Context) AnomalyDetectorMetricMathAnomalyDetectorPtrOutput
+}
+
+type anomalyDetectorMetricMathAnomalyDetectorPtrType AnomalyDetectorMetricMathAnomalyDetectorArgs
+
+func AnomalyDetectorMetricMathAnomalyDetectorPtr(v *AnomalyDetectorMetricMathAnomalyDetectorArgs) AnomalyDetectorMetricMathAnomalyDetectorPtrInput {
+	return (*anomalyDetectorMetricMathAnomalyDetectorPtrType)(v)
+}
+
+func (*anomalyDetectorMetricMathAnomalyDetectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMetricMathAnomalyDetector)(nil)).Elem()
+}
+
+func (i *anomalyDetectorMetricMathAnomalyDetectorPtrType) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutput() AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return i.ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorMetricMathAnomalyDetectorPtrType) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricMathAnomalyDetectorPtrOutput)
+}
+
+type AnomalyDetectorMetricMathAnomalyDetectorOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMetricMathAnomalyDetectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMetricMathAnomalyDetector)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorOutput) ToAnomalyDetectorMetricMathAnomalyDetectorOutput() AnomalyDetectorMetricMathAnomalyDetectorOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorOutput) ToAnomalyDetectorMetricMathAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorMetricMathAnomalyDetectorOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorOutput) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutput() AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return o.ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorOutput) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorMetricMathAnomalyDetector) *AnomalyDetectorMetricMathAnomalyDetector {
+		return &v
+	}).(AnomalyDetectorMetricMathAnomalyDetectorPtrOutput)
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorOutput) MetricDataQueries() AnomalyDetectorMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricMathAnomalyDetector) []AnomalyDetectorMetricDataQuery {
+		return v.MetricDataQueries
+	}).(AnomalyDetectorMetricDataQueryArrayOutput)
+}
+
+type AnomalyDetectorMetricMathAnomalyDetectorPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMetricMathAnomalyDetector)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutput() AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) Elem() AnomalyDetectorMetricMathAnomalyDetectorOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetricMathAnomalyDetector) AnomalyDetectorMetricMathAnomalyDetector {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorMetricMathAnomalyDetector
+		return ret
+	}).(AnomalyDetectorMetricMathAnomalyDetectorOutput)
+}
+
+func (o AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) MetricDataQueries() AnomalyDetectorMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetricMathAnomalyDetector) []AnomalyDetectorMetricDataQuery {
+		if v == nil {
+			return nil
+		}
+		return v.MetricDataQueries
+	}).(AnomalyDetectorMetricDataQueryArrayOutput)
+}
+
+type AnomalyDetectorMetricStat struct {
+	Metric AnomalyDetectorMetric `pulumi:"metric"`
+	Period int                   `pulumi:"period"`
+	Stat   string                `pulumi:"stat"`
+	Unit   *string               `pulumi:"unit"`
+}
+
+// AnomalyDetectorMetricStatInput is an input type that accepts AnomalyDetectorMetricStatArgs and AnomalyDetectorMetricStatOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricStatInput` via:
+//
+//          AnomalyDetectorMetricStatArgs{...}
+type AnomalyDetectorMetricStatInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMetricStatOutput() AnomalyDetectorMetricStatOutput
+	ToAnomalyDetectorMetricStatOutputWithContext(context.Context) AnomalyDetectorMetricStatOutput
+}
+
+type AnomalyDetectorMetricStatArgs struct {
+	Metric AnomalyDetectorMetricInput `pulumi:"metric"`
+	Period pulumi.IntInput            `pulumi:"period"`
+	Stat   pulumi.StringInput         `pulumi:"stat"`
+	Unit   pulumi.StringPtrInput      `pulumi:"unit"`
+}
+
+func (AnomalyDetectorMetricStatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMetricStat)(nil)).Elem()
+}
+
+func (i AnomalyDetectorMetricStatArgs) ToAnomalyDetectorMetricStatOutput() AnomalyDetectorMetricStatOutput {
+	return i.ToAnomalyDetectorMetricStatOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMetricStatArgs) ToAnomalyDetectorMetricStatOutputWithContext(ctx context.Context) AnomalyDetectorMetricStatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricStatOutput)
+}
+
+func (i AnomalyDetectorMetricStatArgs) ToAnomalyDetectorMetricStatPtrOutput() AnomalyDetectorMetricStatPtrOutput {
+	return i.ToAnomalyDetectorMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMetricStatArgs) ToAnomalyDetectorMetricStatPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricStatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricStatOutput).ToAnomalyDetectorMetricStatPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorMetricStatPtrInput is an input type that accepts AnomalyDetectorMetricStatArgs, AnomalyDetectorMetricStatPtr and AnomalyDetectorMetricStatPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMetricStatPtrInput` via:
+//
+//          AnomalyDetectorMetricStatArgs{...}
+//
+//  or:
+//
+//          nil
+type AnomalyDetectorMetricStatPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMetricStatPtrOutput() AnomalyDetectorMetricStatPtrOutput
+	ToAnomalyDetectorMetricStatPtrOutputWithContext(context.Context) AnomalyDetectorMetricStatPtrOutput
+}
+
+type anomalyDetectorMetricStatPtrType AnomalyDetectorMetricStatArgs
+
+func AnomalyDetectorMetricStatPtr(v *AnomalyDetectorMetricStatArgs) AnomalyDetectorMetricStatPtrInput {
+	return (*anomalyDetectorMetricStatPtrType)(v)
+}
+
+func (*anomalyDetectorMetricStatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMetricStat)(nil)).Elem()
+}
+
+func (i *anomalyDetectorMetricStatPtrType) ToAnomalyDetectorMetricStatPtrOutput() AnomalyDetectorMetricStatPtrOutput {
+	return i.ToAnomalyDetectorMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorMetricStatPtrType) ToAnomalyDetectorMetricStatPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricStatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricStatPtrOutput)
+}
+
+type AnomalyDetectorMetricStatOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMetricStatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMetricStat)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMetricStatOutput) ToAnomalyDetectorMetricStatOutput() AnomalyDetectorMetricStatOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricStatOutput) ToAnomalyDetectorMetricStatOutputWithContext(ctx context.Context) AnomalyDetectorMetricStatOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricStatOutput) ToAnomalyDetectorMetricStatPtrOutput() AnomalyDetectorMetricStatPtrOutput {
+	return o.ToAnomalyDetectorMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorMetricStatOutput) ToAnomalyDetectorMetricStatPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricStatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorMetricStat) *AnomalyDetectorMetricStat {
+		return &v
+	}).(AnomalyDetectorMetricStatPtrOutput)
+}
+
+func (o AnomalyDetectorMetricStatOutput) Metric() AnomalyDetectorMetricOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricStat) AnomalyDetectorMetric { return v.Metric }).(AnomalyDetectorMetricOutput)
+}
+
+func (o AnomalyDetectorMetricStatOutput) Period() pulumi.IntOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricStat) int { return v.Period }).(pulumi.IntOutput)
+}
+
+func (o AnomalyDetectorMetricStatOutput) Stat() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricStat) string { return v.Stat }).(pulumi.StringOutput)
+}
+
+func (o AnomalyDetectorMetricStatOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricStat) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type AnomalyDetectorMetricStatPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMetricStatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMetricStat)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMetricStatPtrOutput) ToAnomalyDetectorMetricStatPtrOutput() AnomalyDetectorMetricStatPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricStatPtrOutput) ToAnomalyDetectorMetricStatPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricStatPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMetricStatPtrOutput) Elem() AnomalyDetectorMetricStatOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetricStat) AnomalyDetectorMetricStat {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorMetricStat
+		return ret
+	}).(AnomalyDetectorMetricStatOutput)
+}
+
+func (o AnomalyDetectorMetricStatPtrOutput) Metric() AnomalyDetectorMetricPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetricStat) *AnomalyDetectorMetric {
+		if v == nil {
+			return nil
+		}
+		return &v.Metric
+	}).(AnomalyDetectorMetricPtrOutput)
+}
+
+func (o AnomalyDetectorMetricStatPtrOutput) Period() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetricStat) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Period
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AnomalyDetectorMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetricStat) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMetricStat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
 type AnomalyDetectorRange struct {
 	EndTime   string `pulumi:"endTime"`
 	StartTime string `pulumi:"startTime"`
@@ -927,6 +1533,184 @@ func (o AnomalyDetectorRangeArrayOutput) Index(i pulumi.IntInput) AnomalyDetecto
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnomalyDetectorRange {
 		return vs[0].([]AnomalyDetectorRange)[vs[1].(int)]
 	}).(AnomalyDetectorRangeOutput)
+}
+
+type AnomalyDetectorSingleMetricAnomalyDetector struct {
+	Dimensions []AnomalyDetectorDimension `pulumi:"dimensions"`
+	MetricName *string                    `pulumi:"metricName"`
+	Namespace  *string                    `pulumi:"namespace"`
+	Stat       *string                    `pulumi:"stat"`
+}
+
+// AnomalyDetectorSingleMetricAnomalyDetectorInput is an input type that accepts AnomalyDetectorSingleMetricAnomalyDetectorArgs and AnomalyDetectorSingleMetricAnomalyDetectorOutput values.
+// You can construct a concrete instance of `AnomalyDetectorSingleMetricAnomalyDetectorInput` via:
+//
+//          AnomalyDetectorSingleMetricAnomalyDetectorArgs{...}
+type AnomalyDetectorSingleMetricAnomalyDetectorInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorSingleMetricAnomalyDetectorOutput() AnomalyDetectorSingleMetricAnomalyDetectorOutput
+	ToAnomalyDetectorSingleMetricAnomalyDetectorOutputWithContext(context.Context) AnomalyDetectorSingleMetricAnomalyDetectorOutput
+}
+
+type AnomalyDetectorSingleMetricAnomalyDetectorArgs struct {
+	Dimensions AnomalyDetectorDimensionArrayInput `pulumi:"dimensions"`
+	MetricName pulumi.StringPtrInput              `pulumi:"metricName"`
+	Namespace  pulumi.StringPtrInput              `pulumi:"namespace"`
+	Stat       pulumi.StringPtrInput              `pulumi:"stat"`
+}
+
+func (AnomalyDetectorSingleMetricAnomalyDetectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorSingleMetricAnomalyDetector)(nil)).Elem()
+}
+
+func (i AnomalyDetectorSingleMetricAnomalyDetectorArgs) ToAnomalyDetectorSingleMetricAnomalyDetectorOutput() AnomalyDetectorSingleMetricAnomalyDetectorOutput {
+	return i.ToAnomalyDetectorSingleMetricAnomalyDetectorOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorSingleMetricAnomalyDetectorArgs) ToAnomalyDetectorSingleMetricAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorSingleMetricAnomalyDetectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorSingleMetricAnomalyDetectorOutput)
+}
+
+func (i AnomalyDetectorSingleMetricAnomalyDetectorArgs) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutput() AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return i.ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorSingleMetricAnomalyDetectorArgs) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorSingleMetricAnomalyDetectorOutput).ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorSingleMetricAnomalyDetectorPtrInput is an input type that accepts AnomalyDetectorSingleMetricAnomalyDetectorArgs, AnomalyDetectorSingleMetricAnomalyDetectorPtr and AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorSingleMetricAnomalyDetectorPtrInput` via:
+//
+//          AnomalyDetectorSingleMetricAnomalyDetectorArgs{...}
+//
+//  or:
+//
+//          nil
+type AnomalyDetectorSingleMetricAnomalyDetectorPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutput() AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput
+	ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(context.Context) AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput
+}
+
+type anomalyDetectorSingleMetricAnomalyDetectorPtrType AnomalyDetectorSingleMetricAnomalyDetectorArgs
+
+func AnomalyDetectorSingleMetricAnomalyDetectorPtr(v *AnomalyDetectorSingleMetricAnomalyDetectorArgs) AnomalyDetectorSingleMetricAnomalyDetectorPtrInput {
+	return (*anomalyDetectorSingleMetricAnomalyDetectorPtrType)(v)
+}
+
+func (*anomalyDetectorSingleMetricAnomalyDetectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorSingleMetricAnomalyDetector)(nil)).Elem()
+}
+
+func (i *anomalyDetectorSingleMetricAnomalyDetectorPtrType) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutput() AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return i.ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorSingleMetricAnomalyDetectorPtrType) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput)
+}
+
+type AnomalyDetectorSingleMetricAnomalyDetectorOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorSingleMetricAnomalyDetectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorSingleMetricAnomalyDetector)(nil)).Elem()
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) ToAnomalyDetectorSingleMetricAnomalyDetectorOutput() AnomalyDetectorSingleMetricAnomalyDetectorOutput {
+	return o
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) ToAnomalyDetectorSingleMetricAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorSingleMetricAnomalyDetectorOutput {
+	return o
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutput() AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return o.ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorSingleMetricAnomalyDetector) *AnomalyDetectorSingleMetricAnomalyDetector {
+		return &v
+	}).(AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput)
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) Dimensions() AnomalyDetectorDimensionArrayOutput {
+	return o.ApplyT(func(v AnomalyDetectorSingleMetricAnomalyDetector) []AnomalyDetectorDimension { return v.Dimensions }).(AnomalyDetectorDimensionArrayOutput)
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorSingleMetricAnomalyDetector) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorSingleMetricAnomalyDetector) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorSingleMetricAnomalyDetector) *string { return v.Stat }).(pulumi.StringPtrOutput)
+}
+
+type AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorSingleMetricAnomalyDetector)(nil)).Elem()
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutput() AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) Elem() AnomalyDetectorSingleMetricAnomalyDetectorOutput {
+	return o.ApplyT(func(v *AnomalyDetectorSingleMetricAnomalyDetector) AnomalyDetectorSingleMetricAnomalyDetector {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorSingleMetricAnomalyDetector
+		return ret
+	}).(AnomalyDetectorSingleMetricAnomalyDetectorOutput)
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) Dimensions() AnomalyDetectorDimensionArrayOutput {
+	return o.ApplyT(func(v *AnomalyDetectorSingleMetricAnomalyDetector) []AnomalyDetectorDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(AnomalyDetectorDimensionArrayOutput)
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorSingleMetricAnomalyDetector) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorSingleMetricAnomalyDetector) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorSingleMetricAnomalyDetector) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Stat
+	}).(pulumi.StringPtrOutput)
 }
 
 type InsightRuleTags struct {
@@ -1269,8 +2053,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationPtrInput)(nil)).Elem(), AnomalyDetectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorDimensionInput)(nil)).Elem(), AnomalyDetectorDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorDimensionArrayInput)(nil)).Elem(), AnomalyDetectorDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricInput)(nil)).Elem(), AnomalyDetectorMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricPtrInput)(nil)).Elem(), AnomalyDetectorMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricDataQueryInput)(nil)).Elem(), AnomalyDetectorMetricDataQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricDataQueryArrayInput)(nil)).Elem(), AnomalyDetectorMetricDataQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricMathAnomalyDetectorInput)(nil)).Elem(), AnomalyDetectorMetricMathAnomalyDetectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricMathAnomalyDetectorPtrInput)(nil)).Elem(), AnomalyDetectorMetricMathAnomalyDetectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricStatInput)(nil)).Elem(), AnomalyDetectorMetricStatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricStatPtrInput)(nil)).Elem(), AnomalyDetectorMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRangeInput)(nil)).Elem(), AnomalyDetectorRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRangeArrayInput)(nil)).Elem(), AnomalyDetectorRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorSingleMetricAnomalyDetectorInput)(nil)).Elem(), AnomalyDetectorSingleMetricAnomalyDetectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorSingleMetricAnomalyDetectorPtrInput)(nil)).Elem(), AnomalyDetectorSingleMetricAnomalyDetectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleTagsInput)(nil)).Elem(), InsightRuleTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleTagsPtrInput)(nil)).Elem(), InsightRuleTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterInput)(nil)).Elem(), MetricStreamFilterArgs{})
@@ -1289,8 +2083,18 @@ func init() {
 	pulumi.RegisterOutputType(AnomalyDetectorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorDimensionOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorDimensionArrayOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMetricOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMetricPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMetricDataQueryOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMetricDataQueryArrayOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMetricMathAnomalyDetectorOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMetricMathAnomalyDetectorPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMetricStatOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMetricStatPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorRangeOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorRangeArrayOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorSingleMetricAnomalyDetectorOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput{})
 	pulumi.RegisterOutputType(InsightRuleTagsOutput{})
 	pulumi.RegisterOutputType(InsightRuleTagsPtrOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterOutput{})

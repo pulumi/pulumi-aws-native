@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:connect:ContactFlow":
+		r = &ContactFlow{}
+	case "aws-native:connect:ContactFlowModule":
+		r = &ContactFlowModule{}
 	case "aws-native:connect:HoursOfOperation":
 		r = &HoursOfOperation{}
 	case "aws-native:connect:QuickConnect":

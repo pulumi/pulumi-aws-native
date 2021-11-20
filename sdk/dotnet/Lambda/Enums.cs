@@ -191,4 +191,68 @@ namespace Pulumi.AwsNative.Lambda
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct UrlAllowMethodsItem : IEquatable<UrlAllowMethodsItem>
+    {
+        private readonly string _value;
+
+        private UrlAllowMethodsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UrlAllowMethodsItem Get { get; } = new UrlAllowMethodsItem("GET");
+        public static UrlAllowMethodsItem Put { get; } = new UrlAllowMethodsItem("PUT");
+        public static UrlAllowMethodsItem Head { get; } = new UrlAllowMethodsItem("HEAD");
+        public static UrlAllowMethodsItem Post { get; } = new UrlAllowMethodsItem("POST");
+        public static UrlAllowMethodsItem Patch { get; } = new UrlAllowMethodsItem("PATCH");
+        public static UrlAllowMethodsItem Delete { get; } = new UrlAllowMethodsItem("DELETE");
+        public static UrlAllowMethodsItem Asterisk { get; } = new UrlAllowMethodsItem("*");
+
+        public static bool operator ==(UrlAllowMethodsItem left, UrlAllowMethodsItem right) => left.Equals(right);
+        public static bool operator !=(UrlAllowMethodsItem left, UrlAllowMethodsItem right) => !left.Equals(right);
+
+        public static explicit operator string(UrlAllowMethodsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UrlAllowMethodsItem other && Equals(other);
+        public bool Equals(UrlAllowMethodsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+    /// </summary>
+    [EnumType]
+    public readonly struct UrlAuthorizationType : IEquatable<UrlAuthorizationType>
+    {
+        private readonly string _value;
+
+        private UrlAuthorizationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UrlAuthorizationType AwsIam { get; } = new UrlAuthorizationType("AWS_IAM");
+        public static UrlAuthorizationType None { get; } = new UrlAuthorizationType("NONE");
+
+        public static bool operator ==(UrlAuthorizationType left, UrlAuthorizationType right) => left.Equals(right);
+        public static bool operator !=(UrlAuthorizationType left, UrlAuthorizationType right) => !left.Equals(right);
+
+        public static explicit operator string(UrlAuthorizationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UrlAuthorizationType other && Equals(other);
+        public bool Equals(UrlAuthorizationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

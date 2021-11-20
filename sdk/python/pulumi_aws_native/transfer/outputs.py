@@ -116,10 +116,13 @@ class ServerIdentityProviderDetails(dict):
 
     def __init__(__self__, *,
                  directory_id: Optional[str] = None,
+                 function: Optional[str] = None,
                  invocation_role: Optional[str] = None,
                  url: Optional[str] = None):
         if directory_id is not None:
             pulumi.set(__self__, "directory_id", directory_id)
+        if function is not None:
+            pulumi.set(__self__, "function", function)
         if invocation_role is not None:
             pulumi.set(__self__, "invocation_role", invocation_role)
         if url is not None:
@@ -129,6 +132,11 @@ class ServerIdentityProviderDetails(dict):
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[str]:
         return pulumi.get(self, "directory_id")
+
+    @property
+    @pulumi.getter
+    def function(self) -> Optional[str]:
+        return pulumi.get(self, "function")
 
     @property
     @pulumi.getter(name="invocationRole")

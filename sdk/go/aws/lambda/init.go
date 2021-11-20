@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LayerVersionPermission{}
 	case "aws-native:lambda:Permission":
 		r = &Permission{}
+	case "aws-native:lambda:Url":
+		r = &Url{}
 	case "aws-native:lambda:Version":
 		r = &Version{}
 	default:

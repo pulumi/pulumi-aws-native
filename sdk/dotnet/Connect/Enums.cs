@@ -8,6 +8,137 @@ using Pulumi;
 namespace Pulumi.AwsNative.Connect
 {
     /// <summary>
+    /// The state of the contact flow module.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContactFlowModuleState : IEquatable<ContactFlowModuleState>
+    {
+        private readonly string _value;
+
+        private ContactFlowModuleState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContactFlowModuleState Active { get; } = new ContactFlowModuleState("ACTIVE");
+        public static ContactFlowModuleState Archived { get; } = new ContactFlowModuleState("ARCHIVED");
+
+        public static bool operator ==(ContactFlowModuleState left, ContactFlowModuleState right) => left.Equals(right);
+        public static bool operator !=(ContactFlowModuleState left, ContactFlowModuleState right) => !left.Equals(right);
+
+        public static explicit operator string(ContactFlowModuleState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContactFlowModuleState other && Equals(other);
+        public bool Equals(ContactFlowModuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the contact flow module.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContactFlowModuleStatus : IEquatable<ContactFlowModuleStatus>
+    {
+        private readonly string _value;
+
+        private ContactFlowModuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContactFlowModuleStatus Published { get; } = new ContactFlowModuleStatus("PUBLISHED");
+        public static ContactFlowModuleStatus Saved { get; } = new ContactFlowModuleStatus("SAVED");
+
+        public static bool operator ==(ContactFlowModuleStatus left, ContactFlowModuleStatus right) => left.Equals(right);
+        public static bool operator !=(ContactFlowModuleStatus left, ContactFlowModuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContactFlowModuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContactFlowModuleStatus other && Equals(other);
+        public bool Equals(ContactFlowModuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the contact flow.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContactFlowState : IEquatable<ContactFlowState>
+    {
+        private readonly string _value;
+
+        private ContactFlowState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContactFlowState Active { get; } = new ContactFlowState("ACTIVE");
+        public static ContactFlowState Archived { get; } = new ContactFlowState("ARCHIVED");
+
+        public static bool operator ==(ContactFlowState left, ContactFlowState right) => left.Equals(right);
+        public static bool operator !=(ContactFlowState left, ContactFlowState right) => !left.Equals(right);
+
+        public static explicit operator string(ContactFlowState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContactFlowState other && Equals(other);
+        public bool Equals(ContactFlowState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the contact flow.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContactFlowType : IEquatable<ContactFlowType>
+    {
+        private readonly string _value;
+
+        private ContactFlowType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContactFlowType ContactFlow { get; } = new ContactFlowType("CONTACT_FLOW");
+        public static ContactFlowType CustomerQueue { get; } = new ContactFlowType("CUSTOMER_QUEUE");
+        public static ContactFlowType CustomerHold { get; } = new ContactFlowType("CUSTOMER_HOLD");
+        public static ContactFlowType CustomerWhisper { get; } = new ContactFlowType("CUSTOMER_WHISPER");
+        public static ContactFlowType AgentHold { get; } = new ContactFlowType("AGENT_HOLD");
+        public static ContactFlowType AgentWhisper { get; } = new ContactFlowType("AGENT_WHISPER");
+        public static ContactFlowType OutboundWhisper { get; } = new ContactFlowType("OUTBOUND_WHISPER");
+        public static ContactFlowType AgentTransfer { get; } = new ContactFlowType("AGENT_TRANSFER");
+        public static ContactFlowType QueueTransfer { get; } = new ContactFlowType("QUEUE_TRANSFER");
+
+        public static bool operator ==(ContactFlowType left, ContactFlowType right) => left.Equals(right);
+        public static bool operator !=(ContactFlowType left, ContactFlowType right) => !left.Equals(right);
+
+        public static explicit operator string(ContactFlowType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContactFlowType other && Equals(other);
+        public bool Equals(ContactFlowType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The day that the hours of operation applies to.
     /// </summary>
     [EnumType]

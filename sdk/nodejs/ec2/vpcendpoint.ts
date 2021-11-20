@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::VPCEndpoint
- *
- * @deprecated VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class VPCEndpoint extends pulumi.CustomResource {
     /**
@@ -19,7 +18,6 @@ export class VPCEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VPCEndpoint {
-        pulumi.log.warn("VPCEndpoint is deprecated: VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new VPCEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,13 +38,34 @@ export class VPCEndpoint extends pulumi.CustomResource {
     public /*out*/ readonly creationTimestamp!: pulumi.Output<string>;
     public /*out*/ readonly dnsEntries!: pulumi.Output<string[]>;
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
-    public readonly policyDocument!: pulumi.Output<any | undefined>;
+    /**
+     * A policy to attach to the endpoint that controls access to the service.
+     */
+    public readonly policyDocument!: pulumi.Output<string | undefined>;
+    /**
+     * Indicate whether to associate a private hosted zone with the specified VPC.
+     */
     public readonly privateDnsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * One or more route table IDs.
+     */
     public readonly routeTableIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The ID of one or more security groups to associate with the endpoint network interface.
+     */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The service name.
+     */
     public readonly serviceName!: pulumi.Output<string>;
+    /**
+     * The ID of one or more subnets in which to create an endpoint network interface.
+     */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
-    public readonly vpcEndpointType!: pulumi.Output<string | undefined>;
+    public readonly vpcEndpointType!: pulumi.Output<enums.ec2.VPCEndpointVpcEndpointType | undefined>;
+    /**
+     * The ID of the VPC in which the endpoint will be used.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -56,9 +75,7 @@ export class VPCEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VPCEndpoint is deprecated: VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -103,12 +120,33 @@ export class VPCEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a VPCEndpoint resource.
  */
 export interface VPCEndpointArgs {
-    policyDocument?: any;
+    /**
+     * A policy to attach to the endpoint that controls access to the service.
+     */
+    policyDocument?: pulumi.Input<string>;
+    /**
+     * Indicate whether to associate a private hosted zone with the specified VPC.
+     */
     privateDnsEnabled?: pulumi.Input<boolean>;
+    /**
+     * One or more route table IDs.
+     */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of one or more security groups to associate with the endpoint network interface.
+     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The service name.
+     */
     serviceName: pulumi.Input<string>;
+    /**
+     * The ID of one or more subnets in which to create an endpoint network interface.
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    vpcEndpointType?: pulumi.Input<string>;
+    vpcEndpointType?: pulumi.Input<enums.ec2.VPCEndpointVpcEndpointType>;
+    /**
+     * The ID of the VPC in which the endpoint will be used.
+     */
     vpcId: pulumi.Input<string>;
 }

@@ -1942,28 +1942,21 @@ class EndpointConfigDataCaptureConfigArgs:
 @pulumi.input_type
 class EndpointConfigProductionVariantArgs:
     def __init__(__self__, *,
-                 initial_instance_count: pulumi.Input[int],
                  initial_variant_weight: pulumi.Input[float],
-                 instance_type: pulumi.Input[str],
                  model_name: pulumi.Input[str],
                  variant_name: pulumi.Input[str],
-                 accelerator_type: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+                 accelerator_type: Optional[pulumi.Input[str]] = None,
+                 initial_instance_count: Optional[pulumi.Input[int]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
-        pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "model_name", model_name)
         pulumi.set(__self__, "variant_name", variant_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
-
-    @property
-    @pulumi.getter(name="initialInstanceCount")
-    def initial_instance_count(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "initial_instance_count")
-
-    @initial_instance_count.setter
-    def initial_instance_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "initial_instance_count", value)
+        if initial_instance_count is not None:
+            pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
 
     @property
     @pulumi.getter(name="initialVariantWeight")
@@ -1973,15 +1966,6 @@ class EndpointConfigProductionVariantArgs:
     @initial_variant_weight.setter
     def initial_variant_weight(self, value: pulumi.Input[float]):
         pulumi.set(self, "initial_variant_weight", value)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "instance_type")
-
-    @instance_type.setter
-    def instance_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "instance_type", value)
 
     @property
     @pulumi.getter(name="modelName")
@@ -2009,6 +1993,24 @@ class EndpointConfigProductionVariantArgs:
     @accelerator_type.setter
     def accelerator_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "accelerator_type", value)
+
+    @property
+    @pulumi.getter(name="initialInstanceCount")
+    def initial_instance_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "initial_instance_count")
+
+    @initial_instance_count.setter
+    def initial_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
 
 
 @pulumi.input_type

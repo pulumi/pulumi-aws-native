@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.MSK.Inputs
             set => _clientSubnets = value;
         }
 
+        [Input("connectivityInfo")]
+        public Input<Inputs.ClusterConnectivityInfoArgs>? ConnectivityInfo { get; set; }
+
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 

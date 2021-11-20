@@ -14,9 +14,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class EndpointConfigProductionVariant
     {
         public readonly string? AcceleratorType;
-        public readonly int InitialInstanceCount;
+        public readonly int? InitialInstanceCount;
         public readonly double InitialVariantWeight;
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         public readonly string ModelName;
         public readonly string VariantName;
 
@@ -24,11 +24,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private EndpointConfigProductionVariant(
             string? acceleratorType,
 
-            int initialInstanceCount,
+            int? initialInstanceCount,
 
             double initialVariantWeight,
 
-            string instanceType,
+            string? instanceType,
 
             string modelName,
 

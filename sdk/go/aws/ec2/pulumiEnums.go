@@ -8233,6 +8233,171 @@ func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationR
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
+type VPCEndpointVpcEndpointType string
+
+const (
+	VPCEndpointVpcEndpointTypeInterface           = VPCEndpointVpcEndpointType("Interface")
+	VPCEndpointVpcEndpointTypeGateway             = VPCEndpointVpcEndpointType("Gateway")
+	VPCEndpointVpcEndpointTypeGatewayLoadBalancer = VPCEndpointVpcEndpointType("GatewayLoadBalancer")
+)
+
+func (VPCEndpointVpcEndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCEndpointVpcEndpointType)(nil)).Elem()
+}
+
+func (e VPCEndpointVpcEndpointType) ToVPCEndpointVpcEndpointTypeOutput() VPCEndpointVpcEndpointTypeOutput {
+	return pulumi.ToOutput(e).(VPCEndpointVpcEndpointTypeOutput)
+}
+
+func (e VPCEndpointVpcEndpointType) ToVPCEndpointVpcEndpointTypeOutputWithContext(ctx context.Context) VPCEndpointVpcEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VPCEndpointVpcEndpointTypeOutput)
+}
+
+func (e VPCEndpointVpcEndpointType) ToVPCEndpointVpcEndpointTypePtrOutput() VPCEndpointVpcEndpointTypePtrOutput {
+	return e.ToVPCEndpointVpcEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (e VPCEndpointVpcEndpointType) ToVPCEndpointVpcEndpointTypePtrOutputWithContext(ctx context.Context) VPCEndpointVpcEndpointTypePtrOutput {
+	return VPCEndpointVpcEndpointType(e).ToVPCEndpointVpcEndpointTypeOutputWithContext(ctx).ToVPCEndpointVpcEndpointTypePtrOutputWithContext(ctx)
+}
+
+func (e VPCEndpointVpcEndpointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VPCEndpointVpcEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VPCEndpointVpcEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VPCEndpointVpcEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VPCEndpointVpcEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (VPCEndpointVpcEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCEndpointVpcEndpointType)(nil)).Elem()
+}
+
+func (o VPCEndpointVpcEndpointTypeOutput) ToVPCEndpointVpcEndpointTypeOutput() VPCEndpointVpcEndpointTypeOutput {
+	return o
+}
+
+func (o VPCEndpointVpcEndpointTypeOutput) ToVPCEndpointVpcEndpointTypeOutputWithContext(ctx context.Context) VPCEndpointVpcEndpointTypeOutput {
+	return o
+}
+
+func (o VPCEndpointVpcEndpointTypeOutput) ToVPCEndpointVpcEndpointTypePtrOutput() VPCEndpointVpcEndpointTypePtrOutput {
+	return o.ToVPCEndpointVpcEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o VPCEndpointVpcEndpointTypeOutput) ToVPCEndpointVpcEndpointTypePtrOutputWithContext(ctx context.Context) VPCEndpointVpcEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VPCEndpointVpcEndpointType) *VPCEndpointVpcEndpointType {
+		return &v
+	}).(VPCEndpointVpcEndpointTypePtrOutput)
+}
+
+func (o VPCEndpointVpcEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VPCEndpointVpcEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCEndpointVpcEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VPCEndpointVpcEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VPCEndpointVpcEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCEndpointVpcEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VPCEndpointVpcEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (VPCEndpointVpcEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VPCEndpointVpcEndpointType)(nil)).Elem()
+}
+
+func (o VPCEndpointVpcEndpointTypePtrOutput) ToVPCEndpointVpcEndpointTypePtrOutput() VPCEndpointVpcEndpointTypePtrOutput {
+	return o
+}
+
+func (o VPCEndpointVpcEndpointTypePtrOutput) ToVPCEndpointVpcEndpointTypePtrOutputWithContext(ctx context.Context) VPCEndpointVpcEndpointTypePtrOutput {
+	return o
+}
+
+func (o VPCEndpointVpcEndpointTypePtrOutput) Elem() VPCEndpointVpcEndpointTypeOutput {
+	return o.ApplyT(func(v *VPCEndpointVpcEndpointType) VPCEndpointVpcEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret VPCEndpointVpcEndpointType
+		return ret
+	}).(VPCEndpointVpcEndpointTypeOutput)
+}
+
+func (o VPCEndpointVpcEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VPCEndpointVpcEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VPCEndpointVpcEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VPCEndpointVpcEndpointTypeInput is an input type that accepts VPCEndpointVpcEndpointTypeArgs and VPCEndpointVpcEndpointTypeOutput values.
+// You can construct a concrete instance of `VPCEndpointVpcEndpointTypeInput` via:
+//
+//          VPCEndpointVpcEndpointTypeArgs{...}
+type VPCEndpointVpcEndpointTypeInput interface {
+	pulumi.Input
+
+	ToVPCEndpointVpcEndpointTypeOutput() VPCEndpointVpcEndpointTypeOutput
+	ToVPCEndpointVpcEndpointTypeOutputWithContext(context.Context) VPCEndpointVpcEndpointTypeOutput
+}
+
+var vpcendpointVpcEndpointTypePtrType = reflect.TypeOf((**VPCEndpointVpcEndpointType)(nil)).Elem()
+
+type VPCEndpointVpcEndpointTypePtrInput interface {
+	pulumi.Input
+
+	ToVPCEndpointVpcEndpointTypePtrOutput() VPCEndpointVpcEndpointTypePtrOutput
+	ToVPCEndpointVpcEndpointTypePtrOutputWithContext(context.Context) VPCEndpointVpcEndpointTypePtrOutput
+}
+
+type vpcendpointVpcEndpointTypePtr string
+
+func VPCEndpointVpcEndpointTypePtr(v string) VPCEndpointVpcEndpointTypePtrInput {
+	return (*vpcendpointVpcEndpointTypePtr)(&v)
+}
+
+func (*vpcendpointVpcEndpointTypePtr) ElementType() reflect.Type {
+	return vpcendpointVpcEndpointTypePtrType
+}
+
+func (in *vpcendpointVpcEndpointTypePtr) ToVPCEndpointVpcEndpointTypePtrOutput() VPCEndpointVpcEndpointTypePtrOutput {
+	return pulumi.ToOutput(in).(VPCEndpointVpcEndpointTypePtrOutput)
+}
+
+func (in *vpcendpointVpcEndpointTypePtr) ToVPCEndpointVpcEndpointTypePtrOutputWithContext(ctx context.Context) VPCEndpointVpcEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VPCEndpointVpcEndpointTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInstanceMatchCriteriaInput)(nil)).Elem(), CapacityReservationFleetInstanceMatchCriteria("open"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInstanceMatchCriteriaPtrInput)(nil)).Elem(), CapacityReservationFleetInstanceMatchCriteria("open"))
@@ -8338,6 +8503,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetSpotPlacementTenancyPtrInput)(nil)).Elem(), SpotFleetSpotPlacementTenancy("dedicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypeInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypePtrInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointVpcEndpointTypeInput)(nil)).Elem(), VPCEndpointVpcEndpointType("Interface"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointVpcEndpointTypePtrInput)(nil)).Elem(), VPCEndpointVpcEndpointType("Interface"))
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetTenancyOutput{})
@@ -8442,4 +8609,6 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementTenancyPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypeOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(VPCEndpointVpcEndpointTypeOutput{})
+	pulumi.RegisterOutputType(VPCEndpointVpcEndpointTypePtrOutput{})
 }

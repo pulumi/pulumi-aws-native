@@ -205,6 +205,7 @@ func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
 
 type ServerIdentityProviderDetails struct {
 	DirectoryId    *string `pulumi:"directoryId"`
+	Function       *string `pulumi:"function"`
 	InvocationRole *string `pulumi:"invocationRole"`
 	Url            *string `pulumi:"url"`
 }
@@ -222,6 +223,7 @@ type ServerIdentityProviderDetailsInput interface {
 
 type ServerIdentityProviderDetailsArgs struct {
 	DirectoryId    pulumi.StringPtrInput `pulumi:"directoryId"`
+	Function       pulumi.StringPtrInput `pulumi:"function"`
 	InvocationRole pulumi.StringPtrInput `pulumi:"invocationRole"`
 	Url            pulumi.StringPtrInput `pulumi:"url"`
 }
@@ -307,6 +309,10 @@ func (o ServerIdentityProviderDetailsOutput) DirectoryId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
 }
 
+func (o ServerIdentityProviderDetailsOutput) Function() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.Function }).(pulumi.StringPtrOutput)
+}
+
 func (o ServerIdentityProviderDetailsOutput) InvocationRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.InvocationRole }).(pulumi.StringPtrOutput)
 }
@@ -345,6 +351,15 @@ func (o ServerIdentityProviderDetailsPtrOutput) DirectoryId() pulumi.StringPtrOu
 			return nil
 		}
 		return v.DirectoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerIdentityProviderDetailsPtrOutput) Function() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Function
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -10,6 +10,224 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// A key-value pair to associate with a resource.
+type ContactFlowModuleTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ContactFlowModuleTagInput is an input type that accepts ContactFlowModuleTagArgs and ContactFlowModuleTagOutput values.
+// You can construct a concrete instance of `ContactFlowModuleTagInput` via:
+//
+//          ContactFlowModuleTagArgs{...}
+type ContactFlowModuleTagInput interface {
+	pulumi.Input
+
+	ToContactFlowModuleTagOutput() ContactFlowModuleTagOutput
+	ToContactFlowModuleTagOutputWithContext(context.Context) ContactFlowModuleTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ContactFlowModuleTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContactFlowModuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactFlowModuleTag)(nil)).Elem()
+}
+
+func (i ContactFlowModuleTagArgs) ToContactFlowModuleTagOutput() ContactFlowModuleTagOutput {
+	return i.ToContactFlowModuleTagOutputWithContext(context.Background())
+}
+
+func (i ContactFlowModuleTagArgs) ToContactFlowModuleTagOutputWithContext(ctx context.Context) ContactFlowModuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowModuleTagOutput)
+}
+
+// ContactFlowModuleTagArrayInput is an input type that accepts ContactFlowModuleTagArray and ContactFlowModuleTagArrayOutput values.
+// You can construct a concrete instance of `ContactFlowModuleTagArrayInput` via:
+//
+//          ContactFlowModuleTagArray{ ContactFlowModuleTagArgs{...} }
+type ContactFlowModuleTagArrayInput interface {
+	pulumi.Input
+
+	ToContactFlowModuleTagArrayOutput() ContactFlowModuleTagArrayOutput
+	ToContactFlowModuleTagArrayOutputWithContext(context.Context) ContactFlowModuleTagArrayOutput
+}
+
+type ContactFlowModuleTagArray []ContactFlowModuleTagInput
+
+func (ContactFlowModuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactFlowModuleTag)(nil)).Elem()
+}
+
+func (i ContactFlowModuleTagArray) ToContactFlowModuleTagArrayOutput() ContactFlowModuleTagArrayOutput {
+	return i.ToContactFlowModuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i ContactFlowModuleTagArray) ToContactFlowModuleTagArrayOutputWithContext(ctx context.Context) ContactFlowModuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowModuleTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ContactFlowModuleTagOutput struct{ *pulumi.OutputState }
+
+func (ContactFlowModuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactFlowModuleTag)(nil)).Elem()
+}
+
+func (o ContactFlowModuleTagOutput) ToContactFlowModuleTagOutput() ContactFlowModuleTagOutput {
+	return o
+}
+
+func (o ContactFlowModuleTagOutput) ToContactFlowModuleTagOutputWithContext(ctx context.Context) ContactFlowModuleTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ContactFlowModuleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactFlowModuleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ContactFlowModuleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactFlowModuleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContactFlowModuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactFlowModuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactFlowModuleTag)(nil)).Elem()
+}
+
+func (o ContactFlowModuleTagArrayOutput) ToContactFlowModuleTagArrayOutput() ContactFlowModuleTagArrayOutput {
+	return o
+}
+
+func (o ContactFlowModuleTagArrayOutput) ToContactFlowModuleTagArrayOutputWithContext(ctx context.Context) ContactFlowModuleTagArrayOutput {
+	return o
+}
+
+func (o ContactFlowModuleTagArrayOutput) Index(i pulumi.IntInput) ContactFlowModuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactFlowModuleTag {
+		return vs[0].([]ContactFlowModuleTag)[vs[1].(int)]
+	}).(ContactFlowModuleTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ContactFlowTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ContactFlowTagInput is an input type that accepts ContactFlowTagArgs and ContactFlowTagOutput values.
+// You can construct a concrete instance of `ContactFlowTagInput` via:
+//
+//          ContactFlowTagArgs{...}
+type ContactFlowTagInput interface {
+	pulumi.Input
+
+	ToContactFlowTagOutput() ContactFlowTagOutput
+	ToContactFlowTagOutputWithContext(context.Context) ContactFlowTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ContactFlowTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContactFlowTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactFlowTag)(nil)).Elem()
+}
+
+func (i ContactFlowTagArgs) ToContactFlowTagOutput() ContactFlowTagOutput {
+	return i.ToContactFlowTagOutputWithContext(context.Background())
+}
+
+func (i ContactFlowTagArgs) ToContactFlowTagOutputWithContext(ctx context.Context) ContactFlowTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowTagOutput)
+}
+
+// ContactFlowTagArrayInput is an input type that accepts ContactFlowTagArray and ContactFlowTagArrayOutput values.
+// You can construct a concrete instance of `ContactFlowTagArrayInput` via:
+//
+//          ContactFlowTagArray{ ContactFlowTagArgs{...} }
+type ContactFlowTagArrayInput interface {
+	pulumi.Input
+
+	ToContactFlowTagArrayOutput() ContactFlowTagArrayOutput
+	ToContactFlowTagArrayOutputWithContext(context.Context) ContactFlowTagArrayOutput
+}
+
+type ContactFlowTagArray []ContactFlowTagInput
+
+func (ContactFlowTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactFlowTag)(nil)).Elem()
+}
+
+func (i ContactFlowTagArray) ToContactFlowTagArrayOutput() ContactFlowTagArrayOutput {
+	return i.ToContactFlowTagArrayOutputWithContext(context.Background())
+}
+
+func (i ContactFlowTagArray) ToContactFlowTagArrayOutputWithContext(ctx context.Context) ContactFlowTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ContactFlowTagOutput struct{ *pulumi.OutputState }
+
+func (ContactFlowTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactFlowTag)(nil)).Elem()
+}
+
+func (o ContactFlowTagOutput) ToContactFlowTagOutput() ContactFlowTagOutput {
+	return o
+}
+
+func (o ContactFlowTagOutput) ToContactFlowTagOutputWithContext(ctx context.Context) ContactFlowTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ContactFlowTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactFlowTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ContactFlowTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactFlowTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContactFlowTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactFlowTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactFlowTag)(nil)).Elem()
+}
+
+func (o ContactFlowTagArrayOutput) ToContactFlowTagArrayOutput() ContactFlowTagArrayOutput {
+	return o
+}
+
+func (o ContactFlowTagArrayOutput) ToContactFlowTagArrayOutputWithContext(ctx context.Context) ContactFlowTagArrayOutput {
+	return o
+}
+
+func (o ContactFlowTagArrayOutput) Index(i pulumi.IntInput) ContactFlowTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactFlowTag {
+		return vs[0].([]ContactFlowTag)[vs[1].(int)]
+	}).(ContactFlowTagOutput)
+}
+
 // Contains information about the hours of operation.
 type HoursOfOperationConfig struct {
 	// The day that the hours of operation applies to.
@@ -1486,6 +1704,10 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleTagInput)(nil)).Elem(), ContactFlowModuleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleTagArrayInput)(nil)).Elem(), ContactFlowModuleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTagInput)(nil)).Elem(), ContactFlowTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTagArrayInput)(nil)).Elem(), ContactFlowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigInput)(nil)).Elem(), HoursOfOperationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigArrayInput)(nil)).Elem(), HoursOfOperationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagInput)(nil)).Elem(), HoursOfOperationTagArgs{})
@@ -1507,6 +1729,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigPtrInput)(nil)).Elem(), UserPhoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
+	pulumi.RegisterOutputType(ContactFlowModuleTagOutput{})
+	pulumi.RegisterOutputType(ContactFlowModuleTagArrayOutput{})
+	pulumi.RegisterOutputType(ContactFlowTagOutput{})
+	pulumi.RegisterOutputType(ContactFlowTagArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTagOutput{})

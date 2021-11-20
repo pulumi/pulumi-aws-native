@@ -10,14 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::VPCDHCPOptionsAssociation
+    /// Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:VPCDHCPOptionsAssociation")]
     public partial class VPCDHCPOptionsAssociation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+        /// </summary>
         [Output("dhcpOptionsId")]
         public Output<string> DhcpOptionsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -66,9 +72,15 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class VPCDHCPOptionsAssociationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
+        /// </summary>
         [Input("dhcpOptionsId", required: true)]
         public Input<string> DhcpOptionsId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

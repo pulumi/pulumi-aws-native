@@ -17,23 +17,26 @@ import (
 type Fleet struct {
 	pulumi.CustomResourceState
 
-	ComputeCapacity                FleetComputeCapacityOutput   `pulumi:"computeCapacity"`
-	Description                    pulumi.StringPtrOutput       `pulumi:"description"`
-	DisconnectTimeoutInSeconds     pulumi.IntPtrOutput          `pulumi:"disconnectTimeoutInSeconds"`
-	DisplayName                    pulumi.StringPtrOutput       `pulumi:"displayName"`
-	DomainJoinInfo                 FleetDomainJoinInfoPtrOutput `pulumi:"domainJoinInfo"`
-	EnableDefaultInternetAccess    pulumi.BoolPtrOutput         `pulumi:"enableDefaultInternetAccess"`
-	FleetType                      pulumi.StringPtrOutput       `pulumi:"fleetType"`
-	IamRoleArn                     pulumi.StringPtrOutput       `pulumi:"iamRoleArn"`
-	IdleDisconnectTimeoutInSeconds pulumi.IntPtrOutput          `pulumi:"idleDisconnectTimeoutInSeconds"`
-	ImageArn                       pulumi.StringPtrOutput       `pulumi:"imageArn"`
-	ImageName                      pulumi.StringPtrOutput       `pulumi:"imageName"`
-	InstanceType                   pulumi.StringOutput          `pulumi:"instanceType"`
-	MaxUserDurationInSeconds       pulumi.IntPtrOutput          `pulumi:"maxUserDurationInSeconds"`
-	Name                           pulumi.StringOutput          `pulumi:"name"`
-	StreamView                     pulumi.StringPtrOutput       `pulumi:"streamView"`
-	Tags                           FleetTagArrayOutput          `pulumi:"tags"`
-	VpcConfig                      FleetVpcConfigPtrOutput      `pulumi:"vpcConfig"`
+	ComputeCapacity                FleetComputeCapacityPtrOutput `pulumi:"computeCapacity"`
+	Description                    pulumi.StringPtrOutput        `pulumi:"description"`
+	DisconnectTimeoutInSeconds     pulumi.IntPtrOutput           `pulumi:"disconnectTimeoutInSeconds"`
+	DisplayName                    pulumi.StringPtrOutput        `pulumi:"displayName"`
+	DomainJoinInfo                 FleetDomainJoinInfoPtrOutput  `pulumi:"domainJoinInfo"`
+	EnableDefaultInternetAccess    pulumi.BoolPtrOutput          `pulumi:"enableDefaultInternetAccess"`
+	FleetType                      pulumi.StringPtrOutput        `pulumi:"fleetType"`
+	IamRoleArn                     pulumi.StringPtrOutput        `pulumi:"iamRoleArn"`
+	IdleDisconnectTimeoutInSeconds pulumi.IntPtrOutput           `pulumi:"idleDisconnectTimeoutInSeconds"`
+	ImageArn                       pulumi.StringPtrOutput        `pulumi:"imageArn"`
+	ImageName                      pulumi.StringPtrOutput        `pulumi:"imageName"`
+	InstanceType                   pulumi.StringOutput           `pulumi:"instanceType"`
+	MaxConcurrentSessions          pulumi.IntPtrOutput           `pulumi:"maxConcurrentSessions"`
+	MaxUserDurationInSeconds       pulumi.IntPtrOutput           `pulumi:"maxUserDurationInSeconds"`
+	Name                           pulumi.StringOutput           `pulumi:"name"`
+	Platform                       pulumi.StringPtrOutput        `pulumi:"platform"`
+	StreamView                     pulumi.StringPtrOutput        `pulumi:"streamView"`
+	Tags                           FleetTagArrayOutput           `pulumi:"tags"`
+	UsbDeviceFilterStrings         pulumi.StringArrayOutput      `pulumi:"usbDeviceFilterStrings"`
+	VpcConfig                      FleetVpcConfigPtrOutput       `pulumi:"vpcConfig"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -43,9 +46,6 @@ func NewFleet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ComputeCapacity == nil {
-		return nil, errors.New("invalid value for required argument 'ComputeCapacity'")
-	}
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
@@ -81,28 +81,31 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	ComputeCapacity                FleetComputeCapacity `pulumi:"computeCapacity"`
-	Description                    *string              `pulumi:"description"`
-	DisconnectTimeoutInSeconds     *int                 `pulumi:"disconnectTimeoutInSeconds"`
-	DisplayName                    *string              `pulumi:"displayName"`
-	DomainJoinInfo                 *FleetDomainJoinInfo `pulumi:"domainJoinInfo"`
-	EnableDefaultInternetAccess    *bool                `pulumi:"enableDefaultInternetAccess"`
-	FleetType                      *string              `pulumi:"fleetType"`
-	IamRoleArn                     *string              `pulumi:"iamRoleArn"`
-	IdleDisconnectTimeoutInSeconds *int                 `pulumi:"idleDisconnectTimeoutInSeconds"`
-	ImageArn                       *string              `pulumi:"imageArn"`
-	ImageName                      *string              `pulumi:"imageName"`
-	InstanceType                   string               `pulumi:"instanceType"`
-	MaxUserDurationInSeconds       *int                 `pulumi:"maxUserDurationInSeconds"`
-	Name                           *string              `pulumi:"name"`
-	StreamView                     *string              `pulumi:"streamView"`
-	Tags                           []FleetTag           `pulumi:"tags"`
-	VpcConfig                      *FleetVpcConfig      `pulumi:"vpcConfig"`
+	ComputeCapacity                *FleetComputeCapacity `pulumi:"computeCapacity"`
+	Description                    *string               `pulumi:"description"`
+	DisconnectTimeoutInSeconds     *int                  `pulumi:"disconnectTimeoutInSeconds"`
+	DisplayName                    *string               `pulumi:"displayName"`
+	DomainJoinInfo                 *FleetDomainJoinInfo  `pulumi:"domainJoinInfo"`
+	EnableDefaultInternetAccess    *bool                 `pulumi:"enableDefaultInternetAccess"`
+	FleetType                      *string               `pulumi:"fleetType"`
+	IamRoleArn                     *string               `pulumi:"iamRoleArn"`
+	IdleDisconnectTimeoutInSeconds *int                  `pulumi:"idleDisconnectTimeoutInSeconds"`
+	ImageArn                       *string               `pulumi:"imageArn"`
+	ImageName                      *string               `pulumi:"imageName"`
+	InstanceType                   string                `pulumi:"instanceType"`
+	MaxConcurrentSessions          *int                  `pulumi:"maxConcurrentSessions"`
+	MaxUserDurationInSeconds       *int                  `pulumi:"maxUserDurationInSeconds"`
+	Name                           *string               `pulumi:"name"`
+	Platform                       *string               `pulumi:"platform"`
+	StreamView                     *string               `pulumi:"streamView"`
+	Tags                           []FleetTag            `pulumi:"tags"`
+	UsbDeviceFilterStrings         []string              `pulumi:"usbDeviceFilterStrings"`
+	VpcConfig                      *FleetVpcConfig       `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	ComputeCapacity                FleetComputeCapacityInput
+	ComputeCapacity                FleetComputeCapacityPtrInput
 	Description                    pulumi.StringPtrInput
 	DisconnectTimeoutInSeconds     pulumi.IntPtrInput
 	DisplayName                    pulumi.StringPtrInput
@@ -114,10 +117,13 @@ type FleetArgs struct {
 	ImageArn                       pulumi.StringPtrInput
 	ImageName                      pulumi.StringPtrInput
 	InstanceType                   pulumi.StringInput
+	MaxConcurrentSessions          pulumi.IntPtrInput
 	MaxUserDurationInSeconds       pulumi.IntPtrInput
 	Name                           pulumi.StringPtrInput
+	Platform                       pulumi.StringPtrInput
 	StreamView                     pulumi.StringPtrInput
 	Tags                           FleetTagArrayInput
+	UsbDeviceFilterStrings         pulumi.StringArrayInput
 	VpcConfig                      FleetVpcConfigPtrInput
 }
 
