@@ -17,7 +17,8 @@
         "variables": {
             "accessKey": {
                 "type": "string",
-                "description": "The access key for API operations. You can retrieve this from the ‘Security \u0026 Credentials’ section of the AWS console."
+                "description": "The access key for API operations. You can retrieve this from the ‘Security \u0026 Credentials’ section of the AWS console.",
+                "secret": true
             },
             "allowedAccountIds": {
                 "type": "array",
@@ -72,7 +73,8 @@
             },
             "secretKey": {
                 "type": "string",
-                "description": "The secret key for API operations. You can retrieve this from the 'Security \u0026 Credentials' section of the AWS console."
+                "description": "The secret key for API operations. You can retrieve this from the 'Security \u0026 Credentials' section of the AWS console.",
+                "secret": true
             },
             "sharedCredentialsFile": {
                 "type": "string",
@@ -104,7 +106,8 @@
             },
             "token": {
                 "type": "string",
-                "description": "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials."
+                "description": "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
+                "secret": true
             }
         },
         "defaults": [
@@ -49355,112 +49358,10 @@
     },
     "provider": {
         "description": "The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.",
-        "properties": {
-            "accessKey": {
-                "type": "string",
-                "description": "The access key for API operations. You can retrieve this from the ‘Security \u0026 Credentials’ section of the AWS console."
-            },
-            "allowedAccountIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`."
-            },
-            "assumeRole": {
-                "$ref": "#/types/aws-native:index:ProviderAssumeRole",
-                "description": "Configuration for retrieving temporary credentials from the STS service."
-            },
-            "defaultTags": {
-                "$ref": "#/types/aws-native:index:ProviderDefaultTags",
-                "description": "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys."
-            },
-            "endpoints": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws-native:index:ProviderEndpoint"
-                },
-                "description": "Configuration block for customizing service endpoints."
-            },
-            "forbiddenAccountIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`."
-            },
-            "ignoreTags": {
-                "$ref": "#/types/aws-native:index:ProviderIgnoreTags",
-                "description": "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags."
-            },
-            "insecure": {
-                "type": "boolean",
-                "description": "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`."
-            },
-            "maxRetries": {
-                "type": "integer",
-                "description": "The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown."
-            },
-            "profile": {
-                "type": "string",
-                "description": "The profile for API operations. If not set, the default profile created with `aws configure` will be used."
-            },
-            "region": {
-                "type": "string",
-                "$ref": "#/types/aws-native:index/region:Region",
-                "description": "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc."
-            },
-            "s3ForcePathStyle": {
-                "type": "boolean",
-                "description": "Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service."
-            },
-            "secretKey": {
-                "type": "string",
-                "description": "The secret key for API operations. You can retrieve this from the 'Security \u0026 Credentials' section of the AWS console."
-            },
-            "sharedCredentialsFile": {
-                "type": "string",
-                "description": "The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`."
-            },
-            "skipCredentialsValidation": {
-                "type": "boolean",
-                "description": "Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented."
-            },
-            "skipGetEc2Platforms": {
-                "type": "boolean",
-                "description": "Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions."
-            },
-            "skipMetadataApiCheck": {
-                "type": "boolean",
-                "description": "Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables."
-            },
-            "skipRegionValidation": {
-                "type": "boolean",
-                "description": "Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public."
-            },
-            "skipRequestingAccountId": {
-                "type": "boolean",
-                "description": "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API."
-            },
-            "token": {
-                "type": "string",
-                "description": "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
-                "defaultInfo": {
-                    "environment": [
-                        "AWS_SESSION_TOKEN"
-                    ]
-                }
-            }
-        },
         "inputProperties": {
             "accessKey": {
                 "type": "string",
                 "description": "The access key for API operations. You can retrieve this from the ‘Security \u0026 Credentials’ section of the AWS console.",
-                "defaultInfo": {
-                    "environment": [
-                        "AWS_ACCESS_KEY_ID"
-                    ]
-                },
                 "secret": true
             },
             "allowedAccountIds": {
@@ -49531,11 +49432,6 @@
             "secretKey": {
                 "type": "string",
                 "description": "The secret key for API operations. You can retrieve this from the 'Security \u0026 Credentials' section of the AWS console.",
-                "defaultInfo": {
-                    "environment": [
-                        "AWS_SECRET_ACCESS_KEY"
-                    ]
-                },
                 "secret": true
             },
             "sharedCredentialsFile": {
@@ -49574,11 +49470,6 @@
             "token": {
                 "type": "string",
                 "description": "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
-                "defaultInfo": {
-                    "environment": [
-                        "AWS_SESSION_TOKEN"
-                    ]
-                },
                 "secret": true
             }
         },
