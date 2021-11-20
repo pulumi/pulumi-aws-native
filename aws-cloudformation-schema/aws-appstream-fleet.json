@@ -9,6 +9,9 @@
     "ComputeCapacity" : {
       "$ref" : "#/definitions/ComputeCapacity"
     },
+    "Platform" : {
+      "type" : "string"
+    },
     "VpcConfig" : {
       "$ref" : "#/definitions/VpcConfig"
     },
@@ -33,6 +36,13 @@
     "IdleDisconnectTimeoutInSeconds" : {
       "type" : "integer"
     },
+    "UsbDeviceFilterStrings" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
     "DisconnectTimeoutInSeconds" : {
       "type" : "integer"
     },
@@ -50,6 +60,9 @@
     },
     "InstanceType" : {
       "type" : "string"
+    },
+    "MaxConcurrentSessions" : {
+      "type" : "integer"
     },
     "Tags" : {
       "type" : "array",
@@ -119,7 +132,7 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "required" : [ "ComputeCapacity", "InstanceType", "Name" ],
+  "required" : [ "InstanceType", "Name" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/FleetType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]

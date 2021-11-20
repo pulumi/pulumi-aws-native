@@ -104,6 +104,15 @@
       },
       "required" : [ "EnabledInBroker" ]
     },
+    "ConnectivityInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PublicAccess" : {
+          "$ref" : "#/definitions/PublicAccess"
+        }
+      }
+    },
     "EncryptionInfo" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -200,9 +209,6 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "StorageInfo" : {
-          "$ref" : "#/definitions/StorageInfo"
-        },
         "SecurityGroups" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -210,15 +216,21 @@
             "type" : "string"
           }
         },
-        "BrokerAZDistribution" : {
-          "type" : "string"
-        },
         "ClientSubnets" : {
           "type" : "array",
           "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
+        },
+        "ConnectivityInfo" : {
+          "$ref" : "#/definitions/ConnectivityInfo"
+        },
+        "StorageInfo" : {
+          "$ref" : "#/definitions/StorageInfo"
+        },
+        "BrokerAZDistribution" : {
+          "type" : "string"
         },
         "InstanceType" : {
           "type" : "string"
@@ -278,6 +290,15 @@
           "items" : {
             "type" : "string"
           }
+        }
+      }
+    },
+    "PublicAccess" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "type" : "string"
         }
       }
     },

@@ -9827,6 +9827,126 @@
                 "value"
             ]
         },
+        "aws-native:connect:ContactFlowModuleState": {
+            "description": "The state of the contact flow module.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Active",
+                    "value": "ACTIVE"
+                },
+                {
+                    "name": "Archived",
+                    "value": "ARCHIVED"
+                }
+            ]
+        },
+        "aws-native:connect:ContactFlowModuleStatus": {
+            "description": "The status of the contact flow module.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Published",
+                    "value": "PUBLISHED"
+                },
+                {
+                    "name": "Saved",
+                    "value": "SAVED"
+                }
+            ]
+        },
+        "aws-native:connect:ContactFlowModuleTag": {
+            "description": "A key-value pair to associate with a resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:connect:ContactFlowState": {
+            "description": "The state of the contact flow.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Active",
+                    "value": "ACTIVE"
+                },
+                {
+                    "name": "Archived",
+                    "value": "ARCHIVED"
+                }
+            ]
+        },
+        "aws-native:connect:ContactFlowTag": {
+            "description": "A key-value pair to associate with a resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:connect:ContactFlowType": {
+            "description": "The type of the contact flow.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "ContactFlow",
+                    "value": "CONTACT_FLOW"
+                },
+                {
+                    "name": "CustomerQueue",
+                    "value": "CUSTOMER_QUEUE"
+                },
+                {
+                    "name": "CustomerHold",
+                    "value": "CUSTOMER_HOLD"
+                },
+                {
+                    "name": "CustomerWhisper",
+                    "value": "CUSTOMER_WHISPER"
+                },
+                {
+                    "name": "AgentHold",
+                    "value": "AGENT_HOLD"
+                },
+                {
+                    "name": "AgentWhisper",
+                    "value": "AGENT_WHISPER"
+                },
+                {
+                    "name": "OutboundWhisper",
+                    "value": "OUTBOUND_WHISPER"
+                },
+                {
+                    "name": "AgentTransfer",
+                    "value": "AGENT_TRANSFER"
+                },
+                {
+                    "name": "QueueTransfer",
+                    "value": "QUEUE_TRANSFER"
+                }
+            ]
+        },
         "aws-native:connect:HoursOfOperationConfig": {
             "description": "Contains information about the hours of operation.",
             "properties": {
@@ -16825,6 +16945,23 @@
             "required": [
                 "key",
                 "value"
+            ]
+        },
+        "aws-native:ec2:VPCEndpointVpcEndpointType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Interface",
+                    "value": "Interface"
+                },
+                {
+                    "name": "Gateway",
+                    "value": "Gateway"
+                },
+                {
+                    "name": "GatewayLoadBalancer",
+                    "value": "GatewayLoadBalancer"
+                }
             ]
         },
         "aws-native:ec2:VPCTag": {
@@ -31465,6 +31602,92 @@
                         "type": "string"
                     },
                     "description": "A list of VPC subnet IDs."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:lambda:UrlAllowMethodsItem": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Get",
+                    "value": "GET"
+                },
+                {
+                    "name": "Put",
+                    "value": "PUT"
+                },
+                {
+                    "name": "Head",
+                    "value": "HEAD"
+                },
+                {
+                    "name": "Post",
+                    "value": "POST"
+                },
+                {
+                    "name": "Patch",
+                    "value": "PATCH"
+                },
+                {
+                    "name": "Delete",
+                    "value": "DELETE"
+                },
+                {
+                    "value": "*"
+                }
+            ]
+        },
+        "aws-native:lambda:UrlAuthorizationType": {
+            "description": "Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "AwsIam",
+                    "value": "AWS_IAM"
+                },
+                {
+                    "name": "None",
+                    "value": "NONE"
+                }
+            ]
+        },
+        "aws-native:lambda:UrlCors": {
+            "properties": {
+                "allowCredentials": {
+                    "type": "boolean",
+                    "description": "Specifies whether credentials are included in the CORS request."
+                },
+                "allowHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Represents a collection of allowed headers."
+                },
+                "allowMethods": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lambda:UrlAllowMethodsItem"
+                    },
+                    "description": "Represents a collection of allowed HTTP methods."
+                },
+                "allowOrigins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Represents a collection of allowed origins."
+                },
+                "exposeHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Represents a collection of exposed headers."
+                },
+                "maxAge": {
+                    "type": "integer"
                 }
             },
             "type": "object"
@@ -53320,6 +53543,13 @@
                     "type": "string",
                     "description": "The name of the configuration"
                 },
+                "guardrailPolicies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set."
+                },
                 "iamRoleArn": {
                     "type": "string",
                     "description": "The ARN of the IAM role that defines the permissions for AWS Chatbot"
@@ -53342,6 +53572,10 @@
                         "type": "string"
                     },
                     "description": "ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications."
+                },
+                "userRoleRequired": {
+                    "type": "boolean",
+                    "description": "Enables use of a user role requirement in your chat configuration"
                 }
             },
             "type": "object",
@@ -53357,6 +53591,13 @@
                     "type": "string",
                     "description": "The name of the configuration"
                 },
+                "guardrailPolicies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set."
+                },
                 "iamRoleArn": {
                     "type": "string",
                     "description": "The ARN of the IAM role that defines the permissions for AWS Chatbot"
@@ -53379,6 +53620,10 @@
                         "type": "string"
                     },
                     "description": "ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications."
+                },
+                "userRoleRequired": {
+                    "type": "boolean",
+                    "description": "Enables use of a user role requirement in your chat configuration"
                 }
             },
             "requiredInputs": [
@@ -55399,6 +55644,171 @@
             "requiredInputs": [
                 "queryExpression",
                 "queryName"
+            ]
+        },
+        "aws-native:connect:ContactFlow": {
+            "description": "Resource Type definition for AWS::Connect::ContactFlow",
+            "properties": {
+                "contactFlowArn": {
+                    "type": "string",
+                    "description": "The identifier of the contact flow (ARN)."
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The content of the contact flow in JSON format."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the contact flow."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance (ARN)."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the contact flow."
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:connect:ContactFlowState",
+                    "description": "The state of the contact flow."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:ContactFlowTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:connect:ContactFlowType",
+                    "description": "The type of the contact flow."
+                }
+            },
+            "type": "object",
+            "required": [
+                "contactFlowArn",
+                "content",
+                "instanceArn",
+                "name"
+            ],
+            "inputProperties": {
+                "content": {
+                    "type": "string",
+                    "description": "The content of the contact flow in JSON format."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the contact flow."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance (ARN)."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the contact flow."
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:connect:ContactFlowState",
+                    "description": "The state of the contact flow."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:ContactFlowTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:connect:ContactFlowType",
+                    "description": "The type of the contact flow."
+                }
+            },
+            "requiredInputs": [
+                "content",
+                "instanceArn"
+            ]
+        },
+        "aws-native:connect:ContactFlowModule": {
+            "description": "Resource Type definition for AWS::Connect::ContactFlowModule.",
+            "properties": {
+                "contactFlowModuleArn": {
+                    "type": "string",
+                    "description": "The identifier of the contact flow module (ARN)."
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The content of the contact flow module in JSON format."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the contact flow module."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance (ARN)."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the contact flow module."
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:connect:ContactFlowModuleState",
+                    "description": "The state of the contact flow module."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:connect:ContactFlowModuleStatus",
+                    "description": "The status of the contact flow module."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:ContactFlowModuleTag"
+                    },
+                    "description": "One or more tags."
+                }
+            },
+            "type": "object",
+            "required": [
+                "contactFlowModuleArn",
+                "content",
+                "instanceArn",
+                "name",
+                "status"
+            ],
+            "inputProperties": {
+                "content": {
+                    "type": "string",
+                    "description": "The content of the contact flow module in JSON format."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the contact flow module."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance (ARN)."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the contact flow module."
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:connect:ContactFlowModuleState",
+                    "description": "The state of the contact flow module."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:ContactFlowModuleTag"
+                    },
+                    "description": "One or more tags."
+                }
+            },
+            "requiredInputs": [
+                "content",
+                "instanceArn"
             ]
         },
         "aws-native:connect:HoursOfOperation": {
@@ -58931,61 +59341,74 @@
             ]
         },
         "aws-native:ec2:NetworkInterface": {
-            "description": "Resource Type definition for AWS::EC2::NetworkInterface",
+            "description": "The AWS::EC2::NetworkInterface resource creates network interface",
             "properties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description for the network interface."
                 },
                 "groupSet": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of security group IDs associated with this network interface."
                 },
                 "interfaceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Indicates the type of network interface."
                 },
                 "ipv6AddressCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property."
                 },
                 "ipv6Addresses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
-                    }
+                    },
+                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property."
                 },
                 "primaryPrivateIpAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Returns the primary private IP address of the network interface."
                 },
                 "privateIpAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. "
                 },
                 "privateIpAddresses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
-                    }
+                    },
+                    "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
                 },
                 "secondaryPrivateIpAddressCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
                 },
                 "secondaryPrivateIpAddresses": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Returns the secondary private IP addresses of the network interface."
                 },
                 "sourceDestCheck": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether traffic to or from the instance is validated."
                 },
                 "subnetId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the subnet to associate with the network interface."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
-                    }
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this network interface."
                 }
             },
             "type": "object",
@@ -58996,49 +59419,60 @@
             ],
             "inputProperties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description for the network interface."
                 },
                 "groupSet": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of security group IDs associated with this network interface."
                 },
                 "interfaceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Indicates the type of network interface."
                 },
                 "ipv6AddressCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property."
                 },
                 "ipv6Addresses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
-                    }
+                    },
+                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property."
                 },
                 "privateIpAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. "
                 },
                 "privateIpAddresses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
-                    }
+                    },
+                    "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
                 },
                 "secondaryPrivateIpAddressCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
                 },
                 "sourceDestCheck": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether traffic to or from the instance is validated."
                 },
                 "subnetId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the subnet to associate with the network interface."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
-                    }
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this network interface."
                 }
             },
             "requiredInputs": [
@@ -60049,13 +60483,15 @@
             ]
         },
         "aws-native:ec2:VPCDHCPOptionsAssociation": {
-            "description": "Resource Type definition for AWS::EC2::VPCDHCPOptionsAssociation",
+            "description": "Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.",
             "properties": {
                 "dhcpOptionsId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the DHCP options set, or default to associate no DHCP options with the VPC."
                 },
                 "vpcId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the VPC."
                 }
             },
             "type": "object",
@@ -60065,14 +60501,130 @@
             ],
             "inputProperties": {
                 "dhcpOptionsId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the DHCP options set, or default to associate no DHCP options with the VPC."
                 },
                 "vpcId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the VPC."
                 }
             },
             "requiredInputs": [
                 "dhcpOptionsId",
+                "vpcId"
+            ]
+        },
+        "aws-native:ec2:VPCEndpoint": {
+            "description": "Resource Type definition for AWS::EC2::VPCEndpoint",
+            "properties": {
+                "creationTimestamp": {
+                    "type": "string"
+                },
+                "dnsEntries": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "networkInterfaceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "policyDocument": {
+                    "type": "string",
+                    "description": "A policy to attach to the endpoint that controls access to the service."
+                },
+                "privateDnsEnabled": {
+                    "type": "boolean",
+                    "description": "Indicate whether to associate a private hosted zone with the specified VPC."
+                },
+                "routeTableIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more route table IDs."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more security groups to associate with the endpoint network interface."
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "The service name."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more subnets in which to create an endpoint network interface."
+                },
+                "vpcEndpointType": {
+                    "$ref": "#/types/aws-native:ec2:VPCEndpointVpcEndpointType"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC in which the endpoint will be used."
+                }
+            },
+            "type": "object",
+            "required": [
+                "creationTimestamp",
+                "dnsEntries",
+                "networkInterfaceIds",
+                "serviceName",
+                "vpcId"
+            ],
+            "inputProperties": {
+                "policyDocument": {
+                    "type": "string",
+                    "description": "A policy to attach to the endpoint that controls access to the service."
+                },
+                "privateDnsEnabled": {
+                    "type": "boolean",
+                    "description": "Indicate whether to associate a private hosted zone with the specified VPC."
+                },
+                "routeTableIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more route table IDs."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more security groups to associate with the endpoint network interface."
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "The service name."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more subnets in which to create an endpoint network interface."
+                },
+                "vpcEndpointType": {
+                    "$ref": "#/types/aws-native:ec2:VPCEndpointVpcEndpointType"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC in which the endpoint will be used."
+                }
+            },
+            "requiredInputs": [
+                "serviceName",
                 "vpcId"
             ]
         },
@@ -69034,6 +69586,62 @@
             "requiredInputs": [
                 "code",
                 "role"
+            ]
+        },
+        "aws-native:lambda:Url": {
+            "description": "Resource Type definition for AWS::Lambda::Url",
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Function URL."
+                },
+                "authorizationType": {
+                    "$ref": "#/types/aws-native:lambda:UrlAuthorizationType",
+                    "description": "Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL."
+                },
+                "cors": {
+                    "$ref": "#/types/aws-native:lambda:UrlCors"
+                },
+                "functionUrl": {
+                    "type": "string",
+                    "description": "The generated url for this resource."
+                },
+                "qualifier": {
+                    "type": "string",
+                    "description": "The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed."
+                },
+                "targetFunctionArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the function associated with the Function URL."
+                }
+            },
+            "type": "object",
+            "required": [
+                "arn",
+                "authorizationType",
+                "functionUrl",
+                "targetFunctionArn"
+            ],
+            "inputProperties": {
+                "authorizationType": {
+                    "$ref": "#/types/aws-native:lambda:UrlAuthorizationType",
+                    "description": "Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL."
+                },
+                "cors": {
+                    "$ref": "#/types/aws-native:lambda:UrlCors"
+                },
+                "qualifier": {
+                    "type": "string",
+                    "description": "The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed."
+                },
+                "targetFunctionArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the function associated with the Function URL."
+                }
+            },
+            "requiredInputs": [
+                "authorizationType",
+                "targetFunctionArn"
             ]
         },
         "aws-native:licensemanager:Grant": {
