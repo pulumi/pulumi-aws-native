@@ -25,6 +25,30 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
+     */
+    public readonly accessKey!: pulumi.Output<string | undefined>;
+    /**
+     * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+     */
+    public readonly profile!: pulumi.Output<string | undefined>;
+    /**
+     * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
+     */
+    public readonly region!: pulumi.Output<Region | undefined>;
+    /**
+     * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+     */
+    public readonly secretKey!: pulumi.Output<string | undefined>;
+    /**
+     * The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
+     */
+    public readonly sharedCredentialsFile!: pulumi.Output<string | undefined>;
+    /**
+     * Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
+     */
+    public readonly token!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -64,6 +88,8 @@ export class Provider extends pulumi.ProviderResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
+        const secretOpts = { additionalSecretOutputs: ["accessKey", "secretKey", "token"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, inputs, opts);
     }
 }

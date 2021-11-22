@@ -496,9 +496,59 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["skip_region_validation"] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
             __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessKey", "secretKey", "token"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'aws-native',
             resource_name,
             __props__,
             opts)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @property
+    @pulumi.getter(name="sharedCredentialsFile")
+    def shared_credentials_file(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
+        """
+        return pulumi.get(self, "shared_credentials_file")
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Output[Optional[str]]:
+        """
+        Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
+        """
+        return pulumi.get(self, "token")
 
