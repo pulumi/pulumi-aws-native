@@ -4,6 +4,10 @@
 
 ---
 
+## 0.7.0 (November 22, 2021)
+
+Update to include the latest resource definitions
+
 ## 0.6.0 (November 18, 2021)
 
 - Add support for specifying max retries
