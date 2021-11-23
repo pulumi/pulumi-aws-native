@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ServerEndpointDetails',
@@ -21,6 +22,15 @@ __all__ = [
     'UserPosixProfile',
     'UserSshPublicKey',
     'UserTag',
+    'WorkflowInputFileLocation',
+    'WorkflowS3InputFileLocation',
+    'WorkflowS3Tag',
+    'WorkflowStep',
+    'WorkflowStepCopyStepDetailsProperties',
+    'WorkflowStepCustomStepDetailsProperties',
+    'WorkflowStepDeleteStepDetailsProperties',
+    'WorkflowStepTagStepDetailsProperties',
+    'WorkflowTag',
 ]
 
 @pulumi.output_type
@@ -356,6 +366,417 @@ class UserTag(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkflowInputFileLocation(dict):
+    """
+    Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3FileLocation":
+            suggest = "s3_file_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowInputFileLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowInputFileLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowInputFileLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_file_location: Optional['outputs.WorkflowS3InputFileLocation'] = None):
+        """
+        Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+        """
+        if s3_file_location is not None:
+            pulumi.set(__self__, "s3_file_location", s3_file_location)
+
+    @property
+    @pulumi.getter(name="s3FileLocation")
+    def s3_file_location(self) -> Optional['outputs.WorkflowS3InputFileLocation']:
+        return pulumi.get(self, "s3_file_location")
+
+
+@pulumi.output_type
+class WorkflowS3InputFileLocation(dict):
+    """
+    Specifies the details for the S3 file being copied.
+    """
+    def __init__(__self__, *,
+                 bucket: Optional[str] = None,
+                 key: Optional[str] = None):
+        """
+        Specifies the details for the S3 file being copied.
+        :param str bucket: Specifies the S3 bucket that contains the file being copied.
+        :param str key: The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[str]:
+        """
+        Specifies the S3 bucket that contains the file being copied.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+        """
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class WorkflowS3Tag(dict):
+    """
+    Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+        :param str key: The name assigned to the tag that you create.
+        :param str value: The value that corresponds to the key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name assigned to the tag that you create.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value that corresponds to the key.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkflowStep(dict):
+    """
+    The basic building block of a workflow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyStepDetails":
+            suggest = "copy_step_details"
+        elif key == "customStepDetails":
+            suggest = "custom_step_details"
+        elif key == "deleteStepDetails":
+            suggest = "delete_step_details"
+        elif key == "tagStepDetails":
+            suggest = "tag_step_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowStep.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_step_details: Optional['outputs.WorkflowStepCopyStepDetailsProperties'] = None,
+                 custom_step_details: Optional['outputs.WorkflowStepCustomStepDetailsProperties'] = None,
+                 delete_step_details: Optional['outputs.WorkflowStepDeleteStepDetailsProperties'] = None,
+                 tag_step_details: Optional['outputs.WorkflowStepTagStepDetailsProperties'] = None,
+                 type: Optional['WorkflowStepType'] = None):
+        """
+        The basic building block of a workflow.
+        :param 'WorkflowStepCopyStepDetailsProperties' copy_step_details: Details for a step that performs a file copy.
+        :param 'WorkflowStepCustomStepDetailsProperties' custom_step_details: Details for a step that invokes a lambda function.
+        :param 'WorkflowStepDeleteStepDetailsProperties' delete_step_details: Details for a step that deletes the file.
+        :param 'WorkflowStepTagStepDetailsProperties' tag_step_details: Details for a step that creates one or more tags.
+        """
+        if copy_step_details is not None:
+            pulumi.set(__self__, "copy_step_details", copy_step_details)
+        if custom_step_details is not None:
+            pulumi.set(__self__, "custom_step_details", custom_step_details)
+        if delete_step_details is not None:
+            pulumi.set(__self__, "delete_step_details", delete_step_details)
+        if tag_step_details is not None:
+            pulumi.set(__self__, "tag_step_details", tag_step_details)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="copyStepDetails")
+    def copy_step_details(self) -> Optional['outputs.WorkflowStepCopyStepDetailsProperties']:
+        """
+        Details for a step that performs a file copy.
+        """
+        return pulumi.get(self, "copy_step_details")
+
+    @property
+    @pulumi.getter(name="customStepDetails")
+    def custom_step_details(self) -> Optional['outputs.WorkflowStepCustomStepDetailsProperties']:
+        """
+        Details for a step that invokes a lambda function.
+        """
+        return pulumi.get(self, "custom_step_details")
+
+    @property
+    @pulumi.getter(name="deleteStepDetails")
+    def delete_step_details(self) -> Optional['outputs.WorkflowStepDeleteStepDetailsProperties']:
+        """
+        Details for a step that deletes the file.
+        """
+        return pulumi.get(self, "delete_step_details")
+
+    @property
+    @pulumi.getter(name="tagStepDetails")
+    def tag_step_details(self) -> Optional['outputs.WorkflowStepTagStepDetailsProperties']:
+        """
+        Details for a step that creates one or more tags.
+        """
+        return pulumi.get(self, "tag_step_details")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['WorkflowStepType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class WorkflowStepCopyStepDetailsProperties(dict):
+    """
+    Details for a step that performs a file copy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationFileLocation":
+            suggest = "destination_file_location"
+        elif key == "overwriteExisting":
+            suggest = "overwrite_existing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowStepCopyStepDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowStepCopyStepDetailsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowStepCopyStepDetailsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_file_location: Optional['outputs.WorkflowInputFileLocation'] = None,
+                 name: Optional[str] = None,
+                 overwrite_existing: Optional['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting'] = None):
+        """
+        Details for a step that performs a file copy.
+        :param str name: The name of the step, used as an identifier.
+        :param 'WorkflowStepCopyStepDetailsPropertiesOverwriteExisting' overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+        """
+        if destination_file_location is not None:
+            pulumi.set(__self__, "destination_file_location", destination_file_location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if overwrite_existing is not None:
+            pulumi.set(__self__, "overwrite_existing", overwrite_existing)
+
+    @property
+    @pulumi.getter(name="destinationFileLocation")
+    def destination_file_location(self) -> Optional['outputs.WorkflowInputFileLocation']:
+        return pulumi.get(self, "destination_file_location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the step, used as an identifier.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="overwriteExisting")
+    def overwrite_existing(self) -> Optional['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']:
+        """
+        A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+        """
+        return pulumi.get(self, "overwrite_existing")
+
+
+@pulumi.output_type
+class WorkflowStepCustomStepDetailsProperties(dict):
+    """
+    Details for a step that invokes a lambda function.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowStepCustomStepDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowStepCustomStepDetailsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowStepCustomStepDetailsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 target: Optional[str] = None,
+                 timeout_seconds: Optional[int] = None):
+        """
+        Details for a step that invokes a lambda function.
+        :param str name: The name of the step, used as an identifier.
+        :param str target: The ARN for the lambda function that is being called.
+        :param int timeout_seconds: Timeout, in seconds, for the step.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the step, used as an identifier.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The ARN for the lambda function that is being called.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[int]:
+        """
+        Timeout, in seconds, for the step.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+
+@pulumi.output_type
+class WorkflowStepDeleteStepDetailsProperties(dict):
+    """
+    Details for a step that deletes the file.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Details for a step that deletes the file.
+        :param str name: The name of the step, used as an identifier.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the step, used as an identifier.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class WorkflowStepTagStepDetailsProperties(dict):
+    """
+    Details for a step that creates one or more tags.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.WorkflowS3Tag']] = None):
+        """
+        Details for a step that creates one or more tags.
+        :param str name: The name of the step, used as an identifier.
+        :param Sequence['WorkflowS3Tag'] tags: Array that contains from 1 to 10 key/value pairs.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the step, used as an identifier.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.WorkflowS3Tag']]:
+        """
+        Array that contains from 1 to 10 key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class WorkflowTag(dict):
+    """
+    Creates a key-value pair for a specific resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Creates a key-value pair for a specific resource.
+        :param str key: The name assigned to the tag that you create.
+        :param str value: Contains one or more values that you assigned to the key name you create.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name assigned to the tag that you create.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Contains one or more values that you assigned to the key name you create.
+        """
         return pulumi.get(self, "value")
 
 

@@ -305,6 +305,8 @@ if typing.TYPE_CHECKING:
     redshift = __redshift
     import pulumi_aws_native.rekognition as __rekognition
     rekognition = __rekognition
+    import pulumi_aws_native.resiliencehub as __resiliencehub
+    resiliencehub = __resiliencehub
     import pulumi_aws_native.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
     import pulumi_aws_native.robomaker as __robomaker
@@ -516,6 +518,7 @@ else:
     rds = _utilities.lazy_import('pulumi_aws_native.rds')
     redshift = _utilities.lazy_import('pulumi_aws_native.redshift')
     rekognition = _utilities.lazy_import('pulumi_aws_native.rekognition')
+    resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
     robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
@@ -2228,6 +2231,15 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "resiliencehub",
+  "fqn": "pulumi_aws_native.resiliencehub",
+  "classes": {
+   "aws-native:resiliencehub:App": "App",
+   "aws-native:resiliencehub:ResiliencyPolicy": "ResiliencyPolicy"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "resourcegroups",
   "fqn": "pulumi_aws_native.resourcegroups",
   "classes": {
@@ -2553,7 +2565,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.transfer",
   "classes": {
    "aws-native:transfer:Server": "Server",
-   "aws-native:transfer:User": "User"
+   "aws-native:transfer:User": "User",
+   "aws-native:transfer:Workflow": "Workflow"
   }
  },
  {

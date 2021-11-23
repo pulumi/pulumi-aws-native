@@ -16,17 +16,21 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  portal_id: pulumi.Input[str],
+                 asset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[str] portal_id: The ID of the portal in which to create the project.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asset_ids: The IDs of the assets to be associated to the project.
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_name: A friendly name for the project.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: A list of key-value pairs that contain metadata for the project.
         """
         pulumi.set(__self__, "portal_id", portal_id)
+        if asset_ids is not None:
+            pulumi.set(__self__, "asset_ids", asset_ids)
         if project_description is not None:
             pulumi.set(__self__, "project_description", project_description)
         if project_name is not None:
@@ -45,6 +49,18 @@ class ProjectArgs:
     @portal_id.setter
     def portal_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "portal_id", value)
+
+    @property
+    @pulumi.getter(name="assetIds")
+    def asset_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the assets to be associated to the project.
+        """
+        return pulumi.get(self, "asset_ids")
+
+    @asset_ids.setter
+    def asset_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "asset_ids", value)
 
     @property
     @pulumi.getter(name="projectDescription")
@@ -88,6 +104,7 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  portal_id: Optional[pulumi.Input[str]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -98,6 +115,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] asset_ids: The IDs of the assets to be associated to the project.
         :param pulumi.Input[str] portal_id: The ID of the portal in which to create the project.
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_name: A friendly name for the project.
@@ -127,6 +145,7 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asset_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  portal_id: Optional[pulumi.Input[str]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -143,6 +162,7 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
+            __props__.__dict__["asset_ids"] = asset_ids
             if portal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'portal_id'")
             __props__.__dict__["portal_id"] = portal_id
@@ -173,6 +193,7 @@ class Project(pulumi.CustomResource):
 
         __props__ = ProjectArgs.__new__(ProjectArgs)
 
+        __props__.__dict__["asset_ids"] = None
         __props__.__dict__["portal_id"] = None
         __props__.__dict__["project_arn"] = None
         __props__.__dict__["project_description"] = None
@@ -180,6 +201,14 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["project_name"] = None
         __props__.__dict__["tags"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="assetIds")
+    def asset_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IDs of the assets to be associated to the project.
+        """
+        return pulumi.get(self, "asset_ids")
 
     @property
     @pulumi.getter(name="portalId")

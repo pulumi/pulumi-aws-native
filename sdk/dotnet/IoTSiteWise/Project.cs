@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
+        /// The IDs of the assets to be associated to the project.
+        /// </summary>
+        [Output("assetIds")]
+        public Output<ImmutableArray<string>> AssetIds { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the portal in which to create the project.
         /// </summary>
         [Output("portalId")]
@@ -96,6 +102,18 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
     public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
+        [Input("assetIds")]
+        private InputList<string>? _assetIds;
+
+        /// <summary>
+        /// The IDs of the assets to be associated to the project.
+        /// </summary>
+        public InputList<string> AssetIds
+        {
+            get => _assetIds ?? (_assetIds = new InputList<string>());
+            set => _assetIds = value;
+        }
+
         /// <summary>
         /// The ID of the portal in which to create the project.
         /// </summary>

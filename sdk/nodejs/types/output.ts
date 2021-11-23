@@ -22940,6 +22940,35 @@ export namespace redshift {
 
 }
 
+export namespace resiliencehub {
+    export interface AppPhysicalResourceId {
+        awsAccountId?: string;
+        awsRegion?: string;
+        identifier: string;
+        type: string;
+    }
+
+    /**
+     * Resource mapping is used to map logical resources from template to physical resource
+     */
+    export interface AppResourceMapping {
+        logicalStackName?: string;
+        mappingType: string;
+        physicalResourceId: outputs.resiliencehub.AppPhysicalResourceId;
+        resourceName?: string;
+    }
+
+    export interface AppTagMap {
+    }
+
+    export interface ResiliencyPolicyPolicyMap {
+    }
+
+    export interface ResiliencyPolicyTagMap {
+    }
+
+}
+
 export namespace resourcegroups {
     export interface GroupConfigurationItem {
         parameters?: outputs.resourcegroups.GroupConfigurationParameter[];
@@ -24250,6 +24279,16 @@ export namespace s3 {
     }
 
     /**
+     * CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+     */
+    export interface StorageLensCloudWatchMetrics {
+        /**
+         * Specifies whether CloudWatch metrics are enabled or disabled.
+         */
+        isEnabled: boolean;
+    }
+
+    /**
      * Specifies the details of Amazon S3 Storage Lens configuration.
      */
     export interface StorageLensConfiguration {
@@ -24273,7 +24312,8 @@ export namespace s3 {
      * Specifies how Amazon S3 Storage Lens metrics should be exported.
      */
     export interface StorageLensDataExport {
-        s3BucketDestination: outputs.s3.StorageLensS3BucketDestination;
+        cloudWatchMetrics?: outputs.s3.StorageLensCloudWatchMetrics;
+        s3BucketDestination?: outputs.s3.StorageLensS3BucketDestination;
     }
 
     /**
@@ -27141,6 +27181,135 @@ export namespace transfer {
 
     export interface UserTag {
         key: string;
+        value: string;
+    }
+
+    /**
+     * Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+     */
+    export interface WorkflowInputFileLocation {
+        s3FileLocation?: outputs.transfer.WorkflowS3InputFileLocation;
+    }
+
+    /**
+     * Specifies the details for the S3 file being copied.
+     */
+    export interface WorkflowS3InputFileLocation {
+        /**
+         * Specifies the S3 bucket that contains the file being copied.
+         */
+        bucket?: string;
+        /**
+         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         */
+        key?: string;
+    }
+
+    /**
+     * Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+     */
+    export interface WorkflowS3Tag {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: string;
+        /**
+         * The value that corresponds to the key.
+         */
+        value: string;
+    }
+
+    /**
+     * The basic building block of a workflow.
+     */
+    export interface WorkflowStep {
+        /**
+         * Details for a step that performs a file copy.
+         */
+        copyStepDetails?: outputs.transfer.WorkflowStepCopyStepDetailsProperties;
+        /**
+         * Details for a step that invokes a lambda function.
+         */
+        customStepDetails?: outputs.transfer.WorkflowStepCustomStepDetailsProperties;
+        /**
+         * Details for a step that deletes the file.
+         */
+        deleteStepDetails?: outputs.transfer.WorkflowStepDeleteStepDetailsProperties;
+        /**
+         * Details for a step that creates one or more tags.
+         */
+        tagStepDetails?: outputs.transfer.WorkflowStepTagStepDetailsProperties;
+        type?: enums.transfer.WorkflowStepType;
+    }
+
+    /**
+     * Details for a step that performs a file copy.
+     */
+    export interface WorkflowStepCopyStepDetailsProperties {
+        destinationFileLocation?: outputs.transfer.WorkflowInputFileLocation;
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: string;
+        /**
+         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+         */
+        overwriteExisting?: enums.transfer.WorkflowStepCopyStepDetailsPropertiesOverwriteExisting;
+    }
+
+    /**
+     * Details for a step that invokes a lambda function.
+     */
+    export interface WorkflowStepCustomStepDetailsProperties {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: string;
+        /**
+         * The ARN for the lambda function that is being called.
+         */
+        target?: string;
+        /**
+         * Timeout, in seconds, for the step.
+         */
+        timeoutSeconds?: number;
+    }
+
+    /**
+     * Details for a step that deletes the file.
+     */
+    export interface WorkflowStepDeleteStepDetailsProperties {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: string;
+    }
+
+    /**
+     * Details for a step that creates one or more tags.
+     */
+    export interface WorkflowStepTagStepDetailsProperties {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: string;
+        /**
+         * Array that contains from 1 to 10 key/value pairs.
+         */
+        tags?: outputs.transfer.WorkflowS3Tag[];
+    }
+
+    /**
+     * Creates a key-value pair for a specific resource.
+     */
+    export interface WorkflowTag {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: string;
+        /**
+         * Contains one or more values that you assigned to the key name you create.
+         */
         value: string;
     }
 

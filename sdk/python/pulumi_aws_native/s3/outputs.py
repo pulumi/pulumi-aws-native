@@ -76,6 +76,7 @@ __all__ = [
     'StorageLensAwsOrg',
     'StorageLensBucketLevel',
     'StorageLensBucketsAndRegions',
+    'StorageLensCloudWatchMetrics',
     'StorageLensConfiguration',
     'StorageLensDataExport',
     'StorageLensEncryption',
@@ -3160,6 +3161,45 @@ class StorageLensBucketsAndRegions(dict):
 
 
 @pulumi.output_type
+class StorageLensCloudWatchMetrics(dict):
+    """
+    CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensCloudWatchMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensCloudWatchMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensCloudWatchMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_enabled: bool):
+        """
+        CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+        :param bool is_enabled: Specifies whether CloudWatch metrics are enabled or disabled.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Specifies whether CloudWatch metrics are enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+
+@pulumi.output_type
 class StorageLensConfiguration(dict):
     """
     Specifies the details of Amazon S3 Storage Lens configuration.
@@ -3272,7 +3312,9 @@ class StorageLensDataExport(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "s3BucketDestination":
+        if key == "cloudWatchMetrics":
+            suggest = "cloud_watch_metrics"
+        elif key == "s3BucketDestination":
             suggest = "s3_bucket_destination"
 
         if suggest:
@@ -3287,15 +3329,24 @@ class StorageLensDataExport(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s3_bucket_destination: 'outputs.StorageLensS3BucketDestination'):
+                 cloud_watch_metrics: Optional['outputs.StorageLensCloudWatchMetrics'] = None,
+                 s3_bucket_destination: Optional['outputs.StorageLensS3BucketDestination'] = None):
         """
         Specifies how Amazon S3 Storage Lens metrics should be exported.
         """
-        pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+        if cloud_watch_metrics is not None:
+            pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
+        if s3_bucket_destination is not None:
+            pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+
+    @property
+    @pulumi.getter(name="cloudWatchMetrics")
+    def cloud_watch_metrics(self) -> Optional['outputs.StorageLensCloudWatchMetrics']:
+        return pulumi.get(self, "cloud_watch_metrics")
 
     @property
     @pulumi.getter(name="s3BucketDestination")
-    def s3_bucket_destination(self) -> 'outputs.StorageLensS3BucketDestination':
+    def s3_bucket_destination(self) -> Optional['outputs.StorageLensS3BucketDestination']:
         return pulumi.get(self, "s3_bucket_destination")
 
 

@@ -163,6 +163,7 @@ import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as rekognition from "./rekognition";
+import * as resiliencehub from "./resiliencehub";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
 import * as route53 from "./route53";
@@ -342,6 +343,7 @@ export {
     rds,
     redshift,
     rekognition,
+    resiliencehub,
     resourcegroups,
     robomaker,
     route53,

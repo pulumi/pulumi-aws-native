@@ -15,6 +15,8 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
+	// The IDs of the assets to be associated to the project.
+	AssetIds pulumi.StringArrayOutput `pulumi:"assetIds"`
 	// The ID of the portal in which to create the project.
 	PortalId pulumi.StringOutput `pulumi:"portalId"`
 	// The ARN of the project.
@@ -71,6 +73,8 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
+	// The IDs of the assets to be associated to the project.
+	AssetIds []string `pulumi:"assetIds"`
 	// The ID of the portal in which to create the project.
 	PortalId string `pulumi:"portalId"`
 	// A description for the project.
@@ -83,6 +87,8 @@ type projectArgs struct {
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
+	// The IDs of the assets to be associated to the project.
+	AssetIds pulumi.StringArrayInput
 	// The ID of the portal in which to create the project.
 	PortalId pulumi.StringInput
 	// A description for the project.

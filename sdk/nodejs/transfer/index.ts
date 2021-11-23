@@ -7,10 +7,15 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./server";
 export * from "./user";
+export * from "./workflow";
+
+// Export enums:
+export * from "../types/enums/transfer";
 
 // Import resources to register:
 import { Server } from "./server";
 import { User } from "./user";
+import { Workflow } from "./workflow";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +25,8 @@ const _module = {
                 return new Server(name, <any>undefined, { urn })
             case "aws-native:transfer:User":
                 return new User(name, <any>undefined, { urn })
+            case "aws-native:transfer:Workflow":
+                return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

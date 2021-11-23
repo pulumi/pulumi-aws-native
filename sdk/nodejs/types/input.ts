@@ -22165,6 +22165,34 @@ export namespace redshift {
 
 }
 
+export namespace resiliencehub {
+    export interface AppPhysicalResourceIdArgs {
+        awsAccountId?: pulumi.Input<string>;
+        awsRegion?: pulumi.Input<string>;
+        identifier: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    /**
+     * Resource mapping is used to map logical resources from template to physical resource
+     */
+    export interface AppResourceMappingArgs {
+        logicalStackName?: pulumi.Input<string>;
+        mappingType: pulumi.Input<string>;
+        physicalResourceId: pulumi.Input<inputs.resiliencehub.AppPhysicalResourceIdArgs>;
+        resourceName?: pulumi.Input<string>;
+    }
+
+    export interface AppTagMapArgs {
+    }
+
+    export interface ResiliencyPolicyPolicyMapArgs {
+    }
+
+    export interface ResiliencyPolicyTagMapArgs {
+    }
+}
+
 export namespace resourcegroups {
     export interface GroupConfigurationItemArgs {
         parameters?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfigurationParameterArgs>[]>;
@@ -23464,6 +23492,16 @@ export namespace s3 {
     }
 
     /**
+     * CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+     */
+    export interface StorageLensCloudWatchMetricsArgs {
+        /**
+         * Specifies whether CloudWatch metrics are enabled or disabled.
+         */
+        isEnabled: pulumi.Input<boolean>;
+    }
+
+    /**
      * Specifies the details of Amazon S3 Storage Lens configuration.
      */
     export interface StorageLensConfigurationArgs {
@@ -23487,7 +23525,8 @@ export namespace s3 {
      * Specifies how Amazon S3 Storage Lens metrics should be exported.
      */
     export interface StorageLensDataExportArgs {
-        s3BucketDestination: pulumi.Input<inputs.s3.StorageLensS3BucketDestinationArgs>;
+        cloudWatchMetrics?: pulumi.Input<inputs.s3.StorageLensCloudWatchMetricsArgs>;
+        s3BucketDestination?: pulumi.Input<inputs.s3.StorageLensS3BucketDestinationArgs>;
     }
 
     /**
@@ -26291,6 +26330,135 @@ export namespace transfer {
 
     export interface UserTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+     */
+    export interface WorkflowInputFileLocationArgs {
+        s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowS3InputFileLocationArgs>;
+    }
+
+    /**
+     * Specifies the details for the S3 file being copied.
+     */
+    export interface WorkflowS3InputFileLocationArgs {
+        /**
+         * Specifies the S3 bucket that contains the file being copied.
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         */
+        key?: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+     */
+    export interface WorkflowS3TagArgs {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value that corresponds to the key.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The basic building block of a workflow.
+     */
+    export interface WorkflowStepArgs {
+        /**
+         * Details for a step that performs a file copy.
+         */
+        copyStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetailsPropertiesArgs>;
+        /**
+         * Details for a step that invokes a lambda function.
+         */
+        customStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCustomStepDetailsPropertiesArgs>;
+        /**
+         * Details for a step that deletes the file.
+         */
+        deleteStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepDeleteStepDetailsPropertiesArgs>;
+        /**
+         * Details for a step that creates one or more tags.
+         */
+        tagStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepTagStepDetailsPropertiesArgs>;
+        type?: pulumi.Input<enums.transfer.WorkflowStepType>;
+    }
+
+    /**
+     * Details for a step that performs a file copy.
+     */
+    export interface WorkflowStepCopyStepDetailsPropertiesArgs {
+        destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowInputFileLocationArgs>;
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+         */
+        overwriteExisting?: pulumi.Input<enums.transfer.WorkflowStepCopyStepDetailsPropertiesOverwriteExisting>;
+    }
+
+    /**
+     * Details for a step that invokes a lambda function.
+     */
+    export interface WorkflowStepCustomStepDetailsPropertiesArgs {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The ARN for the lambda function that is being called.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * Timeout, in seconds, for the step.
+         */
+        timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    /**
+     * Details for a step that deletes the file.
+     */
+    export interface WorkflowStepDeleteStepDetailsPropertiesArgs {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    /**
+     * Details for a step that creates one or more tags.
+     */
+    export interface WorkflowStepTagStepDetailsPropertiesArgs {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Array that contains from 1 to 10 key/value pairs.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowS3TagArgs>[]>;
+    }
+
+    /**
+     * Creates a key-value pair for a specific resource.
+     */
+    export interface WorkflowTagArgs {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Contains one or more values that you assigned to the key name you create.
+         */
         value: pulumi.Input<string>;
     }
 }

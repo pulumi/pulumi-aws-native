@@ -15,8 +15,11 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensDataExportArgs : Pulumi.ResourceArgs
     {
-        [Input("s3BucketDestination", required: true)]
-        public Input<Inputs.StorageLensS3BucketDestinationArgs> S3BucketDestination { get; set; } = null!;
+        [Input("cloudWatchMetrics")]
+        public Input<Inputs.StorageLensCloudWatchMetricsArgs>? CloudWatchMetrics { get; set; }
+
+        [Input("s3BucketDestination")]
+        public Input<Inputs.StorageLensS3BucketDestinationArgs>? S3BucketDestination { get; set; }
 
         public StorageLensDataExportArgs()
         {

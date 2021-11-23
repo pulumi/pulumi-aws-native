@@ -75,6 +75,7 @@ __all__ = [
     'StorageLensAwsOrgArgs',
     'StorageLensBucketLevelArgs',
     'StorageLensBucketsAndRegionsArgs',
+    'StorageLensCloudWatchMetricsArgs',
     'StorageLensConfigurationArgs',
     'StorageLensDataExportArgs',
     'StorageLensEncryptionArgs',
@@ -2844,6 +2845,29 @@ class StorageLensBucketsAndRegionsArgs:
 
 
 @pulumi.input_type
+class StorageLensCloudWatchMetricsArgs:
+    def __init__(__self__, *,
+                 is_enabled: pulumi.Input[bool]):
+        """
+        CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+        :param pulumi.Input[bool] is_enabled: Specifies whether CloudWatch metrics are enabled or disabled.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether CloudWatch metrics are enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+
+@pulumi.input_type
 class StorageLensConfigurationArgs:
     def __init__(__self__, *,
                  account_level: pulumi.Input['StorageLensAccountLevelArgs'],
@@ -2955,19 +2979,32 @@ class StorageLensConfigurationArgs:
 @pulumi.input_type
 class StorageLensDataExportArgs:
     def __init__(__self__, *,
-                 s3_bucket_destination: pulumi.Input['StorageLensS3BucketDestinationArgs']):
+                 cloud_watch_metrics: Optional[pulumi.Input['StorageLensCloudWatchMetricsArgs']] = None,
+                 s3_bucket_destination: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']] = None):
         """
         Specifies how Amazon S3 Storage Lens metrics should be exported.
         """
-        pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+        if cloud_watch_metrics is not None:
+            pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
+        if s3_bucket_destination is not None:
+            pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+
+    @property
+    @pulumi.getter(name="cloudWatchMetrics")
+    def cloud_watch_metrics(self) -> Optional[pulumi.Input['StorageLensCloudWatchMetricsArgs']]:
+        return pulumi.get(self, "cloud_watch_metrics")
+
+    @cloud_watch_metrics.setter
+    def cloud_watch_metrics(self, value: Optional[pulumi.Input['StorageLensCloudWatchMetricsArgs']]):
+        pulumi.set(self, "cloud_watch_metrics", value)
 
     @property
     @pulumi.getter(name="s3BucketDestination")
-    def s3_bucket_destination(self) -> pulumi.Input['StorageLensS3BucketDestinationArgs']:
+    def s3_bucket_destination(self) -> Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']]:
         return pulumi.get(self, "s3_bucket_destination")
 
     @s3_bucket_destination.setter
-    def s3_bucket_destination(self, value: pulumi.Input['StorageLensS3BucketDestinationArgs']):
+    def s3_bucket_destination(self, value: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']]):
         pulumi.set(self, "s3_bucket_destination", value)
 
 

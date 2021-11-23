@@ -16,11 +16,16 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensDataExport
     {
-        public readonly Outputs.StorageLensS3BucketDestination S3BucketDestination;
+        public readonly Outputs.StorageLensCloudWatchMetrics? CloudWatchMetrics;
+        public readonly Outputs.StorageLensS3BucketDestination? S3BucketDestination;
 
         [OutputConstructor]
-        private StorageLensDataExport(Outputs.StorageLensS3BucketDestination s3BucketDestination)
+        private StorageLensDataExport(
+            Outputs.StorageLensCloudWatchMetrics? cloudWatchMetrics,
+
+            Outputs.StorageLensS3BucketDestination? s3BucketDestination)
         {
+            CloudWatchMetrics = cloudWatchMetrics;
             S3BucketDestination = s3BucketDestination;
         }
     }

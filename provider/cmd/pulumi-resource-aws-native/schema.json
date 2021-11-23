@@ -39404,6 +39404,102 @@
             },
             "type": "object"
         },
+        "aws-native:resiliencehub:AppPhysicalResourceId": {
+            "properties": {
+                "awsAccountId": {
+                    "type": "string"
+                },
+                "awsRegion": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "identifier",
+                "type"
+            ]
+        },
+        "aws-native:resiliencehub:AppResourceMapping": {
+            "description": "Resource mapping is used to map logical resources from template to physical resource",
+            "properties": {
+                "logicalStackName": {
+                    "type": "string"
+                },
+                "mappingType": {
+                    "type": "string"
+                },
+                "physicalResourceId": {
+                    "$ref": "#/types/aws-native:resiliencehub:AppPhysicalResourceId"
+                },
+                "resourceName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mappingType",
+                "physicalResourceId"
+            ]
+        },
+        "aws-native:resiliencehub:AppTagMap": {
+            "type": "object"
+        },
+        "aws-native:resiliencehub:ResiliencyPolicyDataLocationConstraint": {
+            "description": "Data Location Constraint of the Policy.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "AnyLocation",
+                    "value": "AnyLocation"
+                },
+                {
+                    "name": "SameContinent",
+                    "value": "SameContinent"
+                },
+                {
+                    "name": "SameCountry",
+                    "value": "SameCountry"
+                }
+            ]
+        },
+        "aws-native:resiliencehub:ResiliencyPolicyPolicyMap": {
+            "type": "object"
+        },
+        "aws-native:resiliencehub:ResiliencyPolicyTagMap": {
+            "type": "object"
+        },
+        "aws-native:resiliencehub:ResiliencyPolicyTier": {
+            "description": "Resiliency Policy Tier.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "MissionCritical",
+                    "value": "MissionCritical"
+                },
+                {
+                    "name": "Critical",
+                    "value": "Critical"
+                },
+                {
+                    "name": "Important",
+                    "value": "Important"
+                },
+                {
+                    "name": "CoreServices",
+                    "value": "CoreServices"
+                },
+                {
+                    "name": "NonCritical",
+                    "value": "NonCritical"
+                }
+            ]
+        },
         "aws-native:resourcegroups:GroupConfigurationItem": {
             "properties": {
                 "parameters": {
@@ -42441,6 +42537,19 @@
             },
             "type": "object"
         },
+        "aws-native:s3:StorageLensCloudWatchMetrics": {
+            "description": "CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.",
+            "properties": {
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether CloudWatch metrics are enabled or disabled."
+                }
+            },
+            "type": "object",
+            "required": [
+                "isEnabled"
+            ]
+        },
         "aws-native:s3:StorageLensConfiguration": {
             "description": "Specifies the details of Amazon S3 Storage Lens configuration.",
             "properties": {
@@ -42481,14 +42590,14 @@
         "aws-native:s3:StorageLensDataExport": {
             "description": "Specifies how Amazon S3 Storage Lens metrics should be exported.",
             "properties": {
+                "cloudWatchMetrics": {
+                    "$ref": "#/types/aws-native:s3:StorageLensCloudWatchMetrics"
+                },
                 "s3BucketDestination": {
                     "$ref": "#/types/aws-native:s3:StorageLensS3BucketDestination"
                 }
             },
-            "type": "object",
-            "required": [
-                "s3BucketDestination"
-            ]
+            "type": "object"
         },
         "aws-native:s3:StorageLensEncryption": {
             "description": "Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).",
@@ -47096,6 +47205,187 @@
                 }
             },
             "type": "object"
+        },
+        "aws-native:transfer:WorkflowInputFileLocation": {
+            "description": "Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.",
+            "properties": {
+                "s3FileLocation": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowS3InputFileLocation"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:transfer:WorkflowS3InputFileLocation": {
+            "description": "Specifies the details for the S3 file being copied.",
+            "properties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "Specifies the S3 bucket that contains the file being copied."
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The name assigned to the file when it was created in S3. You use the object key to retrieve the object."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:transfer:WorkflowS3Tag": {
+            "description": "Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The name assigned to the tag that you create."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value that corresponds to the key."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:transfer:WorkflowStep": {
+            "description": "The basic building block of a workflow.",
+            "properties": {
+                "copyStepDetails": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepCopyStepDetailsProperties",
+                    "description": "Details for a step that performs a file copy."
+                },
+                "customStepDetails": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepCustomStepDetailsProperties",
+                    "description": "Details for a step that invokes a lambda function."
+                },
+                "deleteStepDetails": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepDeleteStepDetailsProperties",
+                    "description": "Details for a step that deletes the file."
+                },
+                "tagStepDetails": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepTagStepDetailsProperties",
+                    "description": "Details for a step that creates one or more tags."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepType"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:transfer:WorkflowStepCopyStepDetailsProperties": {
+            "description": "Details for a step that performs a file copy.",
+            "properties": {
+                "destinationFileLocation": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowInputFileLocation"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the step, used as an identifier."
+                },
+                "overwriteExisting": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepCopyStepDetailsPropertiesOverwriteExisting",
+                    "description": "A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:transfer:WorkflowStepCopyStepDetailsPropertiesOverwriteExisting": {
+            "description": "A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "True",
+                    "value": "TRUE"
+                },
+                {
+                    "name": "False",
+                    "value": "FALSE"
+                }
+            ]
+        },
+        "aws-native:transfer:WorkflowStepCustomStepDetailsProperties": {
+            "description": "Details for a step that invokes a lambda function.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the step, used as an identifier."
+                },
+                "target": {
+                    "type": "string",
+                    "description": "The ARN for the lambda function that is being called."
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "description": "Timeout, in seconds, for the step."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:transfer:WorkflowStepDeleteStepDetailsProperties": {
+            "description": "Details for a step that deletes the file.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the step, used as an identifier."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:transfer:WorkflowStepTagStepDetailsProperties": {
+            "description": "Details for a step that creates one or more tags.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the step, used as an identifier."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:transfer:WorkflowS3Tag"
+                    },
+                    "description": "Array that contains from 1 to 10 key/value pairs."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:transfer:WorkflowStepType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Copy",
+                    "value": "COPY"
+                },
+                {
+                    "name": "Custom",
+                    "value": "CUSTOM"
+                },
+                {
+                    "name": "Delete",
+                    "value": "DELETE"
+                },
+                {
+                    "name": "Tag",
+                    "value": "TAG"
+                }
+            ]
+        },
+        "aws-native:transfer:WorkflowTag": {
+            "description": "Creates a key-value pair for a specific resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The name assigned to the tag that you create."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Contains one or more values that you assigned to the key name you create."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
         },
         "aws-native:wafv2:IPSetIPAddressVersion": {
             "description": "Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.",
@@ -67604,6 +67894,13 @@
         "aws-native:iotsitewise:Project": {
             "description": "Resource schema for AWS::IoTSiteWise::Project",
             "properties": {
+                "assetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IDs of the assets to be associated to the project."
+                },
                 "portalId": {
                     "type": "string",
                     "description": "The ID of the portal in which to create the project."
@@ -67640,6 +67937,13 @@
                 "projectName"
             ],
             "inputProperties": {
+                "assetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IDs of the assets to be associated to the project."
+                },
                 "portalId": {
                     "type": "string",
                     "description": "The ID of the portal in which to create the project."
@@ -76365,6 +76669,147 @@
                 }
             }
         },
+        "aws-native:resiliencehub:App": {
+            "description": "Resource Type Definition for AWS::ResilienceHub::App.",
+            "properties": {
+                "appArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the App."
+                },
+                "appTemplateBody": {
+                    "type": "string",
+                    "description": "A string containing full ResilienceHub app template body."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "App description."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the app."
+                },
+                "resiliencyPolicyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the Resiliency Policy."
+                },
+                "resourceMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:resiliencehub:AppResourceMapping"
+                    },
+                    "description": "An array of ResourceMapping objects."
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:resiliencehub:AppTagMap"
+                }
+            },
+            "type": "object",
+            "required": [
+                "appArn",
+                "appTemplateBody",
+                "name",
+                "resourceMappings"
+            ],
+            "inputProperties": {
+                "appTemplateBody": {
+                    "type": "string",
+                    "description": "A string containing full ResilienceHub app template body."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "App description."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the app."
+                },
+                "resiliencyPolicyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the Resiliency Policy."
+                },
+                "resourceMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:resiliencehub:AppResourceMapping"
+                    },
+                    "description": "An array of ResourceMapping objects."
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:resiliencehub:AppTagMap"
+                }
+            },
+            "requiredInputs": [
+                "appTemplateBody",
+                "resourceMappings"
+            ]
+        },
+        "aws-native:resiliencehub:ResiliencyPolicy": {
+            "description": "Resource Type Definition for Resiliency Policy.",
+            "properties": {
+                "dataLocationConstraint": {
+                    "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyDataLocationConstraint",
+                    "description": "Data Location Constraint of the Policy."
+                },
+                "policy": {
+                    "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyPolicyMap"
+                },
+                "policyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the Resiliency Policy."
+                },
+                "policyDescription": {
+                    "type": "string",
+                    "description": "Description of Resiliency Policy."
+                },
+                "policyName": {
+                    "type": "string",
+                    "description": "Name of Resiliency Policy."
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyTagMap"
+                },
+                "tier": {
+                    "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyTier",
+                    "description": "Resiliency Policy Tier."
+                }
+            },
+            "type": "object",
+            "required": [
+                "policy",
+                "policyArn",
+                "policyName",
+                "tier"
+            ],
+            "inputProperties": {
+                "dataLocationConstraint": {
+                    "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyDataLocationConstraint",
+                    "description": "Data Location Constraint of the Policy."
+                },
+                "policy": {
+                    "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyPolicyMap"
+                },
+                "policyDescription": {
+                    "type": "string",
+                    "description": "Description of Resiliency Policy."
+                },
+                "policyName": {
+                    "type": "string",
+                    "description": "Name of Resiliency Policy."
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyTagMap"
+                },
+                "tier": {
+                    "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyTier",
+                    "description": "Resiliency Policy Tier."
+                }
+            },
+            "requiredInputs": [
+                "policy",
+                "policyName",
+                "tier"
+            ]
+        },
         "aws-native:resourcegroups:Group": {
             "description": "Schema for ResourceGroups::Group",
             "properties": {
@@ -81613,6 +82058,80 @@
                 "databaseName"
             ]
         },
+        "aws-native:transfer:Workflow": {
+            "description": "Resource Type definition for AWS::Transfer::Workflow",
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Specifies the unique Amazon Resource Name (ARN) for the workflow."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A textual description for the workflow."
+                },
+                "onExceptionSteps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:transfer:WorkflowStep"
+                    },
+                    "description": "Specifies the steps (actions) to take if any errors are encountered during execution of the workflow."
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:transfer:WorkflowStep"
+                    },
+                    "description": "Specifies the details for the steps that are in the specified workflow."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:transfer:WorkflowTag"
+                    },
+                    "description": "Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose."
+                },
+                "workflowId": {
+                    "type": "string",
+                    "description": "A unique identifier for the workflow."
+                }
+            },
+            "type": "object",
+            "required": [
+                "arn",
+                "steps",
+                "workflowId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A textual description for the workflow."
+                },
+                "onExceptionSteps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:transfer:WorkflowStep"
+                    },
+                    "description": "Specifies the steps (actions) to take if any errors are encountered during execution of the workflow."
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:transfer:WorkflowStep"
+                    },
+                    "description": "Specifies the details for the steps that are in the specified workflow."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:transfer:WorkflowTag"
+                    },
+                    "description": "Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose."
+                }
+            },
+            "requiredInputs": [
+                "steps"
+            ]
+        },
         "aws-native:wafv2:IPSet": {
             "description": "Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually",
             "properties": {
@@ -82661,6 +83180,7 @@
                 "rds": "RDS",
                 "redshift": "Redshift",
                 "rekognition": "Rekognition",
+                "resiliencehub": "ResilienceHub",
                 "resourcegroups": "ResourceGroups",
                 "robomaker": "RoboMaker",
                 "route53": "Route53",
@@ -82682,6 +83202,7 @@
                 "stepfunctions": "StepFunctions",
                 "synthetics": "Synthetics",
                 "timestream": "Timestream",
+                "transfer": "Transfer",
                 "wafv2": "WAFv2",
                 "wisdom": "Wisdom",
                 "workspaces": "WorkSpaces",

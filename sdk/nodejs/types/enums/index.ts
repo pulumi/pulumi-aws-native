@@ -67,6 +67,7 @@ import * as pinpoint from "./pinpoint";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
+import * as resiliencehub from "./resiliencehub";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
 import * as route53 from "./route53";
@@ -83,6 +84,7 @@ import * as ssmcontacts from "./ssmcontacts";
 import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
+import * as transfer from "./transfer";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
@@ -153,6 +155,7 @@ export {
     quicksight,
     rds,
     redshift,
+    resiliencehub,
     resourcegroups,
     robomaker,
     route53,
@@ -169,6 +172,7 @@ export {
     ssmincidents,
     sso,
     stepfunctions,
+    transfer,
     wafv2,
     wisdom,
     workspaces,

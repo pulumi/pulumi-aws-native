@@ -1386,6 +1386,1307 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 	}).(UserTagOutput)
 }
 
+// Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+type WorkflowInputFileLocation struct {
+	S3FileLocation *WorkflowS3InputFileLocation `pulumi:"s3FileLocation"`
+}
+
+// WorkflowInputFileLocationInput is an input type that accepts WorkflowInputFileLocationArgs and WorkflowInputFileLocationOutput values.
+// You can construct a concrete instance of `WorkflowInputFileLocationInput` via:
+//
+//          WorkflowInputFileLocationArgs{...}
+type WorkflowInputFileLocationInput interface {
+	pulumi.Input
+
+	ToWorkflowInputFileLocationOutput() WorkflowInputFileLocationOutput
+	ToWorkflowInputFileLocationOutputWithContext(context.Context) WorkflowInputFileLocationOutput
+}
+
+// Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+type WorkflowInputFileLocationArgs struct {
+	S3FileLocation WorkflowS3InputFileLocationPtrInput `pulumi:"s3FileLocation"`
+}
+
+func (WorkflowInputFileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowInputFileLocation)(nil)).Elem()
+}
+
+func (i WorkflowInputFileLocationArgs) ToWorkflowInputFileLocationOutput() WorkflowInputFileLocationOutput {
+	return i.ToWorkflowInputFileLocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowInputFileLocationArgs) ToWorkflowInputFileLocationOutputWithContext(ctx context.Context) WorkflowInputFileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowInputFileLocationOutput)
+}
+
+func (i WorkflowInputFileLocationArgs) ToWorkflowInputFileLocationPtrOutput() WorkflowInputFileLocationPtrOutput {
+	return i.ToWorkflowInputFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowInputFileLocationArgs) ToWorkflowInputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowInputFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowInputFileLocationOutput).ToWorkflowInputFileLocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowInputFileLocationPtrInput is an input type that accepts WorkflowInputFileLocationArgs, WorkflowInputFileLocationPtr and WorkflowInputFileLocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowInputFileLocationPtrInput` via:
+//
+//          WorkflowInputFileLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowInputFileLocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowInputFileLocationPtrOutput() WorkflowInputFileLocationPtrOutput
+	ToWorkflowInputFileLocationPtrOutputWithContext(context.Context) WorkflowInputFileLocationPtrOutput
+}
+
+type workflowInputFileLocationPtrType WorkflowInputFileLocationArgs
+
+func WorkflowInputFileLocationPtr(v *WorkflowInputFileLocationArgs) WorkflowInputFileLocationPtrInput {
+	return (*workflowInputFileLocationPtrType)(v)
+}
+
+func (*workflowInputFileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowInputFileLocation)(nil)).Elem()
+}
+
+func (i *workflowInputFileLocationPtrType) ToWorkflowInputFileLocationPtrOutput() WorkflowInputFileLocationPtrOutput {
+	return i.ToWorkflowInputFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowInputFileLocationPtrType) ToWorkflowInputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowInputFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowInputFileLocationPtrOutput)
+}
+
+// Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+type WorkflowInputFileLocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowInputFileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowInputFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowInputFileLocationOutput) ToWorkflowInputFileLocationOutput() WorkflowInputFileLocationOutput {
+	return o
+}
+
+func (o WorkflowInputFileLocationOutput) ToWorkflowInputFileLocationOutputWithContext(ctx context.Context) WorkflowInputFileLocationOutput {
+	return o
+}
+
+func (o WorkflowInputFileLocationOutput) ToWorkflowInputFileLocationPtrOutput() WorkflowInputFileLocationPtrOutput {
+	return o.ToWorkflowInputFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowInputFileLocationOutput) ToWorkflowInputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowInputFileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowInputFileLocation) *WorkflowInputFileLocation {
+		return &v
+	}).(WorkflowInputFileLocationPtrOutput)
+}
+
+func (o WorkflowInputFileLocationOutput) S3FileLocation() WorkflowS3InputFileLocationPtrOutput {
+	return o.ApplyT(func(v WorkflowInputFileLocation) *WorkflowS3InputFileLocation { return v.S3FileLocation }).(WorkflowS3InputFileLocationPtrOutput)
+}
+
+type WorkflowInputFileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowInputFileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowInputFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowInputFileLocationPtrOutput) ToWorkflowInputFileLocationPtrOutput() WorkflowInputFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowInputFileLocationPtrOutput) ToWorkflowInputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowInputFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowInputFileLocationPtrOutput) Elem() WorkflowInputFileLocationOutput {
+	return o.ApplyT(func(v *WorkflowInputFileLocation) WorkflowInputFileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowInputFileLocation
+		return ret
+	}).(WorkflowInputFileLocationOutput)
+}
+
+func (o WorkflowInputFileLocationPtrOutput) S3FileLocation() WorkflowS3InputFileLocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowInputFileLocation) *WorkflowS3InputFileLocation {
+		if v == nil {
+			return nil
+		}
+		return v.S3FileLocation
+	}).(WorkflowS3InputFileLocationPtrOutput)
+}
+
+// Specifies the details for the S3 file being copied.
+type WorkflowS3InputFileLocation struct {
+	// Specifies the S3 bucket that contains the file being copied.
+	Bucket *string `pulumi:"bucket"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key *string `pulumi:"key"`
+}
+
+// WorkflowS3InputFileLocationInput is an input type that accepts WorkflowS3InputFileLocationArgs and WorkflowS3InputFileLocationOutput values.
+// You can construct a concrete instance of `WorkflowS3InputFileLocationInput` via:
+//
+//          WorkflowS3InputFileLocationArgs{...}
+type WorkflowS3InputFileLocationInput interface {
+	pulumi.Input
+
+	ToWorkflowS3InputFileLocationOutput() WorkflowS3InputFileLocationOutput
+	ToWorkflowS3InputFileLocationOutputWithContext(context.Context) WorkflowS3InputFileLocationOutput
+}
+
+// Specifies the details for the S3 file being copied.
+type WorkflowS3InputFileLocationArgs struct {
+	// Specifies the S3 bucket that contains the file being copied.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (WorkflowS3InputFileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowS3InputFileLocation)(nil)).Elem()
+}
+
+func (i WorkflowS3InputFileLocationArgs) ToWorkflowS3InputFileLocationOutput() WorkflowS3InputFileLocationOutput {
+	return i.ToWorkflowS3InputFileLocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowS3InputFileLocationArgs) ToWorkflowS3InputFileLocationOutputWithContext(ctx context.Context) WorkflowS3InputFileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3InputFileLocationOutput)
+}
+
+func (i WorkflowS3InputFileLocationArgs) ToWorkflowS3InputFileLocationPtrOutput() WorkflowS3InputFileLocationPtrOutput {
+	return i.ToWorkflowS3InputFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowS3InputFileLocationArgs) ToWorkflowS3InputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowS3InputFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3InputFileLocationOutput).ToWorkflowS3InputFileLocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowS3InputFileLocationPtrInput is an input type that accepts WorkflowS3InputFileLocationArgs, WorkflowS3InputFileLocationPtr and WorkflowS3InputFileLocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowS3InputFileLocationPtrInput` via:
+//
+//          WorkflowS3InputFileLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowS3InputFileLocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowS3InputFileLocationPtrOutput() WorkflowS3InputFileLocationPtrOutput
+	ToWorkflowS3InputFileLocationPtrOutputWithContext(context.Context) WorkflowS3InputFileLocationPtrOutput
+}
+
+type workflowS3InputFileLocationPtrType WorkflowS3InputFileLocationArgs
+
+func WorkflowS3InputFileLocationPtr(v *WorkflowS3InputFileLocationArgs) WorkflowS3InputFileLocationPtrInput {
+	return (*workflowS3InputFileLocationPtrType)(v)
+}
+
+func (*workflowS3InputFileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowS3InputFileLocation)(nil)).Elem()
+}
+
+func (i *workflowS3InputFileLocationPtrType) ToWorkflowS3InputFileLocationPtrOutput() WorkflowS3InputFileLocationPtrOutput {
+	return i.ToWorkflowS3InputFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowS3InputFileLocationPtrType) ToWorkflowS3InputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowS3InputFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3InputFileLocationPtrOutput)
+}
+
+// Specifies the details for the S3 file being copied.
+type WorkflowS3InputFileLocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowS3InputFileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowS3InputFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowS3InputFileLocationOutput) ToWorkflowS3InputFileLocationOutput() WorkflowS3InputFileLocationOutput {
+	return o
+}
+
+func (o WorkflowS3InputFileLocationOutput) ToWorkflowS3InputFileLocationOutputWithContext(ctx context.Context) WorkflowS3InputFileLocationOutput {
+	return o
+}
+
+func (o WorkflowS3InputFileLocationOutput) ToWorkflowS3InputFileLocationPtrOutput() WorkflowS3InputFileLocationPtrOutput {
+	return o.ToWorkflowS3InputFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowS3InputFileLocationOutput) ToWorkflowS3InputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowS3InputFileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowS3InputFileLocation) *WorkflowS3InputFileLocation {
+		return &v
+	}).(WorkflowS3InputFileLocationPtrOutput)
+}
+
+// Specifies the S3 bucket that contains the file being copied.
+func (o WorkflowS3InputFileLocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowS3InputFileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+func (o WorkflowS3InputFileLocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowS3InputFileLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowS3InputFileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowS3InputFileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowS3InputFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowS3InputFileLocationPtrOutput) ToWorkflowS3InputFileLocationPtrOutput() WorkflowS3InputFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowS3InputFileLocationPtrOutput) ToWorkflowS3InputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowS3InputFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowS3InputFileLocationPtrOutput) Elem() WorkflowS3InputFileLocationOutput {
+	return o.ApplyT(func(v *WorkflowS3InputFileLocation) WorkflowS3InputFileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowS3InputFileLocation
+		return ret
+	}).(WorkflowS3InputFileLocationOutput)
+}
+
+// Specifies the S3 bucket that contains the file being copied.
+func (o WorkflowS3InputFileLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowS3InputFileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+func (o WorkflowS3InputFileLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowS3InputFileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+type WorkflowS3Tag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// The value that corresponds to the key.
+	Value string `pulumi:"value"`
+}
+
+// WorkflowS3TagInput is an input type that accepts WorkflowS3TagArgs and WorkflowS3TagOutput values.
+// You can construct a concrete instance of `WorkflowS3TagInput` via:
+//
+//          WorkflowS3TagArgs{...}
+type WorkflowS3TagInput interface {
+	pulumi.Input
+
+	ToWorkflowS3TagOutput() WorkflowS3TagOutput
+	ToWorkflowS3TagOutputWithContext(context.Context) WorkflowS3TagOutput
+}
+
+// Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+type WorkflowS3TagArgs struct {
+	// The name assigned to the tag that you create.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value that corresponds to the key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WorkflowS3TagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowS3Tag)(nil)).Elem()
+}
+
+func (i WorkflowS3TagArgs) ToWorkflowS3TagOutput() WorkflowS3TagOutput {
+	return i.ToWorkflowS3TagOutputWithContext(context.Background())
+}
+
+func (i WorkflowS3TagArgs) ToWorkflowS3TagOutputWithContext(ctx context.Context) WorkflowS3TagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3TagOutput)
+}
+
+// WorkflowS3TagArrayInput is an input type that accepts WorkflowS3TagArray and WorkflowS3TagArrayOutput values.
+// You can construct a concrete instance of `WorkflowS3TagArrayInput` via:
+//
+//          WorkflowS3TagArray{ WorkflowS3TagArgs{...} }
+type WorkflowS3TagArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowS3TagArrayOutput() WorkflowS3TagArrayOutput
+	ToWorkflowS3TagArrayOutputWithContext(context.Context) WorkflowS3TagArrayOutput
+}
+
+type WorkflowS3TagArray []WorkflowS3TagInput
+
+func (WorkflowS3TagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowS3Tag)(nil)).Elem()
+}
+
+func (i WorkflowS3TagArray) ToWorkflowS3TagArrayOutput() WorkflowS3TagArrayOutput {
+	return i.ToWorkflowS3TagArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowS3TagArray) ToWorkflowS3TagArrayOutputWithContext(ctx context.Context) WorkflowS3TagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3TagArrayOutput)
+}
+
+// Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+type WorkflowS3TagOutput struct{ *pulumi.OutputState }
+
+func (WorkflowS3TagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowS3Tag)(nil)).Elem()
+}
+
+func (o WorkflowS3TagOutput) ToWorkflowS3TagOutput() WorkflowS3TagOutput {
+	return o
+}
+
+func (o WorkflowS3TagOutput) ToWorkflowS3TagOutputWithContext(ctx context.Context) WorkflowS3TagOutput {
+	return o
+}
+
+// The name assigned to the tag that you create.
+func (o WorkflowS3TagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowS3Tag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value that corresponds to the key.
+func (o WorkflowS3TagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowS3Tag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WorkflowS3TagArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowS3TagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowS3Tag)(nil)).Elem()
+}
+
+func (o WorkflowS3TagArrayOutput) ToWorkflowS3TagArrayOutput() WorkflowS3TagArrayOutput {
+	return o
+}
+
+func (o WorkflowS3TagArrayOutput) ToWorkflowS3TagArrayOutputWithContext(ctx context.Context) WorkflowS3TagArrayOutput {
+	return o
+}
+
+func (o WorkflowS3TagArrayOutput) Index(i pulumi.IntInput) WorkflowS3TagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowS3Tag {
+		return vs[0].([]WorkflowS3Tag)[vs[1].(int)]
+	}).(WorkflowS3TagOutput)
+}
+
+// The basic building block of a workflow.
+type WorkflowStep struct {
+	// Details for a step that performs a file copy.
+	CopyStepDetails *WorkflowStepCopyStepDetailsProperties `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
+	CustomStepDetails *WorkflowStepCustomStepDetailsProperties `pulumi:"customStepDetails"`
+	// Details for a step that deletes the file.
+	DeleteStepDetails *WorkflowStepDeleteStepDetailsProperties `pulumi:"deleteStepDetails"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails *WorkflowStepTagStepDetailsProperties `pulumi:"tagStepDetails"`
+	Type           *WorkflowStepType                     `pulumi:"type"`
+}
+
+// WorkflowStepInput is an input type that accepts WorkflowStepArgs and WorkflowStepOutput values.
+// You can construct a concrete instance of `WorkflowStepInput` via:
+//
+//          WorkflowStepArgs{...}
+type WorkflowStepInput interface {
+	pulumi.Input
+
+	ToWorkflowStepOutput() WorkflowStepOutput
+	ToWorkflowStepOutputWithContext(context.Context) WorkflowStepOutput
+}
+
+// The basic building block of a workflow.
+type WorkflowStepArgs struct {
+	// Details for a step that performs a file copy.
+	CopyStepDetails WorkflowStepCopyStepDetailsPropertiesPtrInput `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
+	CustomStepDetails WorkflowStepCustomStepDetailsPropertiesPtrInput `pulumi:"customStepDetails"`
+	// Details for a step that deletes the file.
+	DeleteStepDetails WorkflowStepDeleteStepDetailsPropertiesPtrInput `pulumi:"deleteStepDetails"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails WorkflowStepTagStepDetailsPropertiesPtrInput `pulumi:"tagStepDetails"`
+	Type           WorkflowStepTypePtrInput                     `pulumi:"type"`
+}
+
+func (WorkflowStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStep)(nil)).Elem()
+}
+
+func (i WorkflowStepArgs) ToWorkflowStepOutput() WorkflowStepOutput {
+	return i.ToWorkflowStepOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepArgs) ToWorkflowStepOutputWithContext(ctx context.Context) WorkflowStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepOutput)
+}
+
+// WorkflowStepArrayInput is an input type that accepts WorkflowStepArray and WorkflowStepArrayOutput values.
+// You can construct a concrete instance of `WorkflowStepArrayInput` via:
+//
+//          WorkflowStepArray{ WorkflowStepArgs{...} }
+type WorkflowStepArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowStepArrayOutput() WorkflowStepArrayOutput
+	ToWorkflowStepArrayOutputWithContext(context.Context) WorkflowStepArrayOutput
+}
+
+type WorkflowStepArray []WorkflowStepInput
+
+func (WorkflowStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowStep)(nil)).Elem()
+}
+
+func (i WorkflowStepArray) ToWorkflowStepArrayOutput() WorkflowStepArrayOutput {
+	return i.ToWorkflowStepArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepArray) ToWorkflowStepArrayOutputWithContext(ctx context.Context) WorkflowStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepArrayOutput)
+}
+
+// The basic building block of a workflow.
+type WorkflowStepOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStep)(nil)).Elem()
+}
+
+func (o WorkflowStepOutput) ToWorkflowStepOutput() WorkflowStepOutput {
+	return o
+}
+
+func (o WorkflowStepOutput) ToWorkflowStepOutputWithContext(ctx context.Context) WorkflowStepOutput {
+	return o
+}
+
+// Details for a step that performs a file copy.
+func (o WorkflowStepOutput) CopyStepDetails() WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCopyStepDetailsProperties { return v.CopyStepDetails }).(WorkflowStepCopyStepDetailsPropertiesPtrOutput)
+}
+
+// Details for a step that invokes a lambda function.
+func (o WorkflowStepOutput) CustomStepDetails() WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCustomStepDetailsProperties { return v.CustomStepDetails }).(WorkflowStepCustomStepDetailsPropertiesPtrOutput)
+}
+
+// Details for a step that deletes the file.
+func (o WorkflowStepOutput) DeleteStepDetails() WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v WorkflowStep) *WorkflowStepDeleteStepDetailsProperties { return v.DeleteStepDetails }).(WorkflowStepDeleteStepDetailsPropertiesPtrOutput)
+}
+
+// Details for a step that creates one or more tags.
+func (o WorkflowStepOutput) TagStepDetails() WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v WorkflowStep) *WorkflowStepTagStepDetailsProperties { return v.TagStepDetails }).(WorkflowStepTagStepDetailsPropertiesPtrOutput)
+}
+
+func (o WorkflowStepOutput) Type() WorkflowStepTypePtrOutput {
+	return o.ApplyT(func(v WorkflowStep) *WorkflowStepType { return v.Type }).(WorkflowStepTypePtrOutput)
+}
+
+type WorkflowStepArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowStep)(nil)).Elem()
+}
+
+func (o WorkflowStepArrayOutput) ToWorkflowStepArrayOutput() WorkflowStepArrayOutput {
+	return o
+}
+
+func (o WorkflowStepArrayOutput) ToWorkflowStepArrayOutputWithContext(ctx context.Context) WorkflowStepArrayOutput {
+	return o
+}
+
+func (o WorkflowStepArrayOutput) Index(i pulumi.IntInput) WorkflowStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowStep {
+		return vs[0].([]WorkflowStep)[vs[1].(int)]
+	}).(WorkflowStepOutput)
+}
+
+// Details for a step that performs a file copy.
+type WorkflowStepCopyStepDetailsProperties struct {
+	DestinationFileLocation *WorkflowInputFileLocation `pulumi:"destinationFileLocation"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+	OverwriteExisting *WorkflowStepCopyStepDetailsPropertiesOverwriteExisting `pulumi:"overwriteExisting"`
+}
+
+// WorkflowStepCopyStepDetailsPropertiesInput is an input type that accepts WorkflowStepCopyStepDetailsPropertiesArgs and WorkflowStepCopyStepDetailsPropertiesOutput values.
+// You can construct a concrete instance of `WorkflowStepCopyStepDetailsPropertiesInput` via:
+//
+//          WorkflowStepCopyStepDetailsPropertiesArgs{...}
+type WorkflowStepCopyStepDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToWorkflowStepCopyStepDetailsPropertiesOutput() WorkflowStepCopyStepDetailsPropertiesOutput
+	ToWorkflowStepCopyStepDetailsPropertiesOutputWithContext(context.Context) WorkflowStepCopyStepDetailsPropertiesOutput
+}
+
+// Details for a step that performs a file copy.
+type WorkflowStepCopyStepDetailsPropertiesArgs struct {
+	DestinationFileLocation WorkflowInputFileLocationPtrInput `pulumi:"destinationFileLocation"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+	OverwriteExisting WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrInput `pulumi:"overwriteExisting"`
+}
+
+func (WorkflowStepCopyStepDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepCopyStepDetailsProperties)(nil)).Elem()
+}
+
+func (i WorkflowStepCopyStepDetailsPropertiesArgs) ToWorkflowStepCopyStepDetailsPropertiesOutput() WorkflowStepCopyStepDetailsPropertiesOutput {
+	return i.ToWorkflowStepCopyStepDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepCopyStepDetailsPropertiesArgs) ToWorkflowStepCopyStepDetailsPropertiesOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsPropertiesOutput)
+}
+
+func (i WorkflowStepCopyStepDetailsPropertiesArgs) ToWorkflowStepCopyStepDetailsPropertiesPtrOutput() WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return i.ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepCopyStepDetailsPropertiesArgs) ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsPropertiesOutput).ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkflowStepCopyStepDetailsPropertiesPtrInput is an input type that accepts WorkflowStepCopyStepDetailsPropertiesArgs, WorkflowStepCopyStepDetailsPropertiesPtr and WorkflowStepCopyStepDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkflowStepCopyStepDetailsPropertiesPtrInput` via:
+//
+//          WorkflowStepCopyStepDetailsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowStepCopyStepDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepCopyStepDetailsPropertiesPtrOutput() WorkflowStepCopyStepDetailsPropertiesPtrOutput
+	ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(context.Context) WorkflowStepCopyStepDetailsPropertiesPtrOutput
+}
+
+type workflowStepCopyStepDetailsPropertiesPtrType WorkflowStepCopyStepDetailsPropertiesArgs
+
+func WorkflowStepCopyStepDetailsPropertiesPtr(v *WorkflowStepCopyStepDetailsPropertiesArgs) WorkflowStepCopyStepDetailsPropertiesPtrInput {
+	return (*workflowStepCopyStepDetailsPropertiesPtrType)(v)
+}
+
+func (*workflowStepCopyStepDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepCopyStepDetailsProperties)(nil)).Elem()
+}
+
+func (i *workflowStepCopyStepDetailsPropertiesPtrType) ToWorkflowStepCopyStepDetailsPropertiesPtrOutput() WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return i.ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepCopyStepDetailsPropertiesPtrType) ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsPropertiesPtrOutput)
+}
+
+// Details for a step that performs a file copy.
+type WorkflowStepCopyStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepCopyStepDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepCopyStepDetailsProperties)(nil)).Elem()
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesOutput) ToWorkflowStepCopyStepDetailsPropertiesOutput() WorkflowStepCopyStepDetailsPropertiesOutput {
+	return o
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesOutput) ToWorkflowStepCopyStepDetailsPropertiesOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesOutput {
+	return o
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesOutput) ToWorkflowStepCopyStepDetailsPropertiesPtrOutput() WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return o.ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesOutput) ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepCopyStepDetailsProperties) *WorkflowStepCopyStepDetailsProperties {
+		return &v
+	}).(WorkflowStepCopyStepDetailsPropertiesPtrOutput)
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesOutput) DestinationFileLocation() WorkflowInputFileLocationPtrOutput {
+	return o.ApplyT(func(v WorkflowStepCopyStepDetailsProperties) *WorkflowInputFileLocation {
+		return v.DestinationFileLocation
+	}).(WorkflowInputFileLocationPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepCopyStepDetailsPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepCopyStepDetailsProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+func (o WorkflowStepCopyStepDetailsPropertiesOutput) OverwriteExisting() WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return o.ApplyT(func(v WorkflowStepCopyStepDetailsProperties) *WorkflowStepCopyStepDetailsPropertiesOverwriteExisting {
+		return v.OverwriteExisting
+	}).(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput)
+}
+
+type WorkflowStepCopyStepDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepCopyStepDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepCopyStepDetailsProperties)(nil)).Elem()
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) ToWorkflowStepCopyStepDetailsPropertiesPtrOutput() WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) Elem() WorkflowStepCopyStepDetailsPropertiesOutput {
+	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsProperties) WorkflowStepCopyStepDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepCopyStepDetailsProperties
+		return ret
+	}).(WorkflowStepCopyStepDetailsPropertiesOutput)
+}
+
+func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) DestinationFileLocation() WorkflowInputFileLocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsProperties) *WorkflowInputFileLocation {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationFileLocation
+	}).(WorkflowInputFileLocationPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) OverwriteExisting() WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsProperties) *WorkflowStepCopyStepDetailsPropertiesOverwriteExisting {
+		if v == nil {
+			return nil
+		}
+		return v.OverwriteExisting
+	}).(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput)
+}
+
+// Details for a step that invokes a lambda function.
+type WorkflowStepCustomStepDetailsProperties struct {
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// The ARN for the lambda function that is being called.
+	Target *string `pulumi:"target"`
+	// Timeout, in seconds, for the step.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// WorkflowStepCustomStepDetailsPropertiesInput is an input type that accepts WorkflowStepCustomStepDetailsPropertiesArgs and WorkflowStepCustomStepDetailsPropertiesOutput values.
+// You can construct a concrete instance of `WorkflowStepCustomStepDetailsPropertiesInput` via:
+//
+//          WorkflowStepCustomStepDetailsPropertiesArgs{...}
+type WorkflowStepCustomStepDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToWorkflowStepCustomStepDetailsPropertiesOutput() WorkflowStepCustomStepDetailsPropertiesOutput
+	ToWorkflowStepCustomStepDetailsPropertiesOutputWithContext(context.Context) WorkflowStepCustomStepDetailsPropertiesOutput
+}
+
+// Details for a step that invokes a lambda function.
+type WorkflowStepCustomStepDetailsPropertiesArgs struct {
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The ARN for the lambda function that is being called.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Timeout, in seconds, for the step.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (WorkflowStepCustomStepDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepCustomStepDetailsProperties)(nil)).Elem()
+}
+
+func (i WorkflowStepCustomStepDetailsPropertiesArgs) ToWorkflowStepCustomStepDetailsPropertiesOutput() WorkflowStepCustomStepDetailsPropertiesOutput {
+	return i.ToWorkflowStepCustomStepDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepCustomStepDetailsPropertiesArgs) ToWorkflowStepCustomStepDetailsPropertiesOutputWithContext(ctx context.Context) WorkflowStepCustomStepDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCustomStepDetailsPropertiesOutput)
+}
+
+func (i WorkflowStepCustomStepDetailsPropertiesArgs) ToWorkflowStepCustomStepDetailsPropertiesPtrOutput() WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return i.ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepCustomStepDetailsPropertiesArgs) ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCustomStepDetailsPropertiesOutput).ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkflowStepCustomStepDetailsPropertiesPtrInput is an input type that accepts WorkflowStepCustomStepDetailsPropertiesArgs, WorkflowStepCustomStepDetailsPropertiesPtr and WorkflowStepCustomStepDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkflowStepCustomStepDetailsPropertiesPtrInput` via:
+//
+//          WorkflowStepCustomStepDetailsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowStepCustomStepDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepCustomStepDetailsPropertiesPtrOutput() WorkflowStepCustomStepDetailsPropertiesPtrOutput
+	ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(context.Context) WorkflowStepCustomStepDetailsPropertiesPtrOutput
+}
+
+type workflowStepCustomStepDetailsPropertiesPtrType WorkflowStepCustomStepDetailsPropertiesArgs
+
+func WorkflowStepCustomStepDetailsPropertiesPtr(v *WorkflowStepCustomStepDetailsPropertiesArgs) WorkflowStepCustomStepDetailsPropertiesPtrInput {
+	return (*workflowStepCustomStepDetailsPropertiesPtrType)(v)
+}
+
+func (*workflowStepCustomStepDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepCustomStepDetailsProperties)(nil)).Elem()
+}
+
+func (i *workflowStepCustomStepDetailsPropertiesPtrType) ToWorkflowStepCustomStepDetailsPropertiesPtrOutput() WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return i.ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepCustomStepDetailsPropertiesPtrType) ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCustomStepDetailsPropertiesPtrOutput)
+}
+
+// Details for a step that invokes a lambda function.
+type WorkflowStepCustomStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepCustomStepDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepCustomStepDetailsProperties)(nil)).Elem()
+}
+
+func (o WorkflowStepCustomStepDetailsPropertiesOutput) ToWorkflowStepCustomStepDetailsPropertiesOutput() WorkflowStepCustomStepDetailsPropertiesOutput {
+	return o
+}
+
+func (o WorkflowStepCustomStepDetailsPropertiesOutput) ToWorkflowStepCustomStepDetailsPropertiesOutputWithContext(ctx context.Context) WorkflowStepCustomStepDetailsPropertiesOutput {
+	return o
+}
+
+func (o WorkflowStepCustomStepDetailsPropertiesOutput) ToWorkflowStepCustomStepDetailsPropertiesPtrOutput() WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return o.ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepCustomStepDetailsPropertiesOutput) ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepCustomStepDetailsProperties) *WorkflowStepCustomStepDetailsProperties {
+		return &v
+	}).(WorkflowStepCustomStepDetailsPropertiesPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepCustomStepDetailsPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepCustomStepDetailsProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The ARN for the lambda function that is being called.
+func (o WorkflowStepCustomStepDetailsPropertiesOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepCustomStepDetailsProperties) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Timeout, in seconds, for the step.
+func (o WorkflowStepCustomStepDetailsPropertiesOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkflowStepCustomStepDetailsProperties) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type WorkflowStepCustomStepDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepCustomStepDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepCustomStepDetailsProperties)(nil)).Elem()
+}
+
+func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) ToWorkflowStepCustomStepDetailsPropertiesPtrOutput() WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCustomStepDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) Elem() WorkflowStepCustomStepDetailsPropertiesOutput {
+	return o.ApplyT(func(v *WorkflowStepCustomStepDetailsProperties) WorkflowStepCustomStepDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepCustomStepDetailsProperties
+		return ret
+	}).(WorkflowStepCustomStepDetailsPropertiesOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepCustomStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN for the lambda function that is being called.
+func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepCustomStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timeout, in seconds, for the step.
+func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepCustomStepDetailsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Details for a step that deletes the file.
+type WorkflowStepDeleteStepDetailsProperties struct {
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+}
+
+// WorkflowStepDeleteStepDetailsPropertiesInput is an input type that accepts WorkflowStepDeleteStepDetailsPropertiesArgs and WorkflowStepDeleteStepDetailsPropertiesOutput values.
+// You can construct a concrete instance of `WorkflowStepDeleteStepDetailsPropertiesInput` via:
+//
+//          WorkflowStepDeleteStepDetailsPropertiesArgs{...}
+type WorkflowStepDeleteStepDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDeleteStepDetailsPropertiesOutput() WorkflowStepDeleteStepDetailsPropertiesOutput
+	ToWorkflowStepDeleteStepDetailsPropertiesOutputWithContext(context.Context) WorkflowStepDeleteStepDetailsPropertiesOutput
+}
+
+// Details for a step that deletes the file.
+type WorkflowStepDeleteStepDetailsPropertiesArgs struct {
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (WorkflowStepDeleteStepDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDeleteStepDetailsProperties)(nil)).Elem()
+}
+
+func (i WorkflowStepDeleteStepDetailsPropertiesArgs) ToWorkflowStepDeleteStepDetailsPropertiesOutput() WorkflowStepDeleteStepDetailsPropertiesOutput {
+	return i.ToWorkflowStepDeleteStepDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDeleteStepDetailsPropertiesArgs) ToWorkflowStepDeleteStepDetailsPropertiesOutputWithContext(ctx context.Context) WorkflowStepDeleteStepDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDeleteStepDetailsPropertiesOutput)
+}
+
+func (i WorkflowStepDeleteStepDetailsPropertiesArgs) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutput() WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return i.ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDeleteStepDetailsPropertiesArgs) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDeleteStepDetailsPropertiesOutput).ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkflowStepDeleteStepDetailsPropertiesPtrInput is an input type that accepts WorkflowStepDeleteStepDetailsPropertiesArgs, WorkflowStepDeleteStepDetailsPropertiesPtr and WorkflowStepDeleteStepDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkflowStepDeleteStepDetailsPropertiesPtrInput` via:
+//
+//          WorkflowStepDeleteStepDetailsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowStepDeleteStepDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDeleteStepDetailsPropertiesPtrOutput() WorkflowStepDeleteStepDetailsPropertiesPtrOutput
+	ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(context.Context) WorkflowStepDeleteStepDetailsPropertiesPtrOutput
+}
+
+type workflowStepDeleteStepDetailsPropertiesPtrType WorkflowStepDeleteStepDetailsPropertiesArgs
+
+func WorkflowStepDeleteStepDetailsPropertiesPtr(v *WorkflowStepDeleteStepDetailsPropertiesArgs) WorkflowStepDeleteStepDetailsPropertiesPtrInput {
+	return (*workflowStepDeleteStepDetailsPropertiesPtrType)(v)
+}
+
+func (*workflowStepDeleteStepDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDeleteStepDetailsProperties)(nil)).Elem()
+}
+
+func (i *workflowStepDeleteStepDetailsPropertiesPtrType) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutput() WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return i.ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepDeleteStepDetailsPropertiesPtrType) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDeleteStepDetailsPropertiesPtrOutput)
+}
+
+// Details for a step that deletes the file.
+type WorkflowStepDeleteStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDeleteStepDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDeleteStepDetailsProperties)(nil)).Elem()
+}
+
+func (o WorkflowStepDeleteStepDetailsPropertiesOutput) ToWorkflowStepDeleteStepDetailsPropertiesOutput() WorkflowStepDeleteStepDetailsPropertiesOutput {
+	return o
+}
+
+func (o WorkflowStepDeleteStepDetailsPropertiesOutput) ToWorkflowStepDeleteStepDetailsPropertiesOutputWithContext(ctx context.Context) WorkflowStepDeleteStepDetailsPropertiesOutput {
+	return o
+}
+
+func (o WorkflowStepDeleteStepDetailsPropertiesOutput) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutput() WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return o.ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDeleteStepDetailsPropertiesOutput) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDeleteStepDetailsProperties) *WorkflowStepDeleteStepDetailsProperties {
+		return &v
+	}).(WorkflowStepDeleteStepDetailsPropertiesPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepDeleteStepDetailsPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDeleteStepDetailsProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepDeleteStepDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDeleteStepDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDeleteStepDetailsProperties)(nil)).Elem()
+}
+
+func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutput() WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) Elem() WorkflowStepDeleteStepDetailsPropertiesOutput {
+	return o.ApplyT(func(v *WorkflowStepDeleteStepDetailsProperties) WorkflowStepDeleteStepDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepDeleteStepDetailsProperties
+		return ret
+	}).(WorkflowStepDeleteStepDetailsPropertiesOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDeleteStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for a step that creates one or more tags.
+type WorkflowStepTagStepDetailsProperties struct {
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// Array that contains from 1 to 10 key/value pairs.
+	Tags []WorkflowS3Tag `pulumi:"tags"`
+}
+
+// WorkflowStepTagStepDetailsPropertiesInput is an input type that accepts WorkflowStepTagStepDetailsPropertiesArgs and WorkflowStepTagStepDetailsPropertiesOutput values.
+// You can construct a concrete instance of `WorkflowStepTagStepDetailsPropertiesInput` via:
+//
+//          WorkflowStepTagStepDetailsPropertiesArgs{...}
+type WorkflowStepTagStepDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToWorkflowStepTagStepDetailsPropertiesOutput() WorkflowStepTagStepDetailsPropertiesOutput
+	ToWorkflowStepTagStepDetailsPropertiesOutputWithContext(context.Context) WorkflowStepTagStepDetailsPropertiesOutput
+}
+
+// Details for a step that creates one or more tags.
+type WorkflowStepTagStepDetailsPropertiesArgs struct {
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Array that contains from 1 to 10 key/value pairs.
+	Tags WorkflowS3TagArrayInput `pulumi:"tags"`
+}
+
+func (WorkflowStepTagStepDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepTagStepDetailsProperties)(nil)).Elem()
+}
+
+func (i WorkflowStepTagStepDetailsPropertiesArgs) ToWorkflowStepTagStepDetailsPropertiesOutput() WorkflowStepTagStepDetailsPropertiesOutput {
+	return i.ToWorkflowStepTagStepDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepTagStepDetailsPropertiesArgs) ToWorkflowStepTagStepDetailsPropertiesOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsPropertiesOutput)
+}
+
+func (i WorkflowStepTagStepDetailsPropertiesArgs) ToWorkflowStepTagStepDetailsPropertiesPtrOutput() WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return i.ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepTagStepDetailsPropertiesArgs) ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsPropertiesOutput).ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkflowStepTagStepDetailsPropertiesPtrInput is an input type that accepts WorkflowStepTagStepDetailsPropertiesArgs, WorkflowStepTagStepDetailsPropertiesPtr and WorkflowStepTagStepDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkflowStepTagStepDetailsPropertiesPtrInput` via:
+//
+//          WorkflowStepTagStepDetailsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowStepTagStepDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepTagStepDetailsPropertiesPtrOutput() WorkflowStepTagStepDetailsPropertiesPtrOutput
+	ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(context.Context) WorkflowStepTagStepDetailsPropertiesPtrOutput
+}
+
+type workflowStepTagStepDetailsPropertiesPtrType WorkflowStepTagStepDetailsPropertiesArgs
+
+func WorkflowStepTagStepDetailsPropertiesPtr(v *WorkflowStepTagStepDetailsPropertiesArgs) WorkflowStepTagStepDetailsPropertiesPtrInput {
+	return (*workflowStepTagStepDetailsPropertiesPtrType)(v)
+}
+
+func (*workflowStepTagStepDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepTagStepDetailsProperties)(nil)).Elem()
+}
+
+func (i *workflowStepTagStepDetailsPropertiesPtrType) ToWorkflowStepTagStepDetailsPropertiesPtrOutput() WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return i.ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepTagStepDetailsPropertiesPtrType) ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsPropertiesPtrOutput)
+}
+
+// Details for a step that creates one or more tags.
+type WorkflowStepTagStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepTagStepDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepTagStepDetailsProperties)(nil)).Elem()
+}
+
+func (o WorkflowStepTagStepDetailsPropertiesOutput) ToWorkflowStepTagStepDetailsPropertiesOutput() WorkflowStepTagStepDetailsPropertiesOutput {
+	return o
+}
+
+func (o WorkflowStepTagStepDetailsPropertiesOutput) ToWorkflowStepTagStepDetailsPropertiesOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsPropertiesOutput {
+	return o
+}
+
+func (o WorkflowStepTagStepDetailsPropertiesOutput) ToWorkflowStepTagStepDetailsPropertiesPtrOutput() WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return o.ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepTagStepDetailsPropertiesOutput) ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepTagStepDetailsProperties) *WorkflowStepTagStepDetailsProperties {
+		return &v
+	}).(WorkflowStepTagStepDetailsPropertiesPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepTagStepDetailsPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepTagStepDetailsProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Array that contains from 1 to 10 key/value pairs.
+func (o WorkflowStepTagStepDetailsPropertiesOutput) Tags() WorkflowS3TagArrayOutput {
+	return o.ApplyT(func(v WorkflowStepTagStepDetailsProperties) []WorkflowS3Tag { return v.Tags }).(WorkflowS3TagArrayOutput)
+}
+
+type WorkflowStepTagStepDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepTagStepDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepTagStepDetailsProperties)(nil)).Elem()
+}
+
+func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) ToWorkflowStepTagStepDetailsPropertiesPtrOutput() WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) Elem() WorkflowStepTagStepDetailsPropertiesOutput {
+	return o.ApplyT(func(v *WorkflowStepTagStepDetailsProperties) WorkflowStepTagStepDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepTagStepDetailsProperties
+		return ret
+	}).(WorkflowStepTagStepDetailsPropertiesOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepTagStepDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array that contains from 1 to 10 key/value pairs.
+func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) Tags() WorkflowS3TagArrayOutput {
+	return o.ApplyT(func(v *WorkflowStepTagStepDetailsProperties) []WorkflowS3Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(WorkflowS3TagArrayOutput)
+}
+
+// Creates a key-value pair for a specific resource.
+type WorkflowTag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value string `pulumi:"value"`
+}
+
+// WorkflowTagInput is an input type that accepts WorkflowTagArgs and WorkflowTagOutput values.
+// You can construct a concrete instance of `WorkflowTagInput` via:
+//
+//          WorkflowTagArgs{...}
+type WorkflowTagInput interface {
+	pulumi.Input
+
+	ToWorkflowTagOutput() WorkflowTagOutput
+	ToWorkflowTagOutputWithContext(context.Context) WorkflowTagOutput
+}
+
+// Creates a key-value pair for a specific resource.
+type WorkflowTagArgs struct {
+	// The name assigned to the tag that you create.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WorkflowTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowTag)(nil)).Elem()
+}
+
+func (i WorkflowTagArgs) ToWorkflowTagOutput() WorkflowTagOutput {
+	return i.ToWorkflowTagOutputWithContext(context.Background())
+}
+
+func (i WorkflowTagArgs) ToWorkflowTagOutputWithContext(ctx context.Context) WorkflowTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagOutput)
+}
+
+// WorkflowTagArrayInput is an input type that accepts WorkflowTagArray and WorkflowTagArrayOutput values.
+// You can construct a concrete instance of `WorkflowTagArrayInput` via:
+//
+//          WorkflowTagArray{ WorkflowTagArgs{...} }
+type WorkflowTagArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowTagArrayOutput() WorkflowTagArrayOutput
+	ToWorkflowTagArrayOutputWithContext(context.Context) WorkflowTagArrayOutput
+}
+
+type WorkflowTagArray []WorkflowTagInput
+
+func (WorkflowTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowTag)(nil)).Elem()
+}
+
+func (i WorkflowTagArray) ToWorkflowTagArrayOutput() WorkflowTagArrayOutput {
+	return i.ToWorkflowTagArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowTagArray) ToWorkflowTagArrayOutputWithContext(ctx context.Context) WorkflowTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagArrayOutput)
+}
+
+// Creates a key-value pair for a specific resource.
+type WorkflowTagOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowTag)(nil)).Elem()
+}
+
+func (o WorkflowTagOutput) ToWorkflowTagOutput() WorkflowTagOutput {
+	return o
+}
+
+func (o WorkflowTagOutput) ToWorkflowTagOutputWithContext(ctx context.Context) WorkflowTagOutput {
+	return o
+}
+
+// The name assigned to the tag that you create.
+func (o WorkflowTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Contains one or more values that you assigned to the key name you create.
+func (o WorkflowTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WorkflowTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowTag)(nil)).Elem()
+}
+
+func (o WorkflowTagArrayOutput) ToWorkflowTagArrayOutput() WorkflowTagArrayOutput {
+	return o
+}
+
+func (o WorkflowTagArrayOutput) ToWorkflowTagArrayOutputWithContext(ctx context.Context) WorkflowTagArrayOutput {
+	return o
+}
+
+func (o WorkflowTagArrayOutput) Index(i pulumi.IntInput) WorkflowTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowTag {
+		return vs[0].([]WorkflowTag)[vs[1].(int)]
+	}).(WorkflowTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
@@ -1409,6 +2710,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSshPublicKeyArrayInput)(nil)).Elem(), UserSshPublicKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInputFileLocationInput)(nil)).Elem(), WorkflowInputFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInputFileLocationPtrInput)(nil)).Elem(), WorkflowInputFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowS3InputFileLocationInput)(nil)).Elem(), WorkflowS3InputFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowS3InputFileLocationPtrInput)(nil)).Elem(), WorkflowS3InputFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowS3TagInput)(nil)).Elem(), WorkflowS3TagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowS3TagArrayInput)(nil)).Elem(), WorkflowS3TagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepInput)(nil)).Elem(), WorkflowStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepArrayInput)(nil)).Elem(), WorkflowStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCustomStepDetailsPropertiesInput)(nil)).Elem(), WorkflowStepCustomStepDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCustomStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepCustomStepDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDeleteStepDetailsPropertiesInput)(nil)).Elem(), WorkflowStepDeleteStepDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDeleteStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepDeleteStepDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagInput)(nil)).Elem(), WorkflowTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagArrayInput)(nil)).Elem(), WorkflowTagArray{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityProviderDetailsOutput{})
@@ -1431,4 +2750,22 @@ func init() {
 	pulumi.RegisterOutputType(UserSshPublicKeyArrayOutput{})
 	pulumi.RegisterOutputType(UserTagOutput{})
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowInputFileLocationOutput{})
+	pulumi.RegisterOutputType(WorkflowInputFileLocationPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowS3InputFileLocationOutput{})
+	pulumi.RegisterOutputType(WorkflowS3InputFileLocationPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowS3TagOutput{})
+	pulumi.RegisterOutputType(WorkflowS3TagArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowStepOutput{})
+	pulumi.RegisterOutputType(WorkflowStepArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepCustomStepDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(WorkflowStepCustomStepDetailsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDeleteStepDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDeleteStepDetailsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowTagOutput{})
+	pulumi.RegisterOutputType(WorkflowTagArrayOutput{})
 }

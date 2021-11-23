@@ -36,6 +36,10 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
+     * The IDs of the assets to be associated to the project.
+     */
+    public readonly assetIds!: pulumi.Output<string[] | undefined>;
+    /**
      * The ID of the portal in which to create the project.
      */
     public readonly portalId!: pulumi.Output<string>;
@@ -74,6 +78,7 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.portalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalId'");
             }
+            inputs["assetIds"] = args ? args.assetIds : undefined;
             inputs["portalId"] = args ? args.portalId : undefined;
             inputs["projectDescription"] = args ? args.projectDescription : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
@@ -81,6 +86,7 @@ export class Project extends pulumi.CustomResource {
             inputs["projectArn"] = undefined /*out*/;
             inputs["projectId"] = undefined /*out*/;
         } else {
+            inputs["assetIds"] = undefined /*out*/;
             inputs["portalId"] = undefined /*out*/;
             inputs["projectArn"] = undefined /*out*/;
             inputs["projectDescription"] = undefined /*out*/;
@@ -99,6 +105,10 @@ export class Project extends pulumi.CustomResource {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
+    /**
+     * The IDs of the assets to be associated to the project.
+     */
+    assetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the portal in which to create the project.
      */

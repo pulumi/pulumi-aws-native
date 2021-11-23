@@ -9335,6 +9335,146 @@ func (o StorageLensBucketsAndRegionsPtrOutput) Regions() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+type StorageLensCloudWatchMetrics struct {
+	// Specifies whether CloudWatch metrics are enabled or disabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+}
+
+// StorageLensCloudWatchMetricsInput is an input type that accepts StorageLensCloudWatchMetricsArgs and StorageLensCloudWatchMetricsOutput values.
+// You can construct a concrete instance of `StorageLensCloudWatchMetricsInput` via:
+//
+//          StorageLensCloudWatchMetricsArgs{...}
+type StorageLensCloudWatchMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensCloudWatchMetricsOutput() StorageLensCloudWatchMetricsOutput
+	ToStorageLensCloudWatchMetricsOutputWithContext(context.Context) StorageLensCloudWatchMetricsOutput
+}
+
+// CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+type StorageLensCloudWatchMetricsArgs struct {
+	// Specifies whether CloudWatch metrics are enabled or disabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+}
+
+func (StorageLensCloudWatchMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensCloudWatchMetrics)(nil)).Elem()
+}
+
+func (i StorageLensCloudWatchMetricsArgs) ToStorageLensCloudWatchMetricsOutput() StorageLensCloudWatchMetricsOutput {
+	return i.ToStorageLensCloudWatchMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensCloudWatchMetricsArgs) ToStorageLensCloudWatchMetricsOutputWithContext(ctx context.Context) StorageLensCloudWatchMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensCloudWatchMetricsOutput)
+}
+
+func (i StorageLensCloudWatchMetricsArgs) ToStorageLensCloudWatchMetricsPtrOutput() StorageLensCloudWatchMetricsPtrOutput {
+	return i.ToStorageLensCloudWatchMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensCloudWatchMetricsArgs) ToStorageLensCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensCloudWatchMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensCloudWatchMetricsOutput).ToStorageLensCloudWatchMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensCloudWatchMetricsPtrInput is an input type that accepts StorageLensCloudWatchMetricsArgs, StorageLensCloudWatchMetricsPtr and StorageLensCloudWatchMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensCloudWatchMetricsPtrInput` via:
+//
+//          StorageLensCloudWatchMetricsArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensCloudWatchMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensCloudWatchMetricsPtrOutput() StorageLensCloudWatchMetricsPtrOutput
+	ToStorageLensCloudWatchMetricsPtrOutputWithContext(context.Context) StorageLensCloudWatchMetricsPtrOutput
+}
+
+type storageLensCloudWatchMetricsPtrType StorageLensCloudWatchMetricsArgs
+
+func StorageLensCloudWatchMetricsPtr(v *StorageLensCloudWatchMetricsArgs) StorageLensCloudWatchMetricsPtrInput {
+	return (*storageLensCloudWatchMetricsPtrType)(v)
+}
+
+func (*storageLensCloudWatchMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensCloudWatchMetrics)(nil)).Elem()
+}
+
+func (i *storageLensCloudWatchMetricsPtrType) ToStorageLensCloudWatchMetricsPtrOutput() StorageLensCloudWatchMetricsPtrOutput {
+	return i.ToStorageLensCloudWatchMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensCloudWatchMetricsPtrType) ToStorageLensCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensCloudWatchMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensCloudWatchMetricsPtrOutput)
+}
+
+// CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+type StorageLensCloudWatchMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensCloudWatchMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensCloudWatchMetrics)(nil)).Elem()
+}
+
+func (o StorageLensCloudWatchMetricsOutput) ToStorageLensCloudWatchMetricsOutput() StorageLensCloudWatchMetricsOutput {
+	return o
+}
+
+func (o StorageLensCloudWatchMetricsOutput) ToStorageLensCloudWatchMetricsOutputWithContext(ctx context.Context) StorageLensCloudWatchMetricsOutput {
+	return o
+}
+
+func (o StorageLensCloudWatchMetricsOutput) ToStorageLensCloudWatchMetricsPtrOutput() StorageLensCloudWatchMetricsPtrOutput {
+	return o.ToStorageLensCloudWatchMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensCloudWatchMetricsOutput) ToStorageLensCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensCloudWatchMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensCloudWatchMetrics) *StorageLensCloudWatchMetrics {
+		return &v
+	}).(StorageLensCloudWatchMetricsPtrOutput)
+}
+
+// Specifies whether CloudWatch metrics are enabled or disabled.
+func (o StorageLensCloudWatchMetricsOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StorageLensCloudWatchMetrics) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+type StorageLensCloudWatchMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensCloudWatchMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensCloudWatchMetrics)(nil)).Elem()
+}
+
+func (o StorageLensCloudWatchMetricsPtrOutput) ToStorageLensCloudWatchMetricsPtrOutput() StorageLensCloudWatchMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensCloudWatchMetricsPtrOutput) ToStorageLensCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensCloudWatchMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensCloudWatchMetricsPtrOutput) Elem() StorageLensCloudWatchMetricsOutput {
+	return o.ApplyT(func(v *StorageLensCloudWatchMetrics) StorageLensCloudWatchMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensCloudWatchMetrics
+		return ret
+	}).(StorageLensCloudWatchMetricsOutput)
+}
+
+// Specifies whether CloudWatch metrics are enabled or disabled.
+func (o StorageLensCloudWatchMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensCloudWatchMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the details of Amazon S3 Storage Lens configuration.
 type StorageLensConfiguration struct {
 	AccountLevel StorageLensAccountLevel       `pulumi:"accountLevel"`
@@ -9586,7 +9726,8 @@ func (o StorageLensConfigurationPtrOutput) StorageLensArn() pulumi.StringPtrOutp
 
 // Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExport struct {
-	S3BucketDestination StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
+	CloudWatchMetrics   *StorageLensCloudWatchMetrics   `pulumi:"cloudWatchMetrics"`
+	S3BucketDestination *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
 }
 
 // StorageLensDataExportInput is an input type that accepts StorageLensDataExportArgs and StorageLensDataExportOutput values.
@@ -9602,7 +9743,8 @@ type StorageLensDataExportInput interface {
 
 // Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExportArgs struct {
-	S3BucketDestination StorageLensS3BucketDestinationInput `pulumi:"s3BucketDestination"`
+	CloudWatchMetrics   StorageLensCloudWatchMetricsPtrInput   `pulumi:"cloudWatchMetrics"`
+	S3BucketDestination StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
 }
 
 func (StorageLensDataExportArgs) ElementType() reflect.Type {
@@ -9683,8 +9825,12 @@ func (o StorageLensDataExportOutput) ToStorageLensDataExportPtrOutputWithContext
 	}).(StorageLensDataExportPtrOutput)
 }
 
-func (o StorageLensDataExportOutput) S3BucketDestination() StorageLensS3BucketDestinationOutput {
-	return o.ApplyT(func(v StorageLensDataExport) StorageLensS3BucketDestination { return v.S3BucketDestination }).(StorageLensS3BucketDestinationOutput)
+func (o StorageLensDataExportOutput) CloudWatchMetrics() StorageLensCloudWatchMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensDataExport) *StorageLensCloudWatchMetrics { return v.CloudWatchMetrics }).(StorageLensCloudWatchMetricsPtrOutput)
+}
+
+func (o StorageLensDataExportOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
+	return o.ApplyT(func(v StorageLensDataExport) *StorageLensS3BucketDestination { return v.S3BucketDestination }).(StorageLensS3BucketDestinationPtrOutput)
 }
 
 type StorageLensDataExportPtrOutput struct{ *pulumi.OutputState }
@@ -9711,12 +9857,21 @@ func (o StorageLensDataExportPtrOutput) Elem() StorageLensDataExportOutput {
 	}).(StorageLensDataExportOutput)
 }
 
+func (o StorageLensDataExportPtrOutput) CloudWatchMetrics() StorageLensCloudWatchMetricsPtrOutput {
+	return o.ApplyT(func(v *StorageLensDataExport) *StorageLensCloudWatchMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchMetrics
+	}).(StorageLensCloudWatchMetricsPtrOutput)
+}
+
 func (o StorageLensDataExportPtrOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *StorageLensDataExport) *StorageLensS3BucketDestination {
 		if v == nil {
 			return nil
 		}
-		return &v.S3BucketDestination
+		return v.S3BucketDestination
 	}).(StorageLensS3BucketDestinationPtrOutput)
 }
 
@@ -10771,6 +10926,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensBucketLevelPtrInput)(nil)).Elem(), StorageLensBucketLevelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensBucketsAndRegionsInput)(nil)).Elem(), StorageLensBucketsAndRegionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensBucketsAndRegionsPtrInput)(nil)).Elem(), StorageLensBucketsAndRegionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensCloudWatchMetricsInput)(nil)).Elem(), StorageLensCloudWatchMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensCloudWatchMetricsPtrInput)(nil)).Elem(), StorageLensCloudWatchMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationInput)(nil)).Elem(), StorageLensConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationPtrInput)(nil)).Elem(), StorageLensConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensDataExportInput)(nil)).Elem(), StorageLensDataExportArgs{})
@@ -10917,6 +11074,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensBucketLevelPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensBucketsAndRegionsOutput{})
 	pulumi.RegisterOutputType(StorageLensBucketsAndRegionsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensCloudWatchMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensCloudWatchMetricsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensConfigurationOutput{})
 	pulumi.RegisterOutputType(StorageLensConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensDataExportOutput{})
