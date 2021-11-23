@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
-        /// The access key for API operations. You can retrieve this from the ‘Security &amp; Credentials’ section of the AWS console.
-        /// </summary>
-        [Output("accessKey")]
-        public Output<string?> AccessKey { get; private set; } = null!;
-
-        /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         /// </summary>
         [Output("profile")]
@@ -34,22 +28,10 @@ namespace Pulumi.AwsNative
         public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
-        /// </summary>
-        [Output("secretKey")]
-        public Output<string?> SecretKey { get; private set; } = null!;
-
-        /// <summary>
         /// The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
         /// </summary>
         [Output("sharedCredentialsFile")]
         public Output<string?> SharedCredentialsFile { get; private set; } = null!;
-
-        /// <summary>
-        /// Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
-        /// </summary>
-        [Output("token")]
-        public Output<string?> Token { get; private set; } = null!;
 
 
         /// <summary>
@@ -69,12 +51,6 @@ namespace Pulumi.AwsNative
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "accessKey",
-                    "secretKey",
-                    "token",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

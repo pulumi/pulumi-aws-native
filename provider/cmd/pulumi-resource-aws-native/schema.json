@@ -49359,11 +49359,6 @@
     "provider": {
         "description": "The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.",
         "properties": {
-            "accessKey": {
-                "type": "string",
-                "description": "The access key for API operations. You can retrieve this from the ‘Security \u0026 Credentials’ section of the AWS console.",
-                "secret": true
-            },
             "allowedAccountIds": {
                 "type": "array",
                 "items": {
@@ -49418,11 +49413,6 @@
                 "type": "boolean",
                 "description": "Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service."
             },
-            "secretKey": {
-                "type": "string",
-                "description": "The secret key for API operations. You can retrieve this from the 'Security \u0026 Credentials' section of the AWS console.",
-                "secret": true
-            },
             "sharedCredentialsFile": {
                 "type": "string",
                 "description": "The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`."
@@ -49446,11 +49436,6 @@
             "skipRequestingAccountId": {
                 "type": "boolean",
                 "description": "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API."
-            },
-            "token": {
-                "type": "string",
-                "description": "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
-                "secret": true
             }
         },
         "inputProperties": {

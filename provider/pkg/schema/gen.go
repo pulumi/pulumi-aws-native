@@ -136,11 +136,6 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
 				Description: "The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.",
 				Properties: map[string]pschema.PropertySpec{
-					"accessKey": {
-						Description: "The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.",
-						TypeSpec:    pschema.TypeSpec{Type: "string"},
-						Secret:      true,
-					},
 					"allowedAccountIds": {
 						Description: "List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.",
 						TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
@@ -188,11 +183,6 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 						Description: "Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
-					"secretKey": {
-						Description: "The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.",
-						TypeSpec:    pschema.TypeSpec{Type: "string"},
-						Secret:      true,
-					},
 					"sharedCredentialsFile": {
 						Description: "The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.",
 						TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -216,11 +206,6 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 					"skipRequestingAccountId": {
 						Description: "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
-					},
-					"token": {
-						Description: "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
-						TypeSpec:    pschema.TypeSpec{Type: "string"},
-						Secret:      true,
 					},
 				},
 			},

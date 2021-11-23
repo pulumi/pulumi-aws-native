@@ -15,18 +15,12 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	// The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
-	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
 	Region pulumi.StringPtrOutput `pulumi:"region"`
-	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
 	// The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
 	SharedCredentialsFile pulumi.StringPtrOutput `pulumi:"sharedCredentialsFile"`
-	// Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
-	Token pulumi.StringPtrOutput `pulumi:"token"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +51,6 @@ func NewProvider(ctx *pulumi.Context,
 	if args.SkipRegionValidation == nil {
 		args.SkipRegionValidation = pulumi.BoolPtr(true)
 	}
-	if args.AccessKey != nil {
-		args.AccessKey = pulumi.ToSecret(args.AccessKey).(pulumi.StringPtrOutput)
-	}
-	if args.SecretKey != nil {
-		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringPtrOutput)
-	}
-	if args.Token != nil {
-		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrOutput)
-	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"accessKey",
-		"secretKey",
-		"token",
-	})
-	opts = append(opts, secrets)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:aws-native", name, args, &resource, opts...)
 	if err != nil {
