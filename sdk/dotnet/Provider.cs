@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
-        /// The access key for API operations. You can retrieve this from the ‘Security &amp; Credentials’ section of the AWS console.
-        /// </summary>
-        [Output("accessKey")]
-        public Output<string?> AccessKey { get; private set; } = null!;
-
-        /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         /// </summary>
         [Output("profile")]
@@ -34,22 +28,10 @@ namespace Pulumi.AwsNative
         public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
-        /// </summary>
-        [Output("secretKey")]
-        public Output<string?> SecretKey { get; private set; } = null!;
-
-        /// <summary>
         /// The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
         /// </summary>
         [Output("sharedCredentialsFile")]
         public Output<string?> SharedCredentialsFile { get; private set; } = null!;
-
-        /// <summary>
-        /// Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
-        /// </summary>
-        [Output("token")]
-        public Output<string?> Token { get; private set; } = null!;
 
 
         /// <summary>
@@ -249,16 +231,13 @@ namespace Pulumi.AwsNative
 
         public ProviderArgs()
         {
-            AccessKey = Utilities.GetEnv("AWS_ACCESS_KEY_ID");
             Profile = Utilities.GetEnv("AWS_PROFILE");
             Region = Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");
-            SecretKey = Utilities.GetEnv("AWS_SECRET_ACCESS_KEY");
             SharedCredentialsFile = Utilities.GetEnv("AWS_SHARED_CREDENTIALS_FILE");
             SkipCredentialsValidation = true;
             SkipGetEc2Platforms = true;
             SkipMetadataApiCheck = true;
             SkipRegionValidation = true;
-            Token = Utilities.GetEnv("AWS_SESSION_TOKEN");
         }
     }
 }

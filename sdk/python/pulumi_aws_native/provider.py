@@ -60,8 +60,6 @@ class ProviderArgs:
         if region is None:
             region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
         pulumi.set(__self__, "region", region)
-        if access_key is None:
-            access_key = _utilities.get_env('AWS_ACCESS_KEY_ID')
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
         if allowed_account_ids is not None:
@@ -86,8 +84,6 @@ class ProviderArgs:
             pulumi.set(__self__, "profile", profile)
         if s3_force_path_style is not None:
             pulumi.set(__self__, "s3_force_path_style", s3_force_path_style)
-        if secret_key is None:
-            secret_key = _utilities.get_env('AWS_SECRET_ACCESS_KEY')
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if shared_credentials_file is None:
@@ -112,8 +108,6 @@ class ProviderArgs:
             pulumi.set(__self__, "skip_region_validation", skip_region_validation)
         if skip_requesting_account_id is not None:
             pulumi.set(__self__, "skip_requesting_account_id", skip_requesting_account_id)
-        if token is None:
-            token = _utilities.get_env('AWS_SESSION_TOKEN')
         if token is not None:
             pulumi.set(__self__, "token", token)
 
@@ -466,8 +460,6 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            if access_key is None:
-                access_key = _utilities.get_env('AWS_ACCESS_KEY_ID')
             __props__.__dict__["access_key"] = None if access_key is None else pulumi.Output.secret(access_key)
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
@@ -486,8 +478,6 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
             __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
-            if secret_key is None:
-                secret_key = _utilities.get_env('AWS_SECRET_ACCESS_KEY')
             __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
             if shared_credentials_file is None:
                 shared_credentials_file = _utilities.get_env('AWS_SHARED_CREDENTIALS_FILE')
@@ -505,22 +495,12 @@ class Provider(pulumi.ProviderResource):
                 skip_region_validation = True
             __props__.__dict__["skip_region_validation"] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
             __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
-            if token is None:
-                token = _utilities.get_env('AWS_SESSION_TOKEN')
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
         super(Provider, __self__).__init__(
             'aws-native',
             resource_name,
             __props__,
             opts)
-
-    @property
-    @pulumi.getter(name="accessKey")
-    def access_key(self) -> pulumi.Output[Optional[str]]:
-        """
-        The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
-        """
-        return pulumi.get(self, "access_key")
 
     @property
     @pulumi.getter
@@ -539,26 +519,10 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "region")
 
     @property
-    @pulumi.getter(name="secretKey")
-    def secret_key(self) -> pulumi.Output[Optional[str]]:
-        """
-        The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-        """
-        return pulumi.get(self, "secret_key")
-
-    @property
     @pulumi.getter(name="sharedCredentialsFile")
     def shared_credentials_file(self) -> pulumi.Output[Optional[str]]:
         """
         The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
         """
         return pulumi.get(self, "shared_credentials_file")
-
-    @property
-    @pulumi.getter
-    def token(self) -> pulumi.Output[Optional[str]]:
-        """
-        Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
-        """
-        return pulumi.get(self, "token")
 

@@ -26,10 +26,6 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
-     */
-    public readonly accessKey!: pulumi.Output<string | undefined>;
-    /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */
     public readonly profile!: pulumi.Output<string | undefined>;
@@ -38,17 +34,9 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly region!: pulumi.Output<Region | undefined>;
     /**
-     * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-     */
-    public readonly secretKey!: pulumi.Output<string | undefined>;
-    /**
      * The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
      */
     public readonly sharedCredentialsFile!: pulumi.Output<string | undefined>;
-    /**
-     * Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
-     */
-    public readonly token!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -64,7 +52,7 @@ export class Provider extends pulumi.ProviderResource {
             if ((!args || args.region === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            inputs["accessKey"] = (args?.accessKey ? pulumi.secret(args.accessKey) : undefined) ?? utilities.getEnv("AWS_ACCESS_KEY_ID");
+            inputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
             inputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
             inputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             inputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
@@ -76,14 +64,14 @@ export class Provider extends pulumi.ProviderResource {
             inputs["profile"] = (args ? args.profile : undefined) ?? utilities.getEnv("AWS_PROFILE");
             inputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
-            inputs["secretKey"] = (args?.secretKey ? pulumi.secret(args.secretKey) : undefined) ?? utilities.getEnv("AWS_SECRET_ACCESS_KEY");
+            inputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
             inputs["sharedCredentialsFile"] = (args ? args.sharedCredentialsFile : undefined) ?? utilities.getEnv("AWS_SHARED_CREDENTIALS_FILE");
             inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? true).apply(JSON.stringify);
             inputs["skipGetEc2Platforms"] = pulumi.output((args ? args.skipGetEc2Platforms : undefined) ?? true).apply(JSON.stringify);
             inputs["skipMetadataApiCheck"] = pulumi.output((args ? args.skipMetadataApiCheck : undefined) ?? true).apply(JSON.stringify);
             inputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) ?? true).apply(JSON.stringify);
             inputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
-            inputs["token"] = (args?.token ? pulumi.secret(args.token) : undefined) ?? utilities.getEnv("AWS_SESSION_TOKEN");
+            inputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
