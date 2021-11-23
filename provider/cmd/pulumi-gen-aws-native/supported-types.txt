@@ -340,6 +340,8 @@ AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription
 AWS::Redshift::ScheduledAction
 AWS::Rekognition::Project
+AWS::ResilienceHub::App
+AWS::ResilienceHub::ResiliencyPolicy
 AWS::ResourceGroups::Group
 AWS::RoboMaker::Fleet
 AWS::RoboMaker::Robot
@@ -420,6 +422,7 @@ AWS::StepFunctions::StateMachine
 AWS::Synthetics::Canary
 AWS::Timestream::Database
 AWS::Timestream::Table
+AWS::Transfer::Workflow
 AWS::WAFv2::IPSet
 AWS::WAFv2::LoggingConfiguration
 AWS::WAFv2::RegexPatternSet
