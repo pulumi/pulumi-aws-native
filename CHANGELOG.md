@@ -1,6 +1,10 @@
 ## HEAD (Unreleased)
 
-- Custom providers can leak credentials to state file from environment variables
+(None)
+
+## 0.7.1 (November 23 2021)
+
+- Fix for "Custom providers can leak credentials to state file from environment variables"
   [#236](https://github.com/pulumi/pulumi-aws-native/issues/236)
 
   **PLEASE READ**
