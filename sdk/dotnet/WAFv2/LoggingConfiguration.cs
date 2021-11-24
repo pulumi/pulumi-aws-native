@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WAFv2
     public partial class LoggingConfiguration : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+        /// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
         /// </summary>
         [Output("logDestinationConfigs")]
         public Output<ImmutableArray<string>> LogDestinationConfigs { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.WAFv2
         private InputList<string>? _logDestinationConfigs;
 
         /// <summary>
-        /// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+        /// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
         /// </summary>
         public InputList<string> LogDestinationConfigs
         {

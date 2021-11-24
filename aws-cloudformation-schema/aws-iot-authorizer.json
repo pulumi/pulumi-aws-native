@@ -56,6 +56,7 @@
       }
     }
   },
+  "taggable" : true,
   "additionalProperties" : false,
   "required" : [ "AuthorizerFunctionArn" ],
   "createOnlyProperties" : [ "/properties/SigningDisabled", "/properties/AuthorizerName" ],

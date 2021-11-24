@@ -51,6 +51,7 @@ import * as kinesis from "./kinesis";
 import * as kinesisfirehose from "./kinesisfirehose";
 import * as kms from "./kms";
 import * as lambda from "./lambda";
+import * as lex from "./lex";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
 import * as lookoutequipment from "./lookoutequipment";
@@ -139,6 +140,7 @@ export {
     kinesisfirehose,
     kms,
     lambda,
+    lex,
     lightsail,
     location,
     lookoutequipment,

@@ -723,68 +723,6 @@ namespace Pulumi.AwsNative.EC2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-    /// </summary>
-    [EnumType]
-    public readonly struct HostAutoPlacement : IEquatable<HostAutoPlacement>
-    {
-        private readonly string _value;
-
-        private HostAutoPlacement(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static HostAutoPlacement On { get; } = new HostAutoPlacement("on");
-        public static HostAutoPlacement Off { get; } = new HostAutoPlacement("off");
-
-        public static bool operator ==(HostAutoPlacement left, HostAutoPlacement right) => left.Equals(right);
-        public static bool operator !=(HostAutoPlacement left, HostAutoPlacement right) => !left.Equals(right);
-
-        public static explicit operator string(HostAutoPlacement value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is HostAutoPlacement other && Equals(other);
-        public bool Equals(HostAutoPlacement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-    /// </summary>
-    [EnumType]
-    public readonly struct HostRecovery : IEquatable<HostRecovery>
-    {
-        private readonly string _value;
-
-        private HostRecovery(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static HostRecovery On { get; } = new HostRecovery("on");
-        public static HostRecovery Off { get; } = new HostRecovery("off");
-
-        public static bool operator ==(HostRecovery left, HostRecovery right) => left.Equals(right);
-        public static bool operator !=(HostRecovery left, HostRecovery right) => !left.Equals(right);
-
-        public static explicit operator string(HostRecovery value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is HostRecovery other && Equals(other);
-        public bool Equals(HostRecovery other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct NetworkInsightsAnalysisStatus : IEquatable<NetworkInsightsAnalysisStatus>
     {

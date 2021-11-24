@@ -61,6 +61,7 @@
       }
     }
   },
+  "taggable" : true,
   "additionalProperties" : false,
   "required" : [ "ProvisioningRoleArn", "TemplateBody" ],
   "createOnlyProperties" : [ "/properties/TemplateName" ],

@@ -28,8 +28,6 @@ __all__ = [
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
     'FlowLogTrafficType',
-    'HostAutoPlacement',
-    'HostRecovery',
     'NetworkInsightsAnalysisStatus',
     'NetworkInsightsPathProtocol',
     'PrefixListAddressFamily',
@@ -240,22 +238,6 @@ class FlowLogTrafficType(str, Enum):
     ACCEPT = "ACCEPT"
     ALL = "ALL"
     REJECT = "REJECT"
-
-
-class HostAutoPlacement(str, Enum):
-    """
-    Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-    """
-    ON = "on"
-    OFF = "off"
-
-
-class HostRecovery(str, Enum):
-    """
-    Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-    """
-    ON = "on"
-    OFF = "off"
 
 
 class NetworkInsightsAnalysisStatus(str, Enum):

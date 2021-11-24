@@ -36,7 +36,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+     * The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
      */
     public readonly logDestinationConfigs!: pulumi.Output<string[]>;
     /**
@@ -97,7 +97,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  */
 export interface LoggingConfigurationArgs {
     /**
-     * The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+     * The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
      */
     logDestinationConfigs: pulumi.Input<pulumi.Input<string>[]>;
     /**

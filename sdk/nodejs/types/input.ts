@@ -16848,6 +16848,654 @@ export namespace lambda {
     }
 }
 
+export namespace lex {
+    /**
+     * The location of audio log files collected when conversation logging is enabled for a bot.
+     */
+    export interface BotAliasAudioLogDestinationArgs {
+        s3Bucket?: pulumi.Input<inputs.lex.BotAliasS3BucketLogDestinationArgs>;
+    }
+
+    /**
+     * Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+     */
+    export interface BotAliasAudioLogSettingArgs {
+        destination: pulumi.Input<inputs.lex.BotAliasAudioLogDestinationArgs>;
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface BotAliasCloudWatchLogGroupLogDestinationArgs {
+        /**
+         * A string used to identify this tag
+         */
+        cloudWatchLogGroupArn: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        logPrefix: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotAliasCodeHookSpecificationArgs {
+        lambdaCodeHook: pulumi.Input<inputs.lex.BotAliasLambdaCodeHookArgs>;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotAliasConversationLogSettingsArgs {
+        audioLogSettings?: pulumi.Input<pulumi.Input<inputs.lex.BotAliasAudioLogSettingArgs>[]>;
+        textLogSettings?: pulumi.Input<pulumi.Input<inputs.lex.BotAliasTextLogSettingArgs>[]>;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotAliasLambdaCodeHookArgs {
+        /**
+         * The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
+         */
+        codeHookInterfaceVersion: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lambda function.
+         */
+        lambdaArn: pulumi.Input<string>;
+    }
+
+    /**
+     * You can use this parameter to specify a specific Lambda function to run different functions in different locales.
+     */
+    export interface BotAliasLocaleSettingsArgs {
+        codeHookSpecification?: pulumi.Input<inputs.lex.BotAliasCodeHookSpecificationArgs>;
+        /**
+         * Whether the Lambda code hook is enabled
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * A locale setting in alias
+     */
+    export interface BotAliasLocaleSettingsItemArgs {
+        botAliasLocaleSetting?: pulumi.Input<inputs.lex.BotAliasLocaleSettingsArgs>;
+        /**
+         * A string used to identify the locale
+         */
+        localeId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies an Amazon S3 bucket for logging audio conversations
+     */
+    export interface BotAliasS3BucketLogDestinationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The Amazon S3 key of the deployment package.
+         */
+        logPrefix: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+         */
+        s3BucketArn: pulumi.Input<string>;
+    }
+
+    /**
+     * A label for tagging Lex resources
+     */
+    export interface BotAliasTagArgs {
+        /**
+         * A string used to identify this tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+     */
+    export interface BotAliasTextLogDestinationArgs {
+        cloudWatch?: pulumi.Input<inputs.lex.BotAliasCloudWatchLogGroupLogDestinationArgs>;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotAliasTextLogSettingArgs {
+        destination?: pulumi.Input<inputs.lex.BotAliasTextLogDestinationArgs>;
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * A button to use on a response card used to gather slot values from a user.
+     */
+    export interface BotButtonArgs {
+        /**
+         * The text that appears on the button.
+         */
+        text: pulumi.Input<string>;
+        /**
+         * The value returned to Amazon Lex when the user chooses this button.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A message in a custom format defined by the client application.
+     */
+    export interface BotCustomPayloadArgs {
+        /**
+         * The string that is sent to your application.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
+     */
+    export interface BotDialogCodeHookSettingArgs {
+        enabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
+     */
+    export interface BotFulfillmentCodeHookSettingArgs {
+        enabled: pulumi.Input<boolean>;
+        fulfillmentUpdatesSpecification?: pulumi.Input<inputs.lex.BotFulfillmentUpdatesSpecificationArgs>;
+        postFulfillmentStatusSpecification?: pulumi.Input<inputs.lex.BotPostFulfillmentStatusSpecificationArgs>;
+    }
+
+    /**
+     * Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+     */
+    export interface BotFulfillmentStartResponseSpecificationArgs {
+        /**
+         * Determines whether the user can interrupt the start message while it is playing.
+         */
+        allowInterrupt?: pulumi.Input<boolean>;
+        /**
+         * The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
+         */
+        delayInSeconds: pulumi.Input<number>;
+        messageGroups: pulumi.Input<pulumi.Input<inputs.lex.BotMessageGroupArgs>[]>;
+    }
+
+    /**
+     * Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+     */
+    export interface BotFulfillmentUpdateResponseSpecificationArgs {
+        /**
+         * Determines whether the user can interrupt an update message while it is playing.
+         */
+        allowInterrupt?: pulumi.Input<boolean>;
+        /**
+         * The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
+         */
+        frequencyInSeconds: pulumi.Input<number>;
+        messageGroups: pulumi.Input<pulumi.Input<inputs.lex.BotMessageGroupArgs>[]>;
+    }
+
+    /**
+     * Provides information for updating the user on the progress of fulfilling an intent.
+     */
+    export interface BotFulfillmentUpdatesSpecificationArgs {
+        /**
+         * Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+         */
+        active: pulumi.Input<boolean>;
+        startResponse?: pulumi.Input<inputs.lex.BotFulfillmentStartResponseSpecificationArgs>;
+        /**
+         * The length of time that the fulfillment Lambda function should run before it times out.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+        updateResponse?: pulumi.Input<inputs.lex.BotFulfillmentUpdateResponseSpecificationArgs>;
+    }
+
+    /**
+     * A message that defines a response card that the client application can show to the user.
+     */
+    export interface BotImageResponseCardArgs {
+        /**
+         * A list of buttons that should be displayed on the response card.
+         */
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.BotButtonArgs>[]>;
+        /**
+         * The URL of an image to display on the response card.
+         */
+        imageUrl?: pulumi.Input<string>;
+        /**
+         * The subtitle to display on the response card.
+         */
+        subtitle?: pulumi.Input<string>;
+        /**
+         * The title to display on the response card.
+         */
+        title: pulumi.Input<string>;
+    }
+
+    /**
+     * InputContext specified for the intent.
+     */
+    export interface BotInputContextArgs {
+        /**
+         * The name of the context.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
+     */
+    export interface BotIntentArgs {
+        description?: pulumi.Input<string>;
+        dialogCodeHook?: pulumi.Input<inputs.lex.BotDialogCodeHookSettingArgs>;
+        fulfillmentCodeHook?: pulumi.Input<inputs.lex.BotFulfillmentCodeHookSettingArgs>;
+        inputContexts?: pulumi.Input<pulumi.Input<inputs.lex.BotInputContextArgs>[]>;
+        intentClosingSetting?: pulumi.Input<inputs.lex.BotIntentClosingSettingArgs>;
+        intentConfirmationSetting?: pulumi.Input<inputs.lex.BotIntentConfirmationSettingArgs>;
+        kendraConfiguration?: pulumi.Input<inputs.lex.BotKendraConfigurationArgs>;
+        name: pulumi.Input<string>;
+        outputContexts?: pulumi.Input<pulumi.Input<inputs.lex.BotOutputContextArgs>[]>;
+        parentIntentSignature?: pulumi.Input<string>;
+        sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.BotSampleUtteranceArgs>[]>;
+        slotPriorities?: pulumi.Input<pulumi.Input<inputs.lex.BotSlotPriorityArgs>[]>;
+        /**
+         * List of slots
+         */
+        slots?: pulumi.Input<pulumi.Input<inputs.lex.BotSlotArgs>[]>;
+    }
+
+    /**
+     * Response that Amazon Lex sends to the user when the intent is closed.
+     */
+    export interface BotIntentClosingSettingArgs {
+        closingResponse: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        isActive?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Prompts that Amazon Lex sends to the user to confirm the completion of an intent.
+     */
+    export interface BotIntentConfirmationSettingArgs {
+        declinationResponse: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        isActive?: pulumi.Input<boolean>;
+        promptSpecification: pulumi.Input<inputs.lex.BotPromptSpecificationArgs>;
+    }
+
+    /**
+     * Configuration for searching a Amazon Kendra index specified for the intent.
+     */
+    export interface BotKendraConfigurationArgs {
+        kendraIndex: pulumi.Input<string>;
+        queryFilterString?: pulumi.Input<string>;
+        /**
+         * Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+         */
+        queryFilterStringEnabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
+     */
+    export interface BotLocaleArgs {
+        description?: pulumi.Input<string>;
+        /**
+         * List of intents
+         */
+        intents?: pulumi.Input<pulumi.Input<inputs.lex.BotIntentArgs>[]>;
+        localeId: pulumi.Input<string>;
+        nluConfidenceThreshold: pulumi.Input<number>;
+        /**
+         * List of SlotTypes
+         */
+        slotTypes?: pulumi.Input<pulumi.Input<inputs.lex.BotSlotTypeArgs>[]>;
+        voiceSettings?: pulumi.Input<inputs.lex.BotVoiceSettingsArgs>;
+    }
+
+    /**
+     * The primary message that Amazon Lex should send to the user.
+     */
+    export interface BotMessageArgs {
+        customPayload?: pulumi.Input<inputs.lex.BotCustomPayloadArgs>;
+        imageResponseCard?: pulumi.Input<inputs.lex.BotImageResponseCardArgs>;
+        plainTextMessage?: pulumi.Input<inputs.lex.BotPlainTextMessageArgs>;
+        sSMLMessage?: pulumi.Input<inputs.lex.BotSSMLMessageArgs>;
+    }
+
+    /**
+     * One or more messages that Amazon Lex can send to the user.
+     */
+    export interface BotMessageGroupArgs {
+        message: pulumi.Input<inputs.lex.BotMessageArgs>;
+        /**
+         * Message variations to send to the user.
+         */
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.BotMessageArgs>[]>;
+    }
+
+    /**
+     * Indicates whether a slot can return multiple values.
+     */
+    export interface BotMultipleValuesSettingArgs {
+        allowMultipleValues?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Determines whether Amazon Lex obscures slot values in conversation logs.
+     */
+    export interface BotObfuscationSettingArgs {
+        /**
+         * Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
+         */
+        obfuscationSettingType: pulumi.Input<enums.lex.BotObfuscationSettingObfuscationSettingType>;
+    }
+
+    /**
+     * A session context that is activated when an intent is fulfilled.
+     */
+    export interface BotOutputContextArgs {
+        name: pulumi.Input<string>;
+        timeToLiveInSeconds: pulumi.Input<number>;
+        turnsToLive: pulumi.Input<number>;
+    }
+
+    /**
+     * A message in plain text format.
+     */
+    export interface BotPlainTextMessageArgs {
+        /**
+         * The message to send to the user.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Provides information for updating the user on the progress of fulfilling an intent.
+     */
+    export interface BotPostFulfillmentStatusSpecificationArgs {
+        failureResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        successResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        timeoutResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+    }
+
+    /**
+     * Prompts the user to confirm the intent.
+     */
+    export interface BotPromptSpecificationArgs {
+        /**
+         * Indicates whether the user can interrupt a speech prompt from the bot.
+         */
+        allowInterrupt?: pulumi.Input<boolean>;
+        maxRetries: pulumi.Input<number>;
+        messageGroupsList: pulumi.Input<pulumi.Input<inputs.lex.BotMessageGroupArgs>[]>;
+    }
+
+    /**
+     * A list of message groups that Amazon Lex uses to respond the user input.
+     */
+    export interface BotResponseSpecificationArgs {
+        /**
+         * Indicates whether the user can interrupt a speech prompt from the bot.
+         */
+        allowInterrupt?: pulumi.Input<boolean>;
+        messageGroupsList: pulumi.Input<pulumi.Input<inputs.lex.BotMessageGroupArgs>[]>;
+    }
+
+    /**
+     * S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
+     */
+    export interface BotS3LocationArgs {
+        /**
+         * An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+         */
+        s3Bucket: pulumi.Input<string>;
+        /**
+         * The Amazon S3 key of the deployment package.
+         */
+        s3ObjectKey: pulumi.Input<string>;
+        /**
+         * For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+         */
+        s3ObjectVersion?: pulumi.Input<string>;
+    }
+
+    /**
+     * A message in Speech Synthesis Markup Language (SSML).
+     */
+    export interface BotSSMLMessageArgs {
+        /**
+         * The SSML text that defines the prompt.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+     */
+    export interface BotSampleUtteranceArgs {
+        utterance: pulumi.Input<string>;
+    }
+
+    /**
+     * Defines one of the values for a slot type.
+     */
+    export interface BotSampleValueArgs {
+        /**
+         * The value that can be used for a slot type.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
+     */
+    export interface BotSlotArgs {
+        description?: pulumi.Input<string>;
+        multipleValuesSetting?: pulumi.Input<inputs.lex.BotMultipleValuesSettingArgs>;
+        name: pulumi.Input<string>;
+        obfuscationSetting?: pulumi.Input<inputs.lex.BotObfuscationSettingArgs>;
+        slotTypeName: pulumi.Input<string>;
+        valueElicitationSetting: pulumi.Input<inputs.lex.BotSlotValueElicitationSettingArgs>;
+    }
+
+    /**
+     * The default value to use when a user doesn't provide a value for a slot.
+     */
+    export interface BotSlotDefaultValueArgs {
+        /**
+         * The default value to use when a user doesn't provide a value for a slot.
+         */
+        defaultValue: pulumi.Input<string>;
+    }
+
+    /**
+     * A list of values that Amazon Lex should use as the default value for a slot.
+     */
+    export interface BotSlotDefaultValueSpecificationArgs {
+        /**
+         * A list of slot default values
+         */
+        defaultValueList: pulumi.Input<pulumi.Input<inputs.lex.BotSlotDefaultValueArgs>[]>;
+    }
+
+    /**
+     * The priority that Amazon Lex should use when eliciting slot values from a user.
+     */
+    export interface BotSlotPriorityArgs {
+        priority: pulumi.Input<number>;
+        /**
+         * The name of the slot.
+         */
+        slotName: pulumi.Input<string>;
+    }
+
+    /**
+     * A custom slot type.
+     */
+    export interface BotSlotTypeArgs {
+        description?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        parentSlotTypeSignature?: pulumi.Input<string>;
+        slotTypeValues?: pulumi.Input<pulumi.Input<inputs.lex.BotSlotTypeValueArgs>[]>;
+        valueSelectionSetting: pulumi.Input<inputs.lex.BotSlotValueSelectionSettingArgs>;
+    }
+
+    /**
+     * Value that the slot type can take.
+     */
+    export interface BotSlotTypeValueArgs {
+        sampleValue: pulumi.Input<inputs.lex.BotSampleValueArgs>;
+        synonyms?: pulumi.Input<pulumi.Input<inputs.lex.BotSampleValueArgs>[]>;
+    }
+
+    /**
+     * Settings that you can use for eliciting a slot value.
+     */
+    export interface BotSlotValueElicitationSettingArgs {
+        /**
+         * A list of default values for a slot.
+         */
+        defaultValueSpecification?: pulumi.Input<inputs.lex.BotSlotDefaultValueSpecificationArgs>;
+        /**
+         * The prompt that Amazon Lex uses to elicit the slot value from the user.
+         */
+        promptSpecification?: pulumi.Input<inputs.lex.BotPromptSpecificationArgs>;
+        /**
+         * If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
+         */
+        sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.BotSampleUtteranceArgs>[]>;
+        /**
+         * Specifies whether the slot is required or optional.
+         */
+        slotConstraint: pulumi.Input<enums.lex.BotSlotConstraint>;
+        /**
+         * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+         */
+        waitAndContinueSpecification?: pulumi.Input<inputs.lex.BotWaitAndContinueSpecificationArgs>;
+    }
+
+    /**
+     * A regular expression used to validate the value of a slot.
+     */
+    export interface BotSlotValueRegexFilterArgs {
+        /**
+         * Regex pattern
+         */
+        pattern: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains settings used by Amazon Lex to select a slot value.
+     */
+    export interface BotSlotValueSelectionSettingArgs {
+        regexFilter?: pulumi.Input<inputs.lex.BotSlotValueRegexFilterArgs>;
+        resolutionStrategy: pulumi.Input<enums.lex.BotSlotValueResolutionStrategy>;
+    }
+
+    /**
+     * StillWaitingResponseSpecification.
+     */
+    export interface BotStillWaitingResponseSpecificationArgs {
+        /**
+         * Indicates whether the user can interrupt a speech prompt from the bot.
+         */
+        allowInterrupt?: pulumi.Input<boolean>;
+        frequencyInSeconds: pulumi.Input<number>;
+        messageGroupsList: pulumi.Input<pulumi.Input<inputs.lex.BotMessageGroupArgs>[]>;
+        timeoutInSeconds: pulumi.Input<number>;
+    }
+
+    /**
+     * A key-value pair for tagging Lex resources
+     */
+    export interface BotTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The version of a bot used for a bot locale.
+     */
+    export interface BotVersionLocaleDetailsArgs {
+        sourceBotVersion: pulumi.Input<string>;
+    }
+
+    export interface BotVersionLocaleSpecificationItemPropertiesArgs {
+        botVersionLocaleDetails: pulumi.Input<inputs.lex.BotVersionLocaleDetailsArgs>;
+        localeId: pulumi.Input<string>;
+    }
+
+    /**
+     * Settings for using an Amazon Polly voice to communicate with a user.
+     */
+    export interface BotVoiceSettingsArgs {
+        /**
+         * The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+         */
+        voiceId: pulumi.Input<string>;
+    }
+
+    /**
+     * The prompts that Amazon Lex uses while a bot is waiting for customer input.
+     */
+    export interface BotWaitAndContinueSpecificationArgs {
+        /**
+         * The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         */
+        continueResponse: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * Specifies whether the bot will wait for a user to respond.
+         */
+        isActive?: pulumi.Input<boolean>;
+        /**
+         * The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         */
+        stillWaitingResponse?: pulumi.Input<inputs.lex.BotStillWaitingResponseSpecificationArgs>;
+        /**
+         * The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         */
+        waitingResponse: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+    }
+
+    /**
+     * Data privacy setting of the Bot.
+     */
+    export interface DataPrivacyPropertiesArgs {
+        childDirected: pulumi.Input<boolean>;
+    }
+
+    /**
+     * A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
+     */
+    export interface ResourcePolicyPolicyArgs {
+    }
+
+    /**
+     * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+     */
+    export interface SentimentAnalysisSettingsPropertiesArgs {
+        /**
+         * Enable to call Amazon Comprehend for Sentiment natively within Lex
+         */
+        detectSentiment: pulumi.Input<boolean>;
+    }
+
+}
+
 export namespace licensemanager {
     export interface LicenseBorrowConfigurationArgs {
         allowEarlyCheckIn: pulumi.Input<boolean>;

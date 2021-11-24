@@ -79,7 +79,12 @@ class UrlArgs:
         pulumi.set(self, "qualifier", value)
 
 
+warnings.warn("""Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
+
 class Url(pulumi.CustomResource):
+    warnings.warn("""Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -127,6 +132,7 @@ class Url(pulumi.CustomResource):
                  qualifier: Optional[pulumi.Input[str]] = None,
                  target_function_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Url is deprecated: Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -15,7 +15,7 @@ import (
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+	// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
 	LogDestinationConfigs pulumi.StringArrayOutput `pulumi:"logDestinationConfigs"`
 	// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
 	LoggingFilter LoggingFilterPropertiesPtrOutput `pulumi:"loggingFilter"`
@@ -72,7 +72,7 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type loggingConfigurationArgs struct {
-	// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+	// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
 	LogDestinationConfigs []string `pulumi:"logDestinationConfigs"`
 	// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
 	LoggingFilter *LoggingFilterProperties `pulumi:"loggingFilter"`
@@ -84,7 +84,7 @@ type loggingConfigurationArgs struct {
 
 // The set of arguments for constructing a LoggingConfiguration resource.
 type LoggingConfigurationArgs struct {
-	// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+	// The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
 	LogDestinationConfigs pulumi.StringArrayInput
 	// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
 	LoggingFilter LoggingFilterPropertiesPtrInput

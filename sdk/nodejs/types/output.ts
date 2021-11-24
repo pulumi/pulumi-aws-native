@@ -17155,6 +17155,654 @@ export namespace lambda {
 
 }
 
+export namespace lex {
+    /**
+     * The location of audio log files collected when conversation logging is enabled for a bot.
+     */
+    export interface BotAliasAudioLogDestination {
+        s3Bucket?: outputs.lex.BotAliasS3BucketLogDestination;
+    }
+
+    /**
+     * Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+     */
+    export interface BotAliasAudioLogSetting {
+        destination: outputs.lex.BotAliasAudioLogDestination;
+        enabled: boolean;
+    }
+
+    export interface BotAliasCloudWatchLogGroupLogDestination {
+        /**
+         * A string used to identify this tag
+         */
+        cloudWatchLogGroupArn: string;
+        /**
+         * A string containing the value for the tag
+         */
+        logPrefix: string;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotAliasCodeHookSpecification {
+        lambdaCodeHook: outputs.lex.BotAliasLambdaCodeHook;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotAliasConversationLogSettings {
+        audioLogSettings?: outputs.lex.BotAliasAudioLogSetting[];
+        textLogSettings?: outputs.lex.BotAliasTextLogSetting[];
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotAliasLambdaCodeHook {
+        /**
+         * The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
+         */
+        codeHookInterfaceVersion: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Lambda function.
+         */
+        lambdaArn: string;
+    }
+
+    /**
+     * You can use this parameter to specify a specific Lambda function to run different functions in different locales.
+     */
+    export interface BotAliasLocaleSettings {
+        codeHookSpecification?: outputs.lex.BotAliasCodeHookSpecification;
+        /**
+         * Whether the Lambda code hook is enabled
+         */
+        enabled: boolean;
+    }
+
+    /**
+     * A locale setting in alias
+     */
+    export interface BotAliasLocaleSettingsItem {
+        botAliasLocaleSetting?: outputs.lex.BotAliasLocaleSettings;
+        /**
+         * A string used to identify the locale
+         */
+        localeId?: string;
+    }
+
+    /**
+     * Specifies an Amazon S3 bucket for logging audio conversations
+     */
+    export interface BotAliasS3BucketLogDestination {
+        /**
+         * The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+         */
+        kmsKeyArn?: string;
+        /**
+         * The Amazon S3 key of the deployment package.
+         */
+        logPrefix: string;
+        /**
+         * The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+         */
+        s3BucketArn: string;
+    }
+
+    /**
+     * A label for tagging Lex resources
+     */
+    export interface BotAliasTag {
+        /**
+         * A string used to identify this tag
+         */
+        key: string;
+        /**
+         * A string containing the value for the tag
+         */
+        value: string;
+    }
+
+    /**
+     * Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+     */
+    export interface BotAliasTextLogDestination {
+        cloudWatch?: outputs.lex.BotAliasCloudWatchLogGroupLogDestination;
+    }
+
+    /**
+     * Contains information about code hooks that Amazon Lex calls during a conversation.
+     */
+    export interface BotAliasTextLogSetting {
+        destination?: outputs.lex.BotAliasTextLogDestination;
+        enabled?: boolean;
+    }
+
+    /**
+     * A button to use on a response card used to gather slot values from a user.
+     */
+    export interface BotButton {
+        /**
+         * The text that appears on the button.
+         */
+        text: string;
+        /**
+         * The value returned to Amazon Lex when the user chooses this button.
+         */
+        value: string;
+    }
+
+    /**
+     * A message in a custom format defined by the client application.
+     */
+    export interface BotCustomPayload {
+        /**
+         * The string that is sent to your application.
+         */
+        value: string;
+    }
+
+    /**
+     * Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
+     */
+    export interface BotDialogCodeHookSetting {
+        enabled: boolean;
+    }
+
+    /**
+     * Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
+     */
+    export interface BotFulfillmentCodeHookSetting {
+        enabled: boolean;
+        fulfillmentUpdatesSpecification?: outputs.lex.BotFulfillmentUpdatesSpecification;
+        postFulfillmentStatusSpecification?: outputs.lex.BotPostFulfillmentStatusSpecification;
+    }
+
+    /**
+     * Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+     */
+    export interface BotFulfillmentStartResponseSpecification {
+        /**
+         * Determines whether the user can interrupt the start message while it is playing.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
+         */
+        delayInSeconds: number;
+        messageGroups: outputs.lex.BotMessageGroup[];
+    }
+
+    /**
+     * Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+     */
+    export interface BotFulfillmentUpdateResponseSpecification {
+        /**
+         * Determines whether the user can interrupt an update message while it is playing.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
+         */
+        frequencyInSeconds: number;
+        messageGroups: outputs.lex.BotMessageGroup[];
+    }
+
+    /**
+     * Provides information for updating the user on the progress of fulfilling an intent.
+     */
+    export interface BotFulfillmentUpdatesSpecification {
+        /**
+         * Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+         */
+        active: boolean;
+        startResponse?: outputs.lex.BotFulfillmentStartResponseSpecification;
+        /**
+         * The length of time that the fulfillment Lambda function should run before it times out.
+         */
+        timeoutInSeconds?: number;
+        updateResponse?: outputs.lex.BotFulfillmentUpdateResponseSpecification;
+    }
+
+    /**
+     * A message that defines a response card that the client application can show to the user.
+     */
+    export interface BotImageResponseCard {
+        /**
+         * A list of buttons that should be displayed on the response card.
+         */
+        buttons?: outputs.lex.BotButton[];
+        /**
+         * The URL of an image to display on the response card.
+         */
+        imageUrl?: string;
+        /**
+         * The subtitle to display on the response card.
+         */
+        subtitle?: string;
+        /**
+         * The title to display on the response card.
+         */
+        title: string;
+    }
+
+    /**
+     * InputContext specified for the intent.
+     */
+    export interface BotInputContext {
+        /**
+         * The name of the context.
+         */
+        name: string;
+    }
+
+    /**
+     * An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
+     */
+    export interface BotIntent {
+        description?: string;
+        dialogCodeHook?: outputs.lex.BotDialogCodeHookSetting;
+        fulfillmentCodeHook?: outputs.lex.BotFulfillmentCodeHookSetting;
+        inputContexts?: outputs.lex.BotInputContext[];
+        intentClosingSetting?: outputs.lex.BotIntentClosingSetting;
+        intentConfirmationSetting?: outputs.lex.BotIntentConfirmationSetting;
+        kendraConfiguration?: outputs.lex.BotKendraConfiguration;
+        name: string;
+        outputContexts?: outputs.lex.BotOutputContext[];
+        parentIntentSignature?: string;
+        sampleUtterances?: outputs.lex.BotSampleUtterance[];
+        slotPriorities?: outputs.lex.BotSlotPriority[];
+        /**
+         * List of slots
+         */
+        slots?: outputs.lex.BotSlot[];
+    }
+
+    /**
+     * Response that Amazon Lex sends to the user when the intent is closed.
+     */
+    export interface BotIntentClosingSetting {
+        closingResponse: outputs.lex.BotResponseSpecification;
+        isActive?: boolean;
+    }
+
+    /**
+     * Prompts that Amazon Lex sends to the user to confirm the completion of an intent.
+     */
+    export interface BotIntentConfirmationSetting {
+        declinationResponse: outputs.lex.BotResponseSpecification;
+        isActive?: boolean;
+        promptSpecification: outputs.lex.BotPromptSpecification;
+    }
+
+    /**
+     * Configuration for searching a Amazon Kendra index specified for the intent.
+     */
+    export interface BotKendraConfiguration {
+        kendraIndex: string;
+        queryFilterString?: string;
+        /**
+         * Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+         */
+        queryFilterStringEnabled?: boolean;
+    }
+
+    /**
+     * A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
+     */
+    export interface BotLocale {
+        description?: string;
+        /**
+         * List of intents
+         */
+        intents?: outputs.lex.BotIntent[];
+        localeId: string;
+        nluConfidenceThreshold: number;
+        /**
+         * List of SlotTypes
+         */
+        slotTypes?: outputs.lex.BotSlotType[];
+        voiceSettings?: outputs.lex.BotVoiceSettings;
+    }
+
+    /**
+     * The primary message that Amazon Lex should send to the user.
+     */
+    export interface BotMessage {
+        customPayload?: outputs.lex.BotCustomPayload;
+        imageResponseCard?: outputs.lex.BotImageResponseCard;
+        plainTextMessage?: outputs.lex.BotPlainTextMessage;
+        sSMLMessage?: outputs.lex.BotSSMLMessage;
+    }
+
+    /**
+     * One or more messages that Amazon Lex can send to the user.
+     */
+    export interface BotMessageGroup {
+        message: outputs.lex.BotMessage;
+        /**
+         * Message variations to send to the user.
+         */
+        variations?: outputs.lex.BotMessage[];
+    }
+
+    /**
+     * Indicates whether a slot can return multiple values.
+     */
+    export interface BotMultipleValuesSetting {
+        allowMultipleValues?: boolean;
+    }
+
+    /**
+     * Determines whether Amazon Lex obscures slot values in conversation logs.
+     */
+    export interface BotObfuscationSetting {
+        /**
+         * Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
+         */
+        obfuscationSettingType: enums.lex.BotObfuscationSettingObfuscationSettingType;
+    }
+
+    /**
+     * A session context that is activated when an intent is fulfilled.
+     */
+    export interface BotOutputContext {
+        name: string;
+        timeToLiveInSeconds: number;
+        turnsToLive: number;
+    }
+
+    /**
+     * A message in plain text format.
+     */
+    export interface BotPlainTextMessage {
+        /**
+         * The message to send to the user.
+         */
+        value: string;
+    }
+
+    /**
+     * Provides information for updating the user on the progress of fulfilling an intent.
+     */
+    export interface BotPostFulfillmentStatusSpecification {
+        failureResponse?: outputs.lex.BotResponseSpecification;
+        successResponse?: outputs.lex.BotResponseSpecification;
+        timeoutResponse?: outputs.lex.BotResponseSpecification;
+    }
+
+    /**
+     * Prompts the user to confirm the intent.
+     */
+    export interface BotPromptSpecification {
+        /**
+         * Indicates whether the user can interrupt a speech prompt from the bot.
+         */
+        allowInterrupt?: boolean;
+        maxRetries: number;
+        messageGroupsList: outputs.lex.BotMessageGroup[];
+    }
+
+    /**
+     * A list of message groups that Amazon Lex uses to respond the user input.
+     */
+    export interface BotResponseSpecification {
+        /**
+         * Indicates whether the user can interrupt a speech prompt from the bot.
+         */
+        allowInterrupt?: boolean;
+        messageGroupsList: outputs.lex.BotMessageGroup[];
+    }
+
+    /**
+     * S3 location of bot definitions zip file, if it's not defined inline in CloudFormation.
+     */
+    export interface BotS3Location {
+        /**
+         * An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+         */
+        s3Bucket: string;
+        /**
+         * The Amazon S3 key of the deployment package.
+         */
+        s3ObjectKey: string;
+        /**
+         * For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
+         */
+        s3ObjectVersion?: string;
+    }
+
+    /**
+     * A message in Speech Synthesis Markup Language (SSML).
+     */
+    export interface BotSSMLMessage {
+        /**
+         * The SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    /**
+     * A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+     */
+    export interface BotSampleUtterance {
+        utterance: string;
+    }
+
+    /**
+     * Defines one of the values for a slot type.
+     */
+    export interface BotSampleValue {
+        /**
+         * The value that can be used for a slot type.
+         */
+        value: string;
+    }
+
+    /**
+     * A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
+     */
+    export interface BotSlot {
+        description?: string;
+        multipleValuesSetting?: outputs.lex.BotMultipleValuesSetting;
+        name: string;
+        obfuscationSetting?: outputs.lex.BotObfuscationSetting;
+        slotTypeName: string;
+        valueElicitationSetting: outputs.lex.BotSlotValueElicitationSetting;
+    }
+
+    /**
+     * The default value to use when a user doesn't provide a value for a slot.
+     */
+    export interface BotSlotDefaultValue {
+        /**
+         * The default value to use when a user doesn't provide a value for a slot.
+         */
+        defaultValue: string;
+    }
+
+    /**
+     * A list of values that Amazon Lex should use as the default value for a slot.
+     */
+    export interface BotSlotDefaultValueSpecification {
+        /**
+         * A list of slot default values
+         */
+        defaultValueList: outputs.lex.BotSlotDefaultValue[];
+    }
+
+    /**
+     * The priority that Amazon Lex should use when eliciting slot values from a user.
+     */
+    export interface BotSlotPriority {
+        priority: number;
+        /**
+         * The name of the slot.
+         */
+        slotName: string;
+    }
+
+    /**
+     * A custom slot type.
+     */
+    export interface BotSlotType {
+        description?: string;
+        name: string;
+        parentSlotTypeSignature?: string;
+        slotTypeValues?: outputs.lex.BotSlotTypeValue[];
+        valueSelectionSetting: outputs.lex.BotSlotValueSelectionSetting;
+    }
+
+    /**
+     * Value that the slot type can take.
+     */
+    export interface BotSlotTypeValue {
+        sampleValue: outputs.lex.BotSampleValue;
+        synonyms?: outputs.lex.BotSampleValue[];
+    }
+
+    /**
+     * Settings that you can use for eliciting a slot value.
+     */
+    export interface BotSlotValueElicitationSetting {
+        /**
+         * A list of default values for a slot.
+         */
+        defaultValueSpecification?: outputs.lex.BotSlotDefaultValueSpecification;
+        /**
+         * The prompt that Amazon Lex uses to elicit the slot value from the user.
+         */
+        promptSpecification?: outputs.lex.BotPromptSpecification;
+        /**
+         * If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
+         */
+        sampleUtterances?: outputs.lex.BotSampleUtterance[];
+        /**
+         * Specifies whether the slot is required or optional.
+         */
+        slotConstraint: enums.lex.BotSlotConstraint;
+        /**
+         * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+         */
+        waitAndContinueSpecification?: outputs.lex.BotWaitAndContinueSpecification;
+    }
+
+    /**
+     * A regular expression used to validate the value of a slot.
+     */
+    export interface BotSlotValueRegexFilter {
+        /**
+         * Regex pattern
+         */
+        pattern: string;
+    }
+
+    /**
+     * Contains settings used by Amazon Lex to select a slot value.
+     */
+    export interface BotSlotValueSelectionSetting {
+        regexFilter?: outputs.lex.BotSlotValueRegexFilter;
+        resolutionStrategy: enums.lex.BotSlotValueResolutionStrategy;
+    }
+
+    /**
+     * StillWaitingResponseSpecification.
+     */
+    export interface BotStillWaitingResponseSpecification {
+        /**
+         * Indicates whether the user can interrupt a speech prompt from the bot.
+         */
+        allowInterrupt?: boolean;
+        frequencyInSeconds: number;
+        messageGroupsList: outputs.lex.BotMessageGroup[];
+        timeoutInSeconds: number;
+    }
+
+    /**
+     * A key-value pair for tagging Lex resources
+     */
+    export interface BotTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * The version of a bot used for a bot locale.
+     */
+    export interface BotVersionLocaleDetails {
+        sourceBotVersion: string;
+    }
+
+    export interface BotVersionLocaleSpecificationItemProperties {
+        botVersionLocaleDetails: outputs.lex.BotVersionLocaleDetails;
+        localeId: string;
+    }
+
+    /**
+     * Settings for using an Amazon Polly voice to communicate with a user.
+     */
+    export interface BotVoiceSettings {
+        /**
+         * The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+         */
+        voiceId: string;
+    }
+
+    /**
+     * The prompts that Amazon Lex uses while a bot is waiting for customer input.
+     */
+    export interface BotWaitAndContinueSpecification {
+        /**
+         * The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         */
+        continueResponse: outputs.lex.BotResponseSpecification;
+        /**
+         * Specifies whether the bot will wait for a user to respond.
+         */
+        isActive?: boolean;
+        /**
+         * The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         */
+        stillWaitingResponse?: outputs.lex.BotStillWaitingResponseSpecification;
+        /**
+         * The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         */
+        waitingResponse: outputs.lex.BotResponseSpecification;
+    }
+
+    /**
+     * Data privacy setting of the Bot.
+     */
+    export interface DataPrivacyProperties {
+        childDirected: boolean;
+    }
+
+    /**
+     * A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
+     */
+    export interface ResourcePolicyPolicy {
+    }
+
+    /**
+     * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+     */
+    export interface SentimentAnalysisSettingsProperties {
+        /**
+         * Enable to call Amazon Comprehend for Sentiment natively within Lex
+         */
+        detectSentiment: boolean;
+    }
+
+}
+
 export namespace licensemanager {
     export interface LicenseBorrowConfiguration {
         allowEarlyCheckIn: boolean;

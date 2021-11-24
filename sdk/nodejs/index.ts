@@ -130,6 +130,7 @@ import * as kinesisfirehose from "./kinesisfirehose";
 import * as kms from "./kms";
 import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
+import * as lex from "./lex";
 import * as licensemanager from "./licensemanager";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
@@ -310,6 +311,7 @@ export {
     kms,
     lakeformation,
     lambda,
+    lex,
     licensemanager,
     lightsail,
     location,

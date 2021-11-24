@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +37,7 @@ export class Host extends pulumi.CustomResource {
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
-    public readonly autoPlacement!: pulumi.Output<enums.ec2.HostAutoPlacement | undefined>;
+    public readonly autoPlacement!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone in which to allocate the Dedicated Host.
      */
@@ -50,7 +49,7 @@ export class Host extends pulumi.CustomResource {
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    public readonly hostRecovery!: pulumi.Output<enums.ec2.HostRecovery | undefined>;
+    public readonly hostRecovery!: pulumi.Output<string | undefined>;
     /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
      */
@@ -99,7 +98,7 @@ export interface HostArgs {
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
-    autoPlacement?: pulumi.Input<enums.ec2.HostAutoPlacement>;
+    autoPlacement?: pulumi.Input<string>;
     /**
      * The Availability Zone in which to allocate the Dedicated Host.
      */
@@ -107,7 +106,7 @@ export interface HostArgs {
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    hostRecovery?: pulumi.Input<enums.ec2.HostRecovery>;
+    hostRecovery?: pulumi.Input<string>;
     /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
      */

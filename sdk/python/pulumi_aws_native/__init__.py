@@ -239,6 +239,8 @@ if typing.TYPE_CHECKING:
     lakeformation = __lakeformation
     import pulumi_aws_native.lambda_ as __lambda_
     lambda_ = __lambda_
+    import pulumi_aws_native.lex as __lex
+    lex = __lex
     import pulumi_aws_native.licensemanager as __licensemanager
     licensemanager = __licensemanager
     import pulumi_aws_native.lightsail as __lightsail
@@ -485,6 +487,7 @@ else:
     kms = _utilities.lazy_import('pulumi_aws_native.kms')
     lakeformation = _utilities.lazy_import('pulumi_aws_native.lakeformation')
     lambda_ = _utilities.lazy_import('pulumi_aws_native.lambda_')
+    lex = _utilities.lazy_import('pulumi_aws_native.lex')
     licensemanager = _utilities.lazy_import('pulumi_aws_native.licensemanager')
     lightsail = _utilities.lazy_import('pulumi_aws_native.lightsail')
     location = _utilities.lazy_import('pulumi_aws_native.location')
@@ -1857,6 +1860,17 @@ _utilities.register(
    "aws-native:lambda:Permission": "Permission",
    "aws-native:lambda:Url": "Url",
    "aws-native:lambda:Version": "Version"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "lex",
+  "fqn": "pulumi_aws_native.lex",
+  "classes": {
+   "aws-native:lex:Bot": "Bot",
+   "aws-native:lex:BotAlias": "BotAlias",
+   "aws-native:lex:BotVersion": "BotVersion",
+   "aws-native:lex:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
