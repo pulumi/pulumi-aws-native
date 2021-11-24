@@ -135,7 +135,7 @@
       "type" : "string"
     },
     "LogDestinationConfigs" : {
-      "description" : "The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.",
+      "description" : "The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.",
       "type" : "array",
       "items" : {
         "type" : "string"
@@ -182,16 +182,16 @@
   "primaryIdentifier" : [ "/properties/ResourceArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "wafv2:PutLoggingConfiguration", "wafv2:GetLoggingConfiguration", "firehose:ListDeliveryStreams", "iam:CreateServiceLinkedRole", "iam:DescribeOrganization" ]
+      "permissions" : [ "wafv2:PutLoggingConfiguration", "wafv2:GetLoggingConfiguration", "firehose:ListDeliveryStreams", "iam:CreateServiceLinkedRole", "iam:DescribeOrganization", "logs:CreateLogDelivery", "s3:PutBucketPolicy", "s3:GetBucketPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups" ]
     },
     "read" : {
       "permissions" : [ "wafv2:GetLoggingConfiguration" ]
     },
     "update" : {
-      "permissions" : [ "wafv2:PutLoggingConfiguration", "wafv2:GetLoggingConfiguration", "firehose:ListDeliveryStreams", "iam:CreateServiceLinkedRole", "iam:DescribeOrganization" ]
+      "permissions" : [ "wafv2:PutLoggingConfiguration", "wafv2:GetLoggingConfiguration", "firehose:ListDeliveryStreams", "iam:CreateServiceLinkedRole", "iam:DescribeOrganization", "logs:CreateLogDelivery", "s3:PutBucketPolicy", "s3:GetBucketPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups" ]
     },
     "delete" : {
-      "permissions" : [ "wafv2:DeleteLoggingConfiguration", "wafv2:GetLoggingConfiguration" ]
+      "permissions" : [ "wafv2:DeleteLoggingConfiguration", "wafv2:GetLoggingConfiguration", "logs:DeleteLogDelivery" ]
     },
     "list" : {
       "permissions" : [ "wafv2:ListLoggingConfigurations" ]
