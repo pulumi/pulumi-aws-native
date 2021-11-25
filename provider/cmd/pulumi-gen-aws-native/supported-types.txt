@@ -11,8 +11,8 @@ AWS::Amplify::Domain
 AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
 AWS::ApiGateway::Authorizer
-AWS::ApiGateway::BasePathMapping
 AWS::ApiGateway::ClientCertificate
+AWS::ApiGateway::Deployment
 AWS::ApiGateway::DocumentationVersion
 AWS::ApiGateway::DomainName
 AWS::ApiGateway::Method
@@ -445,6 +445,9 @@ AWSQS::Kubernetes::Resource
 Atlassian::Opsgenie::Integration
 Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
+Datadog::Dashboards::Dashboard
+Datadog::Monitors::Downtime
+Datadog::Monitors::Monitor
 FireEye::CloudIntegrations::Cloudwatch
 Generic::Database::Schema
 Generic::Transcribe::Vocabulary
