@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ApiGateway::Deployment
- *
- * @deprecated Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class Deployment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Deployment {
-        pulumi.log.warn("Deployment is deprecated: Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Deployment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,10 +35,29 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
+    /**
+     * Specifies settings for the canary deployment.
+     */
     public readonly deploymentCanarySettings!: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
+    /**
+     * Primary Id for this resource
+     */
+    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    /**
+     * A description of the purpose of the API Gateway deployment.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the RestApi resource to deploy. 
+     */
     public readonly restApiId!: pulumi.Output<string>;
+    /**
+     * Configures the stage that API Gateway creates with this deployment.
+     */
     public readonly stageDescription!: pulumi.Output<outputs.apigateway.DeploymentStageDescription | undefined>;
+    /**
+     * A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+     */
     public readonly stageName!: pulumi.Output<string | undefined>;
 
     /**
@@ -51,9 +67,7 @@ export class Deployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Deployment is deprecated: Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -65,8 +79,10 @@ export class Deployment extends pulumi.CustomResource {
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["stageDescription"] = args ? args.stageDescription : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
+            inputs["deploymentId"] = undefined /*out*/;
         } else {
             inputs["deploymentCanarySettings"] = undefined /*out*/;
+            inputs["deploymentId"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["restApiId"] = undefined /*out*/;
             inputs["stageDescription"] = undefined /*out*/;
@@ -83,9 +99,24 @@ export class Deployment extends pulumi.CustomResource {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
+    /**
+     * Specifies settings for the canary deployment.
+     */
     deploymentCanarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettingsArgs>;
+    /**
+     * A description of the purpose of the API Gateway deployment.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ID of the RestApi resource to deploy. 
+     */
     restApiId: pulumi.Input<string>;
+    /**
+     * Configures the stage that API Gateway creates with this deployment.
+     */
     stageDescription?: pulumi.Input<inputs.apigateway.DeploymentStageDescriptionArgs>;
+    /**
+     * A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+     */
     stageName?: pulumi.Input<string>;
 }

@@ -12,22 +12,42 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// Resource Type definition for AWS::ApiGateway::Deployment
     /// </summary>
-    [Obsolete(@"Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:Deployment")]
     public partial class Deployment : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies settings for the canary deployment.
+        /// </summary>
         [Output("deploymentCanarySettings")]
         public Output<Outputs.DeploymentCanarySettings?> DeploymentCanarySettings { get; private set; } = null!;
 
+        /// <summary>
+        /// Primary Id for this resource
+        /// </summary>
+        [Output("deploymentId")]
+        public Output<string> DeploymentId { get; private set; } = null!;
+
+        /// <summary>
+        /// A description of the purpose of the API Gateway deployment.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the RestApi resource to deploy. 
+        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures the stage that API Gateway creates with this deployment.
+        /// </summary>
         [Output("stageDescription")]
         public Output<Outputs.DeploymentStageDescription?> StageDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
 
@@ -76,18 +96,33 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class DeploymentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies settings for the canary deployment.
+        /// </summary>
         [Input("deploymentCanarySettings")]
         public Input<Inputs.DeploymentCanarySettingsArgs>? DeploymentCanarySettings { get; set; }
 
+        /// <summary>
+        /// A description of the purpose of the API Gateway deployment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ID of the RestApi resource to deploy. 
+        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
+        /// <summary>
+        /// Configures the stage that API Gateway creates with this deployment.
+        /// </summary>
         [Input("stageDescription")]
         public Input<Inputs.DeploymentStageDescriptionArgs>? StageDescription { get; set; }
 
+        /// <summary>
+        /// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
 

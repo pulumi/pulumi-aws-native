@@ -435,59 +435,176 @@ export namespace apigateway {
     }
 
     export interface DeploymentAccessLogSetting {
+        /**
+         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
+         */
         destinationArn?: string;
+        /**
+         * A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. 
+         */
         format?: string;
     }
 
     export interface DeploymentCanarySetting {
+        /**
+         * The percent (0-100) of traffic diverted to a canary deployment.
+         */
         percentTraffic?: number;
+        /**
+         * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
+         */
         stageVariableOverrides?: any;
+        /**
+         * Whether the canary deployment uses the stage cache or not.
+         */
         useStageCache?: boolean;
     }
 
     export interface DeploymentCanarySettings {
+        /**
+         * The percentage (0-100) of traffic diverted to a canary deployment.
+         */
         percentTraffic?: number;
+        /**
+         * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
+         */
         stageVariableOverrides?: any;
+        /**
+         * Whether the canary deployment uses the stage cache.
+         */
         useStageCache?: boolean;
     }
 
     export interface DeploymentMethodSetting {
+        /**
+         * Indicates whether the cached responses are encrypted
+         */
         cacheDataEncrypted?: boolean;
+        /**
+         * The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+         */
         cacheTtlInSeconds?: number;
+        /**
+         * Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+         */
         cachingEnabled?: boolean;
+        /**
+         * Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+         */
         dataTraceEnabled?: boolean;
+        /**
+         * The HTTP method.
+         */
         httpMethod?: string;
+        /**
+         * The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+         */
         loggingLevel?: string;
+        /**
+         * Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+         */
         metricsEnabled?: boolean;
+        /**
+         * The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. 
+         */
         resourcePath?: string;
+        /**
+         * The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingBurstLimit?: number;
+        /**
+         * The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingRateLimit?: number;
     }
 
     export interface DeploymentStageDescription {
+        /**
+         * Specifies settings for logging access in this stage.
+         */
         accessLogSetting?: outputs.apigateway.DeploymentAccessLogSetting;
+        /**
+         * Indicates whether cache clustering is enabled for the stage.
+         */
         cacheClusterEnabled?: boolean;
+        /**
+         * The size of the stage's cache cluster.
+         */
         cacheClusterSize?: string;
+        /**
+         * The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+         */
         cacheDataEncrypted?: boolean;
+        /**
+         * The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+         */
         cacheTtlInSeconds?: number;
+        /**
+         * Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+         */
         cachingEnabled?: boolean;
+        /**
+         * Specifies settings for the canary deployment in this stage.
+         */
         canarySetting?: outputs.apigateway.DeploymentCanarySetting;
+        /**
+         * The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+         */
         clientCertificateId?: string;
+        /**
+         * Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+         */
         dataTraceEnabled?: boolean;
+        /**
+         * A description of the purpose of the stage.
+         */
         description?: string;
+        /**
+         * The version identifier of the API documentation snapshot.
+         */
         documentationVersion?: string;
+        /**
+         * The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+         */
         loggingLevel?: string;
+        /**
+         * Configures settings for all of the stage's methods.
+         */
         methodSettings?: outputs.apigateway.DeploymentMethodSetting[];
+        /**
+         * Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+         */
         metricsEnabled?: boolean;
+        /**
+         * An array of arbitrary tags (key-value pairs) to associate with the stage.
+         */
         tags?: outputs.apigateway.DeploymentTag[];
+        /**
+         * The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingBurstLimit?: number;
+        /**
+         * The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingRateLimit?: number;
+        /**
+         * Specifies whether active tracing with X-ray is enabled for this stage.
+         */
         tracingEnabled?: boolean;
+        /**
+         * A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+. 
+         */
         variables?: any;
     }
 
     export interface DeploymentTag {
+        /**
+         * The key name of the tag
+         */
         key: string;
+        /**
+         * The value for the tag
+         */
         value: string;
     }
 

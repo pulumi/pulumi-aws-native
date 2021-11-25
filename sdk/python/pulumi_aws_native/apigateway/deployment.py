@@ -22,6 +22,11 @@ class DeploymentArgs:
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource to deploy. 
+        :param pulumi.Input['DeploymentCanarySettingsArgs'] deployment_canary_settings: Specifies settings for the canary deployment.
+        :param pulumi.Input[str] description: A description of the purpose of the API Gateway deployment.
+        :param pulumi.Input['DeploymentStageDescriptionArgs'] stage_description: Configures the stage that API Gateway creates with this deployment.
+        :param pulumi.Input[str] stage_name: A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         if deployment_canary_settings is not None:
@@ -36,6 +41,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the RestApi resource to deploy. 
+        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -45,6 +53,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="deploymentCanarySettings")
     def deployment_canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
+        """
+        Specifies settings for the canary deployment.
+        """
         return pulumi.get(self, "deployment_canary_settings")
 
     @deployment_canary_settings.setter
@@ -54,6 +65,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the purpose of the API Gateway deployment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -63,6 +77,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="stageDescription")
     def stage_description(self) -> Optional[pulumi.Input['DeploymentStageDescriptionArgs']]:
+        """
+        Configures the stage that API Gateway creates with this deployment.
+        """
         return pulumi.get(self, "stage_description")
 
     @stage_description.setter
@@ -72,6 +89,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -79,12 +99,7 @@ class DeploymentArgs:
         pulumi.set(self, "stage_name", value)
 
 
-warnings.warn("""Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Deployment(pulumi.CustomResource):
-    warnings.warn("""Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -100,6 +115,11 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']] deployment_canary_settings: Specifies settings for the canary deployment.
+        :param pulumi.Input[str] description: A description of the purpose of the API Gateway deployment.
+        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource to deploy. 
+        :param pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']] stage_description: Configures the stage that API Gateway creates with this deployment.
+        :param pulumi.Input[str] stage_name: A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
         """
         ...
     @overload
@@ -131,7 +151,6 @@ class Deployment(pulumi.CustomResource):
                  stage_description: Optional[pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Deployment is deprecated: Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -150,6 +169,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["rest_api_id"] = rest_api_id
             __props__.__dict__["stage_description"] = stage_description
             __props__.__dict__["stage_name"] = stage_name
+            __props__.__dict__["deployment_id"] = None
         super(Deployment, __self__).__init__(
             'aws-native:apigateway:Deployment',
             resource_name,
@@ -173,6 +193,7 @@ class Deployment(pulumi.CustomResource):
         __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
         __props__.__dict__["deployment_canary_settings"] = None
+        __props__.__dict__["deployment_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["rest_api_id"] = None
         __props__.__dict__["stage_description"] = None
@@ -182,25 +203,48 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deploymentCanarySettings")
     def deployment_canary_settings(self) -> pulumi.Output[Optional['outputs.DeploymentCanarySettings']]:
+        """
+        Specifies settings for the canary deployment.
+        """
         return pulumi.get(self, "deployment_canary_settings")
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> pulumi.Output[str]:
+        """
+        Primary Id for this resource
+        """
+        return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the purpose of the API Gateway deployment.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the RestApi resource to deploy. 
+        """
         return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter(name="stageDescription")
     def stage_description(self) -> pulumi.Output[Optional['outputs.DeploymentStageDescription']]:
+        """
+        Configures the stage that API Gateway creates with this deployment.
+        """
         return pulumi.get(self, "stage_description")
 
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        """
         return pulumi.get(self, "stage_name")
 

@@ -323,8 +323,10 @@ func (o ClientCertificateTagArrayOutput) Index(i pulumi.IntInput) ClientCertific
 }
 
 type DeploymentAccessLogSetting struct {
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-.
 	DestinationArn *string `pulumi:"destinationArn"`
-	Format         *string `pulumi:"format"`
+	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+	Format *string `pulumi:"format"`
 }
 
 // DeploymentAccessLogSettingInput is an input type that accepts DeploymentAccessLogSettingArgs and DeploymentAccessLogSettingOutput values.
@@ -339,8 +341,10 @@ type DeploymentAccessLogSettingInput interface {
 }
 
 type DeploymentAccessLogSettingArgs struct {
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-.
 	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
-	Format         pulumi.StringPtrInput `pulumi:"format"`
+	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+	Format pulumi.StringPtrInput `pulumi:"format"`
 }
 
 func (DeploymentAccessLogSettingArgs) ElementType() reflect.Type {
@@ -420,10 +424,12 @@ func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingPtrOutputW
 	}).(DeploymentAccessLogSettingPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-.
 func (o DeploymentAccessLogSettingOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentAccessLogSetting) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
+// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
 func (o DeploymentAccessLogSettingOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentAccessLogSetting) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
@@ -452,6 +458,7 @@ func (o DeploymentAccessLogSettingPtrOutput) Elem() DeploymentAccessLogSettingOu
 	}).(DeploymentAccessLogSettingOutput)
 }
 
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-.
 func (o DeploymentAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentAccessLogSetting) *string {
 		if v == nil {
@@ -461,6 +468,7 @@ func (o DeploymentAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
 func (o DeploymentAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentAccessLogSetting) *string {
 		if v == nil {
@@ -471,9 +479,12 @@ func (o DeploymentAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
 }
 
 type DeploymentCanarySetting struct {
-	PercentTraffic         *float64    `pulumi:"percentTraffic"`
+	// The percent (0-100) of traffic diverted to a canary deployment.
+	PercentTraffic *float64 `pulumi:"percentTraffic"`
+	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
 	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
-	UseStageCache          *bool       `pulumi:"useStageCache"`
+	// Whether the canary deployment uses the stage cache or not.
+	UseStageCache *bool `pulumi:"useStageCache"`
 }
 
 // DeploymentCanarySettingInput is an input type that accepts DeploymentCanarySettingArgs and DeploymentCanarySettingOutput values.
@@ -488,9 +499,12 @@ type DeploymentCanarySettingInput interface {
 }
 
 type DeploymentCanarySettingArgs struct {
-	PercentTraffic         pulumi.Float64PtrInput `pulumi:"percentTraffic"`
-	StageVariableOverrides pulumi.Input           `pulumi:"stageVariableOverrides"`
-	UseStageCache          pulumi.BoolPtrInput    `pulumi:"useStageCache"`
+	// The percent (0-100) of traffic diverted to a canary deployment.
+	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
+	StageVariableOverrides pulumi.Input `pulumi:"stageVariableOverrides"`
+	// Whether the canary deployment uses the stage cache or not.
+	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
 }
 
 func (DeploymentCanarySettingArgs) ElementType() reflect.Type {
@@ -570,14 +584,17 @@ func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingPtrOutputWithCon
 	}).(DeploymentCanarySettingPtrOutput)
 }
 
+// The percent (0-100) of traffic diverted to a canary deployment.
 func (o DeploymentCanarySettingOutput) PercentTraffic() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DeploymentCanarySetting) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
 }
 
+// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
 func (o DeploymentCanarySettingOutput) StageVariableOverrides() pulumi.AnyOutput {
 	return o.ApplyT(func(v DeploymentCanarySetting) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
 }
 
+// Whether the canary deployment uses the stage cache or not.
 func (o DeploymentCanarySettingOutput) UseStageCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentCanarySetting) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
 }
@@ -606,6 +623,7 @@ func (o DeploymentCanarySettingPtrOutput) Elem() DeploymentCanarySettingOutput {
 	}).(DeploymentCanarySettingOutput)
 }
 
+// The percent (0-100) of traffic diverted to a canary deployment.
 func (o DeploymentCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DeploymentCanarySetting) *float64 {
 		if v == nil {
@@ -615,6 +633,7 @@ func (o DeploymentCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
 func (o DeploymentCanarySettingPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeploymentCanarySetting) interface{} {
 		if v == nil {
@@ -624,6 +643,7 @@ func (o DeploymentCanarySettingPtrOutput) StageVariableOverrides() pulumi.AnyOut
 	}).(pulumi.AnyOutput)
 }
 
+// Whether the canary deployment uses the stage cache or not.
 func (o DeploymentCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentCanarySetting) *bool {
 		if v == nil {
@@ -634,9 +654,12 @@ func (o DeploymentCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
 }
 
 type DeploymentCanarySettings struct {
-	PercentTraffic         *float64    `pulumi:"percentTraffic"`
+	// The percentage (0-100) of traffic diverted to a canary deployment.
+	PercentTraffic *float64 `pulumi:"percentTraffic"`
+	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
 	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
-	UseStageCache          *bool       `pulumi:"useStageCache"`
+	// Whether the canary deployment uses the stage cache.
+	UseStageCache *bool `pulumi:"useStageCache"`
 }
 
 // DeploymentCanarySettingsInput is an input type that accepts DeploymentCanarySettingsArgs and DeploymentCanarySettingsOutput values.
@@ -651,9 +674,12 @@ type DeploymentCanarySettingsInput interface {
 }
 
 type DeploymentCanarySettingsArgs struct {
-	PercentTraffic         pulumi.Float64PtrInput `pulumi:"percentTraffic"`
-	StageVariableOverrides pulumi.Input           `pulumi:"stageVariableOverrides"`
-	UseStageCache          pulumi.BoolPtrInput    `pulumi:"useStageCache"`
+	// The percentage (0-100) of traffic diverted to a canary deployment.
+	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
+	StageVariableOverrides pulumi.Input `pulumi:"stageVariableOverrides"`
+	// Whether the canary deployment uses the stage cache.
+	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
 }
 
 func (DeploymentCanarySettingsArgs) ElementType() reflect.Type {
@@ -733,14 +759,17 @@ func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsPtrOutputWithC
 	}).(DeploymentCanarySettingsPtrOutput)
 }
 
+// The percentage (0-100) of traffic diverted to a canary deployment.
 func (o DeploymentCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DeploymentCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
 }
 
+// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
 func (o DeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.AnyOutput {
 	return o.ApplyT(func(v DeploymentCanarySettings) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
 }
 
+// Whether the canary deployment uses the stage cache.
 func (o DeploymentCanarySettingsOutput) UseStageCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentCanarySettings) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
 }
@@ -769,6 +798,7 @@ func (o DeploymentCanarySettingsPtrOutput) Elem() DeploymentCanarySettingsOutput
 	}).(DeploymentCanarySettingsOutput)
 }
 
+// The percentage (0-100) of traffic diverted to a canary deployment.
 func (o DeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DeploymentCanarySettings) *float64 {
 		if v == nil {
@@ -778,6 +808,7 @@ func (o DeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
 func (o DeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeploymentCanarySettings) interface{} {
 		if v == nil {
@@ -787,6 +818,7 @@ func (o DeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.AnyOu
 	}).(pulumi.AnyOutput)
 }
 
+// Whether the canary deployment uses the stage cache.
 func (o DeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentCanarySettings) *bool {
 		if v == nil {
@@ -797,16 +829,26 @@ func (o DeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput 
 }
 
 type DeploymentMethodSetting struct {
-	CacheDataEncrypted   *bool    `pulumi:"cacheDataEncrypted"`
-	CacheTtlInSeconds    *int     `pulumi:"cacheTtlInSeconds"`
-	CachingEnabled       *bool    `pulumi:"cachingEnabled"`
-	DataTraceEnabled     *bool    `pulumi:"dataTraceEnabled"`
-	HttpMethod           *string  `pulumi:"httpMethod"`
-	LoggingLevel         *string  `pulumi:"loggingLevel"`
-	MetricsEnabled       *bool    `pulumi:"metricsEnabled"`
-	ResourcePath         *string  `pulumi:"resourcePath"`
-	ThrottlingBurstLimit *int     `pulumi:"throttlingBurstLimit"`
-	ThrottlingRateLimit  *float64 `pulumi:"throttlingRateLimit"`
+	// Indicates whether the cached responses are encrypted
+	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+	CacheTtlInSeconds *int `pulumi:"cacheTtlInSeconds"`
+	// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+	CachingEnabled *bool `pulumi:"cachingEnabled"`
+	// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// The HTTP method.
+	HttpMethod *string `pulumi:"httpMethod"`
+	// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference.
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash.
+	ResourcePath *string `pulumi:"resourcePath"`
+	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
 }
 
 // DeploymentMethodSettingInput is an input type that accepts DeploymentMethodSettingArgs and DeploymentMethodSettingOutput values.
@@ -821,16 +863,26 @@ type DeploymentMethodSettingInput interface {
 }
 
 type DeploymentMethodSettingArgs struct {
-	CacheDataEncrypted   pulumi.BoolPtrInput    `pulumi:"cacheDataEncrypted"`
-	CacheTtlInSeconds    pulumi.IntPtrInput     `pulumi:"cacheTtlInSeconds"`
-	CachingEnabled       pulumi.BoolPtrInput    `pulumi:"cachingEnabled"`
-	DataTraceEnabled     pulumi.BoolPtrInput    `pulumi:"dataTraceEnabled"`
-	HttpMethod           pulumi.StringPtrInput  `pulumi:"httpMethod"`
-	LoggingLevel         pulumi.StringPtrInput  `pulumi:"loggingLevel"`
-	MetricsEnabled       pulumi.BoolPtrInput    `pulumi:"metricsEnabled"`
-	ResourcePath         pulumi.StringPtrInput  `pulumi:"resourcePath"`
-	ThrottlingBurstLimit pulumi.IntPtrInput     `pulumi:"throttlingBurstLimit"`
-	ThrottlingRateLimit  pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+	// Indicates whether the cached responses are encrypted
+	CacheDataEncrypted pulumi.BoolPtrInput `pulumi:"cacheDataEncrypted"`
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+	CacheTtlInSeconds pulumi.IntPtrInput `pulumi:"cacheTtlInSeconds"`
+	// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+	CachingEnabled pulumi.BoolPtrInput `pulumi:"cachingEnabled"`
+	// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// The HTTP method.
+	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
+	// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference.
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
+	// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash.
+	ResourcePath pulumi.StringPtrInput `pulumi:"resourcePath"`
+	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
 }
 
 func (DeploymentMethodSettingArgs) ElementType() reflect.Type {
@@ -884,42 +936,52 @@ func (o DeploymentMethodSettingOutput) ToDeploymentMethodSettingOutputWithContex
 	return o
 }
 
+// Indicates whether the cached responses are encrypted
 func (o DeploymentMethodSettingOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
 func (o DeploymentMethodSettingOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
 func (o DeploymentMethodSettingOutput) CachingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
 func (o DeploymentMethodSettingOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The HTTP method.
 func (o DeploymentMethodSettingOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
 }
 
+// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference.
 func (o DeploymentMethodSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
 func (o DeploymentMethodSettingOutput) MetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash.
 func (o DeploymentMethodSettingOutput) ResourcePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
 }
 
+// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
 func (o DeploymentMethodSettingOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
 }
 
+// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
 func (o DeploymentMethodSettingOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -945,25 +1007,44 @@ func (o DeploymentMethodSettingArrayOutput) Index(i pulumi.IntInput) DeploymentM
 }
 
 type DeploymentStageDescription struct {
-	AccessLogSetting     *DeploymentAccessLogSetting `pulumi:"accessLogSetting"`
-	CacheClusterEnabled  *bool                       `pulumi:"cacheClusterEnabled"`
-	CacheClusterSize     *string                     `pulumi:"cacheClusterSize"`
-	CacheDataEncrypted   *bool                       `pulumi:"cacheDataEncrypted"`
-	CacheTtlInSeconds    *int                        `pulumi:"cacheTtlInSeconds"`
-	CachingEnabled       *bool                       `pulumi:"cachingEnabled"`
-	CanarySetting        *DeploymentCanarySetting    `pulumi:"canarySetting"`
-	ClientCertificateId  *string                     `pulumi:"clientCertificateId"`
-	DataTraceEnabled     *bool                       `pulumi:"dataTraceEnabled"`
-	Description          *string                     `pulumi:"description"`
-	DocumentationVersion *string                     `pulumi:"documentationVersion"`
-	LoggingLevel         *string                     `pulumi:"loggingLevel"`
-	MethodSettings       []DeploymentMethodSetting   `pulumi:"methodSettings"`
-	MetricsEnabled       *bool                       `pulumi:"metricsEnabled"`
-	Tags                 []DeploymentTag             `pulumi:"tags"`
-	ThrottlingBurstLimit *int                        `pulumi:"throttlingBurstLimit"`
-	ThrottlingRateLimit  *float64                    `pulumi:"throttlingRateLimit"`
-	TracingEnabled       *bool                       `pulumi:"tracingEnabled"`
-	Variables            interface{}                 `pulumi:"variables"`
+	// Specifies settings for logging access in this stage.
+	AccessLogSetting *DeploymentAccessLogSetting `pulumi:"accessLogSetting"`
+	// Indicates whether cache clustering is enabled for the stage.
+	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
+	// The size of the stage's cache cluster.
+	CacheClusterSize *string `pulumi:"cacheClusterSize"`
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+	CacheTtlInSeconds *int `pulumi:"cacheTtlInSeconds"`
+	// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+	CachingEnabled *bool `pulumi:"cachingEnabled"`
+	// Specifies settings for the canary deployment in this stage.
+	CanarySetting *DeploymentCanarySetting `pulumi:"canarySetting"`
+	// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
+	ClientCertificateId *string `pulumi:"clientCertificateId"`
+	// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// A description of the purpose of the stage.
+	Description *string `pulumi:"description"`
+	// The version identifier of the API documentation snapshot.
+	DocumentationVersion *string `pulumi:"documentationVersion"`
+	// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference.
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Configures settings for all of the stage's methods.
+	MethodSettings []DeploymentMethodSetting `pulumi:"methodSettings"`
+	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	Tags []DeploymentTag `pulumi:"tags"`
+	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+	// Specifies whether active tracing with X-ray is enabled for this stage.
+	TracingEnabled *bool `pulumi:"tracingEnabled"`
+	// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+.
+	Variables interface{} `pulumi:"variables"`
 }
 
 // DeploymentStageDescriptionInput is an input type that accepts DeploymentStageDescriptionArgs and DeploymentStageDescriptionOutput values.
@@ -978,25 +1059,44 @@ type DeploymentStageDescriptionInput interface {
 }
 
 type DeploymentStageDescriptionArgs struct {
-	AccessLogSetting     DeploymentAccessLogSettingPtrInput `pulumi:"accessLogSetting"`
-	CacheClusterEnabled  pulumi.BoolPtrInput                `pulumi:"cacheClusterEnabled"`
-	CacheClusterSize     pulumi.StringPtrInput              `pulumi:"cacheClusterSize"`
-	CacheDataEncrypted   pulumi.BoolPtrInput                `pulumi:"cacheDataEncrypted"`
-	CacheTtlInSeconds    pulumi.IntPtrInput                 `pulumi:"cacheTtlInSeconds"`
-	CachingEnabled       pulumi.BoolPtrInput                `pulumi:"cachingEnabled"`
-	CanarySetting        DeploymentCanarySettingPtrInput    `pulumi:"canarySetting"`
-	ClientCertificateId  pulumi.StringPtrInput              `pulumi:"clientCertificateId"`
-	DataTraceEnabled     pulumi.BoolPtrInput                `pulumi:"dataTraceEnabled"`
-	Description          pulumi.StringPtrInput              `pulumi:"description"`
-	DocumentationVersion pulumi.StringPtrInput              `pulumi:"documentationVersion"`
-	LoggingLevel         pulumi.StringPtrInput              `pulumi:"loggingLevel"`
-	MethodSettings       DeploymentMethodSettingArrayInput  `pulumi:"methodSettings"`
-	MetricsEnabled       pulumi.BoolPtrInput                `pulumi:"metricsEnabled"`
-	Tags                 DeploymentTagArrayInput            `pulumi:"tags"`
-	ThrottlingBurstLimit pulumi.IntPtrInput                 `pulumi:"throttlingBurstLimit"`
-	ThrottlingRateLimit  pulumi.Float64PtrInput             `pulumi:"throttlingRateLimit"`
-	TracingEnabled       pulumi.BoolPtrInput                `pulumi:"tracingEnabled"`
-	Variables            pulumi.Input                       `pulumi:"variables"`
+	// Specifies settings for logging access in this stage.
+	AccessLogSetting DeploymentAccessLogSettingPtrInput `pulumi:"accessLogSetting"`
+	// Indicates whether cache clustering is enabled for the stage.
+	CacheClusterEnabled pulumi.BoolPtrInput `pulumi:"cacheClusterEnabled"`
+	// The size of the stage's cache cluster.
+	CacheClusterSize pulumi.StringPtrInput `pulumi:"cacheClusterSize"`
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+	CacheDataEncrypted pulumi.BoolPtrInput `pulumi:"cacheDataEncrypted"`
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+	CacheTtlInSeconds pulumi.IntPtrInput `pulumi:"cacheTtlInSeconds"`
+	// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+	CachingEnabled pulumi.BoolPtrInput `pulumi:"cachingEnabled"`
+	// Specifies settings for the canary deployment in this stage.
+	CanarySetting DeploymentCanarySettingPtrInput `pulumi:"canarySetting"`
+	// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
+	ClientCertificateId pulumi.StringPtrInput `pulumi:"clientCertificateId"`
+	// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// A description of the purpose of the stage.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The version identifier of the API documentation snapshot.
+	DocumentationVersion pulumi.StringPtrInput `pulumi:"documentationVersion"`
+	// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference.
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// Configures settings for all of the stage's methods.
+	MethodSettings DeploymentMethodSettingArrayInput `pulumi:"methodSettings"`
+	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
+	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	Tags DeploymentTagArrayInput `pulumi:"tags"`
+	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+	// Specifies whether active tracing with X-ray is enabled for this stage.
+	TracingEnabled pulumi.BoolPtrInput `pulumi:"tracingEnabled"`
+	// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+.
+	Variables pulumi.Input `pulumi:"variables"`
 }
 
 func (DeploymentStageDescriptionArgs) ElementType() reflect.Type {
@@ -1076,78 +1176,97 @@ func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionPtrOutputW
 	}).(DeploymentStageDescriptionPtrOutput)
 }
 
+// Specifies settings for logging access in this stage.
 func (o DeploymentStageDescriptionOutput) AccessLogSetting() DeploymentAccessLogSettingPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *DeploymentAccessLogSetting { return v.AccessLogSetting }).(DeploymentAccessLogSettingPtrOutput)
 }
 
+// Indicates whether cache clustering is enabled for the stage.
 func (o DeploymentStageDescriptionOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The size of the stage's cache cluster.
 func (o DeploymentStageDescriptionOutput) CacheClusterSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
 }
 
+// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
 func (o DeploymentStageDescriptionOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
 func (o DeploymentStageDescriptionOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
 func (o DeploymentStageDescriptionOutput) CachingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies settings for the canary deployment in this stage.
 func (o DeploymentStageDescriptionOutput) CanarySetting() DeploymentCanarySettingPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *DeploymentCanarySetting { return v.CanarySetting }).(DeploymentCanarySettingPtrOutput)
 }
 
+// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
 func (o DeploymentStageDescriptionOutput) ClientCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
 func (o DeploymentStageDescriptionOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A description of the purpose of the stage.
 func (o DeploymentStageDescriptionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The version identifier of the API documentation snapshot.
 func (o DeploymentStageDescriptionOutput) DocumentationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
 }
 
+// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference.
 func (o DeploymentStageDescriptionOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
 
+// Configures settings for all of the stage's methods.
 func (o DeploymentStageDescriptionOutput) MethodSettings() DeploymentMethodSettingArrayOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) []DeploymentMethodSetting { return v.MethodSettings }).(DeploymentMethodSettingArrayOutput)
 }
 
+// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
 func (o DeploymentStageDescriptionOutput) MetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// An array of arbitrary tags (key-value pairs) to associate with the stage.
 func (o DeploymentStageDescriptionOutput) Tags() DeploymentTagArrayOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) []DeploymentTag { return v.Tags }).(DeploymentTagArrayOutput)
 }
 
+// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
 func (o DeploymentStageDescriptionOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
 }
 
+// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
 func (o DeploymentStageDescriptionOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies whether active tracing with X-ray is enabled for this stage.
 func (o DeploymentStageDescriptionOutput) TracingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.TracingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+.
 func (o DeploymentStageDescriptionOutput) Variables() pulumi.AnyOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) interface{} { return v.Variables }).(pulumi.AnyOutput)
 }
@@ -1176,6 +1295,7 @@ func (o DeploymentStageDescriptionPtrOutput) Elem() DeploymentStageDescriptionOu
 	}).(DeploymentStageDescriptionOutput)
 }
 
+// Specifies settings for logging access in this stage.
 func (o DeploymentStageDescriptionPtrOutput) AccessLogSetting() DeploymentAccessLogSettingPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *DeploymentAccessLogSetting {
 		if v == nil {
@@ -1185,6 +1305,7 @@ func (o DeploymentStageDescriptionPtrOutput) AccessLogSetting() DeploymentAccess
 	}).(DeploymentAccessLogSettingPtrOutput)
 }
 
+// Indicates whether cache clustering is enabled for the stage.
 func (o DeploymentStageDescriptionPtrOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
 		if v == nil {
@@ -1194,6 +1315,7 @@ func (o DeploymentStageDescriptionPtrOutput) CacheClusterEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The size of the stage's cache cluster.
 func (o DeploymentStageDescriptionPtrOutput) CacheClusterSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *string {
 		if v == nil {
@@ -1203,6 +1325,7 @@ func (o DeploymentStageDescriptionPtrOutput) CacheClusterSize() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
 func (o DeploymentStageDescriptionPtrOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
 		if v == nil {
@@ -1212,6 +1335,7 @@ func (o DeploymentStageDescriptionPtrOutput) CacheDataEncrypted() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
 func (o DeploymentStageDescriptionPtrOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *int {
 		if v == nil {
@@ -1221,6 +1345,7 @@ func (o DeploymentStageDescriptionPtrOutput) CacheTtlInSeconds() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
 func (o DeploymentStageDescriptionPtrOutput) CachingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
 		if v == nil {
@@ -1230,6 +1355,7 @@ func (o DeploymentStageDescriptionPtrOutput) CachingEnabled() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies settings for the canary deployment in this stage.
 func (o DeploymentStageDescriptionPtrOutput) CanarySetting() DeploymentCanarySettingPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *DeploymentCanarySetting {
 		if v == nil {
@@ -1239,6 +1365,7 @@ func (o DeploymentStageDescriptionPtrOutput) CanarySetting() DeploymentCanarySet
 	}).(DeploymentCanarySettingPtrOutput)
 }
 
+// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
 func (o DeploymentStageDescriptionPtrOutput) ClientCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *string {
 		if v == nil {
@@ -1248,6 +1375,7 @@ func (o DeploymentStageDescriptionPtrOutput) ClientCertificateId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
 func (o DeploymentStageDescriptionPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
 		if v == nil {
@@ -1257,6 +1385,7 @@ func (o DeploymentStageDescriptionPtrOutput) DataTraceEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A description of the purpose of the stage.
 func (o DeploymentStageDescriptionPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *string {
 		if v == nil {
@@ -1266,6 +1395,7 @@ func (o DeploymentStageDescriptionPtrOutput) Description() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version identifier of the API documentation snapshot.
 func (o DeploymentStageDescriptionPtrOutput) DocumentationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *string {
 		if v == nil {
@@ -1275,6 +1405,7 @@ func (o DeploymentStageDescriptionPtrOutput) DocumentationVersion() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference.
 func (o DeploymentStageDescriptionPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *string {
 		if v == nil {
@@ -1284,6 +1415,7 @@ func (o DeploymentStageDescriptionPtrOutput) LoggingLevel() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configures settings for all of the stage's methods.
 func (o DeploymentStageDescriptionPtrOutput) MethodSettings() DeploymentMethodSettingArrayOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) []DeploymentMethodSetting {
 		if v == nil {
@@ -1293,6 +1425,7 @@ func (o DeploymentStageDescriptionPtrOutput) MethodSettings() DeploymentMethodSe
 	}).(DeploymentMethodSettingArrayOutput)
 }
 
+// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
 func (o DeploymentStageDescriptionPtrOutput) MetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
 		if v == nil {
@@ -1302,6 +1435,7 @@ func (o DeploymentStageDescriptionPtrOutput) MetricsEnabled() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// An array of arbitrary tags (key-value pairs) to associate with the stage.
 func (o DeploymentStageDescriptionPtrOutput) Tags() DeploymentTagArrayOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) []DeploymentTag {
 		if v == nil {
@@ -1311,6 +1445,7 @@ func (o DeploymentStageDescriptionPtrOutput) Tags() DeploymentTagArrayOutput {
 	}).(DeploymentTagArrayOutput)
 }
 
+// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
 func (o DeploymentStageDescriptionPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *int {
 		if v == nil {
@@ -1320,6 +1455,7 @@ func (o DeploymentStageDescriptionPtrOutput) ThrottlingBurstLimit() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
 func (o DeploymentStageDescriptionPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *float64 {
 		if v == nil {
@@ -1329,6 +1465,7 @@ func (o DeploymentStageDescriptionPtrOutput) ThrottlingRateLimit() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Specifies whether active tracing with X-ray is enabled for this stage.
 func (o DeploymentStageDescriptionPtrOutput) TracingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
 		if v == nil {
@@ -1338,6 +1475,7 @@ func (o DeploymentStageDescriptionPtrOutput) TracingEnabled() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+.
 func (o DeploymentStageDescriptionPtrOutput) Variables() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) interface{} {
 		if v == nil {
@@ -1348,7 +1486,9 @@ func (o DeploymentStageDescriptionPtrOutput) Variables() pulumi.AnyOutput {
 }
 
 type DeploymentTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag
+	Key string `pulumi:"key"`
+	// The value for the tag
 	Value string `pulumi:"value"`
 }
 
@@ -1364,7 +1504,9 @@ type DeploymentTagInput interface {
 }
 
 type DeploymentTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1419,10 +1561,12 @@ func (o DeploymentTagOutput) ToDeploymentTagOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The key name of the tag
 func (o DeploymentTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag
 func (o DeploymentTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentTag) string { return v.Value }).(pulumi.StringOutput)
 }

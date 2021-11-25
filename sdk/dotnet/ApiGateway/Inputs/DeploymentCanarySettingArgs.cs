@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 
     public sealed class DeploymentCanarySettingArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The percent (0-100) of traffic diverted to a canary deployment.
+        /// </summary>
         [Input("percentTraffic")]
         public Input<double>? PercentTraffic { get; set; }
 
+        /// <summary>
+        /// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
+        /// </summary>
         [Input("stageVariableOverrides")]
         public Input<object>? StageVariableOverrides { get; set; }
 
+        /// <summary>
+        /// Whether the canary deployment uses the stage cache or not.
+        /// </summary>
         [Input("useStageCache")]
         public Input<bool>? UseStageCache { get; set; }
 

@@ -161,6 +161,10 @@ class DeploymentAccessLogSetting(dict):
     def __init__(__self__, *,
                  destination_arn: Optional[str] = None,
                  format: Optional[str] = None):
+        """
+        :param str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
+        :param str format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. 
+        """
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
         if format is not None:
@@ -169,11 +173,17 @@ class DeploymentAccessLogSetting(dict):
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
+        """
         return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter
     def format(self) -> Optional[str]:
+        """
+        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. 
+        """
         return pulumi.get(self, "format")
 
 
@@ -204,6 +214,11 @@ class DeploymentCanarySetting(dict):
                  percent_traffic: Optional[float] = None,
                  stage_variable_overrides: Optional[Any] = None,
                  use_stage_cache: Optional[bool] = None):
+        """
+        :param float percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
+        :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
+        :param bool use_stage_cache: Whether the canary deployment uses the stage cache or not.
+        """
         if percent_traffic is not None:
             pulumi.set(__self__, "percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
@@ -214,16 +229,25 @@ class DeploymentCanarySetting(dict):
     @property
     @pulumi.getter(name="percentTraffic")
     def percent_traffic(self) -> Optional[float]:
+        """
+        The percent (0-100) of traffic diverted to a canary deployment.
+        """
         return pulumi.get(self, "percent_traffic")
 
     @property
     @pulumi.getter(name="stageVariableOverrides")
     def stage_variable_overrides(self) -> Optional[Any]:
+        """
+        Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
+        """
         return pulumi.get(self, "stage_variable_overrides")
 
     @property
     @pulumi.getter(name="useStageCache")
     def use_stage_cache(self) -> Optional[bool]:
+        """
+        Whether the canary deployment uses the stage cache or not.
+        """
         return pulumi.get(self, "use_stage_cache")
 
 
@@ -254,6 +278,11 @@ class DeploymentCanarySettings(dict):
                  percent_traffic: Optional[float] = None,
                  stage_variable_overrides: Optional[Any] = None,
                  use_stage_cache: Optional[bool] = None):
+        """
+        :param float percent_traffic: The percentage (0-100) of traffic diverted to a canary deployment.
+        :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
+        :param bool use_stage_cache: Whether the canary deployment uses the stage cache.
+        """
         if percent_traffic is not None:
             pulumi.set(__self__, "percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
@@ -264,16 +293,25 @@ class DeploymentCanarySettings(dict):
     @property
     @pulumi.getter(name="percentTraffic")
     def percent_traffic(self) -> Optional[float]:
+        """
+        The percentage (0-100) of traffic diverted to a canary deployment.
+        """
         return pulumi.get(self, "percent_traffic")
 
     @property
     @pulumi.getter(name="stageVariableOverrides")
     def stage_variable_overrides(self) -> Optional[Any]:
+        """
+        Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
+        """
         return pulumi.get(self, "stage_variable_overrides")
 
     @property
     @pulumi.getter(name="useStageCache")
     def use_stage_cache(self) -> Optional[bool]:
+        """
+        Whether the canary deployment uses the stage cache.
+        """
         return pulumi.get(self, "use_stage_cache")
 
 
@@ -325,6 +363,18 @@ class DeploymentMethodSetting(dict):
                  resource_path: Optional[str] = None,
                  throttling_burst_limit: Optional[int] = None,
                  throttling_rate_limit: Optional[float] = None):
+        """
+        :param bool cache_data_encrypted: Indicates whether the cached responses are encrypted
+        :param int cache_ttl_in_seconds: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        :param bool caching_enabled: Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        :param bool data_trace_enabled: Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        :param str http_method: The HTTP method.
+        :param str logging_level: The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        :param bool metrics_enabled: Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        :param str resource_path: The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. 
+        :param int throttling_burst_limit: The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        :param float throttling_rate_limit: The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        """
         if cache_data_encrypted is not None:
             pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
         if cache_ttl_in_seconds is not None:
@@ -349,51 +399,81 @@ class DeploymentMethodSetting(dict):
     @property
     @pulumi.getter(name="cacheDataEncrypted")
     def cache_data_encrypted(self) -> Optional[bool]:
+        """
+        Indicates whether the cached responses are encrypted
+        """
         return pulumi.get(self, "cache_data_encrypted")
 
     @property
     @pulumi.getter(name="cacheTtlInSeconds")
     def cache_ttl_in_seconds(self) -> Optional[int]:
+        """
+        The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
     @property
     @pulumi.getter(name="cachingEnabled")
     def caching_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        """
         return pulumi.get(self, "caching_enabled")
 
     @property
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        """
         return pulumi.get(self, "data_trace_enabled")
 
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[str]:
+        """
+        The HTTP method.
+        """
         return pulumi.get(self, "http_method")
 
     @property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[str]:
+        """
+        The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        """
         return pulumi.get(self, "logging_level")
 
     @property
     @pulumi.getter(name="metricsEnabled")
     def metrics_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        """
         return pulumi.get(self, "metrics_enabled")
 
     @property
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> Optional[str]:
+        """
+        The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. 
+        """
         return pulumi.get(self, "resource_path")
 
     @property
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[int]:
+        """
+        The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        """
         return pulumi.get(self, "throttling_burst_limit")
 
     @property
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[float]:
+        """
+        The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        """
         return pulumi.get(self, "throttling_rate_limit")
 
 
@@ -466,6 +546,27 @@ class DeploymentStageDescription(dict):
                  throttling_rate_limit: Optional[float] = None,
                  tracing_enabled: Optional[bool] = None,
                  variables: Optional[Any] = None):
+        """
+        :param 'DeploymentAccessLogSetting' access_log_setting: Specifies settings for logging access in this stage.
+        :param bool cache_cluster_enabled: Indicates whether cache clustering is enabled for the stage.
+        :param str cache_cluster_size: The size of the stage's cache cluster.
+        :param bool cache_data_encrypted: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        :param int cache_ttl_in_seconds: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        :param bool caching_enabled: Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        :param 'DeploymentCanarySetting' canary_setting: Specifies settings for the canary deployment in this stage.
+        :param str client_certificate_id: The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        :param bool data_trace_enabled: Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        :param str description: A description of the purpose of the stage.
+        :param str documentation_version: The version identifier of the API documentation snapshot.
+        :param str logging_level: The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        :param Sequence['DeploymentMethodSetting'] method_settings: Configures settings for all of the stage's methods.
+        :param bool metrics_enabled: Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        :param Sequence['DeploymentTag'] tags: An array of arbitrary tags (key-value pairs) to associate with the stage.
+        :param int throttling_burst_limit: The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        :param float throttling_rate_limit: The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        :param bool tracing_enabled: Specifies whether active tracing with X-ray is enabled for this stage.
+        :param Any variables: A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+. 
+        """
         if access_log_setting is not None:
             pulumi.set(__self__, "access_log_setting", access_log_setting)
         if cache_cluster_enabled is not None:
@@ -508,96 +609,153 @@ class DeploymentStageDescription(dict):
     @property
     @pulumi.getter(name="accessLogSetting")
     def access_log_setting(self) -> Optional['outputs.DeploymentAccessLogSetting']:
+        """
+        Specifies settings for logging access in this stage.
+        """
         return pulumi.get(self, "access_log_setting")
 
     @property
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether cache clustering is enabled for the stage.
+        """
         return pulumi.get(self, "cache_cluster_enabled")
 
     @property
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> Optional[str]:
+        """
+        The size of the stage's cache cluster.
+        """
         return pulumi.get(self, "cache_cluster_size")
 
     @property
     @pulumi.getter(name="cacheDataEncrypted")
     def cache_data_encrypted(self) -> Optional[bool]:
+        """
+        The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        """
         return pulumi.get(self, "cache_data_encrypted")
 
     @property
     @pulumi.getter(name="cacheTtlInSeconds")
     def cache_ttl_in_seconds(self) -> Optional[int]:
+        """
+        The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
     @property
     @pulumi.getter(name="cachingEnabled")
     def caching_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        """
         return pulumi.get(self, "caching_enabled")
 
     @property
     @pulumi.getter(name="canarySetting")
     def canary_setting(self) -> Optional['outputs.DeploymentCanarySetting']:
+        """
+        Specifies settings for the canary deployment in this stage.
+        """
         return pulumi.get(self, "canary_setting")
 
     @property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[str]:
+        """
+        The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        """
         return pulumi.get(self, "client_certificate_id")
 
     @property
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        """
         return pulumi.get(self, "data_trace_enabled")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the purpose of the stage.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> Optional[str]:
+        """
+        The version identifier of the API documentation snapshot.
+        """
         return pulumi.get(self, "documentation_version")
 
     @property
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[str]:
+        """
+        The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        """
         return pulumi.get(self, "logging_level")
 
     @property
     @pulumi.getter(name="methodSettings")
     def method_settings(self) -> Optional[Sequence['outputs.DeploymentMethodSetting']]:
+        """
+        Configures settings for all of the stage's methods.
+        """
         return pulumi.get(self, "method_settings")
 
     @property
     @pulumi.getter(name="metricsEnabled")
     def metrics_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        """
         return pulumi.get(self, "metrics_enabled")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DeploymentTag']]:
+        """
+        An array of arbitrary tags (key-value pairs) to associate with the stage.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[int]:
+        """
+        The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        """
         return pulumi.get(self, "throttling_burst_limit")
 
     @property
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[float]:
+        """
+        The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        """
         return pulumi.get(self, "throttling_rate_limit")
 
     @property
     @pulumi.getter(name="tracingEnabled")
     def tracing_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether active tracing with X-ray is enabled for this stage.
+        """
         return pulumi.get(self, "tracing_enabled")
 
     @property
     @pulumi.getter
     def variables(self) -> Optional[Any]:
+        """
+        A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+. 
+        """
         return pulumi.get(self, "variables")
 
 
@@ -606,17 +764,27 @@ class DeploymentTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key name of the tag
+        :param str value: The value for the tag
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key name of the tag
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value for the tag
+        """
         return pulumi.get(self, "value")
 
 

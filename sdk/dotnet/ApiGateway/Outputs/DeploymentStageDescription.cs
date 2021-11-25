@@ -13,24 +13,81 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
     [OutputType]
     public sealed class DeploymentStageDescription
     {
+        /// <summary>
+        /// Specifies settings for logging access in this stage.
+        /// </summary>
         public readonly Outputs.DeploymentAccessLogSetting? AccessLogSetting;
+        /// <summary>
+        /// Indicates whether cache clustering is enabled for the stage.
+        /// </summary>
         public readonly bool? CacheClusterEnabled;
+        /// <summary>
+        /// The size of the stage's cache cluster.
+        /// </summary>
         public readonly string? CacheClusterSize;
+        /// <summary>
+        /// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        /// </summary>
         public readonly bool? CacheDataEncrypted;
+        /// <summary>
+        /// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        /// </summary>
         public readonly int? CacheTtlInSeconds;
+        /// <summary>
+        /// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        /// </summary>
         public readonly bool? CachingEnabled;
+        /// <summary>
+        /// Specifies settings for the canary deployment in this stage.
+        /// </summary>
         public readonly Outputs.DeploymentCanarySetting? CanarySetting;
+        /// <summary>
+        /// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        /// </summary>
         public readonly string? ClientCertificateId;
+        /// <summary>
+        /// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        /// </summary>
         public readonly bool? DataTraceEnabled;
+        /// <summary>
+        /// A description of the purpose of the stage.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The version identifier of the API documentation snapshot.
+        /// </summary>
         public readonly string? DocumentationVersion;
+        /// <summary>
+        /// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        /// </summary>
         public readonly string? LoggingLevel;
+        /// <summary>
+        /// Configures settings for all of the stage's methods.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentMethodSetting> MethodSettings;
+        /// <summary>
+        /// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        /// </summary>
         public readonly bool? MetricsEnabled;
+        /// <summary>
+        /// An array of arbitrary tags (key-value pairs) to associate with the stage.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentTag> Tags;
+        /// <summary>
+        /// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// </summary>
         public readonly int? ThrottlingBurstLimit;
+        /// <summary>
+        /// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// </summary>
         public readonly double? ThrottlingRateLimit;
+        /// <summary>
+        /// Specifies whether active tracing with X-ray is enabled for this stage.
+        /// </summary>
         public readonly bool? TracingEnabled;
+        /// <summary>
+        /// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&amp;=,]+. 
+        /// </summary>
         public readonly object? Variables;
 
         [OutputConstructor]

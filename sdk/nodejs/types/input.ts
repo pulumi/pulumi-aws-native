@@ -1134,59 +1134,176 @@ export namespace apigateway {
     }
 
     export interface DeploymentAccessLogSettingArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
+         */
         destinationArn?: pulumi.Input<string>;
+        /**
+         * A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. 
+         */
         format?: pulumi.Input<string>;
     }
 
     export interface DeploymentCanarySettingArgs {
+        /**
+         * The percent (0-100) of traffic diverted to a canary deployment.
+         */
         percentTraffic?: pulumi.Input<number>;
+        /**
+         * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
+         */
         stageVariableOverrides?: any;
+        /**
+         * Whether the canary deployment uses the stage cache or not.
+         */
         useStageCache?: pulumi.Input<boolean>;
     }
 
     export interface DeploymentCanarySettingsArgs {
+        /**
+         * The percentage (0-100) of traffic diverted to a canary deployment.
+         */
         percentTraffic?: pulumi.Input<number>;
+        /**
+         * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
+         */
         stageVariableOverrides?: any;
+        /**
+         * Whether the canary deployment uses the stage cache.
+         */
         useStageCache?: pulumi.Input<boolean>;
     }
 
     export interface DeploymentMethodSettingArgs {
+        /**
+         * Indicates whether the cached responses are encrypted
+         */
         cacheDataEncrypted?: pulumi.Input<boolean>;
+        /**
+         * The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+         */
         cacheTtlInSeconds?: pulumi.Input<number>;
+        /**
+         * Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+         */
         cachingEnabled?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+         */
         dataTraceEnabled?: pulumi.Input<boolean>;
+        /**
+         * The HTTP method.
+         */
         httpMethod?: pulumi.Input<string>;
+        /**
+         * The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+         */
         loggingLevel?: pulumi.Input<string>;
+        /**
+         * Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+         */
         metricsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. 
+         */
         resourcePath?: pulumi.Input<string>;
+        /**
+         * The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingBurstLimit?: pulumi.Input<number>;
+        /**
+         * The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingRateLimit?: pulumi.Input<number>;
     }
 
     export interface DeploymentStageDescriptionArgs {
+        /**
+         * Specifies settings for logging access in this stage.
+         */
         accessLogSetting?: pulumi.Input<inputs.apigateway.DeploymentAccessLogSettingArgs>;
+        /**
+         * Indicates whether cache clustering is enabled for the stage.
+         */
         cacheClusterEnabled?: pulumi.Input<boolean>;
+        /**
+         * The size of the stage's cache cluster.
+         */
         cacheClusterSize?: pulumi.Input<string>;
+        /**
+         * The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+         */
         cacheDataEncrypted?: pulumi.Input<boolean>;
+        /**
+         * The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+         */
         cacheTtlInSeconds?: pulumi.Input<number>;
+        /**
+         * Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+         */
         cachingEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies settings for the canary deployment in this stage.
+         */
         canarySetting?: pulumi.Input<inputs.apigateway.DeploymentCanarySettingArgs>;
+        /**
+         * The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+         */
         clientCertificateId?: pulumi.Input<string>;
+        /**
+         * Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+         */
         dataTraceEnabled?: pulumi.Input<boolean>;
+        /**
+         * A description of the purpose of the stage.
+         */
         description?: pulumi.Input<string>;
+        /**
+         * The version identifier of the API documentation snapshot.
+         */
         documentationVersion?: pulumi.Input<string>;
+        /**
+         * The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+         */
         loggingLevel?: pulumi.Input<string>;
+        /**
+         * Configures settings for all of the stage's methods.
+         */
         methodSettings?: pulumi.Input<pulumi.Input<inputs.apigateway.DeploymentMethodSettingArgs>[]>;
+        /**
+         * Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+         */
         metricsEnabled?: pulumi.Input<boolean>;
+        /**
+         * An array of arbitrary tags (key-value pairs) to associate with the stage.
+         */
         tags?: pulumi.Input<pulumi.Input<inputs.apigateway.DeploymentTagArgs>[]>;
+        /**
+         * The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingBurstLimit?: pulumi.Input<number>;
+        /**
+         * The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingRateLimit?: pulumi.Input<number>;
+        /**
+         * Specifies whether active tracing with X-ray is enabled for this stage.
+         */
         tracingEnabled?: pulumi.Input<boolean>;
+        /**
+         * A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+. 
+         */
         variables?: any;
     }
 
     export interface DeploymentTagArgs {
+        /**
+         * The key name of the tag
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag
+         */
         value: pulumi.Input<string>;
     }
 

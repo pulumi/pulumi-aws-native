@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ApiGateway::BasePathMapping
+ *
+ * @deprecated BasePathMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class BasePathMapping extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class BasePathMapping extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BasePathMapping {
+        pulumi.log.warn("BasePathMapping is deprecated: BasePathMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new BasePathMapping(name, undefined as any, { ...opts, id: id });
     }
 
@@ -34,21 +37,9 @@ export class BasePathMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === BasePathMapping.__pulumiType;
     }
 
-    /**
-     * The base path name that callers of the API must provide in the URL after the domain name.
-     */
     public readonly basePath!: pulumi.Output<string | undefined>;
-    /**
-     * The DomainName of an AWS::ApiGateway::DomainName resource.
-     */
     public readonly domainName!: pulumi.Output<string>;
-    /**
-     * The ID of the API.
-     */
     public readonly restApiId!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the API's stage.
-     */
     public readonly stage!: pulumi.Output<string | undefined>;
 
     /**
@@ -58,7 +49,9 @@ export class BasePathMapping extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated BasePathMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: BasePathMappingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BasePathMapping is deprecated: BasePathMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -86,20 +79,8 @@ export class BasePathMapping extends pulumi.CustomResource {
  * The set of arguments for constructing a BasePathMapping resource.
  */
 export interface BasePathMappingArgs {
-    /**
-     * The base path name that callers of the API must provide in the URL after the domain name.
-     */
     basePath?: pulumi.Input<string>;
-    /**
-     * The DomainName of an AWS::ApiGateway::DomainName resource.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * The ID of the API.
-     */
     restApiId?: pulumi.Input<string>;
-    /**
-     * The name of the API's stage.
-     */
     stage?: pulumi.Input<string>;
 }
