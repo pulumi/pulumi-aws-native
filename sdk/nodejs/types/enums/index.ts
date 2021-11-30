@@ -31,6 +31,7 @@ import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as emr from "./emr";
 import * as events from "./events";
+import * as evidently from "./evidently";
 import * as finspace from "./finspace";
 import * as fms from "./fms";
 import * as frauddetector from "./frauddetector";
@@ -68,12 +69,14 @@ import * as pinpoint from "./pinpoint";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
+import * as refactorspaces from "./refactorspaces";
 import * as resiliencehub from "./resiliencehub";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
 import * as route53 from "./route53";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53resolver from "./route53resolver";
+import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
@@ -85,6 +88,7 @@ import * as ssmcontacts from "./ssmcontacts";
 import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
+import * as timestream from "./timestream";
 import * as transfer from "./transfer";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
@@ -120,6 +124,7 @@ export {
     elasticache,
     emr,
     events,
+    evidently,
     finspace,
     fms,
     frauddetector,
@@ -157,12 +162,14 @@ export {
     quicksight,
     rds,
     redshift,
+    refactorspaces,
     resiliencehub,
     resourcegroups,
     robomaker,
     route53,
     route53recoverycontrol,
     route53resolver,
+    rum,
     s3,
     s3outposts,
     sagemaker,
@@ -174,6 +181,7 @@ export {
     ssmincidents,
     sso,
     stepfunctions,
+    timestream,
     transfer,
     wafv2,
     wisdom,

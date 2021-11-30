@@ -11259,6 +11259,159 @@ export namespace eventschemas {
     }
 }
 
+export namespace evidently {
+    export interface ExperimentMetricGoalObjectArgs {
+        desiredChange: pulumi.Input<enums.evidently.ExperimentMetricGoalObjectDesiredChange>;
+        /**
+         * The JSON path to reference the entity id in the event.
+         */
+        entityIdKey: pulumi.Input<string>;
+        /**
+         * Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+         */
+        eventPattern: pulumi.Input<string>;
+        metricName: pulumi.Input<string>;
+        unitLabel?: pulumi.Input<string>;
+        /**
+         * The JSON path to reference the numerical metric value in the event.
+         */
+        valueKey: pulumi.Input<string>;
+    }
+
+    export interface ExperimentOnlineAbConfigObjectArgs {
+        controlTreatmentName?: pulumi.Input<string>;
+        treatmentWeights?: pulumi.Input<pulumi.Input<inputs.evidently.ExperimentTreatmentToWeightArgs>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ExperimentTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ExperimentTreatmentObjectArgs {
+        description?: pulumi.Input<string>;
+        feature: pulumi.Input<string>;
+        treatmentName: pulumi.Input<string>;
+        variation: pulumi.Input<string>;
+    }
+
+    export interface ExperimentTreatmentToWeightArgs {
+        splitWeight: pulumi.Input<number>;
+        treatment: pulumi.Input<string>;
+    }
+
+    export interface FeatureEntityOverrideArgs {
+        entityId?: pulumi.Input<string>;
+        variation?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface FeatureTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface FeatureVariationObjectArgs {
+        booleanValue?: pulumi.Input<boolean>;
+        doubleValue?: pulumi.Input<number>;
+        longValue?: pulumi.Input<number>;
+        stringValue?: pulumi.Input<string>;
+        variationName?: pulumi.Input<string>;
+    }
+
+    export interface LaunchGroupObjectArgs {
+        description?: pulumi.Input<string>;
+        feature: pulumi.Input<string>;
+        groupName: pulumi.Input<string>;
+        variation: pulumi.Input<string>;
+    }
+
+    export interface LaunchGroupToWeightArgs {
+        groupName: pulumi.Input<string>;
+        splitWeight: pulumi.Input<number>;
+    }
+
+    export interface LaunchMetricDefinitionObjectArgs {
+        /**
+         * The JSON path to reference the entity id in the event.
+         */
+        entityIdKey: pulumi.Input<string>;
+        /**
+         * Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+         */
+        eventPattern: pulumi.Input<string>;
+        metricName: pulumi.Input<string>;
+        unitLabel?: pulumi.Input<string>;
+        /**
+         * The JSON path to reference the numerical metric value in the event.
+         */
+        valueKey: pulumi.Input<string>;
+    }
+
+    export interface LaunchStepConfigArgs {
+        groupWeights: pulumi.Input<pulumi.Input<inputs.evidently.LaunchGroupToWeightArgs>[]>;
+        startTime: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LaunchTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Destinations for data.
+     */
+    export interface ProjectDataDeliveryObjectArgs {
+        logGroup?: pulumi.Input<string>;
+        s3?: pulumi.Input<inputs.evidently.ProjectS3DestinationArgs>;
+    }
+
+    export interface ProjectS3DestinationArgs {
+        bucketName: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ProjectTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace finspace {
     /**
      * Additional parameters to identify Federation mode
@@ -22930,6 +23083,85 @@ export namespace redshift {
 
 }
 
+export namespace refactorspaces {
+    export interface ApplicationApiGatewayProxyInputArgs {
+        endpointType?: pulumi.Input<enums.refactorspaces.ApplicationApiGatewayEndpointType>;
+        stageName?: pulumi.Input<string>;
+    }
+
+    /**
+     * A label for tagging Environment resource
+     */
+    export interface ApplicationTagArgs {
+        /**
+         * A string used to identify this tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A label for tagging Environment resource
+     */
+    export interface EnvironmentTagArgs {
+        /**
+         * A string used to identify this tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A label for tagging Environment resource
+     */
+    export interface RouteTagArgs {
+        /**
+         * A string used to identify this tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RouteUriPathRouteInputArgs {
+        activationState: pulumi.Input<enums.refactorspaces.RouteActivationState>;
+        includeChildPaths?: pulumi.Input<boolean>;
+        methods?: pulumi.Input<pulumi.Input<enums.refactorspaces.RouteMethod>[]>;
+        sourcePath?: pulumi.Input<string>;
+    }
+
+    export interface ServiceLambdaEndpointInputArgs {
+        arn: pulumi.Input<string>;
+    }
+
+    /**
+     * A label for tagging Environment resource
+     */
+    export interface ServiceTagArgs {
+        /**
+         * A string used to identify this tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ServiceUrlEndpointInputArgs {
+        healthUrl?: pulumi.Input<string>;
+        url: pulumi.Input<string>;
+    }
+}
+
 export namespace resiliencehub {
     export interface AppPhysicalResourceIdArgs {
         awsAccountId?: pulumi.Input<string>;
@@ -23495,6 +23727,64 @@ export namespace route53resolver {
          * The port at Ip that you want to forward DNS queries to. 
          */
         port?: pulumi.Input<string>;
+    }
+}
+
+export namespace rum {
+    /**
+     * AppMonitor configuration
+     */
+    export interface AppMonitorConfigurationArgs {
+        /**
+         * If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+         */
+        allowCookies?: pulumi.Input<boolean>;
+        /**
+         * If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console.
+         */
+        enableXRay?: pulumi.Input<boolean>;
+        /**
+         * A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
+         */
+        excludedPages?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of pages in the RUM console that are to be displayed with a favorite icon.
+         */
+        favoritePages?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ARN of the guest IAM role that is attached to the identity pool that is used to authorize the sending of data to RUM.
+         */
+        guestRoleArn?: pulumi.Input<string>;
+        /**
+         * The ID of the identity pool that is used to authorize the sending of data to RUM.
+         */
+        identityPoolId?: pulumi.Input<string>;
+        /**
+         * If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
+         */
+        includedPages?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
+         */
+        sessionSampleRate?: pulumi.Input<number>;
+        /**
+         * An array that lists the types of telemetry data that this app monitor is to collect.
+         */
+        telemetries?: pulumi.Input<pulumi.Input<enums.rum.AppMonitorTelemetry>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AppMonitorTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -27031,6 +27321,107 @@ export namespace timestream {
          * The duration for which data must be stored in the memory store.
          */
         memoryStoreRetentionPeriodInHours?: pulumi.Input<string>;
+    }
+
+    /**
+     * Mapping of dimension column name to dimension column value type.
+     */
+    export interface ScheduledQueryDimensionMappingArgs {
+        dimensionValueType: pulumi.Input<enums.timestream.ScheduledQueryDimensionValueType>;
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+     */
+    export interface ScheduledQueryErrorReportConfigurationArgs {
+        s3Configuration: pulumi.Input<inputs.timestream.ScheduledQueryS3ConfigurationArgs>;
+    }
+
+    /**
+     * Mapping of measure names and measure value columns from the source table to the destination table.
+     */
+    export interface ScheduledQueryMixedMeasureMappingArgs {
+        measureName?: pulumi.Input<string>;
+        measureValueType: pulumi.Input<enums.timestream.ScheduledQueryMixedMeasureMappingMeasureValueType>;
+        multiMeasureAttributeMappings?: pulumi.Input<pulumi.Input<inputs.timestream.ScheduledQueryMultiMeasureAttributeMappingArgs>[]>;
+        sourceColumn?: pulumi.Input<string>;
+        targetMeasureName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Mapping of measure value columns from the source table to the destination table.
+     */
+    export interface ScheduledQueryMultiMeasureAttributeMappingArgs {
+        measureValueType: pulumi.Input<enums.timestream.ScheduledQueryMultiMeasureAttributeMappingMeasureValueType>;
+        sourceColumn: pulumi.Input<string>;
+        targetMultiMeasureAttributeName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Mapping of measure value columns from the source table to the destination table.
+     */
+    export interface ScheduledQueryMultiMeasureMappingsArgs {
+        multiMeasureAttributeMappings: pulumi.Input<pulumi.Input<inputs.timestream.ScheduledQueryMultiMeasureAttributeMappingArgs>[]>;
+        targetMultiMeasureName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for notification upon scheduled query execution.
+     */
+    export interface ScheduledQueryNotificationConfigurationArgs {
+        snsConfiguration: pulumi.Input<inputs.timestream.ScheduledQuerySnsConfigurationArgs>;
+    }
+
+    /**
+     * S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+     */
+    export interface ScheduledQueryS3ConfigurationArgs {
+        bucketName: pulumi.Input<string>;
+        encryptionOption?: pulumi.Input<enums.timestream.ScheduledQueryEncryptionOption>;
+        objectKeyPrefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration that indicates when the scheduled query is executed.
+     */
+    export interface ScheduledQueryScheduleConfigurationArgs {
+        scheduleExpression: pulumi.Input<string>;
+    }
+
+    /**
+     * SNS configuration for notification upon scheduled query execution.
+     */
+    export interface ScheduledQuerySnsConfigurationArgs {
+        topicArn: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ScheduledQueryTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration of target destination table to query.
+     */
+    export interface ScheduledQueryTargetConfigurationArgs {
+        timestreamConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryTimestreamConfigurationArgs>;
+    }
+
+    /**
+     * Timestream configuration of destination table to query.
+     */
+    export interface ScheduledQueryTimestreamConfigurationArgs {
+        databaseName: pulumi.Input<string>;
+        dimensionMappings: pulumi.Input<pulumi.Input<inputs.timestream.ScheduledQueryDimensionMappingArgs>[]>;
+        measureNameColumn?: pulumi.Input<string>;
+        mixedMeasureMappings?: pulumi.Input<pulumi.Input<inputs.timestream.ScheduledQueryMixedMeasureMappingArgs>[]>;
+        multiMeasureMappings?: pulumi.Input<inputs.timestream.ScheduledQueryMultiMeasureMappingsArgs>;
+        tableName: pulumi.Input<string>;
+        timeColumn: pulumi.Input<string>;
     }
 
     /**
