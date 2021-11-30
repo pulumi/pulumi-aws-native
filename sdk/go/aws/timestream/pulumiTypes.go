@@ -272,6 +272,1683 @@ func (o RetentionPropertiesPropertiesPtrOutput) MemoryStoreRetentionPeriodInHour
 	}).(pulumi.StringPtrOutput)
 }
 
+// Mapping of dimension column name to dimension column value type.
+type ScheduledQueryDimensionMapping struct {
+	DimensionValueType ScheduledQueryDimensionValueType `pulumi:"dimensionValueType"`
+	Name               string                           `pulumi:"name"`
+}
+
+// ScheduledQueryDimensionMappingInput is an input type that accepts ScheduledQueryDimensionMappingArgs and ScheduledQueryDimensionMappingOutput values.
+// You can construct a concrete instance of `ScheduledQueryDimensionMappingInput` via:
+//
+//          ScheduledQueryDimensionMappingArgs{...}
+type ScheduledQueryDimensionMappingInput interface {
+	pulumi.Input
+
+	ToScheduledQueryDimensionMappingOutput() ScheduledQueryDimensionMappingOutput
+	ToScheduledQueryDimensionMappingOutputWithContext(context.Context) ScheduledQueryDimensionMappingOutput
+}
+
+// Mapping of dimension column name to dimension column value type.
+type ScheduledQueryDimensionMappingArgs struct {
+	DimensionValueType ScheduledQueryDimensionValueTypeInput `pulumi:"dimensionValueType"`
+	Name               pulumi.StringInput                    `pulumi:"name"`
+}
+
+func (ScheduledQueryDimensionMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryDimensionMapping)(nil)).Elem()
+}
+
+func (i ScheduledQueryDimensionMappingArgs) ToScheduledQueryDimensionMappingOutput() ScheduledQueryDimensionMappingOutput {
+	return i.ToScheduledQueryDimensionMappingOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryDimensionMappingArgs) ToScheduledQueryDimensionMappingOutputWithContext(ctx context.Context) ScheduledQueryDimensionMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryDimensionMappingOutput)
+}
+
+// ScheduledQueryDimensionMappingArrayInput is an input type that accepts ScheduledQueryDimensionMappingArray and ScheduledQueryDimensionMappingArrayOutput values.
+// You can construct a concrete instance of `ScheduledQueryDimensionMappingArrayInput` via:
+//
+//          ScheduledQueryDimensionMappingArray{ ScheduledQueryDimensionMappingArgs{...} }
+type ScheduledQueryDimensionMappingArrayInput interface {
+	pulumi.Input
+
+	ToScheduledQueryDimensionMappingArrayOutput() ScheduledQueryDimensionMappingArrayOutput
+	ToScheduledQueryDimensionMappingArrayOutputWithContext(context.Context) ScheduledQueryDimensionMappingArrayOutput
+}
+
+type ScheduledQueryDimensionMappingArray []ScheduledQueryDimensionMappingInput
+
+func (ScheduledQueryDimensionMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryDimensionMapping)(nil)).Elem()
+}
+
+func (i ScheduledQueryDimensionMappingArray) ToScheduledQueryDimensionMappingArrayOutput() ScheduledQueryDimensionMappingArrayOutput {
+	return i.ToScheduledQueryDimensionMappingArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryDimensionMappingArray) ToScheduledQueryDimensionMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryDimensionMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryDimensionMappingArrayOutput)
+}
+
+// Mapping of dimension column name to dimension column value type.
+type ScheduledQueryDimensionMappingOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryDimensionMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryDimensionMapping)(nil)).Elem()
+}
+
+func (o ScheduledQueryDimensionMappingOutput) ToScheduledQueryDimensionMappingOutput() ScheduledQueryDimensionMappingOutput {
+	return o
+}
+
+func (o ScheduledQueryDimensionMappingOutput) ToScheduledQueryDimensionMappingOutputWithContext(ctx context.Context) ScheduledQueryDimensionMappingOutput {
+	return o
+}
+
+func (o ScheduledQueryDimensionMappingOutput) DimensionValueType() ScheduledQueryDimensionValueTypeOutput {
+	return o.ApplyT(func(v ScheduledQueryDimensionMapping) ScheduledQueryDimensionValueType { return v.DimensionValueType }).(ScheduledQueryDimensionValueTypeOutput)
+}
+
+func (o ScheduledQueryDimensionMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryDimensionMapping) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryDimensionMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryDimensionMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryDimensionMapping)(nil)).Elem()
+}
+
+func (o ScheduledQueryDimensionMappingArrayOutput) ToScheduledQueryDimensionMappingArrayOutput() ScheduledQueryDimensionMappingArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryDimensionMappingArrayOutput) ToScheduledQueryDimensionMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryDimensionMappingArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryDimensionMappingArrayOutput) Index(i pulumi.IntInput) ScheduledQueryDimensionMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryDimensionMapping {
+		return vs[0].([]ScheduledQueryDimensionMapping)[vs[1].(int)]
+	}).(ScheduledQueryDimensionMappingOutput)
+}
+
+// Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+type ScheduledQueryErrorReportConfiguration struct {
+	S3Configuration ScheduledQueryS3Configuration `pulumi:"s3Configuration"`
+}
+
+// ScheduledQueryErrorReportConfigurationInput is an input type that accepts ScheduledQueryErrorReportConfigurationArgs and ScheduledQueryErrorReportConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQueryErrorReportConfigurationInput` via:
+//
+//          ScheduledQueryErrorReportConfigurationArgs{...}
+type ScheduledQueryErrorReportConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQueryErrorReportConfigurationOutput() ScheduledQueryErrorReportConfigurationOutput
+	ToScheduledQueryErrorReportConfigurationOutputWithContext(context.Context) ScheduledQueryErrorReportConfigurationOutput
+}
+
+// Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+type ScheduledQueryErrorReportConfigurationArgs struct {
+	S3Configuration ScheduledQueryS3ConfigurationInput `pulumi:"s3Configuration"`
+}
+
+func (ScheduledQueryErrorReportConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryErrorReportConfiguration)(nil)).Elem()
+}
+
+func (i ScheduledQueryErrorReportConfigurationArgs) ToScheduledQueryErrorReportConfigurationOutput() ScheduledQueryErrorReportConfigurationOutput {
+	return i.ToScheduledQueryErrorReportConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryErrorReportConfigurationArgs) ToScheduledQueryErrorReportConfigurationOutputWithContext(ctx context.Context) ScheduledQueryErrorReportConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryErrorReportConfigurationOutput)
+}
+
+func (i ScheduledQueryErrorReportConfigurationArgs) ToScheduledQueryErrorReportConfigurationPtrOutput() ScheduledQueryErrorReportConfigurationPtrOutput {
+	return i.ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryErrorReportConfigurationArgs) ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryErrorReportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryErrorReportConfigurationOutput).ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryErrorReportConfigurationPtrInput is an input type that accepts ScheduledQueryErrorReportConfigurationArgs, ScheduledQueryErrorReportConfigurationPtr and ScheduledQueryErrorReportConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryErrorReportConfigurationPtrInput` via:
+//
+//          ScheduledQueryErrorReportConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledQueryErrorReportConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryErrorReportConfigurationPtrOutput() ScheduledQueryErrorReportConfigurationPtrOutput
+	ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(context.Context) ScheduledQueryErrorReportConfigurationPtrOutput
+}
+
+type scheduledQueryErrorReportConfigurationPtrType ScheduledQueryErrorReportConfigurationArgs
+
+func ScheduledQueryErrorReportConfigurationPtr(v *ScheduledQueryErrorReportConfigurationArgs) ScheduledQueryErrorReportConfigurationPtrInput {
+	return (*scheduledQueryErrorReportConfigurationPtrType)(v)
+}
+
+func (*scheduledQueryErrorReportConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryErrorReportConfiguration)(nil)).Elem()
+}
+
+func (i *scheduledQueryErrorReportConfigurationPtrType) ToScheduledQueryErrorReportConfigurationPtrOutput() ScheduledQueryErrorReportConfigurationPtrOutput {
+	return i.ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryErrorReportConfigurationPtrType) ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryErrorReportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryErrorReportConfigurationPtrOutput)
+}
+
+// Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+type ScheduledQueryErrorReportConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryErrorReportConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryErrorReportConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorReportConfigurationOutput() ScheduledQueryErrorReportConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorReportConfigurationOutputWithContext(ctx context.Context) ScheduledQueryErrorReportConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorReportConfigurationPtrOutput() ScheduledQueryErrorReportConfigurationPtrOutput {
+	return o.ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryErrorReportConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryErrorReportConfiguration) *ScheduledQueryErrorReportConfiguration {
+		return &v
+	}).(ScheduledQueryErrorReportConfigurationPtrOutput)
+}
+
+func (o ScheduledQueryErrorReportConfigurationOutput) S3Configuration() ScheduledQueryS3ConfigurationOutput {
+	return o.ApplyT(func(v ScheduledQueryErrorReportConfiguration) ScheduledQueryS3Configuration { return v.S3Configuration }).(ScheduledQueryS3ConfigurationOutput)
+}
+
+type ScheduledQueryErrorReportConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryErrorReportConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryErrorReportConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryErrorReportConfigurationPtrOutput) ToScheduledQueryErrorReportConfigurationPtrOutput() ScheduledQueryErrorReportConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryErrorReportConfigurationPtrOutput) ToScheduledQueryErrorReportConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryErrorReportConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryErrorReportConfigurationPtrOutput) Elem() ScheduledQueryErrorReportConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQueryErrorReportConfiguration) ScheduledQueryErrorReportConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryErrorReportConfiguration
+		return ret
+	}).(ScheduledQueryErrorReportConfigurationOutput)
+}
+
+func (o ScheduledQueryErrorReportConfigurationPtrOutput) S3Configuration() ScheduledQueryS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryErrorReportConfiguration) *ScheduledQueryS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(ScheduledQueryS3ConfigurationPtrOutput)
+}
+
+// Mapping of measure names and measure value columns from the source table to the destination table.
+type ScheduledQueryMixedMeasureMapping struct {
+	MeasureName                   *string                                           `pulumi:"measureName"`
+	MeasureValueType              ScheduledQueryMixedMeasureMappingMeasureValueType `pulumi:"measureValueType"`
+	MultiMeasureAttributeMappings []ScheduledQueryMultiMeasureAttributeMapping      `pulumi:"multiMeasureAttributeMappings"`
+	SourceColumn                  *string                                           `pulumi:"sourceColumn"`
+	TargetMeasureName             *string                                           `pulumi:"targetMeasureName"`
+}
+
+// ScheduledQueryMixedMeasureMappingInput is an input type that accepts ScheduledQueryMixedMeasureMappingArgs and ScheduledQueryMixedMeasureMappingOutput values.
+// You can construct a concrete instance of `ScheduledQueryMixedMeasureMappingInput` via:
+//
+//          ScheduledQueryMixedMeasureMappingArgs{...}
+type ScheduledQueryMixedMeasureMappingInput interface {
+	pulumi.Input
+
+	ToScheduledQueryMixedMeasureMappingOutput() ScheduledQueryMixedMeasureMappingOutput
+	ToScheduledQueryMixedMeasureMappingOutputWithContext(context.Context) ScheduledQueryMixedMeasureMappingOutput
+}
+
+// Mapping of measure names and measure value columns from the source table to the destination table.
+type ScheduledQueryMixedMeasureMappingArgs struct {
+	MeasureName                   pulumi.StringPtrInput                                  `pulumi:"measureName"`
+	MeasureValueType              ScheduledQueryMixedMeasureMappingMeasureValueTypeInput `pulumi:"measureValueType"`
+	MultiMeasureAttributeMappings ScheduledQueryMultiMeasureAttributeMappingArrayInput   `pulumi:"multiMeasureAttributeMappings"`
+	SourceColumn                  pulumi.StringPtrInput                                  `pulumi:"sourceColumn"`
+	TargetMeasureName             pulumi.StringPtrInput                                  `pulumi:"targetMeasureName"`
+}
+
+func (ScheduledQueryMixedMeasureMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryMixedMeasureMapping)(nil)).Elem()
+}
+
+func (i ScheduledQueryMixedMeasureMappingArgs) ToScheduledQueryMixedMeasureMappingOutput() ScheduledQueryMixedMeasureMappingOutput {
+	return i.ToScheduledQueryMixedMeasureMappingOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryMixedMeasureMappingArgs) ToScheduledQueryMixedMeasureMappingOutputWithContext(ctx context.Context) ScheduledQueryMixedMeasureMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMixedMeasureMappingOutput)
+}
+
+// ScheduledQueryMixedMeasureMappingArrayInput is an input type that accepts ScheduledQueryMixedMeasureMappingArray and ScheduledQueryMixedMeasureMappingArrayOutput values.
+// You can construct a concrete instance of `ScheduledQueryMixedMeasureMappingArrayInput` via:
+//
+//          ScheduledQueryMixedMeasureMappingArray{ ScheduledQueryMixedMeasureMappingArgs{...} }
+type ScheduledQueryMixedMeasureMappingArrayInput interface {
+	pulumi.Input
+
+	ToScheduledQueryMixedMeasureMappingArrayOutput() ScheduledQueryMixedMeasureMappingArrayOutput
+	ToScheduledQueryMixedMeasureMappingArrayOutputWithContext(context.Context) ScheduledQueryMixedMeasureMappingArrayOutput
+}
+
+type ScheduledQueryMixedMeasureMappingArray []ScheduledQueryMixedMeasureMappingInput
+
+func (ScheduledQueryMixedMeasureMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryMixedMeasureMapping)(nil)).Elem()
+}
+
+func (i ScheduledQueryMixedMeasureMappingArray) ToScheduledQueryMixedMeasureMappingArrayOutput() ScheduledQueryMixedMeasureMappingArrayOutput {
+	return i.ToScheduledQueryMixedMeasureMappingArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryMixedMeasureMappingArray) ToScheduledQueryMixedMeasureMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryMixedMeasureMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMixedMeasureMappingArrayOutput)
+}
+
+// Mapping of measure names and measure value columns from the source table to the destination table.
+type ScheduledQueryMixedMeasureMappingOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryMixedMeasureMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryMixedMeasureMapping)(nil)).Elem()
+}
+
+func (o ScheduledQueryMixedMeasureMappingOutput) ToScheduledQueryMixedMeasureMappingOutput() ScheduledQueryMixedMeasureMappingOutput {
+	return o
+}
+
+func (o ScheduledQueryMixedMeasureMappingOutput) ToScheduledQueryMixedMeasureMappingOutputWithContext(ctx context.Context) ScheduledQueryMixedMeasureMappingOutput {
+	return o
+}
+
+func (o ScheduledQueryMixedMeasureMappingOutput) MeasureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryMixedMeasureMapping) *string { return v.MeasureName }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledQueryMixedMeasureMappingOutput) MeasureValueType() ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput {
+	return o.ApplyT(func(v ScheduledQueryMixedMeasureMapping) ScheduledQueryMixedMeasureMappingMeasureValueType {
+		return v.MeasureValueType
+	}).(ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput)
+}
+
+func (o ScheduledQueryMixedMeasureMappingOutput) MultiMeasureAttributeMappings() ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryMixedMeasureMapping) []ScheduledQueryMultiMeasureAttributeMapping {
+		return v.MultiMeasureAttributeMappings
+	}).(ScheduledQueryMultiMeasureAttributeMappingArrayOutput)
+}
+
+func (o ScheduledQueryMixedMeasureMappingOutput) SourceColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryMixedMeasureMapping) *string { return v.SourceColumn }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledQueryMixedMeasureMappingOutput) TargetMeasureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryMixedMeasureMapping) *string { return v.TargetMeasureName }).(pulumi.StringPtrOutput)
+}
+
+type ScheduledQueryMixedMeasureMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryMixedMeasureMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryMixedMeasureMapping)(nil)).Elem()
+}
+
+func (o ScheduledQueryMixedMeasureMappingArrayOutput) ToScheduledQueryMixedMeasureMappingArrayOutput() ScheduledQueryMixedMeasureMappingArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryMixedMeasureMappingArrayOutput) ToScheduledQueryMixedMeasureMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryMixedMeasureMappingArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryMixedMeasureMappingArrayOutput) Index(i pulumi.IntInput) ScheduledQueryMixedMeasureMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryMixedMeasureMapping {
+		return vs[0].([]ScheduledQueryMixedMeasureMapping)[vs[1].(int)]
+	}).(ScheduledQueryMixedMeasureMappingOutput)
+}
+
+// Mapping of measure value columns from the source table to the destination table.
+type ScheduledQueryMultiMeasureAttributeMapping struct {
+	MeasureValueType                ScheduledQueryMultiMeasureAttributeMappingMeasureValueType `pulumi:"measureValueType"`
+	SourceColumn                    string                                                     `pulumi:"sourceColumn"`
+	TargetMultiMeasureAttributeName *string                                                    `pulumi:"targetMultiMeasureAttributeName"`
+}
+
+// ScheduledQueryMultiMeasureAttributeMappingInput is an input type that accepts ScheduledQueryMultiMeasureAttributeMappingArgs and ScheduledQueryMultiMeasureAttributeMappingOutput values.
+// You can construct a concrete instance of `ScheduledQueryMultiMeasureAttributeMappingInput` via:
+//
+//          ScheduledQueryMultiMeasureAttributeMappingArgs{...}
+type ScheduledQueryMultiMeasureAttributeMappingInput interface {
+	pulumi.Input
+
+	ToScheduledQueryMultiMeasureAttributeMappingOutput() ScheduledQueryMultiMeasureAttributeMappingOutput
+	ToScheduledQueryMultiMeasureAttributeMappingOutputWithContext(context.Context) ScheduledQueryMultiMeasureAttributeMappingOutput
+}
+
+// Mapping of measure value columns from the source table to the destination table.
+type ScheduledQueryMultiMeasureAttributeMappingArgs struct {
+	MeasureValueType                ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput `pulumi:"measureValueType"`
+	SourceColumn                    pulumi.StringInput                                              `pulumi:"sourceColumn"`
+	TargetMultiMeasureAttributeName pulumi.StringPtrInput                                           `pulumi:"targetMultiMeasureAttributeName"`
+}
+
+func (ScheduledQueryMultiMeasureAttributeMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryMultiMeasureAttributeMapping)(nil)).Elem()
+}
+
+func (i ScheduledQueryMultiMeasureAttributeMappingArgs) ToScheduledQueryMultiMeasureAttributeMappingOutput() ScheduledQueryMultiMeasureAttributeMappingOutput {
+	return i.ToScheduledQueryMultiMeasureAttributeMappingOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryMultiMeasureAttributeMappingArgs) ToScheduledQueryMultiMeasureAttributeMappingOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureAttributeMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureAttributeMappingOutput)
+}
+
+// ScheduledQueryMultiMeasureAttributeMappingArrayInput is an input type that accepts ScheduledQueryMultiMeasureAttributeMappingArray and ScheduledQueryMultiMeasureAttributeMappingArrayOutput values.
+// You can construct a concrete instance of `ScheduledQueryMultiMeasureAttributeMappingArrayInput` via:
+//
+//          ScheduledQueryMultiMeasureAttributeMappingArray{ ScheduledQueryMultiMeasureAttributeMappingArgs{...} }
+type ScheduledQueryMultiMeasureAttributeMappingArrayInput interface {
+	pulumi.Input
+
+	ToScheduledQueryMultiMeasureAttributeMappingArrayOutput() ScheduledQueryMultiMeasureAttributeMappingArrayOutput
+	ToScheduledQueryMultiMeasureAttributeMappingArrayOutputWithContext(context.Context) ScheduledQueryMultiMeasureAttributeMappingArrayOutput
+}
+
+type ScheduledQueryMultiMeasureAttributeMappingArray []ScheduledQueryMultiMeasureAttributeMappingInput
+
+func (ScheduledQueryMultiMeasureAttributeMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryMultiMeasureAttributeMapping)(nil)).Elem()
+}
+
+func (i ScheduledQueryMultiMeasureAttributeMappingArray) ToScheduledQueryMultiMeasureAttributeMappingArrayOutput() ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
+	return i.ToScheduledQueryMultiMeasureAttributeMappingArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryMultiMeasureAttributeMappingArray) ToScheduledQueryMultiMeasureAttributeMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureAttributeMappingArrayOutput)
+}
+
+// Mapping of measure value columns from the source table to the destination table.
+type ScheduledQueryMultiMeasureAttributeMappingOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryMultiMeasureAttributeMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryMultiMeasureAttributeMapping)(nil)).Elem()
+}
+
+func (o ScheduledQueryMultiMeasureAttributeMappingOutput) ToScheduledQueryMultiMeasureAttributeMappingOutput() ScheduledQueryMultiMeasureAttributeMappingOutput {
+	return o
+}
+
+func (o ScheduledQueryMultiMeasureAttributeMappingOutput) ToScheduledQueryMultiMeasureAttributeMappingOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureAttributeMappingOutput {
+	return o
+}
+
+func (o ScheduledQueryMultiMeasureAttributeMappingOutput) MeasureValueType() ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput {
+	return o.ApplyT(func(v ScheduledQueryMultiMeasureAttributeMapping) ScheduledQueryMultiMeasureAttributeMappingMeasureValueType {
+		return v.MeasureValueType
+	}).(ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput)
+}
+
+func (o ScheduledQueryMultiMeasureAttributeMappingOutput) SourceColumn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryMultiMeasureAttributeMapping) string { return v.SourceColumn }).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryMultiMeasureAttributeMappingOutput) TargetMultiMeasureAttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryMultiMeasureAttributeMapping) *string { return v.TargetMultiMeasureAttributeName }).(pulumi.StringPtrOutput)
+}
+
+type ScheduledQueryMultiMeasureAttributeMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryMultiMeasureAttributeMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryMultiMeasureAttributeMapping)(nil)).Elem()
+}
+
+func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) ToScheduledQueryMultiMeasureAttributeMappingArrayOutput() ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) ToScheduledQueryMultiMeasureAttributeMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) Index(i pulumi.IntInput) ScheduledQueryMultiMeasureAttributeMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryMultiMeasureAttributeMapping {
+		return vs[0].([]ScheduledQueryMultiMeasureAttributeMapping)[vs[1].(int)]
+	}).(ScheduledQueryMultiMeasureAttributeMappingOutput)
+}
+
+// Mapping of measure value columns from the source table to the destination table.
+type ScheduledQueryMultiMeasureMappings struct {
+	MultiMeasureAttributeMappings []ScheduledQueryMultiMeasureAttributeMapping `pulumi:"multiMeasureAttributeMappings"`
+	TargetMultiMeasureName        *string                                      `pulumi:"targetMultiMeasureName"`
+}
+
+// ScheduledQueryMultiMeasureMappingsInput is an input type that accepts ScheduledQueryMultiMeasureMappingsArgs and ScheduledQueryMultiMeasureMappingsOutput values.
+// You can construct a concrete instance of `ScheduledQueryMultiMeasureMappingsInput` via:
+//
+//          ScheduledQueryMultiMeasureMappingsArgs{...}
+type ScheduledQueryMultiMeasureMappingsInput interface {
+	pulumi.Input
+
+	ToScheduledQueryMultiMeasureMappingsOutput() ScheduledQueryMultiMeasureMappingsOutput
+	ToScheduledQueryMultiMeasureMappingsOutputWithContext(context.Context) ScheduledQueryMultiMeasureMappingsOutput
+}
+
+// Mapping of measure value columns from the source table to the destination table.
+type ScheduledQueryMultiMeasureMappingsArgs struct {
+	MultiMeasureAttributeMappings ScheduledQueryMultiMeasureAttributeMappingArrayInput `pulumi:"multiMeasureAttributeMappings"`
+	TargetMultiMeasureName        pulumi.StringPtrInput                                `pulumi:"targetMultiMeasureName"`
+}
+
+func (ScheduledQueryMultiMeasureMappingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryMultiMeasureMappings)(nil)).Elem()
+}
+
+func (i ScheduledQueryMultiMeasureMappingsArgs) ToScheduledQueryMultiMeasureMappingsOutput() ScheduledQueryMultiMeasureMappingsOutput {
+	return i.ToScheduledQueryMultiMeasureMappingsOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryMultiMeasureMappingsArgs) ToScheduledQueryMultiMeasureMappingsOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureMappingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureMappingsOutput)
+}
+
+func (i ScheduledQueryMultiMeasureMappingsArgs) ToScheduledQueryMultiMeasureMappingsPtrOutput() ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return i.ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryMultiMeasureMappingsArgs) ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureMappingsOutput).ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryMultiMeasureMappingsPtrInput is an input type that accepts ScheduledQueryMultiMeasureMappingsArgs, ScheduledQueryMultiMeasureMappingsPtr and ScheduledQueryMultiMeasureMappingsPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryMultiMeasureMappingsPtrInput` via:
+//
+//          ScheduledQueryMultiMeasureMappingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledQueryMultiMeasureMappingsPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryMultiMeasureMappingsPtrOutput() ScheduledQueryMultiMeasureMappingsPtrOutput
+	ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(context.Context) ScheduledQueryMultiMeasureMappingsPtrOutput
+}
+
+type scheduledQueryMultiMeasureMappingsPtrType ScheduledQueryMultiMeasureMappingsArgs
+
+func ScheduledQueryMultiMeasureMappingsPtr(v *ScheduledQueryMultiMeasureMappingsArgs) ScheduledQueryMultiMeasureMappingsPtrInput {
+	return (*scheduledQueryMultiMeasureMappingsPtrType)(v)
+}
+
+func (*scheduledQueryMultiMeasureMappingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryMultiMeasureMappings)(nil)).Elem()
+}
+
+func (i *scheduledQueryMultiMeasureMappingsPtrType) ToScheduledQueryMultiMeasureMappingsPtrOutput() ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return i.ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryMultiMeasureMappingsPtrType) ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureMappingsPtrOutput)
+}
+
+// Mapping of measure value columns from the source table to the destination table.
+type ScheduledQueryMultiMeasureMappingsOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryMultiMeasureMappingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryMultiMeasureMappings)(nil)).Elem()
+}
+
+func (o ScheduledQueryMultiMeasureMappingsOutput) ToScheduledQueryMultiMeasureMappingsOutput() ScheduledQueryMultiMeasureMappingsOutput {
+	return o
+}
+
+func (o ScheduledQueryMultiMeasureMappingsOutput) ToScheduledQueryMultiMeasureMappingsOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureMappingsOutput {
+	return o
+}
+
+func (o ScheduledQueryMultiMeasureMappingsOutput) ToScheduledQueryMultiMeasureMappingsPtrOutput() ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return o.ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryMultiMeasureMappingsOutput) ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryMultiMeasureMappings) *ScheduledQueryMultiMeasureMappings {
+		return &v
+	}).(ScheduledQueryMultiMeasureMappingsPtrOutput)
+}
+
+func (o ScheduledQueryMultiMeasureMappingsOutput) MultiMeasureAttributeMappings() ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryMultiMeasureMappings) []ScheduledQueryMultiMeasureAttributeMapping {
+		return v.MultiMeasureAttributeMappings
+	}).(ScheduledQueryMultiMeasureAttributeMappingArrayOutput)
+}
+
+func (o ScheduledQueryMultiMeasureMappingsOutput) TargetMultiMeasureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryMultiMeasureMappings) *string { return v.TargetMultiMeasureName }).(pulumi.StringPtrOutput)
+}
+
+type ScheduledQueryMultiMeasureMappingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryMultiMeasureMappingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryMultiMeasureMappings)(nil)).Elem()
+}
+
+func (o ScheduledQueryMultiMeasureMappingsPtrOutput) ToScheduledQueryMultiMeasureMappingsPtrOutput() ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryMultiMeasureMappingsPtrOutput) ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryMultiMeasureMappingsPtrOutput) Elem() ScheduledQueryMultiMeasureMappingsOutput {
+	return o.ApplyT(func(v *ScheduledQueryMultiMeasureMappings) ScheduledQueryMultiMeasureMappings {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryMultiMeasureMappings
+		return ret
+	}).(ScheduledQueryMultiMeasureMappingsOutput)
+}
+
+func (o ScheduledQueryMultiMeasureMappingsPtrOutput) MultiMeasureAttributeMappings() ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
+	return o.ApplyT(func(v *ScheduledQueryMultiMeasureMappings) []ScheduledQueryMultiMeasureAttributeMapping {
+		if v == nil {
+			return nil
+		}
+		return v.MultiMeasureAttributeMappings
+	}).(ScheduledQueryMultiMeasureAttributeMappingArrayOutput)
+}
+
+func (o ScheduledQueryMultiMeasureMappingsPtrOutput) TargetMultiMeasureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryMultiMeasureMappings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetMultiMeasureName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for notification upon scheduled query execution.
+type ScheduledQueryNotificationConfiguration struct {
+	SnsConfiguration ScheduledQuerySnsConfiguration `pulumi:"snsConfiguration"`
+}
+
+// ScheduledQueryNotificationConfigurationInput is an input type that accepts ScheduledQueryNotificationConfigurationArgs and ScheduledQueryNotificationConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQueryNotificationConfigurationInput` via:
+//
+//          ScheduledQueryNotificationConfigurationArgs{...}
+type ScheduledQueryNotificationConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQueryNotificationConfigurationOutput() ScheduledQueryNotificationConfigurationOutput
+	ToScheduledQueryNotificationConfigurationOutputWithContext(context.Context) ScheduledQueryNotificationConfigurationOutput
+}
+
+// Configuration for notification upon scheduled query execution.
+type ScheduledQueryNotificationConfigurationArgs struct {
+	SnsConfiguration ScheduledQuerySnsConfigurationInput `pulumi:"snsConfiguration"`
+}
+
+func (ScheduledQueryNotificationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryNotificationConfiguration)(nil)).Elem()
+}
+
+func (i ScheduledQueryNotificationConfigurationArgs) ToScheduledQueryNotificationConfigurationOutput() ScheduledQueryNotificationConfigurationOutput {
+	return i.ToScheduledQueryNotificationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryNotificationConfigurationArgs) ToScheduledQueryNotificationConfigurationOutputWithContext(ctx context.Context) ScheduledQueryNotificationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryNotificationConfigurationOutput)
+}
+
+func (i ScheduledQueryNotificationConfigurationArgs) ToScheduledQueryNotificationConfigurationPtrOutput() ScheduledQueryNotificationConfigurationPtrOutput {
+	return i.ToScheduledQueryNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryNotificationConfigurationArgs) ToScheduledQueryNotificationConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryNotificationConfigurationOutput).ToScheduledQueryNotificationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryNotificationConfigurationPtrInput is an input type that accepts ScheduledQueryNotificationConfigurationArgs, ScheduledQueryNotificationConfigurationPtr and ScheduledQueryNotificationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryNotificationConfigurationPtrInput` via:
+//
+//          ScheduledQueryNotificationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledQueryNotificationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryNotificationConfigurationPtrOutput() ScheduledQueryNotificationConfigurationPtrOutput
+	ToScheduledQueryNotificationConfigurationPtrOutputWithContext(context.Context) ScheduledQueryNotificationConfigurationPtrOutput
+}
+
+type scheduledQueryNotificationConfigurationPtrType ScheduledQueryNotificationConfigurationArgs
+
+func ScheduledQueryNotificationConfigurationPtr(v *ScheduledQueryNotificationConfigurationArgs) ScheduledQueryNotificationConfigurationPtrInput {
+	return (*scheduledQueryNotificationConfigurationPtrType)(v)
+}
+
+func (*scheduledQueryNotificationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryNotificationConfiguration)(nil)).Elem()
+}
+
+func (i *scheduledQueryNotificationConfigurationPtrType) ToScheduledQueryNotificationConfigurationPtrOutput() ScheduledQueryNotificationConfigurationPtrOutput {
+	return i.ToScheduledQueryNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryNotificationConfigurationPtrType) ToScheduledQueryNotificationConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryNotificationConfigurationPtrOutput)
+}
+
+// Configuration for notification upon scheduled query execution.
+type ScheduledQueryNotificationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryNotificationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryNotificationConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificationConfigurationOutput() ScheduledQueryNotificationConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificationConfigurationOutputWithContext(ctx context.Context) ScheduledQueryNotificationConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificationConfigurationPtrOutput() ScheduledQueryNotificationConfigurationPtrOutput {
+	return o.ToScheduledQueryNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificationConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryNotificationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryNotificationConfiguration) *ScheduledQueryNotificationConfiguration {
+		return &v
+	}).(ScheduledQueryNotificationConfigurationPtrOutput)
+}
+
+func (o ScheduledQueryNotificationConfigurationOutput) SnsConfiguration() ScheduledQuerySnsConfigurationOutput {
+	return o.ApplyT(func(v ScheduledQueryNotificationConfiguration) ScheduledQuerySnsConfiguration {
+		return v.SnsConfiguration
+	}).(ScheduledQuerySnsConfigurationOutput)
+}
+
+type ScheduledQueryNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryNotificationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryNotificationConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryNotificationConfigurationPtrOutput) ToScheduledQueryNotificationConfigurationPtrOutput() ScheduledQueryNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryNotificationConfigurationPtrOutput) ToScheduledQueryNotificationConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryNotificationConfigurationPtrOutput) Elem() ScheduledQueryNotificationConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQueryNotificationConfiguration) ScheduledQueryNotificationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryNotificationConfiguration
+		return ret
+	}).(ScheduledQueryNotificationConfigurationOutput)
+}
+
+func (o ScheduledQueryNotificationConfigurationPtrOutput) SnsConfiguration() ScheduledQuerySnsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryNotificationConfiguration) *ScheduledQuerySnsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SnsConfiguration
+	}).(ScheduledQuerySnsConfigurationPtrOutput)
+}
+
+// S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+type ScheduledQueryS3Configuration struct {
+	BucketName       string                          `pulumi:"bucketName"`
+	EncryptionOption *ScheduledQueryEncryptionOption `pulumi:"encryptionOption"`
+	ObjectKeyPrefix  *string                         `pulumi:"objectKeyPrefix"`
+}
+
+// ScheduledQueryS3ConfigurationInput is an input type that accepts ScheduledQueryS3ConfigurationArgs and ScheduledQueryS3ConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQueryS3ConfigurationInput` via:
+//
+//          ScheduledQueryS3ConfigurationArgs{...}
+type ScheduledQueryS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQueryS3ConfigurationOutput() ScheduledQueryS3ConfigurationOutput
+	ToScheduledQueryS3ConfigurationOutputWithContext(context.Context) ScheduledQueryS3ConfigurationOutput
+}
+
+// S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+type ScheduledQueryS3ConfigurationArgs struct {
+	BucketName       pulumi.StringInput                     `pulumi:"bucketName"`
+	EncryptionOption ScheduledQueryEncryptionOptionPtrInput `pulumi:"encryptionOption"`
+	ObjectKeyPrefix  pulumi.StringPtrInput                  `pulumi:"objectKeyPrefix"`
+}
+
+func (ScheduledQueryS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryS3Configuration)(nil)).Elem()
+}
+
+func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationOutput() ScheduledQueryS3ConfigurationOutput {
+	return i.ToScheduledQueryS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryS3ConfigurationOutput)
+}
+
+func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput {
+	return i.ToScheduledQueryS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryS3ConfigurationOutput).ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryS3ConfigurationPtrInput is an input type that accepts ScheduledQueryS3ConfigurationArgs, ScheduledQueryS3ConfigurationPtr and ScheduledQueryS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryS3ConfigurationPtrInput` via:
+//
+//          ScheduledQueryS3ConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledQueryS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput
+	ToScheduledQueryS3ConfigurationPtrOutputWithContext(context.Context) ScheduledQueryS3ConfigurationPtrOutput
+}
+
+type scheduledQueryS3ConfigurationPtrType ScheduledQueryS3ConfigurationArgs
+
+func ScheduledQueryS3ConfigurationPtr(v *ScheduledQueryS3ConfigurationArgs) ScheduledQueryS3ConfigurationPtrInput {
+	return (*scheduledQueryS3ConfigurationPtrType)(v)
+}
+
+func (*scheduledQueryS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryS3Configuration)(nil)).Elem()
+}
+
+func (i *scheduledQueryS3ConfigurationPtrType) ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput {
+	return i.ToScheduledQueryS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryS3ConfigurationPtrType) ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryS3ConfigurationPtrOutput)
+}
+
+// S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+type ScheduledQueryS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryS3Configuration)(nil)).Elem()
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationOutput() ScheduledQueryS3ConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput {
+	return o.ToScheduledQueryS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryS3Configuration) *ScheduledQueryS3Configuration {
+		return &v
+	}).(ScheduledQueryS3ConfigurationPtrOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) EncryptionOption() ScheduledQueryEncryptionOptionPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryS3Configuration) *ScheduledQueryEncryptionOption { return v.EncryptionOption }).(ScheduledQueryEncryptionOptionPtrOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryS3Configuration) *string { return v.ObjectKeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+type ScheduledQueryS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryS3Configuration)(nil)).Elem()
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) Elem() ScheduledQueryS3ConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQueryS3Configuration) ScheduledQueryS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryS3Configuration
+		return ret
+	}).(ScheduledQueryS3ConfigurationOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) EncryptionOption() ScheduledQueryEncryptionOptionPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryS3Configuration) *ScheduledQueryEncryptionOption {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionOption
+	}).(ScheduledQueryEncryptionOptionPtrOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectKeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration that indicates when the scheduled query is executed.
+type ScheduledQueryScheduleConfiguration struct {
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+}
+
+// ScheduledQueryScheduleConfigurationInput is an input type that accepts ScheduledQueryScheduleConfigurationArgs and ScheduledQueryScheduleConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQueryScheduleConfigurationInput` via:
+//
+//          ScheduledQueryScheduleConfigurationArgs{...}
+type ScheduledQueryScheduleConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQueryScheduleConfigurationOutput() ScheduledQueryScheduleConfigurationOutput
+	ToScheduledQueryScheduleConfigurationOutputWithContext(context.Context) ScheduledQueryScheduleConfigurationOutput
+}
+
+// Configuration that indicates when the scheduled query is executed.
+type ScheduledQueryScheduleConfigurationArgs struct {
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+}
+
+func (ScheduledQueryScheduleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryScheduleConfiguration)(nil)).Elem()
+}
+
+func (i ScheduledQueryScheduleConfigurationArgs) ToScheduledQueryScheduleConfigurationOutput() ScheduledQueryScheduleConfigurationOutput {
+	return i.ToScheduledQueryScheduleConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryScheduleConfigurationArgs) ToScheduledQueryScheduleConfigurationOutputWithContext(ctx context.Context) ScheduledQueryScheduleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryScheduleConfigurationOutput)
+}
+
+func (i ScheduledQueryScheduleConfigurationArgs) ToScheduledQueryScheduleConfigurationPtrOutput() ScheduledQueryScheduleConfigurationPtrOutput {
+	return i.ToScheduledQueryScheduleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryScheduleConfigurationArgs) ToScheduledQueryScheduleConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryScheduleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryScheduleConfigurationOutput).ToScheduledQueryScheduleConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryScheduleConfigurationPtrInput is an input type that accepts ScheduledQueryScheduleConfigurationArgs, ScheduledQueryScheduleConfigurationPtr and ScheduledQueryScheduleConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryScheduleConfigurationPtrInput` via:
+//
+//          ScheduledQueryScheduleConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledQueryScheduleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryScheduleConfigurationPtrOutput() ScheduledQueryScheduleConfigurationPtrOutput
+	ToScheduledQueryScheduleConfigurationPtrOutputWithContext(context.Context) ScheduledQueryScheduleConfigurationPtrOutput
+}
+
+type scheduledQueryScheduleConfigurationPtrType ScheduledQueryScheduleConfigurationArgs
+
+func ScheduledQueryScheduleConfigurationPtr(v *ScheduledQueryScheduleConfigurationArgs) ScheduledQueryScheduleConfigurationPtrInput {
+	return (*scheduledQueryScheduleConfigurationPtrType)(v)
+}
+
+func (*scheduledQueryScheduleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryScheduleConfiguration)(nil)).Elem()
+}
+
+func (i *scheduledQueryScheduleConfigurationPtrType) ToScheduledQueryScheduleConfigurationPtrOutput() ScheduledQueryScheduleConfigurationPtrOutput {
+	return i.ToScheduledQueryScheduleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryScheduleConfigurationPtrType) ToScheduledQueryScheduleConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryScheduleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryScheduleConfigurationPtrOutput)
+}
+
+// Configuration that indicates when the scheduled query is executed.
+type ScheduledQueryScheduleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryScheduleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryScheduleConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryScheduleConfigurationOutput) ToScheduledQueryScheduleConfigurationOutput() ScheduledQueryScheduleConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryScheduleConfigurationOutput) ToScheduledQueryScheduleConfigurationOutputWithContext(ctx context.Context) ScheduledQueryScheduleConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryScheduleConfigurationOutput) ToScheduledQueryScheduleConfigurationPtrOutput() ScheduledQueryScheduleConfigurationPtrOutput {
+	return o.ToScheduledQueryScheduleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryScheduleConfigurationOutput) ToScheduledQueryScheduleConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryScheduleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryScheduleConfiguration) *ScheduledQueryScheduleConfiguration {
+		return &v
+	}).(ScheduledQueryScheduleConfigurationPtrOutput)
+}
+
+func (o ScheduledQueryScheduleConfigurationOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryScheduleConfiguration) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryScheduleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryScheduleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryScheduleConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryScheduleConfigurationPtrOutput) ToScheduledQueryScheduleConfigurationPtrOutput() ScheduledQueryScheduleConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryScheduleConfigurationPtrOutput) ToScheduledQueryScheduleConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryScheduleConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryScheduleConfigurationPtrOutput) Elem() ScheduledQueryScheduleConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQueryScheduleConfiguration) ScheduledQueryScheduleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryScheduleConfiguration
+		return ret
+	}).(ScheduledQueryScheduleConfigurationOutput)
+}
+
+func (o ScheduledQueryScheduleConfigurationPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryScheduleConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// SNS configuration for notification upon scheduled query execution.
+type ScheduledQuerySnsConfiguration struct {
+	TopicArn string `pulumi:"topicArn"`
+}
+
+// ScheduledQuerySnsConfigurationInput is an input type that accepts ScheduledQuerySnsConfigurationArgs and ScheduledQuerySnsConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQuerySnsConfigurationInput` via:
+//
+//          ScheduledQuerySnsConfigurationArgs{...}
+type ScheduledQuerySnsConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQuerySnsConfigurationOutput() ScheduledQuerySnsConfigurationOutput
+	ToScheduledQuerySnsConfigurationOutputWithContext(context.Context) ScheduledQuerySnsConfigurationOutput
+}
+
+// SNS configuration for notification upon scheduled query execution.
+type ScheduledQuerySnsConfigurationArgs struct {
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ScheduledQuerySnsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQuerySnsConfiguration)(nil)).Elem()
+}
+
+func (i ScheduledQuerySnsConfigurationArgs) ToScheduledQuerySnsConfigurationOutput() ScheduledQuerySnsConfigurationOutput {
+	return i.ToScheduledQuerySnsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQuerySnsConfigurationArgs) ToScheduledQuerySnsConfigurationOutputWithContext(ctx context.Context) ScheduledQuerySnsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQuerySnsConfigurationOutput)
+}
+
+func (i ScheduledQuerySnsConfigurationArgs) ToScheduledQuerySnsConfigurationPtrOutput() ScheduledQuerySnsConfigurationPtrOutput {
+	return i.ToScheduledQuerySnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQuerySnsConfigurationArgs) ToScheduledQuerySnsConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQuerySnsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQuerySnsConfigurationOutput).ToScheduledQuerySnsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQuerySnsConfigurationPtrInput is an input type that accepts ScheduledQuerySnsConfigurationArgs, ScheduledQuerySnsConfigurationPtr and ScheduledQuerySnsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQuerySnsConfigurationPtrInput` via:
+//
+//          ScheduledQuerySnsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledQuerySnsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQuerySnsConfigurationPtrOutput() ScheduledQuerySnsConfigurationPtrOutput
+	ToScheduledQuerySnsConfigurationPtrOutputWithContext(context.Context) ScheduledQuerySnsConfigurationPtrOutput
+}
+
+type scheduledQuerySnsConfigurationPtrType ScheduledQuerySnsConfigurationArgs
+
+func ScheduledQuerySnsConfigurationPtr(v *ScheduledQuerySnsConfigurationArgs) ScheduledQuerySnsConfigurationPtrInput {
+	return (*scheduledQuerySnsConfigurationPtrType)(v)
+}
+
+func (*scheduledQuerySnsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQuerySnsConfiguration)(nil)).Elem()
+}
+
+func (i *scheduledQuerySnsConfigurationPtrType) ToScheduledQuerySnsConfigurationPtrOutput() ScheduledQuerySnsConfigurationPtrOutput {
+	return i.ToScheduledQuerySnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQuerySnsConfigurationPtrType) ToScheduledQuerySnsConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQuerySnsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQuerySnsConfigurationPtrOutput)
+}
+
+// SNS configuration for notification upon scheduled query execution.
+type ScheduledQuerySnsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQuerySnsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQuerySnsConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQuerySnsConfigurationOutput) ToScheduledQuerySnsConfigurationOutput() ScheduledQuerySnsConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQuerySnsConfigurationOutput) ToScheduledQuerySnsConfigurationOutputWithContext(ctx context.Context) ScheduledQuerySnsConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQuerySnsConfigurationOutput) ToScheduledQuerySnsConfigurationPtrOutput() ScheduledQuerySnsConfigurationPtrOutput {
+	return o.ToScheduledQuerySnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQuerySnsConfigurationOutput) ToScheduledQuerySnsConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQuerySnsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQuerySnsConfiguration) *ScheduledQuerySnsConfiguration {
+		return &v
+	}).(ScheduledQuerySnsConfigurationPtrOutput)
+}
+
+func (o ScheduledQuerySnsConfigurationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQuerySnsConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+type ScheduledQuerySnsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQuerySnsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQuerySnsConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQuerySnsConfigurationPtrOutput) ToScheduledQuerySnsConfigurationPtrOutput() ScheduledQuerySnsConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQuerySnsConfigurationPtrOutput) ToScheduledQuerySnsConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQuerySnsConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQuerySnsConfigurationPtrOutput) Elem() ScheduledQuerySnsConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQuerySnsConfiguration) ScheduledQuerySnsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQuerySnsConfiguration
+		return ret
+	}).(ScheduledQuerySnsConfigurationOutput)
+}
+
+func (o ScheduledQuerySnsConfigurationPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQuerySnsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ScheduledQueryTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ScheduledQueryTagInput is an input type that accepts ScheduledQueryTagArgs and ScheduledQueryTagOutput values.
+// You can construct a concrete instance of `ScheduledQueryTagInput` via:
+//
+//          ScheduledQueryTagArgs{...}
+type ScheduledQueryTagInput interface {
+	pulumi.Input
+
+	ToScheduledQueryTagOutput() ScheduledQueryTagOutput
+	ToScheduledQueryTagOutputWithContext(context.Context) ScheduledQueryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ScheduledQueryTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ScheduledQueryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryTag)(nil)).Elem()
+}
+
+func (i ScheduledQueryTagArgs) ToScheduledQueryTagOutput() ScheduledQueryTagOutput {
+	return i.ToScheduledQueryTagOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryTagArgs) ToScheduledQueryTagOutputWithContext(ctx context.Context) ScheduledQueryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTagOutput)
+}
+
+// ScheduledQueryTagArrayInput is an input type that accepts ScheduledQueryTagArray and ScheduledQueryTagArrayOutput values.
+// You can construct a concrete instance of `ScheduledQueryTagArrayInput` via:
+//
+//          ScheduledQueryTagArray{ ScheduledQueryTagArgs{...} }
+type ScheduledQueryTagArrayInput interface {
+	pulumi.Input
+
+	ToScheduledQueryTagArrayOutput() ScheduledQueryTagArrayOutput
+	ToScheduledQueryTagArrayOutputWithContext(context.Context) ScheduledQueryTagArrayOutput
+}
+
+type ScheduledQueryTagArray []ScheduledQueryTagInput
+
+func (ScheduledQueryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryTag)(nil)).Elem()
+}
+
+func (i ScheduledQueryTagArray) ToScheduledQueryTagArrayOutput() ScheduledQueryTagArrayOutput {
+	return i.ToScheduledQueryTagArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryTagArray) ToScheduledQueryTagArrayOutputWithContext(ctx context.Context) ScheduledQueryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ScheduledQueryTagOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryTag)(nil)).Elem()
+}
+
+func (o ScheduledQueryTagOutput) ToScheduledQueryTagOutput() ScheduledQueryTagOutput {
+	return o
+}
+
+func (o ScheduledQueryTagOutput) ToScheduledQueryTagOutputWithContext(ctx context.Context) ScheduledQueryTagOutput {
+	return o
+}
+
+func (o ScheduledQueryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryTag)(nil)).Elem()
+}
+
+func (o ScheduledQueryTagArrayOutput) ToScheduledQueryTagArrayOutput() ScheduledQueryTagArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryTagArrayOutput) ToScheduledQueryTagArrayOutputWithContext(ctx context.Context) ScheduledQueryTagArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryTagArrayOutput) Index(i pulumi.IntInput) ScheduledQueryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryTag {
+		return vs[0].([]ScheduledQueryTag)[vs[1].(int)]
+	}).(ScheduledQueryTagOutput)
+}
+
+// Configuration of target destination table to query.
+type ScheduledQueryTargetConfiguration struct {
+	TimestreamConfiguration ScheduledQueryTimestreamConfiguration `pulumi:"timestreamConfiguration"`
+}
+
+// ScheduledQueryTargetConfigurationInput is an input type that accepts ScheduledQueryTargetConfigurationArgs and ScheduledQueryTargetConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQueryTargetConfigurationInput` via:
+//
+//          ScheduledQueryTargetConfigurationArgs{...}
+type ScheduledQueryTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQueryTargetConfigurationOutput() ScheduledQueryTargetConfigurationOutput
+	ToScheduledQueryTargetConfigurationOutputWithContext(context.Context) ScheduledQueryTargetConfigurationOutput
+}
+
+// Configuration of target destination table to query.
+type ScheduledQueryTargetConfigurationArgs struct {
+	TimestreamConfiguration ScheduledQueryTimestreamConfigurationInput `pulumi:"timestreamConfiguration"`
+}
+
+func (ScheduledQueryTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryTargetConfiguration)(nil)).Elem()
+}
+
+func (i ScheduledQueryTargetConfigurationArgs) ToScheduledQueryTargetConfigurationOutput() ScheduledQueryTargetConfigurationOutput {
+	return i.ToScheduledQueryTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryTargetConfigurationArgs) ToScheduledQueryTargetConfigurationOutputWithContext(ctx context.Context) ScheduledQueryTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTargetConfigurationOutput)
+}
+
+func (i ScheduledQueryTargetConfigurationArgs) ToScheduledQueryTargetConfigurationPtrOutput() ScheduledQueryTargetConfigurationPtrOutput {
+	return i.ToScheduledQueryTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryTargetConfigurationArgs) ToScheduledQueryTargetConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTargetConfigurationOutput).ToScheduledQueryTargetConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryTargetConfigurationPtrInput is an input type that accepts ScheduledQueryTargetConfigurationArgs, ScheduledQueryTargetConfigurationPtr and ScheduledQueryTargetConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryTargetConfigurationPtrInput` via:
+//
+//          ScheduledQueryTargetConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledQueryTargetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryTargetConfigurationPtrOutput() ScheduledQueryTargetConfigurationPtrOutput
+	ToScheduledQueryTargetConfigurationPtrOutputWithContext(context.Context) ScheduledQueryTargetConfigurationPtrOutput
+}
+
+type scheduledQueryTargetConfigurationPtrType ScheduledQueryTargetConfigurationArgs
+
+func ScheduledQueryTargetConfigurationPtr(v *ScheduledQueryTargetConfigurationArgs) ScheduledQueryTargetConfigurationPtrInput {
+	return (*scheduledQueryTargetConfigurationPtrType)(v)
+}
+
+func (*scheduledQueryTargetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryTargetConfiguration)(nil)).Elem()
+}
+
+func (i *scheduledQueryTargetConfigurationPtrType) ToScheduledQueryTargetConfigurationPtrOutput() ScheduledQueryTargetConfigurationPtrOutput {
+	return i.ToScheduledQueryTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryTargetConfigurationPtrType) ToScheduledQueryTargetConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTargetConfigurationPtrOutput)
+}
+
+// Configuration of target destination table to query.
+type ScheduledQueryTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryTargetConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigurationOutput() ScheduledQueryTargetConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigurationOutputWithContext(ctx context.Context) ScheduledQueryTargetConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigurationPtrOutput() ScheduledQueryTargetConfigurationPtrOutput {
+	return o.ToScheduledQueryTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTargetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryTargetConfiguration) *ScheduledQueryTargetConfiguration {
+		return &v
+	}).(ScheduledQueryTargetConfigurationPtrOutput)
+}
+
+func (o ScheduledQueryTargetConfigurationOutput) TimestreamConfiguration() ScheduledQueryTimestreamConfigurationOutput {
+	return o.ApplyT(func(v ScheduledQueryTargetConfiguration) ScheduledQueryTimestreamConfiguration {
+		return v.TimestreamConfiguration
+	}).(ScheduledQueryTimestreamConfigurationOutput)
+}
+
+type ScheduledQueryTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryTargetConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryTargetConfigurationPtrOutput) ToScheduledQueryTargetConfigurationPtrOutput() ScheduledQueryTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryTargetConfigurationPtrOutput) ToScheduledQueryTargetConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryTargetConfigurationPtrOutput) Elem() ScheduledQueryTargetConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQueryTargetConfiguration) ScheduledQueryTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryTargetConfiguration
+		return ret
+	}).(ScheduledQueryTargetConfigurationOutput)
+}
+
+func (o ScheduledQueryTargetConfigurationPtrOutput) TimestreamConfiguration() ScheduledQueryTimestreamConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryTargetConfiguration) *ScheduledQueryTimestreamConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.TimestreamConfiguration
+	}).(ScheduledQueryTimestreamConfigurationPtrOutput)
+}
+
+// Timestream configuration of destination table to query.
+type ScheduledQueryTimestreamConfiguration struct {
+	DatabaseName         string                              `pulumi:"databaseName"`
+	DimensionMappings    []ScheduledQueryDimensionMapping    `pulumi:"dimensionMappings"`
+	MeasureNameColumn    *string                             `pulumi:"measureNameColumn"`
+	MixedMeasureMappings []ScheduledQueryMixedMeasureMapping `pulumi:"mixedMeasureMappings"`
+	MultiMeasureMappings *ScheduledQueryMultiMeasureMappings `pulumi:"multiMeasureMappings"`
+	TableName            string                              `pulumi:"tableName"`
+	TimeColumn           string                              `pulumi:"timeColumn"`
+}
+
+// ScheduledQueryTimestreamConfigurationInput is an input type that accepts ScheduledQueryTimestreamConfigurationArgs and ScheduledQueryTimestreamConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQueryTimestreamConfigurationInput` via:
+//
+//          ScheduledQueryTimestreamConfigurationArgs{...}
+type ScheduledQueryTimestreamConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQueryTimestreamConfigurationOutput() ScheduledQueryTimestreamConfigurationOutput
+	ToScheduledQueryTimestreamConfigurationOutputWithContext(context.Context) ScheduledQueryTimestreamConfigurationOutput
+}
+
+// Timestream configuration of destination table to query.
+type ScheduledQueryTimestreamConfigurationArgs struct {
+	DatabaseName         pulumi.StringInput                          `pulumi:"databaseName"`
+	DimensionMappings    ScheduledQueryDimensionMappingArrayInput    `pulumi:"dimensionMappings"`
+	MeasureNameColumn    pulumi.StringPtrInput                       `pulumi:"measureNameColumn"`
+	MixedMeasureMappings ScheduledQueryMixedMeasureMappingArrayInput `pulumi:"mixedMeasureMappings"`
+	MultiMeasureMappings ScheduledQueryMultiMeasureMappingsPtrInput  `pulumi:"multiMeasureMappings"`
+	TableName            pulumi.StringInput                          `pulumi:"tableName"`
+	TimeColumn           pulumi.StringInput                          `pulumi:"timeColumn"`
+}
+
+func (ScheduledQueryTimestreamConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryTimestreamConfiguration)(nil)).Elem()
+}
+
+func (i ScheduledQueryTimestreamConfigurationArgs) ToScheduledQueryTimestreamConfigurationOutput() ScheduledQueryTimestreamConfigurationOutput {
+	return i.ToScheduledQueryTimestreamConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryTimestreamConfigurationArgs) ToScheduledQueryTimestreamConfigurationOutputWithContext(ctx context.Context) ScheduledQueryTimestreamConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTimestreamConfigurationOutput)
+}
+
+func (i ScheduledQueryTimestreamConfigurationArgs) ToScheduledQueryTimestreamConfigurationPtrOutput() ScheduledQueryTimestreamConfigurationPtrOutput {
+	return i.ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryTimestreamConfigurationArgs) ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTimestreamConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTimestreamConfigurationOutput).ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryTimestreamConfigurationPtrInput is an input type that accepts ScheduledQueryTimestreamConfigurationArgs, ScheduledQueryTimestreamConfigurationPtr and ScheduledQueryTimestreamConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryTimestreamConfigurationPtrInput` via:
+//
+//          ScheduledQueryTimestreamConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledQueryTimestreamConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryTimestreamConfigurationPtrOutput() ScheduledQueryTimestreamConfigurationPtrOutput
+	ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(context.Context) ScheduledQueryTimestreamConfigurationPtrOutput
+}
+
+type scheduledQueryTimestreamConfigurationPtrType ScheduledQueryTimestreamConfigurationArgs
+
+func ScheduledQueryTimestreamConfigurationPtr(v *ScheduledQueryTimestreamConfigurationArgs) ScheduledQueryTimestreamConfigurationPtrInput {
+	return (*scheduledQueryTimestreamConfigurationPtrType)(v)
+}
+
+func (*scheduledQueryTimestreamConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryTimestreamConfiguration)(nil)).Elem()
+}
+
+func (i *scheduledQueryTimestreamConfigurationPtrType) ToScheduledQueryTimestreamConfigurationPtrOutput() ScheduledQueryTimestreamConfigurationPtrOutput {
+	return i.ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryTimestreamConfigurationPtrType) ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTimestreamConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTimestreamConfigurationPtrOutput)
+}
+
+// Timestream configuration of destination table to query.
+type ScheduledQueryTimestreamConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryTimestreamConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryTimestreamConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) ToScheduledQueryTimestreamConfigurationOutput() ScheduledQueryTimestreamConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) ToScheduledQueryTimestreamConfigurationOutputWithContext(ctx context.Context) ScheduledQueryTimestreamConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) ToScheduledQueryTimestreamConfigurationPtrOutput() ScheduledQueryTimestreamConfigurationPtrOutput {
+	return o.ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTimestreamConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryTimestreamConfiguration) *ScheduledQueryTimestreamConfiguration {
+		return &v
+	}).(ScheduledQueryTimestreamConfigurationPtrOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) DimensionMappings() ScheduledQueryDimensionMappingArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) []ScheduledQueryDimensionMapping {
+		return v.DimensionMappings
+	}).(ScheduledQueryDimensionMappingArrayOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) MeasureNameColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) *string { return v.MeasureNameColumn }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) MixedMeasureMappings() ScheduledQueryMixedMeasureMappingArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) []ScheduledQueryMixedMeasureMapping {
+		return v.MixedMeasureMappings
+	}).(ScheduledQueryMixedMeasureMappingArrayOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) MultiMeasureMappings() ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) *ScheduledQueryMultiMeasureMappings {
+		return v.MultiMeasureMappings
+	}).(ScheduledQueryMultiMeasureMappingsPtrOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationOutput) TimeColumn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) string { return v.TimeColumn }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryTimestreamConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryTimestreamConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryTimestreamConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) ToScheduledQueryTimestreamConfigurationPtrOutput() ScheduledQueryTimestreamConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTimestreamConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) Elem() ScheduledQueryTimestreamConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) ScheduledQueryTimestreamConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryTimestreamConfiguration
+		return ret
+	}).(ScheduledQueryTimestreamConfigurationOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) DimensionMappings() ScheduledQueryDimensionMappingArrayOutput {
+	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) []ScheduledQueryDimensionMapping {
+		if v == nil {
+			return nil
+		}
+		return v.DimensionMappings
+	}).(ScheduledQueryDimensionMappingArrayOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) MeasureNameColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MeasureNameColumn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) MixedMeasureMappings() ScheduledQueryMixedMeasureMappingArrayOutput {
+	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) []ScheduledQueryMixedMeasureMapping {
+		if v == nil {
+			return nil
+		}
+		return v.MixedMeasureMappings
+	}).(ScheduledQueryMixedMeasureMappingArrayOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) MultiMeasureMappings() ScheduledQueryMultiMeasureMappingsPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *ScheduledQueryMultiMeasureMappings {
+		if v == nil {
+			return nil
+		}
+		return v.MultiMeasureMappings
+	}).(ScheduledQueryMultiMeasureMappingsPtrOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledQueryTimestreamConfigurationPtrOutput) TimeColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeColumn
+	}).(pulumi.StringPtrOutput)
+}
+
 // You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
 type TableTag struct {
 	Key   *string `pulumi:"key"`
@@ -380,12 +2057,60 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagArrayInput)(nil)).Elem(), DatabaseTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPropertiesPropertiesInput)(nil)).Elem(), RetentionPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPropertiesPropertiesPtrInput)(nil)).Elem(), RetentionPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDimensionMappingInput)(nil)).Elem(), ScheduledQueryDimensionMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDimensionMappingArrayInput)(nil)).Elem(), ScheduledQueryDimensionMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryErrorReportConfigurationInput)(nil)).Elem(), ScheduledQueryErrorReportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryErrorReportConfigurationPtrInput)(nil)).Elem(), ScheduledQueryErrorReportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMixedMeasureMappingInput)(nil)).Elem(), ScheduledQueryMixedMeasureMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMixedMeasureMappingArrayInput)(nil)).Elem(), ScheduledQueryMixedMeasureMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMultiMeasureAttributeMappingInput)(nil)).Elem(), ScheduledQueryMultiMeasureAttributeMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMultiMeasureAttributeMappingArrayInput)(nil)).Elem(), ScheduledQueryMultiMeasureAttributeMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMultiMeasureMappingsInput)(nil)).Elem(), ScheduledQueryMultiMeasureMappingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMultiMeasureMappingsPtrInput)(nil)).Elem(), ScheduledQueryMultiMeasureMappingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryNotificationConfigurationInput)(nil)).Elem(), ScheduledQueryNotificationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryNotificationConfigurationPtrInput)(nil)).Elem(), ScheduledQueryNotificationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryS3ConfigurationInput)(nil)).Elem(), ScheduledQueryS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryS3ConfigurationPtrInput)(nil)).Elem(), ScheduledQueryS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryScheduleConfigurationInput)(nil)).Elem(), ScheduledQueryScheduleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryScheduleConfigurationPtrInput)(nil)).Elem(), ScheduledQueryScheduleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQuerySnsConfigurationInput)(nil)).Elem(), ScheduledQuerySnsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQuerySnsConfigurationPtrInput)(nil)).Elem(), ScheduledQuerySnsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTagInput)(nil)).Elem(), ScheduledQueryTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTagArrayInput)(nil)).Elem(), ScheduledQueryTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTargetConfigurationInput)(nil)).Elem(), ScheduledQueryTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTargetConfigurationPtrInput)(nil)).Elem(), ScheduledQueryTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTimestreamConfigurationInput)(nil)).Elem(), ScheduledQueryTimestreamConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTimestreamConfigurationPtrInput)(nil)).Elem(), ScheduledQueryTimestreamConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterOutputType(DatabaseTagOutput{})
 	pulumi.RegisterOutputType(DatabaseTagArrayOutput{})
 	pulumi.RegisterOutputType(RetentionPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(RetentionPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryDimensionMappingOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryDimensionMappingArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryErrorReportConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryErrorReportConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryMixedMeasureMappingOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryMixedMeasureMappingArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryMultiMeasureAttributeMappingOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryMultiMeasureAttributeMappingArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryMultiMeasureMappingsOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryMultiMeasureMappingsPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryNotificationConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryNotificationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryScheduleConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryScheduleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQuerySnsConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQuerySnsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryTagOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryTagArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryTimestreamConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryTimestreamConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableTagOutput{})
 	pulumi.RegisterOutputType(TableTagArrayOutput{})
 }
