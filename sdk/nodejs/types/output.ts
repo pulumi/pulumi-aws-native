@@ -11512,6 +11512,160 @@ export namespace eventschemas {
 
 }
 
+export namespace evidently {
+    export interface ExperimentMetricGoalObject {
+        desiredChange: enums.evidently.ExperimentMetricGoalObjectDesiredChange;
+        /**
+         * The JSON path to reference the entity id in the event.
+         */
+        entityIdKey: string;
+        /**
+         * Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+         */
+        eventPattern: string;
+        metricName: string;
+        unitLabel?: string;
+        /**
+         * The JSON path to reference the numerical metric value in the event.
+         */
+        valueKey: string;
+    }
+
+    export interface ExperimentOnlineAbConfigObject {
+        controlTreatmentName?: string;
+        treatmentWeights?: outputs.evidently.ExperimentTreatmentToWeight[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ExperimentTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    export interface ExperimentTreatmentObject {
+        description?: string;
+        feature: string;
+        treatmentName: string;
+        variation: string;
+    }
+
+    export interface ExperimentTreatmentToWeight {
+        splitWeight: number;
+        treatment: string;
+    }
+
+    export interface FeatureEntityOverride {
+        entityId?: string;
+        variation?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface FeatureTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    export interface FeatureVariationObject {
+        booleanValue?: boolean;
+        doubleValue?: number;
+        longValue?: number;
+        stringValue?: string;
+        variationName?: string;
+    }
+
+    export interface LaunchGroupObject {
+        description?: string;
+        feature: string;
+        groupName: string;
+        variation: string;
+    }
+
+    export interface LaunchGroupToWeight {
+        groupName: string;
+        splitWeight: number;
+    }
+
+    export interface LaunchMetricDefinitionObject {
+        /**
+         * The JSON path to reference the entity id in the event.
+         */
+        entityIdKey: string;
+        /**
+         * Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+         */
+        eventPattern: string;
+        metricName: string;
+        unitLabel?: string;
+        /**
+         * The JSON path to reference the numerical metric value in the event.
+         */
+        valueKey: string;
+    }
+
+    export interface LaunchStepConfig {
+        groupWeights: outputs.evidently.LaunchGroupToWeight[];
+        startTime: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LaunchTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * Destinations for data.
+     */
+    export interface ProjectDataDeliveryObject {
+        logGroup?: string;
+        s3?: outputs.evidently.ProjectS3Destination;
+    }
+
+    export interface ProjectS3Destination {
+        bucketName: string;
+        prefix?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ProjectTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+}
+
 export namespace finspace {
     /**
      * Additional parameters to identify Federation mode
@@ -23705,6 +23859,86 @@ export namespace redshift {
 
 }
 
+export namespace refactorspaces {
+    export interface ApplicationApiGatewayProxyInput {
+        endpointType?: enums.refactorspaces.ApplicationApiGatewayEndpointType;
+        stageName?: string;
+    }
+
+    /**
+     * A label for tagging Environment resource
+     */
+    export interface ApplicationTag {
+        /**
+         * A string used to identify this tag
+         */
+        key: string;
+        /**
+         * A string containing the value for the tag
+         */
+        value: string;
+    }
+
+    /**
+     * A label for tagging Environment resource
+     */
+    export interface EnvironmentTag {
+        /**
+         * A string used to identify this tag
+         */
+        key: string;
+        /**
+         * A string containing the value for the tag
+         */
+        value: string;
+    }
+
+    /**
+     * A label for tagging Environment resource
+     */
+    export interface RouteTag {
+        /**
+         * A string used to identify this tag
+         */
+        key: string;
+        /**
+         * A string containing the value for the tag
+         */
+        value: string;
+    }
+
+    export interface RouteUriPathRouteInput {
+        activationState: enums.refactorspaces.RouteActivationState;
+        includeChildPaths?: boolean;
+        methods?: enums.refactorspaces.RouteMethod[];
+        sourcePath?: string;
+    }
+
+    export interface ServiceLambdaEndpointInput {
+        arn: string;
+    }
+
+    /**
+     * A label for tagging Environment resource
+     */
+    export interface ServiceTag {
+        /**
+         * A string used to identify this tag
+         */
+        key: string;
+        /**
+         * A string containing the value for the tag
+         */
+        value: string;
+    }
+
+    export interface ServiceUrlEndpointInput {
+        healthUrl?: string;
+        url: string;
+    }
+
+}
+
 export namespace resiliencehub {
     export interface AppPhysicalResourceId {
         awsAccountId?: string;
@@ -24281,6 +24515,65 @@ export namespace route53resolver {
          * The port at Ip that you want to forward DNS queries to. 
          */
         port?: string;
+    }
+
+}
+
+export namespace rum {
+    /**
+     * AppMonitor configuration
+     */
+    export interface AppMonitorConfiguration {
+        /**
+         * If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+         */
+        allowCookies?: boolean;
+        /**
+         * If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console.
+         */
+        enableXRay?: boolean;
+        /**
+         * A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
+         */
+        excludedPages?: string[];
+        /**
+         * A list of pages in the RUM console that are to be displayed with a favorite icon.
+         */
+        favoritePages?: string[];
+        /**
+         * The ARN of the guest IAM role that is attached to the identity pool that is used to authorize the sending of data to RUM.
+         */
+        guestRoleArn?: string;
+        /**
+         * The ID of the identity pool that is used to authorize the sending of data to RUM.
+         */
+        identityPoolId?: string;
+        /**
+         * If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
+         */
+        includedPages?: string[];
+        /**
+         * Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
+         */
+        sessionSampleRate?: number;
+        /**
+         * An array that lists the types of telemetry data that this app monitor is to collect.
+         */
+        telemetries?: enums.rum.AppMonitorTelemetry[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AppMonitorTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
     }
 
 }
@@ -27881,6 +28174,107 @@ export namespace timestream {
          * The duration for which data must be stored in the memory store.
          */
         memoryStoreRetentionPeriodInHours?: string;
+    }
+
+    /**
+     * Mapping of dimension column name to dimension column value type.
+     */
+    export interface ScheduledQueryDimensionMapping {
+        dimensionValueType: enums.timestream.ScheduledQueryDimensionValueType;
+        name: string;
+    }
+
+    /**
+     * Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+     */
+    export interface ScheduledQueryErrorReportConfiguration {
+        s3Configuration: outputs.timestream.ScheduledQueryS3Configuration;
+    }
+
+    /**
+     * Mapping of measure names and measure value columns from the source table to the destination table.
+     */
+    export interface ScheduledQueryMixedMeasureMapping {
+        measureName?: string;
+        measureValueType: enums.timestream.ScheduledQueryMixedMeasureMappingMeasureValueType;
+        multiMeasureAttributeMappings?: outputs.timestream.ScheduledQueryMultiMeasureAttributeMapping[];
+        sourceColumn?: string;
+        targetMeasureName?: string;
+    }
+
+    /**
+     * Mapping of measure value columns from the source table to the destination table.
+     */
+    export interface ScheduledQueryMultiMeasureAttributeMapping {
+        measureValueType: enums.timestream.ScheduledQueryMultiMeasureAttributeMappingMeasureValueType;
+        sourceColumn: string;
+        targetMultiMeasureAttributeName?: string;
+    }
+
+    /**
+     * Mapping of measure value columns from the source table to the destination table.
+     */
+    export interface ScheduledQueryMultiMeasureMappings {
+        multiMeasureAttributeMappings: outputs.timestream.ScheduledQueryMultiMeasureAttributeMapping[];
+        targetMultiMeasureName?: string;
+    }
+
+    /**
+     * Configuration for notification upon scheduled query execution.
+     */
+    export interface ScheduledQueryNotificationConfiguration {
+        snsConfiguration: outputs.timestream.ScheduledQuerySnsConfiguration;
+    }
+
+    /**
+     * S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+     */
+    export interface ScheduledQueryS3Configuration {
+        bucketName: string;
+        encryptionOption?: enums.timestream.ScheduledQueryEncryptionOption;
+        objectKeyPrefix?: string;
+    }
+
+    /**
+     * Configuration that indicates when the scheduled query is executed.
+     */
+    export interface ScheduledQueryScheduleConfiguration {
+        scheduleExpression: string;
+    }
+
+    /**
+     * SNS configuration for notification upon scheduled query execution.
+     */
+    export interface ScheduledQuerySnsConfiguration {
+        topicArn: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ScheduledQueryTag {
+        key: string;
+        value: string;
+    }
+
+    /**
+     * Configuration of target destination table to query.
+     */
+    export interface ScheduledQueryTargetConfiguration {
+        timestreamConfiguration: outputs.timestream.ScheduledQueryTimestreamConfiguration;
+    }
+
+    /**
+     * Timestream configuration of destination table to query.
+     */
+    export interface ScheduledQueryTimestreamConfiguration {
+        databaseName: string;
+        dimensionMappings: outputs.timestream.ScheduledQueryDimensionMapping[];
+        measureNameColumn?: string;
+        mixedMeasureMappings?: outputs.timestream.ScheduledQueryMixedMeasureMapping[];
+        multiMeasureMappings?: outputs.timestream.ScheduledQueryMultiMeasureMappings;
+        tableName: string;
+        timeColumn: string;
     }
 
     /**

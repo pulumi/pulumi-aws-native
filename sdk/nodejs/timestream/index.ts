@@ -6,10 +6,15 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./database";
+export * from "./scheduledQuery";
 export * from "./table";
+
+// Export enums:
+export * from "../types/enums/timestream";
 
 // Import resources to register:
 import { Database } from "./database";
+import { ScheduledQuery } from "./scheduledQuery";
 import { Table } from "./table";
 
 const _module = {
@@ -18,6 +23,8 @@ const _module = {
         switch (type) {
             case "aws-native:timestream:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "aws-native:timestream:ScheduledQuery":
+                return new ScheduledQuery(name, <any>undefined, { urn })
             case "aws-native:timestream:Table":
                 return new Table(name, <any>undefined, { urn })
             default:

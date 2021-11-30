@@ -171,6 +171,8 @@ if typing.TYPE_CHECKING:
     events = __events
     import pulumi_aws_native.eventschemas as __eventschemas
     eventschemas = __eventschemas
+    import pulumi_aws_native.evidently as __evidently
+    evidently = __evidently
     import pulumi_aws_native.finspace as __finspace
     finspace = __finspace
     import pulumi_aws_native.fis as __fis
@@ -305,6 +307,8 @@ if typing.TYPE_CHECKING:
     rds = __rds
     import pulumi_aws_native.redshift as __redshift
     redshift = __redshift
+    import pulumi_aws_native.refactorspaces as __refactorspaces
+    refactorspaces = __refactorspaces
     import pulumi_aws_native.rekognition as __rekognition
     rekognition = __rekognition
     import pulumi_aws_native.resiliencehub as __resiliencehub
@@ -321,6 +325,8 @@ if typing.TYPE_CHECKING:
     route53recoveryreadiness = __route53recoveryreadiness
     import pulumi_aws_native.route53resolver as __route53resolver
     route53resolver = __route53resolver
+    import pulumi_aws_native.rum as __rum
+    rum = __rum
     import pulumi_aws_native.s3 as __s3
     s3 = __s3
     import pulumi_aws_native.s3objectlambda as __s3objectlambda
@@ -453,6 +459,7 @@ else:
     emrcontainers = _utilities.lazy_import('pulumi_aws_native.emrcontainers')
     events = _utilities.lazy_import('pulumi_aws_native.events')
     eventschemas = _utilities.lazy_import('pulumi_aws_native.eventschemas')
+    evidently = _utilities.lazy_import('pulumi_aws_native.evidently')
     finspace = _utilities.lazy_import('pulumi_aws_native.finspace')
     fis = _utilities.lazy_import('pulumi_aws_native.fis')
     fms = _utilities.lazy_import('pulumi_aws_native.fms')
@@ -520,6 +527,7 @@ else:
     ram = _utilities.lazy_import('pulumi_aws_native.ram')
     rds = _utilities.lazy_import('pulumi_aws_native.rds')
     redshift = _utilities.lazy_import('pulumi_aws_native.redshift')
+    refactorspaces = _utilities.lazy_import('pulumi_aws_native.refactorspaces')
     rekognition = _utilities.lazy_import('pulumi_aws_native.rekognition')
     resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
@@ -528,6 +536,7 @@ else:
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws_native.route53recoverycontrol')
     route53recoveryreadiness = _utilities.lazy_import('pulumi_aws_native.route53recoveryreadiness')
     route53resolver = _utilities.lazy_import('pulumi_aws_native.route53resolver')
+    rum = _utilities.lazy_import('pulumi_aws_native.rum')
     s3 = _utilities.lazy_import('pulumi_aws_native.s3')
     s3objectlambda = _utilities.lazy_import('pulumi_aws_native.s3objectlambda')
     s3outposts = _utilities.lazy_import('pulumi_aws_native.s3outposts')
@@ -1448,6 +1457,17 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "evidently",
+  "fqn": "pulumi_aws_native.evidently",
+  "classes": {
+   "aws-native:evidently:Experiment": "Experiment",
+   "aws-native:evidently:Feature": "Feature",
+   "aws-native:evidently:Launch": "Launch",
+   "aws-native:evidently:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "finspace",
   "fqn": "pulumi_aws_native.finspace",
   "classes": {
@@ -2237,6 +2257,17 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "refactorspaces",
+  "fqn": "pulumi_aws_native.refactorspaces",
+  "classes": {
+   "aws-native:refactorspaces:Application": "Application",
+   "aws-native:refactorspaces:Environment": "Environment",
+   "aws-native:refactorspaces:Route": "Route",
+   "aws-native:refactorspaces:Service": "Service"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "rekognition",
   "fqn": "pulumi_aws_native.rekognition",
   "classes": {
@@ -2323,6 +2354,14 @@ _utilities.register(
    "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation": "ResolverQueryLoggingConfigAssociation",
    "aws-native:route53resolver:ResolverRule": "ResolverRule",
    "aws-native:route53resolver:ResolverRuleAssociation": "ResolverRuleAssociation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "rum",
+  "fqn": "pulumi_aws_native.rum",
+  "classes": {
+   "aws-native:rum:AppMonitor": "AppMonitor"
   }
  },
  {
@@ -2570,6 +2609,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.timestream",
   "classes": {
    "aws-native:timestream:Database": "Database",
+   "aws-native:timestream:ScheduledQuery": "ScheduledQuery",
    "aws-native:timestream:Table": "Table"
   }
  },

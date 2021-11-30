@@ -96,6 +96,7 @@ import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as events from "./events";
 import * as eventschemas from "./eventschemas";
+import * as evidently from "./evidently";
 import * as finspace from "./finspace";
 import * as fis from "./fis";
 import * as fms from "./fms";
@@ -163,6 +164,7 @@ import * as quicksight from "./quicksight";
 import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
+import * as refactorspaces from "./refactorspaces";
 import * as rekognition from "./rekognition";
 import * as resiliencehub from "./resiliencehub";
 import * as resourcegroups from "./resourcegroups";
@@ -171,6 +173,7 @@ import * as route53 from "./route53";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53recoveryreadiness from "./route53recoveryreadiness";
 import * as route53resolver from "./route53resolver";
+import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3objectlambda from "./s3objectlambda";
 import * as s3outposts from "./s3outposts";
@@ -277,6 +280,7 @@ export {
     emrcontainers,
     events,
     eventschemas,
+    evidently,
     finspace,
     fis,
     fms,
@@ -344,6 +348,7 @@ export {
     ram,
     rds,
     redshift,
+    refactorspaces,
     rekognition,
     resiliencehub,
     resourcegroups,
@@ -352,6 +357,7 @@ export {
     route53recoverycontrol,
     route53recoveryreadiness,
     route53resolver,
+    rum,
     s3,
     s3objectlambda,
     s3outposts,

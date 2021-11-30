@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:timestream:Database":
 		r = &Database{}
+	case "aws-native:timestream:ScheduledQuery":
+		r = &ScheduledQuery{}
 	case "aws-native:timestream:Table":
 		r = &Table{}
 	default:
