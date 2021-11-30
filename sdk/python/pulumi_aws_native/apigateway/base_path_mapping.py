@@ -19,6 +19,10 @@ class BasePathMappingArgs:
                  stage: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BasePathMapping resource.
+        :param pulumi.Input[str] domain_name: The DomainName of an AWS::ApiGateway::DomainName resource.
+        :param pulumi.Input[str] base_path: The base path name that callers of the API must provide in the URL after the domain name.
+        :param pulumi.Input[str] rest_api_id: The ID of the API.
+        :param pulumi.Input[str] stage: The name of the API's stage.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         if base_path is not None:
@@ -31,6 +35,9 @@ class BasePathMappingArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The DomainName of an AWS::ApiGateway::DomainName resource.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -40,6 +47,9 @@ class BasePathMappingArgs:
     @property
     @pulumi.getter(name="basePath")
     def base_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base path name that callers of the API must provide in the URL after the domain name.
+        """
         return pulumi.get(self, "base_path")
 
     @base_path.setter
@@ -49,6 +59,9 @@ class BasePathMappingArgs:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -58,6 +71,9 @@ class BasePathMappingArgs:
     @property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API's stage.
+        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -85,6 +101,10 @@ class BasePathMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] base_path: The base path name that callers of the API must provide in the URL after the domain name.
+        :param pulumi.Input[str] domain_name: The DomainName of an AWS::ApiGateway::DomainName resource.
+        :param pulumi.Input[str] rest_api_id: The ID of the API.
+        :param pulumi.Input[str] stage: The name of the API's stage.
         """
         ...
     @overload
@@ -164,20 +184,32 @@ class BasePathMapping(pulumi.CustomResource):
     @property
     @pulumi.getter(name="basePath")
     def base_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The base path name that callers of the API must provide in the URL after the domain name.
+        """
         return pulumi.get(self, "base_path")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The DomainName of an AWS::ApiGateway::DomainName resource.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the API.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the API's stage.
+        """
         return pulumi.get(self, "stage")
 
