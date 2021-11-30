@@ -16,15 +16,27 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:apigateway:BasePathMapping")]
     public partial class BasePathMapping : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The base path name that callers of the API must provide in the URL after the domain name.
+        /// </summary>
         [Output("basePath")]
         public Output<string?> BasePath { get; private set; } = null!;
 
+        /// <summary>
+        /// The DomainName of an AWS::ApiGateway::DomainName resource.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the API.
+        /// </summary>
         [Output("restApiId")]
         public Output<string?> RestApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the API's stage.
+        /// </summary>
         [Output("stage")]
         public Output<string?> Stage { get; private set; } = null!;
 
@@ -73,15 +85,27 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class BasePathMappingArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The base path name that callers of the API must provide in the URL after the domain name.
+        /// </summary>
         [Input("basePath")]
         public Input<string>? BasePath { get; set; }
 
+        /// <summary>
+        /// The DomainName of an AWS::ApiGateway::DomainName resource.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the API.
+        /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 
+        /// <summary>
+        /// The name of the API's stage.
+        /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }
 
