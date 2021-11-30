@@ -12871,6 +12871,344 @@
                 "registryName"
             ]
         },
+        "aws-native:evidently:Experiment": {
+            "cf": "AWS::Evidently::Experiment",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "metricGoals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ExperimentMetricGoalObject"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "onlineAbConfig": {
+                    "$ref": "#/types/aws-native:evidently:ExperimentOnlineAbConfigObject"
+                },
+                "project": {
+                    "type": "string"
+                },
+                "randomizationSalt": {
+                    "type": "string"
+                },
+                "samplingRate": {
+                    "type": "integer"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ExperimentTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "treatments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ExperimentTreatmentObject"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "metricGoals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ExperimentMetricGoalObject"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "onlineAbConfig": {
+                    "$ref": "#/types/aws-native:evidently:ExperimentOnlineAbConfigObject"
+                },
+                "project": {
+                    "type": "string"
+                },
+                "randomizationSalt": {
+                    "type": "string"
+                },
+                "samplingRate": {
+                    "type": "integer"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ExperimentTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "treatments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ExperimentTreatmentObject"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 127
+            },
+            "required": [
+                "metricGoals",
+                "onlineAbConfig",
+                "project",
+                "treatments"
+            ],
+            "createOnly": [
+                "name",
+                "project"
+            ]
+        },
+        "aws-native:evidently:Feature": {
+            "cf": "AWS::Evidently::Feature",
+            "inputs": {
+                "defaultVariation": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "entityOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:FeatureEntityOverride"
+                    }
+                },
+                "evaluationStrategy": {
+                    "$ref": "#/types/aws-native:evidently:FeatureEvaluationStrategy"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "project": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:FeatureTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "variations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:FeatureVariationObject"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "defaultVariation": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "entityOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:FeatureEntityOverride"
+                    }
+                },
+                "evaluationStrategy": {
+                    "$ref": "#/types/aws-native:evidently:FeatureEvaluationStrategy"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "project": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:FeatureTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "variations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:FeatureVariationObject"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 127
+            },
+            "required": [
+                "project",
+                "variations"
+            ],
+            "createOnly": [
+                "name",
+                "project"
+            ]
+        },
+        "aws-native:evidently:Launch": {
+            "cf": "AWS::Evidently::Launch",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchGroupObject"
+                    }
+                },
+                "metricMonitors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchMetricDefinitionObject"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "project": {
+                    "type": "string"
+                },
+                "randomizationSalt": {
+                    "type": "string"
+                },
+                "scheduledSplitsConfig": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchStepConfig"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchGroupObject"
+                    }
+                },
+                "metricMonitors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchMetricDefinitionObject"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "project": {
+                    "type": "string"
+                },
+                "randomizationSalt": {
+                    "type": "string"
+                },
+                "scheduledSplitsConfig": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchStepConfig"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 127
+            },
+            "required": [
+                "groups",
+                "project",
+                "scheduledSplitsConfig"
+            ],
+            "createOnly": [
+                "name",
+                "project"
+            ]
+        },
+        "aws-native:evidently:Project": {
+            "cf": "AWS::Evidently::Project",
+            "inputs": {
+                "dataDelivery": {
+                    "$ref": "#/types/aws-native:evidently:ProjectDataDeliveryObject"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ProjectTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "dataDelivery": {
+                    "$ref": "#/types/aws-native:evidently:ProjectDataDeliveryObject"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ProjectTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 127
+            },
+            "createOnly": [
+                "name"
+            ]
+        },
         "aws-native:finspace:Environment": {
             "cf": "AWS::FinSpace::Environment",
             "inputs": {
@@ -26575,6 +26913,317 @@
                 "scheduledActionName"
             ]
         },
+        "aws-native:refactorspaces:Application": {
+            "cf": "AWS::RefactorSpaces::Application",
+            "inputs": {
+                "apiGatewayProxy": {
+                    "$ref": "#/types/aws-native:refactorspaces:ApplicationApiGatewayProxyInput"
+                },
+                "environmentIdentifier": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "proxyType": {
+                    "$ref": "#/types/aws-native:refactorspaces:ApplicationProxyType"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:ApplicationTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "apiGatewayId": {
+                    "type": "string"
+                },
+                "apiGatewayProxy": {
+                    "$ref": "#/types/aws-native:refactorspaces:ApplicationApiGatewayProxyInput"
+                },
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "environmentIdentifier": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "nlbArn": {
+                    "type": "string"
+                },
+                "nlbName": {
+                    "type": "string"
+                },
+                "proxyType": {
+                    "$ref": "#/types/aws-native:refactorspaces:ApplicationProxyType"
+                },
+                "proxyUrl": {
+                    "type": "string"
+                },
+                "stageName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:ApplicationTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                },
+                "vpcId": {
+                    "type": "string"
+                },
+                "vpcLinkId": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 63
+            },
+            "createOnly": [
+                "apiGatewayProxy",
+                "environmentIdentifier",
+                "name",
+                "proxyType",
+                "vpcId"
+            ]
+        },
+        "aws-native:refactorspaces:Environment": {
+            "cf": "AWS::RefactorSpaces::Environment",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkFabricType": {
+                    "$ref": "#/types/aws-native:refactorspaces:EnvironmentNetworkFabricType"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:EnvironmentTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "environmentIdentifier": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkFabricType": {
+                    "$ref": "#/types/aws-native:refactorspaces:EnvironmentNetworkFabricType"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:EnvironmentTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                },
+                "transitGatewayId": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 63
+            },
+            "createOnly": [
+                "description",
+                "name",
+                "networkFabricType"
+            ]
+        },
+        "aws-native:refactorspaces:Route": {
+            "cf": "AWS::RefactorSpaces::Route",
+            "inputs": {
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "environmentIdentifier": {
+                    "type": "string"
+                },
+                "routeType": {
+                    "$ref": "#/types/aws-native:refactorspaces:RouteType"
+                },
+                "serviceIdentifier": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:RouteTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                },
+                "uriPathRoute": {
+                    "$ref": "#/types/aws-native:refactorspaces:RouteUriPathRouteInput"
+                }
+            },
+            "outputs": {
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "environmentIdentifier": {
+                    "type": "string"
+                },
+                "pathResourceToId": {
+                    "type": "string"
+                },
+                "routeIdentifier": {
+                    "type": "string"
+                },
+                "routeType": {
+                    "$ref": "#/types/aws-native:refactorspaces:RouteType"
+                },
+                "serviceIdentifier": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:RouteTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                },
+                "uriPathRoute": {
+                    "$ref": "#/types/aws-native:refactorspaces:RouteUriPathRouteInput"
+                }
+            },
+            "required": [
+                "applicationIdentifier",
+                "environmentIdentifier",
+                "serviceIdentifier"
+            ],
+            "createOnly": [
+                "applicationIdentifier",
+                "environmentIdentifier",
+                "routeType",
+                "serviceIdentifier",
+                "uriPathRoute"
+            ]
+        },
+        "aws-native:refactorspaces:Service": {
+            "cf": "AWS::RefactorSpaces::Service",
+            "inputs": {
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "endpointType": {
+                    "$ref": "#/types/aws-native:refactorspaces:ServiceEndpointType"
+                },
+                "environmentIdentifier": {
+                    "type": "string"
+                },
+                "lambdaEndpoint": {
+                    "$ref": "#/types/aws-native:refactorspaces:ServiceLambdaEndpointInput"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:ServiceTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                },
+                "urlEndpoint": {
+                    "$ref": "#/types/aws-native:refactorspaces:ServiceUrlEndpointInput"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "endpointType": {
+                    "$ref": "#/types/aws-native:refactorspaces:ServiceEndpointType"
+                },
+                "environmentIdentifier": {
+                    "type": "string"
+                },
+                "lambdaEndpoint": {
+                    "$ref": "#/types/aws-native:refactorspaces:ServiceLambdaEndpointInput"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serviceIdentifier": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:ServiceTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                },
+                "urlEndpoint": {
+                    "$ref": "#/types/aws-native:refactorspaces:ServiceUrlEndpointInput"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 63
+            },
+            "required": [
+                "applicationIdentifier",
+                "environmentIdentifier"
+            ],
+            "createOnly": [
+                "applicationIdentifier",
+                "description",
+                "endpointType",
+                "environmentIdentifier",
+                "lambdaEndpoint",
+                "name",
+                "urlEndpoint",
+                "vpcId"
+            ]
+        },
         "aws-native:rekognition:Project": {
             "cf": "AWS::Rekognition::Project",
             "inputs": {
@@ -28234,6 +28883,63 @@
             "createOnly": [
                 "domainName",
                 "ruleType"
+            ]
+        },
+        "aws-native:rum:AppMonitor": {
+            "cf": "AWS::RUM::AppMonitor",
+            "inputs": {
+                "appMonitorConfiguration": {
+                    "$ref": "#/types/aws-native:rum:AppMonitorConfiguration"
+                },
+                "cwLogEnabled": {
+                    "type": "boolean",
+                    "description": "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "The top-level internet domain name for which your application has administrative authority."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name for the app monitor"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rum:AppMonitorTag"
+                    }
+                }
+            },
+            "outputs": {
+                "appMonitorConfiguration": {
+                    "$ref": "#/types/aws-native:rum:AppMonitorConfiguration"
+                },
+                "cwLogEnabled": {
+                    "type": "boolean",
+                    "description": "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "The top-level internet domain name for which your application has administrative authority."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name for the app monitor"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rum:AppMonitorTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
+            "createOnly": [
+                "name"
             ]
         },
         "aws-native:s3:AccessPoint": {
@@ -31941,6 +32647,135 @@
             },
             "createOnly": [
                 "databaseName"
+            ]
+        },
+        "aws-native:timestream:ScheduledQuery": {
+            "cf": "AWS::Timestream::ScheduledQuery",
+            "inputs": {
+                "clientToken": {
+                    "type": "string"
+                },
+                "errorReportConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryErrorReportConfiguration"
+                },
+                "kmsKeyId": {
+                    "type": "string"
+                },
+                "notificationConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryNotificationConfiguration"
+                },
+                "queryString": {
+                    "type": "string"
+                },
+                "scheduleConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryScheduleConfiguration"
+                },
+                "scheduledQueryExecutionRoleArn": {
+                    "type": "string"
+                },
+                "scheduledQueryName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:timestream:ScheduledQueryTag"
+                    }
+                },
+                "targetConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryTargetConfiguration"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "clientToken": {
+                    "type": "string"
+                },
+                "errorReportConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryErrorReportConfiguration"
+                },
+                "kmsKeyId": {
+                    "type": "string"
+                },
+                "notificationConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryNotificationConfiguration"
+                },
+                "queryString": {
+                    "type": "string"
+                },
+                "sQErrorReportConfiguration": {
+                    "type": "string",
+                    "description": "Configuration for where error reports will be placed, how they will be named, and how they will be encrypted."
+                },
+                "sQKmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key for the scheduled query. If the KMS key is not specified, the database will be encrypted with a Timestream owned KMS key located in the Timestream account."
+                },
+                "sQName": {
+                    "type": "string",
+                    "description": "The name for the scheduled query."
+                },
+                "sQNotificationConfiguration": {
+                    "type": "string",
+                    "description": "Configuration for notification upon scheduled query execution."
+                },
+                "sQQueryString": {
+                    "type": "string",
+                    "description": "The query scheduled to be executed."
+                },
+                "sQScheduleConfiguration": {
+                    "type": "string",
+                    "description": "Configuration that indicates when the scheduled query is executed."
+                },
+                "sQScheduledQueryExecutionRoleArn": {
+                    "type": "string",
+                    "description": "Role that AWS Timestream will assume to execute scheduled query."
+                },
+                "sQTargetConfiguration": {
+                    "type": "string",
+                    "description": "Target data source to export query results from."
+                },
+                "scheduleConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryScheduleConfiguration"
+                },
+                "scheduledQueryExecutionRoleArn": {
+                    "type": "string"
+                },
+                "scheduledQueryName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:timestream:ScheduledQueryTag"
+                    }
+                },
+                "targetConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryTargetConfiguration"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "scheduledQueryName"
+            },
+            "required": [
+                "errorReportConfiguration",
+                "notificationConfiguration",
+                "queryString",
+                "scheduleConfiguration",
+                "scheduledQueryExecutionRoleArn"
+            ],
+            "createOnly": [
+                "clientToken",
+                "errorReportConfiguration",
+                "kmsKeyId",
+                "notificationConfiguration",
+                "queryString",
+                "scheduleConfiguration",
+                "scheduledQueryExecutionRoleArn",
+                "scheduledQueryName",
+                "targetConfiguration"
             ]
         },
         "aws-native:timestream:Table": {
@@ -44683,6 +45518,250 @@
                 }
             }
         },
+        "aws-native:evidently:ExperimentMetricGoalObject": {
+            "type": "object",
+            "properties": {
+                "desiredChange": {
+                    "$ref": "#/types/aws-native:evidently:ExperimentMetricGoalObjectDesiredChange"
+                },
+                "entityIdKey": {
+                    "type": "string",
+                    "description": "The JSON path to reference the entity id in the event."
+                },
+                "eventPattern": {
+                    "type": "string",
+                    "description": "Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't."
+                },
+                "metricName": {
+                    "type": "string"
+                },
+                "unitLabel": {
+                    "type": "string"
+                },
+                "valueKey": {
+                    "type": "string",
+                    "description": "The JSON path to reference the numerical metric value in the event."
+                }
+            }
+        },
+        "aws-native:evidently:ExperimentMetricGoalObjectDesiredChange": {
+            "type": "string"
+        },
+        "aws-native:evidently:ExperimentOnlineAbConfigObject": {
+            "type": "object",
+            "properties": {
+                "controlTreatmentName": {
+                    "type": "string"
+                },
+                "treatmentWeights": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:ExperimentTreatmentToWeight"
+                    }
+                }
+            }
+        },
+        "aws-native:evidently:ExperimentTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:evidently:ExperimentTreatmentObject": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "feature": {
+                    "type": "string"
+                },
+                "treatmentName": {
+                    "type": "string"
+                },
+                "variation": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:evidently:ExperimentTreatmentToWeight": {
+            "type": "object",
+            "properties": {
+                "splitWeight": {
+                    "type": "integer"
+                },
+                "treatment": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:evidently:FeatureEntityOverride": {
+            "type": "object",
+            "properties": {
+                "entityId": {
+                    "type": "string"
+                },
+                "variation": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:evidently:FeatureEvaluationStrategy": {
+            "type": "string"
+        },
+        "aws-native:evidently:FeatureTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:evidently:FeatureVariationObject": {
+            "type": "object",
+            "properties": {
+                "booleanValue": {
+                    "type": "boolean"
+                },
+                "doubleValue": {
+                    "type": "number"
+                },
+                "longValue": {
+                    "type": "number"
+                },
+                "stringValue": {
+                    "type": "string"
+                },
+                "variationName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:evidently:LaunchGroupObject": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "feature": {
+                    "type": "string"
+                },
+                "groupName": {
+                    "type": "string"
+                },
+                "variation": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:evidently:LaunchGroupToWeight": {
+            "type": "object",
+            "properties": {
+                "groupName": {
+                    "type": "string"
+                },
+                "splitWeight": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:evidently:LaunchMetricDefinitionObject": {
+            "type": "object",
+            "properties": {
+                "entityIdKey": {
+                    "type": "string",
+                    "description": "The JSON path to reference the entity id in the event."
+                },
+                "eventPattern": {
+                    "type": "string",
+                    "description": "Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't."
+                },
+                "metricName": {
+                    "type": "string"
+                },
+                "unitLabel": {
+                    "type": "string"
+                },
+                "valueKey": {
+                    "type": "string",
+                    "description": "The JSON path to reference the numerical metric value in the event."
+                }
+            }
+        },
+        "aws-native:evidently:LaunchStepConfig": {
+            "type": "object",
+            "properties": {
+                "groupWeights": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:evidently:LaunchGroupToWeight"
+                    }
+                },
+                "startTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:evidently:LaunchTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:evidently:ProjectDataDeliveryObject": {
+            "type": "object",
+            "properties": {
+                "logGroup": {
+                    "type": "string"
+                },
+                "s3": {
+                    "$ref": "#/types/aws-native:evidently:ProjectS3Destination"
+                }
+            }
+        },
+        "aws-native:evidently:ProjectS3Destination": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:evidently:ProjectTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:finspace:EnvironmentFederationMode": {
             "type": "string"
         },
@@ -57385,6 +58464,129 @@
                 }
             }
         },
+        "aws-native:refactorspaces:ApplicationApiGatewayEndpointType": {
+            "type": "string"
+        },
+        "aws-native:refactorspaces:ApplicationApiGatewayProxyInput": {
+            "type": "object",
+            "properties": {
+                "endpointType": {
+                    "$ref": "#/types/aws-native:refactorspaces:ApplicationApiGatewayEndpointType"
+                },
+                "stageName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:refactorspaces:ApplicationProxyType": {
+            "type": "string"
+        },
+        "aws-native:refactorspaces:ApplicationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "A string used to identify this tag"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
+                }
+            }
+        },
+        "aws-native:refactorspaces:EnvironmentNetworkFabricType": {
+            "type": "string"
+        },
+        "aws-native:refactorspaces:EnvironmentTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "A string used to identify this tag"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
+                }
+            }
+        },
+        "aws-native:refactorspaces:RouteActivationState": {
+            "type": "string"
+        },
+        "aws-native:refactorspaces:RouteMethod": {
+            "type": "string"
+        },
+        "aws-native:refactorspaces:RouteTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "A string used to identify this tag"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
+                }
+            }
+        },
+        "aws-native:refactorspaces:RouteType": {
+            "type": "string"
+        },
+        "aws-native:refactorspaces:RouteUriPathRouteInput": {
+            "type": "object",
+            "properties": {
+                "activationState": {
+                    "$ref": "#/types/aws-native:refactorspaces:RouteActivationState"
+                },
+                "includeChildPaths": {
+                    "type": "boolean"
+                },
+                "methods": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:refactorspaces:RouteMethod"
+                    }
+                },
+                "sourcePath": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:refactorspaces:ServiceEndpointType": {
+            "type": "string"
+        },
+        "aws-native:refactorspaces:ServiceLambdaEndpointInput": {
+            "type": "object",
+            "properties": {
+                "arn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:refactorspaces:ServiceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "A string used to identify this tag"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
+                }
+            }
+        },
+        "aws-native:refactorspaces:ServiceUrlEndpointInput": {
+            "type": "object",
+            "properties": {
+                "healthUrl": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:resiliencehub:AppPhysicalResourceId": {
             "type": "object",
             "properties": {
@@ -58143,6 +59345,75 @@
                     "description": "The port at Ip that you want to forward DNS queries to. "
                 }
             }
+        },
+        "aws-native:rum:AppMonitorConfiguration": {
+            "type": "object",
+            "properties": {
+                "allowCookies": {
+                    "type": "boolean",
+                    "description": "If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page."
+                },
+                "enableXRay": {
+                    "type": "boolean",
+                    "description": "If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console."
+                },
+                "excludedPages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation."
+                },
+                "favoritePages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of pages in the RUM console that are to be displayed with a favorite icon."
+                },
+                "guestRoleArn": {
+                    "type": "string",
+                    "description": "The ARN of the guest IAM role that is attached to the identity pool that is used to authorize the sending of data to RUM."
+                },
+                "identityPoolId": {
+                    "type": "string",
+                    "description": "The ID of the identity pool that is used to authorize the sending of data to RUM."
+                },
+                "includedPages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation."
+                },
+                "sessionSampleRate": {
+                    "type": "number",
+                    "description": "Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used."
+                },
+                "telemetries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rum:AppMonitorTelemetry"
+                    },
+                    "description": "An array that lists the types of telemetry data that this app monitor is to collect."
+                }
+            }
+        },
+        "aws-native:rum:AppMonitorTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
+        },
+        "aws-native:rum:AppMonitorTelemetry": {
+            "type": "string"
         },
         "aws-native:s3:AccessPointNetworkOrigin": {
             "type": "string"
@@ -62156,6 +63427,177 @@
                 "memoryStoreRetentionPeriodInHours": {
                     "type": "string",
                     "description": "The duration for which data must be stored in the memory store."
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryDimensionMapping": {
+            "type": "object",
+            "properties": {
+                "dimensionValueType": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryDimensionValueType"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryDimensionValueType": {
+            "type": "string"
+        },
+        "aws-native:timestream:ScheduledQueryEncryptionOption": {
+            "type": "string"
+        },
+        "aws-native:timestream:ScheduledQueryErrorReportConfiguration": {
+            "type": "object",
+            "properties": {
+                "s3Configuration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryS3Configuration"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryMixedMeasureMapping": {
+            "type": "object",
+            "properties": {
+                "measureName": {
+                    "type": "string"
+                },
+                "measureValueType": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryMixedMeasureMappingMeasureValueType"
+                },
+                "multiMeasureAttributeMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:timestream:ScheduledQueryMultiMeasureAttributeMapping"
+                    }
+                },
+                "sourceColumn": {
+                    "type": "string"
+                },
+                "targetMeasureName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryMixedMeasureMappingMeasureValueType": {
+            "type": "string"
+        },
+        "aws-native:timestream:ScheduledQueryMultiMeasureAttributeMapping": {
+            "type": "object",
+            "properties": {
+                "measureValueType": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryMultiMeasureAttributeMappingMeasureValueType"
+                },
+                "sourceColumn": {
+                    "type": "string"
+                },
+                "targetMultiMeasureAttributeName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryMultiMeasureAttributeMappingMeasureValueType": {
+            "type": "string"
+        },
+        "aws-native:timestream:ScheduledQueryMultiMeasureMappings": {
+            "type": "object",
+            "properties": {
+                "multiMeasureAttributeMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:timestream:ScheduledQueryMultiMeasureAttributeMapping"
+                    }
+                },
+                "targetMultiMeasureName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryNotificationConfiguration": {
+            "type": "object",
+            "properties": {
+                "snsConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQuerySnsConfiguration"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryS3Configuration": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string"
+                },
+                "encryptionOption": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryEncryptionOption"
+                },
+                "objectKeyPrefix": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryScheduleConfiguration": {
+            "type": "object",
+            "properties": {
+                "scheduleExpression": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQuerySnsConfiguration": {
+            "type": "object",
+            "properties": {
+                "topicArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryTargetConfiguration": {
+            "type": "object",
+            "properties": {
+                "timestreamConfiguration": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryTimestreamConfiguration"
+                }
+            }
+        },
+        "aws-native:timestream:ScheduledQueryTimestreamConfiguration": {
+            "type": "object",
+            "properties": {
+                "databaseName": {
+                    "type": "string"
+                },
+                "dimensionMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:timestream:ScheduledQueryDimensionMapping"
+                    }
+                },
+                "measureNameColumn": {
+                    "type": "string"
+                },
+                "mixedMeasureMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:timestream:ScheduledQueryMixedMeasureMapping"
+                    }
+                },
+                "multiMeasureMappings": {
+                    "$ref": "#/types/aws-native:timestream:ScheduledQueryMultiMeasureMappings"
+                },
+                "tableName": {
+                    "type": "string"
+                },
+                "timeColumn": {
+                    "type": "string"
                 }
             }
         },
