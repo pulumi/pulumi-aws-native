@@ -25,6 +25,10 @@ from .gateway_route_table_association import *
 from .host import *
 from .instance import *
 from .internet_gateway import *
+from .ipam import *
+from .ipam_allocation import *
+from .ipam_pool import *
+from .ipam_scope import *
 from .launch_template import *
 from .local_gateway_route import *
 from .local_gateway_route_table_vpcassociation import *

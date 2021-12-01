@@ -28,6 +28,10 @@ __all__ = [
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
     'FlowLogTrafficType',
+    'IPAMPoolAddressFamily',
+    'IPAMPoolIpamScopeType',
+    'IPAMPoolState',
+    'IPAMScopeIpamScopeType',
     'NetworkInsightsAnalysisStatus',
     'NetworkInsightsPathProtocol',
     'PrefixListAddressFamily',
@@ -238,6 +242,42 @@ class FlowLogTrafficType(str, Enum):
     ACCEPT = "ACCEPT"
     ALL = "ALL"
     REJECT = "REJECT"
+
+
+class IPAMPoolAddressFamily(str, Enum):
+    """
+    The address family of the address space in this pool. Either IPv4 or IPv6.
+    """
+    I_PV4 = "IPv4"
+    I_PV6 = "IPv6"
+
+
+class IPAMPoolIpamScopeType(str, Enum):
+    """
+    Determines whether this scope contains publicly routable space or space for a private network
+    """
+    PUBLIC = "public"
+    PRIVATE = "private"
+
+
+class IPAMPoolState(str, Enum):
+    """
+    The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
+    """
+    CREATE_IN_PROGRESS = "create-in-progress"
+    CREATE_COMPLETE = "create-complete"
+    MODIFY_IN_PROGRESS = "modify-in-progress"
+    MODIFY_COMPLETE = "modify-complete"
+    DELETE_IN_PROGRESS = "delete-in-progress"
+    DELETE_COMPLETE = "delete-complete"
+
+
+class IPAMScopeIpamScopeType(str, Enum):
+    """
+    Determines whether this scope contains publicly routable space or space for a private network
+    """
+    PUBLIC = "Public"
+    PRIVATE = "Private"
 
 
 class NetworkInsightsAnalysisStatus(str, Enum):

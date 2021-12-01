@@ -5642,6 +5642,530 @@ func (o FlowLogTagArrayOutput) Index(i pulumi.IntInput) FlowLogTagOutput {
 	}).(FlowLogTagOutput)
 }
 
+// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+type IPAMIpamOperatingRegion struct {
+	// The name of the region.
+	RegionName string `pulumi:"regionName"`
+}
+
+// IPAMIpamOperatingRegionInput is an input type that accepts IPAMIpamOperatingRegionArgs and IPAMIpamOperatingRegionOutput values.
+// You can construct a concrete instance of `IPAMIpamOperatingRegionInput` via:
+//
+//          IPAMIpamOperatingRegionArgs{...}
+type IPAMIpamOperatingRegionInput interface {
+	pulumi.Input
+
+	ToIPAMIpamOperatingRegionOutput() IPAMIpamOperatingRegionOutput
+	ToIPAMIpamOperatingRegionOutputWithContext(context.Context) IPAMIpamOperatingRegionOutput
+}
+
+// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+type IPAMIpamOperatingRegionArgs struct {
+	// The name of the region.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (IPAMIpamOperatingRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i IPAMIpamOperatingRegionArgs) ToIPAMIpamOperatingRegionOutput() IPAMIpamOperatingRegionOutput {
+	return i.ToIPAMIpamOperatingRegionOutputWithContext(context.Background())
+}
+
+func (i IPAMIpamOperatingRegionArgs) ToIPAMIpamOperatingRegionOutputWithContext(ctx context.Context) IPAMIpamOperatingRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMIpamOperatingRegionOutput)
+}
+
+// IPAMIpamOperatingRegionArrayInput is an input type that accepts IPAMIpamOperatingRegionArray and IPAMIpamOperatingRegionArrayOutput values.
+// You can construct a concrete instance of `IPAMIpamOperatingRegionArrayInput` via:
+//
+//          IPAMIpamOperatingRegionArray{ IPAMIpamOperatingRegionArgs{...} }
+type IPAMIpamOperatingRegionArrayInput interface {
+	pulumi.Input
+
+	ToIPAMIpamOperatingRegionArrayOutput() IPAMIpamOperatingRegionArrayOutput
+	ToIPAMIpamOperatingRegionArrayOutputWithContext(context.Context) IPAMIpamOperatingRegionArrayOutput
+}
+
+type IPAMIpamOperatingRegionArray []IPAMIpamOperatingRegionInput
+
+func (IPAMIpamOperatingRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i IPAMIpamOperatingRegionArray) ToIPAMIpamOperatingRegionArrayOutput() IPAMIpamOperatingRegionArrayOutput {
+	return i.ToIPAMIpamOperatingRegionArrayOutputWithContext(context.Background())
+}
+
+func (i IPAMIpamOperatingRegionArray) ToIPAMIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IPAMIpamOperatingRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMIpamOperatingRegionArrayOutput)
+}
+
+// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+type IPAMIpamOperatingRegionOutput struct{ *pulumi.OutputState }
+
+func (IPAMIpamOperatingRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o IPAMIpamOperatingRegionOutput) ToIPAMIpamOperatingRegionOutput() IPAMIpamOperatingRegionOutput {
+	return o
+}
+
+func (o IPAMIpamOperatingRegionOutput) ToIPAMIpamOperatingRegionOutputWithContext(ctx context.Context) IPAMIpamOperatingRegionOutput {
+	return o
+}
+
+// The name of the region.
+func (o IPAMIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type IPAMIpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (IPAMIpamOperatingRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o IPAMIpamOperatingRegionArrayOutput) ToIPAMIpamOperatingRegionArrayOutput() IPAMIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o IPAMIpamOperatingRegionArrayOutput) ToIPAMIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IPAMIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o IPAMIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) IPAMIpamOperatingRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMIpamOperatingRegion {
+		return vs[0].([]IPAMIpamOperatingRegion)[vs[1].(int)]
+	}).(IPAMIpamOperatingRegionOutput)
+}
+
+// An address space to be inserted into this pool. All allocations must be made from this address space.
+type IPAMPoolProvisionedCidr struct {
+	Cidr string `pulumi:"cidr"`
+}
+
+// IPAMPoolProvisionedCidrInput is an input type that accepts IPAMPoolProvisionedCidrArgs and IPAMPoolProvisionedCidrOutput values.
+// You can construct a concrete instance of `IPAMPoolProvisionedCidrInput` via:
+//
+//          IPAMPoolProvisionedCidrArgs{...}
+type IPAMPoolProvisionedCidrInput interface {
+	pulumi.Input
+
+	ToIPAMPoolProvisionedCidrOutput() IPAMPoolProvisionedCidrOutput
+	ToIPAMPoolProvisionedCidrOutputWithContext(context.Context) IPAMPoolProvisionedCidrOutput
+}
+
+// An address space to be inserted into this pool. All allocations must be made from this address space.
+type IPAMPoolProvisionedCidrArgs struct {
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+}
+
+func (IPAMPoolProvisionedCidrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMPoolProvisionedCidr)(nil)).Elem()
+}
+
+func (i IPAMPoolProvisionedCidrArgs) ToIPAMPoolProvisionedCidrOutput() IPAMPoolProvisionedCidrOutput {
+	return i.ToIPAMPoolProvisionedCidrOutputWithContext(context.Background())
+}
+
+func (i IPAMPoolProvisionedCidrArgs) ToIPAMPoolProvisionedCidrOutputWithContext(ctx context.Context) IPAMPoolProvisionedCidrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolProvisionedCidrOutput)
+}
+
+// IPAMPoolProvisionedCidrArrayInput is an input type that accepts IPAMPoolProvisionedCidrArray and IPAMPoolProvisionedCidrArrayOutput values.
+// You can construct a concrete instance of `IPAMPoolProvisionedCidrArrayInput` via:
+//
+//          IPAMPoolProvisionedCidrArray{ IPAMPoolProvisionedCidrArgs{...} }
+type IPAMPoolProvisionedCidrArrayInput interface {
+	pulumi.Input
+
+	ToIPAMPoolProvisionedCidrArrayOutput() IPAMPoolProvisionedCidrArrayOutput
+	ToIPAMPoolProvisionedCidrArrayOutputWithContext(context.Context) IPAMPoolProvisionedCidrArrayOutput
+}
+
+type IPAMPoolProvisionedCidrArray []IPAMPoolProvisionedCidrInput
+
+func (IPAMPoolProvisionedCidrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMPoolProvisionedCidr)(nil)).Elem()
+}
+
+func (i IPAMPoolProvisionedCidrArray) ToIPAMPoolProvisionedCidrArrayOutput() IPAMPoolProvisionedCidrArrayOutput {
+	return i.ToIPAMPoolProvisionedCidrArrayOutputWithContext(context.Background())
+}
+
+func (i IPAMPoolProvisionedCidrArray) ToIPAMPoolProvisionedCidrArrayOutputWithContext(ctx context.Context) IPAMPoolProvisionedCidrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolProvisionedCidrArrayOutput)
+}
+
+// An address space to be inserted into this pool. All allocations must be made from this address space.
+type IPAMPoolProvisionedCidrOutput struct{ *pulumi.OutputState }
+
+func (IPAMPoolProvisionedCidrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMPoolProvisionedCidr)(nil)).Elem()
+}
+
+func (o IPAMPoolProvisionedCidrOutput) ToIPAMPoolProvisionedCidrOutput() IPAMPoolProvisionedCidrOutput {
+	return o
+}
+
+func (o IPAMPoolProvisionedCidrOutput) ToIPAMPoolProvisionedCidrOutputWithContext(ctx context.Context) IPAMPoolProvisionedCidrOutput {
+	return o
+}
+
+func (o IPAMPoolProvisionedCidrOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMPoolProvisionedCidr) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+type IPAMPoolProvisionedCidrArrayOutput struct{ *pulumi.OutputState }
+
+func (IPAMPoolProvisionedCidrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMPoolProvisionedCidr)(nil)).Elem()
+}
+
+func (o IPAMPoolProvisionedCidrArrayOutput) ToIPAMPoolProvisionedCidrArrayOutput() IPAMPoolProvisionedCidrArrayOutput {
+	return o
+}
+
+func (o IPAMPoolProvisionedCidrArrayOutput) ToIPAMPoolProvisionedCidrArrayOutputWithContext(ctx context.Context) IPAMPoolProvisionedCidrArrayOutput {
+	return o
+}
+
+func (o IPAMPoolProvisionedCidrArrayOutput) Index(i pulumi.IntInput) IPAMPoolProvisionedCidrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMPoolProvisionedCidr {
+		return vs[0].([]IPAMPoolProvisionedCidr)[vs[1].(int)]
+	}).(IPAMPoolProvisionedCidrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMPoolTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IPAMPoolTagInput is an input type that accepts IPAMPoolTagArgs and IPAMPoolTagOutput values.
+// You can construct a concrete instance of `IPAMPoolTagInput` via:
+//
+//          IPAMPoolTagArgs{...}
+type IPAMPoolTagInput interface {
+	pulumi.Input
+
+	ToIPAMPoolTagOutput() IPAMPoolTagOutput
+	ToIPAMPoolTagOutputWithContext(context.Context) IPAMPoolTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IPAMPoolTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IPAMPoolTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMPoolTag)(nil)).Elem()
+}
+
+func (i IPAMPoolTagArgs) ToIPAMPoolTagOutput() IPAMPoolTagOutput {
+	return i.ToIPAMPoolTagOutputWithContext(context.Background())
+}
+
+func (i IPAMPoolTagArgs) ToIPAMPoolTagOutputWithContext(ctx context.Context) IPAMPoolTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolTagOutput)
+}
+
+// IPAMPoolTagArrayInput is an input type that accepts IPAMPoolTagArray and IPAMPoolTagArrayOutput values.
+// You can construct a concrete instance of `IPAMPoolTagArrayInput` via:
+//
+//          IPAMPoolTagArray{ IPAMPoolTagArgs{...} }
+type IPAMPoolTagArrayInput interface {
+	pulumi.Input
+
+	ToIPAMPoolTagArrayOutput() IPAMPoolTagArrayOutput
+	ToIPAMPoolTagArrayOutputWithContext(context.Context) IPAMPoolTagArrayOutput
+}
+
+type IPAMPoolTagArray []IPAMPoolTagInput
+
+func (IPAMPoolTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMPoolTag)(nil)).Elem()
+}
+
+func (i IPAMPoolTagArray) ToIPAMPoolTagArrayOutput() IPAMPoolTagArrayOutput {
+	return i.ToIPAMPoolTagArrayOutputWithContext(context.Background())
+}
+
+func (i IPAMPoolTagArray) ToIPAMPoolTagArrayOutputWithContext(ctx context.Context) IPAMPoolTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMPoolTagOutput struct{ *pulumi.OutputState }
+
+func (IPAMPoolTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMPoolTag)(nil)).Elem()
+}
+
+func (o IPAMPoolTagOutput) ToIPAMPoolTagOutput() IPAMPoolTagOutput {
+	return o
+}
+
+func (o IPAMPoolTagOutput) ToIPAMPoolTagOutputWithContext(ctx context.Context) IPAMPoolTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMPoolTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMPoolTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMPoolTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMPoolTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IPAMPoolTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IPAMPoolTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMPoolTag)(nil)).Elem()
+}
+
+func (o IPAMPoolTagArrayOutput) ToIPAMPoolTagArrayOutput() IPAMPoolTagArrayOutput {
+	return o
+}
+
+func (o IPAMPoolTagArrayOutput) ToIPAMPoolTagArrayOutputWithContext(ctx context.Context) IPAMPoolTagArrayOutput {
+	return o
+}
+
+func (o IPAMPoolTagArrayOutput) Index(i pulumi.IntInput) IPAMPoolTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMPoolTag {
+		return vs[0].([]IPAMPoolTag)[vs[1].(int)]
+	}).(IPAMPoolTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMScopeTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IPAMScopeTagInput is an input type that accepts IPAMScopeTagArgs and IPAMScopeTagOutput values.
+// You can construct a concrete instance of `IPAMScopeTagInput` via:
+//
+//          IPAMScopeTagArgs{...}
+type IPAMScopeTagInput interface {
+	pulumi.Input
+
+	ToIPAMScopeTagOutput() IPAMScopeTagOutput
+	ToIPAMScopeTagOutputWithContext(context.Context) IPAMScopeTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IPAMScopeTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IPAMScopeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMScopeTag)(nil)).Elem()
+}
+
+func (i IPAMScopeTagArgs) ToIPAMScopeTagOutput() IPAMScopeTagOutput {
+	return i.ToIPAMScopeTagOutputWithContext(context.Background())
+}
+
+func (i IPAMScopeTagArgs) ToIPAMScopeTagOutputWithContext(ctx context.Context) IPAMScopeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMScopeTagOutput)
+}
+
+// IPAMScopeTagArrayInput is an input type that accepts IPAMScopeTagArray and IPAMScopeTagArrayOutput values.
+// You can construct a concrete instance of `IPAMScopeTagArrayInput` via:
+//
+//          IPAMScopeTagArray{ IPAMScopeTagArgs{...} }
+type IPAMScopeTagArrayInput interface {
+	pulumi.Input
+
+	ToIPAMScopeTagArrayOutput() IPAMScopeTagArrayOutput
+	ToIPAMScopeTagArrayOutputWithContext(context.Context) IPAMScopeTagArrayOutput
+}
+
+type IPAMScopeTagArray []IPAMScopeTagInput
+
+func (IPAMScopeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMScopeTag)(nil)).Elem()
+}
+
+func (i IPAMScopeTagArray) ToIPAMScopeTagArrayOutput() IPAMScopeTagArrayOutput {
+	return i.ToIPAMScopeTagArrayOutputWithContext(context.Background())
+}
+
+func (i IPAMScopeTagArray) ToIPAMScopeTagArrayOutputWithContext(ctx context.Context) IPAMScopeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMScopeTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMScopeTagOutput struct{ *pulumi.OutputState }
+
+func (IPAMScopeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMScopeTag)(nil)).Elem()
+}
+
+func (o IPAMScopeTagOutput) ToIPAMScopeTagOutput() IPAMScopeTagOutput {
+	return o
+}
+
+func (o IPAMScopeTagOutput) ToIPAMScopeTagOutputWithContext(ctx context.Context) IPAMScopeTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMScopeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMScopeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMScopeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMScopeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IPAMScopeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IPAMScopeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMScopeTag)(nil)).Elem()
+}
+
+func (o IPAMScopeTagArrayOutput) ToIPAMScopeTagArrayOutput() IPAMScopeTagArrayOutput {
+	return o
+}
+
+func (o IPAMScopeTagArrayOutput) ToIPAMScopeTagArrayOutputWithContext(ctx context.Context) IPAMScopeTagArrayOutput {
+	return o
+}
+
+func (o IPAMScopeTagArrayOutput) Index(i pulumi.IntInput) IPAMScopeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMScopeTag {
+		return vs[0].([]IPAMScopeTag)[vs[1].(int)]
+	}).(IPAMScopeTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IPAMTagInput is an input type that accepts IPAMTagArgs and IPAMTagOutput values.
+// You can construct a concrete instance of `IPAMTagInput` via:
+//
+//          IPAMTagArgs{...}
+type IPAMTagInput interface {
+	pulumi.Input
+
+	ToIPAMTagOutput() IPAMTagOutput
+	ToIPAMTagOutputWithContext(context.Context) IPAMTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IPAMTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IPAMTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMTag)(nil)).Elem()
+}
+
+func (i IPAMTagArgs) ToIPAMTagOutput() IPAMTagOutput {
+	return i.ToIPAMTagOutputWithContext(context.Background())
+}
+
+func (i IPAMTagArgs) ToIPAMTagOutputWithContext(ctx context.Context) IPAMTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMTagOutput)
+}
+
+// IPAMTagArrayInput is an input type that accepts IPAMTagArray and IPAMTagArrayOutput values.
+// You can construct a concrete instance of `IPAMTagArrayInput` via:
+//
+//          IPAMTagArray{ IPAMTagArgs{...} }
+type IPAMTagArrayInput interface {
+	pulumi.Input
+
+	ToIPAMTagArrayOutput() IPAMTagArrayOutput
+	ToIPAMTagArrayOutputWithContext(context.Context) IPAMTagArrayOutput
+}
+
+type IPAMTagArray []IPAMTagInput
+
+func (IPAMTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMTag)(nil)).Elem()
+}
+
+func (i IPAMTagArray) ToIPAMTagArrayOutput() IPAMTagArrayOutput {
+	return i.ToIPAMTagArrayOutputWithContext(context.Background())
+}
+
+func (i IPAMTagArray) ToIPAMTagArrayOutputWithContext(ctx context.Context) IPAMTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMTagOutput struct{ *pulumi.OutputState }
+
+func (IPAMTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMTag)(nil)).Elem()
+}
+
+func (o IPAMTagOutput) ToIPAMTagOutput() IPAMTagOutput {
+	return o
+}
+
+func (o IPAMTagOutput) ToIPAMTagOutputWithContext(ctx context.Context) IPAMTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IPAMTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IPAMTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMTag)(nil)).Elem()
+}
+
+func (o IPAMTagArrayOutput) ToIPAMTagArrayOutput() IPAMTagArrayOutput {
+	return o
+}
+
+func (o IPAMTagArrayOutput) ToIPAMTagArrayOutputWithContext(ctx context.Context) IPAMTagArrayOutput {
+	return o
+}
+
+func (o IPAMTagArrayOutput) Index(i pulumi.IntInput) IPAMTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMTag {
+		return vs[0].([]IPAMTag)[vs[1].(int)]
+	}).(IPAMTagOutput)
+}
+
 type InstanceAssociationParameter struct {
 	Key   string   `pulumi:"key"`
 	Value []string `pulumi:"value"`
@@ -23153,6 +23677,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EIPTagArrayInput)(nil)).Elem(), EIPTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagInput)(nil)).Elem(), FlowLogTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagArrayInput)(nil)).Elem(), FlowLogTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMIpamOperatingRegionInput)(nil)).Elem(), IPAMIpamOperatingRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMIpamOperatingRegionArrayInput)(nil)).Elem(), IPAMIpamOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolProvisionedCidrInput)(nil)).Elem(), IPAMPoolProvisionedCidrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolProvisionedCidrArrayInput)(nil)).Elem(), IPAMPoolProvisionedCidrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolTagInput)(nil)).Elem(), IPAMPoolTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolTagArrayInput)(nil)).Elem(), IPAMPoolTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeTagInput)(nil)).Elem(), IPAMScopeTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeTagArrayInput)(nil)).Elem(), IPAMScopeTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMTagInput)(nil)).Elem(), IPAMTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMTagArrayInput)(nil)).Elem(), IPAMTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterInput)(nil)).Elem(), InstanceAssociationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterArrayInput)(nil)).Elem(), InstanceAssociationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlockDeviceMappingInput)(nil)).Elem(), InstanceBlockDeviceMappingArgs{})
@@ -23479,6 +24013,16 @@ func init() {
 	pulumi.RegisterOutputType(EIPTagArrayOutput{})
 	pulumi.RegisterOutputType(FlowLogTagOutput{})
 	pulumi.RegisterOutputType(FlowLogTagArrayOutput{})
+	pulumi.RegisterOutputType(IPAMIpamOperatingRegionOutput{})
+	pulumi.RegisterOutputType(IPAMIpamOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(IPAMPoolProvisionedCidrOutput{})
+	pulumi.RegisterOutputType(IPAMPoolProvisionedCidrArrayOutput{})
+	pulumi.RegisterOutputType(IPAMPoolTagOutput{})
+	pulumi.RegisterOutputType(IPAMPoolTagArrayOutput{})
+	pulumi.RegisterOutputType(IPAMScopeTagOutput{})
+	pulumi.RegisterOutputType(IPAMScopeTagArrayOutput{})
+	pulumi.RegisterOutputType(IPAMTagOutput{})
+	pulumi.RegisterOutputType(IPAMTagArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAssociationParameterOutput{})
 	pulumi.RegisterOutputType(InstanceAssociationParameterArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlockDeviceMappingOutput{})

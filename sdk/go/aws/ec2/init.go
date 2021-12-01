@@ -55,6 +55,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayRouteTableAssociation{}
 	case "aws-native:ec2:Host":
 		r = &Host{}
+	case "aws-native:ec2:IPAM":
+		r = &IPAM{}
+	case "aws-native:ec2:IPAMAllocation":
+		r = &IPAMAllocation{}
+	case "aws-native:ec2:IPAMPool":
+		r = &IPAMPool{}
+	case "aws-native:ec2:IPAMScope":
+		r = &IPAMScope{}
 	case "aws-native:ec2:Instance":
 		r = &Instance{}
 	case "aws-native:ec2:InternetGateway":

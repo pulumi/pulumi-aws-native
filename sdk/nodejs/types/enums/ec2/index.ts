@@ -235,6 +235,50 @@ export const FlowLogTrafficType = {
  */
 export type FlowLogTrafficType = (typeof FlowLogTrafficType)[keyof typeof FlowLogTrafficType];
 
+export const IPAMPoolAddressFamily = {
+    IPv4: "IPv4",
+    IPv6: "IPv6",
+} as const;
+
+/**
+ * The address family of the address space in this pool. Either IPv4 or IPv6.
+ */
+export type IPAMPoolAddressFamily = (typeof IPAMPoolAddressFamily)[keyof typeof IPAMPoolAddressFamily];
+
+export const IPAMPoolIpamScopeType = {
+    Public: "public",
+    Private: "private",
+} as const;
+
+/**
+ * Determines whether this scope contains publicly routable space or space for a private network
+ */
+export type IPAMPoolIpamScopeType = (typeof IPAMPoolIpamScopeType)[keyof typeof IPAMPoolIpamScopeType];
+
+export const IPAMPoolState = {
+    CreateInProgress: "create-in-progress",
+    CreateComplete: "create-complete",
+    ModifyInProgress: "modify-in-progress",
+    ModifyComplete: "modify-complete",
+    DeleteInProgress: "delete-in-progress",
+    DeleteComplete: "delete-complete",
+} as const;
+
+/**
+ * The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
+ */
+export type IPAMPoolState = (typeof IPAMPoolState)[keyof typeof IPAMPoolState];
+
+export const IPAMScopeIpamScopeType = {
+    Public: "Public",
+    Private: "Private",
+} as const;
+
+/**
+ * Determines whether this scope contains publicly routable space or space for a private network
+ */
+export type IPAMScopeIpamScopeType = (typeof IPAMScopeIpamScopeType)[keyof typeof IPAMScopeIpamScopeType];
+
 export const NetworkInsightsAnalysisStatus = {
     Running: "running",
     Failed: "failed",
