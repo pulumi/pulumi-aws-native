@@ -723,6 +723,134 @@ namespace Pulumi.AwsNative.EC2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The address family of the address space in this pool. Either IPv4 or IPv6.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAMPoolAddressFamily : IEquatable<IPAMPoolAddressFamily>
+    {
+        private readonly string _value;
+
+        private IPAMPoolAddressFamily(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAMPoolAddressFamily IPv4 { get; } = new IPAMPoolAddressFamily("IPv4");
+        public static IPAMPoolAddressFamily IPv6 { get; } = new IPAMPoolAddressFamily("IPv6");
+
+        public static bool operator ==(IPAMPoolAddressFamily left, IPAMPoolAddressFamily right) => left.Equals(right);
+        public static bool operator !=(IPAMPoolAddressFamily left, IPAMPoolAddressFamily right) => !left.Equals(right);
+
+        public static explicit operator string(IPAMPoolAddressFamily value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAMPoolAddressFamily other && Equals(other);
+        public bool Equals(IPAMPoolAddressFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines whether this scope contains publicly routable space or space for a private network
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAMPoolIpamScopeType : IEquatable<IPAMPoolIpamScopeType>
+    {
+        private readonly string _value;
+
+        private IPAMPoolIpamScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAMPoolIpamScopeType Public { get; } = new IPAMPoolIpamScopeType("public");
+        public static IPAMPoolIpamScopeType Private { get; } = new IPAMPoolIpamScopeType("private");
+
+        public static bool operator ==(IPAMPoolIpamScopeType left, IPAMPoolIpamScopeType right) => left.Equals(right);
+        public static bool operator !=(IPAMPoolIpamScopeType left, IPAMPoolIpamScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(IPAMPoolIpamScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAMPoolIpamScopeType other && Equals(other);
+        public bool Equals(IPAMPoolIpamScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAMPoolState : IEquatable<IPAMPoolState>
+    {
+        private readonly string _value;
+
+        private IPAMPoolState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAMPoolState CreateInProgress { get; } = new IPAMPoolState("create-in-progress");
+        public static IPAMPoolState CreateComplete { get; } = new IPAMPoolState("create-complete");
+        public static IPAMPoolState ModifyInProgress { get; } = new IPAMPoolState("modify-in-progress");
+        public static IPAMPoolState ModifyComplete { get; } = new IPAMPoolState("modify-complete");
+        public static IPAMPoolState DeleteInProgress { get; } = new IPAMPoolState("delete-in-progress");
+        public static IPAMPoolState DeleteComplete { get; } = new IPAMPoolState("delete-complete");
+
+        public static bool operator ==(IPAMPoolState left, IPAMPoolState right) => left.Equals(right);
+        public static bool operator !=(IPAMPoolState left, IPAMPoolState right) => !left.Equals(right);
+
+        public static explicit operator string(IPAMPoolState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAMPoolState other && Equals(other);
+        public bool Equals(IPAMPoolState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines whether this scope contains publicly routable space or space for a private network
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAMScopeIpamScopeType : IEquatable<IPAMScopeIpamScopeType>
+    {
+        private readonly string _value;
+
+        private IPAMScopeIpamScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAMScopeIpamScopeType Public { get; } = new IPAMScopeIpamScopeType("Public");
+        public static IPAMScopeIpamScopeType Private { get; } = new IPAMScopeIpamScopeType("Private");
+
+        public static bool operator ==(IPAMScopeIpamScopeType left, IPAMScopeIpamScopeType right) => left.Equals(right);
+        public static bool operator !=(IPAMScopeIpamScopeType left, IPAMScopeIpamScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(IPAMScopeIpamScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAMScopeIpamScopeType other && Equals(other);
+        public bool Equals(IPAMScopeIpamScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct NetworkInsightsAnalysisStatus : IEquatable<NetworkInsightsAnalysisStatus>
     {

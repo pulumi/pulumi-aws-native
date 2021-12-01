@@ -24,6 +24,10 @@ export * from "./gatewayRouteTableAssociation";
 export * from "./host";
 export * from "./instance";
 export * from "./internetGateway";
+export * from "./ipam";
+export * from "./ipamallocation";
+export * from "./ipampool";
+export * from "./ipamscope";
 export * from "./launchTemplate";
 export * from "./localGatewayRoute";
 export * from "./localGatewayRouteTableVPCAssociation";
@@ -101,6 +105,10 @@ import { EnclaveCertificateIamRoleAssociation } from "./enclaveCertificateIamRol
 import { FlowLog } from "./flowLog";
 import { GatewayRouteTableAssociation } from "./gatewayRouteTableAssociation";
 import { Host } from "./host";
+import { IPAM } from "./ipam";
+import { IPAMAllocation } from "./ipamallocation";
+import { IPAMPool } from "./ipampool";
+import { IPAMScope } from "./ipamscope";
 import { Instance } from "./instance";
 import { InternetGateway } from "./internetGateway";
 import { LaunchTemplate } from "./launchTemplate";
@@ -197,6 +205,14 @@ const _module = {
                 return new GatewayRouteTableAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:Host":
                 return new Host(name, <any>undefined, { urn })
+            case "aws-native:ec2:IPAM":
+                return new IPAM(name, <any>undefined, { urn })
+            case "aws-native:ec2:IPAMAllocation":
+                return new IPAMAllocation(name, <any>undefined, { urn })
+            case "aws-native:ec2:IPAMPool":
+                return new IPAMPool(name, <any>undefined, { urn })
+            case "aws-native:ec2:IPAMScope":
+                return new IPAMScope(name, <any>undefined, { urn })
             case "aws-native:ec2:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "aws-native:ec2:InternetGateway":
