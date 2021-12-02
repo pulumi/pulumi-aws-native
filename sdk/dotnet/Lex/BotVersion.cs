@@ -12,6 +12,7 @@ namespace Pulumi.AwsNative.Lex
     /// <summary>
     /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
     /// </summary>
+    [Obsolete(@"BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lex:BotVersion")]
     public partial class BotVersion : Pulumi.CustomResource
     {

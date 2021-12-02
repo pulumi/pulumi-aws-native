@@ -12,6 +12,8 @@ import (
 )
 
 // A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+//
+// Deprecated: ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

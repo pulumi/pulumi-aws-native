@@ -12,6 +12,8 @@ import (
 )
 
 // A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+//
+// Deprecated: BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type BotVersion struct {
 	pulumi.CustomResourceState
 

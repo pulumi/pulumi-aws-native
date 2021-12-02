@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 
 /**
  * A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+ *
+ * @deprecated BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class BotVersion extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class BotVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BotVersion {
+        pulumi.log.warn("BotVersion is deprecated: BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new BotVersion(name, undefined as any, { ...opts, id: id });
     }
 
@@ -47,7 +50,9 @@ export class BotVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: BotVersionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BotVersion is deprecated: BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

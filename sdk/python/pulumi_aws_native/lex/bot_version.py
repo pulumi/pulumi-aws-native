@@ -54,7 +54,12 @@ class BotVersionArgs:
         pulumi.set(self, "description", value)
 
 
+warnings.warn("""BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
+
 class BotVersion(pulumi.CustomResource):
+    warnings.warn("""BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -97,6 +102,7 @@ class BotVersion(pulumi.CustomResource):
                  bot_version_locale_specification: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotVersionLocaleSpecificationItemPropertiesArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BotVersion is deprecated: BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

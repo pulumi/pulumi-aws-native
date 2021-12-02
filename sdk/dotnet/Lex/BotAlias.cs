@@ -12,6 +12,7 @@ namespace Pulumi.AwsNative.Lex
     /// <summary>
     /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
     /// </summary>
+    [Obsolete(@"BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lex:BotAlias")]
     public partial class BotAlias : Pulumi.CustomResource
     {
