@@ -670,6 +670,171 @@
                 "domainName"
             ]
         },
+        "aws-native:amplifyuibuilder:Component": {
+            "cf": "AWS::AmplifyUIBuilder::Component",
+            "inputs": {
+                "bindingProperties": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentBindingProperties"
+                },
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ComponentChild"
+                    }
+                },
+                "collectionProperties": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentCollectionProperties"
+                },
+                "componentType": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "overrides": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentOverrides"
+                },
+                "properties": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentProperties"
+                },
+                "sourceId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentTags"
+                },
+                "variants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ComponentVariant"
+                    }
+                }
+            },
+            "outputs": {
+                "appId": {
+                    "type": "string"
+                },
+                "bindingProperties": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentBindingProperties"
+                },
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ComponentChild"
+                    }
+                },
+                "collectionProperties": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentCollectionProperties"
+                },
+                "componentType": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "environmentName": {
+                    "type": "string"
+                },
+                "modifiedAt": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "overrides": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentOverrides"
+                },
+                "properties": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentProperties"
+                },
+                "sourceId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentTags"
+                },
+                "variants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ComponentVariant"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
+            "createOnly": [
+                "tags"
+            ]
+        },
+        "aws-native:amplifyuibuilder:Theme": {
+            "cf": "AWS::AmplifyUIBuilder::Theme",
+            "inputs": {
+                "name": {
+                    "type": "string"
+                },
+                "overrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ThemeValues"
+                    }
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ThemeTags"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ThemeValues"
+                    }
+                }
+            },
+            "outputs": {
+                "appId": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "environmentName": {
+                    "type": "string"
+                },
+                "modifiedAt": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "overrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ThemeValues"
+                    }
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ThemeTags"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ThemeValues"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
+            "required": [
+                "values"
+            ],
+            "createOnly": [
+                "tags"
+            ]
+        },
         "aws-native:apigateway:Account": {
             "cf": "AWS::ApiGateway::Account",
             "inputs": {
@@ -34407,6 +34572,83 @@
                 },
                 "prefix": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:amplifyuibuilder:ComponentBindingProperties": {
+            "type": "object"
+        },
+        "aws-native:amplifyuibuilder:ComponentChild": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ComponentChild"
+                    }
+                },
+                "componentType": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "properties": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentProperties"
+                }
+            }
+        },
+        "aws-native:amplifyuibuilder:ComponentCollectionProperties": {
+            "type": "object"
+        },
+        "aws-native:amplifyuibuilder:ComponentOverrides": {
+            "type": "object"
+        },
+        "aws-native:amplifyuibuilder:ComponentProperties": {
+            "type": "object"
+        },
+        "aws-native:amplifyuibuilder:ComponentTags": {
+            "type": "object"
+        },
+        "aws-native:amplifyuibuilder:ComponentVariant": {
+            "type": "object",
+            "properties": {
+                "overrides": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentOverrides"
+                },
+                "variantValues": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ComponentVariantValues"
+                }
+            }
+        },
+        "aws-native:amplifyuibuilder:ComponentVariantValues": {
+            "type": "object"
+        },
+        "aws-native:amplifyuibuilder:ThemeTags": {
+            "type": "object"
+        },
+        "aws-native:amplifyuibuilder:ThemeValue": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:amplifyuibuilder:ThemeValues"
+                    }
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:amplifyuibuilder:ThemeValues": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/types/aws-native:amplifyuibuilder:ThemeValue"
                 }
             }
         },

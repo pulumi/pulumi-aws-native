@@ -1105,6 +1105,51 @@ export namespace amplify {
     }
 }
 
+export namespace amplifyuibuilder {
+    export interface ComponentBindingPropertiesArgs {
+    }
+
+    export interface ComponentChildArgs {
+        children?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentChildArgs>[]>;
+        componentType: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        properties: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertiesArgs>;
+    }
+
+    export interface ComponentCollectionPropertiesArgs {
+    }
+
+    export interface ComponentOverridesArgs {
+    }
+
+    export interface ComponentPropertiesArgs {
+    }
+
+    export interface ComponentTagsArgs {
+    }
+
+    export interface ComponentVariantArgs {
+        overrides?: pulumi.Input<inputs.amplifyuibuilder.ComponentOverridesArgs>;
+        variantValues?: pulumi.Input<inputs.amplifyuibuilder.ComponentVariantValuesArgs>;
+    }
+
+    export interface ComponentVariantValuesArgs {
+    }
+
+    export interface ThemeTagsArgs {
+    }
+
+    export interface ThemeValueArgs {
+        children?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface ThemeValuesArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<inputs.amplifyuibuilder.ThemeValueArgs>;
+    }
+}
+
 export namespace apigateway {
     export interface ApiKeyStageKeyArgs {
         /**

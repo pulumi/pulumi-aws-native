@@ -29,6 +29,8 @@ if typing.TYPE_CHECKING:
     amazonmq = __amazonmq
     import pulumi_aws_native.amplify as __amplify
     amplify = __amplify
+    import pulumi_aws_native.amplifyuibuilder as __amplifyuibuilder
+    amplifyuibuilder = __amplifyuibuilder
     import pulumi_aws_native.apigateway as __apigateway
     apigateway = __apigateway
     import pulumi_aws_native.apigatewayv2 as __apigatewayv2
@@ -388,6 +390,7 @@ else:
     acmpca = _utilities.lazy_import('pulumi_aws_native.acmpca')
     amazonmq = _utilities.lazy_import('pulumi_aws_native.amazonmq')
     amplify = _utilities.lazy_import('pulumi_aws_native.amplify')
+    amplifyuibuilder = _utilities.lazy_import('pulumi_aws_native.amplifyuibuilder')
     apigateway = _utilities.lazy_import('pulumi_aws_native.apigateway')
     apigatewayv2 = _utilities.lazy_import('pulumi_aws_native.apigatewayv2')
     appconfig = _utilities.lazy_import('pulumi_aws_native.appconfig')
@@ -606,6 +609,15 @@ _utilities.register(
    "aws-native:amplify:App": "App",
    "aws-native:amplify:Branch": "Branch",
    "aws-native:amplify:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "amplifyuibuilder",
+  "fqn": "pulumi_aws_native.amplifyuibuilder",
+  "classes": {
+   "aws-native:amplifyuibuilder:Component": "Component",
+   "aws-native:amplifyuibuilder:Theme": "Theme"
   }
  },
  {

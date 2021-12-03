@@ -25,6 +25,7 @@ import * as accessanalyzer from "./accessanalyzer";
 import * as acmpca from "./acmpca";
 import * as amazonmq from "./amazonmq";
 import * as amplify from "./amplify";
+import * as amplifyuibuilder from "./amplifyuibuilder";
 import * as apigateway from "./apigateway";
 import * as apigatewayv2 from "./apigatewayv2";
 import * as appconfig from "./appconfig";
@@ -209,6 +210,7 @@ export {
     acmpca,
     amazonmq,
     amplify,
+    amplifyuibuilder,
     apigateway,
     apigatewayv2,
     appconfig,

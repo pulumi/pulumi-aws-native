@@ -406,6 +406,52 @@ export namespace amplify {
 
 }
 
+export namespace amplifyuibuilder {
+    export interface ComponentBindingProperties {
+    }
+
+    export interface ComponentChild {
+        children?: outputs.amplifyuibuilder.ComponentChild[];
+        componentType: string;
+        name: string;
+        properties: outputs.amplifyuibuilder.ComponentProperties;
+    }
+
+    export interface ComponentCollectionProperties {
+    }
+
+    export interface ComponentOverrides {
+    }
+
+    export interface ComponentProperties {
+    }
+
+    export interface ComponentTags {
+    }
+
+    export interface ComponentVariant {
+        overrides?: outputs.amplifyuibuilder.ComponentOverrides;
+        variantValues?: outputs.amplifyuibuilder.ComponentVariantValues;
+    }
+
+    export interface ComponentVariantValues {
+    }
+
+    export interface ThemeTags {
+    }
+
+    export interface ThemeValue {
+        children?: outputs.amplifyuibuilder.ThemeValues[];
+        value?: string;
+    }
+
+    export interface ThemeValues {
+        key?: string;
+        value?: outputs.amplifyuibuilder.ThemeValue;
+    }
+
+}
+
 export namespace apigateway {
     export interface ApiKeyStageKey {
         /**
