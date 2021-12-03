@@ -8,6 +8,8 @@ AWS::AccessAnalyzer::Analyzer
 AWS::Amplify::App
 AWS::Amplify::Branch
 AWS::Amplify::Domain
+AWS::AmplifyUIBuilder::Component
+AWS::AmplifyUIBuilder::Theme
 AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
 AWS::ApiGateway::Authorizer
