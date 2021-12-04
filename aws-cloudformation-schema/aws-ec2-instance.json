@@ -48,6 +48,9 @@
     "EbsOptimized" : {
       "type" : "boolean"
     },
+    "PropagateTagsToVolumeOnCreation" : {
+      "type" : "boolean"
+    },
     "ElasticGpuSpecifications" : {
       "type" : "array",
       "uniqueItems" : true,

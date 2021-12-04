@@ -12,6 +12,9 @@
     "StorageCapacity" : {
       "type" : "integer"
     },
+    "RootVolumeId" : {
+      "type" : "string"
+    },
     "LustreConfiguration" : {
       "$ref" : "#/definitions/LustreConfiguration"
     },
@@ -44,6 +47,9 @@
     "FileSystemTypeVersion" : {
       "type" : "string"
     },
+    "OpenZFSConfiguration" : {
+      "$ref" : "#/definitions/OpenZFSConfiguration"
+    },
     "FileSystemType" : {
       "type" : "string"
     },
@@ -62,6 +68,40 @@
     }
   },
   "definitions" : {
+    "OpenZFSConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "WeeklyMaintenanceStartTime" : {
+          "type" : "string"
+        },
+        "DiskIopsConfiguration" : {
+          "$ref" : "#/definitions/DiskIopsConfiguration"
+        },
+        "CopyTagsToVolumes" : {
+          "type" : "boolean"
+        },
+        "DeploymentType" : {
+          "type" : "string"
+        },
+        "DailyAutomaticBackupStartTime" : {
+          "type" : "string"
+        },
+        "CopyTagsToBackups" : {
+          "type" : "boolean"
+        },
+        "ThroughputCapacity" : {
+          "type" : "integer"
+        },
+        "RootVolumeConfiguration" : {
+          "$ref" : "#/definitions/RootVolumeConfiguration"
+        },
+        "AutomaticBackupRetentionDays" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "DeploymentType" ]
+    },
     "SelfManagedActiveDirectoryConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -160,6 +200,19 @@
         }
       }
     },
+    "NfsExports" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ClientConfigurations" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/ClientConfigurations"
+          }
+        }
+      }
+    },
     "OntapConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -201,6 +254,22 @@
       },
       "required" : [ "DeploymentType" ]
     },
+    "ClientConfigurations" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Clients" : {
+          "type" : "string"
+        },
+        "Options" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -213,6 +282,35 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "RootVolumeConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ReadOnly" : {
+          "type" : "boolean"
+        },
+        "NfsExports" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/NfsExports"
+          }
+        },
+        "DataCompressionType" : {
+          "type" : "string"
+        },
+        "CopyTagsToSnapshots" : {
+          "type" : "boolean"
+        },
+        "UserAndGroupQuotas" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/UserAndGroupQuotas"
+          }
+        }
+      }
     },
     "WindowsConfiguration" : {
       "type" : "object",
@@ -257,10 +355,25 @@
         }
       },
       "required" : [ "ThroughputCapacity" ]
+    },
+    "UserAndGroupQuotas" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "type" : "string"
+        },
+        "Id" : {
+          "type" : "integer"
+        },
+        "StorageCapacityQuotaGiB" : {
+          "type" : "integer"
+        }
+      }
     }
   },
   "required" : [ "FileSystemType", "SubnetIds" ],
   "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/StorageType", "/properties/SecurityGroupIds", "/properties/FileSystemTypeVersion", "/properties/FileSystemType", "/properties/SubnetIds", "/properties/BackupId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/LustreMountName", "/properties/DNSName" ]
+  "readOnlyProperties" : [ "/properties/Id", "/properties/LustreMountName", "/properties/RootVolumeId", "/properties/DNSName" ]
 }

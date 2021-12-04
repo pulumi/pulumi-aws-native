@@ -140,6 +140,9 @@
         "BidPriceAsPercentageOfOnDemandPrice" : {
           "type" : "number"
         },
+        "CustomAmiId" : {
+          "type" : "string"
+        },
         "Configurations" : {
           "type" : "array",
           "uniqueItems" : true,

@@ -71,6 +71,9 @@
         },
         "AudioPidSelection" : {
           "$ref" : "#/definitions/AudioPidSelection"
+        },
+        "AudioHlsRenditionSelection" : {
+          "$ref" : "#/definitions/AudioHlsRenditionSelection"
         }
       }
     },
@@ -527,6 +530,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "OcrLanguage" : {
+          "type" : "string"
+        },
         "Pid" : {
           "type" : "integer"
         }
@@ -565,6 +571,9 @@
         },
         "Name" : {
           "type" : "string"
+        },
+        "AudioWatermarkingSettings" : {
+          "$ref" : "#/definitions/AudioWatermarkSettings"
         }
       }
     },
@@ -770,6 +779,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "OcrLanguage" : {
+          "type" : "string"
+        },
         "Pid" : {
           "type" : "integer"
         }
@@ -1105,6 +1117,21 @@
         }
       }
     },
+    "NielsenCBET" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CbetStepaside" : {
+          "type" : "string"
+        },
+        "CbetCheckDigitString" : {
+          "type" : "string"
+        },
+        "Csid" : {
+          "type" : "string"
+        }
+      }
+    },
     "OutputGroupSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -1169,7 +1196,12 @@
     },
     "WebvttDestinationSettings" : {
       "type" : "object",
-      "additionalProperties" : false
+      "additionalProperties" : false,
+      "properties" : {
+        "StyleControl" : {
+          "type" : "string"
+        }
+      }
     },
     "UdpOutputSettings" : {
       "type" : "object",
@@ -1632,6 +1664,18 @@
       "type" : "object",
       "additionalProperties" : false
     },
+    "AudioHlsRenditionSelection" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "GroupId" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      }
+    },
     "MsSmoothOutputSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -1748,6 +1792,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Scte35Source" : {
+          "type" : "string"
+        },
         "BufferSegments" : {
           "type" : "integer"
         },
@@ -2666,6 +2713,15 @@
         }
       }
     },
+    "AudioWatermarkSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "NielsenWatermarksSettings" : {
+          "$ref" : "#/definitions/NielsenWatermarksSettings"
+        }
+      }
+    },
     "EbuTtDDestinationSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2795,6 +2851,21 @@
         }
       }
     },
+    "NielsenWatermarksSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "NielsenNaesIiNwSettings" : {
+          "$ref" : "#/definitions/NielsenNaesIiNw"
+        },
+        "NielsenDistributionType" : {
+          "type" : "string"
+        },
+        "NielsenCbetSettings" : {
+          "$ref" : "#/definitions/NielsenCBET"
+        }
+      }
+    },
     "MsSmoothGroupSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2868,6 +2939,18 @@
       "properties" : {
         "DestinationRefId" : {
           "type" : "string"
+        }
+      }
+    },
+    "NielsenNaesIiNw" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CheckDigitString" : {
+          "type" : "string"
+        },
+        "Sid" : {
+          "type" : "number"
         }
       }
     }

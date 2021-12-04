@@ -38,21 +38,25 @@
       "additionalProperties" : false
     },
     "BotVersionLocaleSpecification" : {
+      "type" : "object",
+      "properties" : {
+        "LocaleId" : {
+          "$ref" : "#/definitions/LocaleId"
+        },
+        "BotVersionLocaleDetails" : {
+          "$ref" : "#/definitions/BotVersionLocaleDetails"
+        }
+      },
+      "required" : [ "LocaleId", "BotVersionLocaleDetails" ],
+      "additionalProperties" : false
+    },
+    "BotVersionLocaleSpecificationList" : {
       "description" : "Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale.",
       "type" : "array",
       "insertionOrder" : false,
       "minItems" : 1,
       "items" : {
-        "properties" : {
-          "LocaleId" : {
-            "$ref" : "#/definitions/LocaleId"
-          },
-          "BotVersionLocaleDetails" : {
-            "$ref" : "#/definitions/BotVersionLocaleDetails"
-          }
-        },
-        "required" : [ "LocaleId", "BotVersionLocaleDetails" ],
-        "additionalProperties" : false
+        "$ref" : "#/definitions/BotVersionLocaleSpecification"
       }
     }
   },
@@ -67,7 +71,7 @@
       "$ref" : "#/definitions/Description"
     },
     "BotVersionLocaleSpecification" : {
-      "$ref" : "#/definitions/BotVersionLocaleSpecification"
+      "$ref" : "#/definitions/BotVersionLocaleSpecificationList"
     }
   },
   "taggable" : false,

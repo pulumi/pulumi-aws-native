@@ -64,6 +64,9 @@
     "StreamArn" : {
       "type" : "string"
     },
+    "TableClass" : {
+      "type" : "string"
+    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,

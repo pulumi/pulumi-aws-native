@@ -91,6 +91,9 @@
         "ImageConfig" : {
           "$ref" : "#/definitions/ImageConfig"
         },
+        "InferenceSpecificationName" : {
+          "type" : "string"
+        },
         "ContainerHostname" : {
           "type" : "string"
         },
