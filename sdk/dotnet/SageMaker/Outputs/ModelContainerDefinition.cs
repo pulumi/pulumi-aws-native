@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly object? Environment;
         public readonly string? Image;
         public readonly Outputs.ModelImageConfig? ImageConfig;
+        public readonly string? InferenceSpecificationName;
         public readonly string? Mode;
         public readonly string? ModelDataUrl;
         public readonly string? ModelPackageName;
@@ -32,6 +33,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.ModelImageConfig? imageConfig,
 
+            string? inferenceSpecificationName,
+
             string? mode,
 
             string? modelDataUrl,
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             Environment = environment;
             Image = image;
             ImageConfig = imageConfig;
+            InferenceSpecificationName = inferenceSpecificationName;
             Mode = mode;
             ModelDataUrl = modelDataUrl;
             ModelPackageName = modelPackageName;

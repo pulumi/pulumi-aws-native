@@ -3,13 +3,28 @@
   "description" : "Resource Type definition for AWS::EMR::InstanceGroupConfig",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
+    "JobFlowId" : {
       "type" : "string"
     },
     "AutoScalingPolicy" : {
       "$ref" : "#/definitions/AutoScalingPolicy"
     },
     "BidPrice" : {
+      "type" : "string"
+    },
+    "InstanceCount" : {
+      "type" : "integer"
+    },
+    "EbsConfiguration" : {
+      "$ref" : "#/definitions/EbsConfiguration"
+    },
+    "InstanceRole" : {
+      "type" : "string"
+    },
+    "CustomAmiId" : {
+      "type" : "string"
+    },
+    "Id" : {
       "type" : "string"
     },
     "Configurations" : {
@@ -19,19 +34,7 @@
         "$ref" : "#/definitions/Configuration"
       }
     },
-    "EbsConfiguration" : {
-      "$ref" : "#/definitions/EbsConfiguration"
-    },
-    "InstanceCount" : {
-      "type" : "integer"
-    },
-    "InstanceRole" : {
-      "type" : "string"
-    },
     "InstanceType" : {
-      "type" : "string"
-    },
-    "JobFlowId" : {
       "type" : "string"
     },
     "Market" : {
@@ -46,42 +49,72 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Constraints" : {
-          "$ref" : "#/definitions/ScalingConstraints"
-        },
         "Rules" : {
           "type" : "array",
           "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/ScalingRule"
           }
+        },
+        "Constraints" : {
+          "$ref" : "#/definitions/ScalingConstraints"
         }
       },
-      "required" : [ "Rules", "Constraints" ]
+      "required" : [ "Constraints", "Rules" ]
     },
-    "Configuration" : {
+    "VolumeSpecification" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Classification" : {
+        "SizeInGB" : {
+          "type" : "integer"
+        },
+        "VolumeType" : {
           "type" : "string"
         },
-        "ConfigurationProperties" : {
-          "type" : "object",
-          "patternProperties" : {
-            "[a-zA-Z0-9]+" : {
-              "type" : "string"
-            }
-          }
+        "Iops" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "SizeInGB", "VolumeType" ]
+    },
+    "CloudWatchAlarmDefinition" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MetricName" : {
+          "type" : "string"
         },
-        "Configurations" : {
+        "ComparisonOperator" : {
+          "type" : "string"
+        },
+        "Statistic" : {
+          "type" : "string"
+        },
+        "Dimensions" : {
           "type" : "array",
           "uniqueItems" : true,
           "items" : {
-            "$ref" : "#/definitions/Configuration"
+            "$ref" : "#/definitions/MetricDimension"
           }
+        },
+        "Period" : {
+          "type" : "integer"
+        },
+        "EvaluationPeriods" : {
+          "type" : "integer"
+        },
+        "Unit" : {
+          "type" : "string"
+        },
+        "Namespace" : {
+          "type" : "string"
+        },
+        "Threshold" : {
+          "type" : "number"
         }
-      }
+      },
+      "required" : [ "MetricName", "ComparisonOperator", "Period", "Threshold" ]
     },
     "EbsConfiguration" : {
       "type" : "object",
@@ -99,50 +132,29 @@
         }
       }
     },
-    "EbsBlockDeviceConfig" : {
+    "Configuration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "VolumeSpecification" : {
-          "$ref" : "#/definitions/VolumeSpecification"
+        "ConfigurationProperties" : {
+          "type" : "object",
+          "patternProperties" : {
+            "[a-zA-Z0-9]+" : {
+              "type" : "string"
+            }
+          }
         },
-        "VolumesPerInstance" : {
-          "type" : "integer"
-        }
-      },
-      "required" : [ "VolumeSpecification" ]
-    },
-    "ScalingConstraints" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MaxCapacity" : {
-          "type" : "integer"
+        "Configurations" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/Configuration"
+          }
         },
-        "MinCapacity" : {
-          "type" : "integer"
-        }
-      },
-      "required" : [ "MinCapacity", "MaxCapacity" ]
-    },
-    "ScalingRule" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Action" : {
-          "$ref" : "#/definitions/ScalingAction"
-        },
-        "Description" : {
+        "Classification" : {
           "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        },
-        "Trigger" : {
-          "$ref" : "#/definitions/ScalingTrigger"
         }
-      },
-      "required" : [ "Action", "Name", "Trigger" ]
+      }
     },
     "ScalingAction" : {
       "type" : "object",
@@ -157,21 +169,47 @@
       },
       "required" : [ "SimpleScalingPolicyConfiguration" ]
     },
-    "VolumeSpecification" : {
+    "SimpleScalingPolicyConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Iops" : {
+        "ScalingAdjustment" : {
           "type" : "integer"
         },
-        "SizeInGB" : {
+        "CoolDown" : {
           "type" : "integer"
         },
-        "VolumeType" : {
+        "AdjustmentType" : {
           "type" : "string"
         }
       },
-      "required" : [ "SizeInGB", "VolumeType" ]
+      "required" : [ "ScalingAdjustment" ]
+    },
+    "ScalingConstraints" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MinCapacity" : {
+          "type" : "integer"
+        },
+        "MaxCapacity" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "MinCapacity", "MaxCapacity" ]
+    },
+    "EbsBlockDeviceConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "VolumeSpecification" : {
+          "$ref" : "#/definitions/VolumeSpecification"
+        },
+        "VolumesPerInstance" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "VolumeSpecification" ]
     },
     "ScalingTrigger" : {
       "type" : "object",
@@ -183,68 +221,33 @@
       },
       "required" : [ "CloudWatchAlarmDefinition" ]
     },
-    "CloudWatchAlarmDefinition" : {
+    "ScalingRule" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ComparisonOperator" : {
+        "Action" : {
+          "$ref" : "#/definitions/ScalingAction"
+        },
+        "Description" : {
           "type" : "string"
         },
-        "Dimensions" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "items" : {
-            "$ref" : "#/definitions/MetricDimension"
-          }
+        "Trigger" : {
+          "$ref" : "#/definitions/ScalingTrigger"
         },
-        "EvaluationPeriods" : {
-          "type" : "integer"
-        },
-        "MetricName" : {
-          "type" : "string"
-        },
-        "Namespace" : {
-          "type" : "string"
-        },
-        "Period" : {
-          "type" : "integer"
-        },
-        "Statistic" : {
-          "type" : "string"
-        },
-        "Threshold" : {
-          "type" : "number"
-        },
-        "Unit" : {
+        "Name" : {
           "type" : "string"
         }
       },
-      "required" : [ "MetricName", "ComparisonOperator", "Period", "Threshold" ]
-    },
-    "SimpleScalingPolicyConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "AdjustmentType" : {
-          "type" : "string"
-        },
-        "CoolDown" : {
-          "type" : "integer"
-        },
-        "ScalingAdjustment" : {
-          "type" : "integer"
-        }
-      },
-      "required" : [ "ScalingAdjustment" ]
+      "required" : [ "Action", "Trigger", "Name" ]
     },
     "MetricDimension" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Key" : {
+        "Value" : {
           "type" : "string"
         },
-        "Value" : {
+        "Key" : {
           "type" : "string"
         }
       },
@@ -252,7 +255,7 @@
     }
   },
   "required" : [ "JobFlowId", "InstanceCount", "InstanceRole", "InstanceType" ],
-  "createOnlyProperties" : [ "/properties/InstanceRole", "/properties/JobFlowId", "/properties/Name", "/properties/InstanceType", "/properties/Configurations", "/properties/EbsConfiguration", "/properties/Market", "/properties/BidPrice" ],
+  "createOnlyProperties" : [ "/properties/InstanceRole", "/properties/JobFlowId", "/properties/Name", "/properties/InstanceType", "/properties/CustomAmiId", "/properties/Configurations", "/properties/EbsConfiguration", "/properties/Market", "/properties/BidPrice" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

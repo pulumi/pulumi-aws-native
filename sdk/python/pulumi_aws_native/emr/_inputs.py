@@ -595,6 +595,7 @@ class ClusterInstanceGroupConfigArgs:
                  auto_scaling_policy: Optional[pulumi.Input['ClusterAutoScalingPolicyArgs']] = None,
                  bid_price: Optional[pulumi.Input[str]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None,
+                 custom_ami_id: Optional[pulumi.Input[str]] = None,
                  ebs_configuration: Optional[pulumi.Input['ClusterEbsConfigurationArgs']] = None,
                  market: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -606,6 +607,8 @@ class ClusterInstanceGroupConfigArgs:
             pulumi.set(__self__, "bid_price", bid_price)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
             pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if market is not None:
@@ -659,6 +662,15 @@ class ClusterInstanceGroupConfigArgs:
         pulumi.set(self, "configurations", value)
 
     @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_ami_id")
+
+    @custom_ami_id.setter
+    def custom_ami_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_ami_id", value)
+
+    @property
     @pulumi.getter(name="ebsConfiguration")
     def ebs_configuration(self) -> Optional[pulumi.Input['ClusterEbsConfigurationArgs']]:
         return pulumi.get(self, "ebs_configuration")
@@ -693,6 +705,7 @@ class ClusterInstanceTypeConfigArgs:
                  bid_price: Optional[pulumi.Input[str]] = None,
                  bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None,
+                 custom_ami_id: Optional[pulumi.Input[str]] = None,
                  ebs_configuration: Optional[pulumi.Input['ClusterEbsConfigurationArgs']] = None,
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "instance_type", instance_type)
@@ -702,6 +715,8 @@ class ClusterInstanceTypeConfigArgs:
             pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
             pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if weighted_capacity is not None:
@@ -742,6 +757,15 @@ class ClusterInstanceTypeConfigArgs:
     @configurations.setter
     def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]]):
         pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_ami_id")
+
+    @custom_ami_id.setter
+    def custom_ami_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_ami_id", value)
 
     @property
     @pulumi.getter(name="ebsConfiguration")
@@ -1606,6 +1630,7 @@ class InstanceFleetConfigInstanceTypeConfigArgs:
                  bid_price: Optional[pulumi.Input[str]] = None,
                  bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigConfigurationArgs']]]] = None,
+                 custom_ami_id: Optional[pulumi.Input[str]] = None,
                  ebs_configuration: Optional[pulumi.Input['InstanceFleetConfigEbsConfigurationArgs']] = None,
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "instance_type", instance_type)
@@ -1615,6 +1640,8 @@ class InstanceFleetConfigInstanceTypeConfigArgs:
             pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
             pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if weighted_capacity is not None:
@@ -1655,6 +1682,15 @@ class InstanceFleetConfigInstanceTypeConfigArgs:
     @configurations.setter
     def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigConfigurationArgs']]]]):
         pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_ami_id")
+
+    @custom_ami_id.setter
+    def custom_ami_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_ami_id", value)
 
     @property
     @pulumi.getter(name="ebsConfiguration")

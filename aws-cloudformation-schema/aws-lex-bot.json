@@ -746,8 +746,63 @@
       "required" : [ "ResolutionStrategy" ],
       "additionalProperties" : false
     },
+    "S3BucketName" : {
+      "type" : "string",
+      "minLength" : 3,
+      "maxLength" : 63,
+      "pattern" : "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$"
+    },
+    "S3ObjectKey" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 1024,
+      "pattern" : "[\\.\\-\\!\\*\\_\\'\\(\\)a-zA-Z0-9][\\.\\-\\!\\*\\_\\'\\(\\)\\/a-zA-Z0-9]*$"
+    },
+    "GrammarSlotTypeSource" : {
+      "description" : "Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.",
+      "type" : "object",
+      "properties" : {
+        "S3BucketName" : {
+          "description" : "The name of the S3 bucket that contains the grammar source.",
+          "$ref" : "#/definitions/S3BucketName"
+        },
+        "S3ObjectKey" : {
+          "description" : "The path to the grammar in the S3 bucket.",
+          "$ref" : "#/definitions/S3ObjectKey"
+        },
+        "KmsKeyArn" : {
+          "description" : "The Amazon KMS key required to decrypt the contents of the grammar, if any.",
+          "type" : "string",
+          "minLength" : 20,
+          "maxLength" : 2048,
+          "pattern" : "^arn:[\\w\\-]+:kms:[\\w\\-]+:[\\d]{12}:(?:key\\/[\\w\\-]+|alias\\/[a-zA-Z0-9:\\/_\\-]{1,256})$"
+        }
+      },
+      "required" : [ "S3BucketName", "S3ObjectKey" ],
+      "additionalProperties" : false
+    },
+    "GrammarSlotTypeSetting" : {
+      "description" : "Settings required for a slot type based on a grammar that you provide.",
+      "type" : "object",
+      "properties" : {
+        "Source" : {
+          "$ref" : "#/definitions/GrammarSlotTypeSource"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ExternalSourceSetting" : {
+      "description" : "Provides information about the external source of the slot type's definition.",
+      "type" : "object",
+      "properties" : {
+        "GrammarSlotTypeSetting" : {
+          "$ref" : "#/definitions/GrammarSlotTypeSetting"
+        }
+      },
+      "additionalProperties" : false
+    },
     "SlotType" : {
-      "description" : "A custom slot type.",
+      "description" : "A custom, extended built-in or a grammar slot type.",
       "type" : "object",
       "properties" : {
         "Name" : {
@@ -764,9 +819,12 @@
         },
         "ValueSelectionSetting" : {
           "$ref" : "#/definitions/SlotValueSelectionSetting"
+        },
+        "ExternalSourceSetting" : {
+          "$ref" : "#/definitions/ExternalSourceSetting"
         }
       },
-      "required" : [ "Name", "ValueSelectionSetting" ],
+      "required" : [ "Name" ],
       "additionalProperties" : false
     },
     "SlotDefaultValue" : {
@@ -951,17 +1009,12 @@
       "type" : "object",
       "properties" : {
         "S3Bucket" : {
-          "type" : "string",
           "description" : "An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.",
-          "minLength" : 3,
-          "maxLength" : 63,
-          "pattern" : "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$"
+          "$ref" : "#/definitions/S3BucketName"
         },
         "S3ObjectKey" : {
-          "type" : "string",
           "description" : "The Amazon S3 key of the deployment package.",
-          "minLength" : 1,
-          "maxLength" : 1024
+          "$ref" : "#/definitions/S3ObjectKey"
         },
         "S3ObjectVersion" : {
           "type" : "string",

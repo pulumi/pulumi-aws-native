@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.FSx
         [Output("ontapConfiguration")]
         public Output<Outputs.FileSystemOntapConfiguration?> OntapConfiguration { get; private set; } = null!;
 
+        [Output("openZFSConfiguration")]
+        public Output<Outputs.FileSystemOpenZFSConfiguration?> OpenZFSConfiguration { get; private set; } = null!;
+
+        [Output("rootVolumeId")]
+        public Output<string> RootVolumeId { get; private set; } = null!;
+
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
@@ -120,6 +126,9 @@ namespace Pulumi.AwsNative.FSx
 
         [Input("ontapConfiguration")]
         public Input<Inputs.FileSystemOntapConfigurationArgs>? OntapConfiguration { get; set; }
+
+        [Input("openZFSConfiguration")]
+        public Input<Inputs.FileSystemOpenZFSConfigurationArgs>? OpenZFSConfiguration { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

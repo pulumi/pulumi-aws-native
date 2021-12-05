@@ -68,6 +68,7 @@ export class Instance extends pulumi.CustomResource {
     public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
     public /*out*/ readonly privateIp!: pulumi.Output<string>;
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    public readonly propagateTagsToVolumeOnCreation!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly publicDnsName!: pulumi.Output<string>;
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     public readonly ramdiskId!: pulumi.Output<string | undefined>;
@@ -122,6 +123,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             inputs["placementGroupName"] = args ? args.placementGroupName : undefined;
             inputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            inputs["propagateTagsToVolumeOnCreation"] = args ? args.propagateTagsToVolumeOnCreation : undefined;
             inputs["ramdiskId"] = args ? args.ramdiskId : undefined;
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
@@ -167,6 +169,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["privateDnsName"] = undefined /*out*/;
             inputs["privateIp"] = undefined /*out*/;
             inputs["privateIpAddress"] = undefined /*out*/;
+            inputs["propagateTagsToVolumeOnCreation"] = undefined /*out*/;
             inputs["publicDnsName"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
             inputs["ramdiskId"] = undefined /*out*/;
@@ -219,6 +222,7 @@ export interface InstanceArgs {
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceNetworkInterfaceArgs>[]>;
     placementGroupName?: pulumi.Input<string>;
     privateIpAddress?: pulumi.Input<string>;
+    propagateTagsToVolumeOnCreation?: pulumi.Input<boolean>;
     ramdiskId?: pulumi.Input<string>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;

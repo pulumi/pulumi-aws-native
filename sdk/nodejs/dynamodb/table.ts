@@ -51,6 +51,7 @@ export class Table extends pulumi.CustomResource {
     public readonly sSESpecification!: pulumi.Output<outputs.dynamodb.TableSSESpecification | undefined>;
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     public readonly streamSpecification!: pulumi.Output<outputs.dynamodb.TableStreamSpecification | undefined>;
+    public readonly tableClass!: pulumi.Output<string | undefined>;
     public readonly tableName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.dynamodb.TableTag[] | undefined>;
     public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.TableTimeToLiveSpecification | undefined>;
@@ -82,6 +83,7 @@ export class Table extends pulumi.CustomResource {
             inputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
             inputs["sSESpecification"] = args ? args.sSESpecification : undefined;
             inputs["streamSpecification"] = args ? args.streamSpecification : undefined;
+            inputs["tableClass"] = args ? args.tableClass : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
@@ -101,6 +103,7 @@ export class Table extends pulumi.CustomResource {
             inputs["sSESpecification"] = undefined /*out*/;
             inputs["streamArn"] = undefined /*out*/;
             inputs["streamSpecification"] = undefined /*out*/;
+            inputs["tableClass"] = undefined /*out*/;
             inputs["tableName"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeToLiveSpecification"] = undefined /*out*/;
@@ -127,6 +130,7 @@ export interface TableArgs {
     provisionedThroughput?: pulumi.Input<inputs.dynamodb.TableProvisionedThroughputArgs>;
     sSESpecification?: pulumi.Input<inputs.dynamodb.TableSSESpecificationArgs>;
     streamSpecification?: pulumi.Input<inputs.dynamodb.TableStreamSpecificationArgs>;
+    tableClass?: pulumi.Input<string>;
     tableName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableTagArgs>[]>;
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.TableTimeToLiveSpecificationArgs>;

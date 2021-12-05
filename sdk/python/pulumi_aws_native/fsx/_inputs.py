@@ -10,11 +10,16 @@ from .. import _utilities
 
 __all__ = [
     'FileSystemAuditLogConfigurationArgs',
+    'FileSystemClientConfigurationsArgs',
     'FileSystemDiskIopsConfigurationArgs',
     'FileSystemLustreConfigurationArgs',
+    'FileSystemNfsExportsArgs',
     'FileSystemOntapConfigurationArgs',
+    'FileSystemOpenZFSConfigurationArgs',
+    'FileSystemRootVolumeConfigurationArgs',
     'FileSystemSelfManagedActiveDirectoryConfigurationArgs',
     'FileSystemTagArgs',
+    'FileSystemUserAndGroupQuotasArgs',
     'FileSystemWindowsConfigurationArgs',
 ]
 
@@ -55,6 +60,35 @@ class FileSystemAuditLogConfigurationArgs:
     @audit_log_destination.setter
     def audit_log_destination(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "audit_log_destination", value)
+
+
+@pulumi.input_type
+class FileSystemClientConfigurationsArgs:
+    def __init__(__self__, *,
+                 clients: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if clients is not None:
+            pulumi.set(__self__, "clients", clients)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def clients(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "clients")
+
+    @clients.setter
+    def clients(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "clients", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -236,6 +270,23 @@ class FileSystemLustreConfigurationArgs:
 
 
 @pulumi.input_type
+class FileSystemNfsExportsArgs:
+    def __init__(__self__, *,
+                 client_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemClientConfigurationsArgs']]]] = None):
+        if client_configurations is not None:
+            pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemClientConfigurationsArgs']]]]:
+        return pulumi.get(self, "client_configurations")
+
+    @client_configurations.setter
+    def client_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemClientConfigurationsArgs']]]]):
+        pulumi.set(self, "client_configurations", value)
+
+
+@pulumi.input_type
 class FileSystemOntapConfigurationArgs:
     def __init__(__self__, *,
                  deployment_type: pulumi.Input[str],
@@ -360,6 +411,183 @@ class FileSystemOntapConfigurationArgs:
 
 
 @pulumi.input_type
+class FileSystemOpenZFSConfigurationArgs:
+    def __init__(__self__, *,
+                 deployment_type: pulumi.Input[str],
+                 automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+                 copy_tags_to_volumes: Optional[pulumi.Input[bool]] = None,
+                 daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+                 disk_iops_configuration: Optional[pulumi.Input['FileSystemDiskIopsConfigurationArgs']] = None,
+                 root_volume_configuration: Optional[pulumi.Input['FileSystemRootVolumeConfigurationArgs']] = None,
+                 throughput_capacity: Optional[pulumi.Input[int]] = None,
+                 weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        if automatic_backup_retention_days is not None:
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+        if copy_tags_to_backups is not None:
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+        if copy_tags_to_volumes is not None:
+            pulumi.set(__self__, "copy_tags_to_volumes", copy_tags_to_volumes)
+        if daily_automatic_backup_start_time is not None:
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+        if disk_iops_configuration is not None:
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
+        if root_volume_configuration is not None:
+            pulumi.set(__self__, "root_volume_configuration", root_volume_configuration)
+        if throughput_capacity is not None:
+            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
+        if weekly_maintenance_start_time is not None:
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deployment_type", value)
+
+    @property
+    @pulumi.getter(name="automaticBackupRetentionDays")
+    def automatic_backup_retention_days(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "automatic_backup_retention_days")
+
+    @automatic_backup_retention_days.setter
+    def automatic_backup_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "automatic_backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToBackups")
+    def copy_tags_to_backups(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "copy_tags_to_backups")
+
+    @copy_tags_to_backups.setter
+    def copy_tags_to_backups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_backups", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToVolumes")
+    def copy_tags_to_volumes(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "copy_tags_to_volumes")
+
+    @copy_tags_to_volumes.setter
+    def copy_tags_to_volumes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_volumes", value)
+
+    @property
+    @pulumi.getter(name="dailyAutomaticBackupStartTime")
+    def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "daily_automatic_backup_start_time")
+
+    @daily_automatic_backup_start_time.setter
+    def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "daily_automatic_backup_start_time", value)
+
+    @property
+    @pulumi.getter(name="diskIopsConfiguration")
+    def disk_iops_configuration(self) -> Optional[pulumi.Input['FileSystemDiskIopsConfigurationArgs']]:
+        return pulumi.get(self, "disk_iops_configuration")
+
+    @disk_iops_configuration.setter
+    def disk_iops_configuration(self, value: Optional[pulumi.Input['FileSystemDiskIopsConfigurationArgs']]):
+        pulumi.set(self, "disk_iops_configuration", value)
+
+    @property
+    @pulumi.getter(name="rootVolumeConfiguration")
+    def root_volume_configuration(self) -> Optional[pulumi.Input['FileSystemRootVolumeConfigurationArgs']]:
+        return pulumi.get(self, "root_volume_configuration")
+
+    @root_volume_configuration.setter
+    def root_volume_configuration(self, value: Optional[pulumi.Input['FileSystemRootVolumeConfigurationArgs']]):
+        pulumi.set(self, "root_volume_configuration", value)
+
+    @property
+    @pulumi.getter(name="throughputCapacity")
+    def throughput_capacity(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput_capacity")
+
+    @throughput_capacity.setter
+    def throughput_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput_capacity", value)
+
+    @property
+    @pulumi.getter(name="weeklyMaintenanceStartTime")
+    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "weekly_maintenance_start_time")
+
+    @weekly_maintenance_start_time.setter
+    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "weekly_maintenance_start_time", value)
+
+
+@pulumi.input_type
+class FileSystemRootVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
+                 data_compression_type: Optional[pulumi.Input[str]] = None,
+                 nfs_exports: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemNfsExportsArgs']]]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemUserAndGroupQuotasArgs']]]] = None):
+        if copy_tags_to_snapshots is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if nfs_exports is not None:
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if user_and_group_quotas is not None:
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshots")
+    def copy_tags_to_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "copy_tags_to_snapshots")
+
+    @copy_tags_to_snapshots.setter
+    def copy_tags_to_snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshots", value)
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_compression_type")
+
+    @data_compression_type.setter
+    def data_compression_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_compression_type", value)
+
+    @property
+    @pulumi.getter(name="nfsExports")
+    def nfs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemNfsExportsArgs']]]]:
+        return pulumi.get(self, "nfs_exports")
+
+    @nfs_exports.setter
+    def nfs_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemNfsExportsArgs']]]]):
+        pulumi.set(self, "nfs_exports", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter(name="userAndGroupQuotas")
+    def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemUserAndGroupQuotasArgs']]]]:
+        return pulumi.get(self, "user_and_group_quotas")
+
+    @user_and_group_quotas.setter
+    def user_and_group_quotas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemUserAndGroupQuotasArgs']]]]):
+        pulumi.set(self, "user_and_group_quotas", value)
+
+
+@pulumi.input_type
 class FileSystemSelfManagedActiveDirectoryConfigurationArgs:
     def __init__(__self__, *,
                  dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -461,6 +689,47 @@ class FileSystemTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class FileSystemUserAndGroupQuotasArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[int]] = None,
+                 storage_capacity_quota_gi_b: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if storage_capacity_quota_gi_b is not None:
+            pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGiB")
+    def storage_capacity_quota_gi_b(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "storage_capacity_quota_gi_b")
+
+    @storage_capacity_quota_gi_b.setter
+    def storage_capacity_quota_gi_b(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_capacity_quota_gi_b", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
 
     public sealed class ChannelAudioSelectorSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("audioHlsRenditionSelection")]
+        public Input<Inputs.ChannelAudioHlsRenditionSelectionArgs>? AudioHlsRenditionSelection { get; set; }
+
         [Input("audioLanguageSelection")]
         public Input<Inputs.ChannelAudioLanguageSelectionArgs>? AudioLanguageSelection { get; set; }
 

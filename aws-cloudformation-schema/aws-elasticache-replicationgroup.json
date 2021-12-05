@@ -165,6 +165,9 @@
     "AuthToken" : {
       "type" : "string"
     },
+    "DataTieringEnabled" : {
+      "type" : "boolean"
+    },
     "LogDeliveryConfigurations" : {
       "type" : "array",
       "uniqueItems" : true,
@@ -268,7 +271,7 @@
     }
   },
   "required" : [ "ReplicationGroupDescription" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/Port", "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/TransitEncryptionEnabled", "/properties/CacheSubnetGroupName", "/properties/AtRestEncryptionEnabled", "/properties/ReplicationGroupId", "/properties/GlobalReplicationGroupId", "/properties/ReplicasPerNodeGroup", "/properties/Engine", "/properties/PreferredCacheClusterAZs" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/Port", "/properties/SnapshotArns", "/properties/TransitEncryptionEnabled", "/properties/CacheSubnetGroupName", "/properties/DataTieringEnabled", "/properties/AtRestEncryptionEnabled", "/properties/ReplicationGroupId", "/properties/GlobalReplicationGroupId", "/properties/ReplicasPerNodeGroup", "/properties/PreferredCacheClusterAZs", "/properties/SnapshotName", "/properties/Engine" ],
   "primaryIdentifier" : [ "/properties/ReplicationGroupId" ],
   "readOnlyProperties" : [ "/properties/ConfigurationEndPoint.Address", "/properties/PrimaryEndPoint.Address", "/properties/PrimaryEndPoint.Port", "/properties/ReaderEndPoint.Address", "/properties/ConfigurationEndPoint.Port", "/properties/ReadEndPoint.Addresses.List", "/properties/ReadEndPoint.Ports.List", "/properties/ReaderEndPoint.Port", "/properties/ReadEndPoint.Addresses", "/properties/ReadEndPoint.Ports", "/properties/ReplicationGroupId" ]
 }

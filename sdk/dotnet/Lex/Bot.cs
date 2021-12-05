@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Lex
     /// <summary>
     /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
     /// </summary>
-    [Obsolete(@"Bot is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lex:Bot")]
     public partial class Bot : Pulumi.CustomResource
     {

@@ -26,6 +26,7 @@ class TableArgs:
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
                  s_se_specification: Optional[pulumi.Input['TableSSESpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['TableStreamSpecificationArgs']] = None,
+                 table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
                  time_to_live_specification: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']] = None):
@@ -53,6 +54,8 @@ class TableArgs:
             pulumi.set(__self__, "s_se_specification", s_se_specification)
         if stream_specification is not None:
             pulumi.set(__self__, "stream_specification", stream_specification)
+        if table_class is not None:
+            pulumi.set(__self__, "table_class", table_class)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
         if tags is not None:
@@ -160,6 +163,15 @@ class TableArgs:
         pulumi.set(self, "stream_specification", value)
 
     @property
+    @pulumi.getter(name="tableClass")
+    def table_class(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "table_class")
+
+    @table_class.setter
+    def table_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_class", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "table_name")
@@ -208,6 +220,7 @@ class Table(pulumi.CustomResource):
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
                  s_se_specification: Optional[pulumi.Input[pulumi.InputType['TableSSESpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
+                 table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
@@ -253,6 +266,7 @@ class Table(pulumi.CustomResource):
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
                  s_se_specification: Optional[pulumi.Input[pulumi.InputType['TableSSESpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
+                 table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
@@ -282,6 +296,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["provisioned_throughput"] = provisioned_throughput
             __props__.__dict__["s_se_specification"] = s_se_specification
             __props__.__dict__["stream_specification"] = stream_specification
+            __props__.__dict__["table_class"] = table_class
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
@@ -322,6 +337,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["s_se_specification"] = None
         __props__.__dict__["stream_arn"] = None
         __props__.__dict__["stream_specification"] = None
+        __props__.__dict__["table_class"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_to_live_specification"] = None
@@ -391,6 +407,11 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> pulumi.Output[Optional['outputs.TableStreamSpecification']]:
         return pulumi.get(self, "stream_specification")
+
+    @property
+    @pulumi.getter(name="tableClass")
+    def table_class(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "table_class")
 
     @property
     @pulumi.getter(name="tableName")

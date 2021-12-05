@@ -26,10 +26,13 @@ __all__ = [
     'BotButton',
     'BotCustomPayload',
     'BotDialogCodeHookSetting',
+    'BotExternalSourceSetting',
     'BotFulfillmentCodeHookSetting',
     'BotFulfillmentStartResponseSpecification',
     'BotFulfillmentUpdateResponseSpecification',
     'BotFulfillmentUpdatesSpecification',
+    'BotGrammarSlotTypeSetting',
+    'BotGrammarSlotTypeSource',
     'BotImageResponseCard',
     'BotInputContext',
     'BotIntent',
@@ -62,7 +65,7 @@ __all__ = [
     'BotStillWaitingResponseSpecification',
     'BotTag',
     'BotVersionLocaleDetails',
-    'BotVersionLocaleSpecificationItemProperties',
+    'BotVersionLocaleSpecification',
     'BotVoiceSettings',
     'BotWaitAndContinueSpecification',
     'DataPrivacyProperties',
@@ -645,6 +648,42 @@ class BotDialogCodeHookSetting(dict):
 
 
 @pulumi.output_type
+class BotExternalSourceSetting(dict):
+    """
+    Provides information about the external source of the slot type's definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grammarSlotTypeSetting":
+            suggest = "grammar_slot_type_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotExternalSourceSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotExternalSourceSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotExternalSourceSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grammar_slot_type_setting: Optional['outputs.BotGrammarSlotTypeSetting'] = None):
+        """
+        Provides information about the external source of the slot type's definition.
+        """
+        if grammar_slot_type_setting is not None:
+            pulumi.set(__self__, "grammar_slot_type_setting", grammar_slot_type_setting)
+
+    @property
+    @pulumi.getter(name="grammarSlotTypeSetting")
+    def grammar_slot_type_setting(self) -> Optional['outputs.BotGrammarSlotTypeSetting']:
+        return pulumi.get(self, "grammar_slot_type_setting")
+
+
+@pulumi.output_type
 class BotFulfillmentCodeHookSetting(dict):
     """
     Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
@@ -890,6 +929,91 @@ class BotFulfillmentUpdatesSpecification(dict):
     @pulumi.getter(name="updateResponse")
     def update_response(self) -> Optional['outputs.BotFulfillmentUpdateResponseSpecification']:
         return pulumi.get(self, "update_response")
+
+
+@pulumi.output_type
+class BotGrammarSlotTypeSetting(dict):
+    """
+    Settings required for a slot type based on a grammar that you provide.
+    """
+    def __init__(__self__, *,
+                 source: Optional['outputs.BotGrammarSlotTypeSource'] = None):
+        """
+        Settings required for a slot type based on a grammar that you provide.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.BotGrammarSlotTypeSource']:
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class BotGrammarSlotTypeSource(dict):
+    """
+    Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3ObjectKey":
+            suggest = "s3_object_key"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotGrammarSlotTypeSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotGrammarSlotTypeSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotGrammarSlotTypeSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket_name: str,
+                 s3_object_key: str,
+                 kms_key_arn: Optional[str] = None):
+        """
+        Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+        :param str s3_bucket_name: The name of the S3 bucket that contains the grammar source.
+        :param str s3_object_key: The path to the grammar in the S3 bucket.
+        :param str kms_key_arn: The Amazon KMS key required to decrypt the contents of the grammar, if any.
+        """
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_object_key", s3_object_key)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> str:
+        """
+        The name of the S3 bucket that contains the grammar source.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="s3ObjectKey")
+    def s3_object_key(self) -> str:
+        """
+        The path to the grammar in the S3 bucket.
+        """
+        return pulumi.get(self, "s3_object_key")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        The Amazon KMS key required to decrypt the contents of the grammar, if any.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type
@@ -2129,17 +2253,19 @@ class BotSlotPriority(dict):
 @pulumi.output_type
 class BotSlotType(dict):
     """
-    A custom slot type.
+    A custom, extended built-in or a grammar slot type.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "valueSelectionSetting":
-            suggest = "value_selection_setting"
+        if key == "externalSourceSetting":
+            suggest = "external_source_setting"
         elif key == "parentSlotTypeSignature":
             suggest = "parent_slot_type_signature"
         elif key == "slotTypeValues":
             suggest = "slot_type_values"
+        elif key == "valueSelectionSetting":
+            suggest = "value_selection_setting"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotSlotType. Access the value via the '{suggest}' property getter instead.")
@@ -2154,21 +2280,25 @@ class BotSlotType(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 value_selection_setting: 'outputs.BotSlotValueSelectionSetting',
                  description: Optional[str] = None,
+                 external_source_setting: Optional['outputs.BotExternalSourceSetting'] = None,
                  parent_slot_type_signature: Optional[str] = None,
-                 slot_type_values: Optional[Sequence['outputs.BotSlotTypeValue']] = None):
+                 slot_type_values: Optional[Sequence['outputs.BotSlotTypeValue']] = None,
+                 value_selection_setting: Optional['outputs.BotSlotValueSelectionSetting'] = None):
         """
-        A custom slot type.
+        A custom, extended built-in or a grammar slot type.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value_selection_setting", value_selection_setting)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if external_source_setting is not None:
+            pulumi.set(__self__, "external_source_setting", external_source_setting)
         if parent_slot_type_signature is not None:
             pulumi.set(__self__, "parent_slot_type_signature", parent_slot_type_signature)
         if slot_type_values is not None:
             pulumi.set(__self__, "slot_type_values", slot_type_values)
+        if value_selection_setting is not None:
+            pulumi.set(__self__, "value_selection_setting", value_selection_setting)
 
     @property
     @pulumi.getter
@@ -2176,14 +2306,14 @@ class BotSlotType(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="valueSelectionSetting")
-    def value_selection_setting(self) -> 'outputs.BotSlotValueSelectionSetting':
-        return pulumi.get(self, "value_selection_setting")
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalSourceSetting")
+    def external_source_setting(self) -> Optional['outputs.BotExternalSourceSetting']:
+        return pulumi.get(self, "external_source_setting")
 
     @property
     @pulumi.getter(name="parentSlotTypeSignature")
@@ -2194,6 +2324,11 @@ class BotSlotType(dict):
     @pulumi.getter(name="slotTypeValues")
     def slot_type_values(self) -> Optional[Sequence['outputs.BotSlotTypeValue']]:
         return pulumi.get(self, "slot_type_values")
+
+    @property
+    @pulumi.getter(name="valueSelectionSetting")
+    def value_selection_setting(self) -> Optional['outputs.BotSlotValueSelectionSetting']:
+        return pulumi.get(self, "value_selection_setting")
 
 
 @pulumi.output_type
@@ -2537,7 +2672,7 @@ class BotVersionLocaleDetails(dict):
 
 
 @pulumi.output_type
-class BotVersionLocaleSpecificationItemProperties(dict):
+class BotVersionLocaleSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2547,14 +2682,14 @@ class BotVersionLocaleSpecificationItemProperties(dict):
             suggest = "locale_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BotVersionLocaleSpecificationItemProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in BotVersionLocaleSpecification. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        BotVersionLocaleSpecificationItemProperties.__key_warning(key)
+        BotVersionLocaleSpecification.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        BotVersionLocaleSpecificationItemProperties.__key_warning(key)
+        BotVersionLocaleSpecification.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -1434,6 +1434,7 @@ type ClusterInstanceGroupConfig struct {
 	AutoScalingPolicy *ClusterAutoScalingPolicy `pulumi:"autoScalingPolicy"`
 	BidPrice          *string                   `pulumi:"bidPrice"`
 	Configurations    []ClusterConfiguration    `pulumi:"configurations"`
+	CustomAmiId       *string                   `pulumi:"customAmiId"`
 	EbsConfiguration  *ClusterEbsConfiguration  `pulumi:"ebsConfiguration"`
 	InstanceCount     int                       `pulumi:"instanceCount"`
 	InstanceType      string                    `pulumi:"instanceType"`
@@ -1456,6 +1457,7 @@ type ClusterInstanceGroupConfigArgs struct {
 	AutoScalingPolicy ClusterAutoScalingPolicyPtrInput `pulumi:"autoScalingPolicy"`
 	BidPrice          pulumi.StringPtrInput            `pulumi:"bidPrice"`
 	Configurations    ClusterConfigurationArrayInput   `pulumi:"configurations"`
+	CustomAmiId       pulumi.StringPtrInput            `pulumi:"customAmiId"`
 	EbsConfiguration  ClusterEbsConfigurationPtrInput  `pulumi:"ebsConfiguration"`
 	InstanceCount     pulumi.IntInput                  `pulumi:"instanceCount"`
 	InstanceType      pulumi.StringInput               `pulumi:"instanceType"`
@@ -1552,6 +1554,10 @@ func (o ClusterInstanceGroupConfigOutput) Configurations() ClusterConfigurationA
 	return o.ApplyT(func(v ClusterInstanceGroupConfig) []ClusterConfiguration { return v.Configurations }).(ClusterConfigurationArrayOutput)
 }
 
+func (o ClusterInstanceGroupConfigOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroupConfig) *string { return v.CustomAmiId }).(pulumi.StringPtrOutput)
+}
+
 func (o ClusterInstanceGroupConfigOutput) EbsConfiguration() ClusterEbsConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroupConfig) *ClusterEbsConfiguration { return v.EbsConfiguration }).(ClusterEbsConfigurationPtrOutput)
 }
@@ -1623,6 +1629,15 @@ func (o ClusterInstanceGroupConfigPtrOutput) Configurations() ClusterConfigurati
 	}).(ClusterConfigurationArrayOutput)
 }
 
+func (o ClusterInstanceGroupConfigPtrOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAmiId
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ClusterInstanceGroupConfigPtrOutput) EbsConfiguration() ClusterEbsConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterInstanceGroupConfig) *ClusterEbsConfiguration {
 		if v == nil {
@@ -1672,6 +1687,7 @@ type ClusterInstanceTypeConfig struct {
 	BidPrice                            *string                  `pulumi:"bidPrice"`
 	BidPriceAsPercentageOfOnDemandPrice *float64                 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	Configurations                      []ClusterConfiguration   `pulumi:"configurations"`
+	CustomAmiId                         *string                  `pulumi:"customAmiId"`
 	EbsConfiguration                    *ClusterEbsConfiguration `pulumi:"ebsConfiguration"`
 	InstanceType                        string                   `pulumi:"instanceType"`
 	WeightedCapacity                    *int                     `pulumi:"weightedCapacity"`
@@ -1692,6 +1708,7 @@ type ClusterInstanceTypeConfigArgs struct {
 	BidPrice                            pulumi.StringPtrInput           `pulumi:"bidPrice"`
 	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput          `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	Configurations                      ClusterConfigurationArrayInput  `pulumi:"configurations"`
+	CustomAmiId                         pulumi.StringPtrInput           `pulumi:"customAmiId"`
 	EbsConfiguration                    ClusterEbsConfigurationPtrInput `pulumi:"ebsConfiguration"`
 	InstanceType                        pulumi.StringInput              `pulumi:"instanceType"`
 	WeightedCapacity                    pulumi.IntPtrInput              `pulumi:"weightedCapacity"`
@@ -1758,6 +1775,10 @@ func (o ClusterInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() p
 
 func (o ClusterInstanceTypeConfigOutput) Configurations() ClusterConfigurationArrayOutput {
 	return o.ApplyT(func(v ClusterInstanceTypeConfig) []ClusterConfiguration { return v.Configurations }).(ClusterConfigurationArrayOutput)
+}
+
+func (o ClusterInstanceTypeConfigOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceTypeConfig) *string { return v.CustomAmiId }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterInstanceTypeConfigOutput) EbsConfiguration() ClusterEbsConfigurationPtrOutput {
@@ -4383,6 +4404,7 @@ type InstanceFleetConfigInstanceTypeConfig struct {
 	BidPrice                            *string                              `pulumi:"bidPrice"`
 	BidPriceAsPercentageOfOnDemandPrice *float64                             `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	Configurations                      []InstanceFleetConfigConfiguration   `pulumi:"configurations"`
+	CustomAmiId                         *string                              `pulumi:"customAmiId"`
 	EbsConfiguration                    *InstanceFleetConfigEbsConfiguration `pulumi:"ebsConfiguration"`
 	InstanceType                        string                               `pulumi:"instanceType"`
 	WeightedCapacity                    *int                                 `pulumi:"weightedCapacity"`
@@ -4403,6 +4425,7 @@ type InstanceFleetConfigInstanceTypeConfigArgs struct {
 	BidPrice                            pulumi.StringPtrInput                       `pulumi:"bidPrice"`
 	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput                      `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	Configurations                      InstanceFleetConfigConfigurationArrayInput  `pulumi:"configurations"`
+	CustomAmiId                         pulumi.StringPtrInput                       `pulumi:"customAmiId"`
 	EbsConfiguration                    InstanceFleetConfigEbsConfigurationPtrInput `pulumi:"ebsConfiguration"`
 	InstanceType                        pulumi.StringInput                          `pulumi:"instanceType"`
 	WeightedCapacity                    pulumi.IntPtrInput                          `pulumi:"weightedCapacity"`
@@ -4471,6 +4494,10 @@ func (o InstanceFleetConfigInstanceTypeConfigOutput) Configurations() InstanceFl
 	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) []InstanceFleetConfigConfiguration {
 		return v.Configurations
 	}).(InstanceFleetConfigConfigurationArrayOutput)
+}
+
+func (o InstanceFleetConfigInstanceTypeConfigOutput) CustomAmiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetConfigInstanceTypeConfig) *string { return v.CustomAmiId }).(pulumi.StringPtrOutput)
 }
 
 func (o InstanceFleetConfigInstanceTypeConfigOutput) EbsConfiguration() InstanceFleetConfigEbsConfigurationPtrOutput {

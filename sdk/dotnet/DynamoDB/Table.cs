@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.DynamoDB
         [Output("streamSpecification")]
         public Output<Outputs.TableStreamSpecification?> StreamSpecification { get; private set; } = null!;
 
+        [Output("tableClass")]
+        public Output<string?> TableClass { get; private set; } = null!;
+
         [Output("tableName")]
         public Output<string?> TableName { get; private set; } = null!;
 
@@ -161,6 +164,9 @@ namespace Pulumi.AwsNative.DynamoDB
 
         [Input("streamSpecification")]
         public Input<Inputs.TableStreamSpecificationArgs>? StreamSpecification { get; set; }
+
+        [Input("tableClass")]
+        public Input<string>? TableClass { get; set; }
 
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

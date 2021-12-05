@@ -46,6 +46,7 @@ type Instance struct {
 	PrivateDnsName                    pulumi.StringOutput                            `pulumi:"privateDnsName"`
 	PrivateIp                         pulumi.StringOutput                            `pulumi:"privateIp"`
 	PrivateIpAddress                  pulumi.StringPtrOutput                         `pulumi:"privateIpAddress"`
+	PropagateTagsToVolumeOnCreation   pulumi.BoolPtrOutput                           `pulumi:"propagateTagsToVolumeOnCreation"`
 	PublicDnsName                     pulumi.StringOutput                            `pulumi:"publicDnsName"`
 	PublicIp                          pulumi.StringOutput                            `pulumi:"publicIp"`
 	RamdiskId                         pulumi.StringPtrOutput                         `pulumi:"ramdiskId"`
@@ -127,6 +128,7 @@ type instanceArgs struct {
 	NetworkInterfaces                 []InstanceNetworkInterface            `pulumi:"networkInterfaces"`
 	PlacementGroupName                *string                               `pulumi:"placementGroupName"`
 	PrivateIpAddress                  *string                               `pulumi:"privateIpAddress"`
+	PropagateTagsToVolumeOnCreation   *bool                                 `pulumi:"propagateTagsToVolumeOnCreation"`
 	RamdiskId                         *string                               `pulumi:"ramdiskId"`
 	SecurityGroupIds                  []string                              `pulumi:"securityGroupIds"`
 	SecurityGroups                    []string                              `pulumi:"securityGroups"`
@@ -169,6 +171,7 @@ type InstanceArgs struct {
 	NetworkInterfaces                 InstanceNetworkInterfaceArrayInput
 	PlacementGroupName                pulumi.StringPtrInput
 	PrivateIpAddress                  pulumi.StringPtrInput
+	PropagateTagsToVolumeOnCreation   pulumi.BoolPtrInput
 	RamdiskId                         pulumi.StringPtrInput
 	SecurityGroupIds                  pulumi.StringArrayInput
 	SecurityGroups                    pulumi.StringArrayInput

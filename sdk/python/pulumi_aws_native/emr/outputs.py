@@ -637,6 +637,8 @@ class ClusterInstanceGroupConfig(dict):
             suggest = "auto_scaling_policy"
         elif key == "bidPrice":
             suggest = "bid_price"
+        elif key == "customAmiId":
+            suggest = "custom_ami_id"
         elif key == "ebsConfiguration":
             suggest = "ebs_configuration"
 
@@ -657,6 +659,7 @@ class ClusterInstanceGroupConfig(dict):
                  auto_scaling_policy: Optional['outputs.ClusterAutoScalingPolicy'] = None,
                  bid_price: Optional[str] = None,
                  configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None,
+                 custom_ami_id: Optional[str] = None,
                  ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
                  market: Optional[str] = None,
                  name: Optional[str] = None):
@@ -668,6 +671,8 @@ class ClusterInstanceGroupConfig(dict):
             pulumi.set(__self__, "bid_price", bid_price)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
             pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if market is not None:
@@ -701,6 +706,11 @@ class ClusterInstanceGroupConfig(dict):
         return pulumi.get(self, "configurations")
 
     @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[str]:
+        return pulumi.get(self, "custom_ami_id")
+
+    @property
     @pulumi.getter(name="ebsConfiguration")
     def ebs_configuration(self) -> Optional['outputs.ClusterEbsConfiguration']:
         return pulumi.get(self, "ebs_configuration")
@@ -727,6 +737,8 @@ class ClusterInstanceTypeConfig(dict):
             suggest = "bid_price"
         elif key == "bidPriceAsPercentageOfOnDemandPrice":
             suggest = "bid_price_as_percentage_of_on_demand_price"
+        elif key == "customAmiId":
+            suggest = "custom_ami_id"
         elif key == "ebsConfiguration":
             suggest = "ebs_configuration"
         elif key == "weightedCapacity":
@@ -748,6 +760,7 @@ class ClusterInstanceTypeConfig(dict):
                  bid_price: Optional[str] = None,
                  bid_price_as_percentage_of_on_demand_price: Optional[float] = None,
                  configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None,
+                 custom_ami_id: Optional[str] = None,
                  ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
                  weighted_capacity: Optional[int] = None):
         pulumi.set(__self__, "instance_type", instance_type)
@@ -757,6 +770,8 @@ class ClusterInstanceTypeConfig(dict):
             pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
             pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if weighted_capacity is not None:
@@ -781,6 +796,11 @@ class ClusterInstanceTypeConfig(dict):
     @pulumi.getter
     def configurations(self) -> Optional[Sequence['outputs.ClusterConfiguration']]:
         return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[str]:
+        return pulumi.get(self, "custom_ami_id")
 
     @property
     @pulumi.getter(name="ebsConfiguration")
@@ -1717,6 +1737,8 @@ class InstanceFleetConfigInstanceTypeConfig(dict):
             suggest = "bid_price"
         elif key == "bidPriceAsPercentageOfOnDemandPrice":
             suggest = "bid_price_as_percentage_of_on_demand_price"
+        elif key == "customAmiId":
+            suggest = "custom_ami_id"
         elif key == "ebsConfiguration":
             suggest = "ebs_configuration"
         elif key == "weightedCapacity":
@@ -1738,6 +1760,7 @@ class InstanceFleetConfigInstanceTypeConfig(dict):
                  bid_price: Optional[str] = None,
                  bid_price_as_percentage_of_on_demand_price: Optional[float] = None,
                  configurations: Optional[Sequence['outputs.InstanceFleetConfigConfiguration']] = None,
+                 custom_ami_id: Optional[str] = None,
                  ebs_configuration: Optional['outputs.InstanceFleetConfigEbsConfiguration'] = None,
                  weighted_capacity: Optional[int] = None):
         pulumi.set(__self__, "instance_type", instance_type)
@@ -1747,6 +1770,8 @@ class InstanceFleetConfigInstanceTypeConfig(dict):
             pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
             pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if weighted_capacity is not None:
@@ -1771,6 +1796,11 @@ class InstanceFleetConfigInstanceTypeConfig(dict):
     @pulumi.getter
     def configurations(self) -> Optional[Sequence['outputs.InstanceFleetConfigConfiguration']]:
         return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[str]:
+        return pulumi.get(self, "custom_ami_id")
 
     @property
     @pulumi.getter(name="ebsConfiguration")

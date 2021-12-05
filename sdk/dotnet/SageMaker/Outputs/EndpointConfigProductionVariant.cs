@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly double InitialVariantWeight;
         public readonly string? InstanceType;
         public readonly string ModelName;
+        public readonly Outputs.EndpointConfigServerlessConfig? ServerlessConfig;
         public readonly string VariantName;
 
         [OutputConstructor]
@@ -32,6 +33,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string modelName,
 
+            Outputs.EndpointConfigServerlessConfig? serverlessConfig,
+
             string variantName)
         {
             AcceleratorType = acceleratorType;
@@ -39,6 +42,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;
             ModelName = modelName;
+            ServerlessConfig = serverlessConfig;
             VariantName = variantName;
         }
     }

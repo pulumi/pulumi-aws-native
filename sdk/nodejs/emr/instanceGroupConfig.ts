@@ -41,6 +41,7 @@ export class InstanceGroupConfig extends pulumi.CustomResource {
     public readonly autoScalingPolicy!: pulumi.Output<outputs.emr.InstanceGroupConfigAutoScalingPolicy | undefined>;
     public readonly bidPrice!: pulumi.Output<string | undefined>;
     public readonly configurations!: pulumi.Output<outputs.emr.InstanceGroupConfigConfiguration[] | undefined>;
+    public readonly customAmiId!: pulumi.Output<string | undefined>;
     public readonly ebsConfiguration!: pulumi.Output<outputs.emr.InstanceGroupConfigEbsConfiguration | undefined>;
     public readonly instanceCount!: pulumi.Output<number>;
     public readonly instanceRole!: pulumi.Output<string>;
@@ -77,6 +78,7 @@ export class InstanceGroupConfig extends pulumi.CustomResource {
             inputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
             inputs["bidPrice"] = args ? args.bidPrice : undefined;
             inputs["configurations"] = args ? args.configurations : undefined;
+            inputs["customAmiId"] = args ? args.customAmiId : undefined;
             inputs["ebsConfiguration"] = args ? args.ebsConfiguration : undefined;
             inputs["instanceCount"] = args ? args.instanceCount : undefined;
             inputs["instanceRole"] = args ? args.instanceRole : undefined;
@@ -88,6 +90,7 @@ export class InstanceGroupConfig extends pulumi.CustomResource {
             inputs["autoScalingPolicy"] = undefined /*out*/;
             inputs["bidPrice"] = undefined /*out*/;
             inputs["configurations"] = undefined /*out*/;
+            inputs["customAmiId"] = undefined /*out*/;
             inputs["ebsConfiguration"] = undefined /*out*/;
             inputs["instanceCount"] = undefined /*out*/;
             inputs["instanceRole"] = undefined /*out*/;
@@ -110,6 +113,7 @@ export interface InstanceGroupConfigArgs {
     autoScalingPolicy?: pulumi.Input<inputs.emr.InstanceGroupConfigAutoScalingPolicyArgs>;
     bidPrice?: pulumi.Input<string>;
     configurations?: pulumi.Input<pulumi.Input<inputs.emr.InstanceGroupConfigConfigurationArgs>[]>;
+    customAmiId?: pulumi.Input<string>;
     ebsConfiguration?: pulumi.Input<inputs.emr.InstanceGroupConfigEbsConfigurationArgs>;
     instanceCount: pulumi.Input<number>;
     instanceRole: pulumi.Input<string>;

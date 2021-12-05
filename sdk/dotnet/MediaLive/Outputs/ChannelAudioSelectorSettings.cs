@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelAudioSelectorSettings
     {
+        public readonly Outputs.ChannelAudioHlsRenditionSelection? AudioHlsRenditionSelection;
         public readonly Outputs.ChannelAudioLanguageSelection? AudioLanguageSelection;
         public readonly Outputs.ChannelAudioPidSelection? AudioPidSelection;
         public readonly Outputs.ChannelAudioTrackSelection? AudioTrackSelection;
 
         [OutputConstructor]
         private ChannelAudioSelectorSettings(
+            Outputs.ChannelAudioHlsRenditionSelection? audioHlsRenditionSelection,
+
             Outputs.ChannelAudioLanguageSelection? audioLanguageSelection,
 
             Outputs.ChannelAudioPidSelection? audioPidSelection,
 
             Outputs.ChannelAudioTrackSelection? audioTrackSelection)
         {
+            AudioHlsRenditionSelection = audioHlsRenditionSelection;
             AudioLanguageSelection = audioLanguageSelection;
             AudioPidSelection = audioPidSelection;
             AudioTrackSelection = audioTrackSelection;

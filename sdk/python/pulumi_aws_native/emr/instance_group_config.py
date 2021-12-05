@@ -22,6 +22,7 @@ class InstanceGroupConfigArgs:
                  auto_scaling_policy: Optional[pulumi.Input['InstanceGroupConfigAutoScalingPolicyArgs']] = None,
                  bid_price: Optional[pulumi.Input[str]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigConfigurationArgs']]]] = None,
+                 custom_ami_id: Optional[pulumi.Input[str]] = None,
                  ebs_configuration: Optional[pulumi.Input['InstanceGroupConfigEbsConfigurationArgs']] = None,
                  market: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -38,6 +39,8 @@ class InstanceGroupConfigArgs:
             pulumi.set(__self__, "bid_price", bid_price)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
+        if custom_ami_id is not None:
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
             pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if market is not None:
@@ -109,6 +112,15 @@ class InstanceGroupConfigArgs:
         pulumi.set(self, "configurations", value)
 
     @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_ami_id")
+
+    @custom_ami_id.setter
+    def custom_ami_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_ami_id", value)
+
+    @property
     @pulumi.getter(name="ebsConfiguration")
     def ebs_configuration(self) -> Optional[pulumi.Input['InstanceGroupConfigEbsConfigurationArgs']]:
         return pulumi.get(self, "ebs_configuration")
@@ -149,6 +161,7 @@ class InstanceGroupConfig(pulumi.CustomResource):
                  auto_scaling_policy: Optional[pulumi.Input[pulumi.InputType['InstanceGroupConfigAutoScalingPolicyArgs']]] = None,
                  bid_price: Optional[pulumi.Input[str]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupConfigConfigurationArgs']]]]] = None,
+                 custom_ami_id: Optional[pulumi.Input[str]] = None,
                  ebs_configuration: Optional[pulumi.Input[pulumi.InputType['InstanceGroupConfigEbsConfigurationArgs']]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_role: Optional[pulumi.Input[str]] = None,
@@ -190,6 +203,7 @@ class InstanceGroupConfig(pulumi.CustomResource):
                  auto_scaling_policy: Optional[pulumi.Input[pulumi.InputType['InstanceGroupConfigAutoScalingPolicyArgs']]] = None,
                  bid_price: Optional[pulumi.Input[str]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupConfigConfigurationArgs']]]]] = None,
+                 custom_ami_id: Optional[pulumi.Input[str]] = None,
                  ebs_configuration: Optional[pulumi.Input[pulumi.InputType['InstanceGroupConfigEbsConfigurationArgs']]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_role: Optional[pulumi.Input[str]] = None,
@@ -213,6 +227,7 @@ class InstanceGroupConfig(pulumi.CustomResource):
             __props__.__dict__["auto_scaling_policy"] = auto_scaling_policy
             __props__.__dict__["bid_price"] = bid_price
             __props__.__dict__["configurations"] = configurations
+            __props__.__dict__["custom_ami_id"] = custom_ami_id
             __props__.__dict__["ebs_configuration"] = ebs_configuration
             if instance_count is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_count'")
@@ -253,6 +268,7 @@ class InstanceGroupConfig(pulumi.CustomResource):
         __props__.__dict__["auto_scaling_policy"] = None
         __props__.__dict__["bid_price"] = None
         __props__.__dict__["configurations"] = None
+        __props__.__dict__["custom_ami_id"] = None
         __props__.__dict__["ebs_configuration"] = None
         __props__.__dict__["instance_count"] = None
         __props__.__dict__["instance_role"] = None
@@ -276,6 +292,11 @@ class InstanceGroupConfig(pulumi.CustomResource):
     @pulumi.getter
     def configurations(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceGroupConfigConfiguration']]]:
         return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter(name="customAmiId")
+    def custom_ami_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "custom_ami_id")
 
     @property
     @pulumi.getter(name="ebsConfiguration")

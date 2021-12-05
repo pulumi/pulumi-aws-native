@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("audioTypeControl")]
         public Input<string>? AudioTypeControl { get; set; }
 
+        [Input("audioWatermarkingSettings")]
+        public Input<Inputs.ChannelAudioWatermarkSettingsArgs>? AudioWatermarkingSettings { get; set; }
+
         [Input("codecSettings")]
         public Input<Inputs.ChannelAudioCodecSettingsArgs>? CodecSettings { get; set; }
 

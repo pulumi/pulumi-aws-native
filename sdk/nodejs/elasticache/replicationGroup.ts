@@ -48,6 +48,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly cacheSubnetGroupName!: pulumi.Output<string | undefined>;
     public readonly configurationEndPointAddress!: pulumi.Output<string | undefined>;
     public readonly configurationEndPointPort!: pulumi.Output<string | undefined>;
+    public readonly dataTieringEnabled!: pulumi.Output<boolean | undefined>;
     public readonly engine!: pulumi.Output<string | undefined>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly globalReplicationGroupId!: pulumi.Output<string | undefined>;
@@ -109,6 +110,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["cacheSubnetGroupName"] = args ? args.cacheSubnetGroupName : undefined;
             inputs["configurationEndPointAddress"] = args ? args.configurationEndPointAddress : undefined;
             inputs["configurationEndPointPort"] = args ? args.configurationEndPointPort : undefined;
+            inputs["dataTieringEnabled"] = args ? args.dataTieringEnabled : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["globalReplicationGroupId"] = args ? args.globalReplicationGroupId : undefined;
@@ -154,6 +156,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["cacheSubnetGroupName"] = undefined /*out*/;
             inputs["configurationEndPointAddress"] = undefined /*out*/;
             inputs["configurationEndPointPort"] = undefined /*out*/;
+            inputs["dataTieringEnabled"] = undefined /*out*/;
             inputs["engine"] = undefined /*out*/;
             inputs["engineVersion"] = undefined /*out*/;
             inputs["globalReplicationGroupId"] = undefined /*out*/;
@@ -210,6 +213,7 @@ export interface ReplicationGroupArgs {
     cacheSubnetGroupName?: pulumi.Input<string>;
     configurationEndPointAddress?: pulumi.Input<string>;
     configurationEndPointPort?: pulumi.Input<string>;
+    dataTieringEnabled?: pulumi.Input<boolean>;
     engine?: pulumi.Input<string>;
     engineVersion?: pulumi.Input<string>;
     globalReplicationGroupId?: pulumi.Input<string>;

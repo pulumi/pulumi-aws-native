@@ -26,6 +26,7 @@ class ReplicationGroupArgs:
                  cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_address: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_port: Optional[pulumi.Input[str]] = None,
+                 data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
@@ -82,6 +83,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "configuration_end_point_address", configuration_end_point_address)
         if configuration_end_point_port is not None:
             pulumi.set(__self__, "configuration_end_point_port", configuration_end_point_port)
+        if data_tiering_enabled is not None:
+            pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
@@ -245,6 +248,15 @@ class ReplicationGroupArgs:
     @configuration_end_point_port.setter
     def configuration_end_point_port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration_end_point_port", value)
+
+    @property
+    @pulumi.getter(name="dataTieringEnabled")
+    def data_tiering_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "data_tiering_enabled")
+
+    @data_tiering_enabled.setter
+    def data_tiering_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_tiering_enabled", value)
 
     @property
     @pulumi.getter
@@ -555,6 +567,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_address: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_port: Optional[pulumi.Input[str]] = None,
+                 data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
@@ -629,6 +642,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_address: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_port: Optional[pulumi.Input[str]] = None,
+                 data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
@@ -685,6 +699,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["cache_subnet_group_name"] = cache_subnet_group_name
             __props__.__dict__["configuration_end_point_address"] = configuration_end_point_address
             __props__.__dict__["configuration_end_point_port"] = configuration_end_point_port
+            __props__.__dict__["data_tiering_enabled"] = data_tiering_enabled
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_replication_group_id"] = global_replication_group_id
@@ -753,6 +768,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["cache_subnet_group_name"] = None
         __props__.__dict__["configuration_end_point_address"] = None
         __props__.__dict__["configuration_end_point_port"] = None
+        __props__.__dict__["data_tiering_enabled"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["global_replication_group_id"] = None
@@ -838,6 +854,11 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="configurationEndPointPort")
     def configuration_end_point_port(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "configuration_end_point_port")
+
+    @property
+    @pulumi.getter(name="dataTieringEnabled")
+    def data_tiering_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "data_tiering_enabled")
 
     @property
     @pulumi.getter

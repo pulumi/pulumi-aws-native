@@ -46,6 +46,8 @@ export class FileSystem extends pulumi.CustomResource {
     public readonly lustreConfiguration!: pulumi.Output<outputs.fsx.FileSystemLustreConfiguration | undefined>;
     public /*out*/ readonly lustreMountName!: pulumi.Output<string>;
     public readonly ontapConfiguration!: pulumi.Output<outputs.fsx.FileSystemOntapConfiguration | undefined>;
+    public readonly openZFSConfiguration!: pulumi.Output<outputs.fsx.FileSystemOpenZFSConfiguration | undefined>;
+    public /*out*/ readonly rootVolumeId!: pulumi.Output<string>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
     public readonly storageType!: pulumi.Output<string | undefined>;
@@ -78,6 +80,7 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["lustreConfiguration"] = args ? args.lustreConfiguration : undefined;
             inputs["ontapConfiguration"] = args ? args.ontapConfiguration : undefined;
+            inputs["openZFSConfiguration"] = args ? args.openZFSConfiguration : undefined;
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             inputs["storageType"] = args ? args.storageType : undefined;
@@ -86,6 +89,7 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["windowsConfiguration"] = args ? args.windowsConfiguration : undefined;
             inputs["dNSName"] = undefined /*out*/;
             inputs["lustreMountName"] = undefined /*out*/;
+            inputs["rootVolumeId"] = undefined /*out*/;
         } else {
             inputs["backupId"] = undefined /*out*/;
             inputs["dNSName"] = undefined /*out*/;
@@ -95,6 +99,8 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["lustreConfiguration"] = undefined /*out*/;
             inputs["lustreMountName"] = undefined /*out*/;
             inputs["ontapConfiguration"] = undefined /*out*/;
+            inputs["openZFSConfiguration"] = undefined /*out*/;
+            inputs["rootVolumeId"] = undefined /*out*/;
             inputs["securityGroupIds"] = undefined /*out*/;
             inputs["storageCapacity"] = undefined /*out*/;
             inputs["storageType"] = undefined /*out*/;
@@ -119,6 +125,7 @@ export interface FileSystemArgs {
     kmsKeyId?: pulumi.Input<string>;
     lustreConfiguration?: pulumi.Input<inputs.fsx.FileSystemLustreConfigurationArgs>;
     ontapConfiguration?: pulumi.Input<inputs.fsx.FileSystemOntapConfigurationArgs>;
+    openZFSConfiguration?: pulumi.Input<inputs.fsx.FileSystemOpenZFSConfigurationArgs>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     storageCapacity?: pulumi.Input<number>;
     storageType?: pulumi.Input<string>;

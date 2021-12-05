@@ -88,6 +88,9 @@
         "InitialInstanceCount" : {
           "type" : "integer"
         },
+        "ServerlessConfig" : {
+          "$ref" : "#/definitions/ServerlessConfig"
+        },
         "InstanceType" : {
           "type" : "string"
         },
@@ -121,6 +124,19 @@
           "type" : "integer"
         }
       }
+    },
+    "ServerlessConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MaxConcurrency" : {
+          "type" : "integer"
+        },
+        "MemorySizeInMB" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "MaxConcurrency", "MemorySizeInMB" ]
     },
     "CaptureContentTypeHeader" : {
       "type" : "object",

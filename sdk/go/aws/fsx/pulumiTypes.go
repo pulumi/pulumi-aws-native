@@ -173,6 +173,106 @@ func (o FileSystemAuditLogConfigurationPtrOutput) FileShareAccessAuditLogLevel()
 	}).(pulumi.StringPtrOutput)
 }
 
+type FileSystemClientConfigurations struct {
+	Clients *string  `pulumi:"clients"`
+	Options []string `pulumi:"options"`
+}
+
+// FileSystemClientConfigurationsInput is an input type that accepts FileSystemClientConfigurationsArgs and FileSystemClientConfigurationsOutput values.
+// You can construct a concrete instance of `FileSystemClientConfigurationsInput` via:
+//
+//          FileSystemClientConfigurationsArgs{...}
+type FileSystemClientConfigurationsInput interface {
+	pulumi.Input
+
+	ToFileSystemClientConfigurationsOutput() FileSystemClientConfigurationsOutput
+	ToFileSystemClientConfigurationsOutputWithContext(context.Context) FileSystemClientConfigurationsOutput
+}
+
+type FileSystemClientConfigurationsArgs struct {
+	Clients pulumi.StringPtrInput   `pulumi:"clients"`
+	Options pulumi.StringArrayInput `pulumi:"options"`
+}
+
+func (FileSystemClientConfigurationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemClientConfigurations)(nil)).Elem()
+}
+
+func (i FileSystemClientConfigurationsArgs) ToFileSystemClientConfigurationsOutput() FileSystemClientConfigurationsOutput {
+	return i.ToFileSystemClientConfigurationsOutputWithContext(context.Background())
+}
+
+func (i FileSystemClientConfigurationsArgs) ToFileSystemClientConfigurationsOutputWithContext(ctx context.Context) FileSystemClientConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemClientConfigurationsOutput)
+}
+
+// FileSystemClientConfigurationsArrayInput is an input type that accepts FileSystemClientConfigurationsArray and FileSystemClientConfigurationsArrayOutput values.
+// You can construct a concrete instance of `FileSystemClientConfigurationsArrayInput` via:
+//
+//          FileSystemClientConfigurationsArray{ FileSystemClientConfigurationsArgs{...} }
+type FileSystemClientConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToFileSystemClientConfigurationsArrayOutput() FileSystemClientConfigurationsArrayOutput
+	ToFileSystemClientConfigurationsArrayOutputWithContext(context.Context) FileSystemClientConfigurationsArrayOutput
+}
+
+type FileSystemClientConfigurationsArray []FileSystemClientConfigurationsInput
+
+func (FileSystemClientConfigurationsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemClientConfigurations)(nil)).Elem()
+}
+
+func (i FileSystemClientConfigurationsArray) ToFileSystemClientConfigurationsArrayOutput() FileSystemClientConfigurationsArrayOutput {
+	return i.ToFileSystemClientConfigurationsArrayOutputWithContext(context.Background())
+}
+
+func (i FileSystemClientConfigurationsArray) ToFileSystemClientConfigurationsArrayOutputWithContext(ctx context.Context) FileSystemClientConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemClientConfigurationsArrayOutput)
+}
+
+type FileSystemClientConfigurationsOutput struct{ *pulumi.OutputState }
+
+func (FileSystemClientConfigurationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemClientConfigurations)(nil)).Elem()
+}
+
+func (o FileSystemClientConfigurationsOutput) ToFileSystemClientConfigurationsOutput() FileSystemClientConfigurationsOutput {
+	return o
+}
+
+func (o FileSystemClientConfigurationsOutput) ToFileSystemClientConfigurationsOutputWithContext(ctx context.Context) FileSystemClientConfigurationsOutput {
+	return o
+}
+
+func (o FileSystemClientConfigurationsOutput) Clients() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemClientConfigurations) *string { return v.Clients }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemClientConfigurationsOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FileSystemClientConfigurations) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+type FileSystemClientConfigurationsArrayOutput struct{ *pulumi.OutputState }
+
+func (FileSystemClientConfigurationsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemClientConfigurations)(nil)).Elem()
+}
+
+func (o FileSystemClientConfigurationsArrayOutput) ToFileSystemClientConfigurationsArrayOutput() FileSystemClientConfigurationsArrayOutput {
+	return o
+}
+
+func (o FileSystemClientConfigurationsArrayOutput) ToFileSystemClientConfigurationsArrayOutputWithContext(ctx context.Context) FileSystemClientConfigurationsArrayOutput {
+	return o
+}
+
+func (o FileSystemClientConfigurationsArrayOutput) Index(i pulumi.IntInput) FileSystemClientConfigurationsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemClientConfigurations {
+		return vs[0].([]FileSystemClientConfigurations)[vs[1].(int)]
+	}).(FileSystemClientConfigurationsOutput)
+}
+
 type FileSystemDiskIopsConfiguration struct {
 	Iops *int    `pulumi:"iops"`
 	Mode *string `pulumi:"mode"`
@@ -619,6 +719,100 @@ func (o FileSystemLustreConfigurationPtrOutput) WeeklyMaintenanceStartTime() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type FileSystemNfsExports struct {
+	ClientConfigurations []FileSystemClientConfigurations `pulumi:"clientConfigurations"`
+}
+
+// FileSystemNfsExportsInput is an input type that accepts FileSystemNfsExportsArgs and FileSystemNfsExportsOutput values.
+// You can construct a concrete instance of `FileSystemNfsExportsInput` via:
+//
+//          FileSystemNfsExportsArgs{...}
+type FileSystemNfsExportsInput interface {
+	pulumi.Input
+
+	ToFileSystemNfsExportsOutput() FileSystemNfsExportsOutput
+	ToFileSystemNfsExportsOutputWithContext(context.Context) FileSystemNfsExportsOutput
+}
+
+type FileSystemNfsExportsArgs struct {
+	ClientConfigurations FileSystemClientConfigurationsArrayInput `pulumi:"clientConfigurations"`
+}
+
+func (FileSystemNfsExportsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemNfsExports)(nil)).Elem()
+}
+
+func (i FileSystemNfsExportsArgs) ToFileSystemNfsExportsOutput() FileSystemNfsExportsOutput {
+	return i.ToFileSystemNfsExportsOutputWithContext(context.Background())
+}
+
+func (i FileSystemNfsExportsArgs) ToFileSystemNfsExportsOutputWithContext(ctx context.Context) FileSystemNfsExportsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemNfsExportsOutput)
+}
+
+// FileSystemNfsExportsArrayInput is an input type that accepts FileSystemNfsExportsArray and FileSystemNfsExportsArrayOutput values.
+// You can construct a concrete instance of `FileSystemNfsExportsArrayInput` via:
+//
+//          FileSystemNfsExportsArray{ FileSystemNfsExportsArgs{...} }
+type FileSystemNfsExportsArrayInput interface {
+	pulumi.Input
+
+	ToFileSystemNfsExportsArrayOutput() FileSystemNfsExportsArrayOutput
+	ToFileSystemNfsExportsArrayOutputWithContext(context.Context) FileSystemNfsExportsArrayOutput
+}
+
+type FileSystemNfsExportsArray []FileSystemNfsExportsInput
+
+func (FileSystemNfsExportsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemNfsExports)(nil)).Elem()
+}
+
+func (i FileSystemNfsExportsArray) ToFileSystemNfsExportsArrayOutput() FileSystemNfsExportsArrayOutput {
+	return i.ToFileSystemNfsExportsArrayOutputWithContext(context.Background())
+}
+
+func (i FileSystemNfsExportsArray) ToFileSystemNfsExportsArrayOutputWithContext(ctx context.Context) FileSystemNfsExportsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemNfsExportsArrayOutput)
+}
+
+type FileSystemNfsExportsOutput struct{ *pulumi.OutputState }
+
+func (FileSystemNfsExportsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemNfsExports)(nil)).Elem()
+}
+
+func (o FileSystemNfsExportsOutput) ToFileSystemNfsExportsOutput() FileSystemNfsExportsOutput {
+	return o
+}
+
+func (o FileSystemNfsExportsOutput) ToFileSystemNfsExportsOutputWithContext(ctx context.Context) FileSystemNfsExportsOutput {
+	return o
+}
+
+func (o FileSystemNfsExportsOutput) ClientConfigurations() FileSystemClientConfigurationsArrayOutput {
+	return o.ApplyT(func(v FileSystemNfsExports) []FileSystemClientConfigurations { return v.ClientConfigurations }).(FileSystemClientConfigurationsArrayOutput)
+}
+
+type FileSystemNfsExportsArrayOutput struct{ *pulumi.OutputState }
+
+func (FileSystemNfsExportsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemNfsExports)(nil)).Elem()
+}
+
+func (o FileSystemNfsExportsArrayOutput) ToFileSystemNfsExportsArrayOutput() FileSystemNfsExportsArrayOutput {
+	return o
+}
+
+func (o FileSystemNfsExportsArrayOutput) ToFileSystemNfsExportsArrayOutputWithContext(ctx context.Context) FileSystemNfsExportsArrayOutput {
+	return o
+}
+
+func (o FileSystemNfsExportsArrayOutput) Index(i pulumi.IntInput) FileSystemNfsExportsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemNfsExports {
+		return vs[0].([]FileSystemNfsExports)[vs[1].(int)]
+	}).(FileSystemNfsExportsOutput)
+}
+
 type FileSystemOntapConfiguration struct {
 	AutomaticBackupRetentionDays  *int                             `pulumi:"automaticBackupRetentionDays"`
 	DailyAutomaticBackupStartTime *string                          `pulumi:"dailyAutomaticBackupStartTime"`
@@ -885,6 +1079,456 @@ func (o FileSystemOntapConfigurationPtrOutput) WeeklyMaintenanceStartTime() pulu
 		}
 		return v.WeeklyMaintenanceStartTime
 	}).(pulumi.StringPtrOutput)
+}
+
+type FileSystemOpenZFSConfiguration struct {
+	AutomaticBackupRetentionDays  *int                               `pulumi:"automaticBackupRetentionDays"`
+	CopyTagsToBackups             *bool                              `pulumi:"copyTagsToBackups"`
+	CopyTagsToVolumes             *bool                              `pulumi:"copyTagsToVolumes"`
+	DailyAutomaticBackupStartTime *string                            `pulumi:"dailyAutomaticBackupStartTime"`
+	DeploymentType                string                             `pulumi:"deploymentType"`
+	DiskIopsConfiguration         *FileSystemDiskIopsConfiguration   `pulumi:"diskIopsConfiguration"`
+	RootVolumeConfiguration       *FileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
+	ThroughputCapacity            *int                               `pulumi:"throughputCapacity"`
+	WeeklyMaintenanceStartTime    *string                            `pulumi:"weeklyMaintenanceStartTime"`
+}
+
+// FileSystemOpenZFSConfigurationInput is an input type that accepts FileSystemOpenZFSConfigurationArgs and FileSystemOpenZFSConfigurationOutput values.
+// You can construct a concrete instance of `FileSystemOpenZFSConfigurationInput` via:
+//
+//          FileSystemOpenZFSConfigurationArgs{...}
+type FileSystemOpenZFSConfigurationInput interface {
+	pulumi.Input
+
+	ToFileSystemOpenZFSConfigurationOutput() FileSystemOpenZFSConfigurationOutput
+	ToFileSystemOpenZFSConfigurationOutputWithContext(context.Context) FileSystemOpenZFSConfigurationOutput
+}
+
+type FileSystemOpenZFSConfigurationArgs struct {
+	AutomaticBackupRetentionDays  pulumi.IntPtrInput                        `pulumi:"automaticBackupRetentionDays"`
+	CopyTagsToBackups             pulumi.BoolPtrInput                       `pulumi:"copyTagsToBackups"`
+	CopyTagsToVolumes             pulumi.BoolPtrInput                       `pulumi:"copyTagsToVolumes"`
+	DailyAutomaticBackupStartTime pulumi.StringPtrInput                     `pulumi:"dailyAutomaticBackupStartTime"`
+	DeploymentType                pulumi.StringInput                        `pulumi:"deploymentType"`
+	DiskIopsConfiguration         FileSystemDiskIopsConfigurationPtrInput   `pulumi:"diskIopsConfiguration"`
+	RootVolumeConfiguration       FileSystemRootVolumeConfigurationPtrInput `pulumi:"rootVolumeConfiguration"`
+	ThroughputCapacity            pulumi.IntPtrInput                        `pulumi:"throughputCapacity"`
+	WeeklyMaintenanceStartTime    pulumi.StringPtrInput                     `pulumi:"weeklyMaintenanceStartTime"`
+}
+
+func (FileSystemOpenZFSConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemOpenZFSConfiguration)(nil)).Elem()
+}
+
+func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationOutput() FileSystemOpenZFSConfigurationOutput {
+	return i.ToFileSystemOpenZFSConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZFSConfigurationOutput)
+}
+
+func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput {
+	return i.ToFileSystemOpenZFSConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemOpenZFSConfigurationArgs) ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZFSConfigurationOutput).ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx)
+}
+
+// FileSystemOpenZFSConfigurationPtrInput is an input type that accepts FileSystemOpenZFSConfigurationArgs, FileSystemOpenZFSConfigurationPtr and FileSystemOpenZFSConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileSystemOpenZFSConfigurationPtrInput` via:
+//
+//          FileSystemOpenZFSConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemOpenZFSConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput
+	ToFileSystemOpenZFSConfigurationPtrOutputWithContext(context.Context) FileSystemOpenZFSConfigurationPtrOutput
+}
+
+type fileSystemOpenZFSConfigurationPtrType FileSystemOpenZFSConfigurationArgs
+
+func FileSystemOpenZFSConfigurationPtr(v *FileSystemOpenZFSConfigurationArgs) FileSystemOpenZFSConfigurationPtrInput {
+	return (*fileSystemOpenZFSConfigurationPtrType)(v)
+}
+
+func (*fileSystemOpenZFSConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemOpenZFSConfiguration)(nil)).Elem()
+}
+
+func (i *fileSystemOpenZFSConfigurationPtrType) ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput {
+	return i.ToFileSystemOpenZFSConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemOpenZFSConfigurationPtrType) ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZFSConfigurationPtrOutput)
+}
+
+type FileSystemOpenZFSConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileSystemOpenZFSConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemOpenZFSConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) ToFileSystemOpenZFSConfigurationOutput() FileSystemOpenZFSConfigurationOutput {
+	return o
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) ToFileSystemOpenZFSConfigurationOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationOutput {
+	return o
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput {
+	return o.ToFileSystemOpenZFSConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemOpenZFSConfiguration) *FileSystemOpenZFSConfiguration {
+		return &v
+	}).(FileSystemOpenZFSConfigurationPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *int { return v.AutomaticBackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *bool { return v.CopyTagsToBackups }).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) CopyTagsToVolumes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *bool { return v.CopyTagsToVolumes }).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *string { return v.DailyAutomaticBackupStartTime }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) string { return v.DeploymentType }).(pulumi.StringOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *FileSystemDiskIopsConfiguration {
+		return v.DiskIopsConfiguration
+	}).(FileSystemDiskIopsConfigurationPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *FileSystemRootVolumeConfiguration {
+		return v.RootVolumeConfiguration
+	}).(FileSystemRootVolumeConfigurationPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) ThroughputCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *int { return v.ThroughputCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemOpenZFSConfiguration) *string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
+}
+
+type FileSystemOpenZFSConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemOpenZFSConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemOpenZFSConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) ToFileSystemOpenZFSConfigurationPtrOutput() FileSystemOpenZFSConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) ToFileSystemOpenZFSConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZFSConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) Elem() FileSystemOpenZFSConfigurationOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) FileSystemOpenZFSConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemOpenZFSConfiguration
+		return ret
+	}).(FileSystemOpenZFSConfigurationOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticBackupRetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToBackups
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) CopyTagsToVolumes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToVolumes
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) DailyAutomaticBackupStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DailyAutomaticBackupStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) DeploymentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeploymentType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) DiskIopsConfiguration() FileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *FileSystemDiskIopsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DiskIopsConfiguration
+	}).(FileSystemDiskIopsConfigurationPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) RootVolumeConfiguration() FileSystemRootVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *FileSystemRootVolumeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RootVolumeConfiguration
+	}).(FileSystemRootVolumeConfigurationPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) ThroughputCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThroughputCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOpenZFSConfigurationPtrOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemOpenZFSConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklyMaintenanceStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileSystemRootVolumeConfiguration struct {
+	CopyTagsToSnapshots *bool                          `pulumi:"copyTagsToSnapshots"`
+	DataCompressionType *string                        `pulumi:"dataCompressionType"`
+	NfsExports          []FileSystemNfsExports         `pulumi:"nfsExports"`
+	ReadOnly            *bool                          `pulumi:"readOnly"`
+	UserAndGroupQuotas  []FileSystemUserAndGroupQuotas `pulumi:"userAndGroupQuotas"`
+}
+
+// FileSystemRootVolumeConfigurationInput is an input type that accepts FileSystemRootVolumeConfigurationArgs and FileSystemRootVolumeConfigurationOutput values.
+// You can construct a concrete instance of `FileSystemRootVolumeConfigurationInput` via:
+//
+//          FileSystemRootVolumeConfigurationArgs{...}
+type FileSystemRootVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToFileSystemRootVolumeConfigurationOutput() FileSystemRootVolumeConfigurationOutput
+	ToFileSystemRootVolumeConfigurationOutputWithContext(context.Context) FileSystemRootVolumeConfigurationOutput
+}
+
+type FileSystemRootVolumeConfigurationArgs struct {
+	CopyTagsToSnapshots pulumi.BoolPtrInput                    `pulumi:"copyTagsToSnapshots"`
+	DataCompressionType pulumi.StringPtrInput                  `pulumi:"dataCompressionType"`
+	NfsExports          FileSystemNfsExportsArrayInput         `pulumi:"nfsExports"`
+	ReadOnly            pulumi.BoolPtrInput                    `pulumi:"readOnly"`
+	UserAndGroupQuotas  FileSystemUserAndGroupQuotasArrayInput `pulumi:"userAndGroupQuotas"`
+}
+
+func (FileSystemRootVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (i FileSystemRootVolumeConfigurationArgs) ToFileSystemRootVolumeConfigurationOutput() FileSystemRootVolumeConfigurationOutput {
+	return i.ToFileSystemRootVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileSystemRootVolumeConfigurationArgs) ToFileSystemRootVolumeConfigurationOutputWithContext(ctx context.Context) FileSystemRootVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemRootVolumeConfigurationOutput)
+}
+
+func (i FileSystemRootVolumeConfigurationArgs) ToFileSystemRootVolumeConfigurationPtrOutput() FileSystemRootVolumeConfigurationPtrOutput {
+	return i.ToFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemRootVolumeConfigurationArgs) ToFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) FileSystemRootVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemRootVolumeConfigurationOutput).ToFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FileSystemRootVolumeConfigurationPtrInput is an input type that accepts FileSystemRootVolumeConfigurationArgs, FileSystemRootVolumeConfigurationPtr and FileSystemRootVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileSystemRootVolumeConfigurationPtrInput` via:
+//
+//          FileSystemRootVolumeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemRootVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemRootVolumeConfigurationPtrOutput() FileSystemRootVolumeConfigurationPtrOutput
+	ToFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Context) FileSystemRootVolumeConfigurationPtrOutput
+}
+
+type fileSystemRootVolumeConfigurationPtrType FileSystemRootVolumeConfigurationArgs
+
+func FileSystemRootVolumeConfigurationPtr(v *FileSystemRootVolumeConfigurationArgs) FileSystemRootVolumeConfigurationPtrInput {
+	return (*fileSystemRootVolumeConfigurationPtrType)(v)
+}
+
+func (*fileSystemRootVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *fileSystemRootVolumeConfigurationPtrType) ToFileSystemRootVolumeConfigurationPtrOutput() FileSystemRootVolumeConfigurationPtrOutput {
+	return i.ToFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemRootVolumeConfigurationPtrType) ToFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) FileSystemRootVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemRootVolumeConfigurationPtrOutput)
+}
+
+type FileSystemRootVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileSystemRootVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) ToFileSystemRootVolumeConfigurationOutput() FileSystemRootVolumeConfigurationOutput {
+	return o
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) ToFileSystemRootVolumeConfigurationOutputWithContext(ctx context.Context) FileSystemRootVolumeConfigurationOutput {
+	return o
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) ToFileSystemRootVolumeConfigurationPtrOutput() FileSystemRootVolumeConfigurationPtrOutput {
+	return o.ToFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) ToFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) FileSystemRootVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemRootVolumeConfiguration) *FileSystemRootVolumeConfiguration {
+		return &v
+	}).(FileSystemRootVolumeConfigurationPtrOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemRootVolumeConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemRootVolumeConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) NfsExports() FileSystemNfsExportsArrayOutput {
+	return o.ApplyT(func(v FileSystemRootVolumeConfiguration) []FileSystemNfsExports { return v.NfsExports }).(FileSystemNfsExportsArrayOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemRootVolumeConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationOutput) UserAndGroupQuotas() FileSystemUserAndGroupQuotasArrayOutput {
+	return o.ApplyT(func(v FileSystemRootVolumeConfiguration) []FileSystemUserAndGroupQuotas { return v.UserAndGroupQuotas }).(FileSystemUserAndGroupQuotasArrayOutput)
+}
+
+type FileSystemRootVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemRootVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) ToFileSystemRootVolumeConfigurationPtrOutput() FileSystemRootVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) ToFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) FileSystemRootVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) Elem() FileSystemRootVolumeConfigurationOutput {
+	return o.ApplyT(func(v *FileSystemRootVolumeConfiguration) FileSystemRootVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemRootVolumeConfiguration
+		return ret
+	}).(FileSystemRootVolumeConfigurationOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemRootVolumeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToSnapshots
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemRootVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) NfsExports() FileSystemNfsExportsArrayOutput {
+	return o.ApplyT(func(v *FileSystemRootVolumeConfiguration) []FileSystemNfsExports {
+		if v == nil {
+			return nil
+		}
+		return v.NfsExports
+	}).(FileSystemNfsExportsArrayOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemRootVolumeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FileSystemRootVolumeConfigurationPtrOutput) UserAndGroupQuotas() FileSystemUserAndGroupQuotasArrayOutput {
+	return o.ApplyT(func(v *FileSystemRootVolumeConfiguration) []FileSystemUserAndGroupQuotas {
+		if v == nil {
+			return nil
+		}
+		return v.UserAndGroupQuotas
+	}).(FileSystemUserAndGroupQuotasArrayOutput)
 }
 
 type FileSystemSelfManagedActiveDirectoryConfiguration struct {
@@ -1199,6 +1843,112 @@ func (o FileSystemTagArrayOutput) Index(i pulumi.IntInput) FileSystemTagOutput {
 	}).(FileSystemTagOutput)
 }
 
+type FileSystemUserAndGroupQuotas struct {
+	Id                      *int    `pulumi:"id"`
+	StorageCapacityQuotaGiB *int    `pulumi:"storageCapacityQuotaGiB"`
+	Type                    *string `pulumi:"type"`
+}
+
+// FileSystemUserAndGroupQuotasInput is an input type that accepts FileSystemUserAndGroupQuotasArgs and FileSystemUserAndGroupQuotasOutput values.
+// You can construct a concrete instance of `FileSystemUserAndGroupQuotasInput` via:
+//
+//          FileSystemUserAndGroupQuotasArgs{...}
+type FileSystemUserAndGroupQuotasInput interface {
+	pulumi.Input
+
+	ToFileSystemUserAndGroupQuotasOutput() FileSystemUserAndGroupQuotasOutput
+	ToFileSystemUserAndGroupQuotasOutputWithContext(context.Context) FileSystemUserAndGroupQuotasOutput
+}
+
+type FileSystemUserAndGroupQuotasArgs struct {
+	Id                      pulumi.IntPtrInput    `pulumi:"id"`
+	StorageCapacityQuotaGiB pulumi.IntPtrInput    `pulumi:"storageCapacityQuotaGiB"`
+	Type                    pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (FileSystemUserAndGroupQuotasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (i FileSystemUserAndGroupQuotasArgs) ToFileSystemUserAndGroupQuotasOutput() FileSystemUserAndGroupQuotasOutput {
+	return i.ToFileSystemUserAndGroupQuotasOutputWithContext(context.Background())
+}
+
+func (i FileSystemUserAndGroupQuotasArgs) ToFileSystemUserAndGroupQuotasOutputWithContext(ctx context.Context) FileSystemUserAndGroupQuotasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemUserAndGroupQuotasOutput)
+}
+
+// FileSystemUserAndGroupQuotasArrayInput is an input type that accepts FileSystemUserAndGroupQuotasArray and FileSystemUserAndGroupQuotasArrayOutput values.
+// You can construct a concrete instance of `FileSystemUserAndGroupQuotasArrayInput` via:
+//
+//          FileSystemUserAndGroupQuotasArray{ FileSystemUserAndGroupQuotasArgs{...} }
+type FileSystemUserAndGroupQuotasArrayInput interface {
+	pulumi.Input
+
+	ToFileSystemUserAndGroupQuotasArrayOutput() FileSystemUserAndGroupQuotasArrayOutput
+	ToFileSystemUserAndGroupQuotasArrayOutputWithContext(context.Context) FileSystemUserAndGroupQuotasArrayOutput
+}
+
+type FileSystemUserAndGroupQuotasArray []FileSystemUserAndGroupQuotasInput
+
+func (FileSystemUserAndGroupQuotasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (i FileSystemUserAndGroupQuotasArray) ToFileSystemUserAndGroupQuotasArrayOutput() FileSystemUserAndGroupQuotasArrayOutput {
+	return i.ToFileSystemUserAndGroupQuotasArrayOutputWithContext(context.Background())
+}
+
+func (i FileSystemUserAndGroupQuotasArray) ToFileSystemUserAndGroupQuotasArrayOutputWithContext(ctx context.Context) FileSystemUserAndGroupQuotasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemUserAndGroupQuotasArrayOutput)
+}
+
+type FileSystemUserAndGroupQuotasOutput struct{ *pulumi.OutputState }
+
+func (FileSystemUserAndGroupQuotasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (o FileSystemUserAndGroupQuotasOutput) ToFileSystemUserAndGroupQuotasOutput() FileSystemUserAndGroupQuotasOutput {
+	return o
+}
+
+func (o FileSystemUserAndGroupQuotasOutput) ToFileSystemUserAndGroupQuotasOutputWithContext(ctx context.Context) FileSystemUserAndGroupQuotasOutput {
+	return o
+}
+
+func (o FileSystemUserAndGroupQuotasOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemUserAndGroupQuotas) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemUserAndGroupQuotasOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemUserAndGroupQuotas) *int { return v.StorageCapacityQuotaGiB }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemUserAndGroupQuotasOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemUserAndGroupQuotas) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type FileSystemUserAndGroupQuotasArrayOutput struct{ *pulumi.OutputState }
+
+func (FileSystemUserAndGroupQuotasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileSystemUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (o FileSystemUserAndGroupQuotasArrayOutput) ToFileSystemUserAndGroupQuotasArrayOutput() FileSystemUserAndGroupQuotasArrayOutput {
+	return o
+}
+
+func (o FileSystemUserAndGroupQuotasArrayOutput) ToFileSystemUserAndGroupQuotasArrayOutputWithContext(ctx context.Context) FileSystemUserAndGroupQuotasArrayOutput {
+	return o
+}
+
+func (o FileSystemUserAndGroupQuotasArrayOutput) Index(i pulumi.IntInput) FileSystemUserAndGroupQuotasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemUserAndGroupQuotas {
+		return vs[0].([]FileSystemUserAndGroupQuotas)[vs[1].(int)]
+	}).(FileSystemUserAndGroupQuotasOutput)
+}
+
 type FileSystemWindowsConfiguration struct {
 	ActiveDirectoryId                       *string                                            `pulumi:"activeDirectoryId"`
 	Aliases                                 []string                                           `pulumi:"aliases"`
@@ -1489,30 +2239,50 @@ func (o FileSystemWindowsConfigurationPtrOutput) WeeklyMaintenanceStartTime() pu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemClientConfigurationsInput)(nil)).Elem(), FileSystemClientConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemClientConfigurationsArrayInput)(nil)).Elem(), FileSystemClientConfigurationsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemDiskIopsConfigurationInput)(nil)).Elem(), FileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), FileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLustreConfigurationInput)(nil)).Elem(), FileSystemLustreConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLustreConfigurationPtrInput)(nil)).Elem(), FileSystemLustreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemNfsExportsInput)(nil)).Elem(), FileSystemNfsExportsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemNfsExportsArrayInput)(nil)).Elem(), FileSystemNfsExportsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOntapConfigurationInput)(nil)).Elem(), FileSystemOntapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOntapConfigurationPtrInput)(nil)).Elem(), FileSystemOntapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOpenZFSConfigurationInput)(nil)).Elem(), FileSystemOpenZFSConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemOpenZFSConfigurationPtrInput)(nil)).Elem(), FileSystemOpenZFSConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemRootVolumeConfigurationInput)(nil)).Elem(), FileSystemRootVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemRootVolumeConfigurationPtrInput)(nil)).Elem(), FileSystemRootVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemTagInput)(nil)).Elem(), FileSystemTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemTagArrayInput)(nil)).Elem(), FileSystemTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemUserAndGroupQuotasInput)(nil)).Elem(), FileSystemUserAndGroupQuotasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemUserAndGroupQuotasArrayInput)(nil)).Elem(), FileSystemUserAndGroupQuotasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationPtrInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemClientConfigurationsOutput{})
+	pulumi.RegisterOutputType(FileSystemClientConfigurationsArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemDiskIopsConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemDiskIopsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLustreConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemLustreConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemNfsExportsOutput{})
+	pulumi.RegisterOutputType(FileSystemNfsExportsArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemOntapConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemOntapConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemOpenZFSConfigurationOutput{})
+	pulumi.RegisterOutputType(FileSystemOpenZFSConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemRootVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(FileSystemRootVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemSelfManagedActiveDirectoryConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemTagOutput{})
 	pulumi.RegisterOutputType(FileSystemTagArrayOutput{})
+	pulumi.RegisterOutputType(FileSystemUserAndGroupQuotasOutput{})
+	pulumi.RegisterOutputType(FileSystemUserAndGroupQuotasArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemWindowsConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemWindowsConfigurationPtrOutput{})
 }

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.EMR.Outputs
         public readonly string? BidPrice;
         public readonly double? BidPriceAsPercentageOfOnDemandPrice;
         public readonly ImmutableArray<Outputs.InstanceFleetConfigConfiguration> Configurations;
+        public readonly string? CustomAmiId;
         public readonly Outputs.InstanceFleetConfigEbsConfiguration? EbsConfiguration;
         public readonly string InstanceType;
         public readonly int? WeightedCapacity;
@@ -28,6 +29,8 @@ namespace Pulumi.AwsNative.EMR.Outputs
 
             ImmutableArray<Outputs.InstanceFleetConfigConfiguration> configurations,
 
+            string? customAmiId,
+
             Outputs.InstanceFleetConfigEbsConfiguration? ebsConfiguration,
 
             string instanceType,
@@ -37,6 +40,7 @@ namespace Pulumi.AwsNative.EMR.Outputs
             BidPrice = bidPrice;
             BidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
             Configurations = configurations;
+            CustomAmiId = customAmiId;
             EbsConfiguration = ebsConfiguration;
             InstanceType = instanceType;
             WeightedCapacity = weightedCapacity;

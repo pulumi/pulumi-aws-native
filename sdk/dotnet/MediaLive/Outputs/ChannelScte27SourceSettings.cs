@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelScte27SourceSettings
     {
+        public readonly string? OcrLanguage;
         public readonly int? Pid;
 
         [OutputConstructor]
-        private ChannelScte27SourceSettings(int? pid)
+        private ChannelScte27SourceSettings(
+            string? ocrLanguage,
+
+            int? pid)
         {
+            OcrLanguage = ocrLanguage;
             Pid = pid;
         }
     }

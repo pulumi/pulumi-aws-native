@@ -106,6 +106,9 @@ namespace Pulumi.AwsNative.EC2
         [Output("privateIpAddress")]
         public Output<string?> PrivateIpAddress { get; private set; } = null!;
 
+        [Output("propagateTagsToVolumeOnCreation")]
+        public Output<bool?> PropagateTagsToVolumeOnCreation { get; private set; } = null!;
+
         [Output("publicDnsName")]
         public Output<string> PublicDnsName { get; private set; } = null!;
 
@@ -300,6 +303,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
+
+        [Input("propagateTagsToVolumeOnCreation")]
+        public Input<bool>? PropagateTagsToVolumeOnCreation { get; set; }
 
         [Input("ramdiskId")]
         public Input<string>? RamdiskId { get; set; }

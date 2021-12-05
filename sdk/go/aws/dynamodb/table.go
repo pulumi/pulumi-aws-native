@@ -30,6 +30,7 @@ type Table struct {
 	SSESpecification                 TableSSESpecificationPtrOutput                 `pulumi:"sSESpecification"`
 	StreamArn                        pulumi.StringOutput                            `pulumi:"streamArn"`
 	StreamSpecification              TableStreamSpecificationPtrOutput              `pulumi:"streamSpecification"`
+	TableClass                       pulumi.StringPtrOutput                         `pulumi:"tableClass"`
 	TableName                        pulumi.StringPtrOutput                         `pulumi:"tableName"`
 	Tags                             TableTagArrayOutput                            `pulumi:"tags"`
 	TimeToLiveSpecification          TableTimeToLiveSpecificationPtrOutput          `pulumi:"timeToLiveSpecification"`
@@ -88,6 +89,7 @@ type tableArgs struct {
 	ProvisionedThroughput            *TableProvisionedThroughput            `pulumi:"provisionedThroughput"`
 	SSESpecification                 *TableSSESpecification                 `pulumi:"sSESpecification"`
 	StreamSpecification              *TableStreamSpecification              `pulumi:"streamSpecification"`
+	TableClass                       *string                                `pulumi:"tableClass"`
 	TableName                        *string                                `pulumi:"tableName"`
 	Tags                             []TableTag                             `pulumi:"tags"`
 	TimeToLiveSpecification          *TableTimeToLiveSpecification          `pulumi:"timeToLiveSpecification"`
@@ -106,6 +108,7 @@ type TableArgs struct {
 	ProvisionedThroughput            TableProvisionedThroughputPtrInput
 	SSESpecification                 TableSSESpecificationPtrInput
 	StreamSpecification              TableStreamSpecificationPtrInput
+	TableClass                       pulumi.StringPtrInput
 	TableName                        pulumi.StringPtrInput
 	Tags                             TableTagArrayInput
 	TimeToLiveSpecification          TableTimeToLiveSpecificationPtrInput

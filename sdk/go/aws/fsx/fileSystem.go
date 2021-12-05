@@ -25,6 +25,8 @@ type FileSystem struct {
 	LustreConfiguration   FileSystemLustreConfigurationPtrOutput  `pulumi:"lustreConfiguration"`
 	LustreMountName       pulumi.StringOutput                     `pulumi:"lustreMountName"`
 	OntapConfiguration    FileSystemOntapConfigurationPtrOutput   `pulumi:"ontapConfiguration"`
+	OpenZFSConfiguration  FileSystemOpenZFSConfigurationPtrOutput `pulumi:"openZFSConfiguration"`
+	RootVolumeId          pulumi.StringOutput                     `pulumi:"rootVolumeId"`
 	SecurityGroupIds      pulumi.StringArrayOutput                `pulumi:"securityGroupIds"`
 	StorageCapacity       pulumi.IntPtrOutput                     `pulumi:"storageCapacity"`
 	StorageType           pulumi.StringPtrOutput                  `pulumi:"storageType"`
@@ -84,6 +86,7 @@ type fileSystemArgs struct {
 	KmsKeyId              *string                         `pulumi:"kmsKeyId"`
 	LustreConfiguration   *FileSystemLustreConfiguration  `pulumi:"lustreConfiguration"`
 	OntapConfiguration    *FileSystemOntapConfiguration   `pulumi:"ontapConfiguration"`
+	OpenZFSConfiguration  *FileSystemOpenZFSConfiguration `pulumi:"openZFSConfiguration"`
 	SecurityGroupIds      []string                        `pulumi:"securityGroupIds"`
 	StorageCapacity       *int                            `pulumi:"storageCapacity"`
 	StorageType           *string                         `pulumi:"storageType"`
@@ -100,6 +103,7 @@ type FileSystemArgs struct {
 	KmsKeyId              pulumi.StringPtrInput
 	LustreConfiguration   FileSystemLustreConfigurationPtrInput
 	OntapConfiguration    FileSystemOntapConfigurationPtrInput
+	OpenZFSConfiguration  FileSystemOpenZFSConfigurationPtrInput
 	SecurityGroupIds      pulumi.StringArrayInput
 	StorageCapacity       pulumi.IntPtrInput
 	StorageType           pulumi.StringPtrInput

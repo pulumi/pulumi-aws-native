@@ -56,6 +56,7 @@ __all__ = [
     'EndpointConfigCaptureOptionArgs',
     'EndpointConfigDataCaptureConfigArgs',
     'EndpointConfigProductionVariantArgs',
+    'EndpointConfigServerlessConfigArgs',
     'EndpointConfigTagArgs',
     'EndpointDeploymentConfigArgs',
     'EndpointTagArgs',
@@ -1947,7 +1948,8 @@ class EndpointConfigProductionVariantArgs:
                  variant_name: pulumi.Input[str],
                  accelerator_type: Optional[pulumi.Input[str]] = None,
                  initial_instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_type: Optional[pulumi.Input[str]] = None):
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 serverless_config: Optional[pulumi.Input['EndpointConfigServerlessConfigArgs']] = None):
         pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
         pulumi.set(__self__, "model_name", model_name)
         pulumi.set(__self__, "variant_name", variant_name)
@@ -1957,6 +1959,8 @@ class EndpointConfigProductionVariantArgs:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if serverless_config is not None:
+            pulumi.set(__self__, "serverless_config", serverless_config)
 
     @property
     @pulumi.getter(name="initialVariantWeight")
@@ -2011,6 +2015,42 @@ class EndpointConfigProductionVariantArgs:
     @instance_type.setter
     def instance_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="serverlessConfig")
+    def serverless_config(self) -> Optional[pulumi.Input['EndpointConfigServerlessConfigArgs']]:
+        return pulumi.get(self, "serverless_config")
+
+    @serverless_config.setter
+    def serverless_config(self, value: Optional[pulumi.Input['EndpointConfigServerlessConfigArgs']]):
+        pulumi.set(self, "serverless_config", value)
+
+
+@pulumi.input_type
+class EndpointConfigServerlessConfigArgs:
+    def __init__(__self__, *,
+                 max_concurrency: pulumi.Input[int],
+                 memory_size_in_mb: pulumi.Input[int]):
+        pulumi.set(__self__, "max_concurrency", max_concurrency)
+        pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_concurrency", value)
+
+    @property
+    @pulumi.getter(name="memorySizeInMB")
+    def memory_size_in_mb(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "memory_size_in_mb")
+
+    @memory_size_in_mb.setter
+    def memory_size_in_mb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "memory_size_in_mb", value)
 
 
 @pulumi.input_type
@@ -3021,6 +3061,7 @@ class ModelContainerDefinitionArgs:
                  environment: Optional[Any] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelImageConfigArgs']] = None,
+                 inference_specification_name: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
                  model_package_name: Optional[pulumi.Input[str]] = None,
@@ -3033,6 +3074,8 @@ class ModelContainerDefinitionArgs:
             pulumi.set(__self__, "image", image)
         if image_config is not None:
             pulumi.set(__self__, "image_config", image_config)
+        if inference_specification_name is not None:
+            pulumi.set(__self__, "inference_specification_name", inference_specification_name)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
@@ -3077,6 +3120,15 @@ class ModelContainerDefinitionArgs:
     @image_config.setter
     def image_config(self, value: Optional[pulumi.Input['ModelImageConfigArgs']]):
         pulumi.set(self, "image_config", value)
+
+    @property
+    @pulumi.getter(name="inferenceSpecificationName")
+    def inference_specification_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "inference_specification_name")
+
+    @inference_specification_name.setter
+    def inference_specification_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inference_specification_name", value)
 
     @property
     @pulumi.getter

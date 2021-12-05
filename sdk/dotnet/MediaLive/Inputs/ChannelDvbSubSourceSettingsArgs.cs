@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
 
     public sealed class ChannelDvbSubSourceSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("ocrLanguage")]
+        public Input<string>? OcrLanguage { get; set; }
+
         [Input("pid")]
         public Input<int>? Pid { get; set; }
 

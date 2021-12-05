@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelDvbSubSourceSettings
     {
+        public readonly string? OcrLanguage;
         public readonly int? Pid;
 
         [OutputConstructor]
-        private ChannelDvbSubSourceSettings(int? pid)
+        private ChannelDvbSubSourceSettings(
+            string? ocrLanguage,
+
+            int? pid)
         {
+            OcrLanguage = ocrLanguage;
             Pid = pid;
         }
     }

@@ -12,8 +12,6 @@ import (
 )
 
 // Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
-//
-// Deprecated: Bot is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Bot struct {
 	pulumi.CustomResourceState
 

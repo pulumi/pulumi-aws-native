@@ -11,11 +11,16 @@ from . import outputs
 
 __all__ = [
     'FileSystemAuditLogConfiguration',
+    'FileSystemClientConfigurations',
     'FileSystemDiskIopsConfiguration',
     'FileSystemLustreConfiguration',
+    'FileSystemNfsExports',
     'FileSystemOntapConfiguration',
+    'FileSystemOpenZFSConfiguration',
+    'FileSystemRootVolumeConfiguration',
     'FileSystemSelfManagedActiveDirectoryConfiguration',
     'FileSystemTag',
+    'FileSystemUserAndGroupQuotas',
     'FileSystemWindowsConfiguration',
 ]
 
@@ -65,6 +70,27 @@ class FileSystemAuditLogConfiguration(dict):
     @pulumi.getter(name="auditLogDestination")
     def audit_log_destination(self) -> Optional[str]:
         return pulumi.get(self, "audit_log_destination")
+
+
+@pulumi.output_type
+class FileSystemClientConfigurations(dict):
+    def __init__(__self__, *,
+                 clients: Optional[str] = None,
+                 options: Optional[Sequence[str]] = None):
+        if clients is not None:
+            pulumi.set(__self__, "clients", clients)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def clients(self) -> Optional[str]:
+        return pulumi.get(self, "clients")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "options")
 
 
 @pulumi.output_type
@@ -229,6 +255,36 @@ class FileSystemLustreConfiguration(dict):
 
 
 @pulumi.output_type
+class FileSystemNfsExports(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientConfigurations":
+            suggest = "client_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemNfsExports. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemNfsExports.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemNfsExports.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_configurations: Optional[Sequence['outputs.FileSystemClientConfigurations']] = None):
+        if client_configurations is not None:
+            pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> Optional[Sequence['outputs.FileSystemClientConfigurations']]:
+        return pulumi.get(self, "client_configurations")
+
+
+@pulumi.output_type
 class FileSystemOntapConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -348,6 +404,185 @@ class FileSystemOntapConfiguration(dict):
 
 
 @pulumi.output_type
+class FileSystemOpenZFSConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "automaticBackupRetentionDays":
+            suggest = "automatic_backup_retention_days"
+        elif key == "copyTagsToBackups":
+            suggest = "copy_tags_to_backups"
+        elif key == "copyTagsToVolumes":
+            suggest = "copy_tags_to_volumes"
+        elif key == "dailyAutomaticBackupStartTime":
+            suggest = "daily_automatic_backup_start_time"
+        elif key == "diskIopsConfiguration":
+            suggest = "disk_iops_configuration"
+        elif key == "rootVolumeConfiguration":
+            suggest = "root_volume_configuration"
+        elif key == "throughputCapacity":
+            suggest = "throughput_capacity"
+        elif key == "weeklyMaintenanceStartTime":
+            suggest = "weekly_maintenance_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemOpenZFSConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemOpenZFSConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemOpenZFSConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_type: str,
+                 automatic_backup_retention_days: Optional[int] = None,
+                 copy_tags_to_backups: Optional[bool] = None,
+                 copy_tags_to_volumes: Optional[bool] = None,
+                 daily_automatic_backup_start_time: Optional[str] = None,
+                 disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
+                 root_volume_configuration: Optional['outputs.FileSystemRootVolumeConfiguration'] = None,
+                 throughput_capacity: Optional[int] = None,
+                 weekly_maintenance_start_time: Optional[str] = None):
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        if automatic_backup_retention_days is not None:
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+        if copy_tags_to_backups is not None:
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+        if copy_tags_to_volumes is not None:
+            pulumi.set(__self__, "copy_tags_to_volumes", copy_tags_to_volumes)
+        if daily_automatic_backup_start_time is not None:
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+        if disk_iops_configuration is not None:
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
+        if root_volume_configuration is not None:
+            pulumi.set(__self__, "root_volume_configuration", root_volume_configuration)
+        if throughput_capacity is not None:
+            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
+        if weekly_maintenance_start_time is not None:
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> str:
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter(name="automaticBackupRetentionDays")
+    def automatic_backup_retention_days(self) -> Optional[int]:
+        return pulumi.get(self, "automatic_backup_retention_days")
+
+    @property
+    @pulumi.getter(name="copyTagsToBackups")
+    def copy_tags_to_backups(self) -> Optional[bool]:
+        return pulumi.get(self, "copy_tags_to_backups")
+
+    @property
+    @pulumi.getter(name="copyTagsToVolumes")
+    def copy_tags_to_volumes(self) -> Optional[bool]:
+        return pulumi.get(self, "copy_tags_to_volumes")
+
+    @property
+    @pulumi.getter(name="dailyAutomaticBackupStartTime")
+    def daily_automatic_backup_start_time(self) -> Optional[str]:
+        return pulumi.get(self, "daily_automatic_backup_start_time")
+
+    @property
+    @pulumi.getter(name="diskIopsConfiguration")
+    def disk_iops_configuration(self) -> Optional['outputs.FileSystemDiskIopsConfiguration']:
+        return pulumi.get(self, "disk_iops_configuration")
+
+    @property
+    @pulumi.getter(name="rootVolumeConfiguration")
+    def root_volume_configuration(self) -> Optional['outputs.FileSystemRootVolumeConfiguration']:
+        return pulumi.get(self, "root_volume_configuration")
+
+    @property
+    @pulumi.getter(name="throughputCapacity")
+    def throughput_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "throughput_capacity")
+
+    @property
+    @pulumi.getter(name="weeklyMaintenanceStartTime")
+    def weekly_maintenance_start_time(self) -> Optional[str]:
+        return pulumi.get(self, "weekly_maintenance_start_time")
+
+
+@pulumi.output_type
+class FileSystemRootVolumeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyTagsToSnapshots":
+            suggest = "copy_tags_to_snapshots"
+        elif key == "dataCompressionType":
+            suggest = "data_compression_type"
+        elif key == "nfsExports":
+            suggest = "nfs_exports"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "userAndGroupQuotas":
+            suggest = "user_and_group_quotas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemRootVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemRootVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemRootVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_tags_to_snapshots: Optional[bool] = None,
+                 data_compression_type: Optional[str] = None,
+                 nfs_exports: Optional[Sequence['outputs.FileSystemNfsExports']] = None,
+                 read_only: Optional[bool] = None,
+                 user_and_group_quotas: Optional[Sequence['outputs.FileSystemUserAndGroupQuotas']] = None):
+        if copy_tags_to_snapshots is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if nfs_exports is not None:
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if user_and_group_quotas is not None:
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshots")
+    def copy_tags_to_snapshots(self) -> Optional[bool]:
+        return pulumi.get(self, "copy_tags_to_snapshots")
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> Optional[str]:
+        return pulumi.get(self, "data_compression_type")
+
+    @property
+    @pulumi.getter(name="nfsExports")
+    def nfs_exports(self) -> Optional[Sequence['outputs.FileSystemNfsExports']]:
+        return pulumi.get(self, "nfs_exports")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="userAndGroupQuotas")
+    def user_and_group_quotas(self) -> Optional[Sequence['outputs.FileSystemUserAndGroupQuotas']]:
+        return pulumi.get(self, "user_and_group_quotas")
+
+
+@pulumi.output_type
 class FileSystemSelfManagedActiveDirectoryConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -442,6 +677,52 @@ class FileSystemTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FileSystemUserAndGroupQuotas(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageCapacityQuotaGiB":
+            suggest = "storage_capacity_quota_gi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemUserAndGroupQuotas. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemUserAndGroupQuotas.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemUserAndGroupQuotas.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[int] = None,
+                 storage_capacity_quota_gi_b: Optional[int] = None,
+                 type: Optional[str] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if storage_capacity_quota_gi_b is not None:
+            pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="storageCapacityQuotaGiB")
+    def storage_capacity_quota_gi_b(self) -> Optional[int]:
+        return pulumi.get(self, "storage_capacity_quota_gi_b")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

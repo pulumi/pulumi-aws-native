@@ -11,12 +11,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
 {
 
     /// <summary>
-    /// A custom slot type.
+    /// A custom, extended built-in or a grammar slot type.
     /// </summary>
     public sealed class BotSlotTypeArgs : Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("externalSourceSetting")]
+        public Input<Inputs.BotExternalSourceSettingArgs>? ExternalSourceSetting { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -32,8 +35,8 @@ namespace Pulumi.AwsNative.Lex.Inputs
             set => _slotTypeValues = value;
         }
 
-        [Input("valueSelectionSetting", required: true)]
-        public Input<Inputs.BotSlotValueSelectionSettingArgs> ValueSelectionSetting { get; set; } = null!;
+        [Input("valueSelectionSetting")]
+        public Input<Inputs.BotSlotValueSelectionSettingArgs>? ValueSelectionSetting { get; set; }
 
         public BotSlotTypeArgs()
         {

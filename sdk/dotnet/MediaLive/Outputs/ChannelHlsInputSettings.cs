@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly int? BufferSegments;
         public readonly int? Retries;
         public readonly int? RetryInterval;
+        public readonly string? Scte35Source;
 
         [OutputConstructor]
         private ChannelHlsInputSettings(
@@ -26,12 +27,15 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             int? retries,
 
-            int? retryInterval)
+            int? retryInterval,
+
+            string? scte35Source)
         {
             Bandwidth = bandwidth;
             BufferSegments = bufferSegments;
             Retries = retries;
             RetryInterval = retryInterval;
+            Scte35Source = scte35Source;
         }
     }
 }

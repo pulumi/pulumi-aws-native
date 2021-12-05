@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
 
     public sealed class ChannelWebvttDestinationSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("styleControl")]
+        public Input<string>? StyleControl { get; set; }
+
         public ChannelWebvttDestinationSettingsArgs()
         {
         }

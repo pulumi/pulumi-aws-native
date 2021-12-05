@@ -12,8 +12,6 @@ import (
 )
 
 // A Bot Alias enables you to change the version of a bot without updating applications that use the bot
-//
-// Deprecated: BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type BotAlias struct {
 	pulumi.CustomResourceState
 

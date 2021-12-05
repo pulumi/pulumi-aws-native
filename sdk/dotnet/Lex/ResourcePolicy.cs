@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Lex
     /// <summary>
     /// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
     /// </summary>
-    [Obsolete(@"ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lex:ResourcePolicy")]
     public partial class ResourcePolicy : Pulumi.CustomResource
     {

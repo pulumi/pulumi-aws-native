@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly string? AudioSelectorName;
         public readonly string? AudioType;
         public readonly string? AudioTypeControl;
+        public readonly Outputs.ChannelAudioWatermarkSettings? AudioWatermarkingSettings;
         public readonly Outputs.ChannelAudioCodecSettings? CodecSettings;
         public readonly string? LanguageCode;
         public readonly string? LanguageCodeControl;
@@ -34,6 +35,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? audioTypeControl,
 
+            Outputs.ChannelAudioWatermarkSettings? audioWatermarkingSettings,
+
             Outputs.ChannelAudioCodecSettings? codecSettings,
 
             string? languageCode,
@@ -50,6 +53,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             AudioSelectorName = audioSelectorName;
             AudioType = audioType;
             AudioTypeControl = audioTypeControl;
+            AudioWatermarkingSettings = audioWatermarkingSettings;
             CodecSettings = codecSettings;
             LanguageCode = languageCode;
             LanguageCodeControl = languageCodeControl;

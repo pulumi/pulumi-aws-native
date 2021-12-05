@@ -20,6 +20,7 @@ type InstanceGroupConfig struct {
 	AutoScalingPolicy InstanceGroupConfigAutoScalingPolicyPtrOutput `pulumi:"autoScalingPolicy"`
 	BidPrice          pulumi.StringPtrOutput                        `pulumi:"bidPrice"`
 	Configurations    InstanceGroupConfigConfigurationArrayOutput   `pulumi:"configurations"`
+	CustomAmiId       pulumi.StringPtrOutput                        `pulumi:"customAmiId"`
 	EbsConfiguration  InstanceGroupConfigEbsConfigurationPtrOutput  `pulumi:"ebsConfiguration"`
 	InstanceCount     pulumi.IntOutput                              `pulumi:"instanceCount"`
 	InstanceRole      pulumi.StringOutput                           `pulumi:"instanceRole"`
@@ -83,6 +84,7 @@ type instanceGroupConfigArgs struct {
 	AutoScalingPolicy *InstanceGroupConfigAutoScalingPolicy `pulumi:"autoScalingPolicy"`
 	BidPrice          *string                               `pulumi:"bidPrice"`
 	Configurations    []InstanceGroupConfigConfiguration    `pulumi:"configurations"`
+	CustomAmiId       *string                               `pulumi:"customAmiId"`
 	EbsConfiguration  *InstanceGroupConfigEbsConfiguration  `pulumi:"ebsConfiguration"`
 	InstanceCount     int                                   `pulumi:"instanceCount"`
 	InstanceRole      string                                `pulumi:"instanceRole"`
@@ -97,6 +99,7 @@ type InstanceGroupConfigArgs struct {
 	AutoScalingPolicy InstanceGroupConfigAutoScalingPolicyPtrInput
 	BidPrice          pulumi.StringPtrInput
 	Configurations    InstanceGroupConfigConfigurationArrayInput
+	CustomAmiId       pulumi.StringPtrInput
 	EbsConfiguration  InstanceGroupConfigEbsConfigurationPtrInput
 	InstanceCount     pulumi.IntInput
 	InstanceRole      pulumi.StringInput

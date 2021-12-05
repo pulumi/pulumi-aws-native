@@ -27,6 +27,7 @@ type ReplicationGroup struct {
 	CacheSubnetGroupName         pulumi.StringPtrOutput                                     `pulumi:"cacheSubnetGroupName"`
 	ConfigurationEndPointAddress pulumi.StringPtrOutput                                     `pulumi:"configurationEndPointAddress"`
 	ConfigurationEndPointPort    pulumi.StringPtrOutput                                     `pulumi:"configurationEndPointPort"`
+	DataTieringEnabled           pulumi.BoolPtrOutput                                       `pulumi:"dataTieringEnabled"`
 	Engine                       pulumi.StringPtrOutput                                     `pulumi:"engine"`
 	EngineVersion                pulumi.StringPtrOutput                                     `pulumi:"engineVersion"`
 	GlobalReplicationGroupId     pulumi.StringPtrOutput                                     `pulumi:"globalReplicationGroupId"`
@@ -115,6 +116,7 @@ type replicationGroupArgs struct {
 	CacheSubnetGroupName         *string                                           `pulumi:"cacheSubnetGroupName"`
 	ConfigurationEndPointAddress *string                                           `pulumi:"configurationEndPointAddress"`
 	ConfigurationEndPointPort    *string                                           `pulumi:"configurationEndPointPort"`
+	DataTieringEnabled           *bool                                             `pulumi:"dataTieringEnabled"`
 	Engine                       *string                                           `pulumi:"engine"`
 	EngineVersion                *string                                           `pulumi:"engineVersion"`
 	GlobalReplicationGroupId     *string                                           `pulumi:"globalReplicationGroupId"`
@@ -162,6 +164,7 @@ type ReplicationGroupArgs struct {
 	CacheSubnetGroupName         pulumi.StringPtrInput
 	ConfigurationEndPointAddress pulumi.StringPtrInput
 	ConfigurationEndPointPort    pulumi.StringPtrInput
+	DataTieringEnabled           pulumi.BoolPtrInput
 	Engine                       pulumi.StringPtrInput
 	EngineVersion                pulumi.StringPtrInput
 	GlobalReplicationGroupId     pulumi.StringPtrInput

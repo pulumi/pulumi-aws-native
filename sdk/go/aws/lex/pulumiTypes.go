@@ -1939,6 +1939,142 @@ func (o BotDialogCodeHookSettingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Provides information about the external source of the slot type's definition.
+type BotExternalSourceSetting struct {
+	GrammarSlotTypeSetting *BotGrammarSlotTypeSetting `pulumi:"grammarSlotTypeSetting"`
+}
+
+// BotExternalSourceSettingInput is an input type that accepts BotExternalSourceSettingArgs and BotExternalSourceSettingOutput values.
+// You can construct a concrete instance of `BotExternalSourceSettingInput` via:
+//
+//          BotExternalSourceSettingArgs{...}
+type BotExternalSourceSettingInput interface {
+	pulumi.Input
+
+	ToBotExternalSourceSettingOutput() BotExternalSourceSettingOutput
+	ToBotExternalSourceSettingOutputWithContext(context.Context) BotExternalSourceSettingOutput
+}
+
+// Provides information about the external source of the slot type's definition.
+type BotExternalSourceSettingArgs struct {
+	GrammarSlotTypeSetting BotGrammarSlotTypeSettingPtrInput `pulumi:"grammarSlotTypeSetting"`
+}
+
+func (BotExternalSourceSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotExternalSourceSetting)(nil)).Elem()
+}
+
+func (i BotExternalSourceSettingArgs) ToBotExternalSourceSettingOutput() BotExternalSourceSettingOutput {
+	return i.ToBotExternalSourceSettingOutputWithContext(context.Background())
+}
+
+func (i BotExternalSourceSettingArgs) ToBotExternalSourceSettingOutputWithContext(ctx context.Context) BotExternalSourceSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotExternalSourceSettingOutput)
+}
+
+func (i BotExternalSourceSettingArgs) ToBotExternalSourceSettingPtrOutput() BotExternalSourceSettingPtrOutput {
+	return i.ToBotExternalSourceSettingPtrOutputWithContext(context.Background())
+}
+
+func (i BotExternalSourceSettingArgs) ToBotExternalSourceSettingPtrOutputWithContext(ctx context.Context) BotExternalSourceSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotExternalSourceSettingOutput).ToBotExternalSourceSettingPtrOutputWithContext(ctx)
+}
+
+// BotExternalSourceSettingPtrInput is an input type that accepts BotExternalSourceSettingArgs, BotExternalSourceSettingPtr and BotExternalSourceSettingPtrOutput values.
+// You can construct a concrete instance of `BotExternalSourceSettingPtrInput` via:
+//
+//          BotExternalSourceSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type BotExternalSourceSettingPtrInput interface {
+	pulumi.Input
+
+	ToBotExternalSourceSettingPtrOutput() BotExternalSourceSettingPtrOutput
+	ToBotExternalSourceSettingPtrOutputWithContext(context.Context) BotExternalSourceSettingPtrOutput
+}
+
+type botExternalSourceSettingPtrType BotExternalSourceSettingArgs
+
+func BotExternalSourceSettingPtr(v *BotExternalSourceSettingArgs) BotExternalSourceSettingPtrInput {
+	return (*botExternalSourceSettingPtrType)(v)
+}
+
+func (*botExternalSourceSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotExternalSourceSetting)(nil)).Elem()
+}
+
+func (i *botExternalSourceSettingPtrType) ToBotExternalSourceSettingPtrOutput() BotExternalSourceSettingPtrOutput {
+	return i.ToBotExternalSourceSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *botExternalSourceSettingPtrType) ToBotExternalSourceSettingPtrOutputWithContext(ctx context.Context) BotExternalSourceSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotExternalSourceSettingPtrOutput)
+}
+
+// Provides information about the external source of the slot type's definition.
+type BotExternalSourceSettingOutput struct{ *pulumi.OutputState }
+
+func (BotExternalSourceSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotExternalSourceSetting)(nil)).Elem()
+}
+
+func (o BotExternalSourceSettingOutput) ToBotExternalSourceSettingOutput() BotExternalSourceSettingOutput {
+	return o
+}
+
+func (o BotExternalSourceSettingOutput) ToBotExternalSourceSettingOutputWithContext(ctx context.Context) BotExternalSourceSettingOutput {
+	return o
+}
+
+func (o BotExternalSourceSettingOutput) ToBotExternalSourceSettingPtrOutput() BotExternalSourceSettingPtrOutput {
+	return o.ToBotExternalSourceSettingPtrOutputWithContext(context.Background())
+}
+
+func (o BotExternalSourceSettingOutput) ToBotExternalSourceSettingPtrOutputWithContext(ctx context.Context) BotExternalSourceSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotExternalSourceSetting) *BotExternalSourceSetting {
+		return &v
+	}).(BotExternalSourceSettingPtrOutput)
+}
+
+func (o BotExternalSourceSettingOutput) GrammarSlotTypeSetting() BotGrammarSlotTypeSettingPtrOutput {
+	return o.ApplyT(func(v BotExternalSourceSetting) *BotGrammarSlotTypeSetting { return v.GrammarSlotTypeSetting }).(BotGrammarSlotTypeSettingPtrOutput)
+}
+
+type BotExternalSourceSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (BotExternalSourceSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotExternalSourceSetting)(nil)).Elem()
+}
+
+func (o BotExternalSourceSettingPtrOutput) ToBotExternalSourceSettingPtrOutput() BotExternalSourceSettingPtrOutput {
+	return o
+}
+
+func (o BotExternalSourceSettingPtrOutput) ToBotExternalSourceSettingPtrOutputWithContext(ctx context.Context) BotExternalSourceSettingPtrOutput {
+	return o
+}
+
+func (o BotExternalSourceSettingPtrOutput) Elem() BotExternalSourceSettingOutput {
+	return o.ApplyT(func(v *BotExternalSourceSetting) BotExternalSourceSetting {
+		if v != nil {
+			return *v
+		}
+		var ret BotExternalSourceSetting
+		return ret
+	}).(BotExternalSourceSettingOutput)
+}
+
+func (o BotExternalSourceSettingPtrOutput) GrammarSlotTypeSetting() BotGrammarSlotTypeSettingPtrOutput {
+	return o.ApplyT(func(v *BotExternalSourceSetting) *BotGrammarSlotTypeSetting {
+		if v == nil {
+			return nil
+		}
+		return v.GrammarSlotTypeSetting
+	}).(BotGrammarSlotTypeSettingPtrOutput)
+}
+
 // Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
 type BotFulfillmentCodeHookSetting struct {
 	Enabled                            bool                                   `pulumi:"enabled"`
@@ -2648,6 +2784,320 @@ func (o BotFulfillmentUpdatesSpecificationPtrOutput) UpdateResponse() BotFulfill
 		}
 		return v.UpdateResponse
 	}).(BotFulfillmentUpdateResponseSpecificationPtrOutput)
+}
+
+// Settings required for a slot type based on a grammar that you provide.
+type BotGrammarSlotTypeSetting struct {
+	Source *BotGrammarSlotTypeSource `pulumi:"source"`
+}
+
+// BotGrammarSlotTypeSettingInput is an input type that accepts BotGrammarSlotTypeSettingArgs and BotGrammarSlotTypeSettingOutput values.
+// You can construct a concrete instance of `BotGrammarSlotTypeSettingInput` via:
+//
+//          BotGrammarSlotTypeSettingArgs{...}
+type BotGrammarSlotTypeSettingInput interface {
+	pulumi.Input
+
+	ToBotGrammarSlotTypeSettingOutput() BotGrammarSlotTypeSettingOutput
+	ToBotGrammarSlotTypeSettingOutputWithContext(context.Context) BotGrammarSlotTypeSettingOutput
+}
+
+// Settings required for a slot type based on a grammar that you provide.
+type BotGrammarSlotTypeSettingArgs struct {
+	Source BotGrammarSlotTypeSourcePtrInput `pulumi:"source"`
+}
+
+func (BotGrammarSlotTypeSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGrammarSlotTypeSetting)(nil)).Elem()
+}
+
+func (i BotGrammarSlotTypeSettingArgs) ToBotGrammarSlotTypeSettingOutput() BotGrammarSlotTypeSettingOutput {
+	return i.ToBotGrammarSlotTypeSettingOutputWithContext(context.Background())
+}
+
+func (i BotGrammarSlotTypeSettingArgs) ToBotGrammarSlotTypeSettingOutputWithContext(ctx context.Context) BotGrammarSlotTypeSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSettingOutput)
+}
+
+func (i BotGrammarSlotTypeSettingArgs) ToBotGrammarSlotTypeSettingPtrOutput() BotGrammarSlotTypeSettingPtrOutput {
+	return i.ToBotGrammarSlotTypeSettingPtrOutputWithContext(context.Background())
+}
+
+func (i BotGrammarSlotTypeSettingArgs) ToBotGrammarSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSettingOutput).ToBotGrammarSlotTypeSettingPtrOutputWithContext(ctx)
+}
+
+// BotGrammarSlotTypeSettingPtrInput is an input type that accepts BotGrammarSlotTypeSettingArgs, BotGrammarSlotTypeSettingPtr and BotGrammarSlotTypeSettingPtrOutput values.
+// You can construct a concrete instance of `BotGrammarSlotTypeSettingPtrInput` via:
+//
+//          BotGrammarSlotTypeSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type BotGrammarSlotTypeSettingPtrInput interface {
+	pulumi.Input
+
+	ToBotGrammarSlotTypeSettingPtrOutput() BotGrammarSlotTypeSettingPtrOutput
+	ToBotGrammarSlotTypeSettingPtrOutputWithContext(context.Context) BotGrammarSlotTypeSettingPtrOutput
+}
+
+type botGrammarSlotTypeSettingPtrType BotGrammarSlotTypeSettingArgs
+
+func BotGrammarSlotTypeSettingPtr(v *BotGrammarSlotTypeSettingArgs) BotGrammarSlotTypeSettingPtrInput {
+	return (*botGrammarSlotTypeSettingPtrType)(v)
+}
+
+func (*botGrammarSlotTypeSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGrammarSlotTypeSetting)(nil)).Elem()
+}
+
+func (i *botGrammarSlotTypeSettingPtrType) ToBotGrammarSlotTypeSettingPtrOutput() BotGrammarSlotTypeSettingPtrOutput {
+	return i.ToBotGrammarSlotTypeSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *botGrammarSlotTypeSettingPtrType) ToBotGrammarSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSettingPtrOutput)
+}
+
+// Settings required for a slot type based on a grammar that you provide.
+type BotGrammarSlotTypeSettingOutput struct{ *pulumi.OutputState }
+
+func (BotGrammarSlotTypeSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGrammarSlotTypeSetting)(nil)).Elem()
+}
+
+func (o BotGrammarSlotTypeSettingOutput) ToBotGrammarSlotTypeSettingOutput() BotGrammarSlotTypeSettingOutput {
+	return o
+}
+
+func (o BotGrammarSlotTypeSettingOutput) ToBotGrammarSlotTypeSettingOutputWithContext(ctx context.Context) BotGrammarSlotTypeSettingOutput {
+	return o
+}
+
+func (o BotGrammarSlotTypeSettingOutput) ToBotGrammarSlotTypeSettingPtrOutput() BotGrammarSlotTypeSettingPtrOutput {
+	return o.ToBotGrammarSlotTypeSettingPtrOutputWithContext(context.Background())
+}
+
+func (o BotGrammarSlotTypeSettingOutput) ToBotGrammarSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGrammarSlotTypeSetting) *BotGrammarSlotTypeSetting {
+		return &v
+	}).(BotGrammarSlotTypeSettingPtrOutput)
+}
+
+func (o BotGrammarSlotTypeSettingOutput) Source() BotGrammarSlotTypeSourcePtrOutput {
+	return o.ApplyT(func(v BotGrammarSlotTypeSetting) *BotGrammarSlotTypeSource { return v.Source }).(BotGrammarSlotTypeSourcePtrOutput)
+}
+
+type BotGrammarSlotTypeSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (BotGrammarSlotTypeSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGrammarSlotTypeSetting)(nil)).Elem()
+}
+
+func (o BotGrammarSlotTypeSettingPtrOutput) ToBotGrammarSlotTypeSettingPtrOutput() BotGrammarSlotTypeSettingPtrOutput {
+	return o
+}
+
+func (o BotGrammarSlotTypeSettingPtrOutput) ToBotGrammarSlotTypeSettingPtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSettingPtrOutput {
+	return o
+}
+
+func (o BotGrammarSlotTypeSettingPtrOutput) Elem() BotGrammarSlotTypeSettingOutput {
+	return o.ApplyT(func(v *BotGrammarSlotTypeSetting) BotGrammarSlotTypeSetting {
+		if v != nil {
+			return *v
+		}
+		var ret BotGrammarSlotTypeSetting
+		return ret
+	}).(BotGrammarSlotTypeSettingOutput)
+}
+
+func (o BotGrammarSlotTypeSettingPtrOutput) Source() BotGrammarSlotTypeSourcePtrOutput {
+	return o.ApplyT(func(v *BotGrammarSlotTypeSetting) *BotGrammarSlotTypeSource {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(BotGrammarSlotTypeSourcePtrOutput)
+}
+
+// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+type BotGrammarSlotTypeSource struct {
+	// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The name of the S3 bucket that contains the grammar source.
+	S3BucketName string `pulumi:"s3BucketName"`
+	// The path to the grammar in the S3 bucket.
+	S3ObjectKey string `pulumi:"s3ObjectKey"`
+}
+
+// BotGrammarSlotTypeSourceInput is an input type that accepts BotGrammarSlotTypeSourceArgs and BotGrammarSlotTypeSourceOutput values.
+// You can construct a concrete instance of `BotGrammarSlotTypeSourceInput` via:
+//
+//          BotGrammarSlotTypeSourceArgs{...}
+type BotGrammarSlotTypeSourceInput interface {
+	pulumi.Input
+
+	ToBotGrammarSlotTypeSourceOutput() BotGrammarSlotTypeSourceOutput
+	ToBotGrammarSlotTypeSourceOutputWithContext(context.Context) BotGrammarSlotTypeSourceOutput
+}
+
+// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+type BotGrammarSlotTypeSourceArgs struct {
+	// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The name of the S3 bucket that contains the grammar source.
+	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
+	// The path to the grammar in the S3 bucket.
+	S3ObjectKey pulumi.StringInput `pulumi:"s3ObjectKey"`
+}
+
+func (BotGrammarSlotTypeSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGrammarSlotTypeSource)(nil)).Elem()
+}
+
+func (i BotGrammarSlotTypeSourceArgs) ToBotGrammarSlotTypeSourceOutput() BotGrammarSlotTypeSourceOutput {
+	return i.ToBotGrammarSlotTypeSourceOutputWithContext(context.Background())
+}
+
+func (i BotGrammarSlotTypeSourceArgs) ToBotGrammarSlotTypeSourceOutputWithContext(ctx context.Context) BotGrammarSlotTypeSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSourceOutput)
+}
+
+func (i BotGrammarSlotTypeSourceArgs) ToBotGrammarSlotTypeSourcePtrOutput() BotGrammarSlotTypeSourcePtrOutput {
+	return i.ToBotGrammarSlotTypeSourcePtrOutputWithContext(context.Background())
+}
+
+func (i BotGrammarSlotTypeSourceArgs) ToBotGrammarSlotTypeSourcePtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSourceOutput).ToBotGrammarSlotTypeSourcePtrOutputWithContext(ctx)
+}
+
+// BotGrammarSlotTypeSourcePtrInput is an input type that accepts BotGrammarSlotTypeSourceArgs, BotGrammarSlotTypeSourcePtr and BotGrammarSlotTypeSourcePtrOutput values.
+// You can construct a concrete instance of `BotGrammarSlotTypeSourcePtrInput` via:
+//
+//          BotGrammarSlotTypeSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type BotGrammarSlotTypeSourcePtrInput interface {
+	pulumi.Input
+
+	ToBotGrammarSlotTypeSourcePtrOutput() BotGrammarSlotTypeSourcePtrOutput
+	ToBotGrammarSlotTypeSourcePtrOutputWithContext(context.Context) BotGrammarSlotTypeSourcePtrOutput
+}
+
+type botGrammarSlotTypeSourcePtrType BotGrammarSlotTypeSourceArgs
+
+func BotGrammarSlotTypeSourcePtr(v *BotGrammarSlotTypeSourceArgs) BotGrammarSlotTypeSourcePtrInput {
+	return (*botGrammarSlotTypeSourcePtrType)(v)
+}
+
+func (*botGrammarSlotTypeSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGrammarSlotTypeSource)(nil)).Elem()
+}
+
+func (i *botGrammarSlotTypeSourcePtrType) ToBotGrammarSlotTypeSourcePtrOutput() BotGrammarSlotTypeSourcePtrOutput {
+	return i.ToBotGrammarSlotTypeSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *botGrammarSlotTypeSourcePtrType) ToBotGrammarSlotTypeSourcePtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGrammarSlotTypeSourcePtrOutput)
+}
+
+// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+type BotGrammarSlotTypeSourceOutput struct{ *pulumi.OutputState }
+
+func (BotGrammarSlotTypeSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGrammarSlotTypeSource)(nil)).Elem()
+}
+
+func (o BotGrammarSlotTypeSourceOutput) ToBotGrammarSlotTypeSourceOutput() BotGrammarSlotTypeSourceOutput {
+	return o
+}
+
+func (o BotGrammarSlotTypeSourceOutput) ToBotGrammarSlotTypeSourceOutputWithContext(ctx context.Context) BotGrammarSlotTypeSourceOutput {
+	return o
+}
+
+func (o BotGrammarSlotTypeSourceOutput) ToBotGrammarSlotTypeSourcePtrOutput() BotGrammarSlotTypeSourcePtrOutput {
+	return o.ToBotGrammarSlotTypeSourcePtrOutputWithContext(context.Background())
+}
+
+func (o BotGrammarSlotTypeSourceOutput) ToBotGrammarSlotTypeSourcePtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGrammarSlotTypeSource) *BotGrammarSlotTypeSource {
+		return &v
+	}).(BotGrammarSlotTypeSourcePtrOutput)
+}
+
+// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+func (o BotGrammarSlotTypeSourceOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotGrammarSlotTypeSource) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the S3 bucket that contains the grammar source.
+func (o BotGrammarSlotTypeSourceOutput) S3BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v BotGrammarSlotTypeSource) string { return v.S3BucketName }).(pulumi.StringOutput)
+}
+
+// The path to the grammar in the S3 bucket.
+func (o BotGrammarSlotTypeSourceOutput) S3ObjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v BotGrammarSlotTypeSource) string { return v.S3ObjectKey }).(pulumi.StringOutput)
+}
+
+type BotGrammarSlotTypeSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (BotGrammarSlotTypeSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGrammarSlotTypeSource)(nil)).Elem()
+}
+
+func (o BotGrammarSlotTypeSourcePtrOutput) ToBotGrammarSlotTypeSourcePtrOutput() BotGrammarSlotTypeSourcePtrOutput {
+	return o
+}
+
+func (o BotGrammarSlotTypeSourcePtrOutput) ToBotGrammarSlotTypeSourcePtrOutputWithContext(ctx context.Context) BotGrammarSlotTypeSourcePtrOutput {
+	return o
+}
+
+func (o BotGrammarSlotTypeSourcePtrOutput) Elem() BotGrammarSlotTypeSourceOutput {
+	return o.ApplyT(func(v *BotGrammarSlotTypeSource) BotGrammarSlotTypeSource {
+		if v != nil {
+			return *v
+		}
+		var ret BotGrammarSlotTypeSource
+		return ret
+	}).(BotGrammarSlotTypeSourceOutput)
+}
+
+// The Amazon KMS key required to decrypt the contents of the grammar, if any.
+func (o BotGrammarSlotTypeSourcePtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotGrammarSlotTypeSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the S3 bucket that contains the grammar source.
+func (o BotGrammarSlotTypeSourcePtrOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotGrammarSlotTypeSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the grammar in the S3 bucket.
+func (o BotGrammarSlotTypeSourcePtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotGrammarSlotTypeSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3ObjectKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // A message that defines a response card that the client application can show to the user.
@@ -5966,13 +6416,14 @@ func (o BotSlotPriorityArrayOutput) Index(i pulumi.IntInput) BotSlotPriorityOutp
 	}).(BotSlotPriorityOutput)
 }
 
-// A custom slot type.
+// A custom, extended built-in or a grammar slot type.
 type BotSlotType struct {
-	Description             *string                      `pulumi:"description"`
-	Name                    string                       `pulumi:"name"`
-	ParentSlotTypeSignature *string                      `pulumi:"parentSlotTypeSignature"`
-	SlotTypeValues          []BotSlotTypeValue           `pulumi:"slotTypeValues"`
-	ValueSelectionSetting   BotSlotValueSelectionSetting `pulumi:"valueSelectionSetting"`
+	Description             *string                       `pulumi:"description"`
+	ExternalSourceSetting   *BotExternalSourceSetting     `pulumi:"externalSourceSetting"`
+	Name                    string                        `pulumi:"name"`
+	ParentSlotTypeSignature *string                       `pulumi:"parentSlotTypeSignature"`
+	SlotTypeValues          []BotSlotTypeValue            `pulumi:"slotTypeValues"`
+	ValueSelectionSetting   *BotSlotValueSelectionSetting `pulumi:"valueSelectionSetting"`
 }
 
 // BotSlotTypeInput is an input type that accepts BotSlotTypeArgs and BotSlotTypeOutput values.
@@ -5986,13 +6437,14 @@ type BotSlotTypeInput interface {
 	ToBotSlotTypeOutputWithContext(context.Context) BotSlotTypeOutput
 }
 
-// A custom slot type.
+// A custom, extended built-in or a grammar slot type.
 type BotSlotTypeArgs struct {
-	Description             pulumi.StringPtrInput             `pulumi:"description"`
-	Name                    pulumi.StringInput                `pulumi:"name"`
-	ParentSlotTypeSignature pulumi.StringPtrInput             `pulumi:"parentSlotTypeSignature"`
-	SlotTypeValues          BotSlotTypeValueArrayInput        `pulumi:"slotTypeValues"`
-	ValueSelectionSetting   BotSlotValueSelectionSettingInput `pulumi:"valueSelectionSetting"`
+	Description             pulumi.StringPtrInput                `pulumi:"description"`
+	ExternalSourceSetting   BotExternalSourceSettingPtrInput     `pulumi:"externalSourceSetting"`
+	Name                    pulumi.StringInput                   `pulumi:"name"`
+	ParentSlotTypeSignature pulumi.StringPtrInput                `pulumi:"parentSlotTypeSignature"`
+	SlotTypeValues          BotSlotTypeValueArrayInput           `pulumi:"slotTypeValues"`
+	ValueSelectionSetting   BotSlotValueSelectionSettingPtrInput `pulumi:"valueSelectionSetting"`
 }
 
 func (BotSlotTypeArgs) ElementType() reflect.Type {
@@ -6032,7 +6484,7 @@ func (i BotSlotTypeArray) ToBotSlotTypeArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotTypeArrayOutput)
 }
 
-// A custom slot type.
+// A custom, extended built-in or a grammar slot type.
 type BotSlotTypeOutput struct{ *pulumi.OutputState }
 
 func (BotSlotTypeOutput) ElementType() reflect.Type {
@@ -6051,6 +6503,10 @@ func (o BotSlotTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotSlotType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o BotSlotTypeOutput) ExternalSourceSetting() BotExternalSourceSettingPtrOutput {
+	return o.ApplyT(func(v BotSlotType) *BotExternalSourceSetting { return v.ExternalSourceSetting }).(BotExternalSourceSettingPtrOutput)
+}
+
 func (o BotSlotTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSlotType) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6063,8 +6519,8 @@ func (o BotSlotTypeOutput) SlotTypeValues() BotSlotTypeValueArrayOutput {
 	return o.ApplyT(func(v BotSlotType) []BotSlotTypeValue { return v.SlotTypeValues }).(BotSlotTypeValueArrayOutput)
 }
 
-func (o BotSlotTypeOutput) ValueSelectionSetting() BotSlotValueSelectionSettingOutput {
-	return o.ApplyT(func(v BotSlotType) BotSlotValueSelectionSetting { return v.ValueSelectionSetting }).(BotSlotValueSelectionSettingOutput)
+func (o BotSlotTypeOutput) ValueSelectionSetting() BotSlotValueSelectionSettingPtrOutput {
+	return o.ApplyT(func(v BotSlotType) *BotSlotValueSelectionSetting { return v.ValueSelectionSetting }).(BotSlotValueSelectionSettingPtrOutput)
 }
 
 type BotSlotTypeArrayOutput struct{ *pulumi.OutputState }
@@ -6460,6 +6916,47 @@ func (i BotSlotValueSelectionSettingArgs) ToBotSlotValueSelectionSettingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueSelectionSettingOutput)
 }
 
+func (i BotSlotValueSelectionSettingArgs) ToBotSlotValueSelectionSettingPtrOutput() BotSlotValueSelectionSettingPtrOutput {
+	return i.ToBotSlotValueSelectionSettingPtrOutputWithContext(context.Background())
+}
+
+func (i BotSlotValueSelectionSettingArgs) ToBotSlotValueSelectionSettingPtrOutputWithContext(ctx context.Context) BotSlotValueSelectionSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueSelectionSettingOutput).ToBotSlotValueSelectionSettingPtrOutputWithContext(ctx)
+}
+
+// BotSlotValueSelectionSettingPtrInput is an input type that accepts BotSlotValueSelectionSettingArgs, BotSlotValueSelectionSettingPtr and BotSlotValueSelectionSettingPtrOutput values.
+// You can construct a concrete instance of `BotSlotValueSelectionSettingPtrInput` via:
+//
+//          BotSlotValueSelectionSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type BotSlotValueSelectionSettingPtrInput interface {
+	pulumi.Input
+
+	ToBotSlotValueSelectionSettingPtrOutput() BotSlotValueSelectionSettingPtrOutput
+	ToBotSlotValueSelectionSettingPtrOutputWithContext(context.Context) BotSlotValueSelectionSettingPtrOutput
+}
+
+type botSlotValueSelectionSettingPtrType BotSlotValueSelectionSettingArgs
+
+func BotSlotValueSelectionSettingPtr(v *BotSlotValueSelectionSettingArgs) BotSlotValueSelectionSettingPtrInput {
+	return (*botSlotValueSelectionSettingPtrType)(v)
+}
+
+func (*botSlotValueSelectionSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSlotValueSelectionSetting)(nil)).Elem()
+}
+
+func (i *botSlotValueSelectionSettingPtrType) ToBotSlotValueSelectionSettingPtrOutput() BotSlotValueSelectionSettingPtrOutput {
+	return i.ToBotSlotValueSelectionSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *botSlotValueSelectionSettingPtrType) ToBotSlotValueSelectionSettingPtrOutputWithContext(ctx context.Context) BotSlotValueSelectionSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSlotValueSelectionSettingPtrOutput)
+}
+
 // Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSettingOutput struct{ *pulumi.OutputState }
 
@@ -6475,12 +6972,64 @@ func (o BotSlotValueSelectionSettingOutput) ToBotSlotValueSelectionSettingOutput
 	return o
 }
 
+func (o BotSlotValueSelectionSettingOutput) ToBotSlotValueSelectionSettingPtrOutput() BotSlotValueSelectionSettingPtrOutput {
+	return o.ToBotSlotValueSelectionSettingPtrOutputWithContext(context.Background())
+}
+
+func (o BotSlotValueSelectionSettingOutput) ToBotSlotValueSelectionSettingPtrOutputWithContext(ctx context.Context) BotSlotValueSelectionSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSlotValueSelectionSetting) *BotSlotValueSelectionSetting {
+		return &v
+	}).(BotSlotValueSelectionSettingPtrOutput)
+}
+
 func (o BotSlotValueSelectionSettingOutput) RegexFilter() BotSlotValueRegexFilterPtrOutput {
 	return o.ApplyT(func(v BotSlotValueSelectionSetting) *BotSlotValueRegexFilter { return v.RegexFilter }).(BotSlotValueRegexFilterPtrOutput)
 }
 
 func (o BotSlotValueSelectionSettingOutput) ResolutionStrategy() BotSlotValueResolutionStrategyOutput {
 	return o.ApplyT(func(v BotSlotValueSelectionSetting) BotSlotValueResolutionStrategy { return v.ResolutionStrategy }).(BotSlotValueResolutionStrategyOutput)
+}
+
+type BotSlotValueSelectionSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (BotSlotValueSelectionSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSlotValueSelectionSetting)(nil)).Elem()
+}
+
+func (o BotSlotValueSelectionSettingPtrOutput) ToBotSlotValueSelectionSettingPtrOutput() BotSlotValueSelectionSettingPtrOutput {
+	return o
+}
+
+func (o BotSlotValueSelectionSettingPtrOutput) ToBotSlotValueSelectionSettingPtrOutputWithContext(ctx context.Context) BotSlotValueSelectionSettingPtrOutput {
+	return o
+}
+
+func (o BotSlotValueSelectionSettingPtrOutput) Elem() BotSlotValueSelectionSettingOutput {
+	return o.ApplyT(func(v *BotSlotValueSelectionSetting) BotSlotValueSelectionSetting {
+		if v != nil {
+			return *v
+		}
+		var ret BotSlotValueSelectionSetting
+		return ret
+	}).(BotSlotValueSelectionSettingOutput)
+}
+
+func (o BotSlotValueSelectionSettingPtrOutput) RegexFilter() BotSlotValueRegexFilterPtrOutput {
+	return o.ApplyT(func(v *BotSlotValueSelectionSetting) *BotSlotValueRegexFilter {
+		if v == nil {
+			return nil
+		}
+		return v.RegexFilter
+	}).(BotSlotValueRegexFilterPtrOutput)
+}
+
+func (o BotSlotValueSelectionSettingPtrOutput) ResolutionStrategy() BotSlotValueResolutionStrategyPtrOutput {
+	return o.ApplyT(func(v *BotSlotValueSelectionSetting) *BotSlotValueResolutionStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.ResolutionStrategy
+	}).(BotSlotValueResolutionStrategyPtrOutput)
 }
 
 // StillWaitingResponseSpecification.
@@ -6829,106 +7378,104 @@ func (o BotVersionLocaleDetailsOutput) SourceBotVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v BotVersionLocaleDetails) string { return v.SourceBotVersion }).(pulumi.StringOutput)
 }
 
-type BotVersionLocaleSpecificationItemProperties struct {
+type BotVersionLocaleSpecification struct {
 	BotVersionLocaleDetails BotVersionLocaleDetails `pulumi:"botVersionLocaleDetails"`
 	LocaleId                string                  `pulumi:"localeId"`
 }
 
-// BotVersionLocaleSpecificationItemPropertiesInput is an input type that accepts BotVersionLocaleSpecificationItemPropertiesArgs and BotVersionLocaleSpecificationItemPropertiesOutput values.
-// You can construct a concrete instance of `BotVersionLocaleSpecificationItemPropertiesInput` via:
+// BotVersionLocaleSpecificationInput is an input type that accepts BotVersionLocaleSpecificationArgs and BotVersionLocaleSpecificationOutput values.
+// You can construct a concrete instance of `BotVersionLocaleSpecificationInput` via:
 //
-//          BotVersionLocaleSpecificationItemPropertiesArgs{...}
-type BotVersionLocaleSpecificationItemPropertiesInput interface {
+//          BotVersionLocaleSpecificationArgs{...}
+type BotVersionLocaleSpecificationInput interface {
 	pulumi.Input
 
-	ToBotVersionLocaleSpecificationItemPropertiesOutput() BotVersionLocaleSpecificationItemPropertiesOutput
-	ToBotVersionLocaleSpecificationItemPropertiesOutputWithContext(context.Context) BotVersionLocaleSpecificationItemPropertiesOutput
+	ToBotVersionLocaleSpecificationOutput() BotVersionLocaleSpecificationOutput
+	ToBotVersionLocaleSpecificationOutputWithContext(context.Context) BotVersionLocaleSpecificationOutput
 }
 
-type BotVersionLocaleSpecificationItemPropertiesArgs struct {
+type BotVersionLocaleSpecificationArgs struct {
 	BotVersionLocaleDetails BotVersionLocaleDetailsInput `pulumi:"botVersionLocaleDetails"`
 	LocaleId                pulumi.StringInput           `pulumi:"localeId"`
 }
 
-func (BotVersionLocaleSpecificationItemPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotVersionLocaleSpecificationItemProperties)(nil)).Elem()
+func (BotVersionLocaleSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotVersionLocaleSpecification)(nil)).Elem()
 }
 
-func (i BotVersionLocaleSpecificationItemPropertiesArgs) ToBotVersionLocaleSpecificationItemPropertiesOutput() BotVersionLocaleSpecificationItemPropertiesOutput {
-	return i.ToBotVersionLocaleSpecificationItemPropertiesOutputWithContext(context.Background())
+func (i BotVersionLocaleSpecificationArgs) ToBotVersionLocaleSpecificationOutput() BotVersionLocaleSpecificationOutput {
+	return i.ToBotVersionLocaleSpecificationOutputWithContext(context.Background())
 }
 
-func (i BotVersionLocaleSpecificationItemPropertiesArgs) ToBotVersionLocaleSpecificationItemPropertiesOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationItemPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotVersionLocaleSpecificationItemPropertiesOutput)
+func (i BotVersionLocaleSpecificationArgs) ToBotVersionLocaleSpecificationOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotVersionLocaleSpecificationOutput)
 }
 
-// BotVersionLocaleSpecificationItemPropertiesArrayInput is an input type that accepts BotVersionLocaleSpecificationItemPropertiesArray and BotVersionLocaleSpecificationItemPropertiesArrayOutput values.
-// You can construct a concrete instance of `BotVersionLocaleSpecificationItemPropertiesArrayInput` via:
+// BotVersionLocaleSpecificationArrayInput is an input type that accepts BotVersionLocaleSpecificationArray and BotVersionLocaleSpecificationArrayOutput values.
+// You can construct a concrete instance of `BotVersionLocaleSpecificationArrayInput` via:
 //
-//          BotVersionLocaleSpecificationItemPropertiesArray{ BotVersionLocaleSpecificationItemPropertiesArgs{...} }
-type BotVersionLocaleSpecificationItemPropertiesArrayInput interface {
+//          BotVersionLocaleSpecificationArray{ BotVersionLocaleSpecificationArgs{...} }
+type BotVersionLocaleSpecificationArrayInput interface {
 	pulumi.Input
 
-	ToBotVersionLocaleSpecificationItemPropertiesArrayOutput() BotVersionLocaleSpecificationItemPropertiesArrayOutput
-	ToBotVersionLocaleSpecificationItemPropertiesArrayOutputWithContext(context.Context) BotVersionLocaleSpecificationItemPropertiesArrayOutput
+	ToBotVersionLocaleSpecificationArrayOutput() BotVersionLocaleSpecificationArrayOutput
+	ToBotVersionLocaleSpecificationArrayOutputWithContext(context.Context) BotVersionLocaleSpecificationArrayOutput
 }
 
-type BotVersionLocaleSpecificationItemPropertiesArray []BotVersionLocaleSpecificationItemPropertiesInput
+type BotVersionLocaleSpecificationArray []BotVersionLocaleSpecificationInput
 
-func (BotVersionLocaleSpecificationItemPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BotVersionLocaleSpecificationItemProperties)(nil)).Elem()
+func (BotVersionLocaleSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotVersionLocaleSpecification)(nil)).Elem()
 }
 
-func (i BotVersionLocaleSpecificationItemPropertiesArray) ToBotVersionLocaleSpecificationItemPropertiesArrayOutput() BotVersionLocaleSpecificationItemPropertiesArrayOutput {
-	return i.ToBotVersionLocaleSpecificationItemPropertiesArrayOutputWithContext(context.Background())
+func (i BotVersionLocaleSpecificationArray) ToBotVersionLocaleSpecificationArrayOutput() BotVersionLocaleSpecificationArrayOutput {
+	return i.ToBotVersionLocaleSpecificationArrayOutputWithContext(context.Background())
 }
 
-func (i BotVersionLocaleSpecificationItemPropertiesArray) ToBotVersionLocaleSpecificationItemPropertiesArrayOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationItemPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotVersionLocaleSpecificationItemPropertiesArrayOutput)
+func (i BotVersionLocaleSpecificationArray) ToBotVersionLocaleSpecificationArrayOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotVersionLocaleSpecificationArrayOutput)
 }
 
-type BotVersionLocaleSpecificationItemPropertiesOutput struct{ *pulumi.OutputState }
+type BotVersionLocaleSpecificationOutput struct{ *pulumi.OutputState }
 
-func (BotVersionLocaleSpecificationItemPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotVersionLocaleSpecificationItemProperties)(nil)).Elem()
+func (BotVersionLocaleSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotVersionLocaleSpecification)(nil)).Elem()
 }
 
-func (o BotVersionLocaleSpecificationItemPropertiesOutput) ToBotVersionLocaleSpecificationItemPropertiesOutput() BotVersionLocaleSpecificationItemPropertiesOutput {
+func (o BotVersionLocaleSpecificationOutput) ToBotVersionLocaleSpecificationOutput() BotVersionLocaleSpecificationOutput {
 	return o
 }
 
-func (o BotVersionLocaleSpecificationItemPropertiesOutput) ToBotVersionLocaleSpecificationItemPropertiesOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationItemPropertiesOutput {
+func (o BotVersionLocaleSpecificationOutput) ToBotVersionLocaleSpecificationOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationOutput {
 	return o
 }
 
-func (o BotVersionLocaleSpecificationItemPropertiesOutput) BotVersionLocaleDetails() BotVersionLocaleDetailsOutput {
-	return o.ApplyT(func(v BotVersionLocaleSpecificationItemProperties) BotVersionLocaleDetails {
-		return v.BotVersionLocaleDetails
-	}).(BotVersionLocaleDetailsOutput)
+func (o BotVersionLocaleSpecificationOutput) BotVersionLocaleDetails() BotVersionLocaleDetailsOutput {
+	return o.ApplyT(func(v BotVersionLocaleSpecification) BotVersionLocaleDetails { return v.BotVersionLocaleDetails }).(BotVersionLocaleDetailsOutput)
 }
 
-func (o BotVersionLocaleSpecificationItemPropertiesOutput) LocaleId() pulumi.StringOutput {
-	return o.ApplyT(func(v BotVersionLocaleSpecificationItemProperties) string { return v.LocaleId }).(pulumi.StringOutput)
+func (o BotVersionLocaleSpecificationOutput) LocaleId() pulumi.StringOutput {
+	return o.ApplyT(func(v BotVersionLocaleSpecification) string { return v.LocaleId }).(pulumi.StringOutput)
 }
 
-type BotVersionLocaleSpecificationItemPropertiesArrayOutput struct{ *pulumi.OutputState }
+type BotVersionLocaleSpecificationArrayOutput struct{ *pulumi.OutputState }
 
-func (BotVersionLocaleSpecificationItemPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BotVersionLocaleSpecificationItemProperties)(nil)).Elem()
+func (BotVersionLocaleSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotVersionLocaleSpecification)(nil)).Elem()
 }
 
-func (o BotVersionLocaleSpecificationItemPropertiesArrayOutput) ToBotVersionLocaleSpecificationItemPropertiesArrayOutput() BotVersionLocaleSpecificationItemPropertiesArrayOutput {
+func (o BotVersionLocaleSpecificationArrayOutput) ToBotVersionLocaleSpecificationArrayOutput() BotVersionLocaleSpecificationArrayOutput {
 	return o
 }
 
-func (o BotVersionLocaleSpecificationItemPropertiesArrayOutput) ToBotVersionLocaleSpecificationItemPropertiesArrayOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationItemPropertiesArrayOutput {
+func (o BotVersionLocaleSpecificationArrayOutput) ToBotVersionLocaleSpecificationArrayOutputWithContext(ctx context.Context) BotVersionLocaleSpecificationArrayOutput {
 	return o
 }
 
-func (o BotVersionLocaleSpecificationItemPropertiesArrayOutput) Index(i pulumi.IntInput) BotVersionLocaleSpecificationItemPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotVersionLocaleSpecificationItemProperties {
-		return vs[0].([]BotVersionLocaleSpecificationItemProperties)[vs[1].(int)]
-	}).(BotVersionLocaleSpecificationItemPropertiesOutput)
+func (o BotVersionLocaleSpecificationArrayOutput) Index(i pulumi.IntInput) BotVersionLocaleSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotVersionLocaleSpecification {
+		return vs[0].([]BotVersionLocaleSpecification)[vs[1].(int)]
+	}).(BotVersionLocaleSpecificationOutput)
 }
 
 // Settings for using an Amazon Polly voice to communicate with a user.
@@ -7697,6 +8244,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomPayloadPtrInput)(nil)).Elem(), BotCustomPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogCodeHookSettingInput)(nil)).Elem(), BotDialogCodeHookSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogCodeHookSettingPtrInput)(nil)).Elem(), BotDialogCodeHookSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotExternalSourceSettingInput)(nil)).Elem(), BotExternalSourceSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotExternalSourceSettingPtrInput)(nil)).Elem(), BotExternalSourceSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentCodeHookSettingInput)(nil)).Elem(), BotFulfillmentCodeHookSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentCodeHookSettingPtrInput)(nil)).Elem(), BotFulfillmentCodeHookSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentStartResponseSpecificationInput)(nil)).Elem(), BotFulfillmentStartResponseSpecificationArgs{})
@@ -7705,6 +8254,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentUpdateResponseSpecificationPtrInput)(nil)).Elem(), BotFulfillmentUpdateResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentUpdatesSpecificationInput)(nil)).Elem(), BotFulfillmentUpdatesSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentUpdatesSpecificationPtrInput)(nil)).Elem(), BotFulfillmentUpdatesSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGrammarSlotTypeSettingInput)(nil)).Elem(), BotGrammarSlotTypeSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGrammarSlotTypeSettingPtrInput)(nil)).Elem(), BotGrammarSlotTypeSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGrammarSlotTypeSourceInput)(nil)).Elem(), BotGrammarSlotTypeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGrammarSlotTypeSourcePtrInput)(nil)).Elem(), BotGrammarSlotTypeSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotImageResponseCardInput)(nil)).Elem(), BotImageResponseCardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotImageResponseCardPtrInput)(nil)).Elem(), BotImageResponseCardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotInputContextInput)(nil)).Elem(), BotInputContextArgs{})
@@ -7761,13 +8314,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueRegexFilterInput)(nil)).Elem(), BotSlotValueRegexFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueRegexFilterPtrInput)(nil)).Elem(), BotSlotValueRegexFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueSelectionSettingInput)(nil)).Elem(), BotSlotValueSelectionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueSelectionSettingPtrInput)(nil)).Elem(), BotSlotValueSelectionSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotStillWaitingResponseSpecificationInput)(nil)).Elem(), BotStillWaitingResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotStillWaitingResponseSpecificationPtrInput)(nil)).Elem(), BotStillWaitingResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTagInput)(nil)).Elem(), BotTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTagArrayInput)(nil)).Elem(), BotTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleDetailsInput)(nil)).Elem(), BotVersionLocaleDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleSpecificationItemPropertiesInput)(nil)).Elem(), BotVersionLocaleSpecificationItemPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleSpecificationItemPropertiesArrayInput)(nil)).Elem(), BotVersionLocaleSpecificationItemPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleSpecificationInput)(nil)).Elem(), BotVersionLocaleSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleSpecificationArrayInput)(nil)).Elem(), BotVersionLocaleSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVoiceSettingsInput)(nil)).Elem(), BotVoiceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVoiceSettingsPtrInput)(nil)).Elem(), BotVoiceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotWaitAndContinueSpecificationInput)(nil)).Elem(), BotWaitAndContinueSpecificationArgs{})
@@ -7807,6 +8361,8 @@ func init() {
 	pulumi.RegisterOutputType(BotCustomPayloadPtrOutput{})
 	pulumi.RegisterOutputType(BotDialogCodeHookSettingOutput{})
 	pulumi.RegisterOutputType(BotDialogCodeHookSettingPtrOutput{})
+	pulumi.RegisterOutputType(BotExternalSourceSettingOutput{})
+	pulumi.RegisterOutputType(BotExternalSourceSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotFulfillmentCodeHookSettingOutput{})
 	pulumi.RegisterOutputType(BotFulfillmentCodeHookSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotFulfillmentStartResponseSpecificationOutput{})
@@ -7815,6 +8371,10 @@ func init() {
 	pulumi.RegisterOutputType(BotFulfillmentUpdateResponseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotFulfillmentUpdatesSpecificationOutput{})
 	pulumi.RegisterOutputType(BotFulfillmentUpdatesSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotGrammarSlotTypeSettingOutput{})
+	pulumi.RegisterOutputType(BotGrammarSlotTypeSettingPtrOutput{})
+	pulumi.RegisterOutputType(BotGrammarSlotTypeSourceOutput{})
+	pulumi.RegisterOutputType(BotGrammarSlotTypeSourcePtrOutput{})
 	pulumi.RegisterOutputType(BotImageResponseCardOutput{})
 	pulumi.RegisterOutputType(BotImageResponseCardPtrOutput{})
 	pulumi.RegisterOutputType(BotInputContextOutput{})
@@ -7871,13 +8431,14 @@ func init() {
 	pulumi.RegisterOutputType(BotSlotValueRegexFilterOutput{})
 	pulumi.RegisterOutputType(BotSlotValueRegexFilterPtrOutput{})
 	pulumi.RegisterOutputType(BotSlotValueSelectionSettingOutput{})
+	pulumi.RegisterOutputType(BotSlotValueSelectionSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotStillWaitingResponseSpecificationOutput{})
 	pulumi.RegisterOutputType(BotStillWaitingResponseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotTagOutput{})
 	pulumi.RegisterOutputType(BotTagArrayOutput{})
 	pulumi.RegisterOutputType(BotVersionLocaleDetailsOutput{})
-	pulumi.RegisterOutputType(BotVersionLocaleSpecificationItemPropertiesOutput{})
-	pulumi.RegisterOutputType(BotVersionLocaleSpecificationItemPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(BotVersionLocaleSpecificationOutput{})
+	pulumi.RegisterOutputType(BotVersionLocaleSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(BotVoiceSettingsOutput{})
 	pulumi.RegisterOutputType(BotVoiceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BotWaitAndContinueSpecificationOutput{})

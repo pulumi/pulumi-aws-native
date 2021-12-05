@@ -11118,6 +11118,7 @@ export namespace emr {
         autoScalingPolicy?: outputs.emr.ClusterAutoScalingPolicy;
         bidPrice?: string;
         configurations?: outputs.emr.ClusterConfiguration[];
+        customAmiId?: string;
         ebsConfiguration?: outputs.emr.ClusterEbsConfiguration;
         instanceCount: number;
         instanceType: string;
@@ -11129,6 +11130,7 @@ export namespace emr {
         bidPrice?: string;
         bidPriceAsPercentageOfOnDemandPrice?: number;
         configurations?: outputs.emr.ClusterConfiguration[];
+        customAmiId?: string;
         ebsConfiguration?: outputs.emr.ClusterEbsConfiguration;
         instanceType: string;
         weightedCapacity?: number;
@@ -11264,6 +11266,7 @@ export namespace emr {
         bidPrice?: string;
         bidPriceAsPercentageOfOnDemandPrice?: number;
         configurations?: outputs.emr.InstanceFleetConfigConfiguration[];
+        customAmiId?: string;
         ebsConfiguration?: outputs.emr.InstanceFleetConfigEbsConfiguration;
         instanceType: string;
         weightedCapacity?: number;
@@ -12140,6 +12143,11 @@ export namespace fsx {
         fileShareAccessAuditLogLevel: string;
     }
 
+    export interface FileSystemClientConfigurations {
+        clients?: string;
+        options?: string[];
+    }
+
     export interface FileSystemDiskIopsConfiguration {
         iops?: number;
         mode?: string;
@@ -12160,6 +12168,10 @@ export namespace fsx {
         weeklyMaintenanceStartTime?: string;
     }
 
+    export interface FileSystemNfsExports {
+        clientConfigurations?: outputs.fsx.FileSystemClientConfigurations[];
+    }
+
     export interface FileSystemOntapConfiguration {
         automaticBackupRetentionDays?: number;
         dailyAutomaticBackupStartTime?: string;
@@ -12171,6 +12183,26 @@ export namespace fsx {
         routeTableIds?: string[];
         throughputCapacity?: number;
         weeklyMaintenanceStartTime?: string;
+    }
+
+    export interface FileSystemOpenZFSConfiguration {
+        automaticBackupRetentionDays?: number;
+        copyTagsToBackups?: boolean;
+        copyTagsToVolumes?: boolean;
+        dailyAutomaticBackupStartTime?: string;
+        deploymentType: string;
+        diskIopsConfiguration?: outputs.fsx.FileSystemDiskIopsConfiguration;
+        rootVolumeConfiguration?: outputs.fsx.FileSystemRootVolumeConfiguration;
+        throughputCapacity?: number;
+        weeklyMaintenanceStartTime?: string;
+    }
+
+    export interface FileSystemRootVolumeConfiguration {
+        copyTagsToSnapshots?: boolean;
+        dataCompressionType?: string;
+        nfsExports?: outputs.fsx.FileSystemNfsExports[];
+        readOnly?: boolean;
+        userAndGroupQuotas?: outputs.fsx.FileSystemUserAndGroupQuotas[];
     }
 
     export interface FileSystemSelfManagedActiveDirectoryConfiguration {
@@ -12185,6 +12217,12 @@ export namespace fsx {
     export interface FileSystemTag {
         key: string;
         value: string;
+    }
+
+    export interface FileSystemUserAndGroupQuotas {
+        id?: number;
+        storageCapacityQuotaGiB?: number;
+        type?: string;
     }
 
     export interface FileSystemWindowsConfiguration {
@@ -17688,6 +17726,13 @@ export namespace lex {
     }
 
     /**
+     * Provides information about the external source of the slot type's definition.
+     */
+    export interface BotExternalSourceSetting {
+        grammarSlotTypeSetting?: outputs.lex.BotGrammarSlotTypeSetting;
+    }
+
+    /**
      * Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
      */
     export interface BotFulfillmentCodeHookSetting {
@@ -17740,6 +17785,31 @@ export namespace lex {
          */
         timeoutInSeconds?: number;
         updateResponse?: outputs.lex.BotFulfillmentUpdateResponseSpecification;
+    }
+
+    /**
+     * Settings required for a slot type based on a grammar that you provide.
+     */
+    export interface BotGrammarSlotTypeSetting {
+        source?: outputs.lex.BotGrammarSlotTypeSource;
+    }
+
+    /**
+     * Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+     */
+    export interface BotGrammarSlotTypeSource {
+        /**
+         * The Amazon KMS key required to decrypt the contents of the grammar, if any.
+         */
+        kmsKeyArn?: string;
+        /**
+         * The name of the S3 bucket that contains the grammar source.
+         */
+        s3BucketName: string;
+        /**
+         * The path to the grammar in the S3 bucket.
+         */
+        s3ObjectKey: string;
     }
 
     /**
@@ -18021,14 +18091,15 @@ export namespace lex {
     }
 
     /**
-     * A custom slot type.
+     * A custom, extended built-in or a grammar slot type.
      */
     export interface BotSlotType {
         description?: string;
+        externalSourceSetting?: outputs.lex.BotExternalSourceSetting;
         name: string;
         parentSlotTypeSignature?: string;
         slotTypeValues?: outputs.lex.BotSlotTypeValue[];
-        valueSelectionSetting: outputs.lex.BotSlotValueSelectionSetting;
+        valueSelectionSetting?: outputs.lex.BotSlotValueSelectionSetting;
     }
 
     /**
@@ -18117,7 +18188,7 @@ export namespace lex {
         sourceBotVersion: string;
     }
 
-    export interface BotVersionLocaleSpecificationItemProperties {
+    export interface BotVersionLocaleSpecification {
         botVersionLocaleDetails: outputs.lex.BotVersionLocaleDetails;
         localeId: string;
     }
@@ -18176,7 +18247,6 @@ export namespace lex {
          */
         detectSentiment: boolean;
     }
-
 }
 
 export namespace licensemanager {
@@ -19176,12 +19246,18 @@ export namespace medialive {
         audioSelectorName?: string;
         audioType?: string;
         audioTypeControl?: string;
+        audioWatermarkingSettings?: outputs.medialive.ChannelAudioWatermarkSettings;
         codecSettings?: outputs.medialive.ChannelAudioCodecSettings;
         languageCode?: string;
         languageCodeControl?: string;
         name?: string;
         remixSettings?: outputs.medialive.ChannelRemixSettings;
         streamName?: string;
+    }
+
+    export interface ChannelAudioHlsRenditionSelection {
+        groupId?: string;
+        name?: string;
     }
 
     export interface ChannelAudioLanguageSelection {
@@ -19212,6 +19288,7 @@ export namespace medialive {
     }
 
     export interface ChannelAudioSelectorSettings {
+        audioHlsRenditionSelection?: outputs.medialive.ChannelAudioHlsRenditionSelection;
         audioLanguageSelection?: outputs.medialive.ChannelAudioLanguageSelection;
         audioPidSelection?: outputs.medialive.ChannelAudioPidSelection;
         audioTrackSelection?: outputs.medialive.ChannelAudioTrackSelection;
@@ -19228,6 +19305,10 @@ export namespace medialive {
 
     export interface ChannelAudioTrackSelection {
         tracks?: outputs.medialive.ChannelAudioTrack[];
+    }
+
+    export interface ChannelAudioWatermarkSettings {
+        nielsenWatermarksSettings?: outputs.medialive.ChannelNielsenWatermarksSettings;
     }
 
     export interface ChannelAutomaticInputFailoverSettings {
@@ -19373,6 +19454,7 @@ export namespace medialive {
     }
 
     export interface ChannelDvbSubSourceSettings {
+        ocrLanguage?: string;
         pid?: number;
     }
 
@@ -19675,6 +19757,7 @@ export namespace medialive {
         bufferSegments?: number;
         retries?: number;
         retryInterval?: number;
+        scte35Source?: string;
     }
 
     export interface ChannelHlsMediaStoreSettings {
@@ -19930,9 +20013,26 @@ export namespace medialive {
         serverValidation?: string;
     }
 
+    export interface ChannelNielsenCBET {
+        cbetCheckDigitString?: string;
+        cbetStepaside?: string;
+        csid?: string;
+    }
+
     export interface ChannelNielsenConfiguration {
         distributorId?: string;
         nielsenPcmToId3Tagging?: string;
+    }
+
+    export interface ChannelNielsenNaesIiNw {
+        checkDigitString?: string;
+        sid?: number;
+    }
+
+    export interface ChannelNielsenWatermarksSettings {
+        nielsenCbetSettings?: outputs.medialive.ChannelNielsenCBET;
+        nielsenDistributionType?: string;
+        nielsenNaesIiNwSettings?: outputs.medialive.ChannelNielsenNaesIiNw;
     }
 
     export interface ChannelOutput {
@@ -20039,6 +20139,7 @@ export namespace medialive {
     }
 
     export interface ChannelScte27SourceSettings {
+        ocrLanguage?: string;
         pid?: number;
     }
 
@@ -20165,6 +20266,7 @@ export namespace medialive {
     }
 
     export interface ChannelWebvttDestinationSettings {
+        styleControl?: string;
     }
 
     export interface InputDestinationRequest {
@@ -26207,7 +26309,13 @@ export namespace sagemaker {
         initialVariantWeight: number;
         instanceType?: string;
         modelName: string;
+        serverlessConfig?: outputs.sagemaker.EndpointConfigServerlessConfig;
         variantName: string;
+    }
+
+    export interface EndpointConfigServerlessConfig {
+        maxConcurrency: number;
+        memorySizeInMB: number;
     }
 
     export interface EndpointConfigTag {
@@ -26498,6 +26606,7 @@ export namespace sagemaker {
         environment?: any;
         image?: string;
         imageConfig?: outputs.sagemaker.ModelImageConfig;
+        inferenceSpecificationName?: string;
         mode?: string;
         modelDataUrl?: string;
         modelPackageName?: string;

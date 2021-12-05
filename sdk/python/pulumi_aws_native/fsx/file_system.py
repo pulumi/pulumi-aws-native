@@ -22,6 +22,7 @@ class FileSystemArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input['FileSystemLustreConfigurationArgs']] = None,
                  ontap_configuration: Optional[pulumi.Input['FileSystemOntapConfigurationArgs']] = None,
+                 open_zfs_configuration: Optional[pulumi.Input['FileSystemOpenZFSConfigurationArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,8 @@ class FileSystemArgs:
             pulumi.set(__self__, "lustre_configuration", lustre_configuration)
         if ontap_configuration is not None:
             pulumi.set(__self__, "ontap_configuration", ontap_configuration)
+        if open_zfs_configuration is not None:
+            pulumi.set(__self__, "open_zfs_configuration", open_zfs_configuration)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if storage_capacity is not None:
@@ -117,6 +120,15 @@ class FileSystemArgs:
         pulumi.set(self, "ontap_configuration", value)
 
     @property
+    @pulumi.getter(name="openZFSConfiguration")
+    def open_zfs_configuration(self) -> Optional[pulumi.Input['FileSystemOpenZFSConfigurationArgs']]:
+        return pulumi.get(self, "open_zfs_configuration")
+
+    @open_zfs_configuration.setter
+    def open_zfs_configuration(self, value: Optional[pulumi.Input['FileSystemOpenZFSConfigurationArgs']]):
+        pulumi.set(self, "open_zfs_configuration", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "security_group_ids")
@@ -178,6 +190,7 @@ class FileSystem(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemLustreConfigurationArgs']]] = None,
                  ontap_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOntapConfigurationArgs']]] = None,
+                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOpenZFSConfigurationArgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -221,6 +234,7 @@ class FileSystem(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemLustreConfigurationArgs']]] = None,
                  ontap_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOntapConfigurationArgs']]] = None,
+                 open_zfs_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemOpenZFSConfigurationArgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -248,6 +262,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["lustre_configuration"] = lustre_configuration
             __props__.__dict__["ontap_configuration"] = ontap_configuration
+            __props__.__dict__["open_zfs_configuration"] = open_zfs_configuration
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["storage_capacity"] = storage_capacity
             __props__.__dict__["storage_type"] = storage_type
@@ -258,6 +273,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["windows_configuration"] = windows_configuration
             __props__.__dict__["d_ns_name"] = None
             __props__.__dict__["lustre_mount_name"] = None
+            __props__.__dict__["root_volume_id"] = None
         super(FileSystem, __self__).__init__(
             'aws-native:fsx:FileSystem',
             resource_name,
@@ -288,6 +304,8 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["lustre_configuration"] = None
         __props__.__dict__["lustre_mount_name"] = None
         __props__.__dict__["ontap_configuration"] = None
+        __props__.__dict__["open_zfs_configuration"] = None
+        __props__.__dict__["root_volume_id"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["storage_capacity"] = None
         __props__.__dict__["storage_type"] = None
@@ -335,6 +353,16 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter(name="ontapConfiguration")
     def ontap_configuration(self) -> pulumi.Output[Optional['outputs.FileSystemOntapConfiguration']]:
         return pulumi.get(self, "ontap_configuration")
+
+    @property
+    @pulumi.getter(name="openZFSConfiguration")
+    def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.FileSystemOpenZFSConfiguration']]:
+        return pulumi.get(self, "open_zfs_configuration")
+
+    @property
+    @pulumi.getter(name="rootVolumeId")
+    def root_volume_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "root_volume_id")
 
     @property
     @pulumi.getter(name="securityGroupIds")

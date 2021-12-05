@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("imageConfig")]
         public Input<Inputs.ModelImageConfigArgs>? ImageConfig { get; set; }
 
+        [Input("inferenceSpecificationName")]
+        public Input<string>? InferenceSpecificationName { get; set; }
+
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 

@@ -57,6 +57,7 @@ __all__ = [
     'EndpointConfigCaptureOption',
     'EndpointConfigDataCaptureConfig',
     'EndpointConfigProductionVariant',
+    'EndpointConfigServerlessConfig',
     'EndpointConfigTag',
     'EndpointDeploymentConfig',
     'EndpointTag',
@@ -2314,6 +2315,8 @@ class EndpointConfigProductionVariant(dict):
             suggest = "initial_instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "serverlessConfig":
+            suggest = "serverless_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointConfigProductionVariant. Access the value via the '{suggest}' property getter instead.")
@@ -2332,7 +2335,8 @@ class EndpointConfigProductionVariant(dict):
                  variant_name: str,
                  accelerator_type: Optional[str] = None,
                  initial_instance_count: Optional[int] = None,
-                 instance_type: Optional[str] = None):
+                 instance_type: Optional[str] = None,
+                 serverless_config: Optional['outputs.EndpointConfigServerlessConfig'] = None):
         pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
         pulumi.set(__self__, "model_name", model_name)
         pulumi.set(__self__, "variant_name", variant_name)
@@ -2342,6 +2346,8 @@ class EndpointConfigProductionVariant(dict):
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if serverless_config is not None:
+            pulumi.set(__self__, "serverless_config", serverless_config)
 
     @property
     @pulumi.getter(name="initialVariantWeight")
@@ -2372,6 +2378,49 @@ class EndpointConfigProductionVariant(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="serverlessConfig")
+    def serverless_config(self) -> Optional['outputs.EndpointConfigServerlessConfig']:
+        return pulumi.get(self, "serverless_config")
+
+
+@pulumi.output_type
+class EndpointConfigServerlessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrency":
+            suggest = "max_concurrency"
+        elif key == "memorySizeInMB":
+            suggest = "memory_size_in_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigServerlessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigServerlessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigServerlessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrency: int,
+                 memory_size_in_mb: int):
+        pulumi.set(__self__, "max_concurrency", max_concurrency)
+        pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> int:
+        return pulumi.get(self, "max_concurrency")
+
+    @property
+    @pulumi.getter(name="memorySizeInMB")
+    def memory_size_in_mb(self) -> int:
+        return pulumi.get(self, "memory_size_in_mb")
 
 
 @pulumi.output_type
@@ -3598,6 +3647,8 @@ class ModelContainerDefinition(dict):
             suggest = "container_hostname"
         elif key == "imageConfig":
             suggest = "image_config"
+        elif key == "inferenceSpecificationName":
+            suggest = "inference_specification_name"
         elif key == "modelDataUrl":
             suggest = "model_data_url"
         elif key == "modelPackageName":
@@ -3621,6 +3672,7 @@ class ModelContainerDefinition(dict):
                  environment: Optional[Any] = None,
                  image: Optional[str] = None,
                  image_config: Optional['outputs.ModelImageConfig'] = None,
+                 inference_specification_name: Optional[str] = None,
                  mode: Optional[str] = None,
                  model_data_url: Optional[str] = None,
                  model_package_name: Optional[str] = None,
@@ -3633,6 +3685,8 @@ class ModelContainerDefinition(dict):
             pulumi.set(__self__, "image", image)
         if image_config is not None:
             pulumi.set(__self__, "image_config", image_config)
+        if inference_specification_name is not None:
+            pulumi.set(__self__, "inference_specification_name", inference_specification_name)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
@@ -3661,6 +3715,11 @@ class ModelContainerDefinition(dict):
     @pulumi.getter(name="imageConfig")
     def image_config(self) -> Optional['outputs.ModelImageConfig']:
         return pulumi.get(self, "image_config")
+
+    @property
+    @pulumi.getter(name="inferenceSpecificationName")
+    def inference_specification_name(self) -> Optional[str]:
+        return pulumi.get(self, "inference_specification_name")
 
     @property
     @pulumi.getter

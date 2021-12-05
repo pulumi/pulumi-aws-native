@@ -43,6 +43,7 @@ class InstanceArgs:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
                  placement_group_name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
+                 propagate_tags_to_volume_on_creation: Optional[pulumi.Input[bool]] = None,
                  ramdisk_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -112,6 +113,8 @@ class InstanceArgs:
             pulumi.set(__self__, "placement_group_name", placement_group_name)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if propagate_tags_to_volume_on_creation is not None:
+            pulumi.set(__self__, "propagate_tags_to_volume_on_creation", propagate_tags_to_volume_on_creation)
         if ramdisk_id is not None:
             pulumi.set(__self__, "ramdisk_id", ramdisk_id)
         if security_group_ids is not None:
@@ -386,6 +389,15 @@ class InstanceArgs:
         pulumi.set(self, "private_ip_address", value)
 
     @property
+    @pulumi.getter(name="propagateTagsToVolumeOnCreation")
+    def propagate_tags_to_volume_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "propagate_tags_to_volume_on_creation")
+
+    @propagate_tags_to_volume_on_creation.setter
+    def propagate_tags_to_volume_on_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "propagate_tags_to_volume_on_creation", value)
+
+    @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ramdisk_id")
@@ -514,6 +526,7 @@ class Instance(pulumi.CustomResource):
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
                  placement_group_name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
+                 propagate_tags_to_volume_on_creation: Optional[pulumi.Input[bool]] = None,
                  ramdisk_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -583,6 +596,7 @@ class Instance(pulumi.CustomResource):
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
                  placement_group_name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
+                 propagate_tags_to_volume_on_creation: Optional[pulumi.Input[bool]] = None,
                  ramdisk_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -634,6 +648,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group_name"] = placement_group_name
             __props__.__dict__["private_ip_address"] = private_ip_address
+            __props__.__dict__["propagate_tags_to_volume_on_creation"] = propagate_tags_to_volume_on_creation
             __props__.__dict__["ramdisk_id"] = ramdisk_id
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["security_groups"] = security_groups
@@ -700,6 +715,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["private_dns_name"] = None
         __props__.__dict__["private_ip"] = None
         __props__.__dict__["private_ip_address"] = None
+        __props__.__dict__["propagate_tags_to_volume_on_creation"] = None
         __props__.__dict__["public_dns_name"] = None
         __props__.__dict__["public_ip"] = None
         __props__.__dict__["ramdisk_id"] = None
@@ -863,6 +879,11 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="propagateTagsToVolumeOnCreation")
+    def propagate_tags_to_volume_on_creation(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "propagate_tags_to_volume_on_creation")
 
     @property
     @pulumi.getter(name="publicDnsName")

@@ -12,15 +12,13 @@ import (
 )
 
 // A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
-//
-// Deprecated: BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type BotVersion struct {
 	pulumi.CustomResourceState
 
-	BotId                         pulumi.StringOutput                                    `pulumi:"botId"`
-	BotVersion                    pulumi.StringOutput                                    `pulumi:"botVersion"`
-	BotVersionLocaleSpecification BotVersionLocaleSpecificationItemPropertiesArrayOutput `pulumi:"botVersionLocaleSpecification"`
-	Description                   pulumi.StringPtrOutput                                 `pulumi:"description"`
+	BotId                         pulumi.StringOutput                      `pulumi:"botId"`
+	BotVersion                    pulumi.StringOutput                      `pulumi:"botVersion"`
+	BotVersionLocaleSpecification BotVersionLocaleSpecificationArrayOutput `pulumi:"botVersionLocaleSpecification"`
+	Description                   pulumi.StringPtrOutput                   `pulumi:"description"`
 }
 
 // NewBotVersion registers a new resource with the given unique name, arguments, and options.
@@ -68,15 +66,15 @@ func (BotVersionState) ElementType() reflect.Type {
 }
 
 type botVersionArgs struct {
-	BotId                         string                                        `pulumi:"botId"`
-	BotVersionLocaleSpecification []BotVersionLocaleSpecificationItemProperties `pulumi:"botVersionLocaleSpecification"`
-	Description                   *string                                       `pulumi:"description"`
+	BotId                         string                          `pulumi:"botId"`
+	BotVersionLocaleSpecification []BotVersionLocaleSpecification `pulumi:"botVersionLocaleSpecification"`
+	Description                   *string                         `pulumi:"description"`
 }
 
 // The set of arguments for constructing a BotVersion resource.
 type BotVersionArgs struct {
 	BotId                         pulumi.StringInput
-	BotVersionLocaleSpecification BotVersionLocaleSpecificationItemPropertiesArrayInput
+	BotVersionLocaleSpecification BotVersionLocaleSpecificationArrayInput
 	Description                   pulumi.StringPtrInput
 }
 

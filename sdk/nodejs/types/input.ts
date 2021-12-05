@@ -10866,6 +10866,7 @@ export namespace emr {
         autoScalingPolicy?: pulumi.Input<inputs.emr.ClusterAutoScalingPolicyArgs>;
         bidPrice?: pulumi.Input<string>;
         configurations?: pulumi.Input<pulumi.Input<inputs.emr.ClusterConfigurationArgs>[]>;
+        customAmiId?: pulumi.Input<string>;
         ebsConfiguration?: pulumi.Input<inputs.emr.ClusterEbsConfigurationArgs>;
         instanceCount: pulumi.Input<number>;
         instanceType: pulumi.Input<string>;
@@ -10877,6 +10878,7 @@ export namespace emr {
         bidPrice?: pulumi.Input<string>;
         bidPriceAsPercentageOfOnDemandPrice?: pulumi.Input<number>;
         configurations?: pulumi.Input<pulumi.Input<inputs.emr.ClusterConfigurationArgs>[]>;
+        customAmiId?: pulumi.Input<string>;
         ebsConfiguration?: pulumi.Input<inputs.emr.ClusterEbsConfigurationArgs>;
         instanceType: pulumi.Input<string>;
         weightedCapacity?: pulumi.Input<number>;
@@ -11012,6 +11014,7 @@ export namespace emr {
         bidPrice?: pulumi.Input<string>;
         bidPriceAsPercentageOfOnDemandPrice?: pulumi.Input<number>;
         configurations?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetConfigConfigurationArgs>[]>;
+        customAmiId?: pulumi.Input<string>;
         ebsConfiguration?: pulumi.Input<inputs.emr.InstanceFleetConfigEbsConfigurationArgs>;
         instanceType: pulumi.Input<string>;
         weightedCapacity?: pulumi.Input<number>;
@@ -11880,6 +11883,11 @@ export namespace fsx {
         fileShareAccessAuditLogLevel: pulumi.Input<string>;
     }
 
+    export interface FileSystemClientConfigurationsArgs {
+        clients?: pulumi.Input<string>;
+        options?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface FileSystemDiskIopsConfigurationArgs {
         iops?: pulumi.Input<number>;
         mode?: pulumi.Input<string>;
@@ -11900,6 +11908,10 @@ export namespace fsx {
         weeklyMaintenanceStartTime?: pulumi.Input<string>;
     }
 
+    export interface FileSystemNfsExportsArgs {
+        clientConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileSystemClientConfigurationsArgs>[]>;
+    }
+
     export interface FileSystemOntapConfigurationArgs {
         automaticBackupRetentionDays?: pulumi.Input<number>;
         dailyAutomaticBackupStartTime?: pulumi.Input<string>;
@@ -11911,6 +11923,26 @@ export namespace fsx {
         routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
         throughputCapacity?: pulumi.Input<number>;
         weeklyMaintenanceStartTime?: pulumi.Input<string>;
+    }
+
+    export interface FileSystemOpenZFSConfigurationArgs {
+        automaticBackupRetentionDays?: pulumi.Input<number>;
+        copyTagsToBackups?: pulumi.Input<boolean>;
+        copyTagsToVolumes?: pulumi.Input<boolean>;
+        dailyAutomaticBackupStartTime?: pulumi.Input<string>;
+        deploymentType: pulumi.Input<string>;
+        diskIopsConfiguration?: pulumi.Input<inputs.fsx.FileSystemDiskIopsConfigurationArgs>;
+        rootVolumeConfiguration?: pulumi.Input<inputs.fsx.FileSystemRootVolumeConfigurationArgs>;
+        throughputCapacity?: pulumi.Input<number>;
+        weeklyMaintenanceStartTime?: pulumi.Input<string>;
+    }
+
+    export interface FileSystemRootVolumeConfigurationArgs {
+        copyTagsToSnapshots?: pulumi.Input<boolean>;
+        dataCompressionType?: pulumi.Input<string>;
+        nfsExports?: pulumi.Input<pulumi.Input<inputs.fsx.FileSystemNfsExportsArgs>[]>;
+        readOnly?: pulumi.Input<boolean>;
+        userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.FileSystemUserAndGroupQuotasArgs>[]>;
     }
 
     export interface FileSystemSelfManagedActiveDirectoryConfigurationArgs {
@@ -11925,6 +11957,12 @@ export namespace fsx {
     export interface FileSystemTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface FileSystemUserAndGroupQuotasArgs {
+        id?: pulumi.Input<number>;
+        storageCapacityQuotaGiB?: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface FileSystemWindowsConfigurationArgs {
@@ -17378,6 +17416,13 @@ export namespace lex {
     }
 
     /**
+     * Provides information about the external source of the slot type's definition.
+     */
+    export interface BotExternalSourceSettingArgs {
+        grammarSlotTypeSetting?: pulumi.Input<inputs.lex.BotGrammarSlotTypeSettingArgs>;
+    }
+
+    /**
      * Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
      */
     export interface BotFulfillmentCodeHookSettingArgs {
@@ -17430,6 +17475,31 @@ export namespace lex {
          */
         timeoutInSeconds?: pulumi.Input<number>;
         updateResponse?: pulumi.Input<inputs.lex.BotFulfillmentUpdateResponseSpecificationArgs>;
+    }
+
+    /**
+     * Settings required for a slot type based on a grammar that you provide.
+     */
+    export interface BotGrammarSlotTypeSettingArgs {
+        source?: pulumi.Input<inputs.lex.BotGrammarSlotTypeSourceArgs>;
+    }
+
+    /**
+     * Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+     */
+    export interface BotGrammarSlotTypeSourceArgs {
+        /**
+         * The Amazon KMS key required to decrypt the contents of the grammar, if any.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The name of the S3 bucket that contains the grammar source.
+         */
+        s3BucketName: pulumi.Input<string>;
+        /**
+         * The path to the grammar in the S3 bucket.
+         */
+        s3ObjectKey: pulumi.Input<string>;
     }
 
     /**
@@ -17711,14 +17781,15 @@ export namespace lex {
     }
 
     /**
-     * A custom slot type.
+     * A custom, extended built-in or a grammar slot type.
      */
     export interface BotSlotTypeArgs {
         description?: pulumi.Input<string>;
+        externalSourceSetting?: pulumi.Input<inputs.lex.BotExternalSourceSettingArgs>;
         name: pulumi.Input<string>;
         parentSlotTypeSignature?: pulumi.Input<string>;
         slotTypeValues?: pulumi.Input<pulumi.Input<inputs.lex.BotSlotTypeValueArgs>[]>;
-        valueSelectionSetting: pulumi.Input<inputs.lex.BotSlotValueSelectionSettingArgs>;
+        valueSelectionSetting?: pulumi.Input<inputs.lex.BotSlotValueSelectionSettingArgs>;
     }
 
     /**
@@ -17807,7 +17878,7 @@ export namespace lex {
         sourceBotVersion: pulumi.Input<string>;
     }
 
-    export interface BotVersionLocaleSpecificationItemPropertiesArgs {
+    export interface BotVersionLocaleSpecificationArgs {
         botVersionLocaleDetails: pulumi.Input<inputs.lex.BotVersionLocaleDetailsArgs>;
         localeId: pulumi.Input<string>;
     }
@@ -18835,12 +18906,18 @@ export namespace medialive {
         audioSelectorName?: pulumi.Input<string>;
         audioType?: pulumi.Input<string>;
         audioTypeControl?: pulumi.Input<string>;
+        audioWatermarkingSettings?: pulumi.Input<inputs.medialive.ChannelAudioWatermarkSettingsArgs>;
         codecSettings?: pulumi.Input<inputs.medialive.ChannelAudioCodecSettingsArgs>;
         languageCode?: pulumi.Input<string>;
         languageCodeControl?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         remixSettings?: pulumi.Input<inputs.medialive.ChannelRemixSettingsArgs>;
         streamName?: pulumi.Input<string>;
+    }
+
+    export interface ChannelAudioHlsRenditionSelectionArgs {
+        groupId?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
     }
 
     export interface ChannelAudioLanguageSelectionArgs {
@@ -18871,6 +18948,7 @@ export namespace medialive {
     }
 
     export interface ChannelAudioSelectorSettingsArgs {
+        audioHlsRenditionSelection?: pulumi.Input<inputs.medialive.ChannelAudioHlsRenditionSelectionArgs>;
         audioLanguageSelection?: pulumi.Input<inputs.medialive.ChannelAudioLanguageSelectionArgs>;
         audioPidSelection?: pulumi.Input<inputs.medialive.ChannelAudioPidSelectionArgs>;
         audioTrackSelection?: pulumi.Input<inputs.medialive.ChannelAudioTrackSelectionArgs>;
@@ -18887,6 +18965,10 @@ export namespace medialive {
 
     export interface ChannelAudioTrackSelectionArgs {
         tracks?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelAudioTrackArgs>[]>;
+    }
+
+    export interface ChannelAudioWatermarkSettingsArgs {
+        nielsenWatermarksSettings?: pulumi.Input<inputs.medialive.ChannelNielsenWatermarksSettingsArgs>;
     }
 
     export interface ChannelAutomaticInputFailoverSettingsArgs {
@@ -19032,6 +19114,7 @@ export namespace medialive {
     }
 
     export interface ChannelDvbSubSourceSettingsArgs {
+        ocrLanguage?: pulumi.Input<string>;
         pid?: pulumi.Input<number>;
     }
 
@@ -19334,6 +19417,7 @@ export namespace medialive {
         bufferSegments?: pulumi.Input<number>;
         retries?: pulumi.Input<number>;
         retryInterval?: pulumi.Input<number>;
+        scte35Source?: pulumi.Input<string>;
     }
 
     export interface ChannelHlsMediaStoreSettingsArgs {
@@ -19589,9 +19673,26 @@ export namespace medialive {
         serverValidation?: pulumi.Input<string>;
     }
 
+    export interface ChannelNielsenCBETArgs {
+        cbetCheckDigitString?: pulumi.Input<string>;
+        cbetStepaside?: pulumi.Input<string>;
+        csid?: pulumi.Input<string>;
+    }
+
     export interface ChannelNielsenConfigurationArgs {
         distributorId?: pulumi.Input<string>;
         nielsenPcmToId3Tagging?: pulumi.Input<string>;
+    }
+
+    export interface ChannelNielsenNaesIiNwArgs {
+        checkDigitString?: pulumi.Input<string>;
+        sid?: pulumi.Input<number>;
+    }
+
+    export interface ChannelNielsenWatermarksSettingsArgs {
+        nielsenCbetSettings?: pulumi.Input<inputs.medialive.ChannelNielsenCBETArgs>;
+        nielsenDistributionType?: pulumi.Input<string>;
+        nielsenNaesIiNwSettings?: pulumi.Input<inputs.medialive.ChannelNielsenNaesIiNwArgs>;
     }
 
     export interface ChannelOutputArgs {
@@ -19698,6 +19799,7 @@ export namespace medialive {
     }
 
     export interface ChannelScte27SourceSettingsArgs {
+        ocrLanguage?: pulumi.Input<string>;
         pid?: pulumi.Input<number>;
     }
 
@@ -19824,6 +19926,7 @@ export namespace medialive {
     }
 
     export interface ChannelWebvttDestinationSettingsArgs {
+        styleControl?: pulumi.Input<string>;
     }
 
     export interface InputDestinationRequestArgs {
@@ -25374,7 +25477,13 @@ export namespace sagemaker {
         initialVariantWeight: pulumi.Input<number>;
         instanceType?: pulumi.Input<string>;
         modelName: pulumi.Input<string>;
+        serverlessConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigServerlessConfigArgs>;
         variantName: pulumi.Input<string>;
+    }
+
+    export interface EndpointConfigServerlessConfigArgs {
+        maxConcurrency: pulumi.Input<number>;
+        memorySizeInMB: pulumi.Input<number>;
     }
 
     export interface EndpointConfigTagArgs {
@@ -25665,6 +25774,7 @@ export namespace sagemaker {
         environment?: any;
         image?: pulumi.Input<string>;
         imageConfig?: pulumi.Input<inputs.sagemaker.ModelImageConfigArgs>;
+        inferenceSpecificationName?: pulumi.Input<string>;
         mode?: pulumi.Input<string>;
         modelDataUrl?: pulumi.Input<string>;
         modelPackageName?: pulumi.Input<string>;

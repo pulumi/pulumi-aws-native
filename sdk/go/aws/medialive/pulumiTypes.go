@@ -1908,6 +1908,7 @@ type ChannelAudioDescription struct {
 	AudioSelectorName          *string                            `pulumi:"audioSelectorName"`
 	AudioType                  *string                            `pulumi:"audioType"`
 	AudioTypeControl           *string                            `pulumi:"audioTypeControl"`
+	AudioWatermarkingSettings  *ChannelAudioWatermarkSettings     `pulumi:"audioWatermarkingSettings"`
 	CodecSettings              *ChannelAudioCodecSettings         `pulumi:"codecSettings"`
 	LanguageCode               *string                            `pulumi:"languageCode"`
 	LanguageCodeControl        *string                            `pulumi:"languageCodeControl"`
@@ -1932,6 +1933,7 @@ type ChannelAudioDescriptionArgs struct {
 	AudioSelectorName          pulumi.StringPtrInput                     `pulumi:"audioSelectorName"`
 	AudioType                  pulumi.StringPtrInput                     `pulumi:"audioType"`
 	AudioTypeControl           pulumi.StringPtrInput                     `pulumi:"audioTypeControl"`
+	AudioWatermarkingSettings  ChannelAudioWatermarkSettingsPtrInput     `pulumi:"audioWatermarkingSettings"`
 	CodecSettings              ChannelAudioCodecSettingsPtrInput         `pulumi:"codecSettings"`
 	LanguageCode               pulumi.StringPtrInput                     `pulumi:"languageCode"`
 	LanguageCodeControl        pulumi.StringPtrInput                     `pulumi:"languageCodeControl"`
@@ -2009,6 +2011,10 @@ func (o ChannelAudioDescriptionOutput) AudioTypeControl() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ChannelAudioDescription) *string { return v.AudioTypeControl }).(pulumi.StringPtrOutput)
 }
 
+func (o ChannelAudioDescriptionOutput) AudioWatermarkingSettings() ChannelAudioWatermarkSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelAudioDescription) *ChannelAudioWatermarkSettings { return v.AudioWatermarkingSettings }).(ChannelAudioWatermarkSettingsPtrOutput)
+}
+
 func (o ChannelAudioDescriptionOutput) CodecSettings() ChannelAudioCodecSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelAudioDescription) *ChannelAudioCodecSettings { return v.CodecSettings }).(ChannelAudioCodecSettingsPtrOutput)
 }
@@ -2051,6 +2057,154 @@ func (o ChannelAudioDescriptionArrayOutput) Index(i pulumi.IntInput) ChannelAudi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelAudioDescription {
 		return vs[0].([]ChannelAudioDescription)[vs[1].(int)]
 	}).(ChannelAudioDescriptionOutput)
+}
+
+type ChannelAudioHlsRenditionSelection struct {
+	GroupId *string `pulumi:"groupId"`
+	Name    *string `pulumi:"name"`
+}
+
+// ChannelAudioHlsRenditionSelectionInput is an input type that accepts ChannelAudioHlsRenditionSelectionArgs and ChannelAudioHlsRenditionSelectionOutput values.
+// You can construct a concrete instance of `ChannelAudioHlsRenditionSelectionInput` via:
+//
+//          ChannelAudioHlsRenditionSelectionArgs{...}
+type ChannelAudioHlsRenditionSelectionInput interface {
+	pulumi.Input
+
+	ToChannelAudioHlsRenditionSelectionOutput() ChannelAudioHlsRenditionSelectionOutput
+	ToChannelAudioHlsRenditionSelectionOutputWithContext(context.Context) ChannelAudioHlsRenditionSelectionOutput
+}
+
+type ChannelAudioHlsRenditionSelectionArgs struct {
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ChannelAudioHlsRenditionSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelAudioHlsRenditionSelection)(nil)).Elem()
+}
+
+func (i ChannelAudioHlsRenditionSelectionArgs) ToChannelAudioHlsRenditionSelectionOutput() ChannelAudioHlsRenditionSelectionOutput {
+	return i.ToChannelAudioHlsRenditionSelectionOutputWithContext(context.Background())
+}
+
+func (i ChannelAudioHlsRenditionSelectionArgs) ToChannelAudioHlsRenditionSelectionOutputWithContext(ctx context.Context) ChannelAudioHlsRenditionSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioHlsRenditionSelectionOutput)
+}
+
+func (i ChannelAudioHlsRenditionSelectionArgs) ToChannelAudioHlsRenditionSelectionPtrOutput() ChannelAudioHlsRenditionSelectionPtrOutput {
+	return i.ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelAudioHlsRenditionSelectionArgs) ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(ctx context.Context) ChannelAudioHlsRenditionSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioHlsRenditionSelectionOutput).ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(ctx)
+}
+
+// ChannelAudioHlsRenditionSelectionPtrInput is an input type that accepts ChannelAudioHlsRenditionSelectionArgs, ChannelAudioHlsRenditionSelectionPtr and ChannelAudioHlsRenditionSelectionPtrOutput values.
+// You can construct a concrete instance of `ChannelAudioHlsRenditionSelectionPtrInput` via:
+//
+//          ChannelAudioHlsRenditionSelectionArgs{...}
+//
+//  or:
+//
+//          nil
+type ChannelAudioHlsRenditionSelectionPtrInput interface {
+	pulumi.Input
+
+	ToChannelAudioHlsRenditionSelectionPtrOutput() ChannelAudioHlsRenditionSelectionPtrOutput
+	ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(context.Context) ChannelAudioHlsRenditionSelectionPtrOutput
+}
+
+type channelAudioHlsRenditionSelectionPtrType ChannelAudioHlsRenditionSelectionArgs
+
+func ChannelAudioHlsRenditionSelectionPtr(v *ChannelAudioHlsRenditionSelectionArgs) ChannelAudioHlsRenditionSelectionPtrInput {
+	return (*channelAudioHlsRenditionSelectionPtrType)(v)
+}
+
+func (*channelAudioHlsRenditionSelectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelAudioHlsRenditionSelection)(nil)).Elem()
+}
+
+func (i *channelAudioHlsRenditionSelectionPtrType) ToChannelAudioHlsRenditionSelectionPtrOutput() ChannelAudioHlsRenditionSelectionPtrOutput {
+	return i.ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i *channelAudioHlsRenditionSelectionPtrType) ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(ctx context.Context) ChannelAudioHlsRenditionSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioHlsRenditionSelectionPtrOutput)
+}
+
+type ChannelAudioHlsRenditionSelectionOutput struct{ *pulumi.OutputState }
+
+func (ChannelAudioHlsRenditionSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelAudioHlsRenditionSelection)(nil)).Elem()
+}
+
+func (o ChannelAudioHlsRenditionSelectionOutput) ToChannelAudioHlsRenditionSelectionOutput() ChannelAudioHlsRenditionSelectionOutput {
+	return o
+}
+
+func (o ChannelAudioHlsRenditionSelectionOutput) ToChannelAudioHlsRenditionSelectionOutputWithContext(ctx context.Context) ChannelAudioHlsRenditionSelectionOutput {
+	return o
+}
+
+func (o ChannelAudioHlsRenditionSelectionOutput) ToChannelAudioHlsRenditionSelectionPtrOutput() ChannelAudioHlsRenditionSelectionPtrOutput {
+	return o.ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelAudioHlsRenditionSelectionOutput) ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(ctx context.Context) ChannelAudioHlsRenditionSelectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAudioHlsRenditionSelection) *ChannelAudioHlsRenditionSelection {
+		return &v
+	}).(ChannelAudioHlsRenditionSelectionPtrOutput)
+}
+
+func (o ChannelAudioHlsRenditionSelectionOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelAudioHlsRenditionSelection) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelAudioHlsRenditionSelectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelAudioHlsRenditionSelection) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ChannelAudioHlsRenditionSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelAudioHlsRenditionSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelAudioHlsRenditionSelection)(nil)).Elem()
+}
+
+func (o ChannelAudioHlsRenditionSelectionPtrOutput) ToChannelAudioHlsRenditionSelectionPtrOutput() ChannelAudioHlsRenditionSelectionPtrOutput {
+	return o
+}
+
+func (o ChannelAudioHlsRenditionSelectionPtrOutput) ToChannelAudioHlsRenditionSelectionPtrOutputWithContext(ctx context.Context) ChannelAudioHlsRenditionSelectionPtrOutput {
+	return o
+}
+
+func (o ChannelAudioHlsRenditionSelectionPtrOutput) Elem() ChannelAudioHlsRenditionSelectionOutput {
+	return o.ApplyT(func(v *ChannelAudioHlsRenditionSelection) ChannelAudioHlsRenditionSelection {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelAudioHlsRenditionSelection
+		return ret
+	}).(ChannelAudioHlsRenditionSelectionOutput)
+}
+
+func (o ChannelAudioHlsRenditionSelectionPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelAudioHlsRenditionSelection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelAudioHlsRenditionSelectionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelAudioHlsRenditionSelection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type ChannelAudioLanguageSelection struct {
@@ -2776,9 +2930,10 @@ func (o ChannelAudioSelectorArrayOutput) Index(i pulumi.IntInput) ChannelAudioSe
 }
 
 type ChannelAudioSelectorSettings struct {
-	AudioLanguageSelection *ChannelAudioLanguageSelection `pulumi:"audioLanguageSelection"`
-	AudioPidSelection      *ChannelAudioPidSelection      `pulumi:"audioPidSelection"`
-	AudioTrackSelection    *ChannelAudioTrackSelection    `pulumi:"audioTrackSelection"`
+	AudioHlsRenditionSelection *ChannelAudioHlsRenditionSelection `pulumi:"audioHlsRenditionSelection"`
+	AudioLanguageSelection     *ChannelAudioLanguageSelection     `pulumi:"audioLanguageSelection"`
+	AudioPidSelection          *ChannelAudioPidSelection          `pulumi:"audioPidSelection"`
+	AudioTrackSelection        *ChannelAudioTrackSelection        `pulumi:"audioTrackSelection"`
 }
 
 // ChannelAudioSelectorSettingsInput is an input type that accepts ChannelAudioSelectorSettingsArgs and ChannelAudioSelectorSettingsOutput values.
@@ -2793,9 +2948,10 @@ type ChannelAudioSelectorSettingsInput interface {
 }
 
 type ChannelAudioSelectorSettingsArgs struct {
-	AudioLanguageSelection ChannelAudioLanguageSelectionPtrInput `pulumi:"audioLanguageSelection"`
-	AudioPidSelection      ChannelAudioPidSelectionPtrInput      `pulumi:"audioPidSelection"`
-	AudioTrackSelection    ChannelAudioTrackSelectionPtrInput    `pulumi:"audioTrackSelection"`
+	AudioHlsRenditionSelection ChannelAudioHlsRenditionSelectionPtrInput `pulumi:"audioHlsRenditionSelection"`
+	AudioLanguageSelection     ChannelAudioLanguageSelectionPtrInput     `pulumi:"audioLanguageSelection"`
+	AudioPidSelection          ChannelAudioPidSelectionPtrInput          `pulumi:"audioPidSelection"`
+	AudioTrackSelection        ChannelAudioTrackSelectionPtrInput        `pulumi:"audioTrackSelection"`
 }
 
 func (ChannelAudioSelectorSettingsArgs) ElementType() reflect.Type {
@@ -2875,6 +3031,12 @@ func (o ChannelAudioSelectorSettingsOutput) ToChannelAudioSelectorSettingsPtrOut
 	}).(ChannelAudioSelectorSettingsPtrOutput)
 }
 
+func (o ChannelAudioSelectorSettingsOutput) AudioHlsRenditionSelection() ChannelAudioHlsRenditionSelectionPtrOutput {
+	return o.ApplyT(func(v ChannelAudioSelectorSettings) *ChannelAudioHlsRenditionSelection {
+		return v.AudioHlsRenditionSelection
+	}).(ChannelAudioHlsRenditionSelectionPtrOutput)
+}
+
 func (o ChannelAudioSelectorSettingsOutput) AudioLanguageSelection() ChannelAudioLanguageSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelAudioSelectorSettings) *ChannelAudioLanguageSelection { return v.AudioLanguageSelection }).(ChannelAudioLanguageSelectionPtrOutput)
 }
@@ -2909,6 +3071,15 @@ func (o ChannelAudioSelectorSettingsPtrOutput) Elem() ChannelAudioSelectorSettin
 		var ret ChannelAudioSelectorSettings
 		return ret
 	}).(ChannelAudioSelectorSettingsOutput)
+}
+
+func (o ChannelAudioSelectorSettingsPtrOutput) AudioHlsRenditionSelection() ChannelAudioHlsRenditionSelectionPtrOutput {
+	return o.ApplyT(func(v *ChannelAudioSelectorSettings) *ChannelAudioHlsRenditionSelection {
+		if v == nil {
+			return nil
+		}
+		return v.AudioHlsRenditionSelection
+	}).(ChannelAudioHlsRenditionSelectionPtrOutput)
 }
 
 func (o ChannelAudioSelectorSettingsPtrOutput) AudioLanguageSelection() ChannelAudioLanguageSelectionPtrOutput {
@@ -3311,6 +3482,141 @@ func (o ChannelAudioTrackSelectionPtrOutput) Tracks() ChannelAudioTrackArrayOutp
 		}
 		return v.Tracks
 	}).(ChannelAudioTrackArrayOutput)
+}
+
+type ChannelAudioWatermarkSettings struct {
+	NielsenWatermarksSettings *ChannelNielsenWatermarksSettings `pulumi:"nielsenWatermarksSettings"`
+}
+
+// ChannelAudioWatermarkSettingsInput is an input type that accepts ChannelAudioWatermarkSettingsArgs and ChannelAudioWatermarkSettingsOutput values.
+// You can construct a concrete instance of `ChannelAudioWatermarkSettingsInput` via:
+//
+//          ChannelAudioWatermarkSettingsArgs{...}
+type ChannelAudioWatermarkSettingsInput interface {
+	pulumi.Input
+
+	ToChannelAudioWatermarkSettingsOutput() ChannelAudioWatermarkSettingsOutput
+	ToChannelAudioWatermarkSettingsOutputWithContext(context.Context) ChannelAudioWatermarkSettingsOutput
+}
+
+type ChannelAudioWatermarkSettingsArgs struct {
+	NielsenWatermarksSettings ChannelNielsenWatermarksSettingsPtrInput `pulumi:"nielsenWatermarksSettings"`
+}
+
+func (ChannelAudioWatermarkSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelAudioWatermarkSettings)(nil)).Elem()
+}
+
+func (i ChannelAudioWatermarkSettingsArgs) ToChannelAudioWatermarkSettingsOutput() ChannelAudioWatermarkSettingsOutput {
+	return i.ToChannelAudioWatermarkSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelAudioWatermarkSettingsArgs) ToChannelAudioWatermarkSettingsOutputWithContext(ctx context.Context) ChannelAudioWatermarkSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioWatermarkSettingsOutput)
+}
+
+func (i ChannelAudioWatermarkSettingsArgs) ToChannelAudioWatermarkSettingsPtrOutput() ChannelAudioWatermarkSettingsPtrOutput {
+	return i.ToChannelAudioWatermarkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelAudioWatermarkSettingsArgs) ToChannelAudioWatermarkSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioWatermarkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioWatermarkSettingsOutput).ToChannelAudioWatermarkSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelAudioWatermarkSettingsPtrInput is an input type that accepts ChannelAudioWatermarkSettingsArgs, ChannelAudioWatermarkSettingsPtr and ChannelAudioWatermarkSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelAudioWatermarkSettingsPtrInput` via:
+//
+//          ChannelAudioWatermarkSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ChannelAudioWatermarkSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelAudioWatermarkSettingsPtrOutput() ChannelAudioWatermarkSettingsPtrOutput
+	ToChannelAudioWatermarkSettingsPtrOutputWithContext(context.Context) ChannelAudioWatermarkSettingsPtrOutput
+}
+
+type channelAudioWatermarkSettingsPtrType ChannelAudioWatermarkSettingsArgs
+
+func ChannelAudioWatermarkSettingsPtr(v *ChannelAudioWatermarkSettingsArgs) ChannelAudioWatermarkSettingsPtrInput {
+	return (*channelAudioWatermarkSettingsPtrType)(v)
+}
+
+func (*channelAudioWatermarkSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelAudioWatermarkSettings)(nil)).Elem()
+}
+
+func (i *channelAudioWatermarkSettingsPtrType) ToChannelAudioWatermarkSettingsPtrOutput() ChannelAudioWatermarkSettingsPtrOutput {
+	return i.ToChannelAudioWatermarkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelAudioWatermarkSettingsPtrType) ToChannelAudioWatermarkSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioWatermarkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelAudioWatermarkSettingsPtrOutput)
+}
+
+type ChannelAudioWatermarkSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelAudioWatermarkSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelAudioWatermarkSettings)(nil)).Elem()
+}
+
+func (o ChannelAudioWatermarkSettingsOutput) ToChannelAudioWatermarkSettingsOutput() ChannelAudioWatermarkSettingsOutput {
+	return o
+}
+
+func (o ChannelAudioWatermarkSettingsOutput) ToChannelAudioWatermarkSettingsOutputWithContext(ctx context.Context) ChannelAudioWatermarkSettingsOutput {
+	return o
+}
+
+func (o ChannelAudioWatermarkSettingsOutput) ToChannelAudioWatermarkSettingsPtrOutput() ChannelAudioWatermarkSettingsPtrOutput {
+	return o.ToChannelAudioWatermarkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelAudioWatermarkSettingsOutput) ToChannelAudioWatermarkSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioWatermarkSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAudioWatermarkSettings) *ChannelAudioWatermarkSettings {
+		return &v
+	}).(ChannelAudioWatermarkSettingsPtrOutput)
+}
+
+func (o ChannelAudioWatermarkSettingsOutput) NielsenWatermarksSettings() ChannelNielsenWatermarksSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelAudioWatermarkSettings) *ChannelNielsenWatermarksSettings {
+		return v.NielsenWatermarksSettings
+	}).(ChannelNielsenWatermarksSettingsPtrOutput)
+}
+
+type ChannelAudioWatermarkSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelAudioWatermarkSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelAudioWatermarkSettings)(nil)).Elem()
+}
+
+func (o ChannelAudioWatermarkSettingsPtrOutput) ToChannelAudioWatermarkSettingsPtrOutput() ChannelAudioWatermarkSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelAudioWatermarkSettingsPtrOutput) ToChannelAudioWatermarkSettingsPtrOutputWithContext(ctx context.Context) ChannelAudioWatermarkSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelAudioWatermarkSettingsPtrOutput) Elem() ChannelAudioWatermarkSettingsOutput {
+	return o.ApplyT(func(v *ChannelAudioWatermarkSettings) ChannelAudioWatermarkSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelAudioWatermarkSettings
+		return ret
+	}).(ChannelAudioWatermarkSettingsOutput)
+}
+
+func (o ChannelAudioWatermarkSettingsPtrOutput) NielsenWatermarksSettings() ChannelNielsenWatermarksSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelAudioWatermarkSettings) *ChannelNielsenWatermarksSettings {
+		if v == nil {
+			return nil
+		}
+		return v.NielsenWatermarksSettings
+	}).(ChannelNielsenWatermarksSettingsPtrOutput)
 }
 
 type ChannelAutomaticInputFailoverSettings struct {
@@ -6524,7 +6830,8 @@ func (o ChannelDvbSubDestinationSettingsPtrOutput) YPosition() pulumi.IntPtrOutp
 }
 
 type ChannelDvbSubSourceSettings struct {
-	Pid *int `pulumi:"pid"`
+	OcrLanguage *string `pulumi:"ocrLanguage"`
+	Pid         *int    `pulumi:"pid"`
 }
 
 // ChannelDvbSubSourceSettingsInput is an input type that accepts ChannelDvbSubSourceSettingsArgs and ChannelDvbSubSourceSettingsOutput values.
@@ -6539,7 +6846,8 @@ type ChannelDvbSubSourceSettingsInput interface {
 }
 
 type ChannelDvbSubSourceSettingsArgs struct {
-	Pid pulumi.IntPtrInput `pulumi:"pid"`
+	OcrLanguage pulumi.StringPtrInput `pulumi:"ocrLanguage"`
+	Pid         pulumi.IntPtrInput    `pulumi:"pid"`
 }
 
 func (ChannelDvbSubSourceSettingsArgs) ElementType() reflect.Type {
@@ -6619,6 +6927,10 @@ func (o ChannelDvbSubSourceSettingsOutput) ToChannelDvbSubSourceSettingsPtrOutpu
 	}).(ChannelDvbSubSourceSettingsPtrOutput)
 }
 
+func (o ChannelDvbSubSourceSettingsOutput) OcrLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelDvbSubSourceSettings) *string { return v.OcrLanguage }).(pulumi.StringPtrOutput)
+}
+
 func (o ChannelDvbSubSourceSettingsOutput) Pid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelDvbSubSourceSettings) *int { return v.Pid }).(pulumi.IntPtrOutput)
 }
@@ -6645,6 +6957,15 @@ func (o ChannelDvbSubSourceSettingsPtrOutput) Elem() ChannelDvbSubSourceSettings
 		var ret ChannelDvbSubSourceSettings
 		return ret
 	}).(ChannelDvbSubSourceSettingsOutput)
+}
+
+func (o ChannelDvbSubSourceSettingsPtrOutput) OcrLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelDvbSubSourceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OcrLanguage
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelDvbSubSourceSettingsPtrOutput) Pid() pulumi.IntPtrOutput {
@@ -13230,10 +13551,11 @@ func (o ChannelHlsGroupSettingsPtrOutput) TsFileMode() pulumi.StringPtrOutput {
 }
 
 type ChannelHlsInputSettings struct {
-	Bandwidth      *int `pulumi:"bandwidth"`
-	BufferSegments *int `pulumi:"bufferSegments"`
-	Retries        *int `pulumi:"retries"`
-	RetryInterval  *int `pulumi:"retryInterval"`
+	Bandwidth      *int    `pulumi:"bandwidth"`
+	BufferSegments *int    `pulumi:"bufferSegments"`
+	Retries        *int    `pulumi:"retries"`
+	RetryInterval  *int    `pulumi:"retryInterval"`
+	Scte35Source   *string `pulumi:"scte35Source"`
 }
 
 // ChannelHlsInputSettingsInput is an input type that accepts ChannelHlsInputSettingsArgs and ChannelHlsInputSettingsOutput values.
@@ -13248,10 +13570,11 @@ type ChannelHlsInputSettingsInput interface {
 }
 
 type ChannelHlsInputSettingsArgs struct {
-	Bandwidth      pulumi.IntPtrInput `pulumi:"bandwidth"`
-	BufferSegments pulumi.IntPtrInput `pulumi:"bufferSegments"`
-	Retries        pulumi.IntPtrInput `pulumi:"retries"`
-	RetryInterval  pulumi.IntPtrInput `pulumi:"retryInterval"`
+	Bandwidth      pulumi.IntPtrInput    `pulumi:"bandwidth"`
+	BufferSegments pulumi.IntPtrInput    `pulumi:"bufferSegments"`
+	Retries        pulumi.IntPtrInput    `pulumi:"retries"`
+	RetryInterval  pulumi.IntPtrInput    `pulumi:"retryInterval"`
+	Scte35Source   pulumi.StringPtrInput `pulumi:"scte35Source"`
 }
 
 func (ChannelHlsInputSettingsArgs) ElementType() reflect.Type {
@@ -13347,6 +13670,10 @@ func (o ChannelHlsInputSettingsOutput) RetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelHlsInputSettings) *int { return v.RetryInterval }).(pulumi.IntPtrOutput)
 }
 
+func (o ChannelHlsInputSettingsOutput) Scte35Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelHlsInputSettings) *string { return v.Scte35Source }).(pulumi.StringPtrOutput)
+}
+
 type ChannelHlsInputSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsInputSettingsPtrOutput) ElementType() reflect.Type {
@@ -13405,6 +13732,15 @@ func (o ChannelHlsInputSettingsPtrOutput) RetryInterval() pulumi.IntPtrOutput {
 		}
 		return v.RetryInterval
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o ChannelHlsInputSettingsPtrOutput) Scte35Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelHlsInputSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scte35Source
+	}).(pulumi.StringPtrOutput)
 }
 
 type ChannelHlsMediaStoreSettings struct {
@@ -19245,6 +19581,169 @@ func (o ChannelNetworkInputSettingsPtrOutput) ServerValidation() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type ChannelNielsenCBET struct {
+	CbetCheckDigitString *string `pulumi:"cbetCheckDigitString"`
+	CbetStepaside        *string `pulumi:"cbetStepaside"`
+	Csid                 *string `pulumi:"csid"`
+}
+
+// ChannelNielsenCBETInput is an input type that accepts ChannelNielsenCBETArgs and ChannelNielsenCBETOutput values.
+// You can construct a concrete instance of `ChannelNielsenCBETInput` via:
+//
+//          ChannelNielsenCBETArgs{...}
+type ChannelNielsenCBETInput interface {
+	pulumi.Input
+
+	ToChannelNielsenCBETOutput() ChannelNielsenCBETOutput
+	ToChannelNielsenCBETOutputWithContext(context.Context) ChannelNielsenCBETOutput
+}
+
+type ChannelNielsenCBETArgs struct {
+	CbetCheckDigitString pulumi.StringPtrInput `pulumi:"cbetCheckDigitString"`
+	CbetStepaside        pulumi.StringPtrInput `pulumi:"cbetStepaside"`
+	Csid                 pulumi.StringPtrInput `pulumi:"csid"`
+}
+
+func (ChannelNielsenCBETArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNielsenCBET)(nil)).Elem()
+}
+
+func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETOutput() ChannelNielsenCBETOutput {
+	return i.ToChannelNielsenCBETOutputWithContext(context.Background())
+}
+
+func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETOutputWithContext(ctx context.Context) ChannelNielsenCBETOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCBETOutput)
+}
+
+func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput {
+	return i.ToChannelNielsenCBETPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNielsenCBETArgs) ToChannelNielsenCBETPtrOutputWithContext(ctx context.Context) ChannelNielsenCBETPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCBETOutput).ToChannelNielsenCBETPtrOutputWithContext(ctx)
+}
+
+// ChannelNielsenCBETPtrInput is an input type that accepts ChannelNielsenCBETArgs, ChannelNielsenCBETPtr and ChannelNielsenCBETPtrOutput values.
+// You can construct a concrete instance of `ChannelNielsenCBETPtrInput` via:
+//
+//          ChannelNielsenCBETArgs{...}
+//
+//  or:
+//
+//          nil
+type ChannelNielsenCBETPtrInput interface {
+	pulumi.Input
+
+	ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput
+	ToChannelNielsenCBETPtrOutputWithContext(context.Context) ChannelNielsenCBETPtrOutput
+}
+
+type channelNielsenCBETPtrType ChannelNielsenCBETArgs
+
+func ChannelNielsenCBETPtr(v *ChannelNielsenCBETArgs) ChannelNielsenCBETPtrInput {
+	return (*channelNielsenCBETPtrType)(v)
+}
+
+func (*channelNielsenCBETPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNielsenCBET)(nil)).Elem()
+}
+
+func (i *channelNielsenCBETPtrType) ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput {
+	return i.ToChannelNielsenCBETPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNielsenCBETPtrType) ToChannelNielsenCBETPtrOutputWithContext(ctx context.Context) ChannelNielsenCBETPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenCBETPtrOutput)
+}
+
+type ChannelNielsenCBETOutput struct{ *pulumi.OutputState }
+
+func (ChannelNielsenCBETOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNielsenCBET)(nil)).Elem()
+}
+
+func (o ChannelNielsenCBETOutput) ToChannelNielsenCBETOutput() ChannelNielsenCBETOutput {
+	return o
+}
+
+func (o ChannelNielsenCBETOutput) ToChannelNielsenCBETOutputWithContext(ctx context.Context) ChannelNielsenCBETOutput {
+	return o
+}
+
+func (o ChannelNielsenCBETOutput) ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput {
+	return o.ToChannelNielsenCBETPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNielsenCBETOutput) ToChannelNielsenCBETPtrOutputWithContext(ctx context.Context) ChannelNielsenCBETPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNielsenCBET) *ChannelNielsenCBET {
+		return &v
+	}).(ChannelNielsenCBETPtrOutput)
+}
+
+func (o ChannelNielsenCBETOutput) CbetCheckDigitString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenCBET) *string { return v.CbetCheckDigitString }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNielsenCBETOutput) CbetStepaside() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenCBET) *string { return v.CbetStepaside }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNielsenCBETOutput) Csid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenCBET) *string { return v.Csid }).(pulumi.StringPtrOutput)
+}
+
+type ChannelNielsenCBETPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNielsenCBETPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNielsenCBET)(nil)).Elem()
+}
+
+func (o ChannelNielsenCBETPtrOutput) ToChannelNielsenCBETPtrOutput() ChannelNielsenCBETPtrOutput {
+	return o
+}
+
+func (o ChannelNielsenCBETPtrOutput) ToChannelNielsenCBETPtrOutputWithContext(ctx context.Context) ChannelNielsenCBETPtrOutput {
+	return o
+}
+
+func (o ChannelNielsenCBETPtrOutput) Elem() ChannelNielsenCBETOutput {
+	return o.ApplyT(func(v *ChannelNielsenCBET) ChannelNielsenCBET {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNielsenCBET
+		return ret
+	}).(ChannelNielsenCBETOutput)
+}
+
+func (o ChannelNielsenCBETPtrOutput) CbetCheckDigitString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenCBET) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CbetCheckDigitString
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNielsenCBETPtrOutput) CbetStepaside() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenCBET) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CbetStepaside
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNielsenCBETPtrOutput) Csid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenCBET) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Csid
+	}).(pulumi.StringPtrOutput)
+}
+
 type ChannelNielsenConfiguration struct {
 	DistributorId          *string `pulumi:"distributorId"`
 	NielsenPcmToId3Tagging *string `pulumi:"nielsenPcmToId3Tagging"`
@@ -19391,6 +19890,317 @@ func (o ChannelNielsenConfigurationPtrOutput) NielsenPcmToId3Tagging() pulumi.St
 		}
 		return v.NielsenPcmToId3Tagging
 	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelNielsenNaesIiNw struct {
+	CheckDigitString *string  `pulumi:"checkDigitString"`
+	Sid              *float64 `pulumi:"sid"`
+}
+
+// ChannelNielsenNaesIiNwInput is an input type that accepts ChannelNielsenNaesIiNwArgs and ChannelNielsenNaesIiNwOutput values.
+// You can construct a concrete instance of `ChannelNielsenNaesIiNwInput` via:
+//
+//          ChannelNielsenNaesIiNwArgs{...}
+type ChannelNielsenNaesIiNwInput interface {
+	pulumi.Input
+
+	ToChannelNielsenNaesIiNwOutput() ChannelNielsenNaesIiNwOutput
+	ToChannelNielsenNaesIiNwOutputWithContext(context.Context) ChannelNielsenNaesIiNwOutput
+}
+
+type ChannelNielsenNaesIiNwArgs struct {
+	CheckDigitString pulumi.StringPtrInput  `pulumi:"checkDigitString"`
+	Sid              pulumi.Float64PtrInput `pulumi:"sid"`
+}
+
+func (ChannelNielsenNaesIiNwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNielsenNaesIiNw)(nil)).Elem()
+}
+
+func (i ChannelNielsenNaesIiNwArgs) ToChannelNielsenNaesIiNwOutput() ChannelNielsenNaesIiNwOutput {
+	return i.ToChannelNielsenNaesIiNwOutputWithContext(context.Background())
+}
+
+func (i ChannelNielsenNaesIiNwArgs) ToChannelNielsenNaesIiNwOutputWithContext(ctx context.Context) ChannelNielsenNaesIiNwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenNaesIiNwOutput)
+}
+
+func (i ChannelNielsenNaesIiNwArgs) ToChannelNielsenNaesIiNwPtrOutput() ChannelNielsenNaesIiNwPtrOutput {
+	return i.ToChannelNielsenNaesIiNwPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNielsenNaesIiNwArgs) ToChannelNielsenNaesIiNwPtrOutputWithContext(ctx context.Context) ChannelNielsenNaesIiNwPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenNaesIiNwOutput).ToChannelNielsenNaesIiNwPtrOutputWithContext(ctx)
+}
+
+// ChannelNielsenNaesIiNwPtrInput is an input type that accepts ChannelNielsenNaesIiNwArgs, ChannelNielsenNaesIiNwPtr and ChannelNielsenNaesIiNwPtrOutput values.
+// You can construct a concrete instance of `ChannelNielsenNaesIiNwPtrInput` via:
+//
+//          ChannelNielsenNaesIiNwArgs{...}
+//
+//  or:
+//
+//          nil
+type ChannelNielsenNaesIiNwPtrInput interface {
+	pulumi.Input
+
+	ToChannelNielsenNaesIiNwPtrOutput() ChannelNielsenNaesIiNwPtrOutput
+	ToChannelNielsenNaesIiNwPtrOutputWithContext(context.Context) ChannelNielsenNaesIiNwPtrOutput
+}
+
+type channelNielsenNaesIiNwPtrType ChannelNielsenNaesIiNwArgs
+
+func ChannelNielsenNaesIiNwPtr(v *ChannelNielsenNaesIiNwArgs) ChannelNielsenNaesIiNwPtrInput {
+	return (*channelNielsenNaesIiNwPtrType)(v)
+}
+
+func (*channelNielsenNaesIiNwPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNielsenNaesIiNw)(nil)).Elem()
+}
+
+func (i *channelNielsenNaesIiNwPtrType) ToChannelNielsenNaesIiNwPtrOutput() ChannelNielsenNaesIiNwPtrOutput {
+	return i.ToChannelNielsenNaesIiNwPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNielsenNaesIiNwPtrType) ToChannelNielsenNaesIiNwPtrOutputWithContext(ctx context.Context) ChannelNielsenNaesIiNwPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenNaesIiNwPtrOutput)
+}
+
+type ChannelNielsenNaesIiNwOutput struct{ *pulumi.OutputState }
+
+func (ChannelNielsenNaesIiNwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNielsenNaesIiNw)(nil)).Elem()
+}
+
+func (o ChannelNielsenNaesIiNwOutput) ToChannelNielsenNaesIiNwOutput() ChannelNielsenNaesIiNwOutput {
+	return o
+}
+
+func (o ChannelNielsenNaesIiNwOutput) ToChannelNielsenNaesIiNwOutputWithContext(ctx context.Context) ChannelNielsenNaesIiNwOutput {
+	return o
+}
+
+func (o ChannelNielsenNaesIiNwOutput) ToChannelNielsenNaesIiNwPtrOutput() ChannelNielsenNaesIiNwPtrOutput {
+	return o.ToChannelNielsenNaesIiNwPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNielsenNaesIiNwOutput) ToChannelNielsenNaesIiNwPtrOutputWithContext(ctx context.Context) ChannelNielsenNaesIiNwPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNielsenNaesIiNw) *ChannelNielsenNaesIiNw {
+		return &v
+	}).(ChannelNielsenNaesIiNwPtrOutput)
+}
+
+func (o ChannelNielsenNaesIiNwOutput) CheckDigitString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenNaesIiNw) *string { return v.CheckDigitString }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNielsenNaesIiNwOutput) Sid() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ChannelNielsenNaesIiNw) *float64 { return v.Sid }).(pulumi.Float64PtrOutput)
+}
+
+type ChannelNielsenNaesIiNwPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNielsenNaesIiNwPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNielsenNaesIiNw)(nil)).Elem()
+}
+
+func (o ChannelNielsenNaesIiNwPtrOutput) ToChannelNielsenNaesIiNwPtrOutput() ChannelNielsenNaesIiNwPtrOutput {
+	return o
+}
+
+func (o ChannelNielsenNaesIiNwPtrOutput) ToChannelNielsenNaesIiNwPtrOutputWithContext(ctx context.Context) ChannelNielsenNaesIiNwPtrOutput {
+	return o
+}
+
+func (o ChannelNielsenNaesIiNwPtrOutput) Elem() ChannelNielsenNaesIiNwOutput {
+	return o.ApplyT(func(v *ChannelNielsenNaesIiNw) ChannelNielsenNaesIiNw {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNielsenNaesIiNw
+		return ret
+	}).(ChannelNielsenNaesIiNwOutput)
+}
+
+func (o ChannelNielsenNaesIiNwPtrOutput) CheckDigitString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenNaesIiNw) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CheckDigitString
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNielsenNaesIiNwPtrOutput) Sid() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenNaesIiNw) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Sid
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ChannelNielsenWatermarksSettings struct {
+	NielsenCbetSettings     *ChannelNielsenCBET     `pulumi:"nielsenCbetSettings"`
+	NielsenDistributionType *string                 `pulumi:"nielsenDistributionType"`
+	NielsenNaesIiNwSettings *ChannelNielsenNaesIiNw `pulumi:"nielsenNaesIiNwSettings"`
+}
+
+// ChannelNielsenWatermarksSettingsInput is an input type that accepts ChannelNielsenWatermarksSettingsArgs and ChannelNielsenWatermarksSettingsOutput values.
+// You can construct a concrete instance of `ChannelNielsenWatermarksSettingsInput` via:
+//
+//          ChannelNielsenWatermarksSettingsArgs{...}
+type ChannelNielsenWatermarksSettingsInput interface {
+	pulumi.Input
+
+	ToChannelNielsenWatermarksSettingsOutput() ChannelNielsenWatermarksSettingsOutput
+	ToChannelNielsenWatermarksSettingsOutputWithContext(context.Context) ChannelNielsenWatermarksSettingsOutput
+}
+
+type ChannelNielsenWatermarksSettingsArgs struct {
+	NielsenCbetSettings     ChannelNielsenCBETPtrInput     `pulumi:"nielsenCbetSettings"`
+	NielsenDistributionType pulumi.StringPtrInput          `pulumi:"nielsenDistributionType"`
+	NielsenNaesIiNwSettings ChannelNielsenNaesIiNwPtrInput `pulumi:"nielsenNaesIiNwSettings"`
+}
+
+func (ChannelNielsenWatermarksSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNielsenWatermarksSettings)(nil)).Elem()
+}
+
+func (i ChannelNielsenWatermarksSettingsArgs) ToChannelNielsenWatermarksSettingsOutput() ChannelNielsenWatermarksSettingsOutput {
+	return i.ToChannelNielsenWatermarksSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelNielsenWatermarksSettingsArgs) ToChannelNielsenWatermarksSettingsOutputWithContext(ctx context.Context) ChannelNielsenWatermarksSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenWatermarksSettingsOutput)
+}
+
+func (i ChannelNielsenWatermarksSettingsArgs) ToChannelNielsenWatermarksSettingsPtrOutput() ChannelNielsenWatermarksSettingsPtrOutput {
+	return i.ToChannelNielsenWatermarksSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNielsenWatermarksSettingsArgs) ToChannelNielsenWatermarksSettingsPtrOutputWithContext(ctx context.Context) ChannelNielsenWatermarksSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenWatermarksSettingsOutput).ToChannelNielsenWatermarksSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelNielsenWatermarksSettingsPtrInput is an input type that accepts ChannelNielsenWatermarksSettingsArgs, ChannelNielsenWatermarksSettingsPtr and ChannelNielsenWatermarksSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelNielsenWatermarksSettingsPtrInput` via:
+//
+//          ChannelNielsenWatermarksSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ChannelNielsenWatermarksSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelNielsenWatermarksSettingsPtrOutput() ChannelNielsenWatermarksSettingsPtrOutput
+	ToChannelNielsenWatermarksSettingsPtrOutputWithContext(context.Context) ChannelNielsenWatermarksSettingsPtrOutput
+}
+
+type channelNielsenWatermarksSettingsPtrType ChannelNielsenWatermarksSettingsArgs
+
+func ChannelNielsenWatermarksSettingsPtr(v *ChannelNielsenWatermarksSettingsArgs) ChannelNielsenWatermarksSettingsPtrInput {
+	return (*channelNielsenWatermarksSettingsPtrType)(v)
+}
+
+func (*channelNielsenWatermarksSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNielsenWatermarksSettings)(nil)).Elem()
+}
+
+func (i *channelNielsenWatermarksSettingsPtrType) ToChannelNielsenWatermarksSettingsPtrOutput() ChannelNielsenWatermarksSettingsPtrOutput {
+	return i.ToChannelNielsenWatermarksSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNielsenWatermarksSettingsPtrType) ToChannelNielsenWatermarksSettingsPtrOutputWithContext(ctx context.Context) ChannelNielsenWatermarksSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNielsenWatermarksSettingsPtrOutput)
+}
+
+type ChannelNielsenWatermarksSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelNielsenWatermarksSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNielsenWatermarksSettings)(nil)).Elem()
+}
+
+func (o ChannelNielsenWatermarksSettingsOutput) ToChannelNielsenWatermarksSettingsOutput() ChannelNielsenWatermarksSettingsOutput {
+	return o
+}
+
+func (o ChannelNielsenWatermarksSettingsOutput) ToChannelNielsenWatermarksSettingsOutputWithContext(ctx context.Context) ChannelNielsenWatermarksSettingsOutput {
+	return o
+}
+
+func (o ChannelNielsenWatermarksSettingsOutput) ToChannelNielsenWatermarksSettingsPtrOutput() ChannelNielsenWatermarksSettingsPtrOutput {
+	return o.ToChannelNielsenWatermarksSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNielsenWatermarksSettingsOutput) ToChannelNielsenWatermarksSettingsPtrOutputWithContext(ctx context.Context) ChannelNielsenWatermarksSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNielsenWatermarksSettings) *ChannelNielsenWatermarksSettings {
+		return &v
+	}).(ChannelNielsenWatermarksSettingsPtrOutput)
+}
+
+func (o ChannelNielsenWatermarksSettingsOutput) NielsenCbetSettings() ChannelNielsenCBETPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenWatermarksSettings) *ChannelNielsenCBET { return v.NielsenCbetSettings }).(ChannelNielsenCBETPtrOutput)
+}
+
+func (o ChannelNielsenWatermarksSettingsOutput) NielsenDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenWatermarksSettings) *string { return v.NielsenDistributionType }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNielsenWatermarksSettingsOutput) NielsenNaesIiNwSettings() ChannelNielsenNaesIiNwPtrOutput {
+	return o.ApplyT(func(v ChannelNielsenWatermarksSettings) *ChannelNielsenNaesIiNw { return v.NielsenNaesIiNwSettings }).(ChannelNielsenNaesIiNwPtrOutput)
+}
+
+type ChannelNielsenWatermarksSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNielsenWatermarksSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNielsenWatermarksSettings)(nil)).Elem()
+}
+
+func (o ChannelNielsenWatermarksSettingsPtrOutput) ToChannelNielsenWatermarksSettingsPtrOutput() ChannelNielsenWatermarksSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelNielsenWatermarksSettingsPtrOutput) ToChannelNielsenWatermarksSettingsPtrOutputWithContext(ctx context.Context) ChannelNielsenWatermarksSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelNielsenWatermarksSettingsPtrOutput) Elem() ChannelNielsenWatermarksSettingsOutput {
+	return o.ApplyT(func(v *ChannelNielsenWatermarksSettings) ChannelNielsenWatermarksSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNielsenWatermarksSettings
+		return ret
+	}).(ChannelNielsenWatermarksSettingsOutput)
+}
+
+func (o ChannelNielsenWatermarksSettingsPtrOutput) NielsenCbetSettings() ChannelNielsenCBETPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenWatermarksSettings) *ChannelNielsenCBET {
+		if v == nil {
+			return nil
+		}
+		return v.NielsenCbetSettings
+	}).(ChannelNielsenCBETPtrOutput)
+}
+
+func (o ChannelNielsenWatermarksSettingsPtrOutput) NielsenDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenWatermarksSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NielsenDistributionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNielsenWatermarksSettingsPtrOutput) NielsenNaesIiNwSettings() ChannelNielsenNaesIiNwPtrOutput {
+	return o.ApplyT(func(v *ChannelNielsenWatermarksSettings) *ChannelNielsenNaesIiNw {
+		if v == nil {
+			return nil
+		}
+		return v.NielsenNaesIiNwSettings
+	}).(ChannelNielsenNaesIiNwPtrOutput)
 }
 
 type ChannelOutputType struct {
@@ -21997,7 +22807,8 @@ func (o ChannelScte27DestinationSettingsPtrOutput) Elem() ChannelScte27Destinati
 }
 
 type ChannelScte27SourceSettings struct {
-	Pid *int `pulumi:"pid"`
+	OcrLanguage *string `pulumi:"ocrLanguage"`
+	Pid         *int    `pulumi:"pid"`
 }
 
 // ChannelScte27SourceSettingsInput is an input type that accepts ChannelScte27SourceSettingsArgs and ChannelScte27SourceSettingsOutput values.
@@ -22012,7 +22823,8 @@ type ChannelScte27SourceSettingsInput interface {
 }
 
 type ChannelScte27SourceSettingsArgs struct {
-	Pid pulumi.IntPtrInput `pulumi:"pid"`
+	OcrLanguage pulumi.StringPtrInput `pulumi:"ocrLanguage"`
+	Pid         pulumi.IntPtrInput    `pulumi:"pid"`
 }
 
 func (ChannelScte27SourceSettingsArgs) ElementType() reflect.Type {
@@ -22092,6 +22904,10 @@ func (o ChannelScte27SourceSettingsOutput) ToChannelScte27SourceSettingsPtrOutpu
 	}).(ChannelScte27SourceSettingsPtrOutput)
 }
 
+func (o ChannelScte27SourceSettingsOutput) OcrLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelScte27SourceSettings) *string { return v.OcrLanguage }).(pulumi.StringPtrOutput)
+}
+
 func (o ChannelScte27SourceSettingsOutput) Pid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelScte27SourceSettings) *int { return v.Pid }).(pulumi.IntPtrOutput)
 }
@@ -22118,6 +22934,15 @@ func (o ChannelScte27SourceSettingsPtrOutput) Elem() ChannelScte27SourceSettings
 		var ret ChannelScte27SourceSettings
 		return ret
 	}).(ChannelScte27SourceSettingsOutput)
+}
+
+func (o ChannelScte27SourceSettingsPtrOutput) OcrLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelScte27SourceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OcrLanguage
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelScte27SourceSettingsPtrOutput) Pid() pulumi.IntPtrOutput {
@@ -25546,6 +26371,7 @@ func (o ChannelWavSettingsPtrOutput) SampleRate() pulumi.Float64PtrOutput {
 }
 
 type ChannelWebvttDestinationSettings struct {
+	StyleControl *string `pulumi:"styleControl"`
 }
 
 // ChannelWebvttDestinationSettingsInput is an input type that accepts ChannelWebvttDestinationSettingsArgs and ChannelWebvttDestinationSettingsOutput values.
@@ -25560,6 +26386,7 @@ type ChannelWebvttDestinationSettingsInput interface {
 }
 
 type ChannelWebvttDestinationSettingsArgs struct {
+	StyleControl pulumi.StringPtrInput `pulumi:"styleControl"`
 }
 
 func (ChannelWebvttDestinationSettingsArgs) ElementType() reflect.Type {
@@ -25639,6 +26466,10 @@ func (o ChannelWebvttDestinationSettingsOutput) ToChannelWebvttDestinationSettin
 	}).(ChannelWebvttDestinationSettingsPtrOutput)
 }
 
+func (o ChannelWebvttDestinationSettingsOutput) StyleControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelWebvttDestinationSettings) *string { return v.StyleControl }).(pulumi.StringPtrOutput)
+}
+
 type ChannelWebvttDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelWebvttDestinationSettingsPtrOutput) ElementType() reflect.Type {
@@ -25661,6 +26492,15 @@ func (o ChannelWebvttDestinationSettingsPtrOutput) Elem() ChannelWebvttDestinati
 		var ret ChannelWebvttDestinationSettings
 		return ret
 	}).(ChannelWebvttDestinationSettingsOutput)
+}
+
+func (o ChannelWebvttDestinationSettingsPtrOutput) StyleControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelWebvttDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StyleControl
+	}).(pulumi.StringPtrOutput)
 }
 
 type InputDestinationRequest struct {
@@ -26320,6 +27160,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioCodecSettingsPtrInput)(nil)).Elem(), ChannelAudioCodecSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioDescriptionInput)(nil)).Elem(), ChannelAudioDescriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioDescriptionArrayInput)(nil)).Elem(), ChannelAudioDescriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioHlsRenditionSelectionInput)(nil)).Elem(), ChannelAudioHlsRenditionSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioHlsRenditionSelectionPtrInput)(nil)).Elem(), ChannelAudioHlsRenditionSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioLanguageSelectionInput)(nil)).Elem(), ChannelAudioLanguageSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioLanguageSelectionPtrInput)(nil)).Elem(), ChannelAudioLanguageSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioNormalizationSettingsInput)(nil)).Elem(), ChannelAudioNormalizationSettingsArgs{})
@@ -26338,6 +27180,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioTrackArrayInput)(nil)).Elem(), ChannelAudioTrackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioTrackSelectionInput)(nil)).Elem(), ChannelAudioTrackSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioTrackSelectionPtrInput)(nil)).Elem(), ChannelAudioTrackSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioWatermarkSettingsInput)(nil)).Elem(), ChannelAudioWatermarkSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAudioWatermarkSettingsPtrInput)(nil)).Elem(), ChannelAudioWatermarkSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAutomaticInputFailoverSettingsInput)(nil)).Elem(), ChannelAutomaticInputFailoverSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAutomaticInputFailoverSettingsPtrInput)(nil)).Elem(), ChannelAutomaticInputFailoverSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAvailBlankingInput)(nil)).Elem(), ChannelAvailBlankingArgs{})
@@ -26496,8 +27340,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultiplexProgramChannelDestinationSettingsPtrInput)(nil)).Elem(), ChannelMultiplexProgramChannelDestinationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNetworkInputSettingsInput)(nil)).Elem(), ChannelNetworkInputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNetworkInputSettingsPtrInput)(nil)).Elem(), ChannelNetworkInputSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenCBETInput)(nil)).Elem(), ChannelNielsenCBETArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenCBETPtrInput)(nil)).Elem(), ChannelNielsenCBETArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenConfigurationInput)(nil)).Elem(), ChannelNielsenConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenConfigurationPtrInput)(nil)).Elem(), ChannelNielsenConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenNaesIiNwInput)(nil)).Elem(), ChannelNielsenNaesIiNwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenNaesIiNwPtrInput)(nil)).Elem(), ChannelNielsenNaesIiNwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenWatermarksSettingsInput)(nil)).Elem(), ChannelNielsenWatermarksSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNielsenWatermarksSettingsPtrInput)(nil)).Elem(), ChannelNielsenWatermarksSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputTypeInput)(nil)).Elem(), ChannelOutputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputTypeArrayInput)(nil)).Elem(), ChannelOutputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputDestinationInput)(nil)).Elem(), ChannelOutputDestinationArgs{})
@@ -26622,6 +27472,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelAudioCodecSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelAudioDescriptionOutput{})
 	pulumi.RegisterOutputType(ChannelAudioDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(ChannelAudioHlsRenditionSelectionOutput{})
+	pulumi.RegisterOutputType(ChannelAudioHlsRenditionSelectionPtrOutput{})
 	pulumi.RegisterOutputType(ChannelAudioLanguageSelectionOutput{})
 	pulumi.RegisterOutputType(ChannelAudioLanguageSelectionPtrOutput{})
 	pulumi.RegisterOutputType(ChannelAudioNormalizationSettingsOutput{})
@@ -26640,6 +27492,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelAudioTrackArrayOutput{})
 	pulumi.RegisterOutputType(ChannelAudioTrackSelectionOutput{})
 	pulumi.RegisterOutputType(ChannelAudioTrackSelectionPtrOutput{})
+	pulumi.RegisterOutputType(ChannelAudioWatermarkSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelAudioWatermarkSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelAutomaticInputFailoverSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelAutomaticInputFailoverSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelAvailBlankingOutput{})
@@ -26798,8 +27652,14 @@ func init() {
 	pulumi.RegisterOutputType(ChannelMultiplexProgramChannelDestinationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelNetworkInputSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelNetworkInputSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNielsenCBETOutput{})
+	pulumi.RegisterOutputType(ChannelNielsenCBETPtrOutput{})
 	pulumi.RegisterOutputType(ChannelNielsenConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelNielsenConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNielsenNaesIiNwOutput{})
+	pulumi.RegisterOutputType(ChannelNielsenNaesIiNwPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNielsenWatermarksSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelNielsenWatermarksSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelOutputTypeOutput{})
 	pulumi.RegisterOutputType(ChannelOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(ChannelOutputDestinationOutput{})

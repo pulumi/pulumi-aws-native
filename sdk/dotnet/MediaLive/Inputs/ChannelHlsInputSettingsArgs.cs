@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("retryInterval")]
         public Input<int>? RetryInterval { get; set; }
 
+        [Input("scte35Source")]
+        public Input<string>? Scte35Source { get; set; }
+
         public ChannelHlsInputSettingsArgs()
         {
         }

@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.EMR
         [Output("configurations")]
         public Output<ImmutableArray<Outputs.InstanceGroupConfigConfiguration>> Configurations { get; private set; } = null!;
 
+        [Output("customAmiId")]
+        public Output<string?> CustomAmiId { get; private set; } = null!;
+
         [Output("ebsConfiguration")]
         public Output<Outputs.InstanceGroupConfigEbsConfiguration?> EbsConfiguration { get; private set; } = null!;
 
@@ -104,6 +107,9 @@ namespace Pulumi.AwsNative.EMR
             get => _configurations ?? (_configurations = new InputList<Inputs.InstanceGroupConfigConfigurationArgs>());
             set => _configurations = value;
         }
+
+        [Input("customAmiId")]
+        public Input<string>? CustomAmiId { get; set; }
 
         [Input("ebsConfiguration")]
         public Input<Inputs.InstanceGroupConfigEbsConfigurationArgs>? EbsConfiguration { get; set; }

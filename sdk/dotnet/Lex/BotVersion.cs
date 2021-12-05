@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Lex
     /// <summary>
     /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
     /// </summary>
-    [Obsolete(@"BotVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lex:BotVersion")]
     public partial class BotVersion : Pulumi.CustomResource
     {
@@ -23,7 +22,7 @@ namespace Pulumi.AwsNative.Lex
         public Output<string> BotVersionValue { get; private set; } = null!;
 
         [Output("botVersionLocaleSpecification")]
-        public Output<ImmutableArray<Outputs.BotVersionLocaleSpecificationItemProperties>> BotVersionLocaleSpecification { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BotVersionLocaleSpecification>> BotVersionLocaleSpecification { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -77,10 +76,10 @@ namespace Pulumi.AwsNative.Lex
         public Input<string> BotId { get; set; } = null!;
 
         [Input("botVersionLocaleSpecification", required: true)]
-        private InputList<Inputs.BotVersionLocaleSpecificationItemPropertiesArgs>? _botVersionLocaleSpecification;
-        public InputList<Inputs.BotVersionLocaleSpecificationItemPropertiesArgs> BotVersionLocaleSpecification
+        private InputList<Inputs.BotVersionLocaleSpecificationArgs>? _botVersionLocaleSpecification;
+        public InputList<Inputs.BotVersionLocaleSpecificationArgs> BotVersionLocaleSpecification
         {
-            get => _botVersionLocaleSpecification ?? (_botVersionLocaleSpecification = new InputList<Inputs.BotVersionLocaleSpecificationItemPropertiesArgs>());
+            get => _botVersionLocaleSpecification ?? (_botVersionLocaleSpecification = new InputList<Inputs.BotVersionLocaleSpecificationArgs>());
             set => _botVersionLocaleSpecification = value;
         }
 

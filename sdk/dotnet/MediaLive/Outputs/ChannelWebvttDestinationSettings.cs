@@ -13,9 +13,12 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelWebvttDestinationSettings
     {
+        public readonly string? StyleControl;
+
         [OutputConstructor]
-        private ChannelWebvttDestinationSettings()
+        private ChannelWebvttDestinationSettings(string? styleControl)
         {
+            StyleControl = styleControl;
         }
     }
 }

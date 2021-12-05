@@ -23,6 +23,7 @@ __all__ = [
     'ChannelAudioChannelMapping',
     'ChannelAudioCodecSettings',
     'ChannelAudioDescription',
+    'ChannelAudioHlsRenditionSelection',
     'ChannelAudioLanguageSelection',
     'ChannelAudioNormalizationSettings',
     'ChannelAudioOnlyHlsSettings',
@@ -32,6 +33,7 @@ __all__ = [
     'ChannelAudioSilenceFailoverSettings',
     'ChannelAudioTrack',
     'ChannelAudioTrackSelection',
+    'ChannelAudioWatermarkSettings',
     'ChannelAutomaticInputFailoverSettings',
     'ChannelAvailBlanking',
     'ChannelAvailConfiguration',
@@ -111,7 +113,10 @@ __all__ = [
     'ChannelMultiplexOutputSettings',
     'ChannelMultiplexProgramChannelDestinationSettings',
     'ChannelNetworkInputSettings',
+    'ChannelNielsenCBET',
     'ChannelNielsenConfiguration',
+    'ChannelNielsenNaesIiNw',
+    'ChannelNielsenWatermarksSettings',
     'ChannelOutput',
     'ChannelOutputDestination',
     'ChannelOutputDestinationSettings',
@@ -724,6 +729,8 @@ class ChannelAudioDescription(dict):
             suggest = "audio_type"
         elif key == "audioTypeControl":
             suggest = "audio_type_control"
+        elif key == "audioWatermarkingSettings":
+            suggest = "audio_watermarking_settings"
         elif key == "codecSettings":
             suggest = "codec_settings"
         elif key == "languageCode":
@@ -751,6 +758,7 @@ class ChannelAudioDescription(dict):
                  audio_selector_name: Optional[str] = None,
                  audio_type: Optional[str] = None,
                  audio_type_control: Optional[str] = None,
+                 audio_watermarking_settings: Optional['outputs.ChannelAudioWatermarkSettings'] = None,
                  codec_settings: Optional['outputs.ChannelAudioCodecSettings'] = None,
                  language_code: Optional[str] = None,
                  language_code_control: Optional[str] = None,
@@ -765,6 +773,8 @@ class ChannelAudioDescription(dict):
             pulumi.set(__self__, "audio_type", audio_type)
         if audio_type_control is not None:
             pulumi.set(__self__, "audio_type_control", audio_type_control)
+        if audio_watermarking_settings is not None:
+            pulumi.set(__self__, "audio_watermarking_settings", audio_watermarking_settings)
         if codec_settings is not None:
             pulumi.set(__self__, "codec_settings", codec_settings)
         if language_code is not None:
@@ -799,6 +809,11 @@ class ChannelAudioDescription(dict):
         return pulumi.get(self, "audio_type_control")
 
     @property
+    @pulumi.getter(name="audioWatermarkingSettings")
+    def audio_watermarking_settings(self) -> Optional['outputs.ChannelAudioWatermarkSettings']:
+        return pulumi.get(self, "audio_watermarking_settings")
+
+    @property
     @pulumi.getter(name="codecSettings")
     def codec_settings(self) -> Optional['outputs.ChannelAudioCodecSettings']:
         return pulumi.get(self, "codec_settings")
@@ -827,6 +842,44 @@ class ChannelAudioDescription(dict):
     @pulumi.getter(name="streamName")
     def stream_name(self) -> Optional[str]:
         return pulumi.get(self, "stream_name")
+
+
+@pulumi.output_type
+class ChannelAudioHlsRenditionSelection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelAudioHlsRenditionSelection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelAudioHlsRenditionSelection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelAudioHlsRenditionSelection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: Optional[str] = None,
+                 name: Optional[str] = None):
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -1033,7 +1086,9 @@ class ChannelAudioSelectorSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "audioLanguageSelection":
+        if key == "audioHlsRenditionSelection":
+            suggest = "audio_hls_rendition_selection"
+        elif key == "audioLanguageSelection":
             suggest = "audio_language_selection"
         elif key == "audioPidSelection":
             suggest = "audio_pid_selection"
@@ -1052,15 +1107,23 @@ class ChannelAudioSelectorSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 audio_hls_rendition_selection: Optional['outputs.ChannelAudioHlsRenditionSelection'] = None,
                  audio_language_selection: Optional['outputs.ChannelAudioLanguageSelection'] = None,
                  audio_pid_selection: Optional['outputs.ChannelAudioPidSelection'] = None,
                  audio_track_selection: Optional['outputs.ChannelAudioTrackSelection'] = None):
+        if audio_hls_rendition_selection is not None:
+            pulumi.set(__self__, "audio_hls_rendition_selection", audio_hls_rendition_selection)
         if audio_language_selection is not None:
             pulumi.set(__self__, "audio_language_selection", audio_language_selection)
         if audio_pid_selection is not None:
             pulumi.set(__self__, "audio_pid_selection", audio_pid_selection)
         if audio_track_selection is not None:
             pulumi.set(__self__, "audio_track_selection", audio_track_selection)
+
+    @property
+    @pulumi.getter(name="audioHlsRenditionSelection")
+    def audio_hls_rendition_selection(self) -> Optional['outputs.ChannelAudioHlsRenditionSelection']:
+        return pulumi.get(self, "audio_hls_rendition_selection")
 
     @property
     @pulumi.getter(name="audioLanguageSelection")
@@ -1142,6 +1205,36 @@ class ChannelAudioTrackSelection(dict):
     @pulumi.getter
     def tracks(self) -> Optional[Sequence['outputs.ChannelAudioTrack']]:
         return pulumi.get(self, "tracks")
+
+
+@pulumi.output_type
+class ChannelAudioWatermarkSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nielsenWatermarksSettings":
+            suggest = "nielsen_watermarks_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelAudioWatermarkSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelAudioWatermarkSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelAudioWatermarkSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nielsen_watermarks_settings: Optional['outputs.ChannelNielsenWatermarksSettings'] = None):
+        if nielsen_watermarks_settings is not None:
+            pulumi.set(__self__, "nielsen_watermarks_settings", nielsen_watermarks_settings)
+
+    @property
+    @pulumi.getter(name="nielsenWatermarksSettings")
+    def nielsen_watermarks_settings(self) -> Optional['outputs.ChannelNielsenWatermarksSettings']:
+        return pulumi.get(self, "nielsen_watermarks_settings")
 
 
 @pulumi.output_type
@@ -2345,10 +2438,35 @@ class ChannelDvbSubDestinationSettings(dict):
 
 @pulumi.output_type
 class ChannelDvbSubSourceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ocrLanguage":
+            suggest = "ocr_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelDvbSubSourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelDvbSubSourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelDvbSubSourceSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 ocr_language: Optional[str] = None,
                  pid: Optional[int] = None):
+        if ocr_language is not None:
+            pulumi.set(__self__, "ocr_language", ocr_language)
         if pid is not None:
             pulumi.set(__self__, "pid", pid)
+
+    @property
+    @pulumi.getter(name="ocrLanguage")
+    def ocr_language(self) -> Optional[str]:
+        return pulumi.get(self, "ocr_language")
 
     @property
     @pulumi.getter
@@ -4927,6 +5045,8 @@ class ChannelHlsInputSettings(dict):
             suggest = "buffer_segments"
         elif key == "retryInterval":
             suggest = "retry_interval"
+        elif key == "scte35Source":
+            suggest = "scte35_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ChannelHlsInputSettings. Access the value via the '{suggest}' property getter instead.")
@@ -4943,7 +5063,8 @@ class ChannelHlsInputSettings(dict):
                  bandwidth: Optional[int] = None,
                  buffer_segments: Optional[int] = None,
                  retries: Optional[int] = None,
-                 retry_interval: Optional[int] = None):
+                 retry_interval: Optional[int] = None,
+                 scte35_source: Optional[str] = None):
         if bandwidth is not None:
             pulumi.set(__self__, "bandwidth", bandwidth)
         if buffer_segments is not None:
@@ -4952,6 +5073,8 @@ class ChannelHlsInputSettings(dict):
             pulumi.set(__self__, "retries", retries)
         if retry_interval is not None:
             pulumi.set(__self__, "retry_interval", retry_interval)
+        if scte35_source is not None:
+            pulumi.set(__self__, "scte35_source", scte35_source)
 
     @property
     @pulumi.getter
@@ -4972,6 +5095,11 @@ class ChannelHlsInputSettings(dict):
     @pulumi.getter(name="retryInterval")
     def retry_interval(self) -> Optional[int]:
         return pulumi.get(self, "retry_interval")
+
+    @property
+    @pulumi.getter(name="scte35Source")
+    def scte35_source(self) -> Optional[str]:
+        return pulumi.get(self, "scte35_source")
 
 
 @pulumi.output_type
@@ -7107,6 +7235,54 @@ class ChannelNetworkInputSettings(dict):
 
 
 @pulumi.output_type
+class ChannelNielsenCBET(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cbetCheckDigitString":
+            suggest = "cbet_check_digit_string"
+        elif key == "cbetStepaside":
+            suggest = "cbet_stepaside"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNielsenCBET. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNielsenCBET.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNielsenCBET.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cbet_check_digit_string: Optional[str] = None,
+                 cbet_stepaside: Optional[str] = None,
+                 csid: Optional[str] = None):
+        if cbet_check_digit_string is not None:
+            pulumi.set(__self__, "cbet_check_digit_string", cbet_check_digit_string)
+        if cbet_stepaside is not None:
+            pulumi.set(__self__, "cbet_stepaside", cbet_stepaside)
+        if csid is not None:
+            pulumi.set(__self__, "csid", csid)
+
+    @property
+    @pulumi.getter(name="cbetCheckDigitString")
+    def cbet_check_digit_string(self) -> Optional[str]:
+        return pulumi.get(self, "cbet_check_digit_string")
+
+    @property
+    @pulumi.getter(name="cbetStepaside")
+    def cbet_stepaside(self) -> Optional[str]:
+        return pulumi.get(self, "cbet_stepaside")
+
+    @property
+    @pulumi.getter
+    def csid(self) -> Optional[str]:
+        return pulumi.get(self, "csid")
+
+
+@pulumi.output_type
 class ChannelNielsenConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7144,6 +7320,94 @@ class ChannelNielsenConfiguration(dict):
     @pulumi.getter(name="nielsenPcmToId3Tagging")
     def nielsen_pcm_to_id3_tagging(self) -> Optional[str]:
         return pulumi.get(self, "nielsen_pcm_to_id3_tagging")
+
+
+@pulumi.output_type
+class ChannelNielsenNaesIiNw(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "checkDigitString":
+            suggest = "check_digit_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNielsenNaesIiNw. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNielsenNaesIiNw.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNielsenNaesIiNw.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check_digit_string: Optional[str] = None,
+                 sid: Optional[float] = None):
+        if check_digit_string is not None:
+            pulumi.set(__self__, "check_digit_string", check_digit_string)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+
+    @property
+    @pulumi.getter(name="checkDigitString")
+    def check_digit_string(self) -> Optional[str]:
+        return pulumi.get(self, "check_digit_string")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[float]:
+        return pulumi.get(self, "sid")
+
+
+@pulumi.output_type
+class ChannelNielsenWatermarksSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nielsenCbetSettings":
+            suggest = "nielsen_cbet_settings"
+        elif key == "nielsenDistributionType":
+            suggest = "nielsen_distribution_type"
+        elif key == "nielsenNaesIiNwSettings":
+            suggest = "nielsen_naes_ii_nw_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNielsenWatermarksSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNielsenWatermarksSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNielsenWatermarksSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nielsen_cbet_settings: Optional['outputs.ChannelNielsenCBET'] = None,
+                 nielsen_distribution_type: Optional[str] = None,
+                 nielsen_naes_ii_nw_settings: Optional['outputs.ChannelNielsenNaesIiNw'] = None):
+        if nielsen_cbet_settings is not None:
+            pulumi.set(__self__, "nielsen_cbet_settings", nielsen_cbet_settings)
+        if nielsen_distribution_type is not None:
+            pulumi.set(__self__, "nielsen_distribution_type", nielsen_distribution_type)
+        if nielsen_naes_ii_nw_settings is not None:
+            pulumi.set(__self__, "nielsen_naes_ii_nw_settings", nielsen_naes_ii_nw_settings)
+
+    @property
+    @pulumi.getter(name="nielsenCbetSettings")
+    def nielsen_cbet_settings(self) -> Optional['outputs.ChannelNielsenCBET']:
+        return pulumi.get(self, "nielsen_cbet_settings")
+
+    @property
+    @pulumi.getter(name="nielsenDistributionType")
+    def nielsen_distribution_type(self) -> Optional[str]:
+        return pulumi.get(self, "nielsen_distribution_type")
+
+    @property
+    @pulumi.getter(name="nielsenNaesIiNwSettings")
+    def nielsen_naes_ii_nw_settings(self) -> Optional['outputs.ChannelNielsenNaesIiNw']:
+        return pulumi.get(self, "nielsen_naes_ii_nw_settings")
 
 
 @pulumi.output_type
@@ -7886,10 +8150,35 @@ class ChannelScte27DestinationSettings(dict):
 
 @pulumi.output_type
 class ChannelScte27SourceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ocrLanguage":
+            suggest = "ocr_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelScte27SourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelScte27SourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelScte27SourceSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 ocr_language: Optional[str] = None,
                  pid: Optional[int] = None):
+        if ocr_language is not None:
+            pulumi.set(__self__, "ocr_language", ocr_language)
         if pid is not None:
             pulumi.set(__self__, "pid", pid)
+
+    @property
+    @pulumi.getter(name="ocrLanguage")
+    def ocr_language(self) -> Optional[str]:
+        return pulumi.get(self, "ocr_language")
 
     @property
     @pulumi.getter
@@ -8830,8 +9119,32 @@ class ChannelWavSettings(dict):
 
 @pulumi.output_type
 class ChannelWebvttDestinationSettings(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "styleControl":
+            suggest = "style_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelWebvttDestinationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelWebvttDestinationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelWebvttDestinationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 style_control: Optional[str] = None):
+        if style_control is not None:
+            pulumi.set(__self__, "style_control", style_control)
+
+    @property
+    @pulumi.getter(name="styleControl")
+    def style_control(self) -> Optional[str]:
+        return pulumi.get(self, "style_control")
 
 
 @pulumi.output_type

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
 
+        [Input("serverlessConfig")]
+        public Input<Inputs.EndpointConfigServerlessConfigArgs>? ServerlessConfig { get; set; }
+
         [Input("variantName", required: true)]
         public Input<string> VariantName { get; set; } = null!;
 

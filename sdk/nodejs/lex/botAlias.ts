@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
- *
- * @deprecated BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class BotAlias extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class BotAlias extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BotAlias {
-        pulumi.log.warn("BotAlias is deprecated: BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new BotAlias(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,9 +60,7 @@ export class BotAlias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: BotAliasArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BotAlias is deprecated: BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lex.Outputs
 {
 
     [OutputType]
-    public sealed class BotVersionLocaleSpecificationItemProperties
+    public sealed class BotVersionLocaleSpecification
     {
         public readonly Outputs.BotVersionLocaleDetails BotVersionLocaleDetails;
         public readonly string LocaleId;
 
         [OutputConstructor]
-        private BotVersionLocaleSpecificationItemProperties(
+        private BotVersionLocaleSpecification(
             Outputs.BotVersionLocaleDetails botVersionLocaleDetails,
 
             string localeId)

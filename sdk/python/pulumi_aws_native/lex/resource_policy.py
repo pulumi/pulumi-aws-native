@@ -42,12 +42,7 @@ class ResourcePolicyArgs:
         pulumi.set(self, "resource_arn", value)
 
 
-warnings.warn("""ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class ResourcePolicy(pulumi.CustomResource):
-    warnings.warn("""ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -88,7 +83,6 @@ class ResourcePolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[pulumi.InputType['ResourcePolicyPolicyArgs']]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ResourcePolicy is deprecated: ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

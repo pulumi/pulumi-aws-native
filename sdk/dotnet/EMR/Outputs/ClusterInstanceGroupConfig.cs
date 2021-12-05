@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.EMR.Outputs
         public readonly Outputs.ClusterAutoScalingPolicy? AutoScalingPolicy;
         public readonly string? BidPrice;
         public readonly ImmutableArray<Outputs.ClusterConfiguration> Configurations;
+        public readonly string? CustomAmiId;
         public readonly Outputs.ClusterEbsConfiguration? EbsConfiguration;
         public readonly int InstanceCount;
         public readonly string InstanceType;
@@ -30,6 +31,8 @@ namespace Pulumi.AwsNative.EMR.Outputs
 
             ImmutableArray<Outputs.ClusterConfiguration> configurations,
 
+            string? customAmiId,
+
             Outputs.ClusterEbsConfiguration? ebsConfiguration,
 
             int instanceCount,
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.EMR.Outputs
             AutoScalingPolicy = autoScalingPolicy;
             BidPrice = bidPrice;
             Configurations = configurations;
+            CustomAmiId = customAmiId;
             EbsConfiguration = ebsConfiguration;
             InstanceCount = instanceCount;
             InstanceType = instanceType;

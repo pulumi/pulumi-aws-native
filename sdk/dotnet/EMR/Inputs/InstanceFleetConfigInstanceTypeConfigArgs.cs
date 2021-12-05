@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.EMR.Inputs
             set => _configurations = value;
         }
 
+        [Input("customAmiId")]
+        public Input<string>? CustomAmiId { get; set; }
+
         [Input("ebsConfiguration")]
         public Input<Inputs.InstanceFleetConfigEbsConfigurationArgs>? EbsConfiguration { get; set; }
 

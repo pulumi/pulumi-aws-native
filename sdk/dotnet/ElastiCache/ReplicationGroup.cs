@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("configurationEndPointPort")]
         public Output<string?> ConfigurationEndPointPort { get; private set; } = null!;
 
+        [Output("dataTieringEnabled")]
+        public Output<bool?> DataTieringEnabled { get; private set; } = null!;
+
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
@@ -227,6 +230,9 @@ namespace Pulumi.AwsNative.ElastiCache
 
         [Input("configurationEndPointPort")]
         public Input<string>? ConfigurationEndPointPort { get; set; }
+
+        [Input("dataTieringEnabled")]
+        public Input<bool>? DataTieringEnabled { get; set; }
 
         [Input("engine")]
         public Input<string>? Engine { get; set; }

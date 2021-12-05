@@ -22,6 +22,7 @@ __all__ = [
     'ChannelAudioChannelMappingArgs',
     'ChannelAudioCodecSettingsArgs',
     'ChannelAudioDescriptionArgs',
+    'ChannelAudioHlsRenditionSelectionArgs',
     'ChannelAudioLanguageSelectionArgs',
     'ChannelAudioNormalizationSettingsArgs',
     'ChannelAudioOnlyHlsSettingsArgs',
@@ -31,6 +32,7 @@ __all__ = [
     'ChannelAudioSilenceFailoverSettingsArgs',
     'ChannelAudioTrackSelectionArgs',
     'ChannelAudioTrackArgs',
+    'ChannelAudioWatermarkSettingsArgs',
     'ChannelAutomaticInputFailoverSettingsArgs',
     'ChannelAvailBlankingArgs',
     'ChannelAvailConfigurationArgs',
@@ -110,7 +112,10 @@ __all__ = [
     'ChannelMultiplexOutputSettingsArgs',
     'ChannelMultiplexProgramChannelDestinationSettingsArgs',
     'ChannelNetworkInputSettingsArgs',
+    'ChannelNielsenCBETArgs',
     'ChannelNielsenConfigurationArgs',
+    'ChannelNielsenNaesIiNwArgs',
+    'ChannelNielsenWatermarksSettingsArgs',
     'ChannelOutputDestinationSettingsArgs',
     'ChannelOutputDestinationArgs',
     'ChannelOutputGroupSettingsArgs',
@@ -651,6 +656,7 @@ class ChannelAudioDescriptionArgs:
                  audio_selector_name: Optional[pulumi.Input[str]] = None,
                  audio_type: Optional[pulumi.Input[str]] = None,
                  audio_type_control: Optional[pulumi.Input[str]] = None,
+                 audio_watermarking_settings: Optional[pulumi.Input['ChannelAudioWatermarkSettingsArgs']] = None,
                  codec_settings: Optional[pulumi.Input['ChannelAudioCodecSettingsArgs']] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  language_code_control: Optional[pulumi.Input[str]] = None,
@@ -665,6 +671,8 @@ class ChannelAudioDescriptionArgs:
             pulumi.set(__self__, "audio_type", audio_type)
         if audio_type_control is not None:
             pulumi.set(__self__, "audio_type_control", audio_type_control)
+        if audio_watermarking_settings is not None:
+            pulumi.set(__self__, "audio_watermarking_settings", audio_watermarking_settings)
         if codec_settings is not None:
             pulumi.set(__self__, "codec_settings", codec_settings)
         if language_code is not None:
@@ -713,6 +721,15 @@ class ChannelAudioDescriptionArgs:
     @audio_type_control.setter
     def audio_type_control(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "audio_type_control", value)
+
+    @property
+    @pulumi.getter(name="audioWatermarkingSettings")
+    def audio_watermarking_settings(self) -> Optional[pulumi.Input['ChannelAudioWatermarkSettingsArgs']]:
+        return pulumi.get(self, "audio_watermarking_settings")
+
+    @audio_watermarking_settings.setter
+    def audio_watermarking_settings(self, value: Optional[pulumi.Input['ChannelAudioWatermarkSettingsArgs']]):
+        pulumi.set(self, "audio_watermarking_settings", value)
 
     @property
     @pulumi.getter(name="codecSettings")
@@ -767,6 +784,35 @@ class ChannelAudioDescriptionArgs:
     @stream_name.setter
     def stream_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stream_name", value)
+
+
+@pulumi.input_type
+class ChannelAudioHlsRenditionSelectionArgs:
+    def __init__(__self__, *,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -912,15 +958,27 @@ class ChannelAudioPidSelectionArgs:
 @pulumi.input_type
 class ChannelAudioSelectorSettingsArgs:
     def __init__(__self__, *,
+                 audio_hls_rendition_selection: Optional[pulumi.Input['ChannelAudioHlsRenditionSelectionArgs']] = None,
                  audio_language_selection: Optional[pulumi.Input['ChannelAudioLanguageSelectionArgs']] = None,
                  audio_pid_selection: Optional[pulumi.Input['ChannelAudioPidSelectionArgs']] = None,
                  audio_track_selection: Optional[pulumi.Input['ChannelAudioTrackSelectionArgs']] = None):
+        if audio_hls_rendition_selection is not None:
+            pulumi.set(__self__, "audio_hls_rendition_selection", audio_hls_rendition_selection)
         if audio_language_selection is not None:
             pulumi.set(__self__, "audio_language_selection", audio_language_selection)
         if audio_pid_selection is not None:
             pulumi.set(__self__, "audio_pid_selection", audio_pid_selection)
         if audio_track_selection is not None:
             pulumi.set(__self__, "audio_track_selection", audio_track_selection)
+
+    @property
+    @pulumi.getter(name="audioHlsRenditionSelection")
+    def audio_hls_rendition_selection(self) -> Optional[pulumi.Input['ChannelAudioHlsRenditionSelectionArgs']]:
+        return pulumi.get(self, "audio_hls_rendition_selection")
+
+    @audio_hls_rendition_selection.setter
+    def audio_hls_rendition_selection(self, value: Optional[pulumi.Input['ChannelAudioHlsRenditionSelectionArgs']]):
+        pulumi.set(self, "audio_hls_rendition_selection", value)
 
     @property
     @pulumi.getter(name="audioLanguageSelection")
@@ -1040,6 +1098,23 @@ class ChannelAudioTrackArgs:
     @track.setter
     def track(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "track", value)
+
+
+@pulumi.input_type
+class ChannelAudioWatermarkSettingsArgs:
+    def __init__(__self__, *,
+                 nielsen_watermarks_settings: Optional[pulumi.Input['ChannelNielsenWatermarksSettingsArgs']] = None):
+        if nielsen_watermarks_settings is not None:
+            pulumi.set(__self__, "nielsen_watermarks_settings", nielsen_watermarks_settings)
+
+    @property
+    @pulumi.getter(name="nielsenWatermarksSettings")
+    def nielsen_watermarks_settings(self) -> Optional[pulumi.Input['ChannelNielsenWatermarksSettingsArgs']]:
+        return pulumi.get(self, "nielsen_watermarks_settings")
+
+    @nielsen_watermarks_settings.setter
+    def nielsen_watermarks_settings(self, value: Optional[pulumi.Input['ChannelNielsenWatermarksSettingsArgs']]):
+        pulumi.set(self, "nielsen_watermarks_settings", value)
 
 
 @pulumi.input_type
@@ -2223,9 +2298,21 @@ class ChannelDvbSubDestinationSettingsArgs:
 @pulumi.input_type
 class ChannelDvbSubSourceSettingsArgs:
     def __init__(__self__, *,
+                 ocr_language: Optional[pulumi.Input[str]] = None,
                  pid: Optional[pulumi.Input[int]] = None):
+        if ocr_language is not None:
+            pulumi.set(__self__, "ocr_language", ocr_language)
         if pid is not None:
             pulumi.set(__self__, "pid", pid)
+
+    @property
+    @pulumi.getter(name="ocrLanguage")
+    def ocr_language(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ocr_language")
+
+    @ocr_language.setter
+    def ocr_language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocr_language", value)
 
     @property
     @pulumi.getter
@@ -4844,7 +4931,8 @@ class ChannelHlsInputSettingsArgs:
                  bandwidth: Optional[pulumi.Input[int]] = None,
                  buffer_segments: Optional[pulumi.Input[int]] = None,
                  retries: Optional[pulumi.Input[int]] = None,
-                 retry_interval: Optional[pulumi.Input[int]] = None):
+                 retry_interval: Optional[pulumi.Input[int]] = None,
+                 scte35_source: Optional[pulumi.Input[str]] = None):
         if bandwidth is not None:
             pulumi.set(__self__, "bandwidth", bandwidth)
         if buffer_segments is not None:
@@ -4853,6 +4941,8 @@ class ChannelHlsInputSettingsArgs:
             pulumi.set(__self__, "retries", retries)
         if retry_interval is not None:
             pulumi.set(__self__, "retry_interval", retry_interval)
+        if scte35_source is not None:
+            pulumi.set(__self__, "scte35_source", scte35_source)
 
     @property
     @pulumi.getter
@@ -4889,6 +4979,15 @@ class ChannelHlsInputSettingsArgs:
     @retry_interval.setter
     def retry_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_interval", value)
+
+    @property
+    @pulumi.getter(name="scte35Source")
+    def scte35_source(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scte35_source")
+
+    @scte35_source.setter
+    def scte35_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scte35_source", value)
 
 
 @pulumi.input_type
@@ -7001,6 +7100,47 @@ class ChannelNetworkInputSettingsArgs:
 
 
 @pulumi.input_type
+class ChannelNielsenCBETArgs:
+    def __init__(__self__, *,
+                 cbet_check_digit_string: Optional[pulumi.Input[str]] = None,
+                 cbet_stepaside: Optional[pulumi.Input[str]] = None,
+                 csid: Optional[pulumi.Input[str]] = None):
+        if cbet_check_digit_string is not None:
+            pulumi.set(__self__, "cbet_check_digit_string", cbet_check_digit_string)
+        if cbet_stepaside is not None:
+            pulumi.set(__self__, "cbet_stepaside", cbet_stepaside)
+        if csid is not None:
+            pulumi.set(__self__, "csid", csid)
+
+    @property
+    @pulumi.getter(name="cbetCheckDigitString")
+    def cbet_check_digit_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cbet_check_digit_string")
+
+    @cbet_check_digit_string.setter
+    def cbet_check_digit_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cbet_check_digit_string", value)
+
+    @property
+    @pulumi.getter(name="cbetStepaside")
+    def cbet_stepaside(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cbet_stepaside")
+
+    @cbet_stepaside.setter
+    def cbet_stepaside(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cbet_stepaside", value)
+
+    @property
+    @pulumi.getter
+    def csid(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "csid")
+
+    @csid.setter
+    def csid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csid", value)
+
+
+@pulumi.input_type
 class ChannelNielsenConfigurationArgs:
     def __init__(__self__, *,
                  distributor_id: Optional[pulumi.Input[str]] = None,
@@ -7027,6 +7167,76 @@ class ChannelNielsenConfigurationArgs:
     @nielsen_pcm_to_id3_tagging.setter
     def nielsen_pcm_to_id3_tagging(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nielsen_pcm_to_id3_tagging", value)
+
+
+@pulumi.input_type
+class ChannelNielsenNaesIiNwArgs:
+    def __init__(__self__, *,
+                 check_digit_string: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[float]] = None):
+        if check_digit_string is not None:
+            pulumi.set(__self__, "check_digit_string", check_digit_string)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+
+    @property
+    @pulumi.getter(name="checkDigitString")
+    def check_digit_string(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "check_digit_string")
+
+    @check_digit_string.setter
+    def check_digit_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "check_digit_string", value)
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sid", value)
+
+
+@pulumi.input_type
+class ChannelNielsenWatermarksSettingsArgs:
+    def __init__(__self__, *,
+                 nielsen_cbet_settings: Optional[pulumi.Input['ChannelNielsenCBETArgs']] = None,
+                 nielsen_distribution_type: Optional[pulumi.Input[str]] = None,
+                 nielsen_naes_ii_nw_settings: Optional[pulumi.Input['ChannelNielsenNaesIiNwArgs']] = None):
+        if nielsen_cbet_settings is not None:
+            pulumi.set(__self__, "nielsen_cbet_settings", nielsen_cbet_settings)
+        if nielsen_distribution_type is not None:
+            pulumi.set(__self__, "nielsen_distribution_type", nielsen_distribution_type)
+        if nielsen_naes_ii_nw_settings is not None:
+            pulumi.set(__self__, "nielsen_naes_ii_nw_settings", nielsen_naes_ii_nw_settings)
+
+    @property
+    @pulumi.getter(name="nielsenCbetSettings")
+    def nielsen_cbet_settings(self) -> Optional[pulumi.Input['ChannelNielsenCBETArgs']]:
+        return pulumi.get(self, "nielsen_cbet_settings")
+
+    @nielsen_cbet_settings.setter
+    def nielsen_cbet_settings(self, value: Optional[pulumi.Input['ChannelNielsenCBETArgs']]):
+        pulumi.set(self, "nielsen_cbet_settings", value)
+
+    @property
+    @pulumi.getter(name="nielsenDistributionType")
+    def nielsen_distribution_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "nielsen_distribution_type")
+
+    @nielsen_distribution_type.setter
+    def nielsen_distribution_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nielsen_distribution_type", value)
+
+    @property
+    @pulumi.getter(name="nielsenNaesIiNwSettings")
+    def nielsen_naes_ii_nw_settings(self) -> Optional[pulumi.Input['ChannelNielsenNaesIiNwArgs']]:
+        return pulumi.get(self, "nielsen_naes_ii_nw_settings")
+
+    @nielsen_naes_ii_nw_settings.setter
+    def nielsen_naes_ii_nw_settings(self, value: Optional[pulumi.Input['ChannelNielsenNaesIiNwArgs']]):
+        pulumi.set(self, "nielsen_naes_ii_nw_settings", value)
 
 
 @pulumi.input_type
@@ -7717,9 +7927,21 @@ class ChannelScte27DestinationSettingsArgs:
 @pulumi.input_type
 class ChannelScte27SourceSettingsArgs:
     def __init__(__self__, *,
+                 ocr_language: Optional[pulumi.Input[str]] = None,
                  pid: Optional[pulumi.Input[int]] = None):
+        if ocr_language is not None:
+            pulumi.set(__self__, "ocr_language", ocr_language)
         if pid is not None:
             pulumi.set(__self__, "pid", pid)
+
+    @property
+    @pulumi.getter(name="ocrLanguage")
+    def ocr_language(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ocr_language")
+
+    @ocr_language.setter
+    def ocr_language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocr_language", value)
 
     @property
     @pulumi.getter
@@ -8486,8 +8708,19 @@ class ChannelWavSettingsArgs:
 
 @pulumi.input_type
 class ChannelWebvttDestinationSettingsArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 style_control: Optional[pulumi.Input[str]] = None):
+        if style_control is not None:
+            pulumi.set(__self__, "style_control", style_control)
+
+    @property
+    @pulumi.getter(name="styleControl")
+    def style_control(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "style_control")
+
+    @style_control.setter
+    def style_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "style_control", value)
 
 
 @pulumi.input_type

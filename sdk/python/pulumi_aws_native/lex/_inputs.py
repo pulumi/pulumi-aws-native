@@ -25,10 +25,13 @@ __all__ = [
     'BotButtonArgs',
     'BotCustomPayloadArgs',
     'BotDialogCodeHookSettingArgs',
+    'BotExternalSourceSettingArgs',
     'BotFulfillmentCodeHookSettingArgs',
     'BotFulfillmentStartResponseSpecificationArgs',
     'BotFulfillmentUpdateResponseSpecificationArgs',
     'BotFulfillmentUpdatesSpecificationArgs',
+    'BotGrammarSlotTypeSettingArgs',
+    'BotGrammarSlotTypeSourceArgs',
     'BotImageResponseCardArgs',
     'BotInputContextArgs',
     'BotIntentClosingSettingArgs',
@@ -61,7 +64,7 @@ __all__ = [
     'BotStillWaitingResponseSpecificationArgs',
     'BotTagArgs',
     'BotVersionLocaleDetailsArgs',
-    'BotVersionLocaleSpecificationItemPropertiesArgs',
+    'BotVersionLocaleSpecificationArgs',
     'BotVoiceSettingsArgs',
     'BotWaitAndContinueSpecificationArgs',
     'DataPrivacyPropertiesArgs',
@@ -541,6 +544,26 @@ class BotDialogCodeHookSettingArgs:
 
 
 @pulumi.input_type
+class BotExternalSourceSettingArgs:
+    def __init__(__self__, *,
+                 grammar_slot_type_setting: Optional[pulumi.Input['BotGrammarSlotTypeSettingArgs']] = None):
+        """
+        Provides information about the external source of the slot type's definition.
+        """
+        if grammar_slot_type_setting is not None:
+            pulumi.set(__self__, "grammar_slot_type_setting", grammar_slot_type_setting)
+
+    @property
+    @pulumi.getter(name="grammarSlotTypeSetting")
+    def grammar_slot_type_setting(self) -> Optional[pulumi.Input['BotGrammarSlotTypeSettingArgs']]:
+        return pulumi.get(self, "grammar_slot_type_setting")
+
+    @grammar_slot_type_setting.setter
+    def grammar_slot_type_setting(self, value: Optional[pulumi.Input['BotGrammarSlotTypeSettingArgs']]):
+        pulumi.set(self, "grammar_slot_type_setting", value)
+
+
+@pulumi.input_type
 class BotFulfillmentCodeHookSettingArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -744,6 +767,80 @@ class BotFulfillmentUpdatesSpecificationArgs:
     @update_response.setter
     def update_response(self, value: Optional[pulumi.Input['BotFulfillmentUpdateResponseSpecificationArgs']]):
         pulumi.set(self, "update_response", value)
+
+
+@pulumi.input_type
+class BotGrammarSlotTypeSettingArgs:
+    def __init__(__self__, *,
+                 source: Optional[pulumi.Input['BotGrammarSlotTypeSourceArgs']] = None):
+        """
+        Settings required for a slot type based on a grammar that you provide.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['BotGrammarSlotTypeSourceArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['BotGrammarSlotTypeSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
+@pulumi.input_type
+class BotGrammarSlotTypeSourceArgs:
+    def __init__(__self__, *,
+                 s3_bucket_name: pulumi.Input[str],
+                 s3_object_key: pulumi.Input[str],
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+        :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket that contains the grammar source.
+        :param pulumi.Input[str] s3_object_key: The path to the grammar in the S3 bucket.
+        :param pulumi.Input[str] kms_key_arn: The Amazon KMS key required to decrypt the contents of the grammar, if any.
+        """
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_object_key", s3_object_key)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket that contains the grammar source.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @s3_bucket_name.setter
+    def s3_bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter(name="s3ObjectKey")
+    def s3_object_key(self) -> pulumi.Input[str]:
+        """
+        The path to the grammar in the S3 bucket.
+        """
+        return pulumi.get(self, "s3_object_key")
+
+    @s3_object_key.setter
+    def s3_object_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_object_key", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon KMS key required to decrypt the contents of the grammar, if any.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 @pulumi.input_type
@@ -1770,21 +1867,25 @@ class BotSlotTypeValueArgs:
 class BotSlotTypeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 value_selection_setting: pulumi.Input['BotSlotValueSelectionSettingArgs'],
                  description: Optional[pulumi.Input[str]] = None,
+                 external_source_setting: Optional[pulumi.Input['BotExternalSourceSettingArgs']] = None,
                  parent_slot_type_signature: Optional[pulumi.Input[str]] = None,
-                 slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgs']]]] = None):
+                 slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgs']]]] = None,
+                 value_selection_setting: Optional[pulumi.Input['BotSlotValueSelectionSettingArgs']] = None):
         """
-        A custom slot type.
+        A custom, extended built-in or a grammar slot type.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value_selection_setting", value_selection_setting)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if external_source_setting is not None:
+            pulumi.set(__self__, "external_source_setting", external_source_setting)
         if parent_slot_type_signature is not None:
             pulumi.set(__self__, "parent_slot_type_signature", parent_slot_type_signature)
         if slot_type_values is not None:
             pulumi.set(__self__, "slot_type_values", slot_type_values)
+        if value_selection_setting is not None:
+            pulumi.set(__self__, "value_selection_setting", value_selection_setting)
 
     @property
     @pulumi.getter
@@ -1796,15 +1897,6 @@ class BotSlotTypeArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="valueSelectionSetting")
-    def value_selection_setting(self) -> pulumi.Input['BotSlotValueSelectionSettingArgs']:
-        return pulumi.get(self, "value_selection_setting")
-
-    @value_selection_setting.setter
-    def value_selection_setting(self, value: pulumi.Input['BotSlotValueSelectionSettingArgs']):
-        pulumi.set(self, "value_selection_setting", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -1812,6 +1904,15 @@ class BotSlotTypeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="externalSourceSetting")
+    def external_source_setting(self) -> Optional[pulumi.Input['BotExternalSourceSettingArgs']]:
+        return pulumi.get(self, "external_source_setting")
+
+    @external_source_setting.setter
+    def external_source_setting(self, value: Optional[pulumi.Input['BotExternalSourceSettingArgs']]):
+        pulumi.set(self, "external_source_setting", value)
 
     @property
     @pulumi.getter(name="parentSlotTypeSignature")
@@ -1830,6 +1931,15 @@ class BotSlotTypeArgs:
     @slot_type_values.setter
     def slot_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgs']]]]):
         pulumi.set(self, "slot_type_values", value)
+
+    @property
+    @pulumi.getter(name="valueSelectionSetting")
+    def value_selection_setting(self) -> Optional[pulumi.Input['BotSlotValueSelectionSettingArgs']]:
+        return pulumi.get(self, "value_selection_setting")
+
+    @value_selection_setting.setter
+    def value_selection_setting(self, value: Optional[pulumi.Input['BotSlotValueSelectionSettingArgs']]):
+        pulumi.set(self, "value_selection_setting", value)
 
 
 @pulumi.input_type
@@ -2165,7 +2275,7 @@ class BotVersionLocaleDetailsArgs:
 
 
 @pulumi.input_type
-class BotVersionLocaleSpecificationItemPropertiesArgs:
+class BotVersionLocaleSpecificationArgs:
     def __init__(__self__, *,
                  bot_version_locale_details: pulumi.Input['BotVersionLocaleDetailsArgs'],
                  locale_id: pulumi.Input[str]):

@@ -124,12 +124,7 @@ class BotAliasArgs:
         pulumi.set(self, "sentiment_analysis_settings", value)
 
 
-warnings.warn("""BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class BotAlias(pulumi.CustomResource):
-    warnings.warn("""BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -184,7 +179,6 @@ class BotAlias(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  sentiment_analysis_settings: Optional[pulumi.Input[pulumi.InputType['SentimentAnalysisSettingsPropertiesArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""BotAlias is deprecated: BotAlias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
