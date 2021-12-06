@@ -640,7 +640,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	// Create the resource with Cloud API.
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, cfType, clientToken, desiredState)
-	res, err := p.cctl.CreateResource(p.canceler.context, &cloudcontrol.CreateResourceInput{
+	res, err := p.cctl.CreateResource(ctx, &cloudcontrol.CreateResourceInput{
 		ClientToken:  aws.String(clientToken),
 		TypeName:     aws.String(cfType),
 		DesiredState: aws.String(desiredState),
@@ -648,7 +648,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	if err != nil {
 		return nil, errors.Wrapf(err, "creating resource")
 	}
-	pi, waitErr := p.waitForResourceOpCompletion(ctx, res.ProgressEvent)
+	pi, waitErr := p.waitForResourceOpCompletion(p.canceler.context, res.ProgressEvent)
 
 	// Read the state - even if there was a creation error but the progress event contains a resource ID.
 	var id string
@@ -743,7 +743,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceToken)
 	}
-	resourceState, err := p.readResourceState(ctx, spec.CfType, id)
+	resourceState, err := p.readResourceState(p.canceler.context, spec.CfType, id)
 	if err != nil {
 		var oe *smithy.OperationError
 		if errors.As(err, &oe) {
@@ -850,11 +850,11 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	if err != nil {
 		return nil, err
 	}
-	if _, err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+	if _, err = p.waitForResourceOpCompletion(p.canceler.context, res.ProgressEvent); err != nil {
 		return nil, err
 	}
 
-	resourceState, err := p.readResourceState(ctx, spec.CfType, id)
+	resourceState, err := p.readResourceState(p.canceler.context, spec.CfType, id)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading resource state")
 	}
@@ -962,7 +962,7 @@ func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, e
 }
 
 func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
-	getRes, err := p.cctl.GetResource(p.canceler.context, &cloudcontrol.GetResourceInput{
+	getRes, err := p.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
 		TypeName:   aws.String(typeName),
 		Identifier: aws.String(identifier),
 	})
@@ -1019,12 +1019,12 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 		}
 
 		select {
-		case <-p.canceler.context.Done():
+		case <-ctx.Done():
 			return nil, p.canceler.context.Err()
 		default: // Continue to wait
 		}
 
-		output, err := p.cctl.GetResourceRequestStatus(p.canceler.context, &cloudcontrol.GetResourceRequestStatusInput{
+		output, err := p.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
 			RequestToken: pi.RequestToken,
 		})
 		if err != nil {
