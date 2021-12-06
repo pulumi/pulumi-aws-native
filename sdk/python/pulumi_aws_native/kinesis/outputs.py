@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'StreamEncryption',
+    'StreamModeDetails',
     'StreamTag',
 ]
 
@@ -64,6 +65,45 @@ class StreamEncryption(dict):
         The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
         """
         return pulumi.get(self, "key_id")
+
+
+@pulumi.output_type
+class StreamModeDetails(dict):
+    """
+    When specified, enables or updates the mode of stream. Default is PROVISIONED.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamMode":
+            suggest = "stream_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamModeDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamModeDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamModeDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_mode: 'StreamModeDetailsStreamMode'):
+        """
+        When specified, enables or updates the mode of stream. Default is PROVISIONED.
+        :param 'StreamModeDetailsStreamMode' stream_mode: The mode of the stream
+        """
+        pulumi.set(__self__, "stream_mode", stream_mode)
+
+    @property
+    @pulumi.getter(name="streamMode")
+    def stream_mode(self) -> 'StreamModeDetailsStreamMode':
+        """
+        The mode of the stream
+        """
+        return pulumi.get(self, "stream_mode")
 
 
 @pulumi.output_type

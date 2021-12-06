@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +20,12 @@ type Stream struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours pulumi.IntPtrOutput `pulumi:"retentionPeriodHours"`
-	// The number of shards that the stream uses.
-	ShardCount pulumi.IntOutput `pulumi:"shardCount"`
+	// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
+	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	StreamEncryption StreamEncryptionPtrOutput `pulumi:"streamEncryption"`
+	// The mode in which the stream is running.
+	StreamModeDetails StreamModeDetailsPtrOutput `pulumi:"streamModeDetails"`
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
 	Tags StreamTagArrayOutput `pulumi:"tags"`
 }
@@ -33,12 +34,9 @@ type Stream struct {
 func NewStream(ctx *pulumi.Context,
 	name string, args *StreamArgs, opts ...pulumi.ResourceOption) (*Stream, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &StreamArgs{}
 	}
 
-	if args.ShardCount == nil {
-		return nil, errors.New("invalid value for required argument 'ShardCount'")
-	}
 	var resource Stream
 	err := ctx.RegisterResource("aws-native:kinesis:Stream", name, args, &resource, opts...)
 	if err != nil {
@@ -75,10 +73,12 @@ type streamArgs struct {
 	Name *string `pulumi:"name"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours *int `pulumi:"retentionPeriodHours"`
-	// The number of shards that the stream uses.
-	ShardCount int `pulumi:"shardCount"`
+	// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
+	ShardCount *int `pulumi:"shardCount"`
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	StreamEncryption *StreamEncryption `pulumi:"streamEncryption"`
+	// The mode in which the stream is running.
+	StreamModeDetails *StreamModeDetails `pulumi:"streamModeDetails"`
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
 	Tags []StreamTag `pulumi:"tags"`
 }
@@ -89,10 +89,12 @@ type StreamArgs struct {
 	Name pulumi.StringPtrInput
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours pulumi.IntPtrInput
-	// The number of shards that the stream uses.
-	ShardCount pulumi.IntInput
+	// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
+	ShardCount pulumi.IntPtrInput
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	StreamEncryption StreamEncryptionPtrInput
+	// The mode in which the stream is running.
+	StreamModeDetails StreamModeDetailsPtrInput
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
 	Tags StreamTagArrayInput
 }

@@ -48,13 +48,17 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly retentionPeriodHours!: pulumi.Output<number | undefined>;
     /**
-     * The number of shards that the stream uses.
+     * The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
      */
-    public readonly shardCount!: pulumi.Output<number>;
+    public readonly shardCount!: pulumi.Output<number | undefined>;
     /**
      * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
      */
     public readonly streamEncryption!: pulumi.Output<outputs.kinesis.StreamEncryption | undefined>;
+    /**
+     * The mode in which the stream is running.
+     */
+    public readonly streamModeDetails!: pulumi.Output<outputs.kinesis.StreamModeDetails | undefined>;
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
      */
@@ -67,17 +71,15 @@ export class Stream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: StreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.shardCount === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'shardCount'");
-            }
             inputs["name"] = args ? args.name : undefined;
             inputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
             inputs["shardCount"] = args ? args.shardCount : undefined;
             inputs["streamEncryption"] = args ? args.streamEncryption : undefined;
+            inputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
@@ -86,6 +88,7 @@ export class Stream extends pulumi.CustomResource {
             inputs["retentionPeriodHours"] = undefined /*out*/;
             inputs["shardCount"] = undefined /*out*/;
             inputs["streamEncryption"] = undefined /*out*/;
+            inputs["streamModeDetails"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -108,13 +111,17 @@ export interface StreamArgs {
      */
     retentionPeriodHours?: pulumi.Input<number>;
     /**
-     * The number of shards that the stream uses.
+     * The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
      */
-    shardCount: pulumi.Input<number>;
+    shardCount?: pulumi.Input<number>;
     /**
      * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
      */
     streamEncryption?: pulumi.Input<inputs.kinesis.StreamEncryptionArgs>;
+    /**
+     * The mode in which the stream is running.
+     */
+    streamModeDetails?: pulumi.Input<inputs.kinesis.StreamModeDetailsArgs>;
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
      */

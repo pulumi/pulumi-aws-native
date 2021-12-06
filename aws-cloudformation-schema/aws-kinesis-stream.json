@@ -3,6 +3,19 @@
   "description" : "Resource Type definition for AWS::Kinesis::Stream",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-kinesis.git",
   "definitions" : {
+    "StreamModeDetails" : {
+      "description" : "When specified, enables or updates the mode of stream. Default is PROVISIONED.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "StreamMode" : {
+          "description" : "The mode of the stream",
+          "type" : "string",
+          "enum" : [ "ON_DEMAND", "PROVISIONED" ]
+        }
+      },
+      "required" : [ "StreamMode" ]
+    },
     "StreamEncryption" : {
       "description" : "When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.",
       "type" : "object",
@@ -61,9 +74,16 @@
       "minimum" : 24
     },
     "ShardCount" : {
-      "description" : "The number of shards that the stream uses.",
+      "description" : "The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.",
       "type" : "integer",
       "minimum" : 1
+    },
+    "StreamModeDetails" : {
+      "description" : "The mode in which the stream is running.",
+      "$ref" : "#/definitions/StreamModeDetails",
+      "default" : {
+        "StreamMode" : "PROVISIONED"
+      }
     },
     "StreamEncryption" : {
       "description" : "When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.",
@@ -80,7 +100,6 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "ShardCount" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
@@ -92,7 +111,7 @@
       "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:ListTagsForStream" ]
     },
     "update" : {
-      "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:UpdateShardCount", "kinesis:IncreaseStreamRetentionPeriod", "kinesis:DecreaseStreamRetentionPeriod", "kinesis:StartStreamEncryption", "kinesis:StopStreamEncryption", "kinesis:AddTagsToStream", "kinesis:RemoveTagsFromStream", "kinesis:ListTagsForStream" ]
+      "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:UpdateShardCount", "kinesis:UpdateStreamMode", "kinesis:IncreaseStreamRetentionPeriod", "kinesis:DecreaseStreamRetentionPeriod", "kinesis:StartStreamEncryption", "kinesis:StopStreamEncryption", "kinesis:AddTagsToStream", "kinesis:RemoveTagsFromStream", "kinesis:ListTagsForStream" ]
     },
     "delete" : {
       "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:DeleteStream", "kinesis:RemoveTagsFromStream" ]

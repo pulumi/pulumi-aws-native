@@ -16255,6 +16255,16 @@ export namespace kinesis {
     }
 
     /**
+     * When specified, enables or updates the mode of stream. Default is PROVISIONED.
+     */
+    export interface StreamModeDetailsArgs {
+        /**
+         * The mode of the stream
+         */
+        streamMode: pulumi.Input<enums.kinesis.StreamModeDetailsStreamMode>;
+    }
+
+    /**
      * An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
      */
     export interface StreamTagArgs {

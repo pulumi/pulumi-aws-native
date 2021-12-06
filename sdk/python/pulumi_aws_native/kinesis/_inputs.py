@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'StreamEncryptionArgs',
+    'StreamModeDetailsArgs',
     'StreamTagArgs',
 ]
 
@@ -50,6 +51,29 @@ class StreamEncryptionArgs:
     @key_id.setter
     def key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_id", value)
+
+
+@pulumi.input_type
+class StreamModeDetailsArgs:
+    def __init__(__self__, *,
+                 stream_mode: pulumi.Input['StreamModeDetailsStreamMode']):
+        """
+        When specified, enables or updates the mode of stream. Default is PROVISIONED.
+        :param pulumi.Input['StreamModeDetailsStreamMode'] stream_mode: The mode of the stream
+        """
+        pulumi.set(__self__, "stream_mode", stream_mode)
+
+    @property
+    @pulumi.getter(name="streamMode")
+    def stream_mode(self) -> pulumi.Input['StreamModeDetailsStreamMode']:
+        """
+        The mode of the stream
+        """
+        return pulumi.get(self, "stream_mode")
+
+    @stream_mode.setter
+    def stream_mode(self, value: pulumi.Input['StreamModeDetailsStreamMode']):
+        pulumi.set(self, "stream_mode", value)
 
 
 @pulumi.input_type

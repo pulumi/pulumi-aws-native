@@ -34,16 +34,22 @@ namespace Pulumi.AwsNative.Kinesis
         public Output<int?> RetentionPeriodHours { get; private set; } = null!;
 
         /// <summary>
-        /// The number of shards that the stream uses.
+        /// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         /// </summary>
         [Output("shardCount")]
-        public Output<int> ShardCount { get; private set; } = null!;
+        public Output<int?> ShardCount { get; private set; } = null!;
 
         /// <summary>
         /// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         /// </summary>
         [Output("streamEncryption")]
         public Output<Outputs.StreamEncryption?> StreamEncryption { get; private set; } = null!;
+
+        /// <summary>
+        /// The mode in which the stream is running.
+        /// </summary>
+        [Output("streamModeDetails")]
+        public Output<Outputs.StreamModeDetails?> StreamModeDetails { get; private set; } = null!;
 
         /// <summary>
         /// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
@@ -59,7 +65,7 @@ namespace Pulumi.AwsNative.Kinesis
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Stream(string name, StreamArgs args, CustomResourceOptions? options = null)
+        public Stream(string name, StreamArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:kinesis:Stream", name, args ?? new StreamArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -109,16 +115,22 @@ namespace Pulumi.AwsNative.Kinesis
         public Input<int>? RetentionPeriodHours { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream uses.
+        /// The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         /// </summary>
-        [Input("shardCount", required: true)]
-        public Input<int> ShardCount { get; set; } = null!;
+        [Input("shardCount")]
+        public Input<int>? ShardCount { get; set; }
 
         /// <summary>
         /// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         /// </summary>
         [Input("streamEncryption")]
         public Input<Inputs.StreamEncryptionArgs>? StreamEncryption { get; set; }
+
+        /// <summary>
+        /// The mode in which the stream is running.
+        /// </summary>
+        [Input("streamModeDetails")]
+        public Input<Inputs.StreamModeDetailsArgs>? StreamModeDetails { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.StreamTagArgs>? _tags;

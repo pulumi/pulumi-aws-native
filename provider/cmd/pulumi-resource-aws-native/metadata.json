@@ -19729,11 +19729,15 @@
                 },
                 "shardCount": {
                     "type": "integer",
-                    "description": "The number of shards that the stream uses."
+                    "description": "The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed."
                 },
                 "streamEncryption": {
                     "$ref": "#/types/aws-native:kinesis:StreamEncryption",
                     "description": "When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream."
+                },
+                "streamModeDetails": {
+                    "$ref": "#/types/aws-native:kinesis:StreamModeDetails",
+                    "description": "The mode in which the stream is running."
                 },
                 "tags": {
                     "type": "array",
@@ -19758,11 +19762,15 @@
                 },
                 "shardCount": {
                     "type": "integer",
-                    "description": "The number of shards that the stream uses."
+                    "description": "The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed."
                 },
                 "streamEncryption": {
                     "$ref": "#/types/aws-native:kinesis:StreamEncryption",
                     "description": "When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream."
+                },
+                "streamModeDetails": {
+                    "$ref": "#/types/aws-native:kinesis:StreamModeDetails",
+                    "description": "The mode in which the stream is running."
                 },
                 "tags": {
                     "type": "array",
@@ -19777,9 +19785,6 @@
                 "minLength": 1,
                 "maxLength": 128
             },
-            "required": [
-                "shardCount"
-            ],
             "createOnly": [
                 "name"
             ]
@@ -52264,6 +52269,18 @@
             }
         },
         "aws-native:kinesis:StreamEncryptionEncryptionType": {
+            "type": "string"
+        },
+        "aws-native:kinesis:StreamModeDetails": {
+            "type": "object",
+            "properties": {
+                "streamMode": {
+                    "$ref": "#/types/aws-native:kinesis:StreamModeDetailsStreamMode",
+                    "description": "The mode of the stream"
+                }
+            }
+        },
+        "aws-native:kinesis:StreamModeDetailsStreamMode": {
             "type": "string"
         },
         "aws-native:kinesis:StreamTag": {

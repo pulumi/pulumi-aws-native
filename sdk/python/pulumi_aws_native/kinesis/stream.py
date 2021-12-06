@@ -16,40 +16,33 @@ __all__ = ['StreamArgs', 'Stream']
 @pulumi.input_type
 class StreamArgs:
     def __init__(__self__, *,
-                 shard_count: pulumi.Input[int],
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input['StreamEncryptionArgs']] = None,
+                 stream_mode_details: Optional[pulumi.Input['StreamModeDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
-        :param pulumi.Input[int] shard_count: The number of shards that the stream uses.
         :param pulumi.Input[str] name: The name of the Kinesis stream.
         :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
+        :param pulumi.Input[int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         :param pulumi.Input['StreamEncryptionArgs'] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+        :param pulumi.Input['StreamModeDetailsArgs'] stream_mode_details: The mode in which the stream is running.
         :param pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
-        pulumi.set(__self__, "shard_count", shard_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if retention_period_hours is not None:
             pulumi.set(__self__, "retention_period_hours", retention_period_hours)
+        if shard_count is not None:
+            pulumi.set(__self__, "shard_count", shard_count)
         if stream_encryption is not None:
             pulumi.set(__self__, "stream_encryption", stream_encryption)
+        if stream_mode_details is not None:
+            pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="shardCount")
-    def shard_count(self) -> pulumi.Input[int]:
-        """
-        The number of shards that the stream uses.
-        """
-        return pulumi.get(self, "shard_count")
-
-    @shard_count.setter
-    def shard_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "shard_count", value)
 
     @property
     @pulumi.getter
@@ -76,6 +69,18 @@ class StreamArgs:
         pulumi.set(self, "retention_period_hours", value)
 
     @property
+    @pulumi.getter(name="shardCount")
+    def shard_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
+        """
+        return pulumi.get(self, "shard_count")
+
+    @shard_count.setter
+    def shard_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "shard_count", value)
+
+    @property
     @pulumi.getter(name="streamEncryption")
     def stream_encryption(self) -> Optional[pulumi.Input['StreamEncryptionArgs']]:
         """
@@ -86,6 +91,18 @@ class StreamArgs:
     @stream_encryption.setter
     def stream_encryption(self, value: Optional[pulumi.Input['StreamEncryptionArgs']]):
         pulumi.set(self, "stream_encryption", value)
+
+    @property
+    @pulumi.getter(name="streamModeDetails")
+    def stream_mode_details(self) -> Optional[pulumi.Input['StreamModeDetailsArgs']]:
+        """
+        The mode in which the stream is running.
+        """
+        return pulumi.get(self, "stream_mode_details")
+
+    @stream_mode_details.setter
+    def stream_mode_details(self, value: Optional[pulumi.Input['StreamModeDetailsArgs']]):
+        pulumi.set(self, "stream_mode_details", value)
 
     @property
     @pulumi.getter
@@ -109,6 +126,7 @@ class Stream(pulumi.CustomResource):
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamEncryptionArgs']]] = None,
+                 stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -118,15 +136,16 @@ class Stream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Kinesis stream.
         :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
-        :param pulumi.Input[int] shard_count: The number of shards that the stream uses.
+        :param pulumi.Input[int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         :param pulumi.Input[pulumi.InputType['StreamEncryptionArgs']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+        :param pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']] stream_mode_details: The mode in which the stream is running.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StreamArgs,
+                 args: Optional[StreamArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Kinesis::Stream
@@ -150,6 +169,7 @@ class Stream(pulumi.CustomResource):
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamEncryptionArgs']]] = None,
+                 stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamModeDetailsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -165,10 +185,9 @@ class Stream(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["retention_period_hours"] = retention_period_hours
-            if shard_count is None and not opts.urn:
-                raise TypeError("Missing required property 'shard_count'")
             __props__.__dict__["shard_count"] = shard_count
             __props__.__dict__["stream_encryption"] = stream_encryption
+            __props__.__dict__["stream_mode_details"] = stream_mode_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Stream, __self__).__init__(
@@ -198,6 +217,7 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["retention_period_hours"] = None
         __props__.__dict__["shard_count"] = None
         __props__.__dict__["stream_encryption"] = None
+        __props__.__dict__["stream_mode_details"] = None
         __props__.__dict__["tags"] = None
         return Stream(resource_name, opts=opts, __props__=__props__)
 
@@ -227,9 +247,9 @@ class Stream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> pulumi.Output[int]:
+    def shard_count(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of shards that the stream uses.
+        The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         """
         return pulumi.get(self, "shard_count")
 
@@ -240,6 +260,14 @@ class Stream(pulumi.CustomResource):
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         """
         return pulumi.get(self, "stream_encryption")
+
+    @property
+    @pulumi.getter(name="streamModeDetails")
+    def stream_mode_details(self) -> pulumi.Output[Optional['outputs.StreamModeDetails']]:
+        """
+        The mode in which the stream is running.
+        """
+        return pulumi.get(self, "stream_mode_details")
 
     @property
     @pulumi.getter

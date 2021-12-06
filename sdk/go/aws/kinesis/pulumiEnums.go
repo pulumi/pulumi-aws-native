@@ -174,9 +174,178 @@ func (in *streamEncryptionEncryptionTypePtr) ToStreamEncryptionEncryptionTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(StreamEncryptionEncryptionTypePtrOutput)
 }
 
+// The mode of the stream
+type StreamModeDetailsStreamMode string
+
+const (
+	StreamModeDetailsStreamModeOnDemand    = StreamModeDetailsStreamMode("ON_DEMAND")
+	StreamModeDetailsStreamModeProvisioned = StreamModeDetailsStreamMode("PROVISIONED")
+)
+
+func (StreamModeDetailsStreamMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamModeDetailsStreamMode)(nil)).Elem()
+}
+
+func (e StreamModeDetailsStreamMode) ToStreamModeDetailsStreamModeOutput() StreamModeDetailsStreamModeOutput {
+	return pulumi.ToOutput(e).(StreamModeDetailsStreamModeOutput)
+}
+
+func (e StreamModeDetailsStreamMode) ToStreamModeDetailsStreamModeOutputWithContext(ctx context.Context) StreamModeDetailsStreamModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StreamModeDetailsStreamModeOutput)
+}
+
+func (e StreamModeDetailsStreamMode) ToStreamModeDetailsStreamModePtrOutput() StreamModeDetailsStreamModePtrOutput {
+	return e.ToStreamModeDetailsStreamModePtrOutputWithContext(context.Background())
+}
+
+func (e StreamModeDetailsStreamMode) ToStreamModeDetailsStreamModePtrOutputWithContext(ctx context.Context) StreamModeDetailsStreamModePtrOutput {
+	return StreamModeDetailsStreamMode(e).ToStreamModeDetailsStreamModeOutputWithContext(ctx).ToStreamModeDetailsStreamModePtrOutputWithContext(ctx)
+}
+
+func (e StreamModeDetailsStreamMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StreamModeDetailsStreamMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StreamModeDetailsStreamMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StreamModeDetailsStreamMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StreamModeDetailsStreamModeOutput struct{ *pulumi.OutputState }
+
+func (StreamModeDetailsStreamModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamModeDetailsStreamMode)(nil)).Elem()
+}
+
+func (o StreamModeDetailsStreamModeOutput) ToStreamModeDetailsStreamModeOutput() StreamModeDetailsStreamModeOutput {
+	return o
+}
+
+func (o StreamModeDetailsStreamModeOutput) ToStreamModeDetailsStreamModeOutputWithContext(ctx context.Context) StreamModeDetailsStreamModeOutput {
+	return o
+}
+
+func (o StreamModeDetailsStreamModeOutput) ToStreamModeDetailsStreamModePtrOutput() StreamModeDetailsStreamModePtrOutput {
+	return o.ToStreamModeDetailsStreamModePtrOutputWithContext(context.Background())
+}
+
+func (o StreamModeDetailsStreamModeOutput) ToStreamModeDetailsStreamModePtrOutputWithContext(ctx context.Context) StreamModeDetailsStreamModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamModeDetailsStreamMode) *StreamModeDetailsStreamMode {
+		return &v
+	}).(StreamModeDetailsStreamModePtrOutput)
+}
+
+func (o StreamModeDetailsStreamModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StreamModeDetailsStreamModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamModeDetailsStreamMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StreamModeDetailsStreamModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StreamModeDetailsStreamModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamModeDetailsStreamMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamModeDetailsStreamModePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamModeDetailsStreamModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamModeDetailsStreamMode)(nil)).Elem()
+}
+
+func (o StreamModeDetailsStreamModePtrOutput) ToStreamModeDetailsStreamModePtrOutput() StreamModeDetailsStreamModePtrOutput {
+	return o
+}
+
+func (o StreamModeDetailsStreamModePtrOutput) ToStreamModeDetailsStreamModePtrOutputWithContext(ctx context.Context) StreamModeDetailsStreamModePtrOutput {
+	return o
+}
+
+func (o StreamModeDetailsStreamModePtrOutput) Elem() StreamModeDetailsStreamModeOutput {
+	return o.ApplyT(func(v *StreamModeDetailsStreamMode) StreamModeDetailsStreamMode {
+		if v != nil {
+			return *v
+		}
+		var ret StreamModeDetailsStreamMode
+		return ret
+	}).(StreamModeDetailsStreamModeOutput)
+}
+
+func (o StreamModeDetailsStreamModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StreamModeDetailsStreamModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StreamModeDetailsStreamMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StreamModeDetailsStreamModeInput is an input type that accepts StreamModeDetailsStreamModeArgs and StreamModeDetailsStreamModeOutput values.
+// You can construct a concrete instance of `StreamModeDetailsStreamModeInput` via:
+//
+//          StreamModeDetailsStreamModeArgs{...}
+type StreamModeDetailsStreamModeInput interface {
+	pulumi.Input
+
+	ToStreamModeDetailsStreamModeOutput() StreamModeDetailsStreamModeOutput
+	ToStreamModeDetailsStreamModeOutputWithContext(context.Context) StreamModeDetailsStreamModeOutput
+}
+
+var streamModeDetailsStreamModePtrType = reflect.TypeOf((**StreamModeDetailsStreamMode)(nil)).Elem()
+
+type StreamModeDetailsStreamModePtrInput interface {
+	pulumi.Input
+
+	ToStreamModeDetailsStreamModePtrOutput() StreamModeDetailsStreamModePtrOutput
+	ToStreamModeDetailsStreamModePtrOutputWithContext(context.Context) StreamModeDetailsStreamModePtrOutput
+}
+
+type streamModeDetailsStreamModePtr string
+
+func StreamModeDetailsStreamModePtr(v string) StreamModeDetailsStreamModePtrInput {
+	return (*streamModeDetailsStreamModePtr)(&v)
+}
+
+func (*streamModeDetailsStreamModePtr) ElementType() reflect.Type {
+	return streamModeDetailsStreamModePtrType
+}
+
+func (in *streamModeDetailsStreamModePtr) ToStreamModeDetailsStreamModePtrOutput() StreamModeDetailsStreamModePtrOutput {
+	return pulumi.ToOutput(in).(StreamModeDetailsStreamModePtrOutput)
+}
+
+func (in *streamModeDetailsStreamModePtr) ToStreamModeDetailsStreamModePtrOutputWithContext(ctx context.Context) StreamModeDetailsStreamModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StreamModeDetailsStreamModePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionEncryptionTypeInput)(nil)).Elem(), StreamEncryptionEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionEncryptionTypePtrInput)(nil)).Elem(), StreamEncryptionEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsStreamModeInput)(nil)).Elem(), StreamModeDetailsStreamMode("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsStreamModePtrInput)(nil)).Elem(), StreamModeDetailsStreamMode("ON_DEMAND"))
 	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(StreamModeDetailsStreamModeOutput{})
+	pulumi.RegisterOutputType(StreamModeDetailsStreamModePtrOutput{})
 }

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'StreamEncryptionEncryptionType',
+    'StreamModeDetailsStreamMode',
 ]
 
 
@@ -14,3 +15,11 @@ class StreamEncryptionEncryptionType(str, Enum):
     The encryption type to use. The only valid value is KMS. 
     """
     KMS = "KMS"
+
+
+class StreamModeDetailsStreamMode(str, Enum):
+    """
+    The mode of the stream
+    """
+    ON_DEMAND = "ON_DEMAND"
+    PROVISIONED = "PROVISIONED"
