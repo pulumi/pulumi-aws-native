@@ -1,6 +1,7 @@
 ## HEAD (Unreleased)
 
 - Explain how to add missing region config [#220](https://github.com/pulumi/pulumi-aws-native/issues/220).
+- Allow cancellation during ongoing operations [#43](https://github.com/pulumi/pulumi-aws-native/issues/43)
 
 ---
 
