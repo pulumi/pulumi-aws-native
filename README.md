@@ -21,7 +21,7 @@ For existing projects, AWS Classic remains fully supported; at this time, we rec
 Credentials configuration is compatible with the classic AWS provider.
 
 Please refer to [this quickstart guide](
-https://www.pulumi.com/docs/intro/cloud-providers/aws/setup/) for possible configuration options.
+https://www.pulumi.com/docs/intro/cloud-providers/aws-native/setup/) for possible configuration options.
 
 ## Building
 
