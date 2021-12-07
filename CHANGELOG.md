@@ -1,6 +1,6 @@
 ## HEAD (Unreleased)
 
-(None)
+- Explain how to add missing region config [#220](https://github.com/pulumi/pulumi-aws-native/issues/220).
 
 ---
 
