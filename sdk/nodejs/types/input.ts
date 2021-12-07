@@ -4266,77 +4266,26 @@ export namespace autoscaling {
         min?: pulumi.Input<number>;
     }
 
-    /**
-     * BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
-     */
     export interface LaunchConfigurationBlockDeviceArgs {
-        /**
-         * Indicates whether the volume is deleted on instance termination. 
-         */
         deleteOnTermination?: pulumi.Input<boolean>;
-        /**
-         * Specifies whether the volume should be encrypted. 
-         */
         encrypted?: pulumi.Input<boolean>;
-        /**
-         * The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
-         */
         iops?: pulumi.Input<number>;
-        /**
-         * The snapshot ID of the volume to use.
-         */
         snapshotId?: pulumi.Input<string>;
-        /**
-         * The throughput (MiBps) to provision for a gp3 volume.
-         */
         throughput?: pulumi.Input<number>;
-        /**
-         * The volume size, in GiBs.
-         */
         volumeSize?: pulumi.Input<number>;
-        /**
-         * The volume type.
-         */
         volumeType?: pulumi.Input<string>;
     }
 
-    /**
-     * BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
-     */
     export interface LaunchConfigurationBlockDeviceMappingArgs {
-        /**
-         * The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
-         */
         deviceName: pulumi.Input<string>;
-        /**
-         * Parameters used to automatically set up EBS volumes when an instance is launched.
-         */
         ebs?: pulumi.Input<inputs.autoscaling.LaunchConfigurationBlockDeviceArgs>;
-        /**
-         * Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
-         */
         noDevice?: pulumi.Input<boolean>;
-        /**
-         * The name of the virtual device.
-         */
         virtualName?: pulumi.Input<string>;
     }
 
-    /**
-     * MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
-     */
     export interface LaunchConfigurationMetadataOptionsArgs {
-        /**
-         * This parameter enables or disables the HTTP metadata endpoint on your instances.
-         */
         httpEndpoint?: pulumi.Input<string>;
-        /**
-         * The desired HTTP PUT response hop limit for instance metadata requests.
-         */
         httpPutResponseHopLimit?: pulumi.Input<number>;
-        /**
-         * The state of token usage for your instance metadata requests.
-         */
         httpTokens?: pulumi.Input<string>;
     }
 

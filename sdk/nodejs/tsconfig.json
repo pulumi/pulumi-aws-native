@@ -106,6 +106,8 @@
         "appsync/apiCache.ts",
         "appsync/apiKey.ts",
         "appsync/dataSource.ts",
+        "appsync/domainName.ts",
+        "appsync/domainNameApiAssociation.ts",
         "appsync/functionConfiguration.ts",
         "appsync/graphQLApi.ts",
         "appsync/graphQLSchema.ts",

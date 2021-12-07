@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiKey{}
 	case "aws-native:appsync:DataSource":
 		r = &DataSource{}
+	case "aws-native:appsync:DomainName":
+		r = &DomainName{}
+	case "aws-native:appsync:DomainNameApiAssociation":
+		r = &DomainNameApiAssociation{}
 	case "aws-native:appsync:FunctionConfiguration":
 		r = &FunctionConfiguration{}
 	case "aws-native:appsync:GraphQLApi":

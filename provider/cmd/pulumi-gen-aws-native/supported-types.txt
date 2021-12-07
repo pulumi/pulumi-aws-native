@@ -31,13 +31,14 @@ AWS::AppRunner::Service
 AWS::AppStream::AppBlock
 AWS::AppStream::Application
 AWS::AppStream::ApplicationFleetAssociation
+AWS::AppSync::DomainName
+AWS::AppSync::DomainNameApiAssociation
 AWS::ApplicationInsights::Application
 AWS::Athena::DataCatalog
 AWS::Athena::NamedQuery
 AWS::Athena::PreparedStatement
 AWS::Athena::WorkGroup
 AWS::AuditManager::Assessment
-AWS::AutoScaling::LaunchConfiguration
 AWS::AutoScaling::LifecycleHook
 AWS::AutoScaling::WarmPool
 AWS::Backup::BackupPlan

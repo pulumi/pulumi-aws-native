@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 export * from "./apiCache";
 export * from "./apiKey";
 export * from "./dataSource";
+export * from "./domainName";
+export * from "./domainNameApiAssociation";
 export * from "./functionConfiguration";
 export * from "./graphQLApi";
 export * from "./graphQLSchema";
@@ -17,6 +19,8 @@ export * from "./resolver";
 import { ApiCache } from "./apiCache";
 import { ApiKey } from "./apiKey";
 import { DataSource } from "./dataSource";
+import { DomainName } from "./domainName";
+import { DomainNameApiAssociation } from "./domainNameApiAssociation";
 import { FunctionConfiguration } from "./functionConfiguration";
 import { GraphQLApi } from "./graphQLApi";
 import { GraphQLSchema } from "./graphQLSchema";
@@ -32,6 +36,10 @@ const _module = {
                 return new ApiKey(name, <any>undefined, { urn })
             case "aws-native:appsync:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws-native:appsync:DomainName":
+                return new DomainName(name, <any>undefined, { urn })
+            case "aws-native:appsync:DomainNameApiAssociation":
+                return new DomainNameApiAssociation(name, <any>undefined, { urn })
             case "aws-native:appsync:FunctionConfiguration":
                 return new FunctionConfiguration(name, <any>undefined, { urn })
             case "aws-native:appsync:GraphQLApi":

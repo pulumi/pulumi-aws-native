@@ -8,6 +8,8 @@ import typing
 from .api_cache import *
 from .api_key import *
 from .data_source import *
+from .domain_name import *
+from .domain_name_api_association import *
 from .function_configuration import *
 from .graph_ql_api import *
 from .graph_ql_schema import *

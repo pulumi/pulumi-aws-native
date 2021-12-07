@@ -760,6 +760,8 @@ _utilities.register(
    "aws-native:appsync:ApiCache": "ApiCache",
    "aws-native:appsync:ApiKey": "ApiKey",
    "aws-native:appsync:DataSource": "DataSource",
+   "aws-native:appsync:DomainName": "DomainName",
+   "aws-native:appsync:DomainNameApiAssociation": "DomainNameApiAssociation",
    "aws-native:appsync:FunctionConfiguration": "FunctionConfiguration",
    "aws-native:appsync:GraphQLApi": "GraphQLApi",
    "aws-native:appsync:GraphQLSchema": "GraphQLSchema",

@@ -945,13 +945,6 @@ class LaunchConfigurationBlockDeviceMappingArgs:
                  ebs: Optional[pulumi.Input['LaunchConfigurationBlockDeviceArgs']] = None,
                  no_device: Optional[pulumi.Input[bool]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
-        """
-        BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
-        :param pulumi.Input[str] device_name: The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
-        :param pulumi.Input['LaunchConfigurationBlockDeviceArgs'] ebs: Parameters used to automatically set up EBS volumes when an instance is launched.
-        :param pulumi.Input[bool] no_device: Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
-        :param pulumi.Input[str] virtual_name: The name of the virtual device.
-        """
         pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
             pulumi.set(__self__, "ebs", ebs)
@@ -963,9 +956,6 @@ class LaunchConfigurationBlockDeviceMappingArgs:
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[str]:
-        """
-        The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
-        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -975,9 +965,6 @@ class LaunchConfigurationBlockDeviceMappingArgs:
     @property
     @pulumi.getter
     def ebs(self) -> Optional[pulumi.Input['LaunchConfigurationBlockDeviceArgs']]:
-        """
-        Parameters used to automatically set up EBS volumes when an instance is launched.
-        """
         return pulumi.get(self, "ebs")
 
     @ebs.setter
@@ -987,9 +974,6 @@ class LaunchConfigurationBlockDeviceMappingArgs:
     @property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
-        """
         return pulumi.get(self, "no_device")
 
     @no_device.setter
@@ -999,9 +983,6 @@ class LaunchConfigurationBlockDeviceMappingArgs:
     @property
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the virtual device.
-        """
         return pulumi.get(self, "virtual_name")
 
     @virtual_name.setter
@@ -1019,16 +1000,6 @@ class LaunchConfigurationBlockDeviceArgs:
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
-        """
-        BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
-        :param pulumi.Input[bool] delete_on_termination: Indicates whether the volume is deleted on instance termination. 
-        :param pulumi.Input[bool] encrypted: Specifies whether the volume should be encrypted. 
-        :param pulumi.Input[int] iops: The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
-        :param pulumi.Input[str] snapshot_id: The snapshot ID of the volume to use.
-        :param pulumi.Input[int] throughput: The throughput (MiBps) to provision for a gp3 volume.
-        :param pulumi.Input[int] volume_size: The volume size, in GiBs.
-        :param pulumi.Input[str] volume_type: The volume type.
-        """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -1047,9 +1018,6 @@ class LaunchConfigurationBlockDeviceArgs:
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the volume is deleted on instance termination. 
-        """
         return pulumi.get(self, "delete_on_termination")
 
     @delete_on_termination.setter
@@ -1059,9 +1027,6 @@ class LaunchConfigurationBlockDeviceArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether the volume should be encrypted. 
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -1071,9 +1036,6 @@ class LaunchConfigurationBlockDeviceArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
-        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -1083,9 +1045,6 @@ class LaunchConfigurationBlockDeviceArgs:
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The snapshot ID of the volume to use.
-        """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
@@ -1095,9 +1054,6 @@ class LaunchConfigurationBlockDeviceArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
-        """
-        The throughput (MiBps) to provision for a gp3 volume.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -1107,9 +1063,6 @@ class LaunchConfigurationBlockDeviceArgs:
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        The volume size, in GiBs.
-        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -1119,9 +1072,6 @@ class LaunchConfigurationBlockDeviceArgs:
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The volume type.
-        """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
@@ -1135,12 +1085,6 @@ class LaunchConfigurationMetadataOptionsArgs:
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
                  http_tokens: Optional[pulumi.Input[str]] = None):
-        """
-        MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
-        :param pulumi.Input[str] http_endpoint: This parameter enables or disables the HTTP metadata endpoint on your instances.
-        :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
-        :param pulumi.Input[str] http_tokens: The state of token usage for your instance metadata requests.
-        """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
         if http_put_response_hop_limit is not None:
@@ -1151,9 +1095,6 @@ class LaunchConfigurationMetadataOptionsArgs:
     @property
     @pulumi.getter(name="httpEndpoint")
     def http_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        This parameter enables or disables the HTTP metadata endpoint on your instances.
-        """
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
@@ -1163,9 +1104,6 @@ class LaunchConfigurationMetadataOptionsArgs:
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
     def http_put_response_hop_limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The desired HTTP PUT response hop limit for instance metadata requests.
-        """
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @http_put_response_hop_limit.setter
@@ -1175,9 +1113,6 @@ class LaunchConfigurationMetadataOptionsArgs:
     @property
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
-        """
-        The state of token usage for your instance metadata requests.
-        """
         return pulumi.get(self, "http_tokens")
 
     @http_tokens.setter
