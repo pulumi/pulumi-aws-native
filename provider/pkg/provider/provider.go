@@ -1020,7 +1020,7 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 
 		select {
 		case <-ctx.Done():
-			return nil, p.canceler.context.Err()
+			return nil, ctx.Err()
 		default: // Continue to wait
 		}
 
