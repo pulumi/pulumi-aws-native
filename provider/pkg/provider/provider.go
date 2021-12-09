@@ -648,7 +648,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	if err != nil {
 		return nil, errors.Wrapf(err, "creating resource")
 	}
-	pi, waitErr := p.waitForResourceOpCompletion(ctx, res.ProgressEvent)
+	pi, waitErr := p.waitForResourceOpCompletion(p.canceler.context, res.ProgressEvent)
 
 	// Read the state - even if there was a creation error but the progress event contains a resource ID.
 	var id string
@@ -743,7 +743,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceToken)
 	}
-	resourceState, err := p.readResourceState(ctx, spec.CfType, id)
+	resourceState, err := p.readResourceState(p.canceler.context, spec.CfType, id)
 	if err != nil {
 		var oe *smithy.OperationError
 		if errors.As(err, &oe) {
@@ -841,7 +841,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	docAsString := string(doc)
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %+v", label, spec.CfType, id, clientToken, ops)
-	res, err := p.cctl.UpdateResource(ctx, &cloudcontrol.UpdateResourceInput{
+	res, err := p.cctl.UpdateResource(p.canceler.context, &cloudcontrol.UpdateResourceInput{
 		ClientToken:   aws.String(clientToken),
 		TypeName:      aws.String(spec.CfType),
 		Identifier:    aws.String(id),
@@ -850,11 +850,11 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	if err != nil {
 		return nil, err
 	}
-	if _, err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+	if _, err = p.waitForResourceOpCompletion(p.canceler.context, res.ProgressEvent); err != nil {
 		return nil, err
 	}
 
-	resourceState, err := p.readResourceState(ctx, spec.CfType, id)
+	resourceState, err := p.readResourceState(p.canceler.context, spec.CfType, id)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading resource state")
 	}
@@ -912,7 +912,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, cfType, id, clientToken)
-	res, err := p.cctl.DeleteResource(ctx, &cloudcontrol.DeleteResourceInput{
+	res, err := p.cctl.DeleteResource(p.canceler.context, &cloudcontrol.DeleteResourceInput{
 		ClientToken: aws.String(clientToken),
 		TypeName:    aws.String(cfType),
 		Identifier:  aws.String(id),
@@ -1016,6 +1016,12 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 			time.Sleep(pause)
 		default:
 			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
+		}
+
+		select {
+		case <-ctx.Done():
+			return nil, ctx.Err()
+		default: // Continue to wait
 		}
 
 		output, err := p.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
