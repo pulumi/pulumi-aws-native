@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLRule
     {
         public readonly Outputs.WebACLRuleAction? Action;
+        public readonly Outputs.WebACLCaptchaConfig? CaptchaConfig;
         public readonly string Name;
         public readonly Outputs.WebACLOverrideAction? OverrideAction;
         public readonly int Priority;
@@ -31,6 +32,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         private WebACLRule(
             Outputs.WebACLRuleAction? action,
 
+            Outputs.WebACLCaptchaConfig? captchaConfig,
+
             string name,
 
             Outputs.WebACLOverrideAction? overrideAction,
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             Outputs.WebACLVisibilityConfig visibilityConfig)
         {
             Action = action;
+            CaptchaConfig = captchaConfig;
             Name = name;
             OverrideAction = overrideAction;
             Priority = priority;

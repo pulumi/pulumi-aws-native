@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly Outputs.WebACLNotStatement? NotStatement;
         public readonly Outputs.WebACLOrStatement? OrStatement;
         public readonly Outputs.WebACLRateBasedStatement? RateBasedStatement;
+        public readonly Outputs.WebACLRegexMatchStatement? RegexMatchStatement;
         public readonly Outputs.WebACLRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
         public readonly Outputs.WebACLRuleGroupReferenceStatement? RuleGroupReferenceStatement;
         public readonly Outputs.WebACLSizeConstraintStatement? SizeConstraintStatement;
@@ -51,6 +52,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLRateBasedStatement? rateBasedStatement,
 
+            Outputs.WebACLRegexMatchStatement? regexMatchStatement,
+
             Outputs.WebACLRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
             Outputs.WebACLRuleGroupReferenceStatement? ruleGroupReferenceStatement,
@@ -70,6 +73,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             NotStatement = notStatement;
             OrStatement = orStatement;
             RateBasedStatement = rateBasedStatement;
+            RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             RuleGroupReferenceStatement = ruleGroupReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;

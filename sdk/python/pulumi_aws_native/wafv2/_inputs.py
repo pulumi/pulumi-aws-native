@@ -23,6 +23,7 @@ __all__ = [
     'RegexPatternSetTagArgs',
     'RuleGroupAndStatementArgs',
     'RuleGroupByteMatchStatementArgs',
+    'RuleGroupCaptchaConfigArgs',
     'RuleGroupCustomHTTPHeaderArgs',
     'RuleGroupCustomRequestHandlingArgs',
     'RuleGroupCustomResponseBodiesArgs',
@@ -34,6 +35,7 @@ __all__ = [
     'RuleGroupGeoMatchStatementArgs',
     'RuleGroupIPSetForwardedIPConfigurationArgs',
     'RuleGroupIPSetReferenceStatementArgs',
+    'RuleGroupImmunityTimePropertyArgs',
     'RuleGroupJsonBodyArgs',
     'RuleGroupJsonMatchPatternArgs',
     'RuleGroupLabelMatchStatementArgs',
@@ -41,9 +43,11 @@ __all__ = [
     'RuleGroupNotStatementArgs',
     'RuleGroupOrStatementArgs',
     'RuleGroupRateBasedStatementArgs',
+    'RuleGroupRegexMatchStatementArgs',
     'RuleGroupRegexPatternSetReferenceStatementArgs',
     'RuleGroupRuleActionAllowPropertiesArgs',
     'RuleGroupRuleActionBlockPropertiesArgs',
+    'RuleGroupRuleActionCaptchaPropertiesArgs',
     'RuleGroupRuleActionCountPropertiesArgs',
     'RuleGroupRuleActionArgs',
     'RuleGroupRuleArgs',
@@ -58,6 +62,8 @@ __all__ = [
     'WebACLAndStatementArgs',
     'WebACLBlockActionArgs',
     'WebACLByteMatchStatementArgs',
+    'WebACLCaptchaActionArgs',
+    'WebACLCaptchaConfigArgs',
     'WebACLCountActionArgs',
     'WebACLCustomHTTPHeaderArgs',
     'WebACLCustomRequestHandlingArgs',
@@ -72,6 +78,7 @@ __all__ = [
     'WebACLGeoMatchStatementArgs',
     'WebACLIPSetForwardedIPConfigurationArgs',
     'WebACLIPSetReferenceStatementArgs',
+    'WebACLImmunityTimePropertyArgs',
     'WebACLJsonBodyArgs',
     'WebACLJsonMatchPatternArgs',
     'WebACLLabelMatchStatementArgs',
@@ -81,6 +88,7 @@ __all__ = [
     'WebACLOrStatementArgs',
     'WebACLOverrideActionArgs',
     'WebACLRateBasedStatementArgs',
+    'WebACLRegexMatchStatementArgs',
     'WebACLRegexPatternSetReferenceStatementArgs',
     'WebACLRuleActionArgs',
     'WebACLRuleGroupReferenceStatementArgs',
@@ -614,6 +622,23 @@ class RuleGroupByteMatchStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupCaptchaConfigArgs:
+    def __init__(__self__, *,
+                 immunity_time_property: Optional[pulumi.Input['RuleGroupImmunityTimePropertyArgs']] = None):
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional[pulumi.Input['RuleGroupImmunityTimePropertyArgs']]:
+        return pulumi.get(self, "immunity_time_property")
+
+    @immunity_time_property.setter
+    def immunity_time_property(self, value: Optional[pulumi.Input['RuleGroupImmunityTimePropertyArgs']]):
+        pulumi.set(self, "immunity_time_property", value)
+
+
+@pulumi.input_type
 class RuleGroupCustomHTTPHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -1012,6 +1037,22 @@ class RuleGroupIPSetReferenceStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupImmunityTimePropertyArgs:
+    def __init__(__self__, *,
+                 immunity_time: pulumi.Input[int]):
+        pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "immunity_time")
+
+    @immunity_time.setter
+    def immunity_time(self, value: pulumi.Input[int]):
+        pulumi.set(self, "immunity_time", value)
+
+
+@pulumi.input_type
 class RuleGroupJsonBodyArgs:
     def __init__(__self__, *,
                  match_pattern: pulumi.Input['RuleGroupJsonMatchPatternArgs'],
@@ -1216,6 +1257,44 @@ class RuleGroupRateBasedStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupRegexMatchStatementArgs:
+    def __init__(__self__, *,
+                 field_to_match: pulumi.Input['RuleGroupFieldToMatchArgs'],
+                 regex_string: pulumi.Input[str],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "regex_string", regex_string)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="fieldToMatch")
+    def field_to_match(self) -> pulumi.Input['RuleGroupFieldToMatchArgs']:
+        return pulumi.get(self, "field_to_match")
+
+    @field_to_match.setter
+    def field_to_match(self, value: pulumi.Input['RuleGroupFieldToMatchArgs']):
+        pulumi.set(self, "field_to_match", value)
+
+    @property
+    @pulumi.getter(name="regexString")
+    def regex_string(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "regex_string")
+
+    @regex_string.setter
+    def regex_string(self, value: pulumi.Input[str]):
+        pulumi.set(self, "regex_string", value)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]:
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
 class RuleGroupRegexPatternSetReferenceStatementArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
@@ -1294,6 +1373,26 @@ class RuleGroupRuleActionBlockPropertiesArgs:
 
 
 @pulumi.input_type
+class RuleGroupRuleActionCaptchaPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
+        """
+        Checks valid token exists with request.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
 class RuleGroupRuleActionCountPropertiesArgs:
     def __init__(__self__, *,
                  custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
@@ -1318,17 +1417,21 @@ class RuleGroupRuleActionArgs:
     def __init__(__self__, *,
                  allow: Optional[pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs']] = None,
                  block: Optional[pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs']] = None,
+                 captcha: Optional[pulumi.Input['RuleGroupRuleActionCaptchaPropertiesArgs']] = None,
                  count: Optional[pulumi.Input['RuleGroupRuleActionCountPropertiesArgs']] = None):
         """
         Action taken when Rule matches its condition.
         :param pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs'] allow: Allow traffic towards application.
         :param pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs'] block: Block traffic towards application.
+        :param pulumi.Input['RuleGroupRuleActionCaptchaPropertiesArgs'] captcha: Checks valid token exists with request.
         :param pulumi.Input['RuleGroupRuleActionCountPropertiesArgs'] count: Count traffic towards application.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
         if block is not None:
             pulumi.set(__self__, "block", block)
+        if captcha is not None:
+            pulumi.set(__self__, "captcha", captcha)
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -1358,6 +1461,18 @@ class RuleGroupRuleActionArgs:
 
     @property
     @pulumi.getter
+    def captcha(self) -> Optional[pulumi.Input['RuleGroupRuleActionCaptchaPropertiesArgs']]:
+        """
+        Checks valid token exists with request.
+        """
+        return pulumi.get(self, "captcha")
+
+    @captcha.setter
+    def captcha(self, value: Optional[pulumi.Input['RuleGroupRuleActionCaptchaPropertiesArgs']]):
+        pulumi.set(self, "captcha", value)
+
+    @property
+    @pulumi.getter
     def count(self) -> Optional[pulumi.Input['RuleGroupRuleActionCountPropertiesArgs']]:
         """
         Count traffic towards application.
@@ -1377,6 +1492,7 @@ class RuleGroupRuleArgs:
                  statement: pulumi.Input['RuleGroupStatementArgs'],
                  visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
                  action: Optional[pulumi.Input['RuleGroupRuleActionArgs']] = None,
+                 captcha_config: Optional[pulumi.Input['RuleGroupCaptchaConfigArgs']] = None,
                  rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelArgs']]]] = None):
         """
         Rule of RuleGroup that contains condition and action.
@@ -1388,6 +1504,8 @@ class RuleGroupRuleArgs:
         pulumi.set(__self__, "visibility_config", visibility_config)
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if captcha_config is not None:
+            pulumi.set(__self__, "captcha_config", captcha_config)
         if rule_labels is not None:
             pulumi.set(__self__, "rule_labels", rule_labels)
 
@@ -1435,6 +1553,15 @@ class RuleGroupRuleArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input['RuleGroupRuleActionArgs']]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> Optional[pulumi.Input['RuleGroupCaptchaConfigArgs']]:
+        return pulumi.get(self, "captcha_config")
+
+    @captcha_config.setter
+    def captcha_config(self, value: Optional[pulumi.Input['RuleGroupCaptchaConfigArgs']]):
+        pulumi.set(self, "captcha_config", value)
 
     @property
     @pulumi.getter(name="ruleLabels")
@@ -1542,6 +1669,7 @@ class RuleGroupStatementArgs:
                  not_statement: Optional[pulumi.Input['RuleGroupNotStatementArgs']] = None,
                  or_statement: Optional[pulumi.Input['RuleGroupOrStatementArgs']] = None,
                  rate_based_statement: Optional[pulumi.Input['RuleGroupRateBasedStatementArgs']] = None,
+                 regex_match_statement: Optional[pulumi.Input['RuleGroupRegexMatchStatementArgs']] = None,
                  regex_pattern_set_reference_statement: Optional[pulumi.Input['RuleGroupRegexPatternSetReferenceStatementArgs']] = None,
                  size_constraint_statement: Optional[pulumi.Input['RuleGroupSizeConstraintStatementArgs']] = None,
                  sqli_match_statement: Optional[pulumi.Input['RuleGroupSqliMatchStatementArgs']] = None,
@@ -1565,6 +1693,8 @@ class RuleGroupStatementArgs:
             pulumi.set(__self__, "or_statement", or_statement)
         if rate_based_statement is not None:
             pulumi.set(__self__, "rate_based_statement", rate_based_statement)
+        if regex_match_statement is not None:
+            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
             pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if size_constraint_statement is not None:
@@ -1645,6 +1775,15 @@ class RuleGroupStatementArgs:
     @rate_based_statement.setter
     def rate_based_statement(self, value: Optional[pulumi.Input['RuleGroupRateBasedStatementArgs']]):
         pulumi.set(self, "rate_based_statement", value)
+
+    @property
+    @pulumi.getter(name="regexMatchStatement")
+    def regex_match_statement(self) -> Optional[pulumi.Input['RuleGroupRegexMatchStatementArgs']]:
+        return pulumi.get(self, "regex_match_statement")
+
+    @regex_match_statement.setter
+    def regex_match_statement(self, value: Optional[pulumi.Input['RuleGroupRegexMatchStatementArgs']]):
+        pulumi.set(self, "regex_match_statement", value)
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
@@ -1932,6 +2071,43 @@ class WebACLByteMatchStatementArgs:
     @search_string_base64.setter
     def search_string_base64(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "search_string_base64", value)
+
+
+@pulumi.input_type
+class WebACLCaptchaActionArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']] = None):
+        """
+        Checks valid token exists with request.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebACLCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
+class WebACLCaptchaConfigArgs:
+    def __init__(__self__, *,
+                 immunity_time_property: Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']] = None):
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']]:
+        return pulumi.get(self, "immunity_time_property")
+
+    @immunity_time_property.setter
+    def immunity_time_property(self, value: Optional[pulumi.Input['WebACLImmunityTimePropertyArgs']]):
+        pulumi.set(self, "immunity_time_property", value)
 
 
 @pulumi.input_type
@@ -2404,6 +2580,22 @@ class WebACLIPSetReferenceStatementArgs:
 
 
 @pulumi.input_type
+class WebACLImmunityTimePropertyArgs:
+    def __init__(__self__, *,
+                 immunity_time: pulumi.Input[int]):
+        pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "immunity_time")
+
+    @immunity_time.setter
+    def immunity_time(self, value: pulumi.Input[int]):
+        pulumi.set(self, "immunity_time", value)
+
+
+@pulumi.input_type
 class WebACLJsonBodyArgs:
     def __init__(__self__, *,
                  match_pattern: pulumi.Input['WebACLJsonMatchPatternArgs'],
@@ -2711,6 +2903,44 @@ class WebACLRateBasedStatementArgs:
 
 
 @pulumi.input_type
+class WebACLRegexMatchStatementArgs:
+    def __init__(__self__, *,
+                 field_to_match: pulumi.Input['WebACLFieldToMatchArgs'],
+                 regex_string: pulumi.Input[str],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "regex_string", regex_string)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="fieldToMatch")
+    def field_to_match(self) -> pulumi.Input['WebACLFieldToMatchArgs']:
+        return pulumi.get(self, "field_to_match")
+
+    @field_to_match.setter
+    def field_to_match(self, value: pulumi.Input['WebACLFieldToMatchArgs']):
+        pulumi.set(self, "field_to_match", value)
+
+    @property
+    @pulumi.getter(name="regexString")
+    def regex_string(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "regex_string")
+
+    @regex_string.setter
+    def regex_string(self, value: pulumi.Input[str]):
+        pulumi.set(self, "regex_string", value)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]:
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
 class WebACLRegexPatternSetReferenceStatementArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
@@ -2753,6 +2983,7 @@ class WebACLRuleActionArgs:
     def __init__(__self__, *,
                  allow: Optional[pulumi.Input['WebACLAllowActionArgs']] = None,
                  block: Optional[pulumi.Input['WebACLBlockActionArgs']] = None,
+                 captcha: Optional[pulumi.Input['WebACLCaptchaActionArgs']] = None,
                  count: Optional[pulumi.Input['WebACLCountActionArgs']] = None):
         """
         Action taken when Rule matches its condition.
@@ -2761,6 +2992,8 @@ class WebACLRuleActionArgs:
             pulumi.set(__self__, "allow", allow)
         if block is not None:
             pulumi.set(__self__, "block", block)
+        if captcha is not None:
+            pulumi.set(__self__, "captcha", captcha)
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -2781,6 +3014,15 @@ class WebACLRuleActionArgs:
     @block.setter
     def block(self, value: Optional[pulumi.Input['WebACLBlockActionArgs']]):
         pulumi.set(self, "block", value)
+
+    @property
+    @pulumi.getter
+    def captcha(self) -> Optional[pulumi.Input['WebACLCaptchaActionArgs']]:
+        return pulumi.get(self, "captcha")
+
+    @captcha.setter
+    def captcha(self, value: Optional[pulumi.Input['WebACLCaptchaActionArgs']]):
+        pulumi.set(self, "captcha", value)
 
     @property
     @pulumi.getter
@@ -2828,6 +3070,7 @@ class WebACLRuleArgs:
                  statement: pulumi.Input['WebACLStatementArgs'],
                  visibility_config: pulumi.Input['WebACLVisibilityConfigArgs'],
                  action: Optional[pulumi.Input['WebACLRuleActionArgs']] = None,
+                 captcha_config: Optional[pulumi.Input['WebACLCaptchaConfigArgs']] = None,
                  override_action: Optional[pulumi.Input['WebACLOverrideActionArgs']] = None,
                  rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLLabelArgs']]]] = None):
         """
@@ -2840,6 +3083,8 @@ class WebACLRuleArgs:
         pulumi.set(__self__, "visibility_config", visibility_config)
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if captcha_config is not None:
+            pulumi.set(__self__, "captcha_config", captcha_config)
         if override_action is not None:
             pulumi.set(__self__, "override_action", override_action)
         if rule_labels is not None:
@@ -2889,6 +3134,15 @@ class WebACLRuleArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input['WebACLRuleActionArgs']]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> Optional[pulumi.Input['WebACLCaptchaConfigArgs']]:
+        return pulumi.get(self, "captcha_config")
+
+    @captcha_config.setter
+    def captcha_config(self, value: Optional[pulumi.Input['WebACLCaptchaConfigArgs']]):
+        pulumi.set(self, "captcha_config", value)
 
     @property
     @pulumi.getter(name="overrideAction")
@@ -3006,6 +3260,7 @@ class WebACLStatementArgs:
                  not_statement: Optional[pulumi.Input['WebACLNotStatementArgs']] = None,
                  or_statement: Optional[pulumi.Input['WebACLOrStatementArgs']] = None,
                  rate_based_statement: Optional[pulumi.Input['WebACLRateBasedStatementArgs']] = None,
+                 regex_match_statement: Optional[pulumi.Input['WebACLRegexMatchStatementArgs']] = None,
                  regex_pattern_set_reference_statement: Optional[pulumi.Input['WebACLRegexPatternSetReferenceStatementArgs']] = None,
                  rule_group_reference_statement: Optional[pulumi.Input['WebACLRuleGroupReferenceStatementArgs']] = None,
                  size_constraint_statement: Optional[pulumi.Input['WebACLSizeConstraintStatementArgs']] = None,
@@ -3032,6 +3287,8 @@ class WebACLStatementArgs:
             pulumi.set(__self__, "or_statement", or_statement)
         if rate_based_statement is not None:
             pulumi.set(__self__, "rate_based_statement", rate_based_statement)
+        if regex_match_statement is not None:
+            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
             pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if rule_group_reference_statement is not None:
@@ -3123,6 +3380,15 @@ class WebACLStatementArgs:
     @rate_based_statement.setter
     def rate_based_statement(self, value: Optional[pulumi.Input['WebACLRateBasedStatementArgs']]):
         pulumi.set(self, "rate_based_statement", value)
+
+    @property
+    @pulumi.getter(name="regexMatchStatement")
+    def regex_match_statement(self) -> Optional[pulumi.Input['WebACLRegexMatchStatementArgs']]:
+        return pulumi.get(self, "regex_match_statement")
+
+    @regex_match_statement.setter
+    def regex_match_statement(self, value: Optional[pulumi.Input['WebACLRegexMatchStatementArgs']]):
+        pulumi.set(self, "regex_match_statement", value)
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")

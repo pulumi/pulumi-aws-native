@@ -24,6 +24,7 @@ __all__ = [
     'RegexPatternSetTag',
     'RuleGroupAndStatement',
     'RuleGroupByteMatchStatement',
+    'RuleGroupCaptchaConfig',
     'RuleGroupCustomHTTPHeader',
     'RuleGroupCustomRequestHandling',
     'RuleGroupCustomResponse',
@@ -35,6 +36,7 @@ __all__ = [
     'RuleGroupGeoMatchStatement',
     'RuleGroupIPSetForwardedIPConfiguration',
     'RuleGroupIPSetReferenceStatement',
+    'RuleGroupImmunityTimeProperty',
     'RuleGroupJsonBody',
     'RuleGroupJsonMatchPattern',
     'RuleGroupLabel',
@@ -43,11 +45,13 @@ __all__ = [
     'RuleGroupNotStatement',
     'RuleGroupOrStatement',
     'RuleGroupRateBasedStatement',
+    'RuleGroupRegexMatchStatement',
     'RuleGroupRegexPatternSetReferenceStatement',
     'RuleGroupRule',
     'RuleGroupRuleAction',
     'RuleGroupRuleActionAllowProperties',
     'RuleGroupRuleActionBlockProperties',
+    'RuleGroupRuleActionCaptchaProperties',
     'RuleGroupRuleActionCountProperties',
     'RuleGroupSizeConstraintStatement',
     'RuleGroupSqliMatchStatement',
@@ -60,6 +64,8 @@ __all__ = [
     'WebACLAndStatement',
     'WebACLBlockAction',
     'WebACLByteMatchStatement',
+    'WebACLCaptchaAction',
+    'WebACLCaptchaConfig',
     'WebACLCountAction',
     'WebACLCustomHTTPHeader',
     'WebACLCustomRequestHandling',
@@ -74,6 +80,7 @@ __all__ = [
     'WebACLGeoMatchStatement',
     'WebACLIPSetForwardedIPConfiguration',
     'WebACLIPSetReferenceStatement',
+    'WebACLImmunityTimeProperty',
     'WebACLJsonBody',
     'WebACLJsonMatchPattern',
     'WebACLLabel',
@@ -83,6 +90,7 @@ __all__ = [
     'WebACLOrStatement',
     'WebACLOverrideAction',
     'WebACLRateBasedStatement',
+    'WebACLRegexMatchStatement',
     'WebACLRegexPatternSetReferenceStatement',
     'WebACLRule',
     'WebACLRuleAction',
@@ -659,6 +667,36 @@ class RuleGroupByteMatchStatement(dict):
 
 
 @pulumi.output_type
+class RuleGroupCaptchaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTimeProperty":
+            suggest = "immunity_time_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCaptchaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCaptchaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCaptchaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None):
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional['outputs.RuleGroupImmunityTimeProperty']:
+        return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
 class RuleGroupCustomHTTPHeader(dict):
     """
     HTTP header.
@@ -1114,6 +1152,35 @@ class RuleGroupIPSetReferenceStatement(dict):
 
 
 @pulumi.output_type
+class RuleGroupImmunityTimeProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTime":
+            suggest = "immunity_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupImmunityTimeProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupImmunityTimeProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupImmunityTimeProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time: int):
+        pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> int:
+        return pulumi.get(self, "immunity_time")
+
+
+@pulumi.output_type
 class RuleGroupJsonBody(dict):
     """
     Inspect the request body as JSON. The request body immediately follows the request headers.
@@ -1340,6 +1407,53 @@ class RuleGroupRateBasedStatement(dict):
 
 
 @pulumi.output_type
+class RuleGroupRegexMatchStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "regexString":
+            suggest = "regex_string"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRegexMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRegexMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRegexMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_to_match: 'outputs.RuleGroupFieldToMatch',
+                 regex_string: str,
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "regex_string", regex_string)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="fieldToMatch")
+    def field_to_match(self) -> 'outputs.RuleGroupFieldToMatch':
+        return pulumi.get(self, "field_to_match")
+
+    @property
+    @pulumi.getter(name="regexString")
+    def regex_string(self) -> str:
+        return pulumi.get(self, "regex_string")
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
 class RuleGroupRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1394,6 +1508,8 @@ class RuleGroupRule(dict):
         suggest = None
         if key == "visibilityConfig":
             suggest = "visibility_config"
+        elif key == "captchaConfig":
+            suggest = "captcha_config"
         elif key == "ruleLabels":
             suggest = "rule_labels"
 
@@ -1414,6 +1530,7 @@ class RuleGroupRule(dict):
                  statement: 'outputs.RuleGroupStatement',
                  visibility_config: 'outputs.RuleGroupVisibilityConfig',
                  action: Optional['outputs.RuleGroupRuleAction'] = None,
+                 captcha_config: Optional['outputs.RuleGroupCaptchaConfig'] = None,
                  rule_labels: Optional[Sequence['outputs.RuleGroupLabel']] = None):
         """
         Rule of RuleGroup that contains condition and action.
@@ -1425,6 +1542,8 @@ class RuleGroupRule(dict):
         pulumi.set(__self__, "visibility_config", visibility_config)
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if captcha_config is not None:
+            pulumi.set(__self__, "captcha_config", captcha_config)
         if rule_labels is not None:
             pulumi.set(__self__, "rule_labels", rule_labels)
 
@@ -1454,6 +1573,11 @@ class RuleGroupRule(dict):
         return pulumi.get(self, "action")
 
     @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> Optional['outputs.RuleGroupCaptchaConfig']:
+        return pulumi.get(self, "captcha_config")
+
+    @property
     @pulumi.getter(name="ruleLabels")
     def rule_labels(self) -> Optional[Sequence['outputs.RuleGroupLabel']]:
         """
@@ -1470,17 +1594,21 @@ class RuleGroupRuleAction(dict):
     def __init__(__self__, *,
                  allow: Optional['outputs.RuleGroupRuleActionAllowProperties'] = None,
                  block: Optional['outputs.RuleGroupRuleActionBlockProperties'] = None,
+                 captcha: Optional['outputs.RuleGroupRuleActionCaptchaProperties'] = None,
                  count: Optional['outputs.RuleGroupRuleActionCountProperties'] = None):
         """
         Action taken when Rule matches its condition.
         :param 'RuleGroupRuleActionAllowProperties' allow: Allow traffic towards application.
         :param 'RuleGroupRuleActionBlockProperties' block: Block traffic towards application.
+        :param 'RuleGroupRuleActionCaptchaProperties' captcha: Checks valid token exists with request.
         :param 'RuleGroupRuleActionCountProperties' count: Count traffic towards application.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
         if block is not None:
             pulumi.set(__self__, "block", block)
+        if captcha is not None:
+            pulumi.set(__self__, "captcha", captcha)
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -1499,6 +1627,14 @@ class RuleGroupRuleAction(dict):
         Block traffic towards application.
         """
         return pulumi.get(self, "block")
+
+    @property
+    @pulumi.getter
+    def captcha(self) -> Optional['outputs.RuleGroupRuleActionCaptchaProperties']:
+        """
+        Checks valid token exists with request.
+        """
+        return pulumi.get(self, "captcha")
 
     @property
     @pulumi.getter
@@ -1579,6 +1715,42 @@ class RuleGroupRuleActionBlockProperties(dict):
     @pulumi.getter(name="customResponse")
     def custom_response(self) -> Optional['outputs.RuleGroupCustomResponse']:
         return pulumi.get(self, "custom_response")
+
+
+@pulumi.output_type
+class RuleGroupRuleActionCaptchaProperties(dict):
+    """
+    Checks valid token exists with request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionCaptchaProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleActionCaptchaProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleActionCaptchaProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
+        """
+        Checks valid token exists with request.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
@@ -1745,6 +1917,8 @@ class RuleGroupStatement(dict):
             suggest = "or_statement"
         elif key == "rateBasedStatement":
             suggest = "rate_based_statement"
+        elif key == "regexMatchStatement":
+            suggest = "regex_match_statement"
         elif key == "regexPatternSetReferenceStatement":
             suggest = "regex_pattern_set_reference_statement"
         elif key == "sizeConstraintStatement":
@@ -1774,6 +1948,7 @@ class RuleGroupStatement(dict):
                  not_statement: Optional['outputs.RuleGroupNotStatement'] = None,
                  or_statement: Optional['outputs.RuleGroupOrStatement'] = None,
                  rate_based_statement: Optional['outputs.RuleGroupRateBasedStatement'] = None,
+                 regex_match_statement: Optional['outputs.RuleGroupRegexMatchStatement'] = None,
                  regex_pattern_set_reference_statement: Optional['outputs.RuleGroupRegexPatternSetReferenceStatement'] = None,
                  size_constraint_statement: Optional['outputs.RuleGroupSizeConstraintStatement'] = None,
                  sqli_match_statement: Optional['outputs.RuleGroupSqliMatchStatement'] = None,
@@ -1797,6 +1972,8 @@ class RuleGroupStatement(dict):
             pulumi.set(__self__, "or_statement", or_statement)
         if rate_based_statement is not None:
             pulumi.set(__self__, "rate_based_statement", rate_based_statement)
+        if regex_match_statement is not None:
+            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
             pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if size_constraint_statement is not None:
@@ -1845,6 +2022,11 @@ class RuleGroupStatement(dict):
     @pulumi.getter(name="rateBasedStatement")
     def rate_based_statement(self) -> Optional['outputs.RuleGroupRateBasedStatement']:
         return pulumi.get(self, "rate_based_statement")
+
+    @property
+    @pulumi.getter(name="regexMatchStatement")
+    def regex_match_statement(self) -> Optional['outputs.RuleGroupRegexMatchStatement']:
+        return pulumi.get(self, "regex_match_statement")
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
@@ -2165,6 +2347,72 @@ class WebACLByteMatchStatement(dict):
     @pulumi.getter(name="searchStringBase64")
     def search_string_base64(self) -> Optional[str]:
         return pulumi.get(self, "search_string_base64")
+
+
+@pulumi.output_type
+class WebACLCaptchaAction(dict):
+    """
+    Checks valid token exists with request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLCaptchaAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLCaptchaAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLCaptchaAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.WebACLCustomRequestHandling'] = None):
+        """
+        Checks valid token exists with request.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.WebACLCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
+class WebACLCaptchaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTimeProperty":
+            suggest = "immunity_time_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLCaptchaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLCaptchaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLCaptchaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time_property: Optional['outputs.WebACLImmunityTimeProperty'] = None):
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional['outputs.WebACLImmunityTimeProperty']:
+        return pulumi.get(self, "immunity_time_property")
 
 
 @pulumi.output_type
@@ -2704,6 +2952,35 @@ class WebACLIPSetReferenceStatement(dict):
 
 
 @pulumi.output_type
+class WebACLImmunityTimeProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTime":
+            suggest = "immunity_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLImmunityTimeProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLImmunityTimeProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLImmunityTimeProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time: int):
+        pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> int:
+        return pulumi.get(self, "immunity_time")
+
+
+@pulumi.output_type
 class WebACLJsonBody(dict):
     """
     Inspect the request body as JSON. The request body immediately follows the request headers.
@@ -3016,6 +3293,53 @@ class WebACLRateBasedStatement(dict):
 
 
 @pulumi.output_type
+class WebACLRegexMatchStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "regexString":
+            suggest = "regex_string"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRegexMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRegexMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRegexMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_to_match: 'outputs.WebACLFieldToMatch',
+                 regex_string: str,
+                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "regex_string", regex_string)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="fieldToMatch")
+    def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
+        return pulumi.get(self, "field_to_match")
+
+    @property
+    @pulumi.getter(name="regexString")
+    def regex_string(self) -> str:
+        return pulumi.get(self, "regex_string")
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
 class WebACLRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3070,6 +3394,8 @@ class WebACLRule(dict):
         suggest = None
         if key == "visibilityConfig":
             suggest = "visibility_config"
+        elif key == "captchaConfig":
+            suggest = "captcha_config"
         elif key == "overrideAction":
             suggest = "override_action"
         elif key == "ruleLabels":
@@ -3092,6 +3418,7 @@ class WebACLRule(dict):
                  statement: 'outputs.WebACLStatement',
                  visibility_config: 'outputs.WebACLVisibilityConfig',
                  action: Optional['outputs.WebACLRuleAction'] = None,
+                 captcha_config: Optional['outputs.WebACLCaptchaConfig'] = None,
                  override_action: Optional['outputs.WebACLOverrideAction'] = None,
                  rule_labels: Optional[Sequence['outputs.WebACLLabel']] = None):
         """
@@ -3104,6 +3431,8 @@ class WebACLRule(dict):
         pulumi.set(__self__, "visibility_config", visibility_config)
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if captcha_config is not None:
+            pulumi.set(__self__, "captcha_config", captcha_config)
         if override_action is not None:
             pulumi.set(__self__, "override_action", override_action)
         if rule_labels is not None:
@@ -3135,6 +3464,11 @@ class WebACLRule(dict):
         return pulumi.get(self, "action")
 
     @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> Optional['outputs.WebACLCaptchaConfig']:
+        return pulumi.get(self, "captcha_config")
+
+    @property
     @pulumi.getter(name="overrideAction")
     def override_action(self) -> Optional['outputs.WebACLOverrideAction']:
         return pulumi.get(self, "override_action")
@@ -3156,6 +3490,7 @@ class WebACLRuleAction(dict):
     def __init__(__self__, *,
                  allow: Optional['outputs.WebACLAllowAction'] = None,
                  block: Optional['outputs.WebACLBlockAction'] = None,
+                 captcha: Optional['outputs.WebACLCaptchaAction'] = None,
                  count: Optional['outputs.WebACLCountAction'] = None):
         """
         Action taken when Rule matches its condition.
@@ -3164,6 +3499,8 @@ class WebACLRuleAction(dict):
             pulumi.set(__self__, "allow", allow)
         if block is not None:
             pulumi.set(__self__, "block", block)
+        if captcha is not None:
+            pulumi.set(__self__, "captcha", captcha)
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -3176,6 +3513,11 @@ class WebACLRuleAction(dict):
     @pulumi.getter
     def block(self) -> Optional['outputs.WebACLBlockAction']:
         return pulumi.get(self, "block")
+
+    @property
+    @pulumi.getter
+    def captcha(self) -> Optional['outputs.WebACLCaptchaAction']:
+        return pulumi.get(self, "captcha")
 
     @property
     @pulumi.getter
@@ -3350,6 +3692,8 @@ class WebACLStatement(dict):
             suggest = "or_statement"
         elif key == "rateBasedStatement":
             suggest = "rate_based_statement"
+        elif key == "regexMatchStatement":
+            suggest = "regex_match_statement"
         elif key == "regexPatternSetReferenceStatement":
             suggest = "regex_pattern_set_reference_statement"
         elif key == "ruleGroupReferenceStatement":
@@ -3382,6 +3726,7 @@ class WebACLStatement(dict):
                  not_statement: Optional['outputs.WebACLNotStatement'] = None,
                  or_statement: Optional['outputs.WebACLOrStatement'] = None,
                  rate_based_statement: Optional['outputs.WebACLRateBasedStatement'] = None,
+                 regex_match_statement: Optional['outputs.WebACLRegexMatchStatement'] = None,
                  regex_pattern_set_reference_statement: Optional['outputs.WebACLRegexPatternSetReferenceStatement'] = None,
                  rule_group_reference_statement: Optional['outputs.WebACLRuleGroupReferenceStatement'] = None,
                  size_constraint_statement: Optional['outputs.WebACLSizeConstraintStatement'] = None,
@@ -3408,6 +3753,8 @@ class WebACLStatement(dict):
             pulumi.set(__self__, "or_statement", or_statement)
         if rate_based_statement is not None:
             pulumi.set(__self__, "rate_based_statement", rate_based_statement)
+        if regex_match_statement is not None:
+            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
             pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if rule_group_reference_statement is not None:
@@ -3463,6 +3810,11 @@ class WebACLStatement(dict):
     @pulumi.getter(name="rateBasedStatement")
     def rate_based_statement(self) -> Optional['outputs.WebACLRateBasedStatement']:
         return pulumi.get(self, "rate_based_statement")
+
+    @property
+    @pulumi.getter(name="regexMatchStatement")
+    def regex_match_statement(self) -> Optional['outputs.WebACLRegexMatchStatement']:
+        return pulumi.get(self, "regex_match_statement")
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")

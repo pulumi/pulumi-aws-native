@@ -17,6 +17,7 @@ type WebACL struct {
 
 	Arn                  pulumi.StringOutput                 `pulumi:"arn"`
 	Capacity             pulumi.IntOutput                    `pulumi:"capacity"`
+	CaptchaConfig        WebACLCaptchaConfigPtrOutput        `pulumi:"captchaConfig"`
 	CustomResponseBodies WebACLCustomResponseBodiesPtrOutput `pulumi:"customResponseBodies"`
 	DefaultAction        WebACLDefaultActionOutput           `pulumi:"defaultAction"`
 	Description          pulumi.StringPtrOutput              `pulumi:"description"`
@@ -77,6 +78,7 @@ func (WebACLState) ElementType() reflect.Type {
 }
 
 type webACLArgs struct {
+	CaptchaConfig        *WebACLCaptchaConfig        `pulumi:"captchaConfig"`
 	CustomResponseBodies *WebACLCustomResponseBodies `pulumi:"customResponseBodies"`
 	DefaultAction        WebACLDefaultAction         `pulumi:"defaultAction"`
 	Description          *string                     `pulumi:"description"`
@@ -90,6 +92,7 @@ type webACLArgs struct {
 
 // The set of arguments for constructing a WebACL resource.
 type WebACLArgs struct {
+	CaptchaConfig        WebACLCaptchaConfigPtrInput
 	CustomResponseBodies WebACLCustomResponseBodiesPtrInput
 	DefaultAction        WebACLDefaultActionInput
 	Description          pulumi.StringPtrInput

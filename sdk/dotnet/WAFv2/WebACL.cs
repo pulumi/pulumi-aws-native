@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.WAFv2
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 
+        [Output("captchaConfig")]
+        public Output<Outputs.WebACLCaptchaConfig?> CaptchaConfig { get; private set; } = null!;
+
         [Output("customResponseBodies")]
         public Output<Outputs.WebACLCustomResponseBodies?> CustomResponseBodies { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class WebACLArgs : Pulumi.ResourceArgs
     {
+        [Input("captchaConfig")]
+        public Input<Inputs.WebACLCaptchaConfigArgs>? CaptchaConfig { get; set; }
+
         [Input("customResponseBodies")]
         public Input<Inputs.WebACLCustomResponseBodiesArgs>? CustomResponseBodies { get; set; }
 

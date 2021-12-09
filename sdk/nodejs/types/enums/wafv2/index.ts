@@ -26,6 +26,8 @@ export const LoggingConfigurationConditionActionConditionPropertiesAction = {
     Allow: "ALLOW",
     Block: "BLOCK",
     Count: "COUNT",
+    Captcha: "CAPTCHA",
+    ExcludedAsCount: "EXCLUDED_AS_COUNT",
 } as const;
 
 /**

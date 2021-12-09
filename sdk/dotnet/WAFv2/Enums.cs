@@ -85,6 +85,8 @@ namespace Pulumi.AwsNative.WAFv2
         public static LoggingConfigurationConditionActionConditionPropertiesAction Allow { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("ALLOW");
         public static LoggingConfigurationConditionActionConditionPropertiesAction Block { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("BLOCK");
         public static LoggingConfigurationConditionActionConditionPropertiesAction Count { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("COUNT");
+        public static LoggingConfigurationConditionActionConditionPropertiesAction Captcha { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("CAPTCHA");
+        public static LoggingConfigurationConditionActionConditionPropertiesAction ExcludedAsCount { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("EXCLUDED_AS_COUNT");
 
         public static bool operator ==(LoggingConfigurationConditionActionConditionPropertiesAction left, LoggingConfigurationConditionActionConditionPropertiesAction right) => left.Equals(right);
         public static bool operator !=(LoggingConfigurationConditionActionConditionPropertiesAction left, LoggingConfigurationConditionActionConditionPropertiesAction right) => !left.Equals(right);

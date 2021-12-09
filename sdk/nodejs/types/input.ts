@@ -28092,6 +28092,10 @@ export namespace wafv2 {
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
     }
 
+    export interface RuleGroupCaptchaConfigArgs {
+        immunityTimeProperty?: pulumi.Input<inputs.wafv2.RuleGroupImmunityTimePropertyArgs>;
+    }
+
     /**
      * HTTP header.
      */
@@ -28195,6 +28199,10 @@ export namespace wafv2 {
         iPSetForwardedIPConfig?: pulumi.Input<inputs.wafv2.RuleGroupIPSetForwardedIPConfigurationArgs>;
     }
 
+    export interface RuleGroupImmunityTimePropertyArgs {
+        immunityTime: pulumi.Input<number>;
+    }
+
     /**
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
@@ -28239,6 +28247,12 @@ export namespace wafv2 {
         scopeDownStatement?: pulumi.Input<inputs.wafv2.RuleGroupStatementArgs>;
     }
 
+    export interface RuleGroupRegexMatchStatementArgs {
+        fieldToMatch: pulumi.Input<inputs.wafv2.RuleGroupFieldToMatchArgs>;
+        regexString: pulumi.Input<string>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
+    }
+
     export interface RuleGroupRegexPatternSetReferenceStatementArgs {
         arn: pulumi.Input<string>;
         fieldToMatch: pulumi.Input<inputs.wafv2.RuleGroupFieldToMatchArgs>;
@@ -28250,6 +28264,7 @@ export namespace wafv2 {
      */
     export interface RuleGroupRuleArgs {
         action?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionArgs>;
+        captchaConfig?: pulumi.Input<inputs.wafv2.RuleGroupCaptchaConfigArgs>;
         name: pulumi.Input<string>;
         priority: pulumi.Input<number>;
         /**
@@ -28273,6 +28288,10 @@ export namespace wafv2 {
          */
         block?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockPropertiesArgs>;
         /**
+         * Checks valid token exists with request.
+         */
+        captcha?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCaptchaPropertiesArgs>;
+        /**
          * Count traffic towards application.
          */
         count?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountPropertiesArgs>;
@@ -28290,6 +28309,13 @@ export namespace wafv2 {
      */
     export interface RuleGroupRuleActionBlockPropertiesArgs {
         customResponse?: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseArgs>;
+    }
+
+    /**
+     * Checks valid token exists with request.
+     */
+    export interface RuleGroupRuleActionCaptchaPropertiesArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
     }
 
     /**
@@ -28329,6 +28355,7 @@ export namespace wafv2 {
         notStatement?: pulumi.Input<inputs.wafv2.RuleGroupNotStatementArgs>;
         orStatement?: pulumi.Input<inputs.wafv2.RuleGroupOrStatementArgs>;
         rateBasedStatement?: pulumi.Input<inputs.wafv2.RuleGroupRateBasedStatementArgs>;
+        regexMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRegexMatchStatementArgs>;
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRegexPatternSetReferenceStatementArgs>;
         sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupSizeConstraintStatementArgs>;
         sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupSqliMatchStatementArgs>;
@@ -28392,6 +28419,17 @@ export namespace wafv2 {
         searchString?: pulumi.Input<string>;
         searchStringBase64?: pulumi.Input<string>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Checks valid token exists with request.
+     */
+    export interface WebACLCaptchaActionArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebACLCustomRequestHandlingArgs>;
+    }
+
+    export interface WebACLCaptchaConfigArgs {
+        immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebACLImmunityTimePropertyArgs>;
     }
 
     /**
@@ -28519,6 +28557,10 @@ export namespace wafv2 {
         iPSetForwardedIPConfig?: pulumi.Input<inputs.wafv2.WebACLIPSetForwardedIPConfigurationArgs>;
     }
 
+    export interface WebACLImmunityTimePropertyArgs {
+        immunityTime: pulumi.Input<number>;
+    }
+
     /**
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
@@ -28585,6 +28627,12 @@ export namespace wafv2 {
         scopeDownStatement?: pulumi.Input<inputs.wafv2.WebACLStatementArgs>;
     }
 
+    export interface WebACLRegexMatchStatementArgs {
+        fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
+        regexString: pulumi.Input<string>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
+    }
+
     export interface WebACLRegexPatternSetReferenceStatementArgs {
         arn: pulumi.Input<string>;
         fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
@@ -28596,6 +28644,7 @@ export namespace wafv2 {
      */
     export interface WebACLRuleArgs {
         action?: pulumi.Input<inputs.wafv2.WebACLRuleActionArgs>;
+        captchaConfig?: pulumi.Input<inputs.wafv2.WebACLCaptchaConfigArgs>;
         name: pulumi.Input<string>;
         overrideAction?: pulumi.Input<inputs.wafv2.WebACLOverrideActionArgs>;
         priority: pulumi.Input<number>;
@@ -28613,6 +28662,7 @@ export namespace wafv2 {
     export interface WebACLRuleActionArgs {
         allow?: pulumi.Input<inputs.wafv2.WebACLAllowActionArgs>;
         block?: pulumi.Input<inputs.wafv2.WebACLBlockActionArgs>;
+        captcha?: pulumi.Input<inputs.wafv2.WebACLCaptchaActionArgs>;
         count?: pulumi.Input<inputs.wafv2.WebACLCountActionArgs>;
     }
 
@@ -28652,6 +28702,7 @@ export namespace wafv2 {
         notStatement?: pulumi.Input<inputs.wafv2.WebACLNotStatementArgs>;
         orStatement?: pulumi.Input<inputs.wafv2.WebACLOrStatementArgs>;
         rateBasedStatement?: pulumi.Input<inputs.wafv2.WebACLRateBasedStatementArgs>;
+        regexMatchStatement?: pulumi.Input<inputs.wafv2.WebACLRegexMatchStatementArgs>;
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebACLRegexPatternSetReferenceStatementArgs>;
         ruleGroupReferenceStatement?: pulumi.Input<inputs.wafv2.WebACLRuleGroupReferenceStatementArgs>;
         sizeConstraintStatement?: pulumi.Input<inputs.wafv2.WebACLSizeConstraintStatementArgs>;
@@ -28688,7 +28739,6 @@ export namespace wafv2 {
         fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
     }
-
 }
 
 export namespace wisdom {

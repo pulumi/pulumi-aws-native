@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class RuleGroupRule
     {
         public readonly Outputs.RuleGroupRuleAction? Action;
+        public readonly Outputs.RuleGroupCaptchaConfig? CaptchaConfig;
         public readonly string Name;
         public readonly int Priority;
         /// <summary>
@@ -30,6 +31,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         private RuleGroupRule(
             Outputs.RuleGroupRuleAction? action,
 
+            Outputs.RuleGroupCaptchaConfig? captchaConfig,
+
             string name,
 
             int priority,
@@ -41,6 +44,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             Outputs.RuleGroupVisibilityConfig visibilityConfig)
         {
             Action = action;
+            CaptchaConfig = captchaConfig;
             Name = name;
             Priority = priority;
             RuleLabels = ruleLabels;

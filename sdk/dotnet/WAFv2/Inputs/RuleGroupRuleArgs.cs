@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("action")]
         public Input<Inputs.RuleGroupRuleActionArgs>? Action { get; set; }
 
+        [Input("captchaConfig")]
+        public Input<Inputs.RuleGroupCaptchaConfigArgs>? CaptchaConfig { get; set; }
+
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

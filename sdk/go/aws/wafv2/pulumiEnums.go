@@ -344,9 +344,11 @@ func (in *ipsetScopePtr) ToIPSetScopePtrOutputWithContext(ctx context.Context) I
 type LoggingConfigurationConditionActionConditionPropertiesAction string
 
 const (
-	LoggingConfigurationConditionActionConditionPropertiesActionAllow = LoggingConfigurationConditionActionConditionPropertiesAction("ALLOW")
-	LoggingConfigurationConditionActionConditionPropertiesActionBlock = LoggingConfigurationConditionActionConditionPropertiesAction("BLOCK")
-	LoggingConfigurationConditionActionConditionPropertiesActionCount = LoggingConfigurationConditionActionConditionPropertiesAction("COUNT")
+	LoggingConfigurationConditionActionConditionPropertiesActionAllow           = LoggingConfigurationConditionActionConditionPropertiesAction("ALLOW")
+	LoggingConfigurationConditionActionConditionPropertiesActionBlock           = LoggingConfigurationConditionActionConditionPropertiesAction("BLOCK")
+	LoggingConfigurationConditionActionConditionPropertiesActionCount           = LoggingConfigurationConditionActionConditionPropertiesAction("COUNT")
+	LoggingConfigurationConditionActionConditionPropertiesActionCaptcha         = LoggingConfigurationConditionActionConditionPropertiesAction("CAPTCHA")
+	LoggingConfigurationConditionActionConditionPropertiesActionExcludedAsCount = LoggingConfigurationConditionActionConditionPropertiesAction("EXCLUDED_AS_COUNT")
 )
 
 func (LoggingConfigurationConditionActionConditionPropertiesAction) ElementType() reflect.Type {

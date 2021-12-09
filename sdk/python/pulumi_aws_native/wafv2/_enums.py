@@ -62,6 +62,8 @@ class LoggingConfigurationConditionActionConditionPropertiesAction(str, Enum):
     ALLOW = "ALLOW"
     BLOCK = "BLOCK"
     COUNT = "COUNT"
+    CAPTCHA = "CAPTCHA"
+    EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
 
 
 class LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior(str, Enum):

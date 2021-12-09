@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("rateBasedStatement")]
         public Input<Inputs.RuleGroupRateBasedStatementArgs>? RateBasedStatement { get; set; }
 
+        [Input("regexMatchStatement")]
+        public Input<Inputs.RuleGroupRegexMatchStatementArgs>? RegexMatchStatement { get; set; }
+
         [Input("regexPatternSetReferenceStatement")]
         public Input<Inputs.RuleGroupRegexPatternSetReferenceStatementArgs>? RegexPatternSetReferenceStatement { get; set; }
 

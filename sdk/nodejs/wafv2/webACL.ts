@@ -37,6 +37,7 @@ export class WebACL extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly capacity!: pulumi.Output<number>;
+    public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebACLCaptchaConfig | undefined>;
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebACLCustomResponseBodies | undefined>;
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebACLDefaultAction>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -70,6 +71,7 @@ export class WebACL extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            inputs["captchaConfig"] = args ? args.captchaConfig : undefined;
             inputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -84,6 +86,7 @@ export class WebACL extends pulumi.CustomResource {
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["capacity"] = undefined /*out*/;
+            inputs["captchaConfig"] = undefined /*out*/;
             inputs["customResponseBodies"] = undefined /*out*/;
             inputs["defaultAction"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -105,6 +108,7 @@ export class WebACL extends pulumi.CustomResource {
  * The set of arguments for constructing a WebACL resource.
  */
 export interface WebACLArgs {
+    captchaConfig?: pulumi.Input<inputs.wafv2.WebACLCaptchaConfigArgs>;
     customResponseBodies?: pulumi.Input<inputs.wafv2.WebACLCustomResponseBodiesArgs>;
     defaultAction: pulumi.Input<inputs.wafv2.WebACLDefaultActionArgs>;
     description?: pulumi.Input<string>;

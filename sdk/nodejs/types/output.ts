@@ -28950,6 +28950,10 @@ export namespace wafv2 {
         textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
     }
 
+    export interface RuleGroupCaptchaConfig {
+        immunityTimeProperty?: outputs.wafv2.RuleGroupImmunityTimeProperty;
+    }
+
     /**
      * HTTP header.
      */
@@ -29053,6 +29057,10 @@ export namespace wafv2 {
         iPSetForwardedIPConfig?: outputs.wafv2.RuleGroupIPSetForwardedIPConfiguration;
     }
 
+    export interface RuleGroupImmunityTimeProperty {
+        immunityTime: number;
+    }
+
     /**
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
@@ -29101,6 +29109,12 @@ export namespace wafv2 {
         scopeDownStatement?: outputs.wafv2.RuleGroupStatement;
     }
 
+    export interface RuleGroupRegexMatchStatement {
+        fieldToMatch: outputs.wafv2.RuleGroupFieldToMatch;
+        regexString: string;
+        textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
+    }
+
     export interface RuleGroupRegexPatternSetReferenceStatement {
         arn: string;
         fieldToMatch: outputs.wafv2.RuleGroupFieldToMatch;
@@ -29112,6 +29126,7 @@ export namespace wafv2 {
      */
     export interface RuleGroupRule {
         action?: outputs.wafv2.RuleGroupRuleAction;
+        captchaConfig?: outputs.wafv2.RuleGroupCaptchaConfig;
         name: string;
         priority: number;
         /**
@@ -29135,6 +29150,10 @@ export namespace wafv2 {
          */
         block?: outputs.wafv2.RuleGroupRuleActionBlockProperties;
         /**
+         * Checks valid token exists with request.
+         */
+        captcha?: outputs.wafv2.RuleGroupRuleActionCaptchaProperties;
+        /**
          * Count traffic towards application.
          */
         count?: outputs.wafv2.RuleGroupRuleActionCountProperties;
@@ -29152,6 +29171,13 @@ export namespace wafv2 {
      */
     export interface RuleGroupRuleActionBlockProperties {
         customResponse?: outputs.wafv2.RuleGroupCustomResponse;
+    }
+
+    /**
+     * Checks valid token exists with request.
+     */
+    export interface RuleGroupRuleActionCaptchaProperties {
+        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
     }
 
     /**
@@ -29191,6 +29217,7 @@ export namespace wafv2 {
         notStatement?: outputs.wafv2.RuleGroupNotStatement;
         orStatement?: outputs.wafv2.RuleGroupOrStatement;
         rateBasedStatement?: outputs.wafv2.RuleGroupRateBasedStatement;
+        regexMatchStatement?: outputs.wafv2.RuleGroupRegexMatchStatement;
         regexPatternSetReferenceStatement?: outputs.wafv2.RuleGroupRegexPatternSetReferenceStatement;
         sizeConstraintStatement?: outputs.wafv2.RuleGroupSizeConstraintStatement;
         sqliMatchStatement?: outputs.wafv2.RuleGroupSqliMatchStatement;
@@ -29254,6 +29281,17 @@ export namespace wafv2 {
         searchString?: string;
         searchStringBase64?: string;
         textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    }
+
+    /**
+     * Checks valid token exists with request.
+     */
+    export interface WebACLCaptchaAction {
+        customRequestHandling?: outputs.wafv2.WebACLCustomRequestHandling;
+    }
+
+    export interface WebACLCaptchaConfig {
+        immunityTimeProperty?: outputs.wafv2.WebACLImmunityTimeProperty;
     }
 
     /**
@@ -29381,6 +29419,10 @@ export namespace wafv2 {
         iPSetForwardedIPConfig?: outputs.wafv2.WebACLIPSetForwardedIPConfiguration;
     }
 
+    export interface WebACLImmunityTimeProperty {
+        immunityTime: number;
+    }
+
     /**
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
@@ -29447,6 +29489,12 @@ export namespace wafv2 {
         scopeDownStatement?: outputs.wafv2.WebACLStatement;
     }
 
+    export interface WebACLRegexMatchStatement {
+        fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
+        regexString: string;
+        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    }
+
     export interface WebACLRegexPatternSetReferenceStatement {
         arn: string;
         fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
@@ -29458,6 +29506,7 @@ export namespace wafv2 {
      */
     export interface WebACLRule {
         action?: outputs.wafv2.WebACLRuleAction;
+        captchaConfig?: outputs.wafv2.WebACLCaptchaConfig;
         name: string;
         overrideAction?: outputs.wafv2.WebACLOverrideAction;
         priority: number;
@@ -29475,6 +29524,7 @@ export namespace wafv2 {
     export interface WebACLRuleAction {
         allow?: outputs.wafv2.WebACLAllowAction;
         block?: outputs.wafv2.WebACLBlockAction;
+        captcha?: outputs.wafv2.WebACLCaptchaAction;
         count?: outputs.wafv2.WebACLCountAction;
     }
 
@@ -29514,6 +29564,7 @@ export namespace wafv2 {
         notStatement?: outputs.wafv2.WebACLNotStatement;
         orStatement?: outputs.wafv2.WebACLOrStatement;
         rateBasedStatement?: outputs.wafv2.WebACLRateBasedStatement;
+        regexMatchStatement?: outputs.wafv2.WebACLRegexMatchStatement;
         regexPatternSetReferenceStatement?: outputs.wafv2.WebACLRegexPatternSetReferenceStatement;
         ruleGroupReferenceStatement?: outputs.wafv2.WebACLRuleGroupReferenceStatement;
         sizeConstraintStatement?: outputs.wafv2.WebACLSizeConstraintStatement;
@@ -29550,6 +29601,7 @@ export namespace wafv2 {
         fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
         textTransformations: outputs.wafv2.WebACLTextTransformation[];
     }
+
 }
 
 export namespace wisdom {

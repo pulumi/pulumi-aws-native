@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("rateBasedStatement")]
         public Input<Inputs.WebACLRateBasedStatementArgs>? RateBasedStatement { get; set; }
 
+        [Input("regexMatchStatement")]
+        public Input<Inputs.WebACLRegexMatchStatementArgs>? RegexMatchStatement { get; set; }
+
         [Input("regexPatternSetReferenceStatement")]
         public Input<Inputs.WebACLRegexPatternSetReferenceStatementArgs>? RegexPatternSetReferenceStatement { get; set; }
 

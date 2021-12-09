@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public Input<Inputs.RuleGroupRuleActionBlockPropertiesArgs>? Block { get; set; }
 
         /// <summary>
+        /// Checks valid token exists with request.
+        /// </summary>
+        [Input("captcha")]
+        public Input<Inputs.RuleGroupRuleActionCaptchaPropertiesArgs>? Captcha { get; set; }
+
+        /// <summary>
         /// Count traffic towards application.
         /// </summary>
         [Input("count")]

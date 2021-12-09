@@ -18,7 +18,7 @@
       "permissions" : [ "ses:CreateConfigurationSet" ]
     },
     "read" : {
-      "permissions" : [ "ses:DescribeConfigurationSet" ]
+      "permissions" : [ "ses:GetConfigurationSet", "ses:DescribeConfigurationSet" ]
     },
     "delete" : {
       "permissions" : [ "ses:DeleteConfigurationSet" ]

@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionBlockProperties? Block;
         /// <summary>
+        /// Checks valid token exists with request.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleActionCaptchaProperties? Captcha;
+        /// <summary>
         /// Count traffic towards application.
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionCountProperties? Count;
@@ -35,10 +39,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.RuleGroupRuleActionBlockProperties? block,
 
+            Outputs.RuleGroupRuleActionCaptchaProperties? captcha,
+
             Outputs.RuleGroupRuleActionCountProperties? count)
         {
             Allow = allow;
             Block = block;
+            Captcha = captcha;
             Count = count;
         }
     }

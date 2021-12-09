@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly Outputs.RuleGroupNotStatement? NotStatement;
         public readonly Outputs.RuleGroupOrStatement? OrStatement;
         public readonly Outputs.RuleGroupRateBasedStatement? RateBasedStatement;
+        public readonly Outputs.RuleGroupRegexMatchStatement? RegexMatchStatement;
         public readonly Outputs.RuleGroupRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
         public readonly Outputs.RuleGroupSizeConstraintStatement? SizeConstraintStatement;
         public readonly Outputs.RuleGroupSqliMatchStatement? SqliMatchStatement;
@@ -47,6 +48,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.RuleGroupRateBasedStatement? rateBasedStatement,
 
+            Outputs.RuleGroupRegexMatchStatement? regexMatchStatement,
+
             Outputs.RuleGroupRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
             Outputs.RuleGroupSizeConstraintStatement? sizeConstraintStatement,
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             NotStatement = notStatement;
             OrStatement = orStatement;
             RateBasedStatement = rateBasedStatement;
+            RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;
             SqliMatchStatement = sqliMatchStatement;

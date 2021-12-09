@@ -19,6 +19,7 @@ class WebACLArgs:
                  default_action: pulumi.Input['WebACLDefaultActionArgs'],
                  scope: pulumi.Input['WebACLScope'],
                  visibility_config: pulumi.Input['WebACLVisibilityConfigArgs'],
+                 captcha_config: Optional[pulumi.Input['WebACLCaptchaConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input['WebACLCustomResponseBodiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,8 @@ class WebACLArgs:
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if captcha_config is not None:
+            pulumi.set(__self__, "captcha_config", captcha_config)
         if custom_response_bodies is not None:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
@@ -68,6 +71,15 @@ class WebACLArgs:
     @visibility_config.setter
     def visibility_config(self, value: pulumi.Input['WebACLVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
+
+    @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> Optional[pulumi.Input['WebACLCaptchaConfigArgs']]:
+        return pulumi.get(self, "captcha_config")
+
+    @captcha_config.setter
+    def captcha_config(self, value: Optional[pulumi.Input['WebACLCaptchaConfigArgs']]):
+        pulumi.set(self, "captcha_config", value)
 
     @property
     @pulumi.getter(name="customResponseBodies")
@@ -123,6 +135,7 @@ class WebACL(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 captcha_config: Optional[pulumi.Input[pulumi.InputType['WebACLCaptchaConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebACLCustomResponseBodiesArgs']]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -163,6 +176,7 @@ class WebACL(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 captcha_config: Optional[pulumi.Input[pulumi.InputType['WebACLCaptchaConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebACLCustomResponseBodiesArgs']]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -183,6 +197,7 @@ class WebACL(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebACLArgs.__new__(WebACLArgs)
 
+            __props__.__dict__["captcha_config"] = captcha_config
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
@@ -224,6 +239,7 @@ class WebACL(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["capacity"] = None
+        __props__.__dict__["captcha_config"] = None
         __props__.__dict__["custom_response_bodies"] = None
         __props__.__dict__["default_action"] = None
         __props__.__dict__["description"] = None
@@ -244,6 +260,11 @@ class WebACL(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
         return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> pulumi.Output[Optional['outputs.WebACLCaptchaConfig']]:
+        return pulumi.get(self, "captcha_config")
 
     @property
     @pulumi.getter(name="customResponseBodies")
