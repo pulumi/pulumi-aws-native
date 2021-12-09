@@ -157,13 +157,14 @@
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Name" ],
   "createOnlyProperties" : [ "/properties/StateMachineName" ],
+  "writeOnlyProperties" : [ "/properties/Definition", "/properties/DefinitionS3Location", "/properties/DefinitionSubstitutions" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "states:CreateStateMachine", "iam:PassRole", "s3:GetObject" ]
     },
     "read" : {
-      "permissions" : [ "states:DescribeStateMachine" ]
+      "permissions" : [ "states:DescribeStateMachine", "states:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "states:UpdateStateMachine", "states:TagResource", "states:UntagResource", "states:ListTagsForResource", "iam:PassRole" ]

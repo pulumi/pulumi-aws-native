@@ -40,7 +40,7 @@
             "Action" : {
               "description" : "Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.",
               "type" : "string",
-              "enum" : [ "ALLOW", "BLOCK", "COUNT" ]
+              "enum" : [ "ALLOW", "BLOCK", "COUNT", "CAPTCHA", "EXCLUDED_AS_COUNT" ]
             }
           },
           "required" : [ "Action" ]

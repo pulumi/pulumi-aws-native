@@ -33602,6 +33602,9 @@
         "aws-native:wafv2:WebACL": {
             "cf": "AWS::WAFv2::WebACL",
             "inputs": {
+                "captchaConfig": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLCaptchaConfig"
+                },
                 "customResponseBodies": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCustomResponseBodies"
                 },
@@ -33640,6 +33643,9 @@
                 },
                 "capacity": {
                     "type": "integer"
+                },
+                "captchaConfig": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLCaptchaConfig"
                 },
                 "customResponseBodies": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCustomResponseBodies"
@@ -64470,6 +64476,14 @@
                 }
             }
         },
+        "aws-native:wafv2:RuleGroupCaptchaConfig": {
+            "type": "object",
+            "properties": {
+                "immunityTimeProperty": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupImmunityTimeProperty"
+                }
+            }
+        },
         "aws-native:wafv2:RuleGroupCustomHTTPHeader": {
             "type": "object",
             "properties": {
@@ -64625,6 +64639,14 @@
                 }
             }
         },
+        "aws-native:wafv2:RuleGroupImmunityTimeProperty": {
+            "type": "object",
+            "properties": {
+                "immunityTime": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:wafv2:RuleGroupJsonBody": {
             "type": "object",
             "properties": {
@@ -64729,6 +64751,23 @@
         "aws-native:wafv2:RuleGroupRateBasedStatementAggregateKeyType": {
             "type": "string"
         },
+        "aws-native:wafv2:RuleGroupRegexMatchStatement": {
+            "type": "object",
+            "properties": {
+                "fieldToMatch": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupFieldToMatch"
+                },
+                "regexString": {
+                    "type": "string"
+                },
+                "textTransformations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:RuleGroupTextTransformation"
+                    }
+                }
+            }
+        },
         "aws-native:wafv2:RuleGroupRegexPatternSetReferenceStatement": {
             "type": "object",
             "properties": {
@@ -64751,6 +64790,9 @@
             "properties": {
                 "action": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupRuleAction"
+                },
+                "captchaConfig": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCaptchaConfig"
                 },
                 "name": {
                     "type": "string"
@@ -64784,6 +64826,10 @@
                     "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionBlockProperties",
                     "description": "Block traffic towards application."
                 },
+                "captcha": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionCaptchaProperties",
+                    "description": "Checks valid token exists with request."
+                },
                 "count": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionCountProperties",
                     "description": "Count traffic towards application."
@@ -64803,6 +64849,14 @@
             "properties": {
                 "customResponse": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupCustomResponse"
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupRuleActionCaptchaProperties": {
+            "type": "object",
+            "properties": {
+                "customRequestHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCustomRequestHandling"
                 }
             }
         },
@@ -64880,6 +64934,9 @@
                 },
                 "rateBasedStatement": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupRateBasedStatement"
+                },
+                "regexMatchStatement": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRegexMatchStatement"
                 },
                 "regexPatternSetReferenceStatement": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupRegexPatternSetReferenceStatement"
@@ -64998,6 +65055,22 @@
                     "items": {
                         "$ref": "#/types/aws-native:wafv2:WebACLTextTransformation"
                     }
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLCaptchaAction": {
+            "type": "object",
+            "properties": {
+                "customRequestHandling": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLCustomRequestHandling"
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLCaptchaConfig": {
+            "type": "object",
+            "properties": {
+                "immunityTimeProperty": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLImmunityTimeProperty"
                 }
             }
         },
@@ -65183,6 +65256,14 @@
                 }
             }
         },
+        "aws-native:wafv2:WebACLImmunityTimeProperty": {
+            "type": "object",
+            "properties": {
+                "immunityTime": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:wafv2:WebACLJsonBody": {
             "type": "object",
             "properties": {
@@ -65315,6 +65396,23 @@
         "aws-native:wafv2:WebACLRateBasedStatementAggregateKeyType": {
             "type": "string"
         },
+        "aws-native:wafv2:WebACLRegexMatchStatement": {
+            "type": "object",
+            "properties": {
+                "fieldToMatch": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLFieldToMatch"
+                },
+                "regexString": {
+                    "type": "string"
+                },
+                "textTransformations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:WebACLTextTransformation"
+                    }
+                }
+            }
+        },
         "aws-native:wafv2:WebACLRegexPatternSetReferenceStatement": {
             "type": "object",
             "properties": {
@@ -65337,6 +65435,9 @@
             "properties": {
                 "action": {
                     "$ref": "#/types/aws-native:wafv2:WebACLRuleAction"
+                },
+                "captchaConfig": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLCaptchaConfig"
                 },
                 "name": {
                     "type": "string"
@@ -65370,6 +65471,9 @@
                 },
                 "block": {
                     "$ref": "#/types/aws-native:wafv2:WebACLBlockAction"
+                },
+                "captcha": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLCaptchaAction"
                 },
                 "count": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCountAction"
@@ -65459,6 +65563,9 @@
                 },
                 "rateBasedStatement": {
                     "$ref": "#/types/aws-native:wafv2:WebACLRateBasedStatement"
+                },
+                "regexMatchStatement": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLRegexMatchStatement"
                 },
                 "regexPatternSetReferenceStatement": {
                     "$ref": "#/types/aws-native:wafv2:WebACLRegexPatternSetReferenceStatement"
