@@ -12,7 +12,6 @@
     "DnsEntries" : {
       "type" : "array",
       "uniqueItems" : false,
-      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       }
@@ -20,79 +19,49 @@
     "NetworkInterfaceIds" : {
       "type" : "array",
       "uniqueItems" : false,
-      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       }
     },
     "PolicyDocument" : {
-      "type" : [ "string", "object" ],
-      "description" : "A policy to attach to the endpoint that controls access to the service."
+      "type" : "object"
     },
     "PrivateDnsEnabled" : {
-      "type" : "boolean",
-      "description" : "Indicate whether to associate a private hosted zone with the specified VPC."
+      "type" : "boolean"
     },
     "RouteTableIds" : {
       "type" : "array",
-      "description" : "One or more route table IDs.",
       "uniqueItems" : true,
-      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       }
     },
     "SecurityGroupIds" : {
       "type" : "array",
-      "description" : "The ID of one or more security groups to associate with the endpoint network interface.",
       "uniqueItems" : true,
-      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       }
     },
     "ServiceName" : {
-      "type" : "string",
-      "description" : "The service name."
+      "type" : "string"
     },
     "SubnetIds" : {
       "type" : "array",
-      "description" : "The ID of one or more subnets in which to create an endpoint network interface.",
       "uniqueItems" : true,
-      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       }
     },
     "VpcEndpointType" : {
-      "type" : "string",
-      "enum" : [ "Interface", "Gateway", "GatewayLoadBalancer" ]
+      "type" : "string"
     },
     "VpcId" : {
-      "type" : "string",
-      "description" : "The ID of the VPC in which the endpoint will be used."
+      "type" : "string"
     }
   },
   "required" : [ "VpcId", "ServiceName" ],
   "readOnlyProperties" : [ "/properties/NetworkInterfaceIds", "/properties/CreationTimestamp", "/properties/DnsEntries", "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/ServiceName", "/properties/VpcEndpointType", "/properties/VpcId" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "taggable" : false,
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints" ]
-    },
-    "read" : {
-      "permissions" : [ "ec2:DescribeVpcEndpoints" ]
-    },
-    "update" : {
-      "permissions" : [ "ec2:ModifyVpcEndpoint", "ec2:DescribeVpcEndpoints" ]
-    },
-    "delete" : {
-      "permissions" : [ "ec2:DeleteVpcEndpoints" ]
-    },
-    "list" : {
-      "permissions" : [ "ec2:DescribeVpcEndpoints" ]
-    }
-  }
+  "primaryIdentifier" : [ "/properties/Id" ]
 }
