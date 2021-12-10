@@ -15,7 +15,8 @@ class VPCEndpointServiceArgs:
     def __init__(__self__, *,
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 payer_responsibility: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VPCEndpointService resource.
         """
@@ -25,6 +26,8 @@ class VPCEndpointServiceArgs:
             pulumi.set(__self__, "gateway_load_balancer_arns", gateway_load_balancer_arns)
         if network_load_balancer_arns is not None:
             pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
+        if payer_responsibility is not None:
+            pulumi.set(__self__, "payer_responsibility", payer_responsibility)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -53,6 +56,15 @@ class VPCEndpointServiceArgs:
     def network_load_balancer_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "network_load_balancer_arns", value)
 
+    @property
+    @pulumi.getter(name="payerResponsibility")
+    def payer_responsibility(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "payer_responsibility")
+
+    @payer_responsibility.setter
+    def payer_responsibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payer_responsibility", value)
+
 
 warnings.warn("""VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -67,6 +79,7 @@ class VPCEndpointService(pulumi.CustomResource):
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 payer_responsibility: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointService
@@ -101,6 +114,7 @@ class VPCEndpointService(pulumi.CustomResource):
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 payer_responsibility: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""VPCEndpointService is deprecated: VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -117,6 +131,7 @@ class VPCEndpointService(pulumi.CustomResource):
             __props__.__dict__["acceptance_required"] = acceptance_required
             __props__.__dict__["gateway_load_balancer_arns"] = gateway_load_balancer_arns
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
+            __props__.__dict__["payer_responsibility"] = payer_responsibility
         super(VPCEndpointService, __self__).__init__(
             'aws-native:ec2:VPCEndpointService',
             resource_name,
@@ -142,6 +157,7 @@ class VPCEndpointService(pulumi.CustomResource):
         __props__.__dict__["acceptance_required"] = None
         __props__.__dict__["gateway_load_balancer_arns"] = None
         __props__.__dict__["network_load_balancer_arns"] = None
+        __props__.__dict__["payer_responsibility"] = None
         return VPCEndpointService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -158,4 +174,9 @@ class VPCEndpointService(pulumi.CustomResource):
     @pulumi.getter(name="networkLoadBalancerArns")
     def network_load_balancer_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "network_load_balancer_arns")
+
+    @property
+    @pulumi.getter(name="payerResponsibility")
+    def payer_responsibility(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "payer_responsibility")
 

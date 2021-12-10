@@ -10991,117 +10991,6 @@
                 "vpcId"
             ]
         },
-        "aws-native:ec2:VPCEndpoint": {
-            "cf": "AWS::EC2::VPCEndpoint",
-            "inputs": {
-                "policyDocument": {
-                    "type": "string",
-                    "description": "A policy to attach to the endpoint that controls access to the service."
-                },
-                "privateDnsEnabled": {
-                    "type": "boolean",
-                    "description": "Indicate whether to associate a private hosted zone with the specified VPC."
-                },
-                "routeTableIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "One or more route table IDs."
-                },
-                "securityGroupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of one or more security groups to associate with the endpoint network interface."
-                },
-                "serviceName": {
-                    "type": "string",
-                    "description": "The service name."
-                },
-                "subnetIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of one or more subnets in which to create an endpoint network interface."
-                },
-                "vpcEndpointType": {
-                    "$ref": "#/types/aws-native:ec2:VPCEndpointVpcEndpointType"
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC in which the endpoint will be used."
-                }
-            },
-            "outputs": {
-                "creationTimestamp": {
-                    "type": "string"
-                },
-                "dnsEntries": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "networkInterfaceIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "policyDocument": {
-                    "type": "string",
-                    "description": "A policy to attach to the endpoint that controls access to the service."
-                },
-                "privateDnsEnabled": {
-                    "type": "boolean",
-                    "description": "Indicate whether to associate a private hosted zone with the specified VPC."
-                },
-                "routeTableIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "One or more route table IDs."
-                },
-                "securityGroupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of one or more security groups to associate with the endpoint network interface."
-                },
-                "serviceName": {
-                    "type": "string",
-                    "description": "The service name."
-                },
-                "subnetIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of one or more subnets in which to create an endpoint network interface."
-                },
-                "vpcEndpointType": {
-                    "$ref": "#/types/aws-native:ec2:VPCEndpointVpcEndpointType"
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC in which the endpoint will be used."
-                }
-            },
-            "required": [
-                "serviceName",
-                "vpcId"
-            ],
-            "createOnly": [
-                "serviceName",
-                "vpcEndpointType",
-                "vpcId"
-            ]
-        },
         "aws-native:ecr:RegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
             "inputs": {
@@ -29266,6 +29155,53 @@
                 "ruleType"
             ]
         },
+        "aws-native:route53resolver:ResolverRuleAssociation": {
+            "cf": "AWS::Route53Resolver::ResolverRuleAssociation",
+            "inputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of an association between a Resolver rule and a VPC."
+                },
+                "resolverRuleId": {
+                    "type": "string",
+                    "description": "The ID of the Resolver rule that you associated with the VPC that is specified by VPCId."
+                },
+                "vPCId": {
+                    "type": "string",
+                    "description": "The ID of the VPC that you associated the Resolver rule with."
+                }
+            },
+            "outputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of an association between a Resolver rule and a VPC."
+                },
+                "resolverRuleAssociationId": {
+                    "type": "string",
+                    "description": "Primary Identifier for Resolver Rule Association"
+                },
+                "resolverRuleId": {
+                    "type": "string",
+                    "description": "The ID of the Resolver rule that you associated with the VPC that is specified by VPCId."
+                },
+                "vPCId": {
+                    "type": "string",
+                    "description": "The ID of the VPC that you associated the Resolver rule with."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "resolverRuleId",
+                "vPCId"
+            ],
+            "createOnly": [
+                "name",
+                "resolverRuleId",
+                "vPCId"
+            ]
+        },
         "aws-native:rum:AppMonitor": {
             "cf": "AWS::RUM::AppMonitor",
             "inputs": {
@@ -43888,9 +43824,6 @@
                     "type": "string"
                 }
             }
-        },
-        "aws-native:ec2:VPCEndpointVpcEndpointType": {
-            "type": "string"
         },
         "aws-native:ec2:VPCTag": {
             "type": "object",

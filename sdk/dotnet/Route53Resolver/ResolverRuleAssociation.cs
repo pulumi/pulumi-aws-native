@@ -12,19 +12,30 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// <summary>
     /// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
     /// </summary>
-    [Obsolete(@"ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:route53resolver:ResolverRuleAssociation")]
     public partial class ResolverRuleAssociation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of an association between a Resolver rule and a VPC.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Primary Identifier for Resolver Rule Association
+        /// </summary>
         [Output("resolverRuleAssociationId")]
         public Output<string> ResolverRuleAssociationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        /// </summary>
         [Output("resolverRuleId")]
         public Output<string> ResolverRuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC that you associated the Resolver rule with.
+        /// </summary>
         [Output("vPCId")]
         public Output<string> VPCId { get; private set; } = null!;
 
@@ -73,12 +84,21 @@ namespace Pulumi.AwsNative.Route53Resolver
 
     public sealed class ResolverRuleAssociationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of an association between a Resolver rule and a VPC.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        /// </summary>
         [Input("resolverRuleId", required: true)]
         public Input<string> ResolverRuleId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC that you associated the Resolver rule with.
+        /// </summary>
         [Input("vPCId", required: true)]
         public Input<string> VPCId { get; set; } = null!;
 

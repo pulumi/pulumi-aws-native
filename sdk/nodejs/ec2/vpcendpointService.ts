@@ -40,6 +40,7 @@ export class VPCEndpointService extends pulumi.CustomResource {
     public readonly acceptanceRequired!: pulumi.Output<boolean | undefined>;
     public readonly gatewayLoadBalancerArns!: pulumi.Output<string[] | undefined>;
     public readonly networkLoadBalancerArns!: pulumi.Output<string[] | undefined>;
+    public readonly payerResponsibility!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VPCEndpointService resource with the given unique name, arguments, and options.
@@ -57,10 +58,12 @@ export class VPCEndpointService extends pulumi.CustomResource {
             inputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
             inputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
             inputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
+            inputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
         } else {
             inputs["acceptanceRequired"] = undefined /*out*/;
             inputs["gatewayLoadBalancerArns"] = undefined /*out*/;
             inputs["networkLoadBalancerArns"] = undefined /*out*/;
+            inputs["payerResponsibility"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -76,4 +79,5 @@ export interface VPCEndpointServiceArgs {
     acceptanceRequired?: pulumi.Input<boolean>;
     gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
     networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    payerResponsibility?: pulumi.Input<string>;
 }
