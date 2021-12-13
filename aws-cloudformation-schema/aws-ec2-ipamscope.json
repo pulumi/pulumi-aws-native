@@ -45,7 +45,7 @@
     "IpamScopeType" : {
       "description" : "Determines whether this scope contains publicly routable space or space for a private network",
       "type" : "string",
-      "enum" : [ "Public", "Private" ]
+      "enum" : [ "public", "private" ]
     },
     "IsDefault" : {
       "description" : "Is this one of the default scopes created with the IPAM.",
@@ -71,9 +71,9 @@
   "additionalProperties" : false,
   "required" : [ "IpamId" ],
   "primaryIdentifier" : [ "/properties/IpamScopeId" ],
-  "readOnlyProperties" : [ "/properties/IpamScopeId", "/properties/Arn", "/properties/IpamArn", "/properties/IsDefault", "/properties/PoolCount" ],
+  "readOnlyProperties" : [ "/properties/IpamScopeId", "/properties/Arn", "/properties/IpamArn", "/properties/IsDefault", "/properties/PoolCount", "/properties/IpamScopeType" ],
   "writeOnlyProperties" : [ "/properties/IpamId" ],
-  "createOnlyProperties" : [ "/properties/IpamId", "/properties/IpamScopeType" ],
+  "createOnlyProperties" : [ "/properties/IpamId" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateIpamScope", "ec2:CreateTags" ]

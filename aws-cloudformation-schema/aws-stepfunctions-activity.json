@@ -50,7 +50,7 @@
       "permissions" : [ "states:CreateActivity" ]
     },
     "read" : {
-      "permissions" : [ "states:DescribeActivity" ]
+      "permissions" : [ "states:DescribeActivity", "states:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "states:ListTagsForResource", "states:TagResource", "states:UntagResource" ]

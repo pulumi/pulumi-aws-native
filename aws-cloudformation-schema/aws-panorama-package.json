@@ -105,6 +105,9 @@
     "read" : {
       "permissions" : [ "panorama:DescribePackage", "panorama:ListTagsForResource" ]
     },
+    "update" : {
+      "permissions" : [ "panorama:DescribePackage", "panorama:ListTagsForResource", "panorama:TagResource", "panorama:UntagResource" ]
+    },
     "list" : {
       "permissions" : [ "panorama:ListPackages" ]
     },

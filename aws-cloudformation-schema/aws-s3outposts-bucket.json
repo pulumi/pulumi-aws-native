@@ -29,6 +29,7 @@
         "Rules" : {
           "description" : "A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.",
           "type" : "array",
+          "insertionOrder" : false,
           "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/Rule"
@@ -154,6 +155,7 @@
           "Tags" : {
             "description" : "All of these tags must exist in the object's tag set in order for the rule to apply.",
             "type" : "array",
+            "insertionOrder" : false,
             "uniqueItems" : true,
             "minItems" : 1,
             "items" : {
@@ -190,6 +192,7 @@
         "$ref" : "#/definitions/Tag"
       },
       "type" : "array",
+      "insertionOrder" : false,
       "uniqueItems" : true
     },
     "LifecycleConfiguration" : {
@@ -197,6 +200,7 @@
       "$ref" : "#/definitions/LifecycleConfiguration"
     }
   },
+  "taggable" : true,
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/BucketName", "/properties/OutpostId" ],
   "readOnlyProperties" : [ "/properties/Arn" ],

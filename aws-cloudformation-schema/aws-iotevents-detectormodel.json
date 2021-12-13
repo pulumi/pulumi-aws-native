@@ -17,6 +17,7 @@
         "States" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "description" : "Information about the states of the detector.",
           "minItems" : 1,
           "items" : {
@@ -57,6 +58,7 @@
         "Events" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "description" : "Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.",
           "items" : {
             "$ref" : "#/definitions/Event"
@@ -72,6 +74,7 @@
         "Events" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "description" : "Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.",
           "items" : {
             "$ref" : "#/definitions/Event"
@@ -87,6 +90,7 @@
         "Events" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "description" : "Specifies the `actions` performed when the `condition` evaluates to `TRUE`.",
           "items" : {
             "$ref" : "#/definitions/Event"
@@ -95,6 +99,7 @@
         "TransitionEvents" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : true,
           "description" : "Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.",
           "items" : {
             "$ref" : "#/definitions/TransitionEvent"
@@ -110,6 +115,7 @@
         "Actions" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "description" : "The actions to be performed.",
           "items" : {
             "$ref" : "#/definitions/Action"
@@ -137,6 +143,7 @@
           "type" : "array",
           "description" : "The actions to be performed.",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/Action"
           }
@@ -604,6 +611,7 @@
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "description" : "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "items" : {
         "$ref" : "#/definitions/Tag"
@@ -614,6 +622,7 @@
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/DetectorModelName" ],
   "createOnlyProperties" : [ "/properties/DetectorModelName", "/properties/Key" ],
+  "taggable" : true,
   "handlers" : {
     "create" : {
       "permissions" : [ "iotevents:CreateDetectorModel", "iotevents:UpdateInputRouting", "iotevents:DescribeDetectorModel", "iotevents:ListTagsForResource", "iotevents:TagResource", "iam:PassRole" ]

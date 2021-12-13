@@ -90,7 +90,6 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ProjectArn" ],
-  "writeOnlyProperties" : [ "/properties/ProjectArn" ],
   "taggable" : true,
   "handlers" : {
     "create" : {

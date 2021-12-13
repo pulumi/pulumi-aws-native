@@ -50,6 +50,7 @@
     "NetworkInterfaces" : {
       "description" : "The network interfaces of the endpoint.",
       "type" : "array",
+      "insertionOrder" : false,
       "uniqueItems" : true,
       "items" : {
         "$ref" : "#/definitions/NetworkInterface"
@@ -90,6 +91,7 @@
       "pattern" : "^ipv4pool-coip-([0-9a-f]{17})$"
     }
   },
+  "taggable" : false,
   "additionalProperties" : false,
   "required" : [ "OutpostId", "SecurityGroupId", "SubnetId" ],
   "createOnlyProperties" : [ "/properties/OutpostId", "/properties/SecurityGroupId", "/properties/SubnetId", "/properties/AccessType", "/properties/CustomerOwnedIpv4Pool" ],

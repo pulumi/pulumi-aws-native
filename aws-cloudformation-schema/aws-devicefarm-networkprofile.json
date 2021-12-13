@@ -97,7 +97,6 @@
   "required" : [ "Name", "ProjectArn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "writeOnlyProperties" : [ "/properties/ProjectArn" ],
   "createOnlyProperties" : [ "/properties/ProjectArn" ],
   "taggable" : true,
   "handlers" : {

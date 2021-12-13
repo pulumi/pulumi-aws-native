@@ -102,6 +102,9 @@
     "read" : {
       "permissions" : [ "panorama:DescribePackageVersion" ]
     },
+    "update" : {
+      "permissions" : [ "panorama:DescribePackageVersion", "panorama:RegisterPackageVersion" ]
+    },
     "delete" : {
       "permissions" : [ "panorama:DeregisterPackageVersion" ]
     }
