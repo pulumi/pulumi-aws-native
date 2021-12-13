@@ -27,6 +27,7 @@ __all__ = [
     'ClientVpnEndpointTagSpecification',
     'CustomerGatewayTag',
     'DHCPOptionsTag',
+    'DestinationOptionsProperties',
     'EC2FleetAcceleratorCountRequest',
     'EC2FleetAcceleratorTotalMemoryMiBRequest',
     'EC2FleetBaselineEbsBandwidthMbpsRequest',
@@ -730,6 +731,54 @@ class DHCPOptionsTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DestinationOptionsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hiveCompatiblePartitions":
+            suggest = "hive_compatible_partitions"
+        elif key == "perHourPartition":
+            suggest = "per_hour_partition"
+        elif key == "fileFormat":
+            suggest = "file_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DestinationOptionsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DestinationOptionsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DestinationOptionsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hive_compatible_partitions: bool,
+                 per_hour_partition: bool,
+                 file_format: Optional['FlowLogDestinationOptionsPropertiesFileFormat'] = None):
+        pulumi.set(__self__, "hive_compatible_partitions", hive_compatible_partitions)
+        pulumi.set(__self__, "per_hour_partition", per_hour_partition)
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
+
+    @property
+    @pulumi.getter(name="hiveCompatiblePartitions")
+    def hive_compatible_partitions(self) -> bool:
+        return pulumi.get(self, "hive_compatible_partitions")
+
+    @property
+    @pulumi.getter(name="perHourPartition")
+    def per_hour_partition(self) -> bool:
+        return pulumi.get(self, "per_hour_partition")
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional['FlowLogDestinationOptionsPropertiesFileFormat']:
+        return pulumi.get(self, "file_format")
 
 
 @pulumi.output_type

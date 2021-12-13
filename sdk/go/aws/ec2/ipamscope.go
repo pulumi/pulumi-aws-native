@@ -25,7 +25,7 @@ type IPAMScope struct {
 	// Id of the IPAM scope.
 	IpamScopeId pulumi.StringOutput `pulumi:"ipamScopeId"`
 	// Determines whether this scope contains publicly routable space or space for a private network
-	IpamScopeType IPAMScopeIpamScopeTypePtrOutput `pulumi:"ipamScopeType"`
+	IpamScopeType IPAMScopeIpamScopeTypeOutput `pulumi:"ipamScopeType"`
 	// Is this one of the default scopes created with the IPAM.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// The number of pools that currently exist in this scope.
@@ -79,8 +79,6 @@ type ipamscopeArgs struct {
 	Description *string `pulumi:"description"`
 	// The Id of the IPAM this scope is a part of.
 	IpamId string `pulumi:"ipamId"`
-	// Determines whether this scope contains publicly routable space or space for a private network
-	IpamScopeType *IPAMScopeIpamScopeType `pulumi:"ipamScopeType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []IPAMScopeTag `pulumi:"tags"`
 }
@@ -90,8 +88,6 @@ type IPAMScopeArgs struct {
 	Description pulumi.StringPtrInput
 	// The Id of the IPAM this scope is a part of.
 	IpamId pulumi.StringInput
-	// Determines whether this scope contains publicly routable space or space for a private network
-	IpamScopeType IPAMScopeIpamScopeTypePtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags IPAMScopeTagArrayInput
 }

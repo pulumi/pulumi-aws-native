@@ -20,6 +20,7 @@ class FlowLogArgs:
                  resource_type: pulumi.Input['FlowLogResourceType'],
                  traffic_type: pulumi.Input['FlowLogTrafficType'],
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
+                 destination_options: Optional[pulumi.Input['DestinationOptionsPropertiesArgs']] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
                  log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,8 @@ class FlowLogArgs:
         pulumi.set(__self__, "traffic_type", traffic_type)
         if deliver_logs_permission_arn is not None:
             pulumi.set(__self__, "deliver_logs_permission_arn", deliver_logs_permission_arn)
+        if destination_options is not None:
+            pulumi.set(__self__, "destination_options", destination_options)
         if log_destination is not None:
             pulumi.set(__self__, "log_destination", log_destination)
         if log_destination_type is not None:
@@ -104,6 +107,15 @@ class FlowLogArgs:
     @deliver_logs_permission_arn.setter
     def deliver_logs_permission_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "deliver_logs_permission_arn", value)
+
+    @property
+    @pulumi.getter(name="destinationOptions")
+    def destination_options(self) -> Optional[pulumi.Input['DestinationOptionsPropertiesArgs']]:
+        return pulumi.get(self, "destination_options")
+
+    @destination_options.setter
+    def destination_options(self, value: Optional[pulumi.Input['DestinationOptionsPropertiesArgs']]):
+        pulumi.set(self, "destination_options", value)
 
     @property
     @pulumi.getter(name="logDestination")
@@ -184,6 +196,7 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
+                 destination_options: Optional[pulumi.Input[pulumi.InputType['DestinationOptionsPropertiesArgs']]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
                  log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
@@ -235,6 +248,7 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
+                 destination_options: Optional[pulumi.Input[pulumi.InputType['DestinationOptionsPropertiesArgs']]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
                  log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
@@ -257,6 +271,7 @@ class FlowLog(pulumi.CustomResource):
             __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
             __props__.__dict__["deliver_logs_permission_arn"] = deliver_logs_permission_arn
+            __props__.__dict__["destination_options"] = destination_options
             __props__.__dict__["log_destination"] = log_destination
             __props__.__dict__["log_destination_type"] = log_destination_type
             __props__.__dict__["log_format"] = log_format
@@ -295,6 +310,7 @@ class FlowLog(pulumi.CustomResource):
         __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
         __props__.__dict__["deliver_logs_permission_arn"] = None
+        __props__.__dict__["destination_options"] = None
         __props__.__dict__["log_destination"] = None
         __props__.__dict__["log_destination_type"] = None
         __props__.__dict__["log_format"] = None
@@ -313,6 +329,11 @@ class FlowLog(pulumi.CustomResource):
         The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
         """
         return pulumi.get(self, "deliver_logs_permission_arn")
+
+    @property
+    @pulumi.getter(name="destinationOptions")
+    def destination_options(self) -> pulumi.Output[Optional['outputs.DestinationOptionsProperties']]:
+        return pulumi.get(self, "destination_options")
 
     @property
     @pulumi.getter(name="logDestination")

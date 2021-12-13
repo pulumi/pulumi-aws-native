@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.Glue
     }
 
     /// <summary>
-    /// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+    /// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
     /// </summary>
     [EnumType]
     public readonly struct SchemaDataFormat : IEquatable<SchemaDataFormat>
@@ -59,6 +59,7 @@ namespace Pulumi.AwsNative.Glue
 
         public static SchemaDataFormat Avro { get; } = new SchemaDataFormat("AVRO");
         public static SchemaDataFormat Json { get; } = new SchemaDataFormat("JSON");
+        public static SchemaDataFormat Protobuf { get; } = new SchemaDataFormat("PROTOBUF");
 
         public static bool operator ==(SchemaDataFormat left, SchemaDataFormat right) => left.Equals(right);
         public static bool operator !=(SchemaDataFormat left, SchemaDataFormat right) => !left.Equals(right);

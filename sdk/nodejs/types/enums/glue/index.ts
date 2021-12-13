@@ -21,9 +21,10 @@ export type SchemaCompatibility = (typeof SchemaCompatibility)[keyof typeof Sche
 export const SchemaDataFormat = {
     Avro: "AVRO",
     Json: "JSON",
+    Protobuf: "PROTOBUF",
 } as const;
 
 /**
- * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+ * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
  */
 export type SchemaDataFormat = (typeof SchemaDataFormat)[keyof typeof SchemaDataFormat];

@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 
     public sealed class DomainNameMutualTlsAuthenticationArgs : Pulumi.ResourceArgs
     {
+        [Input("certificateRevocationCheckType")]
+        public Input<string>? CertificateRevocationCheckType { get; set; }
+
+        [Input("certificateRevocationSourceUri")]
+        public Input<string>? CertificateRevocationSourceUri { get; set; }
+
         [Input("truststoreUri")]
         public Input<string>? TruststoreUri { get; set; }
 

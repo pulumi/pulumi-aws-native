@@ -628,6 +628,34 @@ namespace Pulumi.AwsNative.EC2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct FlowLogDestinationOptionsPropertiesFileFormat : IEquatable<FlowLogDestinationOptionsPropertiesFileFormat>
+    {
+        private readonly string _value;
+
+        private FlowLogDestinationOptionsPropertiesFileFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowLogDestinationOptionsPropertiesFileFormat PlainText { get; } = new FlowLogDestinationOptionsPropertiesFileFormat("plain-text");
+        public static FlowLogDestinationOptionsPropertiesFileFormat Parquet { get; } = new FlowLogDestinationOptionsPropertiesFileFormat("parquet");
+
+        public static bool operator ==(FlowLogDestinationOptionsPropertiesFileFormat left, FlowLogDestinationOptionsPropertiesFileFormat right) => left.Equals(right);
+        public static bool operator !=(FlowLogDestinationOptionsPropertiesFileFormat left, FlowLogDestinationOptionsPropertiesFileFormat right) => !left.Equals(right);
+
+        public static explicit operator string(FlowLogDestinationOptionsPropertiesFileFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowLogDestinationOptionsPropertiesFileFormat other && Equals(other);
+        public bool Equals(FlowLogDestinationOptionsPropertiesFileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
     /// </summary>
@@ -724,37 +752,6 @@ namespace Pulumi.AwsNative.EC2
     }
 
     /// <summary>
-    /// The address family of the address space in this pool. Either IPv4 or IPv6.
-    /// </summary>
-    [EnumType]
-    public readonly struct IPAMPoolAddressFamily : IEquatable<IPAMPoolAddressFamily>
-    {
-        private readonly string _value;
-
-        private IPAMPoolAddressFamily(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IPAMPoolAddressFamily IPv4 { get; } = new IPAMPoolAddressFamily("IPv4");
-        public static IPAMPoolAddressFamily IPv6 { get; } = new IPAMPoolAddressFamily("IPv6");
-
-        public static bool operator ==(IPAMPoolAddressFamily left, IPAMPoolAddressFamily right) => left.Equals(right);
-        public static bool operator !=(IPAMPoolAddressFamily left, IPAMPoolAddressFamily right) => !left.Equals(right);
-
-        public static explicit operator string(IPAMPoolAddressFamily value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IPAMPoolAddressFamily other && Equals(other);
-        public bool Equals(IPAMPoolAddressFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Determines whether this scope contains publicly routable space or space for a private network
     /// </summary>
     [EnumType]
@@ -833,8 +830,8 @@ namespace Pulumi.AwsNative.EC2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IPAMScopeIpamScopeType Public { get; } = new IPAMScopeIpamScopeType("Public");
-        public static IPAMScopeIpamScopeType Private { get; } = new IPAMScopeIpamScopeType("Private");
+        public static IPAMScopeIpamScopeType Public { get; } = new IPAMScopeIpamScopeType("public");
+        public static IPAMScopeIpamScopeType Private { get; } = new IPAMScopeIpamScopeType("private");
 
         public static bool operator ==(IPAMScopeIpamScopeType left, IPAMScopeIpamScopeType right) => left.Equals(right);
         public static bool operator !=(IPAMScopeIpamScopeType left, IPAMScopeIpamScopeType right) => !left.Equals(right);

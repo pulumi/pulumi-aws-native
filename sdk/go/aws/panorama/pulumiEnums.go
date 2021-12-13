@@ -181,7 +181,7 @@ const (
 	ApplicationInstanceStatusDeploymentPending    = ApplicationInstanceStatus("DEPLOYMENT_PENDING")
 	ApplicationInstanceStatusDeploymentRequested  = ApplicationInstanceStatus("DEPLOYMENT_REQUESTED")
 	ApplicationInstanceStatusDeploymentInProgress = ApplicationInstanceStatus("DEPLOYMENT_IN_PROGRESS")
-	ApplicationInstanceStatusDeploymentFailed     = ApplicationInstanceStatus("DEPLOYMENT_FAILED")
+	ApplicationInstanceStatusDeploymentError      = ApplicationInstanceStatus("DEPLOYMENT_ERROR")
 	ApplicationInstanceStatusDeploymentSucceeded  = ApplicationInstanceStatus("DEPLOYMENT_SUCCEEDED")
 	ApplicationInstanceStatusRemovalPending       = ApplicationInstanceStatus("REMOVAL_PENDING")
 	ApplicationInstanceStatusRemovalRequested     = ApplicationInstanceStatus("REMOVAL_REQUESTED")
@@ -351,7 +351,7 @@ type ApplicationInstanceStatusFilter string
 
 const (
 	ApplicationInstanceStatusFilterDeploymentSucceeded  = ApplicationInstanceStatusFilter("DEPLOYMENT_SUCCEEDED")
-	ApplicationInstanceStatusFilterDeploymentFailed     = ApplicationInstanceStatusFilter("DEPLOYMENT_FAILED")
+	ApplicationInstanceStatusFilterDeploymentError      = ApplicationInstanceStatusFilter("DEPLOYMENT_ERROR")
 	ApplicationInstanceStatusFilterRemovalSucceeded     = ApplicationInstanceStatusFilter("REMOVAL_SUCCEEDED")
 	ApplicationInstanceStatusFilterRemovalFailed        = ApplicationInstanceStatusFilter("REMOVAL_FAILED")
 	ApplicationInstanceStatusFilterProcessingDeployment = ApplicationInstanceStatusFilter("PROCESSING_DEPLOYMENT")

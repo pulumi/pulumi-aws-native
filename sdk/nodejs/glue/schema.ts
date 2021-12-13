@@ -45,7 +45,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly compatibility!: pulumi.Output<enums.glue.SchemaCompatibility>;
     /**
-     * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+     * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
      */
     public readonly dataFormat!: pulumi.Output<enums.glue.SchemaDataFormat>;
     /**
@@ -129,7 +129,7 @@ export interface SchemaArgs {
      */
     compatibility: pulumi.Input<enums.glue.SchemaCompatibility>;
     /**
-     * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+     * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
      */
     dataFormat: pulumi.Input<enums.glue.SchemaDataFormat>;
     /**

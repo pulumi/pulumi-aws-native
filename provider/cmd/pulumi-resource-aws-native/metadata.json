@@ -8986,6 +8986,9 @@
                     "type": "string",
                     "description": "The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName."
                 },
+                "destinationOptions": {
+                    "$ref": "#/types/aws-native:ec2:DestinationOptionsProperties"
+                },
                 "logDestination": {
                     "type": "string",
                     "description": "Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType."
@@ -9030,6 +9033,9 @@
                 "deliverLogsPermissionArn": {
                     "type": "string",
                     "description": "The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName."
+                },
+                "destinationOptions": {
+                    "$ref": "#/types/aws-native:ec2:DestinationOptionsProperties"
                 },
                 "logDestination": {
                     "type": "string",
@@ -9078,6 +9084,7 @@
             ],
             "createOnly": [
                 "deliverLogsPermissionArn",
+                "destinationOptions",
                 "logDestination",
                 "logDestinationType",
                 "logFormat",
@@ -9286,7 +9293,7 @@
             "cf": "AWS::EC2::IPAMPool",
             "inputs": {
                 "addressFamily": {
-                    "$ref": "#/types/aws-native:ec2:IPAMPoolAddressFamily",
+                    "type": "string",
                     "description": "The address family of the address space in this pool. Either IPv4 or IPv6."
                 },
                 "allocationDefaultNetmaskLength": {
@@ -9348,7 +9355,7 @@
             },
             "outputs": {
                 "addressFamily": {
-                    "$ref": "#/types/aws-native:ec2:IPAMPoolAddressFamily",
+                    "type": "string",
                     "description": "The address family of the address space in this pool. Either IPv4 or IPv6."
                 },
                 "allocationDefaultNetmaskLength": {
@@ -9462,10 +9469,6 @@
                     "type": "string",
                     "description": "The Id of the IPAM this scope is a part of."
                 },
-                "ipamScopeType": {
-                    "$ref": "#/types/aws-native:ec2:IPAMScopeIpamScopeType",
-                    "description": "Determines whether this scope contains publicly routable space or space for a private network"
-                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -9518,8 +9521,7 @@
                 "ipamId"
             ],
             "createOnly": [
-                "ipamId",
-                "ipamScopeType"
+                "ipamId"
             ]
         },
         "aws-native:ec2:InternetGateway": {
@@ -14939,7 +14941,7 @@
                 },
                 "dataFormat": {
                     "$ref": "#/types/aws-native:glue:SchemaDataFormat",
-                    "description": "Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'"
+                    "description": "Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'"
                 },
                 "description": {
                     "type": "string",
@@ -14978,7 +14980,7 @@
                 },
                 "dataFormat": {
                     "$ref": "#/types/aws-native:glue:SchemaDataFormat",
-                    "description": "Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'"
+                    "description": "Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'"
                 },
                 "description": {
                     "type": "string",
@@ -34973,6 +34975,12 @@
         "aws-native:apigateway:DomainNameMutualTlsAuthentication": {
             "type": "object",
             "properties": {
+                "certificateRevocationCheckType": {
+                    "type": "string"
+                },
+                "certificateRevocationSourceUri": {
+                    "type": "string"
+                },
                 "truststoreUri": {
                     "type": "string"
                 },
@@ -42009,6 +42017,20 @@
                 }
             }
         },
+        "aws-native:ec2:DestinationOptionsProperties": {
+            "type": "object",
+            "properties": {
+                "fileFormat": {
+                    "$ref": "#/types/aws-native:ec2:FlowLogDestinationOptionsPropertiesFileFormat"
+                },
+                "hiveCompatiblePartitions": {
+                    "type": "boolean"
+                },
+                "perHourPartition": {
+                    "type": "boolean"
+                }
+            }
+        },
         "aws-native:ec2:EC2FleetAcceleratorCountRequest": {
             "type": "object",
             "properties": {
@@ -42450,6 +42472,9 @@
                 }
             }
         },
+        "aws-native:ec2:FlowLogDestinationOptionsPropertiesFileFormat": {
+            "type": "string"
+        },
         "aws-native:ec2:FlowLogLogDestinationType": {
             "type": "string"
         },
@@ -42478,9 +42503,6 @@
                     "description": "The name of the region."
                 }
             }
-        },
-        "aws-native:ec2:IPAMPoolAddressFamily": {
-            "type": "string"
         },
         "aws-native:ec2:IPAMPoolIpamScopeType": {
             "type": "string"
@@ -47878,6 +47900,20 @@
         "aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties": {
             "type": "object",
             "properties": {
+                "organizationArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ARN for an Amazon Web Services Organization that you want to share your AMI with."
+                },
+                "organizationalUnitArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ARN for an Organizations organizational unit (OU) that you want to share your AMI with."
+                },
                 "userGroups": {
                     "type": "array",
                     "items": {

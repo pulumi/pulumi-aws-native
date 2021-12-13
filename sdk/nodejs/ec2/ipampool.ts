@@ -38,7 +38,7 @@ export class IPAMPool extends pulumi.CustomResource {
     /**
      * The address family of the address space in this pool. Either IPv4 or IPv6.
      */
-    public readonly addressFamily!: pulumi.Output<enums.ec2.IPAMPoolAddressFamily>;
+    public readonly addressFamily!: pulumi.Output<string>;
     /**
      * The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
      */
@@ -192,7 +192,7 @@ export interface IPAMPoolArgs {
     /**
      * The address family of the address space in this pool. Either IPv4 or IPv6.
      */
-    addressFamily: pulumi.Input<enums.ec2.IPAMPoolAddressFamily>;
+    addressFamily: pulumi.Input<string>;
     /**
      * The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
      */

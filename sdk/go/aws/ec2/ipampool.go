@@ -16,7 +16,7 @@ type IPAMPool struct {
 	pulumi.CustomResourceState
 
 	// The address family of the address space in this pool. Either IPv4 or IPv6.
-	AddressFamily IPAMPoolAddressFamilyOutput `pulumi:"addressFamily"`
+	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
 	AllocationDefaultNetmaskLength pulumi.IntPtrOutput `pulumi:"allocationDefaultNetmaskLength"`
 	// The maximum allowed netmask length for allocations made from this pool.
@@ -104,7 +104,7 @@ func (IPAMPoolState) ElementType() reflect.Type {
 
 type ipampoolArgs struct {
 	// The address family of the address space in this pool. Either IPv4 or IPv6.
-	AddressFamily IPAMPoolAddressFamily `pulumi:"addressFamily"`
+	AddressFamily string `pulumi:"addressFamily"`
 	// The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
 	AllocationDefaultNetmaskLength *int `pulumi:"allocationDefaultNetmaskLength"`
 	// The maximum allowed netmask length for allocations made from this pool.
@@ -133,7 +133,7 @@ type ipampoolArgs struct {
 // The set of arguments for constructing a IPAMPool resource.
 type IPAMPoolArgs struct {
 	// The address family of the address space in this pool. Either IPv4 or IPv6.
-	AddressFamily IPAMPoolAddressFamilyInput
+	AddressFamily pulumi.StringInput
 	// The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
 	AllocationDefaultNetmaskLength pulumi.IntPtrInput
 	// The maximum allowed netmask length for allocations made from this pool.

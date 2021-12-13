@@ -20,7 +20,7 @@ type Schema struct {
 	CheckpointVersion SchemaVersionTypePtrOutput `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibilityOutput `pulumi:"compatibility"`
-	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
 	DataFormat SchemaDataFormatOutput `pulumi:"dataFormat"`
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -86,7 +86,7 @@ type schemaArgs struct {
 	CheckpointVersion *SchemaVersionType `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibility `pulumi:"compatibility"`
-	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
 	DataFormat SchemaDataFormat `pulumi:"dataFormat"`
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description *string `pulumi:"description"`
@@ -104,7 +104,7 @@ type SchemaArgs struct {
 	CheckpointVersion SchemaVersionTypePtrInput
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibilityInput
-	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
 	DataFormat SchemaDataFormatInput
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description pulumi.StringPtrInput

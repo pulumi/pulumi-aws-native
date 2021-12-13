@@ -55,7 +55,7 @@ export class IPAMScope extends pulumi.CustomResource {
     /**
      * Determines whether this scope contains publicly routable space or space for a private network
      */
-    public readonly ipamScopeType!: pulumi.Output<enums.ec2.IPAMScopeIpamScopeType | undefined>;
+    public /*out*/ readonly ipamScopeType!: pulumi.Output<enums.ec2.IPAMScopeIpamScopeType>;
     /**
      * Is this one of the default scopes created with the IPAM.
      */
@@ -85,11 +85,11 @@ export class IPAMScope extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["ipamId"] = args ? args.ipamId : undefined;
-            inputs["ipamScopeType"] = args ? args.ipamScopeType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ipamArn"] = undefined /*out*/;
             inputs["ipamScopeId"] = undefined /*out*/;
+            inputs["ipamScopeType"] = undefined /*out*/;
             inputs["isDefault"] = undefined /*out*/;
             inputs["poolCount"] = undefined /*out*/;
         } else {
@@ -119,10 +119,6 @@ export interface IPAMScopeArgs {
      * The Id of the IPAM this scope is a part of.
      */
     ipamId: pulumi.Input<string>;
-    /**
-     * Determines whether this scope contains publicly routable space or space for a private network
-     */
-    ipamScopeType?: pulumi.Input<enums.ec2.IPAMScopeIpamScopeType>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

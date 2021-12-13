@@ -27,7 +27,7 @@ class SchemaArgs:
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
-        :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+        :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
         :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
         :param pulumi.Input[str] description: A description of the schema. If description is not provided, there will not be any default value for this.
         :param pulumi.Input[str] name: Name of the schema.
@@ -63,7 +63,7 @@ class SchemaArgs:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Input['SchemaDataFormat']:
         """
-        Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+        Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
         """
         return pulumi.get(self, "data_format")
 
@@ -158,7 +158,7 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
-        :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+        :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
         :param pulumi.Input[str] description: A description of the schema. If description is not provided, there will not be any default value for this.
         :param pulumi.Input[str] name: Name of the schema.
         :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
@@ -283,7 +283,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Output['SchemaDataFormat']:
         """
-        Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+        Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
         """
         return pulumi.get(self, "data_format")
 

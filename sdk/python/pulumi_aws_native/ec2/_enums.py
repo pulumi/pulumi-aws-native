@@ -25,10 +25,10 @@ __all__ = [
     'EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType',
     'EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType',
     'EC2FleetType',
+    'FlowLogDestinationOptionsPropertiesFileFormat',
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
     'FlowLogTrafficType',
-    'IPAMPoolAddressFamily',
     'IPAMPoolIpamScopeType',
     'IPAMPoolState',
     'IPAMScopeIpamScopeType',
@@ -217,6 +217,11 @@ class EC2FleetType(str, Enum):
     INSTANT = "instant"
 
 
+class FlowLogDestinationOptionsPropertiesFileFormat(str, Enum):
+    PLAIN_TEXT = "plain-text"
+    PARQUET = "parquet"
+
+
 class FlowLogLogDestinationType(str, Enum):
     """
     Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -243,14 +248,6 @@ class FlowLogTrafficType(str, Enum):
     REJECT = "REJECT"
 
 
-class IPAMPoolAddressFamily(str, Enum):
-    """
-    The address family of the address space in this pool. Either IPv4 or IPv6.
-    """
-    I_PV4 = "IPv4"
-    I_PV6 = "IPv6"
-
-
 class IPAMPoolIpamScopeType(str, Enum):
     """
     Determines whether this scope contains publicly routable space or space for a private network
@@ -275,8 +272,8 @@ class IPAMScopeIpamScopeType(str, Enum):
     """
     Determines whether this scope contains publicly routable space or space for a private network
     """
-    PUBLIC = "Public"
-    PRIVATE = "Private"
+    PUBLIC = "public"
+    PRIVATE = "private"
 
 
 class NetworkInsightsAnalysisStatus(str, Enum):

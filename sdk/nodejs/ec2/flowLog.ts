@@ -39,6 +39,7 @@ export class FlowLog extends pulumi.CustomResource {
      * The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
     public readonly deliverLogsPermissionArn!: pulumi.Output<string | undefined>;
+    public readonly destinationOptions!: pulumi.Output<outputs.ec2.DestinationOptionsProperties | undefined>;
     /**
      * Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
      */
@@ -97,6 +98,7 @@ export class FlowLog extends pulumi.CustomResource {
                 throw new Error("Missing required property 'trafficType'");
             }
             inputs["deliverLogsPermissionArn"] = args ? args.deliverLogsPermissionArn : undefined;
+            inputs["destinationOptions"] = args ? args.destinationOptions : undefined;
             inputs["logDestination"] = args ? args.logDestination : undefined;
             inputs["logDestinationType"] = args ? args.logDestinationType : undefined;
             inputs["logFormat"] = args ? args.logFormat : undefined;
@@ -108,6 +110,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["trafficType"] = args ? args.trafficType : undefined;
         } else {
             inputs["deliverLogsPermissionArn"] = undefined /*out*/;
+            inputs["destinationOptions"] = undefined /*out*/;
             inputs["logDestination"] = undefined /*out*/;
             inputs["logDestinationType"] = undefined /*out*/;
             inputs["logFormat"] = undefined /*out*/;
@@ -133,6 +136,7 @@ export interface FlowLogArgs {
      * The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
     deliverLogsPermissionArn?: pulumi.Input<string>;
+    destinationOptions?: pulumi.Input<inputs.ec2.DestinationOptionsPropertiesArgs>;
     /**
      * Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
      */

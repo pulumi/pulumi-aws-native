@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.EC2
         [Output("deliverLogsPermissionArn")]
         public Output<string?> DeliverLogsPermissionArn { get; private set; } = null!;
 
+        [Output("destinationOptions")]
+        public Output<Outputs.DestinationOptionsProperties?> DestinationOptions { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
         /// </summary>
@@ -125,6 +128,9 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Input("deliverLogsPermissionArn")]
         public Input<string>? DeliverLogsPermissionArn { get; set; }
+
+        [Input("destinationOptions")]
+        public Input<Inputs.DestinationOptionsPropertiesArgs>? DestinationOptions { get; set; }
 
         /// <summary>
         /// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.

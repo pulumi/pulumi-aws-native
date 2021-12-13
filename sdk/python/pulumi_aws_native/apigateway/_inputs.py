@@ -892,12 +892,36 @@ class DomainNameEndpointConfigurationArgs:
 @pulumi.input_type
 class DomainNameMutualTlsAuthenticationArgs:
     def __init__(__self__, *,
+                 certificate_revocation_check_type: Optional[pulumi.Input[str]] = None,
+                 certificate_revocation_source_uri: Optional[pulumi.Input[str]] = None,
                  truststore_uri: Optional[pulumi.Input[str]] = None,
                  truststore_version: Optional[pulumi.Input[str]] = None):
+        if certificate_revocation_check_type is not None:
+            pulumi.set(__self__, "certificate_revocation_check_type", certificate_revocation_check_type)
+        if certificate_revocation_source_uri is not None:
+            pulumi.set(__self__, "certificate_revocation_source_uri", certificate_revocation_source_uri)
         if truststore_uri is not None:
             pulumi.set(__self__, "truststore_uri", truststore_uri)
         if truststore_version is not None:
             pulumi.set(__self__, "truststore_version", truststore_version)
+
+    @property
+    @pulumi.getter(name="certificateRevocationCheckType")
+    def certificate_revocation_check_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_revocation_check_type")
+
+    @certificate_revocation_check_type.setter
+    def certificate_revocation_check_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_revocation_check_type", value)
+
+    @property
+    @pulumi.getter(name="certificateRevocationSourceUri")
+    def certificate_revocation_source_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_revocation_source_uri")
+
+    @certificate_revocation_source_uri.setter
+    def certificate_revocation_source_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_revocation_source_uri", value)
 
     @property
     @pulumi.getter(name="truststoreUri")

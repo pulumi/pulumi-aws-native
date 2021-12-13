@@ -15,6 +15,30 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// </summary>
     public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("organizationArns")]
+        private InputList<string>? _organizationArns;
+
+        /// <summary>
+        /// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+        /// </summary>
+        public InputList<string> OrganizationArns
+        {
+            get => _organizationArns ?? (_organizationArns = new InputList<string>());
+            set => _organizationArns = value;
+        }
+
+        [Input("organizationalUnitArns")]
+        private InputList<string>? _organizationalUnitArns;
+
+        /// <summary>
+        /// The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+        /// </summary>
+        public InputList<string> OrganizationalUnitArns
+        {
+            get => _organizationalUnitArns ?? (_organizationalUnitArns = new InputList<string>());
+            set => _organizationalUnitArns = value;
+        }
+
         [Input("userGroups")]
         private InputList<string>? _userGroups;
 

@@ -14,7 +14,7 @@ export const ApplicationInstanceStatus = {
     DeploymentPending: "DEPLOYMENT_PENDING",
     DeploymentRequested: "DEPLOYMENT_REQUESTED",
     DeploymentInProgress: "DEPLOYMENT_IN_PROGRESS",
-    DeploymentFailed: "DEPLOYMENT_FAILED",
+    DeploymentError: "DEPLOYMENT_ERROR",
     DeploymentSucceeded: "DEPLOYMENT_SUCCEEDED",
     RemovalPending: "REMOVAL_PENDING",
     RemovalRequested: "REMOVAL_REQUESTED",
@@ -27,7 +27,7 @@ export type ApplicationInstanceStatus = (typeof ApplicationInstanceStatus)[keyof
 
 export const ApplicationInstanceStatusFilter = {
     DeploymentSucceeded: "DEPLOYMENT_SUCCEEDED",
-    DeploymentFailed: "DEPLOYMENT_FAILED",
+    DeploymentError: "DEPLOYMENT_ERROR",
     RemovalSucceeded: "REMOVAL_SUCCEEDED",
     RemovalFailed: "REMOVAL_FAILED",
     ProcessingDeployment: "PROCESSING_DEPLOYMENT",

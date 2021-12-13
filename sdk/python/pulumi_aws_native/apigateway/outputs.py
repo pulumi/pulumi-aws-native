@@ -868,7 +868,11 @@ class DomainNameMutualTlsAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "truststoreUri":
+        if key == "certificateRevocationCheckType":
+            suggest = "certificate_revocation_check_type"
+        elif key == "certificateRevocationSourceUri":
+            suggest = "certificate_revocation_source_uri"
+        elif key == "truststoreUri":
             suggest = "truststore_uri"
         elif key == "truststoreVersion":
             suggest = "truststore_version"
@@ -885,12 +889,28 @@ class DomainNameMutualTlsAuthentication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 certificate_revocation_check_type: Optional[str] = None,
+                 certificate_revocation_source_uri: Optional[str] = None,
                  truststore_uri: Optional[str] = None,
                  truststore_version: Optional[str] = None):
+        if certificate_revocation_check_type is not None:
+            pulumi.set(__self__, "certificate_revocation_check_type", certificate_revocation_check_type)
+        if certificate_revocation_source_uri is not None:
+            pulumi.set(__self__, "certificate_revocation_source_uri", certificate_revocation_source_uri)
         if truststore_uri is not None:
             pulumi.set(__self__, "truststore_uri", truststore_uri)
         if truststore_version is not None:
             pulumi.set(__self__, "truststore_version", truststore_version)
+
+    @property
+    @pulumi.getter(name="certificateRevocationCheckType")
+    def certificate_revocation_check_type(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_revocation_check_type")
+
+    @property
+    @pulumi.getter(name="certificateRevocationSourceUri")
+    def certificate_revocation_source_uri(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_revocation_source_uri")
 
     @property
     @pulumi.getter(name="truststoreUri")

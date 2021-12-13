@@ -26,6 +26,7 @@ __all__ = [
     'ClientVpnEndpointTagArgs',
     'CustomerGatewayTagArgs',
     'DHCPOptionsTagArgs',
+    'DestinationOptionsPropertiesArgs',
     'EC2FleetAcceleratorCountRequestArgs',
     'EC2FleetAcceleratorTotalMemoryMiBRequestArgs',
     'EC2FleetBaselineEbsBandwidthMbpsRequestArgs',
@@ -683,6 +684,45 @@ class DHCPOptionsTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DestinationOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 hive_compatible_partitions: pulumi.Input[bool],
+                 per_hour_partition: pulumi.Input[bool],
+                 file_format: Optional[pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']] = None):
+        pulumi.set(__self__, "hive_compatible_partitions", hive_compatible_partitions)
+        pulumi.set(__self__, "per_hour_partition", per_hour_partition)
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
+
+    @property
+    @pulumi.getter(name="hiveCompatiblePartitions")
+    def hive_compatible_partitions(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "hive_compatible_partitions")
+
+    @hive_compatible_partitions.setter
+    def hive_compatible_partitions(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "hive_compatible_partitions", value)
+
+    @property
+    @pulumi.getter(name="perHourPartition")
+    def per_hour_partition(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "per_hour_partition")
+
+    @per_hour_partition.setter
+    def per_hour_partition(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "per_hour_partition", value)
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']]:
+        return pulumi.get(self, "file_format")
+
+    @file_format.setter
+    def file_format(self, value: Optional[pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']]):
+        pulumi.set(self, "file_format", value)
 
 
 @pulumi.input_type

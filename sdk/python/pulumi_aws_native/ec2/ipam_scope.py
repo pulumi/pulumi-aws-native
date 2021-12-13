@@ -18,19 +18,15 @@ class IPAMScopeArgs:
     def __init__(__self__, *,
                  ipam_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 ipam_scope_type: Optional[pulumi.Input['IPAMScopeIpamScopeType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMScopeTagArgs']]]] = None):
         """
         The set of arguments for constructing a IPAMScope resource.
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this scope is a part of.
-        :param pulumi.Input['IPAMScopeIpamScopeType'] ipam_scope_type: Determines whether this scope contains publicly routable space or space for a private network
         :param pulumi.Input[Sequence[pulumi.Input['IPAMScopeTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if ipam_scope_type is not None:
-            pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -56,18 +52,6 @@ class IPAMScopeArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> Optional[pulumi.Input['IPAMScopeIpamScopeType']]:
-        """
-        Determines whether this scope contains publicly routable space or space for a private network
-        """
-        return pulumi.get(self, "ipam_scope_type")
-
-    @ipam_scope_type.setter
-    def ipam_scope_type(self, value: Optional[pulumi.Input['IPAMScopeIpamScopeType']]):
-        pulumi.set(self, "ipam_scope_type", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPAMScopeTagArgs']]]]:
         """
@@ -87,7 +71,6 @@ class IPAMScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_id: Optional[pulumi.Input[str]] = None,
-                 ipam_scope_type: Optional[pulumi.Input['IPAMScopeIpamScopeType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMScopeTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -96,7 +79,6 @@ class IPAMScope(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this scope is a part of.
-        :param pulumi.Input['IPAMScopeIpamScopeType'] ipam_scope_type: Determines whether this scope contains publicly routable space or space for a private network
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMScopeTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -125,7 +107,6 @@ class IPAMScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_id: Optional[pulumi.Input[str]] = None,
-                 ipam_scope_type: Optional[pulumi.Input['IPAMScopeIpamScopeType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMScopeTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -143,11 +124,11 @@ class IPAMScope(pulumi.CustomResource):
             if ipam_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_id'")
             __props__.__dict__["ipam_id"] = ipam_id
-            __props__.__dict__["ipam_scope_type"] = ipam_scope_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["ipam_arn"] = None
             __props__.__dict__["ipam_scope_id"] = None
+            __props__.__dict__["ipam_scope_type"] = None
             __props__.__dict__["is_default"] = None
             __props__.__dict__["pool_count"] = None
         super(IPAMScope, __self__).__init__(
@@ -222,7 +203,7 @@ class IPAMScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> pulumi.Output[Optional['IPAMScopeIpamScopeType']]:
+    def ipam_scope_type(self) -> pulumi.Output['IPAMScopeIpamScopeType']:
         """
         Determines whether this scope contains publicly routable space or space for a private network
         """

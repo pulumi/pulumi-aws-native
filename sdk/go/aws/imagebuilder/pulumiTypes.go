@@ -1227,6 +1227,10 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropert
 
 // Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
 type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties struct {
+	// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+	OrganizationArns []string `pulumi:"organizationArns"`
+	// The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+	OrganizationalUnitArns []string `pulumi:"organizationalUnitArns"`
 	// The name of the group.
 	UserGroups []string `pulumi:"userGroups"`
 	// The AWS account ID.
@@ -1246,6 +1250,10 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationProperties
 
 // Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
 type DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs struct {
+	// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+	OrganizationArns pulumi.StringArrayInput `pulumi:"organizationArns"`
+	// The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+	OrganizationalUnitArns pulumi.StringArrayInput `pulumi:"organizationalUnitArns"`
 	// The name of the group.
 	UserGroups pulumi.StringArrayInput `pulumi:"userGroups"`
 	// The AWS account ID.
@@ -1330,6 +1338,20 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropert
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput)
 }
 
+// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) OrganizationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+		return v.OrganizationArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+		return v.OrganizationalUnitArns
+	}).(pulumi.StringArrayOutput)
+}
+
 // The name of the group.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput) UserGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
@@ -1366,6 +1388,26 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropert
 		var ret DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties
 		return ret
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesOutput)
+}
+
+// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) OrganizationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesPtrOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitArns
+	}).(pulumi.StringArrayOutput)
 }
 
 // The name of the group.

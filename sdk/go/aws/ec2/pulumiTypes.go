@@ -1885,6 +1885,171 @@ func (o DHCPOptionsTagArrayOutput) Index(i pulumi.IntInput) DHCPOptionsTagOutput
 	}).(DHCPOptionsTagOutput)
 }
 
+type DestinationOptionsProperties struct {
+	FileFormat               *FlowLogDestinationOptionsPropertiesFileFormat `pulumi:"fileFormat"`
+	HiveCompatiblePartitions bool                                           `pulumi:"hiveCompatiblePartitions"`
+	PerHourPartition         bool                                           `pulumi:"perHourPartition"`
+}
+
+// DestinationOptionsPropertiesInput is an input type that accepts DestinationOptionsPropertiesArgs and DestinationOptionsPropertiesOutput values.
+// You can construct a concrete instance of `DestinationOptionsPropertiesInput` via:
+//
+//          DestinationOptionsPropertiesArgs{...}
+type DestinationOptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToDestinationOptionsPropertiesOutput() DestinationOptionsPropertiesOutput
+	ToDestinationOptionsPropertiesOutputWithContext(context.Context) DestinationOptionsPropertiesOutput
+}
+
+type DestinationOptionsPropertiesArgs struct {
+	FileFormat               FlowLogDestinationOptionsPropertiesFileFormatPtrInput `pulumi:"fileFormat"`
+	HiveCompatiblePartitions pulumi.BoolInput                                      `pulumi:"hiveCompatiblePartitions"`
+	PerHourPartition         pulumi.BoolInput                                      `pulumi:"perHourPartition"`
+}
+
+func (DestinationOptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationOptionsProperties)(nil)).Elem()
+}
+
+func (i DestinationOptionsPropertiesArgs) ToDestinationOptionsPropertiesOutput() DestinationOptionsPropertiesOutput {
+	return i.ToDestinationOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i DestinationOptionsPropertiesArgs) ToDestinationOptionsPropertiesOutputWithContext(ctx context.Context) DestinationOptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationOptionsPropertiesOutput)
+}
+
+func (i DestinationOptionsPropertiesArgs) ToDestinationOptionsPropertiesPtrOutput() DestinationOptionsPropertiesPtrOutput {
+	return i.ToDestinationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DestinationOptionsPropertiesArgs) ToDestinationOptionsPropertiesPtrOutputWithContext(ctx context.Context) DestinationOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationOptionsPropertiesOutput).ToDestinationOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// DestinationOptionsPropertiesPtrInput is an input type that accepts DestinationOptionsPropertiesArgs, DestinationOptionsPropertiesPtr and DestinationOptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `DestinationOptionsPropertiesPtrInput` via:
+//
+//          DestinationOptionsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DestinationOptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDestinationOptionsPropertiesPtrOutput() DestinationOptionsPropertiesPtrOutput
+	ToDestinationOptionsPropertiesPtrOutputWithContext(context.Context) DestinationOptionsPropertiesPtrOutput
+}
+
+type destinationOptionsPropertiesPtrType DestinationOptionsPropertiesArgs
+
+func DestinationOptionsPropertiesPtr(v *DestinationOptionsPropertiesArgs) DestinationOptionsPropertiesPtrInput {
+	return (*destinationOptionsPropertiesPtrType)(v)
+}
+
+func (*destinationOptionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationOptionsProperties)(nil)).Elem()
+}
+
+func (i *destinationOptionsPropertiesPtrType) ToDestinationOptionsPropertiesPtrOutput() DestinationOptionsPropertiesPtrOutput {
+	return i.ToDestinationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *destinationOptionsPropertiesPtrType) ToDestinationOptionsPropertiesPtrOutputWithContext(ctx context.Context) DestinationOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationOptionsPropertiesPtrOutput)
+}
+
+type DestinationOptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationOptionsProperties)(nil)).Elem()
+}
+
+func (o DestinationOptionsPropertiesOutput) ToDestinationOptionsPropertiesOutput() DestinationOptionsPropertiesOutput {
+	return o
+}
+
+func (o DestinationOptionsPropertiesOutput) ToDestinationOptionsPropertiesOutputWithContext(ctx context.Context) DestinationOptionsPropertiesOutput {
+	return o
+}
+
+func (o DestinationOptionsPropertiesOutput) ToDestinationOptionsPropertiesPtrOutput() DestinationOptionsPropertiesPtrOutput {
+	return o.ToDestinationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationOptionsPropertiesOutput) ToDestinationOptionsPropertiesPtrOutputWithContext(ctx context.Context) DestinationOptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationOptionsProperties) *DestinationOptionsProperties {
+		return &v
+	}).(DestinationOptionsPropertiesPtrOutput)
+}
+
+func (o DestinationOptionsPropertiesOutput) FileFormat() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return o.ApplyT(func(v DestinationOptionsProperties) *FlowLogDestinationOptionsPropertiesFileFormat {
+		return v.FileFormat
+	}).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
+}
+
+func (o DestinationOptionsPropertiesOutput) HiveCompatiblePartitions() pulumi.BoolOutput {
+	return o.ApplyT(func(v DestinationOptionsProperties) bool { return v.HiveCompatiblePartitions }).(pulumi.BoolOutput)
+}
+
+func (o DestinationOptionsPropertiesOutput) PerHourPartition() pulumi.BoolOutput {
+	return o.ApplyT(func(v DestinationOptionsProperties) bool { return v.PerHourPartition }).(pulumi.BoolOutput)
+}
+
+type DestinationOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationOptionsProperties)(nil)).Elem()
+}
+
+func (o DestinationOptionsPropertiesPtrOutput) ToDestinationOptionsPropertiesPtrOutput() DestinationOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationOptionsPropertiesPtrOutput) ToDestinationOptionsPropertiesPtrOutputWithContext(ctx context.Context) DestinationOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationOptionsPropertiesPtrOutput) Elem() DestinationOptionsPropertiesOutput {
+	return o.ApplyT(func(v *DestinationOptionsProperties) DestinationOptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationOptionsProperties
+		return ret
+	}).(DestinationOptionsPropertiesOutput)
+}
+
+func (o DestinationOptionsPropertiesPtrOutput) FileFormat() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return o.ApplyT(func(v *DestinationOptionsProperties) *FlowLogDestinationOptionsPropertiesFileFormat {
+		if v == nil {
+			return nil
+		}
+		return v.FileFormat
+	}).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
+}
+
+func (o DestinationOptionsPropertiesPtrOutput) HiveCompatiblePartitions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DestinationOptionsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.HiveCompatiblePartitions
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DestinationOptionsPropertiesPtrOutput) PerHourPartition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DestinationOptionsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PerHourPartition
+	}).(pulumi.BoolPtrOutput)
+}
+
 type EC2FleetAcceleratorCountRequest struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
@@ -23631,6 +23796,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayTagArrayInput)(nil)).Elem(), CustomerGatewayTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DHCPOptionsTagInput)(nil)).Elem(), DHCPOptionsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DHCPOptionsTagArrayInput)(nil)).Elem(), DHCPOptionsTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationOptionsPropertiesInput)(nil)).Elem(), DestinationOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationOptionsPropertiesPtrInput)(nil)).Elem(), DestinationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetAcceleratorCountRequestInput)(nil)).Elem(), EC2FleetAcceleratorCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetAcceleratorCountRequestPtrInput)(nil)).Elem(), EC2FleetAcceleratorCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetAcceleratorTotalMemoryMiBRequestInput)(nil)).Elem(), EC2FleetAcceleratorTotalMemoryMiBRequestArgs{})
@@ -23967,6 +24134,8 @@ func init() {
 	pulumi.RegisterOutputType(CustomerGatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(DHCPOptionsTagOutput{})
 	pulumi.RegisterOutputType(DHCPOptionsTagArrayOutput{})
+	pulumi.RegisterOutputType(DestinationOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetAcceleratorCountRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetAcceleratorCountRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetAcceleratorTotalMemoryMiBRequestOutput{})

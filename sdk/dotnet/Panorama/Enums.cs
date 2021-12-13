@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Panorama
         public static ApplicationInstanceStatus DeploymentPending { get; } = new ApplicationInstanceStatus("DEPLOYMENT_PENDING");
         public static ApplicationInstanceStatus DeploymentRequested { get; } = new ApplicationInstanceStatus("DEPLOYMENT_REQUESTED");
         public static ApplicationInstanceStatus DeploymentInProgress { get; } = new ApplicationInstanceStatus("DEPLOYMENT_IN_PROGRESS");
-        public static ApplicationInstanceStatus DeploymentFailed { get; } = new ApplicationInstanceStatus("DEPLOYMENT_FAILED");
+        public static ApplicationInstanceStatus DeploymentError { get; } = new ApplicationInstanceStatus("DEPLOYMENT_ERROR");
         public static ApplicationInstanceStatus DeploymentSucceeded { get; } = new ApplicationInstanceStatus("DEPLOYMENT_SUCCEEDED");
         public static ApplicationInstanceStatus RemovalPending { get; } = new ApplicationInstanceStatus("REMOVAL_PENDING");
         public static ApplicationInstanceStatus RemovalRequested { get; } = new ApplicationInstanceStatus("REMOVAL_REQUESTED");
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Panorama
         }
 
         public static ApplicationInstanceStatusFilter DeploymentSucceeded { get; } = new ApplicationInstanceStatusFilter("DEPLOYMENT_SUCCEEDED");
-        public static ApplicationInstanceStatusFilter DeploymentFailed { get; } = new ApplicationInstanceStatusFilter("DEPLOYMENT_FAILED");
+        public static ApplicationInstanceStatusFilter DeploymentError { get; } = new ApplicationInstanceStatusFilter("DEPLOYMENT_ERROR");
         public static ApplicationInstanceStatusFilter RemovalSucceeded { get; } = new ApplicationInstanceStatusFilter("REMOVAL_SUCCEEDED");
         public static ApplicationInstanceStatusFilter RemovalFailed { get; } = new ApplicationInstanceStatusFilter("REMOVAL_FAILED");
         public static ApplicationInstanceStatusFilter ProcessingDeployment { get; } = new ApplicationInstanceStatusFilter("PROCESSING_DEPLOYMENT");

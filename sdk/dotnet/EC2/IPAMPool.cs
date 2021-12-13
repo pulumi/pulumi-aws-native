@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EC2
         /// The address family of the address space in this pool. Either IPv4 or IPv6.
         /// </summary>
         [Output("addressFamily")]
-        public Output<Pulumi.AwsNative.EC2.IPAMPoolAddressFamily> AddressFamily { get; private set; } = null!;
+        public Output<string> AddressFamily { get; private set; } = null!;
 
         /// <summary>
         /// The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
@@ -187,7 +187,7 @@ namespace Pulumi.AwsNative.EC2
         /// The address family of the address space in this pool. Either IPv4 or IPv6.
         /// </summary>
         [Input("addressFamily", required: true)]
-        public Input<Pulumi.AwsNative.EC2.IPAMPoolAddressFamily> AddressFamily { get; set; } = null!;
+        public Input<string> AddressFamily { get; set; } = null!;
 
         /// <summary>
         /// The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.

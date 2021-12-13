@@ -181,12 +181,13 @@ func (in *schemaCompatibilityPtr) ToSchemaCompatibilityPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaCompatibilityPtrOutput)
 }
 
-// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
 type SchemaDataFormat string
 
 const (
-	SchemaDataFormatAvro = SchemaDataFormat("AVRO")
-	SchemaDataFormatJson = SchemaDataFormat("JSON")
+	SchemaDataFormatAvro     = SchemaDataFormat("AVRO")
+	SchemaDataFormatJson     = SchemaDataFormat("JSON")
+	SchemaDataFormatProtobuf = SchemaDataFormat("PROTOBUF")
 )
 
 func (SchemaDataFormat) ElementType() reflect.Type {

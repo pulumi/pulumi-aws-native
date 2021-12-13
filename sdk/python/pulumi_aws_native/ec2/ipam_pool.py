@@ -16,7 +16,7 @@ __all__ = ['IPAMPoolArgs', 'IPAMPool']
 @pulumi.input_type
 class IPAMPoolArgs:
     def __init__(__self__, *,
-                 address_family: pulumi.Input['IPAMPoolAddressFamily'],
+                 address_family: pulumi.Input[str],
                  ipam_scope_id: pulumi.Input[str],
                  allocation_default_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_max_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -31,7 +31,7 @@ class IPAMPoolArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMPoolTagArgs']]]] = None):
         """
         The set of arguments for constructing a IPAMPool resource.
-        :param pulumi.Input['IPAMPoolAddressFamily'] address_family: The address family of the address space in this pool. Either IPv4 or IPv6.
+        :param pulumi.Input[str] address_family: The address family of the address space in this pool. Either IPv4 or IPv6.
         :param pulumi.Input[str] ipam_scope_id: The Id of the scope this pool is a part of.
         :param pulumi.Input[int] allocation_default_netmask_length: The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
         :param pulumi.Input[int] allocation_max_netmask_length: The maximum allowed netmask length for allocations made from this pool.
@@ -71,14 +71,14 @@ class IPAMPoolArgs:
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> pulumi.Input['IPAMPoolAddressFamily']:
+    def address_family(self) -> pulumi.Input[str]:
         """
         The address family of the address space in this pool. Either IPv4 or IPv6.
         """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
-    def address_family(self, value: pulumi.Input['IPAMPoolAddressFamily']):
+    def address_family(self, value: pulumi.Input[str]):
         pulumi.set(self, "address_family", value)
 
     @property
@@ -228,7 +228,7 @@ class IPAMPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input['IPAMPoolAddressFamily']] = None,
+                 address_family: Optional[pulumi.Input[str]] = None,
                  allocation_default_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_max_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_min_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -247,7 +247,7 @@ class IPAMPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['IPAMPoolAddressFamily'] address_family: The address family of the address space in this pool. Either IPv4 or IPv6.
+        :param pulumi.Input[str] address_family: The address family of the address space in this pool. Either IPv4 or IPv6.
         :param pulumi.Input[int] allocation_default_netmask_length: The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
         :param pulumi.Input[int] allocation_max_netmask_length: The maximum allowed netmask length for allocations made from this pool.
         :param pulumi.Input[int] allocation_min_netmask_length: The minimum allowed netmask length for allocations made from this pool.
@@ -284,7 +284,7 @@ class IPAMPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input['IPAMPoolAddressFamily']] = None,
+                 address_family: Optional[pulumi.Input[str]] = None,
                  allocation_default_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_max_netmask_length: Optional[pulumi.Input[int]] = None,
                  allocation_min_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -381,7 +381,7 @@ class IPAMPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> pulumi.Output['IPAMPoolAddressFamily']:
+    def address_family(self) -> pulumi.Output[str]:
         """
         The address family of the address space in this pool. Either IPv4 or IPv6.
         """

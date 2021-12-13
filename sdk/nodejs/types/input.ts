@@ -1365,6 +1365,8 @@ export namespace apigateway {
     }
 
     export interface DomainNameMutualTlsAuthenticationArgs {
+        certificateRevocationCheckType?: pulumi.Input<string>;
+        certificateRevocationSourceUri?: pulumi.Input<string>;
         truststoreUri?: pulumi.Input<string>;
         truststoreVersion?: pulumi.Input<string>;
     }
@@ -8443,6 +8445,12 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    export interface DestinationOptionsPropertiesArgs {
+        fileFormat?: pulumi.Input<enums.ec2.FlowLogDestinationOptionsPropertiesFileFormat>;
+        hiveCompatiblePartitions: pulumi.Input<boolean>;
+        perHourPartition: pulumi.Input<boolean>;
+    }
+
     export interface EC2FleetAcceleratorCountRequestArgs {
         max?: pulumi.Input<number>;
         min?: pulumi.Input<number>;
@@ -13425,6 +13433,14 @@ export namespace imagebuilder {
      * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
      */
     export interface DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs {
+        /**
+         * The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+         */
+        organizationArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+         */
+        organizationalUnitArns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The name of the group.
          */

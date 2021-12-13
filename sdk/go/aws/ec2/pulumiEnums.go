@@ -3621,6 +3621,170 @@ func (in *ec2fleetTypePtr) ToEC2FleetTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetTypePtrOutput)
 }
 
+type FlowLogDestinationOptionsPropertiesFileFormat string
+
+const (
+	FlowLogDestinationOptionsPropertiesFileFormatPlainText = FlowLogDestinationOptionsPropertiesFileFormat("plain-text")
+	FlowLogDestinationOptionsPropertiesFileFormatParquet   = FlowLogDestinationOptionsPropertiesFileFormat("parquet")
+)
+
+func (FlowLogDestinationOptionsPropertiesFileFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLogDestinationOptionsPropertiesFileFormat)(nil)).Elem()
+}
+
+func (e FlowLogDestinationOptionsPropertiesFileFormat) ToFlowLogDestinationOptionsPropertiesFileFormatOutput() FlowLogDestinationOptionsPropertiesFileFormatOutput {
+	return pulumi.ToOutput(e).(FlowLogDestinationOptionsPropertiesFileFormatOutput)
+}
+
+func (e FlowLogDestinationOptionsPropertiesFileFormat) ToFlowLogDestinationOptionsPropertiesFileFormatOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPropertiesFileFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowLogDestinationOptionsPropertiesFileFormatOutput)
+}
+
+func (e FlowLogDestinationOptionsPropertiesFileFormat) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutput() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return e.ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (e FlowLogDestinationOptionsPropertiesFileFormat) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return FlowLogDestinationOptionsPropertiesFileFormat(e).ToFlowLogDestinationOptionsPropertiesFileFormatOutputWithContext(ctx).ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(ctx)
+}
+
+func (e FlowLogDestinationOptionsPropertiesFileFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowLogDestinationOptionsPropertiesFileFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowLogDestinationOptionsPropertiesFileFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowLogDestinationOptionsPropertiesFileFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowLogDestinationOptionsPropertiesFileFormatOutput struct{ *pulumi.OutputState }
+
+func (FlowLogDestinationOptionsPropertiesFileFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLogDestinationOptionsPropertiesFileFormat)(nil)).Elem()
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToFlowLogDestinationOptionsPropertiesFileFormatOutput() FlowLogDestinationOptionsPropertiesFileFormatOutput {
+	return o
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToFlowLogDestinationOptionsPropertiesFileFormatOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPropertiesFileFormatOutput {
+	return o
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutput() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return o.ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowLogDestinationOptionsPropertiesFileFormat) *FlowLogDestinationOptionsPropertiesFileFormat {
+		return &v
+	}).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowLogDestinationOptionsPropertiesFileFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowLogDestinationOptionsPropertiesFileFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowLogDestinationOptionsPropertiesFileFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLogDestinationOptionsPropertiesFileFormat)(nil)).Elem()
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutput() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return o
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return o
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) Elem() FlowLogDestinationOptionsPropertiesFileFormatOutput {
+	return o.ApplyT(func(v *FlowLogDestinationOptionsPropertiesFileFormat) FlowLogDestinationOptionsPropertiesFileFormat {
+		if v != nil {
+			return *v
+		}
+		var ret FlowLogDestinationOptionsPropertiesFileFormat
+		return ret
+	}).(FlowLogDestinationOptionsPropertiesFileFormatOutput)
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowLogDestinationOptionsPropertiesFileFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowLogDestinationOptionsPropertiesFileFormatInput is an input type that accepts FlowLogDestinationOptionsPropertiesFileFormatArgs and FlowLogDestinationOptionsPropertiesFileFormatOutput values.
+// You can construct a concrete instance of `FlowLogDestinationOptionsPropertiesFileFormatInput` via:
+//
+//          FlowLogDestinationOptionsPropertiesFileFormatArgs{...}
+type FlowLogDestinationOptionsPropertiesFileFormatInput interface {
+	pulumi.Input
+
+	ToFlowLogDestinationOptionsPropertiesFileFormatOutput() FlowLogDestinationOptionsPropertiesFileFormatOutput
+	ToFlowLogDestinationOptionsPropertiesFileFormatOutputWithContext(context.Context) FlowLogDestinationOptionsPropertiesFileFormatOutput
+}
+
+var flowLogDestinationOptionsPropertiesFileFormatPtrType = reflect.TypeOf((**FlowLogDestinationOptionsPropertiesFileFormat)(nil)).Elem()
+
+type FlowLogDestinationOptionsPropertiesFileFormatPtrInput interface {
+	pulumi.Input
+
+	ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutput() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput
+	ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(context.Context) FlowLogDestinationOptionsPropertiesFileFormatPtrOutput
+}
+
+type flowLogDestinationOptionsPropertiesFileFormatPtr string
+
+func FlowLogDestinationOptionsPropertiesFileFormatPtr(v string) FlowLogDestinationOptionsPropertiesFileFormatPtrInput {
+	return (*flowLogDestinationOptionsPropertiesFileFormatPtr)(&v)
+}
+
+func (*flowLogDestinationOptionsPropertiesFileFormatPtr) ElementType() reflect.Type {
+	return flowLogDestinationOptionsPropertiesFileFormatPtrType
+}
+
+func (in *flowLogDestinationOptionsPropertiesFileFormatPtr) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutput() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return pulumi.ToOutput(in).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
+}
+
+func (in *flowLogDestinationOptionsPropertiesFileFormatPtr) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
+}
+
 // Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
 type FlowLogLogDestinationType string
 
@@ -4118,171 +4282,6 @@ func (in *flowLogTrafficTypePtr) ToFlowLogTrafficTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogTrafficTypePtrOutput)
 }
 
-// The address family of the address space in this pool. Either IPv4 or IPv6.
-type IPAMPoolAddressFamily string
-
-const (
-	IPAMPoolAddressFamilyIPv4 = IPAMPoolAddressFamily("IPv4")
-	IPAMPoolAddressFamilyIPv6 = IPAMPoolAddressFamily("IPv6")
-)
-
-func (IPAMPoolAddressFamily) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMPoolAddressFamily)(nil)).Elem()
-}
-
-func (e IPAMPoolAddressFamily) ToIPAMPoolAddressFamilyOutput() IPAMPoolAddressFamilyOutput {
-	return pulumi.ToOutput(e).(IPAMPoolAddressFamilyOutput)
-}
-
-func (e IPAMPoolAddressFamily) ToIPAMPoolAddressFamilyOutputWithContext(ctx context.Context) IPAMPoolAddressFamilyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(IPAMPoolAddressFamilyOutput)
-}
-
-func (e IPAMPoolAddressFamily) ToIPAMPoolAddressFamilyPtrOutput() IPAMPoolAddressFamilyPtrOutput {
-	return e.ToIPAMPoolAddressFamilyPtrOutputWithContext(context.Background())
-}
-
-func (e IPAMPoolAddressFamily) ToIPAMPoolAddressFamilyPtrOutputWithContext(ctx context.Context) IPAMPoolAddressFamilyPtrOutput {
-	return IPAMPoolAddressFamily(e).ToIPAMPoolAddressFamilyOutputWithContext(ctx).ToIPAMPoolAddressFamilyPtrOutputWithContext(ctx)
-}
-
-func (e IPAMPoolAddressFamily) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e IPAMPoolAddressFamily) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e IPAMPoolAddressFamily) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e IPAMPoolAddressFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type IPAMPoolAddressFamilyOutput struct{ *pulumi.OutputState }
-
-func (IPAMPoolAddressFamilyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMPoolAddressFamily)(nil)).Elem()
-}
-
-func (o IPAMPoolAddressFamilyOutput) ToIPAMPoolAddressFamilyOutput() IPAMPoolAddressFamilyOutput {
-	return o
-}
-
-func (o IPAMPoolAddressFamilyOutput) ToIPAMPoolAddressFamilyOutputWithContext(ctx context.Context) IPAMPoolAddressFamilyOutput {
-	return o
-}
-
-func (o IPAMPoolAddressFamilyOutput) ToIPAMPoolAddressFamilyPtrOutput() IPAMPoolAddressFamilyPtrOutput {
-	return o.ToIPAMPoolAddressFamilyPtrOutputWithContext(context.Background())
-}
-
-func (o IPAMPoolAddressFamilyOutput) ToIPAMPoolAddressFamilyPtrOutputWithContext(ctx context.Context) IPAMPoolAddressFamilyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAMPoolAddressFamily) *IPAMPoolAddressFamily {
-		return &v
-	}).(IPAMPoolAddressFamilyPtrOutput)
-}
-
-func (o IPAMPoolAddressFamilyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o IPAMPoolAddressFamilyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPAMPoolAddressFamily) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o IPAMPoolAddressFamilyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IPAMPoolAddressFamilyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPAMPoolAddressFamily) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type IPAMPoolAddressFamilyPtrOutput struct{ *pulumi.OutputState }
-
-func (IPAMPoolAddressFamilyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IPAMPoolAddressFamily)(nil)).Elem()
-}
-
-func (o IPAMPoolAddressFamilyPtrOutput) ToIPAMPoolAddressFamilyPtrOutput() IPAMPoolAddressFamilyPtrOutput {
-	return o
-}
-
-func (o IPAMPoolAddressFamilyPtrOutput) ToIPAMPoolAddressFamilyPtrOutputWithContext(ctx context.Context) IPAMPoolAddressFamilyPtrOutput {
-	return o
-}
-
-func (o IPAMPoolAddressFamilyPtrOutput) Elem() IPAMPoolAddressFamilyOutput {
-	return o.ApplyT(func(v *IPAMPoolAddressFamily) IPAMPoolAddressFamily {
-		if v != nil {
-			return *v
-		}
-		var ret IPAMPoolAddressFamily
-		return ret
-	}).(IPAMPoolAddressFamilyOutput)
-}
-
-func (o IPAMPoolAddressFamilyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IPAMPoolAddressFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IPAMPoolAddressFamily) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// IPAMPoolAddressFamilyInput is an input type that accepts IPAMPoolAddressFamilyArgs and IPAMPoolAddressFamilyOutput values.
-// You can construct a concrete instance of `IPAMPoolAddressFamilyInput` via:
-//
-//          IPAMPoolAddressFamilyArgs{...}
-type IPAMPoolAddressFamilyInput interface {
-	pulumi.Input
-
-	ToIPAMPoolAddressFamilyOutput() IPAMPoolAddressFamilyOutput
-	ToIPAMPoolAddressFamilyOutputWithContext(context.Context) IPAMPoolAddressFamilyOutput
-}
-
-var ipampoolAddressFamilyPtrType = reflect.TypeOf((**IPAMPoolAddressFamily)(nil)).Elem()
-
-type IPAMPoolAddressFamilyPtrInput interface {
-	pulumi.Input
-
-	ToIPAMPoolAddressFamilyPtrOutput() IPAMPoolAddressFamilyPtrOutput
-	ToIPAMPoolAddressFamilyPtrOutputWithContext(context.Context) IPAMPoolAddressFamilyPtrOutput
-}
-
-type ipampoolAddressFamilyPtr string
-
-func IPAMPoolAddressFamilyPtr(v string) IPAMPoolAddressFamilyPtrInput {
-	return (*ipampoolAddressFamilyPtr)(&v)
-}
-
-func (*ipampoolAddressFamilyPtr) ElementType() reflect.Type {
-	return ipampoolAddressFamilyPtrType
-}
-
-func (in *ipampoolAddressFamilyPtr) ToIPAMPoolAddressFamilyPtrOutput() IPAMPoolAddressFamilyPtrOutput {
-	return pulumi.ToOutput(in).(IPAMPoolAddressFamilyPtrOutput)
-}
-
-func (in *ipampoolAddressFamilyPtr) ToIPAMPoolAddressFamilyPtrOutputWithContext(ctx context.Context) IPAMPoolAddressFamilyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(IPAMPoolAddressFamilyPtrOutput)
-}
-
 // Determines whether this scope contains publicly routable space or space for a private network
 type IPAMPoolIpamScopeType string
 
@@ -4621,8 +4620,8 @@ func (in *ipampoolStateEnumPtr) ToIPAMPoolStateEnumPtrOutputWithContext(ctx cont
 type IPAMScopeIpamScopeType string
 
 const (
-	IPAMScopeIpamScopeTypePublic  = IPAMScopeIpamScopeType("Public")
-	IPAMScopeIpamScopeTypePrivate = IPAMScopeIpamScopeType("Private")
+	IPAMScopeIpamScopeTypePublic  = IPAMScopeIpamScopeType("public")
+	IPAMScopeIpamScopeTypePrivate = IPAMScopeIpamScopeType("private")
 )
 
 func (IPAMScopeIpamScopeType) ElementType() reflect.Type {
@@ -8614,20 +8613,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrInput)(nil)).Elem(), EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType("vcpu"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTypeInput)(nil)).Elem(), EC2FleetType("maintain"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTypePtrInput)(nil)).Elem(), EC2FleetType("maintain"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogDestinationOptionsPropertiesFileFormatInput)(nil)).Elem(), FlowLogDestinationOptionsPropertiesFileFormat("plain-text"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogDestinationOptionsPropertiesFileFormatPtrInput)(nil)).Elem(), FlowLogDestinationOptionsPropertiesFileFormat("plain-text"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogLogDestinationTypeInput)(nil)).Elem(), FlowLogLogDestinationType("cloud-watch-logs"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogLogDestinationTypePtrInput)(nil)).Elem(), FlowLogLogDestinationType("cloud-watch-logs"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogResourceTypeInput)(nil)).Elem(), FlowLogResourceType("NetworkInterface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogResourceTypePtrInput)(nil)).Elem(), FlowLogResourceType("NetworkInterface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypeInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypePtrInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolAddressFamilyInput)(nil)).Elem(), IPAMPoolAddressFamily("IPv4"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolAddressFamilyPtrInput)(nil)).Elem(), IPAMPoolAddressFamily("IPv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolIpamScopeTypeInput)(nil)).Elem(), IPAMPoolIpamScopeType("public"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolIpamScopeTypePtrInput)(nil)).Elem(), IPAMPoolIpamScopeType("public"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolStateEnumInput)(nil)).Elem(), IPAMPoolStateEnum("create-in-progress"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolStateEnumPtrInput)(nil)).Elem(), IPAMPoolStateEnum("create-in-progress"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeIpamScopeTypeInput)(nil)).Elem(), IPAMScopeIpamScopeType("Public"))
-	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeIpamScopeTypePtrInput)(nil)).Elem(), IPAMScopeIpamScopeType("Public"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeIpamScopeTypeInput)(nil)).Elem(), IPAMScopeIpamScopeType("public"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeIpamScopeTypePtrInput)(nil)).Elem(), IPAMScopeIpamScopeType("public"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisStatusInput)(nil)).Elem(), NetworkInsightsAnalysisStatus("running"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisStatusPtrInput)(nil)).Elem(), NetworkInsightsAnalysisStatus("running"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathProtocolInput)(nil)).Elem(), NetworkInsightsPathProtocol("tcp"))
@@ -8722,14 +8721,14 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetTypeOutput{})
 	pulumi.RegisterOutputType(EC2FleetTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowLogDestinationOptionsPropertiesFileFormatOutput{})
+	pulumi.RegisterOutputType(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput{})
 	pulumi.RegisterOutputType(FlowLogLogDestinationTypeOutput{})
 	pulumi.RegisterOutputType(FlowLogLogDestinationTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowLogResourceTypeOutput{})
 	pulumi.RegisterOutputType(FlowLogResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowLogTrafficTypeOutput{})
 	pulumi.RegisterOutputType(FlowLogTrafficTypePtrOutput{})
-	pulumi.RegisterOutputType(IPAMPoolAddressFamilyOutput{})
-	pulumi.RegisterOutputType(IPAMPoolAddressFamilyPtrOutput{})
 	pulumi.RegisterOutputType(IPAMPoolIpamScopeTypeOutput{})
 	pulumi.RegisterOutputType(IPAMPoolIpamScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(IPAMPoolStateEnumOutput{})

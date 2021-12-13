@@ -68,10 +68,27 @@
       "description" : "The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.",
       "type" : "string",
       "enum" : [ "ACCEPT", "ALL", "REJECT" ]
+    },
+    "DestinationOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "FileFormat" : {
+          "type" : "string",
+          "enum" : [ "plain-text", "parquet" ]
+        },
+        "HiveCompatiblePartitions" : {
+          "type" : "boolean"
+        },
+        "PerHourPartition" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "FileDestination", "HiveCompatiblePartitions", "PerHourPartition" ]
     }
   },
   "required" : [ "ResourceType", "ResourceId", "TrafficType" ],
-  "createOnlyProperties" : [ "/properties/DeliverLogsPermissionArn", "/properties/LogGroupName", "/properties/LogDestination", "/properties/ResourceId", "/properties/TrafficType", "/properties/LogDestinationType", "/properties/ResourceType", "/properties/LogFormat", "/properties/MaxAggregationInterval" ],
+  "createOnlyProperties" : [ "/properties/DeliverLogsPermissionArn", "/properties/LogGroupName", "/properties/LogDestination", "/properties/ResourceId", "/properties/TrafficType", "/properties/LogDestinationType", "/properties/ResourceType", "/properties/LogFormat", "/properties/MaxAggregationInterval", "/properties/DestinationOptions" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {

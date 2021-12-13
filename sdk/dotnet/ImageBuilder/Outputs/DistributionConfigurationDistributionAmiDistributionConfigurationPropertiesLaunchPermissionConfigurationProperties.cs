@@ -17,6 +17,14 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
     public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties
     {
         /// <summary>
+        /// The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+        /// </summary>
+        public readonly ImmutableArray<string> OrganizationArns;
+        /// <summary>
+        /// The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+        /// </summary>
+        public readonly ImmutableArray<string> OrganizationalUnitArns;
+        /// <summary>
         /// The name of the group.
         /// </summary>
         public readonly ImmutableArray<string> UserGroups;
@@ -27,10 +35,16 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties(
+            ImmutableArray<string> organizationArns,
+
+            ImmutableArray<string> organizationalUnitArns,
+
             ImmutableArray<string> userGroups,
 
             ImmutableArray<string> userIds)
         {
+            OrganizationArns = organizationArns;
+            OrganizationalUnitArns = organizationalUnitArns;
             UserGroups = userGroups;
             UserIds = userIds;
         }

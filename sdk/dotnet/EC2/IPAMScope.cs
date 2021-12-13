@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.EC2
         /// Determines whether this scope contains publicly routable space or space for a private network
         /// </summary>
         [Output("ipamScopeType")]
-        public Output<Pulumi.AwsNative.EC2.IPAMScopeIpamScopeType?> IpamScopeType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.IPAMScopeIpamScopeType> IpamScopeType { get; private set; } = null!;
 
         /// <summary>
         /// Is this one of the default scopes created with the IPAM.
@@ -119,12 +119,6 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Input("ipamId", required: true)]
         public Input<string> IpamId { get; set; } = null!;
-
-        /// <summary>
-        /// Determines whether this scope contains publicly routable space or space for a private network
-        /// </summary>
-        [Input("ipamScopeType")]
-        public Input<Pulumi.AwsNative.EC2.IPAMScopeIpamScopeType>? IpamScopeType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.IPAMScopeTagArgs>? _tags;

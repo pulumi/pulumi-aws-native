@@ -26,7 +26,8 @@ class SchemaCompatibility(str, Enum):
 
 class SchemaDataFormat(str, Enum):
     """
-    Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+    Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
     """
     AVRO = "AVRO"
     JSON = "JSON"
+    PROTOBUF = "PROTOBUF"

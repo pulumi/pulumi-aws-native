@@ -16,7 +16,8 @@ type FlowLog struct {
 	pulumi.CustomResourceState
 
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
-	DeliverLogsPermissionArn pulumi.StringPtrOutput `pulumi:"deliverLogsPermissionArn"`
+	DeliverLogsPermissionArn pulumi.StringPtrOutput                `pulumi:"deliverLogsPermissionArn"`
+	DestinationOptions       DestinationOptionsPropertiesPtrOutput `pulumi:"destinationOptions"`
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination pulumi.StringPtrOutput `pulumi:"logDestination"`
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -86,7 +87,8 @@ func (FlowLogState) ElementType() reflect.Type {
 
 type flowLogArgs struct {
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
-	DeliverLogsPermissionArn *string `pulumi:"deliverLogsPermissionArn"`
+	DeliverLogsPermissionArn *string                       `pulumi:"deliverLogsPermissionArn"`
+	DestinationOptions       *DestinationOptionsProperties `pulumi:"destinationOptions"`
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination *string `pulumi:"logDestination"`
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -111,6 +113,7 @@ type flowLogArgs struct {
 type FlowLogArgs struct {
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
 	DeliverLogsPermissionArn pulumi.StringPtrInput
+	DestinationOptions       DestinationOptionsPropertiesPtrInput
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination pulumi.StringPtrInput
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.

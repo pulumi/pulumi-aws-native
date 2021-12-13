@@ -667,6 +667,8 @@ export namespace apigateway {
     }
 
     export interface DomainNameMutualTlsAuthentication {
+        certificateRevocationCheckType?: string;
+        certificateRevocationSourceUri?: string;
         truststoreUri?: string;
         truststoreVersion?: string;
     }
@@ -8547,6 +8549,12 @@ export namespace ec2 {
         value: string;
     }
 
+    export interface DestinationOptionsProperties {
+        fileFormat?: enums.ec2.FlowLogDestinationOptionsPropertiesFileFormat;
+        hiveCompatiblePartitions: boolean;
+        perHourPartition: boolean;
+    }
+
     export interface EC2FleetAcceleratorCountRequest {
         max?: number;
         min?: number;
@@ -13709,6 +13717,14 @@ export namespace imagebuilder {
      * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
      */
     export interface DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties {
+        /**
+         * The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+         */
+        organizationArns?: string[];
+        /**
+         * The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+         */
+        organizationalUnitArns?: string[];
         /**
          * The name of the group.
          */

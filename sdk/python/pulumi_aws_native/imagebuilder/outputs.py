@@ -599,7 +599,11 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "userGroups":
+        if key == "organizationArns":
+            suggest = "organization_arns"
+        elif key == "organizationalUnitArns":
+            suggest = "organizational_unit_arns"
+        elif key == "userGroups":
             suggest = "user_groups"
         elif key == "userIds":
             suggest = "user_ids"
@@ -616,17 +620,41 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationPropertie
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 organization_arns: Optional[Sequence[str]] = None,
+                 organizational_unit_arns: Optional[Sequence[str]] = None,
                  user_groups: Optional[Sequence[str]] = None,
                  user_ids: Optional[Sequence[str]] = None):
         """
         Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
+        :param Sequence[str] organization_arns: The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+        :param Sequence[str] organizational_unit_arns: The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
         :param Sequence[str] user_groups: The name of the group.
         :param Sequence[str] user_ids: The AWS account ID.
         """
+        if organization_arns is not None:
+            pulumi.set(__self__, "organization_arns", organization_arns)
+        if organizational_unit_arns is not None:
+            pulumi.set(__self__, "organizational_unit_arns", organizational_unit_arns)
         if user_groups is not None:
             pulumi.set(__self__, "user_groups", user_groups)
         if user_ids is not None:
             pulumi.set(__self__, "user_ids", user_ids)
+
+    @property
+    @pulumi.getter(name="organizationArns")
+    def organization_arns(self) -> Optional[Sequence[str]]:
+        """
+        The ARN for an Amazon Web Services Organization that you want to share your AMI with.
+        """
+        return pulumi.get(self, "organization_arns")
+
+    @property
+    @pulumi.getter(name="organizationalUnitArns")
+    def organizational_unit_arns(self) -> Optional[Sequence[str]]:
+        """
+        The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+        """
+        return pulumi.get(self, "organizational_unit_arns")
 
     @property
     @pulumi.getter(name="userGroups")

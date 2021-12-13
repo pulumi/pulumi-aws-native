@@ -203,6 +203,13 @@ export const EC2FleetType = {
 
 export type EC2FleetType = (typeof EC2FleetType)[keyof typeof EC2FleetType];
 
+export const FlowLogDestinationOptionsPropertiesFileFormat = {
+    PlainText: "plain-text",
+    Parquet: "parquet",
+} as const;
+
+export type FlowLogDestinationOptionsPropertiesFileFormat = (typeof FlowLogDestinationOptionsPropertiesFileFormat)[keyof typeof FlowLogDestinationOptionsPropertiesFileFormat];
+
 export const FlowLogLogDestinationType = {
     CloudWatchLogs: "cloud-watch-logs",
     S3: "s3",
@@ -235,16 +242,6 @@ export const FlowLogTrafficType = {
  */
 export type FlowLogTrafficType = (typeof FlowLogTrafficType)[keyof typeof FlowLogTrafficType];
 
-export const IPAMPoolAddressFamily = {
-    IPv4: "IPv4",
-    IPv6: "IPv6",
-} as const;
-
-/**
- * The address family of the address space in this pool. Either IPv4 or IPv6.
- */
-export type IPAMPoolAddressFamily = (typeof IPAMPoolAddressFamily)[keyof typeof IPAMPoolAddressFamily];
-
 export const IPAMPoolIpamScopeType = {
     Public: "public",
     Private: "private",
@@ -270,8 +267,8 @@ export const IPAMPoolState = {
 export type IPAMPoolState = (typeof IPAMPoolState)[keyof typeof IPAMPoolState];
 
 export const IPAMScopeIpamScopeType = {
-    Public: "Public",
-    Private: "Private",
+    Public: "public",
+    Private: "private",
 } as const;
 
 /**
