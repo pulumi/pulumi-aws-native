@@ -76,12 +76,6 @@ namespace Pulumi.AwsNative.RDS
         public Output<ImmutableArray<Outputs.DBProxyTagFormat>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// VPC ID to associate with the new DB proxy.
-        /// </summary>
-        [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
-
-        /// <summary>
         /// VPC security group IDs to associate with the new proxy.
         /// </summary>
         [Output("vpcSecurityGroupIds")]

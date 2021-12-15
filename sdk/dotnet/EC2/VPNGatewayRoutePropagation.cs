@@ -16,9 +16,15 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:ec2:VPNGatewayRoutePropagation")]
     public partial class VPNGatewayRoutePropagation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
+        /// </summary>
         [Output("routeTableIds")]
         public Output<ImmutableArray<string>> RouteTableIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
+        /// </summary>
         [Output("vpnGatewayId")]
         public Output<string> VpnGatewayId { get; private set; } = null!;
 
@@ -69,12 +75,19 @@ namespace Pulumi.AwsNative.EC2
     {
         [Input("routeTableIds", required: true)]
         private InputList<string>? _routeTableIds;
+
+        /// <summary>
+        /// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
+        /// </summary>
         public InputList<string> RouteTableIds
         {
             get => _routeTableIds ?? (_routeTableIds = new InputList<string>());
             set => _routeTableIds = value;
         }
 
+        /// <summary>
+        /// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
+        /// </summary>
         [Input("vpnGatewayId", required: true)]
         public Input<string> VpnGatewayId { get; set; } = null!;
 

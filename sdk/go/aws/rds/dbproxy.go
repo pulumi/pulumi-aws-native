@@ -35,8 +35,6 @@ type DBProxy struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags DBProxyTagFormatArrayOutput `pulumi:"tags"`
-	// VPC ID to associate with the new DB proxy.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 	// VPC subnet IDs to associate with the new proxy.

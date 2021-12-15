@@ -42,6 +42,9 @@
     },
     "delete" : {
       "permissions" : [ "ec2:DisassociateEnclaveCertificateIamRole" ]
+    },
+    "list" : {
+      "permissions" : [ "ec2:GetAssociatedEnclaveCertificateIamRoles" ]
     }
   },
   "readOnlyProperties" : [ "/properties/CertificateS3BucketName", "/properties/CertificateS3ObjectKey", "/properties/EncryptionKmsKeyId" ],

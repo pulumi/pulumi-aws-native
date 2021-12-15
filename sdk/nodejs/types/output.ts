@@ -14768,7 +14768,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValue {
-        datasetName?: string;
+        datasetName: string;
     }
 
     export interface DatasetDeltaTime {
@@ -14804,7 +14804,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValue {
-        fileName?: string;
+        fileName: string;
     }
 
     export interface DatasetQueryAction {
@@ -14813,7 +14813,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetResourceConfiguration {
-        computeType: string;
+        computeType: enums.iotanalytics.DatasetResourceConfigurationComputeType;
         volumeSizeInGB: number;
     }
 
@@ -14943,67 +14943,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributes {
-        attributes?: any;
-        name?: string;
+        attributes: any;
+        name: string;
         next?: string;
     }
 
     export interface PipelineChannel {
-        channelName?: string;
-        name?: string;
+        channelName: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineDatastore {
-        datastoreName?: string;
-        name?: string;
+        datastoreName: string;
+        name: string;
     }
 
     export interface PipelineDeviceRegistryEnrich {
-        attribute?: string;
-        name?: string;
+        attribute: string;
+        name: string;
         next?: string;
-        roleArn?: string;
-        thingName?: string;
+        roleArn: string;
+        thingName: string;
     }
 
     export interface PipelineDeviceShadowEnrich {
-        attribute?: string;
-        name?: string;
+        attribute: string;
+        name: string;
         next?: string;
-        roleArn?: string;
-        thingName?: string;
+        roleArn: string;
+        thingName: string;
     }
 
     export interface PipelineFilter {
-        filter?: string;
-        name?: string;
+        filter: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineLambda {
-        batchSize?: number;
-        lambdaName?: string;
-        name?: string;
+        batchSize: number;
+        lambdaName: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineMath {
-        attribute?: string;
-        math?: string;
-        name?: string;
+        attribute: string;
+        math: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineRemoveAttributes {
-        attributes?: string[];
-        name?: string;
+        attributes: string[];
+        name: string;
         next?: string;
     }
 
     export interface PipelineSelectAttributes {
-        attributes?: string[];
-        name?: string;
+        attributes: string[];
+        name: string;
         next?: string;
     }
 

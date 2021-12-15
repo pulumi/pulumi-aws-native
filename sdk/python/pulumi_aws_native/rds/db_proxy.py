@@ -275,7 +275,6 @@ class DBProxy(pulumi.CustomResource):
             __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
             __props__.__dict__["d_b_proxy_arn"] = None
             __props__.__dict__["endpoint"] = None
-            __props__.__dict__["vpc_id"] = None
         super(DBProxy, __self__).__init__(
             'aws-native:rds:DBProxy',
             resource_name,
@@ -308,7 +307,6 @@ class DBProxy(pulumi.CustomResource):
         __props__.__dict__["require_tls"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["vpc_id"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
         __props__.__dict__["vpc_subnet_ids"] = None
         return DBProxy(resource_name, opts=opts, __props__=__props__)
@@ -392,14 +390,6 @@ class DBProxy(pulumi.CustomResource):
         An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
-        """
-        VPC ID to associate with the new DB proxy.
-        """
-        return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")

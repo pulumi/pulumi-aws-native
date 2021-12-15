@@ -14475,7 +14475,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValueArgs {
-        datasetName?: pulumi.Input<string>;
+        datasetName: pulumi.Input<string>;
     }
 
     export interface DatasetDeltaTimeArgs {
@@ -14511,7 +14511,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValueArgs {
-        fileName?: pulumi.Input<string>;
+        fileName: pulumi.Input<string>;
     }
 
     export interface DatasetQueryActionArgs {
@@ -14520,7 +14520,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetResourceConfigurationArgs {
-        computeType: pulumi.Input<string>;
+        computeType: pulumi.Input<enums.iotanalytics.DatasetResourceConfigurationComputeType>;
         volumeSizeInGB: pulumi.Input<number>;
     }
 
@@ -14650,67 +14650,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributesArgs {
-        attributes?: any;
-        name?: pulumi.Input<string>;
+        attributes: any;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineChannelArgs {
-        channelName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        channelName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineDatastoreArgs {
-        datastoreName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        datastoreName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceRegistryEnrichArgs {
-        attribute?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn?: pulumi.Input<string>;
-        thingName?: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        thingName: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceShadowEnrichArgs {
-        attribute?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn?: pulumi.Input<string>;
-        thingName?: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        thingName: pulumi.Input<string>;
     }
 
     export interface PipelineFilterArgs {
-        filter?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        filter: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineLambdaArgs {
-        batchSize?: pulumi.Input<number>;
-        lambdaName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        batchSize: pulumi.Input<number>;
+        lambdaName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineMathArgs {
-        attribute?: pulumi.Input<string>;
-        math?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        math: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineRemoveAttributesArgs {
-        attributes?: pulumi.Input<pulumi.Input<string>[]>;
-        name?: pulumi.Input<string>;
+        attributes: pulumi.Input<pulumi.Input<string>[]>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineSelectAttributesArgs {
-        attributes?: pulumi.Input<pulumi.Input<string>[]>;
-        name?: pulumi.Input<string>;
+        attributes: pulumi.Input<pulumi.Input<string>[]>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
