@@ -1,9 +1,16 @@
 ## HEAD (Unreleased)
 
-- Explain how to add missing region config [#220](https://github.com/pulumi/pulumi-aws-native/issues/220).
-- Allow cancellation during ongoing operations [#43](https://github.com/pulumi/pulumi-aws-native/issues/43)
+(None)
 
 ---
+
+## 0.9.0 (December 15, 2021)
+
+- Update to include the latest resource definitions
+- Explain how to add missing region config
+  [#220](https://github.com/pulumi/pulumi-aws-native/issues/220)
+- Allow cancellation during ongoing operations
+  [#43](https://github.com/pulumi/pulumi-aws-native/issues/43)
 
 ## 0.8.0 (November 30, 2021)
 
