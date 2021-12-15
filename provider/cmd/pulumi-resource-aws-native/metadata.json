@@ -17670,7 +17670,9 @@
                 }
             },
             "autoNamingSpec": {
-                "sdkName": "datasetName"
+                "sdkName": "datasetName",
+                "minLength": 1,
+                "maxLength": 128
             },
             "required": [
                 "actions"
@@ -17716,7 +17718,9 @@
                 }
             },
             "autoNamingSpec": {
-                "sdkName": "pipelineName"
+                "sdkName": "pipelineName",
+                "minLength": 1,
+                "maxLength": 128
             },
             "required": [
                 "pipelineActivities"
@@ -26239,10 +26243,6 @@
                         "$ref": "#/types/aws-native:rds:DBProxyTagFormat"
                     },
                     "description": "An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "VPC ID to associate with the new DB proxy."
                 },
                 "vpcSecurityGroupIds": {
                     "type": "array",
@@ -49748,12 +49748,15 @@
             "type": "object",
             "properties": {
                 "computeType": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetResourceConfigurationComputeType"
                 },
                 "volumeSizeInGB": {
                     "type": "integer"
                 }
             }
+        },
+        "aws-native:iotanalytics:DatasetResourceConfigurationComputeType": {
+            "type": "string"
         },
         "aws-native:iotanalytics:DatasetRetentionPeriod": {
             "type": "object",
