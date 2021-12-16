@@ -244,8 +244,6 @@ AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::TopicRule
 AWS::IoT::TopicRuleDestination
-AWS::IoTAnalytics::Dataset
-AWS::IoTAnalytics::Pipeline
 AWS::IoTCoreDeviceAdvisor::SuiteDefinition
 AWS::IoTEvents::DetectorModel
 AWS::IoTEvents::Input
