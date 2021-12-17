@@ -140,6 +140,7 @@ export type BucketMetricsStatus = (typeof BucketMetricsStatus)[keyof typeof Buck
 export const BucketNoncurrentVersionTransitionStorageClass = {
     DeepArchive: "DEEP_ARCHIVE",
     Glacier: "GLACIER",
+    GlacierIr: "GLACIER_IR",
     IntelligentTiering: "INTELLIGENT_TIERING",
     OnezoneIa: "ONEZONE_IA",
     StandardIa: "STANDARD_IA",
@@ -193,6 +194,7 @@ export type BucketReplicaModificationsStatus = (typeof BucketReplicaModification
 export const BucketReplicationDestinationStorageClass = {
     DeepArchive: "DEEP_ARCHIVE",
     Glacier: "GLACIER",
+    GlacierIr: "GLACIER_IR",
     IntelligentTiering: "INTELLIGENT_TIERING",
     OnezoneIa: "ONEZONE_IA",
     ReducedRedundancy: "REDUCED_REDUNDANCY",
@@ -259,6 +261,7 @@ export type BucketTieringAccessTier = (typeof BucketTieringAccessTier)[keyof typ
 export const BucketTransitionStorageClass = {
     DeepArchive: "DEEP_ARCHIVE",
     Glacier: "GLACIER",
+    GlacierIr: "GLACIER_IR",
     IntelligentTiering: "INTELLIGENT_TIERING",
     OnezoneIa: "ONEZONE_IA",
     StandardIa: "STANDARD_IA",

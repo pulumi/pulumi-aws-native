@@ -553,13 +553,13 @@
     },
     "NoncurrentVersionTransition" : {
       "type" : "object",
-      "description" : "Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.",
+      "description" : "Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.",
       "additionalProperties" : false,
       "properties" : {
         "StorageClass" : {
           "description" : "The class of storage used to store the object.",
           "type" : "string",
-          "enum" : [ "DEEP_ARCHIVE", "GLACIER", "Glacier", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA" ]
+          "enum" : [ "DEEP_ARCHIVE", "GLACIER", "Glacier", "GLACIER_IR", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA" ]
         },
         "TransitionInDays" : {
           "description" : "Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.",
@@ -573,7 +573,7 @@
       "properties" : {
         "StorageClass" : {
           "type" : "string",
-          "enum" : [ "DEEP_ARCHIVE", "GLACIER", "Glacier", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA" ]
+          "enum" : [ "DEEP_ARCHIVE", "GLACIER", "Glacier", "GLACIER_IR", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA" ]
         },
         "TransitionDate" : {
           "$ref" : "#/definitions/iso8601UTC"
@@ -942,7 +942,7 @@
         "StorageClass" : {
           "description" : "The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.",
           "type" : "string",
-          "enum" : [ "DEEP_ARCHIVE", "GLACIER", "INTELLIGENT_TIERING", "ONEZONE_IA", "REDUCED_REDUNDANCY", "STANDARD", "STANDARD_IA" ]
+          "enum" : [ "DEEP_ARCHIVE", "GLACIER", "GLACIER_IR", "INTELLIGENT_TIERING", "ONEZONE_IA", "REDUCED_REDUNDANCY", "STANDARD", "STANDARD_IA" ]
         }
       },
       "required" : [ "Bucket" ]

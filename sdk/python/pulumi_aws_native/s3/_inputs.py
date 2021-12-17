@@ -1067,7 +1067,7 @@ class BucketNoncurrentVersionTransitionArgs:
                  storage_class: pulumi.Input['BucketNoncurrentVersionTransitionStorageClass'],
                  transition_in_days: pulumi.Input[int]):
         """
-        Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+        Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
         :param pulumi.Input['BucketNoncurrentVersionTransitionStorageClass'] storage_class: The class of storage used to store the object.
         :param pulumi.Input[int] transition_in_days: Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """

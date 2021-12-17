@@ -13,18 +13,18 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineLambda
     {
-        public readonly int BatchSize;
-        public readonly string LambdaName;
-        public readonly string Name;
+        public readonly int? BatchSize;
+        public readonly string? LambdaName;
+        public readonly string? Name;
         public readonly string? Next;
 
         [OutputConstructor]
         private PipelineLambda(
-            int batchSize,
+            int? batchSize,
 
-            string lambdaName,
+            string? lambdaName,
 
-            string name,
+            string? name,
 
             string? next)
         {

@@ -1080,7 +1080,6 @@
         "types/enums/imagebuilder/index.ts",
         "types/enums/index.ts",
         "types/enums/iot/index.ts",
-        "types/enums/iotanalytics/index.ts",
         "types/enums/iotevents/index.ts",
         "types/enums/iotsitewise/index.ts",
         "types/enums/iotwireless/index.ts",

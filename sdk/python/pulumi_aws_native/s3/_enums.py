@@ -153,6 +153,7 @@ class BucketNoncurrentVersionTransitionStorageClass(str, Enum):
     """
     DEEP_ARCHIVE = "DEEP_ARCHIVE"
     GLACIER = "GLACIER"
+    GLACIER_IR = "GLACIER_IR"
     INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
     ONEZONE_IA = "ONEZONE_IA"
     STANDARD_IA = "STANDARD_IA"
@@ -196,6 +197,7 @@ class BucketReplicationDestinationStorageClass(str, Enum):
     """
     DEEP_ARCHIVE = "DEEP_ARCHIVE"
     GLACIER = "GLACIER"
+    GLACIER_IR = "GLACIER_IR"
     INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
     ONEZONE_IA = "ONEZONE_IA"
     REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY"
@@ -245,6 +247,7 @@ class BucketTieringAccessTier(str, Enum):
 class BucketTransitionStorageClass(str, Enum):
     DEEP_ARCHIVE = "DEEP_ARCHIVE"
     GLACIER = "GLACIER"
+    GLACIER_IR = "GLACIER_IR"
     INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
     ONEZONE_IA = "ONEZONE_IA"
     STANDARD_IA = "STANDARD_IA"

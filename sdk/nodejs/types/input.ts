@@ -1365,8 +1365,6 @@ export namespace apigateway {
     }
 
     export interface DomainNameMutualTlsAuthenticationArgs {
-        certificateRevocationCheckType?: pulumi.Input<string>;
-        certificateRevocationSourceUri?: pulumi.Input<string>;
         truststoreUri?: pulumi.Input<string>;
         truststoreVersion?: pulumi.Input<string>;
     }
@@ -14475,7 +14473,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValueArgs {
-        datasetName: pulumi.Input<string>;
+        datasetName?: pulumi.Input<string>;
     }
 
     export interface DatasetDeltaTimeArgs {
@@ -14511,7 +14509,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValueArgs {
-        fileName: pulumi.Input<string>;
+        fileName?: pulumi.Input<string>;
     }
 
     export interface DatasetQueryActionArgs {
@@ -14520,7 +14518,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetResourceConfigurationArgs {
-        computeType: pulumi.Input<enums.iotanalytics.DatasetResourceConfigurationComputeType>;
+        computeType: pulumi.Input<string>;
         volumeSizeInGB: pulumi.Input<number>;
     }
 
@@ -14650,67 +14648,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributesArgs {
-        attributes: any;
-        name: pulumi.Input<string>;
+        attributes?: any;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineChannelArgs {
-        channelName: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        channelName?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineDatastoreArgs {
-        datastoreName: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        datastoreName?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceRegistryEnrichArgs {
-        attribute: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        attribute?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn: pulumi.Input<string>;
-        thingName: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
+        thingName?: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceShadowEnrichArgs {
-        attribute: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        attribute?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn: pulumi.Input<string>;
-        thingName: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
+        thingName?: pulumi.Input<string>;
     }
 
     export interface PipelineFilterArgs {
-        filter: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        filter?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineLambdaArgs {
-        batchSize: pulumi.Input<number>;
-        lambdaName: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        batchSize?: pulumi.Input<number>;
+        lambdaName?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineMathArgs {
-        attribute: pulumi.Input<string>;
-        math: pulumi.Input<string>;
-        name: pulumi.Input<string>;
+        attribute?: pulumi.Input<string>;
+        math?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineRemoveAttributesArgs {
-        attributes: pulumi.Input<pulumi.Input<string>[]>;
-        name: pulumi.Input<string>;
+        attributes?: pulumi.Input<pulumi.Input<string>[]>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineSelectAttributesArgs {
-        attributes: pulumi.Input<pulumi.Input<string>[]>;
-        name: pulumi.Input<string>;
+        attributes?: pulumi.Input<pulumi.Input<string>[]>;
+        name?: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
@@ -24249,7 +24247,7 @@ export namespace s3 {
     }
 
     /**
-     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
      */
     export interface BucketNoncurrentVersionTransitionArgs {
         /**

@@ -12,14 +12,14 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PipelineMathArgs : Pulumi.ResourceArgs
     {
-        [Input("attribute", required: true)]
-        public Input<string> Attribute { get; set; } = null!;
+        [Input("attribute")]
+        public Input<string>? Attribute { get; set; }
 
-        [Input("math", required: true)]
-        public Input<string> Math { get; set; } = null!;
+        [Input("math")]
+        public Input<string>? Math { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("next")]
         public Input<string>? Next { get; set; }

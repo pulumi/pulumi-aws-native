@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineDatastore
     {
-        public readonly string DatastoreName;
-        public readonly string Name;
+        public readonly string? DatastoreName;
+        public readonly string? Name;
 
         [OutputConstructor]
         private PipelineDatastore(
-            string datastoreName,
+            string? datastoreName,
 
-            string name)
+            string? name)
         {
             DatastoreName = datastoreName;
             Name = name;

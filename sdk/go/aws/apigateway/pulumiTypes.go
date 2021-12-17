@@ -1918,10 +1918,8 @@ func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutp
 }
 
 type DomainNameMutualTlsAuthentication struct {
-	CertificateRevocationCheckType *string `pulumi:"certificateRevocationCheckType"`
-	CertificateRevocationSourceUri *string `pulumi:"certificateRevocationSourceUri"`
-	TruststoreUri                  *string `pulumi:"truststoreUri"`
-	TruststoreVersion              *string `pulumi:"truststoreVersion"`
+	TruststoreUri     *string `pulumi:"truststoreUri"`
+	TruststoreVersion *string `pulumi:"truststoreVersion"`
 }
 
 // DomainNameMutualTlsAuthenticationInput is an input type that accepts DomainNameMutualTlsAuthenticationArgs and DomainNameMutualTlsAuthenticationOutput values.
@@ -1936,10 +1934,8 @@ type DomainNameMutualTlsAuthenticationInput interface {
 }
 
 type DomainNameMutualTlsAuthenticationArgs struct {
-	CertificateRevocationCheckType pulumi.StringPtrInput `pulumi:"certificateRevocationCheckType"`
-	CertificateRevocationSourceUri pulumi.StringPtrInput `pulumi:"certificateRevocationSourceUri"`
-	TruststoreUri                  pulumi.StringPtrInput `pulumi:"truststoreUri"`
-	TruststoreVersion              pulumi.StringPtrInput `pulumi:"truststoreVersion"`
+	TruststoreUri     pulumi.StringPtrInput `pulumi:"truststoreUri"`
+	TruststoreVersion pulumi.StringPtrInput `pulumi:"truststoreVersion"`
 }
 
 func (DomainNameMutualTlsAuthenticationArgs) ElementType() reflect.Type {
@@ -2019,14 +2015,6 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
-func (o DomainNameMutualTlsAuthenticationOutput) CertificateRevocationCheckType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.CertificateRevocationCheckType }).(pulumi.StringPtrOutput)
-}
-
-func (o DomainNameMutualTlsAuthenticationOutput) CertificateRevocationSourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.CertificateRevocationSourceUri }).(pulumi.StringPtrOutput)
-}
-
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreUri }).(pulumi.StringPtrOutput)
 }
@@ -2057,24 +2045,6 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAu
 		var ret DomainNameMutualTlsAuthentication
 		return ret
 	}).(DomainNameMutualTlsAuthenticationOutput)
-}
-
-func (o DomainNameMutualTlsAuthenticationPtrOutput) CertificateRevocationCheckType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateRevocationCheckType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainNameMutualTlsAuthenticationPtrOutput) CertificateRevocationSourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateRevocationSourceUri
-	}).(pulumi.StringPtrOutput)
 }
 
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {

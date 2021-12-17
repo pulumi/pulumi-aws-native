@@ -2266,6 +2266,7 @@ type BucketNoncurrentVersionTransitionStorageClass string
 const (
 	BucketNoncurrentVersionTransitionStorageClassDeepArchive        = BucketNoncurrentVersionTransitionStorageClass("DEEP_ARCHIVE")
 	BucketNoncurrentVersionTransitionStorageClassGlacier            = BucketNoncurrentVersionTransitionStorageClass("GLACIER")
+	BucketNoncurrentVersionTransitionStorageClassGlacierIr          = BucketNoncurrentVersionTransitionStorageClass("GLACIER_IR")
 	BucketNoncurrentVersionTransitionStorageClassIntelligentTiering = BucketNoncurrentVersionTransitionStorageClass("INTELLIGENT_TIERING")
 	BucketNoncurrentVersionTransitionStorageClassOnezoneIa          = BucketNoncurrentVersionTransitionStorageClass("ONEZONE_IA")
 	BucketNoncurrentVersionTransitionStorageClassStandardIa         = BucketNoncurrentVersionTransitionStorageClass("STANDARD_IA")
@@ -3094,6 +3095,7 @@ type BucketReplicationDestinationStorageClass string
 const (
 	BucketReplicationDestinationStorageClassDeepArchive        = BucketReplicationDestinationStorageClass("DEEP_ARCHIVE")
 	BucketReplicationDestinationStorageClassGlacier            = BucketReplicationDestinationStorageClass("GLACIER")
+	BucketReplicationDestinationStorageClassGlacierIr          = BucketReplicationDestinationStorageClass("GLACIER_IR")
 	BucketReplicationDestinationStorageClassIntelligentTiering = BucketReplicationDestinationStorageClass("INTELLIGENT_TIERING")
 	BucketReplicationDestinationStorageClassOnezoneIa          = BucketReplicationDestinationStorageClass("ONEZONE_IA")
 	BucketReplicationDestinationStorageClassReducedRedundancy  = BucketReplicationDestinationStorageClass("REDUCED_REDUNDANCY")
@@ -4250,6 +4252,7 @@ type BucketTransitionStorageClass string
 const (
 	BucketTransitionStorageClassDeepArchive        = BucketTransitionStorageClass("DEEP_ARCHIVE")
 	BucketTransitionStorageClassGlacier            = BucketTransitionStorageClass("GLACIER")
+	BucketTransitionStorageClassGlacierIr          = BucketTransitionStorageClass("GLACIER_IR")
 	BucketTransitionStorageClassIntelligentTiering = BucketTransitionStorageClass("INTELLIGENT_TIERING")
 	BucketTransitionStorageClassOnezoneIa          = BucketTransitionStorageClass("ONEZONE_IA")
 	BucketTransitionStorageClassStandardIa         = BucketTransitionStorageClass("STANDARD_IA")

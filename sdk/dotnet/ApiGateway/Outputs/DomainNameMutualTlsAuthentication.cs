@@ -13,23 +13,15 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
     [OutputType]
     public sealed class DomainNameMutualTlsAuthentication
     {
-        public readonly string? CertificateRevocationCheckType;
-        public readonly string? CertificateRevocationSourceUri;
         public readonly string? TruststoreUri;
         public readonly string? TruststoreVersion;
 
         [OutputConstructor]
         private DomainNameMutualTlsAuthentication(
-            string? certificateRevocationCheckType,
-
-            string? certificateRevocationSourceUri,
-
             string? truststoreUri,
 
             string? truststoreVersion)
         {
-            CertificateRevocationCheckType = certificateRevocationCheckType;
-            CertificateRevocationSourceUri = certificateRevocationSourceUri;
             TruststoreUri = truststoreUri;
             TruststoreVersion = truststoreVersion;
         }

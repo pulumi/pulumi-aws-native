@@ -430,6 +430,7 @@ namespace Pulumi.AwsNative.S3
 
         public static BucketNoncurrentVersionTransitionStorageClass DeepArchive { get; } = new BucketNoncurrentVersionTransitionStorageClass("DEEP_ARCHIVE");
         public static BucketNoncurrentVersionTransitionStorageClass Glacier { get; } = new BucketNoncurrentVersionTransitionStorageClass("GLACIER");
+        public static BucketNoncurrentVersionTransitionStorageClass GlacierIr { get; } = new BucketNoncurrentVersionTransitionStorageClass("GLACIER_IR");
         public static BucketNoncurrentVersionTransitionStorageClass IntelligentTiering { get; } = new BucketNoncurrentVersionTransitionStorageClass("INTELLIGENT_TIERING");
         public static BucketNoncurrentVersionTransitionStorageClass OnezoneIa { get; } = new BucketNoncurrentVersionTransitionStorageClass("ONEZONE_IA");
         public static BucketNoncurrentVersionTransitionStorageClass StandardIa { get; } = new BucketNoncurrentVersionTransitionStorageClass("STANDARD_IA");
@@ -588,6 +589,7 @@ namespace Pulumi.AwsNative.S3
 
         public static BucketReplicationDestinationStorageClass DeepArchive { get; } = new BucketReplicationDestinationStorageClass("DEEP_ARCHIVE");
         public static BucketReplicationDestinationStorageClass Glacier { get; } = new BucketReplicationDestinationStorageClass("GLACIER");
+        public static BucketReplicationDestinationStorageClass GlacierIr { get; } = new BucketReplicationDestinationStorageClass("GLACIER_IR");
         public static BucketReplicationDestinationStorageClass IntelligentTiering { get; } = new BucketReplicationDestinationStorageClass("INTELLIGENT_TIERING");
         public static BucketReplicationDestinationStorageClass OnezoneIa { get; } = new BucketReplicationDestinationStorageClass("ONEZONE_IA");
         public static BucketReplicationDestinationStorageClass ReducedRedundancy { get; } = new BucketReplicationDestinationStorageClass("REDUCED_REDUNDANCY");
@@ -798,6 +800,7 @@ namespace Pulumi.AwsNative.S3
 
         public static BucketTransitionStorageClass DeepArchive { get; } = new BucketTransitionStorageClass("DEEP_ARCHIVE");
         public static BucketTransitionStorageClass Glacier { get; } = new BucketTransitionStorageClass("GLACIER");
+        public static BucketTransitionStorageClass GlacierIr { get; } = new BucketTransitionStorageClass("GLACIER_IR");
         public static BucketTransitionStorageClass IntelligentTiering { get; } = new BucketTransitionStorageClass("INTELLIGENT_TIERING");
         public static BucketTransitionStorageClass OnezoneIa { get; } = new BucketTransitionStorageClass("ONEZONE_IA");
         public static BucketTransitionStorageClass StandardIa { get; } = new BucketTransitionStorageClass("STANDARD_IA");

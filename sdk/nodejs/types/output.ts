@@ -667,8 +667,6 @@ export namespace apigateway {
     }
 
     export interface DomainNameMutualTlsAuthentication {
-        certificateRevocationCheckType?: string;
-        certificateRevocationSourceUri?: string;
         truststoreUri?: string;
         truststoreVersion?: string;
     }
@@ -14768,7 +14766,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValue {
-        datasetName: string;
+        datasetName?: string;
     }
 
     export interface DatasetDeltaTime {
@@ -14804,7 +14802,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValue {
-        fileName: string;
+        fileName?: string;
     }
 
     export interface DatasetQueryAction {
@@ -14813,7 +14811,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetResourceConfiguration {
-        computeType: enums.iotanalytics.DatasetResourceConfigurationComputeType;
+        computeType: string;
         volumeSizeInGB: number;
     }
 
@@ -14943,67 +14941,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributes {
-        attributes: any;
-        name: string;
+        attributes?: any;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineChannel {
-        channelName: string;
-        name: string;
+        channelName?: string;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineDatastore {
-        datastoreName: string;
-        name: string;
+        datastoreName?: string;
+        name?: string;
     }
 
     export interface PipelineDeviceRegistryEnrich {
-        attribute: string;
-        name: string;
+        attribute?: string;
+        name?: string;
         next?: string;
-        roleArn: string;
-        thingName: string;
+        roleArn?: string;
+        thingName?: string;
     }
 
     export interface PipelineDeviceShadowEnrich {
-        attribute: string;
-        name: string;
+        attribute?: string;
+        name?: string;
         next?: string;
-        roleArn: string;
-        thingName: string;
+        roleArn?: string;
+        thingName?: string;
     }
 
     export interface PipelineFilter {
-        filter: string;
-        name: string;
+        filter?: string;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineLambda {
-        batchSize: number;
-        lambdaName: string;
-        name: string;
+        batchSize?: number;
+        lambdaName?: string;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineMath {
-        attribute: string;
-        math: string;
-        name: string;
+        attribute?: string;
+        math?: string;
+        name?: string;
         next?: string;
     }
 
     export interface PipelineRemoveAttributes {
-        attributes: string[];
-        name: string;
+        attributes?: string[];
+        name?: string;
         next?: string;
     }
 
     export interface PipelineSelectAttributes {
-        attributes: string[];
-        name: string;
+        attributes?: string[];
+        name?: string;
         next?: string;
     }
 
@@ -25040,7 +25038,7 @@ export namespace s3 {
     }
 
     /**
-     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
      */
     export interface BucketNoncurrentVersionTransition {
         /**

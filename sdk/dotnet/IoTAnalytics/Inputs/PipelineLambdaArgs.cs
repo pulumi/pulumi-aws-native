@@ -12,14 +12,14 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PipelineLambdaArgs : Pulumi.ResourceArgs
     {
-        [Input("batchSize", required: true)]
-        public Input<int> BatchSize { get; set; } = null!;
+        [Input("batchSize")]
+        public Input<int>? BatchSize { get; set; }
 
-        [Input("lambdaName", required: true)]
-        public Input<string> LambdaName { get; set; } = null!;
+        [Input("lambdaName")]
+        public Input<string>? LambdaName { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("next")]
         public Input<string>? Next { get; set; }

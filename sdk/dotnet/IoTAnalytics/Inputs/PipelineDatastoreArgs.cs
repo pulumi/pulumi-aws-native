@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PipelineDatastoreArgs : Pulumi.ResourceArgs
     {
-        [Input("datastoreName", required: true)]
-        public Input<string> DatastoreName { get; set; } = null!;
+        [Input("datastoreName")]
+        public Input<string>? DatastoreName { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public PipelineDatastoreArgs()
         {

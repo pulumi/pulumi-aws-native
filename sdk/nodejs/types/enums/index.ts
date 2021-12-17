@@ -43,7 +43,6 @@ import * as groundstation from "./groundstation";
 import * as healthlake from "./healthlake";
 import * as imagebuilder from "./imagebuilder";
 import * as iot from "./iot";
-import * as iotanalytics from "./iotanalytics";
 import * as iotevents from "./iotevents";
 import * as iotsitewise from "./iotsitewise";
 import * as iotwireless from "./iotwireless";
@@ -137,7 +136,6 @@ export {
     healthlake,
     imagebuilder,
     iot,
-    iotanalytics,
     iotevents,
     iotsitewise,
     iotwireless,

@@ -10,9 +10,6 @@ export * from "./dataset";
 export * from "./datastore";
 export * from "./pipeline";
 
-// Export enums:
-export * from "../types/enums/iotanalytics";
-
 // Import resources to register:
 import { Channel } from "./channel";
 import { Dataset } from "./dataset";

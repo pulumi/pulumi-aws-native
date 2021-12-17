@@ -5,7 +5,6 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from ._enums import *
 from .channel import *
 from .dataset import *
 from .datastore import *

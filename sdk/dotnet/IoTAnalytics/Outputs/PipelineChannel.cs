@@ -13,15 +13,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineChannel
     {
-        public readonly string ChannelName;
-        public readonly string Name;
+        public readonly string? ChannelName;
+        public readonly string? Name;
         public readonly string? Next;
 
         [OutputConstructor]
         private PipelineChannel(
-            string channelName,
+            string? channelName,
 
-            string name,
+            string? name,
 
             string? next)
         {
