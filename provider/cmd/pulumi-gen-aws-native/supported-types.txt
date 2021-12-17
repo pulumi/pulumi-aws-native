@@ -39,6 +39,7 @@ AWS::Athena::NamedQuery
 AWS::Athena::PreparedStatement
 AWS::Athena::WorkGroup
 AWS::AuditManager::Assessment
+AWS::AutoScaling::LaunchConfiguration
 AWS::AutoScaling::LifecycleHook
 AWS::AutoScaling::WarmPool
 AWS::Backup::BackupPlan
@@ -244,8 +245,6 @@ AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::TopicRule
 AWS::IoT::TopicRuleDestination
-AWS::IoTAnalytics::Dataset
-AWS::IoTAnalytics::Pipeline
 AWS::IoTCoreDeviceAdvisor::SuiteDefinition
 AWS::IoTEvents::DetectorModel
 AWS::IoTEvents::Input
@@ -388,7 +387,6 @@ AWS::Route53Resolver::ResolverDNSSECConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
 AWS::Route53Resolver::ResolverRule
-AWS::Route53Resolver::ResolverRuleAssociation
 AWS::S3::AccessPoint
 AWS::S3::Bucket
 AWS::S3::MultiRegionAccessPoint
