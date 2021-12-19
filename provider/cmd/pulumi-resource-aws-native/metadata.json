@@ -3034,142 +3034,182 @@
             "cf": "AWS::AutoScaling::LaunchConfiguration",
             "inputs": {
                 "associatePublicIpAddress": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances."
                 },
                 "blockDeviceMappings": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping"
-                    }
+                    },
+                    "description": "Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes."
                 },
                 "classicLinkVPCId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to."
                 },
                 "classicLinkVPCSecurityGroups": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property."
                 },
                 "ebsOptimized": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false)."
                 },
                 "iamInstanceProfile": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role."
                 },
                 "imageId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration."
                 },
                 "instanceId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the Amazon EC2 instance you want to use to create the launch configuration."
                 },
                 "instanceMonitoring": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring."
                 },
                 "instanceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the instance type of the EC2 instance."
                 },
                 "kernelId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the ID of the kernel associated with the EC2 AMI."
                 },
                 "keyName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the name of the EC2 key pair."
                 },
                 "launchConfigurationName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the launch configuration. This name must be unique per Region per account."
                 },
                 "metadataOptions": {
-                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions"
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions",
+                    "description": "The metadata options for the instances."
                 },
                 "placementTenancy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The tenancy of the instance, either default or dedicated."
                 },
                 "ramDiskId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the RAM disk to select."
                 },
                 "securityGroups": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list that contains the security groups to assign to the instances in the Auto Scaling group."
                 },
                 "spotPrice": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request."
                 },
                 "userData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Base64-encoded user data to make available to the launched EC2 instances."
                 }
             },
             "outputs": {
                 "associatePublicIpAddress": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances."
                 },
                 "blockDeviceMappings": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping"
-                    }
+                    },
+                    "description": "Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes."
                 },
                 "classicLinkVPCId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to."
                 },
                 "classicLinkVPCSecurityGroups": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property."
                 },
                 "ebsOptimized": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false)."
                 },
                 "iamInstanceProfile": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role."
                 },
                 "imageId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration."
                 },
                 "instanceId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the Amazon EC2 instance you want to use to create the launch configuration."
                 },
                 "instanceMonitoring": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring."
                 },
                 "instanceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the instance type of the EC2 instance."
                 },
                 "kernelId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the ID of the kernel associated with the EC2 AMI."
                 },
                 "keyName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the name of the EC2 key pair."
                 },
                 "launchConfigurationName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the launch configuration. This name must be unique per Region per account."
                 },
                 "metadataOptions": {
-                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions"
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions",
+                    "description": "The metadata options for the instances."
                 },
                 "placementTenancy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The tenancy of the instance, either default or dedicated."
                 },
                 "ramDiskId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the RAM disk to select."
                 },
                 "securityGroups": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list that contains the security groups to assign to the instances in the Auto Scaling group."
                 },
                 "spotPrice": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request."
                 },
                 "userData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Base64-encoded user data to make available to the launched EC2 instances."
                 }
             },
             "autoNamingSpec": {
-                "sdkName": "launchConfigurationName"
+                "sdkName": "launchConfigurationName",
+                "minLength": 1,
+                "maxLength": 255
             },
             "required": [
                 "imageId",
@@ -37576,25 +37616,32 @@
             "type": "object",
             "properties": {
                 "deleteOnTermination": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the volume is deleted on instance termination. "
                 },
                 "encrypted": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the volume should be encrypted. "
                 },
                 "iops": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of input/output (I/O) operations per second (IOPS) to provision for the volume. "
                 },
                 "snapshotId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot ID of the volume to use."
                 },
                 "throughput": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The throughput (MiBps) to provision for a gp3 volume."
                 },
                 "volumeSize": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The volume size, in GiBs."
                 },
                 "volumeType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The volume type."
                 }
             }
         },
@@ -37602,16 +37649,20 @@
             "type": "object",
             "properties": {
                 "deviceName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). "
                 },
                 "ebs": {
-                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDevice"
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDevice",
+                    "description": "Parameters used to automatically set up EBS volumes when an instance is launched."
                 },
                 "noDevice": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Setting this value to true suppresses the specified device included in the block device mapping of the AMI."
                 },
                 "virtualName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the virtual device."
                 }
             }
         },
@@ -37619,13 +37670,16 @@
             "type": "object",
             "properties": {
                 "httpEndpoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "This parameter enables or disables the HTTP metadata endpoint on your instances."
                 },
                 "httpPutResponseHopLimit": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The desired HTTP PUT response hop limit for instance metadata requests."
                 },
                 "httpTokens": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The state of token usage for your instance metadata requests."
                 }
             }
         },
