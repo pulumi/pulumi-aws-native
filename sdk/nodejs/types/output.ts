@@ -3630,26 +3630,77 @@ export namespace autoscaling {
         min?: number;
     }
 
+    /**
+     * BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
+     */
     export interface LaunchConfigurationBlockDevice {
+        /**
+         * Indicates whether the volume is deleted on instance termination. 
+         */
         deleteOnTermination?: boolean;
+        /**
+         * Specifies whether the volume should be encrypted. 
+         */
         encrypted?: boolean;
+        /**
+         * The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
+         */
         iops?: number;
+        /**
+         * The snapshot ID of the volume to use.
+         */
         snapshotId?: string;
+        /**
+         * The throughput (MiBps) to provision for a gp3 volume.
+         */
         throughput?: number;
+        /**
+         * The volume size, in GiBs.
+         */
         volumeSize?: number;
+        /**
+         * The volume type.
+         */
         volumeType?: string;
     }
 
+    /**
+     * BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
+     */
     export interface LaunchConfigurationBlockDeviceMapping {
+        /**
+         * The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
+         */
         deviceName: string;
+        /**
+         * Parameters used to automatically set up EBS volumes when an instance is launched.
+         */
         ebs?: outputs.autoscaling.LaunchConfigurationBlockDevice;
+        /**
+         * Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
+         */
         noDevice?: boolean;
+        /**
+         * The name of the virtual device.
+         */
         virtualName?: string;
     }
 
+    /**
+     * MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
+     */
     export interface LaunchConfigurationMetadataOptions {
+        /**
+         * This parameter enables or disables the HTTP metadata endpoint on your instances.
+         */
         httpEndpoint?: string;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests.
+         */
         httpPutResponseHopLimit?: number;
+        /**
+         * The state of token usage for your instance metadata requests.
+         */
         httpTokens?: string;
     }
 

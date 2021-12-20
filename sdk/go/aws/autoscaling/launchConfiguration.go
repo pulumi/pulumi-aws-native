@@ -11,29 +11,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::AutoScaling::LaunchConfiguration
+// The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
 type LaunchConfiguration struct {
 	pulumi.CustomResourceState
 
-	AssociatePublicIpAddress     pulumi.BoolPtrOutput                             `pulumi:"associatePublicIpAddress"`
-	BlockDeviceMappings          LaunchConfigurationBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
-	ClassicLinkVPCId             pulumi.StringPtrOutput                           `pulumi:"classicLinkVPCId"`
-	ClassicLinkVPCSecurityGroups pulumi.StringArrayOutput                         `pulumi:"classicLinkVPCSecurityGroups"`
-	EbsOptimized                 pulumi.BoolPtrOutput                             `pulumi:"ebsOptimized"`
-	IamInstanceProfile           pulumi.StringPtrOutput                           `pulumi:"iamInstanceProfile"`
-	ImageId                      pulumi.StringOutput                              `pulumi:"imageId"`
-	InstanceId                   pulumi.StringPtrOutput                           `pulumi:"instanceId"`
-	InstanceMonitoring           pulumi.BoolPtrOutput                             `pulumi:"instanceMonitoring"`
-	InstanceType                 pulumi.StringOutput                              `pulumi:"instanceType"`
-	KernelId                     pulumi.StringPtrOutput                           `pulumi:"kernelId"`
-	KeyName                      pulumi.StringPtrOutput                           `pulumi:"keyName"`
-	LaunchConfigurationName      pulumi.StringPtrOutput                           `pulumi:"launchConfigurationName"`
-	MetadataOptions              LaunchConfigurationMetadataOptionsPtrOutput      `pulumi:"metadataOptions"`
-	PlacementTenancy             pulumi.StringPtrOutput                           `pulumi:"placementTenancy"`
-	RamDiskId                    pulumi.StringPtrOutput                           `pulumi:"ramDiskId"`
-	SecurityGroups               pulumi.StringArrayOutput                         `pulumi:"securityGroups"`
-	SpotPrice                    pulumi.StringPtrOutput                           `pulumi:"spotPrice"`
-	UserData                     pulumi.StringPtrOutput                           `pulumi:"userData"`
+	// For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
+	AssociatePublicIpAddress pulumi.BoolPtrOutput `pulumi:"associatePublicIpAddress"`
+	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+	BlockDeviceMappings LaunchConfigurationBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
+	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+	ClassicLinkVPCId pulumi.StringPtrOutput `pulumi:"classicLinkVPCId"`
+	// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
+	ClassicLinkVPCSecurityGroups pulumi.StringArrayOutput `pulumi:"classicLinkVPCSecurityGroups"`
+	// Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
+	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
+	// Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+	IamInstanceProfile pulumi.StringPtrOutput `pulumi:"iamInstanceProfile"`
+	// Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
+	ImageId pulumi.StringOutput `pulumi:"imageId"`
+	// The ID of the Amazon EC2 instance you want to use to create the launch configuration.
+	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
+	// Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
+	InstanceMonitoring pulumi.BoolPtrOutput `pulumi:"instanceMonitoring"`
+	// Specifies the instance type of the EC2 instance.
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// Provides the ID of the kernel associated with the EC2 AMI.
+	KernelId pulumi.StringPtrOutput `pulumi:"kernelId"`
+	// Provides the name of the EC2 key pair.
+	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
+	// The name of the launch configuration. This name must be unique per Region per account.
+	LaunchConfigurationName pulumi.StringPtrOutput `pulumi:"launchConfigurationName"`
+	// The metadata options for the instances.
+	MetadataOptions LaunchConfigurationMetadataOptionsPtrOutput `pulumi:"metadataOptions"`
+	// The tenancy of the instance, either default or dedicated.
+	PlacementTenancy pulumi.StringPtrOutput `pulumi:"placementTenancy"`
+	// The ID of the RAM disk to select.
+	RamDiskId pulumi.StringPtrOutput `pulumi:"ramDiskId"`
+	// A list that contains the security groups to assign to the instances in the Auto Scaling group.
+	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
+	// The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
+	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
+	// The Base64-encoded user data to make available to the launched EC2 instances.
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 }
 
 // NewLaunchConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -81,48 +100,86 @@ func (LaunchConfigurationState) ElementType() reflect.Type {
 }
 
 type launchConfigurationArgs struct {
-	AssociatePublicIpAddress     *bool                                   `pulumi:"associatePublicIpAddress"`
-	BlockDeviceMappings          []LaunchConfigurationBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	ClassicLinkVPCId             *string                                 `pulumi:"classicLinkVPCId"`
-	ClassicLinkVPCSecurityGroups []string                                `pulumi:"classicLinkVPCSecurityGroups"`
-	EbsOptimized                 *bool                                   `pulumi:"ebsOptimized"`
-	IamInstanceProfile           *string                                 `pulumi:"iamInstanceProfile"`
-	ImageId                      string                                  `pulumi:"imageId"`
-	InstanceId                   *string                                 `pulumi:"instanceId"`
-	InstanceMonitoring           *bool                                   `pulumi:"instanceMonitoring"`
-	InstanceType                 string                                  `pulumi:"instanceType"`
-	KernelId                     *string                                 `pulumi:"kernelId"`
-	KeyName                      *string                                 `pulumi:"keyName"`
-	LaunchConfigurationName      *string                                 `pulumi:"launchConfigurationName"`
-	MetadataOptions              *LaunchConfigurationMetadataOptions     `pulumi:"metadataOptions"`
-	PlacementTenancy             *string                                 `pulumi:"placementTenancy"`
-	RamDiskId                    *string                                 `pulumi:"ramDiskId"`
-	SecurityGroups               []string                                `pulumi:"securityGroups"`
-	SpotPrice                    *string                                 `pulumi:"spotPrice"`
-	UserData                     *string                                 `pulumi:"userData"`
+	// For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+	BlockDeviceMappings []LaunchConfigurationBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+	ClassicLinkVPCId *string `pulumi:"classicLinkVPCId"`
+	// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
+	ClassicLinkVPCSecurityGroups []string `pulumi:"classicLinkVPCSecurityGroups"`
+	// Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
+	// Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
+	ImageId string `pulumi:"imageId"`
+	// The ID of the Amazon EC2 instance you want to use to create the launch configuration.
+	InstanceId *string `pulumi:"instanceId"`
+	// Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
+	InstanceMonitoring *bool `pulumi:"instanceMonitoring"`
+	// Specifies the instance type of the EC2 instance.
+	InstanceType string `pulumi:"instanceType"`
+	// Provides the ID of the kernel associated with the EC2 AMI.
+	KernelId *string `pulumi:"kernelId"`
+	// Provides the name of the EC2 key pair.
+	KeyName *string `pulumi:"keyName"`
+	// The name of the launch configuration. This name must be unique per Region per account.
+	LaunchConfigurationName *string `pulumi:"launchConfigurationName"`
+	// The metadata options for the instances.
+	MetadataOptions *LaunchConfigurationMetadataOptions `pulumi:"metadataOptions"`
+	// The tenancy of the instance, either default or dedicated.
+	PlacementTenancy *string `pulumi:"placementTenancy"`
+	// The ID of the RAM disk to select.
+	RamDiskId *string `pulumi:"ramDiskId"`
+	// A list that contains the security groups to assign to the instances in the Auto Scaling group.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
+	SpotPrice *string `pulumi:"spotPrice"`
+	// The Base64-encoded user data to make available to the launched EC2 instances.
+	UserData *string `pulumi:"userData"`
 }
 
 // The set of arguments for constructing a LaunchConfiguration resource.
 type LaunchConfigurationArgs struct {
-	AssociatePublicIpAddress     pulumi.BoolPtrInput
-	BlockDeviceMappings          LaunchConfigurationBlockDeviceMappingArrayInput
-	ClassicLinkVPCId             pulumi.StringPtrInput
+	// For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
+	AssociatePublicIpAddress pulumi.BoolPtrInput
+	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+	BlockDeviceMappings LaunchConfigurationBlockDeviceMappingArrayInput
+	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+	ClassicLinkVPCId pulumi.StringPtrInput
+	// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
 	ClassicLinkVPCSecurityGroups pulumi.StringArrayInput
-	EbsOptimized                 pulumi.BoolPtrInput
-	IamInstanceProfile           pulumi.StringPtrInput
-	ImageId                      pulumi.StringInput
-	InstanceId                   pulumi.StringPtrInput
-	InstanceMonitoring           pulumi.BoolPtrInput
-	InstanceType                 pulumi.StringInput
-	KernelId                     pulumi.StringPtrInput
-	KeyName                      pulumi.StringPtrInput
-	LaunchConfigurationName      pulumi.StringPtrInput
-	MetadataOptions              LaunchConfigurationMetadataOptionsPtrInput
-	PlacementTenancy             pulumi.StringPtrInput
-	RamDiskId                    pulumi.StringPtrInput
-	SecurityGroups               pulumi.StringArrayInput
-	SpotPrice                    pulumi.StringPtrInput
-	UserData                     pulumi.StringPtrInput
+	// Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
+	EbsOptimized pulumi.BoolPtrInput
+	// Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+	IamInstanceProfile pulumi.StringPtrInput
+	// Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
+	ImageId pulumi.StringInput
+	// The ID of the Amazon EC2 instance you want to use to create the launch configuration.
+	InstanceId pulumi.StringPtrInput
+	// Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
+	InstanceMonitoring pulumi.BoolPtrInput
+	// Specifies the instance type of the EC2 instance.
+	InstanceType pulumi.StringInput
+	// Provides the ID of the kernel associated with the EC2 AMI.
+	KernelId pulumi.StringPtrInput
+	// Provides the name of the EC2 key pair.
+	KeyName pulumi.StringPtrInput
+	// The name of the launch configuration. This name must be unique per Region per account.
+	LaunchConfigurationName pulumi.StringPtrInput
+	// The metadata options for the instances.
+	MetadataOptions LaunchConfigurationMetadataOptionsPtrInput
+	// The tenancy of the instance, either default or dedicated.
+	PlacementTenancy pulumi.StringPtrInput
+	// The ID of the RAM disk to select.
+	RamDiskId pulumi.StringPtrInput
+	// A list that contains the security groups to assign to the instances in the Auto Scaling group.
+	SecurityGroups pulumi.StringArrayInput
+	// The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
+	SpotPrice pulumi.StringPtrInput
+	// The Base64-encoded user data to make available to the launched EC2 instances.
+	UserData pulumi.StringPtrInput
 }
 
 func (LaunchConfigurationArgs) ElementType() reflect.Type {

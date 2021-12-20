@@ -10,12 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Outputs
 {
 
+    /// <summary>
+    /// BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
+    /// </summary>
     [OutputType]
     public sealed class LaunchConfigurationBlockDeviceMapping
     {
+        /// <summary>
+        /// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
+        /// </summary>
         public readonly string DeviceName;
+        /// <summary>
+        /// Parameters used to automatically set up EBS volumes when an instance is launched.
+        /// </summary>
         public readonly Outputs.LaunchConfigurationBlockDevice? Ebs;
+        /// <summary>
+        /// Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
+        /// </summary>
         public readonly bool? NoDevice;
+        /// <summary>
+        /// The name of the virtual device.
+        /// </summary>
         public readonly string? VirtualName;
 
         [OutputConstructor]
