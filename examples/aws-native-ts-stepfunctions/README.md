@@ -1,4 +1,4 @@
-[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new)
+[![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/pulumi-aws-native/blob/master/examples/aws-native-ts-stepfunctions/README.md)
 
 # AWS Step Functions
 
