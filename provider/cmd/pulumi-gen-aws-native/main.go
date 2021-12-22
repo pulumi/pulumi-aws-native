@@ -276,19 +276,13 @@ func emitPackage(pkgSpec *pschema.PackageSpec, language, outDir string) error {
 	return nil
 }
 func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir, jsonFileName string) error {
-	compressedSchema := bytes.Buffer{}
-	compressedWriter := gzip.NewWriter(&compressedSchema)
-	err := json.NewEncoder(compressedWriter).Encode(pkgSpec)
+	compressedSchema, err := schema.CompressSchema(pkgSpec)
 	if err != nil {
-		panic(errors.Wrap(err, "marshaling schema"))
+		return errors.Wrap(err, "failed to compress schema")
 	}
-	if err = compressedWriter.Close(); err != nil {
-		panic(err)
-	}
-
 	err = emitFile(outdir, "schema.go", []byte(fmt.Sprintf(`package main
 var pulumiSchema = %#v
-`, compressedSchema.Bytes())))
+`, compressedSchema)))
 	if err != nil {
 		panic(errors.Wrap(err, "saving metadata"))
 	}

@@ -135,7 +135,11 @@ func (p *cfnProvider) GetSchema(ctx context.Context, req *pulumirpc.GetSchemaReq
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
 
-	return &pulumirpc.GetSchemaResponse{Schema: string(p.pulumiSchema)}, nil
+	decompressed, err := schema.DecompressSchema(p.pulumiSchema)
+	if err != nil {
+		return nil, errors.New("failure loading schema")
+	}
+	return &pulumirpc.GetSchemaResponse{Schema: string(decompressed)}, nil
 }
 
 // CheckConfig validates the configuration for this provider.
