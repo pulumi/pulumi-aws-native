@@ -12,20 +12,20 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PipelineDeviceRegistryEnrichArgs : Pulumi.ResourceArgs
     {
-        [Input("attribute")]
-        public Input<string>? Attribute { get; set; }
+        [Input("attribute", required: true)]
+        public Input<string> Attribute { get; set; } = null!;
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("next")]
         public Input<string>? Next { get; set; }
 
-        [Input("roleArn")]
-        public Input<string>? RoleArn { get; set; }
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
-        [Input("thingName")]
-        public Input<string>? ThingName { get; set; }
+        [Input("thingName", required: true)]
+        public Input<string> ThingName { get; set; } = null!;
 
         public PipelineDeviceRegistryEnrichArgs()
         {

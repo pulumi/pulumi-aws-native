@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
 {
 
     /// <summary>
-    /// Configuration that indicates when the scheduled query is executed.
+    /// Configuration for when the scheduled query is executed.
     /// </summary>
     public sealed class ScheduledQueryScheduleConfigurationArgs : Pulumi.ResourceArgs
     {

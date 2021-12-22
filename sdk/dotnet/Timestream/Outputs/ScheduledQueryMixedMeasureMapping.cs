@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Outputs
 {
 
     /// <summary>
-    /// Mapping of measure names and measure value columns from the source table to the destination table.
+    /// MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
     /// </summary>
     [OutputType]
     public sealed class ScheduledQueryMixedMeasureMapping

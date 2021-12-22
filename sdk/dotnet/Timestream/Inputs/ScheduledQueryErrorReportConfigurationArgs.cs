@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
 {
 
     /// <summary>
-    /// Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+    /// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
     /// </summary>
     public sealed class ScheduledQueryErrorReportConfigurationArgs : Pulumi.ResourceArgs
     {

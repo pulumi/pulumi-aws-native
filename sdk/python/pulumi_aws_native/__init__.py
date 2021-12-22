@@ -1925,9 +1925,13 @@ _utilities.register(
   "mod": "lightsail",
   "fqn": "pulumi_aws_native.lightsail",
   "classes": {
+   "aws-native:lightsail:Alarm": "Alarm",
+   "aws-native:lightsail:Bucket": "Bucket",
    "aws-native:lightsail:Database": "Database",
    "aws-native:lightsail:Disk": "Disk",
    "aws-native:lightsail:Instance": "Instance",
+   "aws-native:lightsail:LoadBalancer": "LoadBalancer",
+   "aws-native:lightsail:LoadBalancerTlsCertificate": "LoadBalancerTlsCertificate",
    "aws-native:lightsail:StaticIp": "StaticIp"
   }
  },

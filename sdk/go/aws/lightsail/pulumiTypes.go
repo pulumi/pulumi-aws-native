@@ -10,6 +10,274 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An object that sets the public accessibility of objects in the specified bucket.
+type BucketAccessRules struct {
+	// A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+	AllowPublicOverrides *bool `pulumi:"allowPublicOverrides"`
+	// Specifies the anonymous access to all objects in a bucket.
+	GetObject *string `pulumi:"getObject"`
+}
+
+// BucketAccessRulesInput is an input type that accepts BucketAccessRulesArgs and BucketAccessRulesOutput values.
+// You can construct a concrete instance of `BucketAccessRulesInput` via:
+//
+//          BucketAccessRulesArgs{...}
+type BucketAccessRulesInput interface {
+	pulumi.Input
+
+	ToBucketAccessRulesOutput() BucketAccessRulesOutput
+	ToBucketAccessRulesOutputWithContext(context.Context) BucketAccessRulesOutput
+}
+
+// An object that sets the public accessibility of objects in the specified bucket.
+type BucketAccessRulesArgs struct {
+	// A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+	AllowPublicOverrides pulumi.BoolPtrInput `pulumi:"allowPublicOverrides"`
+	// Specifies the anonymous access to all objects in a bucket.
+	GetObject pulumi.StringPtrInput `pulumi:"getObject"`
+}
+
+func (BucketAccessRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAccessRules)(nil)).Elem()
+}
+
+func (i BucketAccessRulesArgs) ToBucketAccessRulesOutput() BucketAccessRulesOutput {
+	return i.ToBucketAccessRulesOutputWithContext(context.Background())
+}
+
+func (i BucketAccessRulesArgs) ToBucketAccessRulesOutputWithContext(ctx context.Context) BucketAccessRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessRulesOutput)
+}
+
+func (i BucketAccessRulesArgs) ToBucketAccessRulesPtrOutput() BucketAccessRulesPtrOutput {
+	return i.ToBucketAccessRulesPtrOutputWithContext(context.Background())
+}
+
+func (i BucketAccessRulesArgs) ToBucketAccessRulesPtrOutputWithContext(ctx context.Context) BucketAccessRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessRulesOutput).ToBucketAccessRulesPtrOutputWithContext(ctx)
+}
+
+// BucketAccessRulesPtrInput is an input type that accepts BucketAccessRulesArgs, BucketAccessRulesPtr and BucketAccessRulesPtrOutput values.
+// You can construct a concrete instance of `BucketAccessRulesPtrInput` via:
+//
+//          BucketAccessRulesArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketAccessRulesPtrInput interface {
+	pulumi.Input
+
+	ToBucketAccessRulesPtrOutput() BucketAccessRulesPtrOutput
+	ToBucketAccessRulesPtrOutputWithContext(context.Context) BucketAccessRulesPtrOutput
+}
+
+type bucketAccessRulesPtrType BucketAccessRulesArgs
+
+func BucketAccessRulesPtr(v *BucketAccessRulesArgs) BucketAccessRulesPtrInput {
+	return (*bucketAccessRulesPtrType)(v)
+}
+
+func (*bucketAccessRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAccessRules)(nil)).Elem()
+}
+
+func (i *bucketAccessRulesPtrType) ToBucketAccessRulesPtrOutput() BucketAccessRulesPtrOutput {
+	return i.ToBucketAccessRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketAccessRulesPtrType) ToBucketAccessRulesPtrOutputWithContext(ctx context.Context) BucketAccessRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessRulesPtrOutput)
+}
+
+// An object that sets the public accessibility of objects in the specified bucket.
+type BucketAccessRulesOutput struct{ *pulumi.OutputState }
+
+func (BucketAccessRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAccessRules)(nil)).Elem()
+}
+
+func (o BucketAccessRulesOutput) ToBucketAccessRulesOutput() BucketAccessRulesOutput {
+	return o
+}
+
+func (o BucketAccessRulesOutput) ToBucketAccessRulesOutputWithContext(ctx context.Context) BucketAccessRulesOutput {
+	return o
+}
+
+func (o BucketAccessRulesOutput) ToBucketAccessRulesPtrOutput() BucketAccessRulesPtrOutput {
+	return o.ToBucketAccessRulesPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAccessRulesOutput) ToBucketAccessRulesPtrOutputWithContext(ctx context.Context) BucketAccessRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAccessRules) *BucketAccessRules {
+		return &v
+	}).(BucketAccessRulesPtrOutput)
+}
+
+// A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+func (o BucketAccessRulesOutput) AllowPublicOverrides() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketAccessRules) *bool { return v.AllowPublicOverrides }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the anonymous access to all objects in a bucket.
+func (o BucketAccessRulesOutput) GetObject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAccessRules) *string { return v.GetObject }).(pulumi.StringPtrOutput)
+}
+
+type BucketAccessRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketAccessRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAccessRules)(nil)).Elem()
+}
+
+func (o BucketAccessRulesPtrOutput) ToBucketAccessRulesPtrOutput() BucketAccessRulesPtrOutput {
+	return o
+}
+
+func (o BucketAccessRulesPtrOutput) ToBucketAccessRulesPtrOutputWithContext(ctx context.Context) BucketAccessRulesPtrOutput {
+	return o
+}
+
+func (o BucketAccessRulesPtrOutput) Elem() BucketAccessRulesOutput {
+	return o.ApplyT(func(v *BucketAccessRules) BucketAccessRules {
+		if v != nil {
+			return *v
+		}
+		var ret BucketAccessRules
+		return ret
+	}).(BucketAccessRulesOutput)
+}
+
+// A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+func (o BucketAccessRulesPtrOutput) AllowPublicOverrides() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketAccessRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPublicOverrides
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the anonymous access to all objects in a bucket.
+func (o BucketAccessRulesPtrOutput) GetObject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAccessRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GetObject
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type BucketTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// BucketTagInput is an input type that accepts BucketTagArgs and BucketTagOutput values.
+// You can construct a concrete instance of `BucketTagInput` via:
+//
+//          BucketTagArgs{...}
+type BucketTagInput interface {
+	pulumi.Input
+
+	ToBucketTagOutput() BucketTagOutput
+	ToBucketTagOutputWithContext(context.Context) BucketTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type BucketTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (BucketTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTag)(nil)).Elem()
+}
+
+func (i BucketTagArgs) ToBucketTagOutput() BucketTagOutput {
+	return i.ToBucketTagOutputWithContext(context.Background())
+}
+
+func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTagOutput)
+}
+
+// BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
+// You can construct a concrete instance of `BucketTagArrayInput` via:
+//
+//          BucketTagArray{ BucketTagArgs{...} }
+type BucketTagArrayInput interface {
+	pulumi.Input
+
+	ToBucketTagArrayOutput() BucketTagArrayOutput
+	ToBucketTagArrayOutputWithContext(context.Context) BucketTagArrayOutput
+}
+
+type BucketTagArray []BucketTagInput
+
+func (BucketTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTag)(nil)).Elem()
+}
+
+func (i BucketTagArray) ToBucketTagArrayOutput() BucketTagArrayOutput {
+	return i.ToBucketTagArrayOutputWithContext(context.Background())
+}
+
+func (i BucketTagArray) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type BucketTagOutput struct{ *pulumi.OutputState }
+
+func (BucketTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTag)(nil)).Elem()
+}
+
+func (o BucketTagOutput) ToBucketTagOutput() BucketTagOutput {
+	return o
+}
+
+func (o BucketTagOutput) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o BucketTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o BucketTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type BucketTagArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTag)(nil)).Elem()
+}
+
+func (o BucketTagArrayOutput) ToBucketTagArrayOutput() BucketTagArrayOutput {
+	return o
+}
+
+func (o BucketTagArrayOutput) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
+	return o
+}
+
+func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTag {
+		return vs[0].([]BucketTag)[vs[1].(int)]
+	}).(BucketTagOutput)
+}
+
 // Describes the parameters of the database.
 type DatabaseRelationalDatabaseParameter struct {
 	// Specifies the valid range of values for the parameter.
@@ -2286,7 +2554,120 @@ func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
 	}).(InstanceTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type LoadBalancerTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// LoadBalancerTagInput is an input type that accepts LoadBalancerTagArgs and LoadBalancerTagOutput values.
+// You can construct a concrete instance of `LoadBalancerTagInput` via:
+//
+//          LoadBalancerTagArgs{...}
+type LoadBalancerTagInput interface {
+	pulumi.Input
+
+	ToLoadBalancerTagOutput() LoadBalancerTagOutput
+	ToLoadBalancerTagOutputWithContext(context.Context) LoadBalancerTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LoadBalancerTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LoadBalancerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerTag)(nil)).Elem()
+}
+
+func (i LoadBalancerTagArgs) ToLoadBalancerTagOutput() LoadBalancerTagOutput {
+	return i.ToLoadBalancerTagOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerTagArgs) ToLoadBalancerTagOutputWithContext(ctx context.Context) LoadBalancerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagOutput)
+}
+
+// LoadBalancerTagArrayInput is an input type that accepts LoadBalancerTagArray and LoadBalancerTagArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerTagArrayInput` via:
+//
+//          LoadBalancerTagArray{ LoadBalancerTagArgs{...} }
+type LoadBalancerTagArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput
+	ToLoadBalancerTagArrayOutputWithContext(context.Context) LoadBalancerTagArrayOutput
+}
+
+type LoadBalancerTagArray []LoadBalancerTagInput
+
+func (LoadBalancerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerTag)(nil)).Elem()
+}
+
+func (i LoadBalancerTagArray) ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput {
+	return i.ToLoadBalancerTagArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerTagArray) ToLoadBalancerTagArrayOutputWithContext(ctx context.Context) LoadBalancerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LoadBalancerTagOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerTag)(nil)).Elem()
+}
+
+func (o LoadBalancerTagOutput) ToLoadBalancerTagOutput() LoadBalancerTagOutput {
+	return o
+}
+
+func (o LoadBalancerTagOutput) ToLoadBalancerTagOutputWithContext(ctx context.Context) LoadBalancerTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o LoadBalancerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o LoadBalancerTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerTag)(nil)).Elem()
+}
+
+func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutput() LoadBalancerTagArrayOutput {
+	return o
+}
+
+func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutputWithContext(ctx context.Context) LoadBalancerTagArrayOutput {
+	return o
+}
+
+func (o LoadBalancerTagArrayOutput) Index(i pulumi.IntInput) LoadBalancerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerTag {
+		return vs[0].([]LoadBalancerTag)[vs[1].(int)]
+	}).(LoadBalancerTagOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessRulesInput)(nil)).Elem(), BucketAccessRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessRulesPtrInput)(nil)).Elem(), BucketAccessRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseRelationalDatabaseParameterInput)(nil)).Elem(), DatabaseRelationalDatabaseParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseRelationalDatabaseParameterArrayInput)(nil)).Elem(), DatabaseRelationalDatabaseParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
@@ -2319,6 +2700,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStateTypePtrInput)(nil)).Elem(), InstanceStateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagInput)(nil)).Elem(), InstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagArrayInput)(nil)).Elem(), InstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTagInput)(nil)).Elem(), LoadBalancerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTagArrayInput)(nil)).Elem(), LoadBalancerTagArray{})
+	pulumi.RegisterOutputType(BucketAccessRulesOutput{})
+	pulumi.RegisterOutputType(BucketAccessRulesPtrOutput{})
+	pulumi.RegisterOutputType(BucketTagOutput{})
+	pulumi.RegisterOutputType(BucketTagArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseRelationalDatabaseParameterOutput{})
 	pulumi.RegisterOutputType(DatabaseRelationalDatabaseParameterArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseTagOutput{})
@@ -2351,4 +2738,6 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStateTypePtrOutput{})
 	pulumi.RegisterOutputType(InstanceTagOutput{})
 	pulumi.RegisterOutputType(InstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTagOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTagArrayOutput{})
 }

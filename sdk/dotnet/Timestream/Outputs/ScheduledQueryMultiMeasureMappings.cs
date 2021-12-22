@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Outputs
 {
 
     /// <summary>
-    /// Mapping of measure value columns from the source table to the destination table.
+    /// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
     /// </summary>
     [OutputType]
     public sealed class ScheduledQueryMultiMeasureMappings

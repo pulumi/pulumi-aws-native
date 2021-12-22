@@ -14,14 +14,14 @@ __all__ = [
 
 class ScheduledQueryDimensionValueType(str, Enum):
     """
-    Value type of the dimension column.
+    Type for the dimension.
     """
     VARCHAR = "VARCHAR"
 
 
 class ScheduledQueryEncryptionOption(str, Enum):
     """
-    How error reports will be encrypted.
+    Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
     """
     SSE_S3 = "SSE_S3"
     SSE_KMS = "SSE_KMS"
@@ -29,7 +29,7 @@ class ScheduledQueryEncryptionOption(str, Enum):
 
 class ScheduledQueryMixedMeasureMappingMeasureValueType(str, Enum):
     """
-    Value type of the measure value column in the destination table.
+    Type of the value that is to be read from SourceColumn. If the mapping is for MULTI, use MeasureValueType.MULTI.
     """
     BIGINT = "BIGINT"
     BOOLEAN = "BOOLEAN"
@@ -40,7 +40,7 @@ class ScheduledQueryMixedMeasureMappingMeasureValueType(str, Enum):
 
 class ScheduledQueryMultiMeasureAttributeMappingMeasureValueType(str, Enum):
     """
-    Value type of the measure value column in the destination table.
+    Value type of the measure value column to be read from the query result.
     """
     BIGINT = "BIGINT"
     BOOLEAN = "BOOLEAN"

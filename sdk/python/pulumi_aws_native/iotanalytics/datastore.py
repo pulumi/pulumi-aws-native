@@ -92,12 +92,7 @@ class DatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Datastore is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Datastore(pulumi.CustomResource):
-    warnings.warn("""Datastore is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -146,7 +141,6 @@ class Datastore(pulumi.CustomResource):
                  retention_period: Optional[pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatastoreTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Datastore is deprecated: Datastore is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

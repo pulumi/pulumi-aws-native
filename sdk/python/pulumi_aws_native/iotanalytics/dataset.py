@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DatasetArgs', 'Dataset']
@@ -115,12 +116,7 @@ class DatasetArgs:
         pulumi.set(self, "versioning_configuration", value)
 
 
-warnings.warn("""Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Dataset(pulumi.CustomResource):
-    warnings.warn("""Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -173,7 +169,6 @@ class Dataset(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTriggerArgs']]]]] = None,
                  versioning_configuration: Optional[pulumi.Input[pulumi.InputType['DatasetVersioningConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Dataset is deprecated: Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

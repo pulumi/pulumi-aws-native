@@ -272,7 +272,7 @@ func (o RetentionPropertiesPropertiesPtrOutput) MemoryStoreRetentionPeriodInHour
 	}).(pulumi.StringPtrOutput)
 }
 
-// Mapping of dimension column name to dimension column value type.
+// This type is used to map column(s) from the query result to a dimension in the destination table.
 type ScheduledQueryDimensionMapping struct {
 	DimensionValueType ScheduledQueryDimensionValueType `pulumi:"dimensionValueType"`
 	Name               string                           `pulumi:"name"`
@@ -289,7 +289,7 @@ type ScheduledQueryDimensionMappingInput interface {
 	ToScheduledQueryDimensionMappingOutputWithContext(context.Context) ScheduledQueryDimensionMappingOutput
 }
 
-// Mapping of dimension column name to dimension column value type.
+// This type is used to map column(s) from the query result to a dimension in the destination table.
 type ScheduledQueryDimensionMappingArgs struct {
 	DimensionValueType ScheduledQueryDimensionValueTypeInput `pulumi:"dimensionValueType"`
 	Name               pulumi.StringInput                    `pulumi:"name"`
@@ -332,7 +332,7 @@ func (i ScheduledQueryDimensionMappingArray) ToScheduledQueryDimensionMappingArr
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryDimensionMappingArrayOutput)
 }
 
-// Mapping of dimension column name to dimension column value type.
+// This type is used to map column(s) from the query result to a dimension in the destination table.
 type ScheduledQueryDimensionMappingOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryDimensionMappingOutput) ElementType() reflect.Type {
@@ -375,7 +375,7 @@ func (o ScheduledQueryDimensionMappingArrayOutput) Index(i pulumi.IntInput) Sche
 	}).(ScheduledQueryDimensionMappingOutput)
 }
 
-// Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 type ScheduledQueryErrorReportConfiguration struct {
 	S3Configuration ScheduledQueryS3Configuration `pulumi:"s3Configuration"`
 }
@@ -391,7 +391,7 @@ type ScheduledQueryErrorReportConfigurationInput interface {
 	ToScheduledQueryErrorReportConfigurationOutputWithContext(context.Context) ScheduledQueryErrorReportConfigurationOutput
 }
 
-// Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 type ScheduledQueryErrorReportConfigurationArgs struct {
 	S3Configuration ScheduledQueryS3ConfigurationInput `pulumi:"s3Configuration"`
 }
@@ -449,7 +449,7 @@ func (i *scheduledQueryErrorReportConfigurationPtrType) ToScheduledQueryErrorRep
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryErrorReportConfigurationPtrOutput)
 }
 
-// Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 type ScheduledQueryErrorReportConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryErrorReportConfigurationOutput) ElementType() reflect.Type {
@@ -511,7 +511,7 @@ func (o ScheduledQueryErrorReportConfigurationPtrOutput) S3Configuration() Sched
 	}).(ScheduledQueryS3ConfigurationPtrOutput)
 }
 
-// Mapping of measure names and measure value columns from the source table to the destination table.
+// MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
 type ScheduledQueryMixedMeasureMapping struct {
 	MeasureName                   *string                                           `pulumi:"measureName"`
 	MeasureValueType              ScheduledQueryMixedMeasureMappingMeasureValueType `pulumi:"measureValueType"`
@@ -531,7 +531,7 @@ type ScheduledQueryMixedMeasureMappingInput interface {
 	ToScheduledQueryMixedMeasureMappingOutputWithContext(context.Context) ScheduledQueryMixedMeasureMappingOutput
 }
 
-// Mapping of measure names and measure value columns from the source table to the destination table.
+// MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
 type ScheduledQueryMixedMeasureMappingArgs struct {
 	MeasureName                   pulumi.StringPtrInput                                  `pulumi:"measureName"`
 	MeasureValueType              ScheduledQueryMixedMeasureMappingMeasureValueTypeInput `pulumi:"measureValueType"`
@@ -577,7 +577,7 @@ func (i ScheduledQueryMixedMeasureMappingArray) ToScheduledQueryMixedMeasureMapp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMixedMeasureMappingArrayOutput)
 }
 
-// Mapping of measure names and measure value columns from the source table to the destination table.
+// MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
 type ScheduledQueryMixedMeasureMappingOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryMixedMeasureMappingOutput) ElementType() reflect.Type {
@@ -636,7 +636,7 @@ func (o ScheduledQueryMixedMeasureMappingArrayOutput) Index(i pulumi.IntInput) S
 	}).(ScheduledQueryMixedMeasureMappingOutput)
 }
 
-// Mapping of measure value columns from the source table to the destination table.
+// An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
 type ScheduledQueryMultiMeasureAttributeMapping struct {
 	MeasureValueType                ScheduledQueryMultiMeasureAttributeMappingMeasureValueType `pulumi:"measureValueType"`
 	SourceColumn                    string                                                     `pulumi:"sourceColumn"`
@@ -654,7 +654,7 @@ type ScheduledQueryMultiMeasureAttributeMappingInput interface {
 	ToScheduledQueryMultiMeasureAttributeMappingOutputWithContext(context.Context) ScheduledQueryMultiMeasureAttributeMappingOutput
 }
 
-// Mapping of measure value columns from the source table to the destination table.
+// An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
 type ScheduledQueryMultiMeasureAttributeMappingArgs struct {
 	MeasureValueType                ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput `pulumi:"measureValueType"`
 	SourceColumn                    pulumi.StringInput                                              `pulumi:"sourceColumn"`
@@ -698,7 +698,7 @@ func (i ScheduledQueryMultiMeasureAttributeMappingArray) ToScheduledQueryMultiMe
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureAttributeMappingArrayOutput)
 }
 
-// Mapping of measure value columns from the source table to the destination table.
+// An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
 type ScheduledQueryMultiMeasureAttributeMappingOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryMultiMeasureAttributeMappingOutput) ElementType() reflect.Type {
@@ -747,7 +747,7 @@ func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) Index(i pulumi.In
 	}).(ScheduledQueryMultiMeasureAttributeMappingOutput)
 }
 
-// Mapping of measure value columns from the source table to the destination table.
+// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
 type ScheduledQueryMultiMeasureMappings struct {
 	MultiMeasureAttributeMappings []ScheduledQueryMultiMeasureAttributeMapping `pulumi:"multiMeasureAttributeMappings"`
 	TargetMultiMeasureName        *string                                      `pulumi:"targetMultiMeasureName"`
@@ -764,7 +764,7 @@ type ScheduledQueryMultiMeasureMappingsInput interface {
 	ToScheduledQueryMultiMeasureMappingsOutputWithContext(context.Context) ScheduledQueryMultiMeasureMappingsOutput
 }
 
-// Mapping of measure value columns from the source table to the destination table.
+// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
 type ScheduledQueryMultiMeasureMappingsArgs struct {
 	MultiMeasureAttributeMappings ScheduledQueryMultiMeasureAttributeMappingArrayInput `pulumi:"multiMeasureAttributeMappings"`
 	TargetMultiMeasureName        pulumi.StringPtrInput                                `pulumi:"targetMultiMeasureName"`
@@ -823,7 +823,7 @@ func (i *scheduledQueryMultiMeasureMappingsPtrType) ToScheduledQueryMultiMeasure
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureMappingsPtrOutput)
 }
 
-// Mapping of measure value columns from the source table to the destination table.
+// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
 type ScheduledQueryMultiMeasureMappingsOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryMultiMeasureMappingsOutput) ElementType() reflect.Type {
@@ -900,7 +900,7 @@ func (o ScheduledQueryMultiMeasureMappingsPtrOutput) TargetMultiMeasureName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for notification upon scheduled query execution.
+// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 type ScheduledQueryNotificationConfiguration struct {
 	SnsConfiguration ScheduledQuerySnsConfiguration `pulumi:"snsConfiguration"`
 }
@@ -916,7 +916,7 @@ type ScheduledQueryNotificationConfigurationInput interface {
 	ToScheduledQueryNotificationConfigurationOutputWithContext(context.Context) ScheduledQueryNotificationConfigurationOutput
 }
 
-// Configuration for notification upon scheduled query execution.
+// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 type ScheduledQueryNotificationConfigurationArgs struct {
 	SnsConfiguration ScheduledQuerySnsConfigurationInput `pulumi:"snsConfiguration"`
 }
@@ -974,7 +974,7 @@ func (i *scheduledQueryNotificationConfigurationPtrType) ToScheduledQueryNotific
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryNotificationConfigurationPtrOutput)
 }
 
-// Configuration for notification upon scheduled query execution.
+// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 type ScheduledQueryNotificationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryNotificationConfigurationOutput) ElementType() reflect.Type {
@@ -1038,7 +1038,7 @@ func (o ScheduledQueryNotificationConfigurationPtrOutput) SnsConfiguration() Sch
 	}).(ScheduledQuerySnsConfigurationPtrOutput)
 }
 
-// S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+// Details on S3 location for error reports that result from running a query.
 type ScheduledQueryS3Configuration struct {
 	BucketName       string                          `pulumi:"bucketName"`
 	EncryptionOption *ScheduledQueryEncryptionOption `pulumi:"encryptionOption"`
@@ -1056,7 +1056,7 @@ type ScheduledQueryS3ConfigurationInput interface {
 	ToScheduledQueryS3ConfigurationOutputWithContext(context.Context) ScheduledQueryS3ConfigurationOutput
 }
 
-// S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+// Details on S3 location for error reports that result from running a query.
 type ScheduledQueryS3ConfigurationArgs struct {
 	BucketName       pulumi.StringInput                     `pulumi:"bucketName"`
 	EncryptionOption ScheduledQueryEncryptionOptionPtrInput `pulumi:"encryptionOption"`
@@ -1116,7 +1116,7 @@ func (i *scheduledQueryS3ConfigurationPtrType) ToScheduledQueryS3ConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryS3ConfigurationPtrOutput)
 }
 
-// S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+// Details on S3 location for error reports that result from running a query.
 type ScheduledQueryS3ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryS3ConfigurationOutput) ElementType() reflect.Type {
@@ -1204,7 +1204,7 @@ func (o ScheduledQueryS3ConfigurationPtrOutput) ObjectKeyPrefix() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration that indicates when the scheduled query is executed.
+// Configuration for when the scheduled query is executed.
 type ScheduledQueryScheduleConfiguration struct {
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
@@ -1220,7 +1220,7 @@ type ScheduledQueryScheduleConfigurationInput interface {
 	ToScheduledQueryScheduleConfigurationOutputWithContext(context.Context) ScheduledQueryScheduleConfigurationOutput
 }
 
-// Configuration that indicates when the scheduled query is executed.
+// Configuration for when the scheduled query is executed.
 type ScheduledQueryScheduleConfigurationArgs struct {
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
@@ -1278,7 +1278,7 @@ func (i *scheduledQueryScheduleConfigurationPtrType) ToScheduledQueryScheduleCon
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryScheduleConfigurationPtrOutput)
 }
 
-// Configuration that indicates when the scheduled query is executed.
+// Configuration for when the scheduled query is executed.
 type ScheduledQueryScheduleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryScheduleConfigurationOutput) ElementType() reflect.Type {
@@ -1476,7 +1476,7 @@ func (o ScheduledQuerySnsConfigurationPtrOutput) TopicArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// A key-value pair to label the scheduled query.
 type ScheduledQueryTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1493,7 +1493,7 @@ type ScheduledQueryTagInput interface {
 	ToScheduledQueryTagOutputWithContext(context.Context) ScheduledQueryTagOutput
 }
 
-// A key-value pair to associate with a resource.
+// A key-value pair to label the scheduled query.
 type ScheduledQueryTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1536,7 +1536,7 @@ func (i ScheduledQueryTagArray) ToScheduledQueryTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTagArrayOutput)
 }
 
-// A key-value pair to associate with a resource.
+// A key-value pair to label the scheduled query.
 type ScheduledQueryTagOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryTagOutput) ElementType() reflect.Type {
@@ -1579,7 +1579,7 @@ func (o ScheduledQueryTagArrayOutput) Index(i pulumi.IntInput) ScheduledQueryTag
 	}).(ScheduledQueryTagOutput)
 }
 
-// Configuration of target destination table to query.
+// Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfiguration struct {
 	TimestreamConfiguration ScheduledQueryTimestreamConfiguration `pulumi:"timestreamConfiguration"`
 }
@@ -1595,7 +1595,7 @@ type ScheduledQueryTargetConfigurationInput interface {
 	ToScheduledQueryTargetConfigurationOutputWithContext(context.Context) ScheduledQueryTargetConfigurationOutput
 }
 
-// Configuration of target destination table to query.
+// Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfigurationArgs struct {
 	TimestreamConfiguration ScheduledQueryTimestreamConfigurationInput `pulumi:"timestreamConfiguration"`
 }
@@ -1653,7 +1653,7 @@ func (i *scheduledQueryTargetConfigurationPtrType) ToScheduledQueryTargetConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTargetConfigurationPtrOutput)
 }
 
-// Configuration of target destination table to query.
+// Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryTargetConfigurationOutput) ElementType() reflect.Type {
@@ -1717,7 +1717,7 @@ func (o ScheduledQueryTargetConfigurationPtrOutput) TimestreamConfiguration() Sc
 	}).(ScheduledQueryTimestreamConfigurationPtrOutput)
 }
 
-// Timestream configuration of destination table to query.
+// Configuration needed to write data into the Timestream database and table.
 type ScheduledQueryTimestreamConfiguration struct {
 	DatabaseName         string                              `pulumi:"databaseName"`
 	DimensionMappings    []ScheduledQueryDimensionMapping    `pulumi:"dimensionMappings"`
@@ -1739,7 +1739,7 @@ type ScheduledQueryTimestreamConfigurationInput interface {
 	ToScheduledQueryTimestreamConfigurationOutputWithContext(context.Context) ScheduledQueryTimestreamConfigurationOutput
 }
 
-// Timestream configuration of destination table to query.
+// Configuration needed to write data into the Timestream database and table.
 type ScheduledQueryTimestreamConfigurationArgs struct {
 	DatabaseName         pulumi.StringInput                          `pulumi:"databaseName"`
 	DimensionMappings    ScheduledQueryDimensionMappingArrayInput    `pulumi:"dimensionMappings"`
@@ -1803,7 +1803,7 @@ func (i *scheduledQueryTimestreamConfigurationPtrType) ToScheduledQueryTimestrea
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTimestreamConfigurationPtrOutput)
 }
 
-// Timestream configuration of destination table to query.
+// Configuration needed to write data into the Timestream database and table.
 type ScheduledQueryTimestreamConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryTimestreamConfigurationOutput) ElementType() reflect.Type {

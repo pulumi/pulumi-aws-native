@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Outputs
 {
 
     /// <summary>
-    /// Mapping of measure value columns from the source table to the destination table.
+    /// An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
     /// </summary>
     [OutputType]
     public sealed class ScheduledQueryMultiMeasureAttributeMapping

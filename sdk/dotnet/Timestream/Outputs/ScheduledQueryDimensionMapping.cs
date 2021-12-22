@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Outputs
 {
 
     /// <summary>
-    /// Mapping of dimension column name to dimension column value type.
+    /// This type is used to map column(s) from the query result to a dimension in the destination table.
     /// </summary>
     [OutputType]
     public sealed class ScheduledQueryDimensionMapping

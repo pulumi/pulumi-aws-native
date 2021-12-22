@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Value type of the dimension column.
+// Type for the dimension.
 type ScheduledQueryDimensionValueType string
 
 const (
@@ -174,7 +174,7 @@ func (in *scheduledQueryDimensionValueTypePtr) ToScheduledQueryDimensionValueTyp
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduledQueryDimensionValueTypePtrOutput)
 }
 
-// How error reports will be encrypted.
+// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
 type ScheduledQueryEncryptionOption string
 
 const (
@@ -339,7 +339,7 @@ func (in *scheduledQueryEncryptionOptionPtr) ToScheduledQueryEncryptionOptionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduledQueryEncryptionOptionPtrOutput)
 }
 
-// Value type of the measure value column in the destination table.
+// Type of the value that is to be read from SourceColumn. If the mapping is for MULTI, use MeasureValueType.MULTI.
 type ScheduledQueryMixedMeasureMappingMeasureValueType string
 
 const (
@@ -507,7 +507,7 @@ func (in *scheduledQueryMixedMeasureMappingMeasureValueTypePtr) ToScheduledQuery
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput)
 }
 
-// Value type of the measure value column in the destination table.
+// Value type of the measure value column to be read from the query result.
 type ScheduledQueryMultiMeasureAttributeMappingMeasureValueType string
 
 const (

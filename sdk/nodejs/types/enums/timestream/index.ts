@@ -7,7 +7,7 @@ export const ScheduledQueryDimensionValueType = {
 } as const;
 
 /**
- * Value type of the dimension column.
+ * Type for the dimension.
  */
 export type ScheduledQueryDimensionValueType = (typeof ScheduledQueryDimensionValueType)[keyof typeof ScheduledQueryDimensionValueType];
 
@@ -17,7 +17,7 @@ export const ScheduledQueryEncryptionOption = {
 } as const;
 
 /**
- * How error reports will be encrypted.
+ * Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
  */
 export type ScheduledQueryEncryptionOption = (typeof ScheduledQueryEncryptionOption)[keyof typeof ScheduledQueryEncryptionOption];
 
@@ -30,7 +30,7 @@ export const ScheduledQueryMixedMeasureMappingMeasureValueType = {
 } as const;
 
 /**
- * Value type of the measure value column in the destination table.
+ * Type of the value that is to be read from SourceColumn. If the mapping is for MULTI, use MeasureValueType.MULTI.
  */
 export type ScheduledQueryMixedMeasureMappingMeasureValueType = (typeof ScheduledQueryMixedMeasureMappingMeasureValueType)[keyof typeof ScheduledQueryMixedMeasureMappingMeasureValueType];
 
@@ -42,6 +42,6 @@ export const ScheduledQueryMultiMeasureAttributeMappingMeasureValueType = {
 } as const;
 
 /**
- * Value type of the measure value column in the destination table.
+ * Value type of the measure value column to be read from the query result.
  */
 export type ScheduledQueryMultiMeasureAttributeMappingMeasureValueType = (typeof ScheduledQueryMultiMeasureAttributeMappingMeasureValueType)[keyof typeof ScheduledQueryMultiMeasureAttributeMappingMeasureValueType];

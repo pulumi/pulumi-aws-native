@@ -14817,7 +14817,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValue {
-        datasetName?: string;
+        datasetName: string;
     }
 
     export interface DatasetDeltaTime {
@@ -14853,7 +14853,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValue {
-        fileName?: string;
+        fileName: string;
     }
 
     export interface DatasetQueryAction {
@@ -14862,7 +14862,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetResourceConfiguration {
-        computeType: string;
+        computeType: enums.iotanalytics.DatasetResourceConfigurationComputeType;
         volumeSizeInGB: number;
     }
 
@@ -14931,7 +14931,7 @@ export namespace iotanalytics {
     }
 
     export interface DatastoreIotSiteWiseMultiLayerStorage {
-        customerManagedS3Storage: outputs.iotanalytics.DatastoreCustomerManagedS3Storage;
+        customerManagedS3Storage?: outputs.iotanalytics.DatastoreCustomerManagedS3Storage;
     }
 
     export interface DatastoreJsonConfiguration {
@@ -14992,67 +14992,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributes {
-        attributes?: any;
-        name?: string;
+        attributes: any;
+        name: string;
         next?: string;
     }
 
     export interface PipelineChannel {
-        channelName?: string;
-        name?: string;
+        channelName: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineDatastore {
-        datastoreName?: string;
-        name?: string;
+        datastoreName: string;
+        name: string;
     }
 
     export interface PipelineDeviceRegistryEnrich {
-        attribute?: string;
-        name?: string;
+        attribute: string;
+        name: string;
         next?: string;
-        roleArn?: string;
-        thingName?: string;
+        roleArn: string;
+        thingName: string;
     }
 
     export interface PipelineDeviceShadowEnrich {
-        attribute?: string;
-        name?: string;
+        attribute: string;
+        name: string;
         next?: string;
-        roleArn?: string;
-        thingName?: string;
+        roleArn: string;
+        thingName: string;
     }
 
     export interface PipelineFilter {
-        filter?: string;
-        name?: string;
+        filter: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineLambda {
-        batchSize?: number;
-        lambdaName?: string;
-        name?: string;
+        batchSize: number;
+        lambdaName: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineMath {
-        attribute?: string;
-        math?: string;
-        name?: string;
+        attribute: string;
+        math: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineRemoveAttributes {
-        attributes?: string[];
-        name?: string;
+        attributes: string[];
+        name: string;
         next?: string;
     }
 
     export interface PipelineSelectAttributes {
-        attributes?: string[];
-        name?: string;
+        attributes: string[];
+        name: string;
         next?: string;
     }
 
@@ -18323,6 +18323,34 @@ export namespace licensemanager {
 
 export namespace lightsail {
     /**
+     * An object that sets the public accessibility of objects in the specified bucket.
+     */
+    export interface BucketAccessRules {
+        /**
+         * A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+         */
+        allowPublicOverrides?: boolean;
+        /**
+         * Specifies the anonymous access to all objects in a bucket.
+         */
+        getObject?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface BucketTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
      * Describes the parameters of the database.
      */
     export interface DatabaseRelationalDatabaseParameter {
@@ -18594,6 +18622,20 @@ export namespace lightsail {
      * A key-value pair to associate with a resource.
      */
     export interface InstanceTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LoadBalancerTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -28415,7 +28457,7 @@ export namespace timestream {
     }
 
     /**
-     * Mapping of dimension column name to dimension column value type.
+     * This type is used to map column(s) from the query result to a dimension in the destination table.
      */
     export interface ScheduledQueryDimensionMapping {
         dimensionValueType: enums.timestream.ScheduledQueryDimensionValueType;
@@ -28423,14 +28465,14 @@ export namespace timestream {
     }
 
     /**
-     * Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+     * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
      */
     export interface ScheduledQueryErrorReportConfiguration {
         s3Configuration: outputs.timestream.ScheduledQueryS3Configuration;
     }
 
     /**
-     * Mapping of measure names and measure value columns from the source table to the destination table.
+     * MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
      */
     export interface ScheduledQueryMixedMeasureMapping {
         measureName?: string;
@@ -28441,7 +28483,7 @@ export namespace timestream {
     }
 
     /**
-     * Mapping of measure value columns from the source table to the destination table.
+     * An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
      */
     export interface ScheduledQueryMultiMeasureAttributeMapping {
         measureValueType: enums.timestream.ScheduledQueryMultiMeasureAttributeMappingMeasureValueType;
@@ -28450,7 +28492,7 @@ export namespace timestream {
     }
 
     /**
-     * Mapping of measure value columns from the source table to the destination table.
+     * Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
      */
     export interface ScheduledQueryMultiMeasureMappings {
         multiMeasureAttributeMappings: outputs.timestream.ScheduledQueryMultiMeasureAttributeMapping[];
@@ -28458,14 +28500,14 @@ export namespace timestream {
     }
 
     /**
-     * Configuration for notification upon scheduled query execution.
+     * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
      */
     export interface ScheduledQueryNotificationConfiguration {
         snsConfiguration: outputs.timestream.ScheduledQuerySnsConfiguration;
     }
 
     /**
-     * S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+     * Details on S3 location for error reports that result from running a query.
      */
     export interface ScheduledQueryS3Configuration {
         bucketName: string;
@@ -28474,7 +28516,7 @@ export namespace timestream {
     }
 
     /**
-     * Configuration that indicates when the scheduled query is executed.
+     * Configuration for when the scheduled query is executed.
      */
     export interface ScheduledQueryScheduleConfiguration {
         scheduleExpression: string;
@@ -28488,7 +28530,7 @@ export namespace timestream {
     }
 
     /**
-     * A key-value pair to associate with a resource.
+     * A key-value pair to label the scheduled query.
      */
     export interface ScheduledQueryTag {
         key: string;
@@ -28496,14 +28538,14 @@ export namespace timestream {
     }
 
     /**
-     * Configuration of target destination table to query.
+     * Configuration of target store where scheduled query results are written to.
      */
     export interface ScheduledQueryTargetConfiguration {
         timestreamConfiguration: outputs.timestream.ScheduledQueryTimestreamConfiguration;
     }
 
     /**
-     * Timestream configuration of destination table to query.
+     * Configuration needed to write data into the Timestream database and table.
      */
     export interface ScheduledQueryTimestreamConfiguration {
         databaseName: string;

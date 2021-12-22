@@ -167,6 +167,7 @@
       "additionalProperties" : false
     },
     "CloudWatchLogGroupLogDestination" : {
+      "type" : "object",
       "properties" : {
         "CloudWatchLogGroupArn" : {
           "description" : "A string used to identify this tag",

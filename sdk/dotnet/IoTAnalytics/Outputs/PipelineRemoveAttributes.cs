@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     public sealed class PipelineRemoveAttributes
     {
         public readonly ImmutableArray<string> Attributes;
-        public readonly string? Name;
+        public readonly string Name;
         public readonly string? Next;
 
         [OutputConstructor]
         private PipelineRemoveAttributes(
             ImmutableArray<string> attributes,
 
-            string? name,
+            string name,
 
             string? next)
         {

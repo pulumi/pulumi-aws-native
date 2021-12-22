@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AwsNative.Timestream
 {
     /// <summary>
-    /// Value type of the dimension column.
+    /// Type for the dimension.
     /// </summary>
     [EnumType]
     public readonly struct ScheduledQueryDimensionValueType : IEquatable<ScheduledQueryDimensionValueType>
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Timestream
     }
 
     /// <summary>
-    /// How error reports will be encrypted.
+    /// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
     /// </summary>
     [EnumType]
     public readonly struct ScheduledQueryEncryptionOption : IEquatable<ScheduledQueryEncryptionOption>
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Timestream
     }
 
     /// <summary>
-    /// Value type of the measure value column in the destination table.
+    /// Type of the value that is to be read from SourceColumn. If the mapping is for MULTI, use MeasureValueType.MULTI.
     /// </summary>
     [EnumType]
     public readonly struct ScheduledQueryMixedMeasureMappingMeasureValueType : IEquatable<ScheduledQueryMixedMeasureMappingMeasureValueType>
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Timestream
     }
 
     /// <summary>
-    /// Value type of the measure value column in the destination table.
+    /// Value type of the measure value column to be read from the query result.
     /// </summary>
     [EnumType]
     public readonly struct ScheduledQueryMultiMeasureAttributeMappingMeasureValueType : IEquatable<ScheduledQueryMultiMeasureAttributeMappingMeasureValueType>

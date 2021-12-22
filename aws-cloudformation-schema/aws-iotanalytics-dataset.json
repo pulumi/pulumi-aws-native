@@ -2,34 +2,50 @@
   "typeName" : "AWS::IoTAnalytics::Dataset",
   "description" : "Resource Type definition for AWS::IoTAnalytics::Dataset",
   "additionalProperties" : false,
+  "taggable" : true,
   "properties" : {
     "Actions" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
+      "minItems" : 1,
+      "maxItems" : 1,
       "items" : {
         "$ref" : "#/definitions/Action"
       }
     },
     "LateDataRules" : {
       "type" : "array",
+      "minItems" : 1,
+      "maxItems" : 1,
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/LateDataRule"
       }
     },
     "DatasetName" : {
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
+      "minLength" : 1,
+      "maxLength" : 128
     },
     "ContentDeliveryRules" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
+      "minItems" : 0,
+      "maxItems" : 20,
       "items" : {
         "$ref" : "#/definitions/DatasetContentDeliveryRule"
       }
     },
     "Triggers" : {
       "type" : "array",
+      "minItems" : 0,
+      "maxItems" : 5,
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Trigger"
       }
@@ -46,6 +62,9 @@
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
+      "minItems" : 1,
+      "maxItems" : 50,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
@@ -57,19 +76,27 @@
       "additionalProperties" : false,
       "properties" : {
         "DatasetName" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
+          "minLength" : 1,
+          "maxLength" : 128
         }
-      }
+      },
+      "required" : [ "DatasetName" ]
     },
     "GlueConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "DatabaseName" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 150
         },
         "TableName" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 150
         }
       },
       "required" : [ "TableName", "DatabaseName" ]
@@ -79,7 +106,10 @@
       "additionalProperties" : false,
       "properties" : {
         "ActionName" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9_]+$",
+          "minLength" : 1,
+          "maxLength" : 128
         },
         "ContainerAction" : {
           "$ref" : "#/definitions/ContainerAction"
@@ -95,13 +125,17 @@
       "additionalProperties" : false,
       "properties" : {
         "VariableName" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256
         },
         "DatasetContentVersionValue" : {
           "$ref" : "#/definitions/DatasetContentVersionValue"
         },
         "StringValue" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 1024
         },
         "DoubleValue" : {
           "type" : "number"
@@ -117,10 +151,15 @@
       "additionalProperties" : false,
       "properties" : {
         "InputName" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^[a-zA-Z][a-zA-Z0-9_]*$",
+          "minLength" : 1,
+          "maxLength" : 128
         },
         "RoleArn" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 20,
+          "maxLength" : 2048
         }
       },
       "required" : [ "InputName", "RoleArn" ]
@@ -133,7 +172,10 @@
           "$ref" : "#/definitions/LateDataRuleConfiguration"
         },
         "RuleName" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9_]+$",
+          "minLength" : 1,
+          "maxLength" : 128
         }
       },
       "required" : [ "RuleConfiguration" ]
@@ -143,7 +185,9 @@
       "additionalProperties" : false,
       "properties" : {
         "TimeoutInMinutes" : {
-          "type" : "integer"
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 60
         }
       },
       "required" : [ "TimeoutInMinutes" ]
@@ -154,7 +198,10 @@
       "properties" : {
         "Filters" : {
           "type" : "array",
+          "minItems" : 0,
+          "maxItems" : 1,
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/Filter"
           }
@@ -173,7 +220,9 @@
           "type" : "boolean"
         },
         "MaxVersions" : {
-          "type" : "integer"
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 1000
         }
       }
     },
@@ -182,7 +231,9 @@
       "additionalProperties" : false,
       "properties" : {
         "NumberOfDays" : {
-          "type" : "integer"
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 2147483647
         },
         "Unlimited" : {
           "type" : "boolean"
@@ -195,10 +246,13 @@
       "additionalProperties" : false,
       "properties" : {
         "VolumeSizeInGB" : {
-          "type" : "integer"
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 50
         },
         "ComputeType" : {
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "ACU_1", "ACU_2" ]
         }
       },
       "required" : [ "VolumeSizeInGB", "ComputeType" ]
@@ -247,16 +301,22 @@
       "properties" : {
         "Variables" : {
           "type" : "array",
+          "minItems" : 0,
+          "maxItems" : 50,
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/Variable"
           }
         },
         "ExecutionRoleArn" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 20,
+          "maxLength" : 2048
         },
         "Image" : {
-          "type" : "string"
+          "type" : "string",
+          "maxLength" : 255
         },
         "ResourceConfiguration" : {
           "$ref" : "#/definitions/ResourceConfiguration"
@@ -278,9 +338,11 @@
       "additionalProperties" : false,
       "properties" : {
         "FileName" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^[\\w\\.-]{1,255}$"
         }
-      }
+      },
+      "required" : [ "FileName" ]
     },
     "Schedule" : {
       "type" : "object",
@@ -300,13 +362,21 @@
           "$ref" : "#/definitions/GlueConfiguration"
         },
         "Bucket" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9.\\-_]*$",
+          "minLength" : 3,
+          "maxLength" : 255
         },
         "Key" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9!_.*'()/{}:-]*$",
+          "minLength" : 1,
+          "maxLength" : 255
         },
         "RoleArn" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 20,
+          "maxLength" : 2048
         }
       },
       "required" : [ "Bucket", "Key", "RoleArn" ]
@@ -324,11 +394,15 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Value" : {
-          "type" : "string"
-        },
         "Key" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256
         }
       },
       "required" : [ "Value", "Key" ]
@@ -350,14 +424,34 @@
       "additionalProperties" : false,
       "properties" : {
         "DatasetName" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
+          "minLength" : 1,
+          "maxLength" : 128
         }
       },
       "required" : [ "DatasetName" ]
     }
   },
   "required" : [ "Actions" ],
+  "primaryIdentifier" : [ "/properties/DatasetName" ],
   "createOnlyProperties" : [ "/properties/DatasetName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "readOnlyProperties" : [ "/properties/Id" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "iotanalytics:CreateDataset" ]
+    },
+    "read" : {
+      "permissions" : [ "iotanalytics:DescribeDataset", "iotanalytics:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "iotanalytics:UpdateDataset", "iotanalytics:TagResource", "iotanalytics:UntagResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "iotanalytics:DeleteDataset" ]
+    },
+    "list" : {
+      "permissions" : [ "iotanalytics:ListDatasets" ]
+    }
+  }
 }

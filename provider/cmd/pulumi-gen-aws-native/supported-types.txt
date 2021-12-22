@@ -245,6 +245,9 @@ AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::TopicRule
 AWS::IoT::TopicRuleDestination
+AWS::IoTAnalytics::Dataset
+AWS::IoTAnalytics::Datastore
+AWS::IoTAnalytics::Pipeline
 AWS::IoTCoreDeviceAdvisor::SuiteDefinition
 AWS::IoTEvents::DetectorModel
 AWS::IoTEvents::Input
@@ -281,9 +284,13 @@ AWS::Lex::BotVersion
 AWS::Lex::ResourcePolicy
 AWS::LicenseManager::Grant
 AWS::LicenseManager::License
+AWS::Lightsail::Alarm
+AWS::Lightsail::Bucket
 AWS::Lightsail::Database
 AWS::Lightsail::Disk
 AWS::Lightsail::Instance
+AWS::Lightsail::LoadBalancer
+AWS::Lightsail::LoadBalancerTlsCertificate
 AWS::Lightsail::StaticIp
 AWS::Location::GeofenceCollection
 AWS::Location::Map

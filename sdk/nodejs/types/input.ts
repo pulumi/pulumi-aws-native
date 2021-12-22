@@ -14524,7 +14524,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValueArgs {
-        datasetName?: pulumi.Input<string>;
+        datasetName: pulumi.Input<string>;
     }
 
     export interface DatasetDeltaTimeArgs {
@@ -14560,7 +14560,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValueArgs {
-        fileName?: pulumi.Input<string>;
+        fileName: pulumi.Input<string>;
     }
 
     export interface DatasetQueryActionArgs {
@@ -14569,7 +14569,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetResourceConfigurationArgs {
-        computeType: pulumi.Input<string>;
+        computeType: pulumi.Input<enums.iotanalytics.DatasetResourceConfigurationComputeType>;
         volumeSizeInGB: pulumi.Input<number>;
     }
 
@@ -14638,7 +14638,7 @@ export namespace iotanalytics {
     }
 
     export interface DatastoreIotSiteWiseMultiLayerStorageArgs {
-        customerManagedS3Storage: pulumi.Input<inputs.iotanalytics.DatastoreCustomerManagedS3StorageArgs>;
+        customerManagedS3Storage?: pulumi.Input<inputs.iotanalytics.DatastoreCustomerManagedS3StorageArgs>;
     }
 
     export interface DatastoreJsonConfigurationArgs {
@@ -14699,67 +14699,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributesArgs {
-        attributes?: any;
-        name?: pulumi.Input<string>;
+        attributes: any;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineChannelArgs {
-        channelName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        channelName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineDatastoreArgs {
-        datastoreName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        datastoreName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceRegistryEnrichArgs {
-        attribute?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn?: pulumi.Input<string>;
-        thingName?: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        thingName: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceShadowEnrichArgs {
-        attribute?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn?: pulumi.Input<string>;
-        thingName?: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        thingName: pulumi.Input<string>;
     }
 
     export interface PipelineFilterArgs {
-        filter?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        filter: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineLambdaArgs {
-        batchSize?: pulumi.Input<number>;
-        lambdaName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        batchSize: pulumi.Input<number>;
+        lambdaName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineMathArgs {
-        attribute?: pulumi.Input<string>;
-        math?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        math: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineRemoveAttributesArgs {
-        attributes?: pulumi.Input<pulumi.Input<string>[]>;
-        name?: pulumi.Input<string>;
+        attributes: pulumi.Input<pulumi.Input<string>[]>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineSelectAttributesArgs {
-        attributes?: pulumi.Input<pulumi.Input<string>[]>;
-        name?: pulumi.Input<string>;
+        attributes: pulumi.Input<pulumi.Input<string>[]>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
@@ -18013,6 +18013,34 @@ export namespace licensemanager {
 
 export namespace lightsail {
     /**
+     * An object that sets the public accessibility of objects in the specified bucket.
+     */
+    export interface BucketAccessRulesArgs {
+        /**
+         * A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+         */
+        allowPublicOverrides?: pulumi.Input<boolean>;
+        /**
+         * Specifies the anonymous access to all objects in a bucket.
+         */
+        getObject?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface BucketTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
      * Describes the parameters of the database.
      */
     export interface DatabaseRelationalDatabaseParameterArgs {
@@ -18270,6 +18298,20 @@ export namespace lightsail {
      * A key-value pair to associate with a resource.
      */
     export interface InstanceTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LoadBalancerTagArgs {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -27561,7 +27603,7 @@ export namespace timestream {
     }
 
     /**
-     * Mapping of dimension column name to dimension column value type.
+     * This type is used to map column(s) from the query result to a dimension in the destination table.
      */
     export interface ScheduledQueryDimensionMappingArgs {
         dimensionValueType: pulumi.Input<enums.timestream.ScheduledQueryDimensionValueType>;
@@ -27569,14 +27611,14 @@ export namespace timestream {
     }
 
     /**
-     * Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+     * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
      */
     export interface ScheduledQueryErrorReportConfigurationArgs {
         s3Configuration: pulumi.Input<inputs.timestream.ScheduledQueryS3ConfigurationArgs>;
     }
 
     /**
-     * Mapping of measure names and measure value columns from the source table to the destination table.
+     * MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
      */
     export interface ScheduledQueryMixedMeasureMappingArgs {
         measureName?: pulumi.Input<string>;
@@ -27587,7 +27629,7 @@ export namespace timestream {
     }
 
     /**
-     * Mapping of measure value columns from the source table to the destination table.
+     * An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
      */
     export interface ScheduledQueryMultiMeasureAttributeMappingArgs {
         measureValueType: pulumi.Input<enums.timestream.ScheduledQueryMultiMeasureAttributeMappingMeasureValueType>;
@@ -27596,7 +27638,7 @@ export namespace timestream {
     }
 
     /**
-     * Mapping of measure value columns from the source table to the destination table.
+     * Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
      */
     export interface ScheduledQueryMultiMeasureMappingsArgs {
         multiMeasureAttributeMappings: pulumi.Input<pulumi.Input<inputs.timestream.ScheduledQueryMultiMeasureAttributeMappingArgs>[]>;
@@ -27604,14 +27646,14 @@ export namespace timestream {
     }
 
     /**
-     * Configuration for notification upon scheduled query execution.
+     * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
      */
     export interface ScheduledQueryNotificationConfigurationArgs {
         snsConfiguration: pulumi.Input<inputs.timestream.ScheduledQuerySnsConfigurationArgs>;
     }
 
     /**
-     * S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+     * Details on S3 location for error reports that result from running a query.
      */
     export interface ScheduledQueryS3ConfigurationArgs {
         bucketName: pulumi.Input<string>;
@@ -27620,7 +27662,7 @@ export namespace timestream {
     }
 
     /**
-     * Configuration that indicates when the scheduled query is executed.
+     * Configuration for when the scheduled query is executed.
      */
     export interface ScheduledQueryScheduleConfigurationArgs {
         scheduleExpression: pulumi.Input<string>;
@@ -27634,7 +27676,7 @@ export namespace timestream {
     }
 
     /**
-     * A key-value pair to associate with a resource.
+     * A key-value pair to label the scheduled query.
      */
     export interface ScheduledQueryTagArgs {
         key: pulumi.Input<string>;
@@ -27642,14 +27684,14 @@ export namespace timestream {
     }
 
     /**
-     * Configuration of target destination table to query.
+     * Configuration of target store where scheduled query results are written to.
      */
     export interface ScheduledQueryTargetConfigurationArgs {
         timestreamConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryTimestreamConfigurationArgs>;
     }
 
     /**
-     * Timestream configuration of destination table to query.
+     * Configuration needed to write data into the Timestream database and table.
      */
     export interface ScheduledQueryTimestreamConfigurationArgs {
         databaseName: pulumi.Input<string>;

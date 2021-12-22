@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Outputs
 {
 
     /// <summary>
-    /// Configuration for notification upon scheduled query execution.
+    /// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
     /// </summary>
     [OutputType]
     public sealed class ScheduledQueryNotificationConfiguration

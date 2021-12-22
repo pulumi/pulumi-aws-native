@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
 {
 
     /// <summary>
-    /// A key-value pair to associate with a resource.
+    /// A key-value pair to label the scheduled query.
     /// </summary>
     public sealed class ScheduledQueryTagArgs : Pulumi.ResourceArgs
     {

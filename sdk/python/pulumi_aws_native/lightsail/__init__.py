@@ -6,9 +6,13 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .alarm import *
+from .bucket import *
 from .database import *
 from .disk import *
 from .instance import *
+from .load_balancer import *
+from .load_balancer_tls_certificate import *
 from .static_ip import *
 from ._inputs import *
 from . import outputs

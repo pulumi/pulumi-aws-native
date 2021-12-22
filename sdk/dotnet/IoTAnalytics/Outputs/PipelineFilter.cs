@@ -13,15 +13,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineFilter
     {
-        public readonly string? Filter;
-        public readonly string? Name;
+        public readonly string Filter;
+        public readonly string Name;
         public readonly string? Next;
 
         [OutputConstructor]
         private PipelineFilter(
-            string? filter,
+            string filter,
 
-            string? name,
+            string name,
 
             string? next)
         {

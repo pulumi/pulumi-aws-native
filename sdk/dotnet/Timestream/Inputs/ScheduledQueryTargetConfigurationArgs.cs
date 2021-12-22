@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Timestream.Inputs
 {
 
     /// <summary>
-    /// Configuration of target destination table to query.
+    /// Configuration of target store where scheduled query results are written to.
     /// </summary>
     public sealed class ScheduledQueryTargetConfigurationArgs : Pulumi.ResourceArgs
     {

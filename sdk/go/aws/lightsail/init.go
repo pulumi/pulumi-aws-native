@@ -21,12 +21,20 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:lightsail:Alarm":
+		r = &Alarm{}
+	case "aws-native:lightsail:Bucket":
+		r = &Bucket{}
 	case "aws-native:lightsail:Database":
 		r = &Database{}
 	case "aws-native:lightsail:Disk":
 		r = &Disk{}
 	case "aws-native:lightsail:Instance":
 		r = &Instance{}
+	case "aws-native:lightsail:LoadBalancer":
+		r = &LoadBalancer{}
+	case "aws-native:lightsail:LoadBalancerTlsCertificate":
+		r = &LoadBalancerTlsCertificate{}
 	case "aws-native:lightsail:StaticIp":
 		r = &StaticIp{}
 	default:

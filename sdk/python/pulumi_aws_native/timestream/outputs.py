@@ -112,7 +112,7 @@ class RetentionPropertiesProperties(dict):
 @pulumi.output_type
 class ScheduledQueryDimensionMapping(dict):
     """
-    Mapping of dimension column name to dimension column value type.
+    This type is used to map column(s) from the query result to a dimension in the destination table.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -135,7 +135,7 @@ class ScheduledQueryDimensionMapping(dict):
                  dimension_value_type: 'ScheduledQueryDimensionValueType',
                  name: str):
         """
-        Mapping of dimension column name to dimension column value type.
+        This type is used to map column(s) from the query result to a dimension in the destination table.
         """
         pulumi.set(__self__, "dimension_value_type", dimension_value_type)
         pulumi.set(__self__, "name", name)
@@ -154,7 +154,7 @@ class ScheduledQueryDimensionMapping(dict):
 @pulumi.output_type
 class ScheduledQueryErrorReportConfiguration(dict):
     """
-    Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+    Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -176,7 +176,7 @@ class ScheduledQueryErrorReportConfiguration(dict):
     def __init__(__self__, *,
                  s3_configuration: 'outputs.ScheduledQueryS3Configuration'):
         """
-        Configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+        Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         """
         pulumi.set(__self__, "s3_configuration", s3_configuration)
 
@@ -189,7 +189,7 @@ class ScheduledQueryErrorReportConfiguration(dict):
 @pulumi.output_type
 class ScheduledQueryMixedMeasureMapping(dict):
     """
-    Mapping of measure names and measure value columns from the source table to the destination table.
+    MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -223,7 +223,7 @@ class ScheduledQueryMixedMeasureMapping(dict):
                  source_column: Optional[str] = None,
                  target_measure_name: Optional[str] = None):
         """
-        Mapping of measure names and measure value columns from the source table to the destination table.
+        MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
         """
         pulumi.set(__self__, "measure_value_type", measure_value_type)
         if measure_name is not None:
@@ -264,7 +264,7 @@ class ScheduledQueryMixedMeasureMapping(dict):
 @pulumi.output_type
 class ScheduledQueryMultiMeasureAttributeMapping(dict):
     """
-    Mapping of measure value columns from the source table to the destination table.
+    An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -292,7 +292,7 @@ class ScheduledQueryMultiMeasureAttributeMapping(dict):
                  source_column: str,
                  target_multi_measure_attribute_name: Optional[str] = None):
         """
-        Mapping of measure value columns from the source table to the destination table.
+        An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
         """
         pulumi.set(__self__, "measure_value_type", measure_value_type)
         pulumi.set(__self__, "source_column", source_column)
@@ -318,7 +318,7 @@ class ScheduledQueryMultiMeasureAttributeMapping(dict):
 @pulumi.output_type
 class ScheduledQueryMultiMeasureMappings(dict):
     """
-    Mapping of measure value columns from the source table to the destination table.
+    Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -343,7 +343,7 @@ class ScheduledQueryMultiMeasureMappings(dict):
                  multi_measure_attribute_mappings: Sequence['outputs.ScheduledQueryMultiMeasureAttributeMapping'],
                  target_multi_measure_name: Optional[str] = None):
         """
-        Mapping of measure value columns from the source table to the destination table.
+        Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
         """
         pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
         if target_multi_measure_name is not None:
@@ -363,7 +363,7 @@ class ScheduledQueryMultiMeasureMappings(dict):
 @pulumi.output_type
 class ScheduledQueryNotificationConfiguration(dict):
     """
-    Configuration for notification upon scheduled query execution.
+    Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -385,7 +385,7 @@ class ScheduledQueryNotificationConfiguration(dict):
     def __init__(__self__, *,
                  sns_configuration: 'outputs.ScheduledQuerySnsConfiguration'):
         """
-        Configuration for notification upon scheduled query execution.
+        Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         """
         pulumi.set(__self__, "sns_configuration", sns_configuration)
 
@@ -398,7 +398,7 @@ class ScheduledQueryNotificationConfiguration(dict):
 @pulumi.output_type
 class ScheduledQueryS3Configuration(dict):
     """
-    S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+    Details on S3 location for error reports that result from running a query.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -426,7 +426,7 @@ class ScheduledQueryS3Configuration(dict):
                  encryption_option: Optional['ScheduledQueryEncryptionOption'] = None,
                  object_key_prefix: Optional[str] = None):
         """
-        S3 configuration for where error reports will be placed, how they will be named, and how they will be encrypted.
+        Details on S3 location for error reports that result from running a query.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if encryption_option is not None:
@@ -453,7 +453,7 @@ class ScheduledQueryS3Configuration(dict):
 @pulumi.output_type
 class ScheduledQueryScheduleConfiguration(dict):
     """
-    Configuration that indicates when the scheduled query is executed.
+    Configuration for when the scheduled query is executed.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -475,7 +475,7 @@ class ScheduledQueryScheduleConfiguration(dict):
     def __init__(__self__, *,
                  schedule_expression: str):
         """
-        Configuration that indicates when the scheduled query is executed.
+        Configuration for when the scheduled query is executed.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
 
@@ -523,13 +523,13 @@ class ScheduledQuerySnsConfiguration(dict):
 @pulumi.output_type
 class ScheduledQueryTag(dict):
     """
-    A key-value pair to associate with a resource.
+    A key-value pair to label the scheduled query.
     """
     def __init__(__self__, *,
                  key: str,
                  value: str):
         """
-        A key-value pair to associate with a resource.
+        A key-value pair to label the scheduled query.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -548,7 +548,7 @@ class ScheduledQueryTag(dict):
 @pulumi.output_type
 class ScheduledQueryTargetConfiguration(dict):
     """
-    Configuration of target destination table to query.
+    Configuration of target store where scheduled query results are written to.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -570,7 +570,7 @@ class ScheduledQueryTargetConfiguration(dict):
     def __init__(__self__, *,
                  timestream_configuration: 'outputs.ScheduledQueryTimestreamConfiguration'):
         """
-        Configuration of target destination table to query.
+        Configuration of target store where scheduled query results are written to.
         """
         pulumi.set(__self__, "timestream_configuration", timestream_configuration)
 
@@ -583,7 +583,7 @@ class ScheduledQueryTargetConfiguration(dict):
 @pulumi.output_type
 class ScheduledQueryTimestreamConfiguration(dict):
     """
-    Timestream configuration of destination table to query.
+    Configuration needed to write data into the Timestream database and table.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -623,7 +623,7 @@ class ScheduledQueryTimestreamConfiguration(dict):
                  mixed_measure_mappings: Optional[Sequence['outputs.ScheduledQueryMixedMeasureMapping']] = None,
                  multi_measure_mappings: Optional['outputs.ScheduledQueryMultiMeasureMappings'] = None):
         """
-        Timestream configuration of destination table to query.
+        Configuration needed to write data into the Timestream database and table.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "dimension_mappings", dimension_mappings)

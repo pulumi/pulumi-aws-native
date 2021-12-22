@@ -10,6 +10,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BucketAccessRulesArgs',
+    'BucketTagArgs',
     'DatabaseRelationalDatabaseParameterArgs',
     'DatabaseTagArgs',
     'DiskAddOnArgs',
@@ -25,7 +27,87 @@ __all__ = [
     'InstancePortArgs',
     'InstanceStateArgs',
     'InstanceTagArgs',
+    'LoadBalancerTagArgs',
 ]
+
+@pulumi.input_type
+class BucketAccessRulesArgs:
+    def __init__(__self__, *,
+                 allow_public_overrides: Optional[pulumi.Input[bool]] = None,
+                 get_object: Optional[pulumi.Input[str]] = None):
+        """
+        An object that sets the public accessibility of objects in the specified bucket.
+        :param pulumi.Input[bool] allow_public_overrides: A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+        :param pulumi.Input[str] get_object: Specifies the anonymous access to all objects in a bucket.
+        """
+        if allow_public_overrides is not None:
+            pulumi.set(__self__, "allow_public_overrides", allow_public_overrides)
+        if get_object is not None:
+            pulumi.set(__self__, "get_object", get_object)
+
+    @property
+    @pulumi.getter(name="allowPublicOverrides")
+    def allow_public_overrides(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+        """
+        return pulumi.get(self, "allow_public_overrides")
+
+    @allow_public_overrides.setter
+    def allow_public_overrides(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_public_overrides", value)
+
+    @property
+    @pulumi.getter(name="getObject")
+    def get_object(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the anonymous access to all objects in a bucket.
+        """
+        return pulumi.get(self, "get_object")
+
+    @get_object.setter
+    def get_object(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "get_object", value)
+
+
+@pulumi.input_type
+class BucketTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class DatabaseRelationalDatabaseParameterArgs:
@@ -862,6 +944,45 @@ class InstanceStateArgs:
 
 @pulumi.input_type
 class InstanceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LoadBalancerTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
