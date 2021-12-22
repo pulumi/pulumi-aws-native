@@ -17792,6 +17792,207 @@
                 "vpcProperties"
             ]
         },
+        "aws-native:iotanalytics:Dataset": {
+            "cf": "AWS::IoTAnalytics::Dataset",
+            "inputs": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetAction"
+                    }
+                },
+                "contentDeliveryRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRule"
+                    }
+                },
+                "datasetName": {
+                    "type": "string"
+                },
+                "lateDataRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRule"
+                    }
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetTag"
+                    }
+                },
+                "triggers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetTrigger"
+                    }
+                },
+                "versioningConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetVersioningConfiguration"
+                }
+            },
+            "outputs": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetAction"
+                    }
+                },
+                "contentDeliveryRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRule"
+                    }
+                },
+                "datasetName": {
+                    "type": "string"
+                },
+                "lateDataRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRule"
+                    }
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetTag"
+                    }
+                },
+                "triggers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetTrigger"
+                    }
+                },
+                "versioningConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetVersioningConfiguration"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "datasetName",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "actions"
+            ],
+            "createOnly": [
+                "datasetName"
+            ]
+        },
+        "aws-native:iotanalytics:Datastore": {
+            "cf": "AWS::IoTAnalytics::Datastore",
+            "inputs": {
+                "datastoreName": {
+                    "type": "string"
+                },
+                "datastorePartitions": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastorePartitions"
+                },
+                "datastoreStorage": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreStorage"
+                },
+                "fileFormatConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreFileFormatConfiguration"
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatastoreTag"
+                    }
+                }
+            },
+            "outputs": {
+                "datastoreName": {
+                    "type": "string"
+                },
+                "datastorePartitions": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastorePartitions"
+                },
+                "datastoreStorage": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreStorage"
+                },
+                "fileFormatConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreFileFormatConfiguration"
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatastoreTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "datastoreName",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "createOnly": [
+                "datastoreName"
+            ]
+        },
+        "aws-native:iotanalytics:Pipeline": {
+            "cf": "AWS::IoTAnalytics::Pipeline",
+            "inputs": {
+                "pipelineActivities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:PipelineActivity"
+                    }
+                },
+                "pipelineName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:PipelineTag"
+                    }
+                }
+            },
+            "outputs": {
+                "pipelineActivities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:PipelineActivity"
+                    }
+                },
+                "pipelineName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:PipelineTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "pipelineName",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "pipelineActivities"
+            ],
+            "createOnly": [
+                "pipelineName"
+            ]
+        },
         "aws-native:iotcoredeviceadvisor:SuiteDefinition": {
             "cf": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
             "inputs": {
@@ -20951,6 +21152,236 @@
                 "validity"
             ]
         },
+        "aws-native:lightsail:Alarm": {
+            "cf": "AWS::Lightsail::Alarm",
+            "inputs": {
+                "alarmName": {
+                    "type": "string",
+                    "description": "The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm."
+                },
+                "comparisonOperator": {
+                    "type": "string",
+                    "description": "The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand."
+                },
+                "contactProtocols": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both."
+                },
+                "datapointsToAlarm": {
+                    "type": "integer",
+                    "description": "The number of data points that must be not within the specified threshold to trigger the alarm. If you are setting an \"M out of N\" alarm, this value (datapointsToAlarm) is the M."
+                },
+                "evaluationPeriods": {
+                    "type": "integer",
+                    "description": "The number of most recent periods over which data is compared to the specified threshold. If you are setting an \"M out of N\" alarm, this value (evaluationPeriods) is the N."
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "The name of the metric to associate with the alarm."
+                },
+                "monitoredResourceName": {
+                    "type": "string",
+                    "description": "The validation status of the SSL/TLS certificate."
+                },
+                "notificationEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter."
+                },
+                "notificationTriggers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The alarm states that trigger a notification."
+                },
+                "threshold": {
+                    "type": "number",
+                    "description": "The value against which the specified statistic is compared."
+                },
+                "treatMissingData": {
+                    "type": "string",
+                    "description": "Sets how this alarm will handle missing data points."
+                }
+            },
+            "outputs": {
+                "alarmArn": {
+                    "type": "string"
+                },
+                "alarmName": {
+                    "type": "string",
+                    "description": "The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm."
+                },
+                "comparisonOperator": {
+                    "type": "string",
+                    "description": "The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand."
+                },
+                "contactProtocols": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both."
+                },
+                "datapointsToAlarm": {
+                    "type": "integer",
+                    "description": "The number of data points that must be not within the specified threshold to trigger the alarm. If you are setting an \"M out of N\" alarm, this value (datapointsToAlarm) is the M."
+                },
+                "evaluationPeriods": {
+                    "type": "integer",
+                    "description": "The number of most recent periods over which data is compared to the specified threshold. If you are setting an \"M out of N\" alarm, this value (evaluationPeriods) is the N."
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "The name of the metric to associate with the alarm."
+                },
+                "monitoredResourceName": {
+                    "type": "string",
+                    "description": "The validation status of the SSL/TLS certificate."
+                },
+                "notificationEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter."
+                },
+                "notificationTriggers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The alarm states that trigger a notification."
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The current state of the alarm."
+                },
+                "threshold": {
+                    "type": "number",
+                    "description": "The value against which the specified statistic is compared."
+                },
+                "treatMissingData": {
+                    "type": "string",
+                    "description": "Sets how this alarm will handle missing data points."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "alarmName"
+            },
+            "required": [
+                "comparisonOperator",
+                "evaluationPeriods",
+                "metricName",
+                "monitoredResourceName",
+                "threshold"
+            ],
+            "createOnly": [
+                "alarmName",
+                "metricName",
+                "monitoredResourceName"
+            ]
+        },
+        "aws-native:lightsail:Bucket": {
+            "cf": "AWS::Lightsail::Bucket",
+            "inputs": {
+                "accessRules": {
+                    "$ref": "#/types/aws-native:lightsail:BucketAccessRules"
+                },
+                "bucketName": {
+                    "type": "string",
+                    "description": "The name for the bucket."
+                },
+                "bundleId": {
+                    "type": "string",
+                    "description": "The ID of the bundle to use for the bucket."
+                },
+                "objectVersioning": {
+                    "type": "boolean",
+                    "description": "Specifies whether to enable or disable versioning of objects in the bucket."
+                },
+                "readOnlyAccessAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of strings to specify the AWS account IDs that can access the bucket."
+                },
+                "resourcesReceivingAccess": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The names of the Lightsail resources for which to set bucket access."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:BucketTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "ableToUpdateBundle": {
+                    "type": "boolean",
+                    "description": "Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle."
+                },
+                "accessRules": {
+                    "$ref": "#/types/aws-native:lightsail:BucketAccessRules"
+                },
+                "bucketArn": {
+                    "type": "string"
+                },
+                "bucketName": {
+                    "type": "string",
+                    "description": "The name for the bucket."
+                },
+                "bundleId": {
+                    "type": "string",
+                    "description": "The ID of the bundle to use for the bucket."
+                },
+                "objectVersioning": {
+                    "type": "boolean",
+                    "description": "Specifies whether to enable or disable versioning of objects in the bucket."
+                },
+                "readOnlyAccessAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of strings to specify the AWS account IDs that can access the bucket."
+                },
+                "resourcesReceivingAccess": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The names of the Lightsail resources for which to set bucket access."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:BucketTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL of the bucket."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "bucketName",
+                "minLength": 3,
+                "maxLength": 54
+            },
+            "required": [
+                "bundleId"
+            ],
+            "createOnly": [
+                "bucketName"
+            ]
+        },
         "aws-native:lightsail:Database": {
             "cf": "AWS::Lightsail::Database",
             "inputs": {
@@ -21369,6 +21800,174 @@
                 "blueprintId",
                 "bundleId",
                 "instanceName"
+            ]
+        },
+        "aws-native:lightsail:LoadBalancer": {
+            "cf": "AWS::Lightsail::LoadBalancer",
+            "inputs": {
+                "attachedInstances": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The names of the instances attached to the load balancer."
+                },
+                "healthCheckPath": {
+                    "type": "string",
+                    "description": "The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., \"/\")."
+                },
+                "instancePort": {
+                    "type": "integer",
+                    "description": "The instance port where you're creating your load balancer."
+                },
+                "ipAddressType": {
+                    "type": "string",
+                    "description": "The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack."
+                },
+                "loadBalancerName": {
+                    "type": "string",
+                    "description": "The name of your load balancer."
+                },
+                "sessionStickinessEnabled": {
+                    "type": "boolean",
+                    "description": "Configuration option to enable session stickiness."
+                },
+                "sessionStickinessLBCookieDurationSeconds": {
+                    "type": "string",
+                    "description": "Configuration option to adjust session stickiness cookie duration parameter."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:LoadBalancerTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "attachedInstances": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The names of the instances attached to the load balancer."
+                },
+                "healthCheckPath": {
+                    "type": "string",
+                    "description": "The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., \"/\")."
+                },
+                "instancePort": {
+                    "type": "integer",
+                    "description": "The instance port where you're creating your load balancer."
+                },
+                "ipAddressType": {
+                    "type": "string",
+                    "description": "The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack."
+                },
+                "loadBalancerArn": {
+                    "type": "string"
+                },
+                "loadBalancerName": {
+                    "type": "string",
+                    "description": "The name of your load balancer."
+                },
+                "sessionStickinessEnabled": {
+                    "type": "boolean",
+                    "description": "Configuration option to enable session stickiness."
+                },
+                "sessionStickinessLBCookieDurationSeconds": {
+                    "type": "string",
+                    "description": "Configuration option to adjust session stickiness cookie duration parameter."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:LoadBalancerTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "loadBalancerName"
+            },
+            "required": [
+                "instancePort"
+            ],
+            "createOnly": [
+                "instancePort",
+                "ipAddressType",
+                "loadBalancerName"
+            ]
+        },
+        "aws-native:lightsail:LoadBalancerTlsCertificate": {
+            "cf": "AWS::Lightsail::LoadBalancerTlsCertificate",
+            "inputs": {
+                "certificateAlternativeNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of strings listing alternative domains and subdomains for your SSL/TLS certificate."
+                },
+                "certificateDomainName": {
+                    "type": "string",
+                    "description": "The domain name (e.g., example.com ) for your SSL/TLS certificate."
+                },
+                "certificateName": {
+                    "type": "string",
+                    "description": "The SSL/TLS certificate name."
+                },
+                "isAttached": {
+                    "type": "boolean",
+                    "description": "When true, the SSL/TLS certificate is attached to the Lightsail load balancer."
+                },
+                "loadBalancerName": {
+                    "type": "string",
+                    "description": "The name of your load balancer."
+                }
+            },
+            "outputs": {
+                "certificateAlternativeNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of strings listing alternative domains and subdomains for your SSL/TLS certificate."
+                },
+                "certificateDomainName": {
+                    "type": "string",
+                    "description": "The domain name (e.g., example.com ) for your SSL/TLS certificate."
+                },
+                "certificateName": {
+                    "type": "string",
+                    "description": "The SSL/TLS certificate name."
+                },
+                "isAttached": {
+                    "type": "boolean",
+                    "description": "When true, the SSL/TLS certificate is attached to the Lightsail load balancer."
+                },
+                "loadBalancerName": {
+                    "type": "string",
+                    "description": "The name of your load balancer."
+                },
+                "loadBalancerTlsCertificateArn": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The validation status of the SSL/TLS certificate."
+                }
+            },
+            "required": [
+                "certificateDomainName",
+                "certificateName",
+                "loadBalancerName"
+            ],
+            "createOnly": [
+                "certificateAlternativeNames",
+                "certificateDomainName",
+                "certificateName",
+                "loadBalancerName"
             ]
         },
         "aws-native:lightsail:StaticIp": {
@@ -33182,35 +33781,35 @@
                 },
                 "sQErrorReportConfiguration": {
                     "type": "string",
-                    "description": "Configuration for where error reports will be placed, how they will be named, and how they will be encrypted."
+                    "description": "Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results."
                 },
                 "sQKmsKeyId": {
                     "type": "string",
-                    "description": "The KMS key for the scheduled query. If the KMS key is not specified, the database will be encrypted with a Timestream owned KMS key located in the Timestream account."
+                    "description": "The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest."
                 },
                 "sQName": {
                     "type": "string",
-                    "description": "The name for the scheduled query."
+                    "description": "The name of the scheduled query. Scheduled query names must be unique within each Region."
                 },
                 "sQNotificationConfiguration": {
                     "type": "string",
-                    "description": "Configuration for notification upon scheduled query execution."
+                    "description": "Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it."
                 },
                 "sQQueryString": {
                     "type": "string",
-                    "description": "The query scheduled to be executed."
+                    "description": "The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query."
                 },
                 "sQScheduleConfiguration": {
                     "type": "string",
-                    "description": "Configuration that indicates when the scheduled query is executed."
+                    "description": "Configuration for when the scheduled query is executed."
                 },
                 "sQScheduledQueryExecutionRoleArn": {
                     "type": "string",
-                    "description": "Role that AWS Timestream will assume to execute scheduled query."
+                    "description": "The ARN for the IAM role that Timestream will assume when running the scheduled query."
                 },
                 "sQTargetConfiguration": {
                     "type": "string",
-                    "description": "Target data source to export query results from."
+                    "description": "Configuration of target store where scheduled query results are written to."
                 },
                 "scheduleConfiguration": {
                     "$ref": "#/types/aws-native:timestream:ScheduledQueryScheduleConfiguration"
@@ -49671,6 +50270,627 @@
                 }
             }
         },
+        "aws-native:iotanalytics:DatasetAction": {
+            "type": "object",
+            "properties": {
+                "actionName": {
+                    "type": "string"
+                },
+                "containerAction": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetContainerAction"
+                },
+                "queryAction": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetQueryAction"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetContainerAction": {
+            "type": "object",
+            "properties": {
+                "executionRoleArn": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "resourceConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetResourceConfiguration"
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetVariable"
+                    }
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetContentDeliveryRule": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRuleDestination"
+                },
+                "entryName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetContentDeliveryRuleDestination": {
+            "type": "object",
+            "properties": {
+                "iotEventsDestinationConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetIotEventsDestinationConfiguration"
+                },
+                "s3DestinationConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetS3DestinationConfiguration"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetContentVersionValue": {
+            "type": "object",
+            "properties": {
+                "datasetName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetDeltaTime": {
+            "type": "object",
+            "properties": {
+                "offsetSeconds": {
+                    "type": "integer"
+                },
+                "timeExpression": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetDeltaTimeSessionWindowConfiguration": {
+            "type": "object",
+            "properties": {
+                "timeoutInMinutes": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetFilter": {
+            "type": "object",
+            "properties": {
+                "deltaTime": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetDeltaTime"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetGlueConfiguration": {
+            "type": "object",
+            "properties": {
+                "databaseName": {
+                    "type": "string"
+                },
+                "tableName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetIotEventsDestinationConfiguration": {
+            "type": "object",
+            "properties": {
+                "inputName": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetLateDataRule": {
+            "type": "object",
+            "properties": {
+                "ruleConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRuleConfiguration"
+                },
+                "ruleName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetLateDataRuleConfiguration": {
+            "type": "object",
+            "properties": {
+                "deltaTimeSessionWindowConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetDeltaTimeSessionWindowConfiguration"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetOutputFileUriValue": {
+            "type": "object",
+            "properties": {
+                "fileName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetQueryAction": {
+            "type": "object",
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetFilter"
+                    }
+                },
+                "sqlQuery": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetResourceConfiguration": {
+            "type": "object",
+            "properties": {
+                "computeType": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetResourceConfigurationComputeType"
+                },
+                "volumeSizeInGB": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetResourceConfigurationComputeType": {
+            "type": "string"
+        },
+        "aws-native:iotanalytics:DatasetRetentionPeriod": {
+            "type": "object",
+            "properties": {
+                "numberOfDays": {
+                    "type": "integer"
+                },
+                "unlimited": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetS3DestinationConfiguration": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "glueConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetGlueConfiguration"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetSchedule": {
+            "type": "object",
+            "properties": {
+                "scheduleExpression": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetTrigger": {
+            "type": "object",
+            "properties": {
+                "schedule": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetSchedule"
+                },
+                "triggeringDataset": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetTriggeringDataset"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetTriggeringDataset": {
+            "type": "object",
+            "properties": {
+                "datasetName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetVariable": {
+            "type": "object",
+            "properties": {
+                "datasetContentVersionValue": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetContentVersionValue"
+                },
+                "doubleValue": {
+                    "type": "number"
+                },
+                "outputFileUriValue": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetOutputFileUriValue"
+                },
+                "stringValue": {
+                    "type": "string"
+                },
+                "variableName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetVersioningConfiguration": {
+            "type": "object",
+            "properties": {
+                "maxVersions": {
+                    "type": "integer"
+                },
+                "unlimited": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreColumn": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreCustomerManagedS3": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "keyPrefix": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreCustomerManagedS3Storage": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "keyPrefix": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreFileFormatConfiguration": {
+            "type": "object",
+            "properties": {
+                "jsonConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreJsonConfiguration"
+                },
+                "parquetConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreParquetConfiguration"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreIotSiteWiseMultiLayerStorage": {
+            "type": "object",
+            "properties": {
+                "customerManagedS3Storage": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreCustomerManagedS3Storage"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreJsonConfiguration": {
+            "type": "object"
+        },
+        "aws-native:iotanalytics:DatastoreParquetConfiguration": {
+            "type": "object",
+            "properties": {
+                "schemaDefinition": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreSchemaDefinition"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastorePartition": {
+            "type": "object",
+            "properties": {
+                "partition": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastorePartition"
+                },
+                "timestampPartition": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreTimestampPartition"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastorePartitions": {
+            "type": "object",
+            "properties": {
+                "partitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatastorePartition"
+                    }
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreRetentionPeriod": {
+            "type": "object",
+            "properties": {
+                "numberOfDays": {
+                    "type": "integer"
+                },
+                "unlimited": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreSchemaDefinition": {
+            "type": "object",
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatastoreColumn"
+                    }
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreServiceManagedS3": {
+            "type": "object"
+        },
+        "aws-native:iotanalytics:DatastoreStorage": {
+            "type": "object",
+            "properties": {
+                "customerManagedS3": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreCustomerManagedS3"
+                },
+                "iotSiteWiseMultiLayerStorage": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreIotSiteWiseMultiLayerStorage"
+                },
+                "serviceManagedS3": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatastoreServiceManagedS3"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatastoreTimestampPartition": {
+            "type": "object",
+            "properties": {
+                "attributeName": {
+                    "type": "string"
+                },
+                "timestampFormat": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineActivity": {
+            "type": "object",
+            "properties": {
+                "addAttributes": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineAddAttributes"
+                },
+                "channel": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineChannel"
+                },
+                "datastore": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineDatastore"
+                },
+                "deviceRegistryEnrich": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineDeviceRegistryEnrich"
+                },
+                "deviceShadowEnrich": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineDeviceShadowEnrich"
+                },
+                "filter": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineFilter"
+                },
+                "lambda": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineLambda"
+                },
+                "math": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineMath"
+                },
+                "removeAttributes": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineRemoveAttributes"
+                },
+                "selectAttributes": {
+                    "$ref": "#/types/aws-native:iotanalytics:PipelineSelectAttributes"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineAddAttributes": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineChannel": {
+            "type": "object",
+            "properties": {
+                "channelName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineDatastore": {
+            "type": "object",
+            "properties": {
+                "datastoreName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineDeviceRegistryEnrich": {
+            "type": "object",
+            "properties": {
+                "attribute": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "thingName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineDeviceShadowEnrich": {
+            "type": "object",
+            "properties": {
+                "attribute": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "thingName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineFilter": {
+            "type": "object",
+            "properties": {
+                "filter": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineLambda": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "lambdaName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineMath": {
+            "type": "object",
+            "properties": {
+                "attribute": {
+                    "type": "string"
+                },
+                "math": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineRemoveAttributes": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineSelectAttributes": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:PipelineTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:iotcoredeviceadvisor:SuiteDefinitionConfigurationProperties": {
             "type": "object",
             "properties": {
@@ -54231,6 +55451,32 @@
                 }
             }
         },
+        "aws-native:lightsail:BucketAccessRules": {
+            "type": "object",
+            "properties": {
+                "allowPublicOverrides": {
+                    "type": "boolean",
+                    "description": "A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified."
+                },
+                "getObject": {
+                    "type": "string",
+                    "description": "Specifies the anonymous access to all objects in a bucket."
+                }
+            }
+        },
+        "aws-native:lightsail:BucketTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:lightsail:DatabaseRelationalDatabaseParameter": {
             "type": "object",
             "properties": {
@@ -54518,6 +55764,19 @@
             }
         },
         "aws-native:lightsail:InstanceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:lightsail:LoadBalancerTag": {
             "type": "object",
             "properties": {
                 "key": {
