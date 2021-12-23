@@ -1,6 +1,6 @@
 ## HEAD (Unreleased)
-
-(None)
+- Serve decompressed schema from GetSchema API
+  [#287](https://github.com/pulumi/pulumi-aws-native/pull/287)
 
 ---
 
