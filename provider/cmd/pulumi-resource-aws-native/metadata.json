@@ -16725,6 +16725,58 @@
                 "properties"
             ]
         },
+        "aws-native:inspectorv2:Filter": {
+            "cf": "AWS::InspectorV2::Filter",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "Findings filter description."
+                },
+                "filterAction": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterAction",
+                    "description": "Findings filter action."
+                },
+                "filterCriteria": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterCriteria",
+                    "description": "Findings filter criteria."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Findings filter name."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "Findings filter ARN."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Findings filter description."
+                },
+                "filterAction": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterAction",
+                    "description": "Findings filter action."
+                },
+                "filterCriteria": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterCriteria",
+                    "description": "Findings filter criteria."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Findings filter name."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "filterAction",
+                "filterCriteria"
+            ]
+        },
         "aws-native:iot:AccountAuditConfiguration": {
             "cf": "AWS::IoT::AccountAuditConfiguration",
             "inputs": {
@@ -48997,6 +49049,287 @@
                 "s3KeyPrefix": {
                     "type": "string",
                     "description": "S3KeyPrefix"
+                }
+            }
+        },
+        "aws-native:inspectorv2:FilterAction": {
+            "type": "string"
+        },
+        "aws-native:inspectorv2:FilterCriteria": {
+            "type": "object",
+            "properties": {
+                "awsAccountId": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "componentId": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "componentType": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "ec2InstanceImageId": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "ec2InstanceSubnetId": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "ec2InstanceVpcId": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "ecrImageArchitecture": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "ecrImageHash": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "ecrImagePushedAt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterDateFilter"
+                    }
+                },
+                "ecrImageRegistry": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "ecrImageRepositoryName": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "ecrImageTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "findingArn": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "findingStatus": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "findingType": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "firstObservedAt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterDateFilter"
+                    }
+                },
+                "inspectorScore": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterNumberFilter"
+                    }
+                },
+                "lastObservedAt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterDateFilter"
+                    }
+                },
+                "networkProtocol": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "portRange": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterPortRangeFilter"
+                    }
+                },
+                "relatedVulnerabilities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "resourceId": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "resourceTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterMapFilter"
+                    }
+                },
+                "resourceType": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "severity": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "title": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "updatedAt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterDateFilter"
+                    }
+                },
+                "vendorSeverity": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "vulnerabilityId": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "vulnerabilitySource": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                    }
+                },
+                "vulnerablePackages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:inspectorv2:FilterPackageFilter"
+                    }
+                }
+            }
+        },
+        "aws-native:inspectorv2:FilterDateFilter": {
+            "type": "object",
+            "properties": {
+                "endInclusive": {
+                    "type": "integer"
+                },
+                "startInclusive": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:inspectorv2:FilterMapComparison": {
+            "type": "string"
+        },
+        "aws-native:inspectorv2:FilterMapFilter": {
+            "type": "object",
+            "properties": {
+                "comparison": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterMapComparison"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:inspectorv2:FilterNumberFilter": {
+            "type": "object",
+            "properties": {
+                "lowerInclusive": {
+                    "type": "number"
+                },
+                "upperInclusive": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:inspectorv2:FilterPackageFilter": {
+            "type": "object",
+            "properties": {
+                "architecture": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                },
+                "epoch": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterNumberFilter"
+                },
+                "name": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                },
+                "release": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                },
+                "sourceLayerHash": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                },
+                "version": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterStringFilter"
+                }
+            }
+        },
+        "aws-native:inspectorv2:FilterPortRangeFilter": {
+            "type": "object",
+            "properties": {
+                "beginInclusive": {
+                    "type": "integer"
+                },
+                "endInclusive": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:inspectorv2:FilterStringComparison": {
+            "type": "string"
+        },
+        "aws-native:inspectorv2:FilterStringFilter": {
+            "type": "object",
+            "properties": {
+                "comparison": {
+                    "$ref": "#/types/aws-native:inspectorv2:FilterStringComparison"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },

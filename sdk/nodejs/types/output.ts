@@ -14038,6 +14038,78 @@ export namespace inspector {
 
 }
 
+export namespace inspectorv2 {
+    export interface FilterCriteria {
+        awsAccountId?: outputs.inspectorv2.FilterStringFilter[];
+        componentId?: outputs.inspectorv2.FilterStringFilter[];
+        componentType?: outputs.inspectorv2.FilterStringFilter[];
+        ec2InstanceImageId?: outputs.inspectorv2.FilterStringFilter[];
+        ec2InstanceSubnetId?: outputs.inspectorv2.FilterStringFilter[];
+        ec2InstanceVpcId?: outputs.inspectorv2.FilterStringFilter[];
+        ecrImageArchitecture?: outputs.inspectorv2.FilterStringFilter[];
+        ecrImageHash?: outputs.inspectorv2.FilterStringFilter[];
+        ecrImagePushedAt?: outputs.inspectorv2.FilterDateFilter[];
+        ecrImageRegistry?: outputs.inspectorv2.FilterStringFilter[];
+        ecrImageRepositoryName?: outputs.inspectorv2.FilterStringFilter[];
+        ecrImageTags?: outputs.inspectorv2.FilterStringFilter[];
+        findingArn?: outputs.inspectorv2.FilterStringFilter[];
+        findingStatus?: outputs.inspectorv2.FilterStringFilter[];
+        findingType?: outputs.inspectorv2.FilterStringFilter[];
+        firstObservedAt?: outputs.inspectorv2.FilterDateFilter[];
+        inspectorScore?: outputs.inspectorv2.FilterNumberFilter[];
+        lastObservedAt?: outputs.inspectorv2.FilterDateFilter[];
+        networkProtocol?: outputs.inspectorv2.FilterStringFilter[];
+        portRange?: outputs.inspectorv2.FilterPortRangeFilter[];
+        relatedVulnerabilities?: outputs.inspectorv2.FilterStringFilter[];
+        resourceId?: outputs.inspectorv2.FilterStringFilter[];
+        resourceTags?: outputs.inspectorv2.FilterMapFilter[];
+        resourceType?: outputs.inspectorv2.FilterStringFilter[];
+        severity?: outputs.inspectorv2.FilterStringFilter[];
+        title?: outputs.inspectorv2.FilterStringFilter[];
+        updatedAt?: outputs.inspectorv2.FilterDateFilter[];
+        vendorSeverity?: outputs.inspectorv2.FilterStringFilter[];
+        vulnerabilityId?: outputs.inspectorv2.FilterStringFilter[];
+        vulnerabilitySource?: outputs.inspectorv2.FilterStringFilter[];
+        vulnerablePackages?: outputs.inspectorv2.FilterPackageFilter[];
+    }
+
+    export interface FilterDateFilter {
+        endInclusive?: number;
+        startInclusive?: number;
+    }
+
+    export interface FilterMapFilter {
+        comparison: enums.inspectorv2.FilterMapComparison;
+        key?: string;
+        value?: string;
+    }
+
+    export interface FilterNumberFilter {
+        lowerInclusive?: number;
+        upperInclusive?: number;
+    }
+
+    export interface FilterPackageFilter {
+        architecture?: outputs.inspectorv2.FilterStringFilter;
+        epoch?: outputs.inspectorv2.FilterNumberFilter;
+        name?: outputs.inspectorv2.FilterStringFilter;
+        release?: outputs.inspectorv2.FilterStringFilter;
+        sourceLayerHash?: outputs.inspectorv2.FilterStringFilter;
+        version?: outputs.inspectorv2.FilterStringFilter;
+    }
+
+    export interface FilterPortRangeFilter {
+        beginInclusive?: number;
+        endInclusive?: number;
+    }
+
+    export interface FilterStringFilter {
+        comparison: enums.inspectorv2.FilterStringComparison;
+        value: string;
+    }
+
+}
+
 export namespace iot {
     /**
      * The criteria that determine when and how a job abort takes place.

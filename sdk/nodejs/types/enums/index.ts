@@ -42,6 +42,7 @@ import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
 import * as healthlake from "./healthlake";
 import * as imagebuilder from "./imagebuilder";
+import * as inspectorv2 from "./inspectorv2";
 import * as iot from "./iot";
 import * as iotanalytics from "./iotanalytics";
 import * as iotevents from "./iotevents";
@@ -136,6 +137,7 @@ export {
     groundstation,
     healthlake,
     imagebuilder,
+    inspectorv2,
     iot,
     iotanalytics,
     iotevents,

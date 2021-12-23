@@ -13752,6 +13752,77 @@ export namespace inspector {
     }
 }
 
+export namespace inspectorv2 {
+    export interface FilterCriteriaArgs {
+        awsAccountId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        componentId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        componentType?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        ec2InstanceImageId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        ec2InstanceSubnetId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        ec2InstanceVpcId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        ecrImageArchitecture?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        ecrImageHash?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        ecrImagePushedAt?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterDateFilterArgs>[]>;
+        ecrImageRegistry?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        ecrImageRepositoryName?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        ecrImageTags?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        findingArn?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        findingStatus?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        findingType?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        firstObservedAt?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterDateFilterArgs>[]>;
+        inspectorScore?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterNumberFilterArgs>[]>;
+        lastObservedAt?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterDateFilterArgs>[]>;
+        networkProtocol?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        portRange?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterPortRangeFilterArgs>[]>;
+        relatedVulnerabilities?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        resourceId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        resourceTags?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterMapFilterArgs>[]>;
+        resourceType?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        severity?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        title?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        updatedAt?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterDateFilterArgs>[]>;
+        vendorSeverity?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        vulnerabilityId?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        vulnerabilitySource?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>[]>;
+        vulnerablePackages?: pulumi.Input<pulumi.Input<inputs.inspectorv2.FilterPackageFilterArgs>[]>;
+    }
+
+    export interface FilterDateFilterArgs {
+        endInclusive?: pulumi.Input<number>;
+        startInclusive?: pulumi.Input<number>;
+    }
+
+    export interface FilterMapFilterArgs {
+        comparison: pulumi.Input<enums.inspectorv2.FilterMapComparison>;
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface FilterNumberFilterArgs {
+        lowerInclusive?: pulumi.Input<number>;
+        upperInclusive?: pulumi.Input<number>;
+    }
+
+    export interface FilterPackageFilterArgs {
+        architecture?: pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>;
+        epoch?: pulumi.Input<inputs.inspectorv2.FilterNumberFilterArgs>;
+        name?: pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>;
+        release?: pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>;
+        sourceLayerHash?: pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>;
+        version?: pulumi.Input<inputs.inspectorv2.FilterStringFilterArgs>;
+    }
+
+    export interface FilterPortRangeFilterArgs {
+        beginInclusive?: pulumi.Input<number>;
+        endInclusive?: pulumi.Input<number>;
+    }
+
+    export interface FilterStringFilterArgs {
+        comparison: pulumi.Input<enums.inspectorv2.FilterStringComparison>;
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace iot {
     /**
      * The criteria that determine when and how a job abort takes place.

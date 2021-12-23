@@ -229,6 +229,7 @@ AWS::ImageBuilder::Image
 AWS::ImageBuilder::ImagePipeline
 AWS::ImageBuilder::ImageRecipe
 AWS::ImageBuilder::InfrastructureConfiguration
+AWS::InspectorV2::Filter
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
 AWS::IoT::Certificate

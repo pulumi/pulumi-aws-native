@@ -114,6 +114,7 @@ import * as healthlake from "./healthlake";
 import * as iam from "./iam";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
+import * as inspectorv2 from "./inspectorv2";
 import * as iot from "./iot";
 import * as iot1click from "./iot1click";
 import * as iotanalytics from "./iotanalytics";
@@ -299,6 +300,7 @@ export {
     iam,
     imagebuilder,
     inspector,
+    inspectorv2,
     iot,
     iot1click,
     iotanalytics,

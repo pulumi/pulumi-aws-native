@@ -207,6 +207,8 @@ if typing.TYPE_CHECKING:
     imagebuilder = __imagebuilder
     import pulumi_aws_native.inspector as __inspector
     inspector = __inspector
+    import pulumi_aws_native.inspectorv2 as __inspectorv2
+    inspectorv2 = __inspectorv2
     import pulumi_aws_native.iot as __iot
     iot = __iot
     import pulumi_aws_native.iot1click as __iot1click
@@ -479,6 +481,7 @@ else:
     iam = _utilities.lazy_import('pulumi_aws_native.iam')
     imagebuilder = _utilities.lazy_import('pulumi_aws_native.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws_native.inspector')
+    inspectorv2 = _utilities.lazy_import('pulumi_aws_native.inspectorv2')
     iot = _utilities.lazy_import('pulumi_aws_native.iot')
     iot1click = _utilities.lazy_import('pulumi_aws_native.iot1click')
     iotanalytics = _utilities.lazy_import('pulumi_aws_native.iotanalytics')
@@ -1691,6 +1694,14 @@ _utilities.register(
    "aws-native:inspector:AssessmentTarget": "AssessmentTarget",
    "aws-native:inspector:AssessmentTemplate": "AssessmentTemplate",
    "aws-native:inspector:ResourceGroup": "ResourceGroup"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "inspectorv2",
+  "fqn": "pulumi_aws_native.inspectorv2",
+  "classes": {
+   "aws-native:inspectorv2:Filter": "Filter"
   }
  },
  {
