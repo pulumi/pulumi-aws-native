@@ -17844,6 +17844,51 @@
                 "vpcProperties"
             ]
         },
+        "aws-native:iotanalytics:Channel": {
+            "cf": "AWS::IoTAnalytics::Channel",
+            "inputs": {
+                "channelName": {
+                    "type": "string"
+                },
+                "channelStorage": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelStorage"
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:ChannelTag"
+                    }
+                }
+            },
+            "outputs": {
+                "channelName": {
+                    "type": "string"
+                },
+                "channelStorage": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelStorage"
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:ChannelTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "channelName",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "createOnly": [
+                "channelName"
+            ]
+        },
         "aws-native:iotanalytics:Dataset": {
             "cf": "AWS::IoTAnalytics::Dataset",
             "inputs": {
@@ -50596,6 +50641,56 @@
             "type": "object",
             "properties": {
                 "unit": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:ChannelCustomerManagedS3": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "keyPrefix": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:ChannelRetentionPeriod": {
+            "type": "object",
+            "properties": {
+                "numberOfDays": {
+                    "type": "integer"
+                },
+                "unlimited": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:iotanalytics:ChannelServiceManagedS3": {
+            "type": "object"
+        },
+        "aws-native:iotanalytics:ChannelStorage": {
+            "type": "object",
+            "properties": {
+                "customerManagedS3": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelCustomerManagedS3"
+                },
+                "serviceManagedS3": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelServiceManagedS3"
+                }
+            }
+        },
+        "aws-native:iotanalytics:ChannelTag": {
+            "type": "object",
+            "properties": {
+                "key": {
                     "type": "string"
                 },
                 "value": {

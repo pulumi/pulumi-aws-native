@@ -2,12 +2,16 @@
   "typeName" : "AWS::IoTAnalytics::Channel",
   "description" : "Resource Type definition for AWS::IoTAnalytics::Channel",
   "additionalProperties" : false,
+  "taggable" : true,
   "properties" : {
     "ChannelStorage" : {
       "$ref" : "#/definitions/ChannelStorage"
     },
     "ChannelName" : {
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
+      "minLength" : 1,
+      "maxLength" : 128
     },
     "Id" : {
       "type" : "string"
@@ -18,6 +22,9 @@
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
+      "minItems" : 1,
+      "maxItems" : 50,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
@@ -29,13 +36,21 @@
       "additionalProperties" : false,
       "properties" : {
         "Bucket" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9.\\-_]*$",
+          "minLength" : 3,
+          "maxLength" : 255
         },
         "RoleArn" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 20,
+          "maxLength" : 2048
         },
         "KeyPrefix" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9!_.*'()/{}:-]*/$",
+          "minLength" : 1,
+          "maxLength" : 255
         }
       },
       "required" : [ "Bucket", "RoleArn" ]
@@ -60,11 +75,15 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Value" : {
-          "type" : "string"
-        },
         "Key" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256
         }
       },
       "required" : [ "Value", "Key" ]
@@ -74,7 +93,9 @@
       "additionalProperties" : false,
       "properties" : {
         "NumberOfDays" : {
-          "type" : "integer"
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 2147483647
         },
         "Unlimited" : {
           "type" : "boolean"
@@ -82,7 +103,24 @@
       }
     }
   },
+  "primaryIdentifier" : [ "/properties/ChannelName" ],
   "createOnlyProperties" : [ "/properties/ChannelName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "readOnlyProperties" : [ "/properties/Id" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "iotanalytics:CreateChannel" ]
+    },
+    "read" : {
+      "permissions" : [ "iotanalytics:DescribeChannel", "iotanalytics:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "iotanalytics:UpdateChannel", "iotanalytics:TagResource", "iotanalytics:UntagResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "iotanalytics:DeleteChannel" ]
+    },
+    "list" : {
+      "permissions" : [ "iotanalytics:ListChannels" ]
+    }
+  }
 }

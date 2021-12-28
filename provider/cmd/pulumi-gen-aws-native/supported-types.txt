@@ -246,6 +246,7 @@ AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::TopicRule
 AWS::IoT::TopicRuleDestination
+AWS::IoTAnalytics::Channel
 AWS::IoTAnalytics::Dataset
 AWS::IoTAnalytics::Datastore
 AWS::IoTAnalytics::Pipeline
