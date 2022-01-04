@@ -1051,6 +1051,52 @@
                 "restApiId"
             ]
         },
+        "aws-native:apigateway:BasePathMapping": {
+            "cf": "AWS::ApiGateway::BasePathMapping",
+            "inputs": {
+                "basePath": {
+                    "type": "string",
+                    "description": "The base path name that callers of the API must provide in the URL after the domain name."
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The DomainName of an AWS::ApiGateway::DomainName resource."
+                },
+                "restApiId": {
+                    "type": "string",
+                    "description": "The ID of the API."
+                },
+                "stage": {
+                    "type": "string",
+                    "description": "The name of the API's stage."
+                }
+            },
+            "outputs": {
+                "basePath": {
+                    "type": "string",
+                    "description": "The base path name that callers of the API must provide in the URL after the domain name."
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The DomainName of an AWS::ApiGateway::DomainName resource."
+                },
+                "restApiId": {
+                    "type": "string",
+                    "description": "The ID of the API."
+                },
+                "stage": {
+                    "type": "string",
+                    "description": "The name of the API's stage."
+                }
+            },
+            "required": [
+                "domainName"
+            ],
+            "createOnly": [
+                "basePath",
+                "domainName"
+            ]
+        },
         "aws-native:apigateway:ClientCertificate": {
             "cf": "AWS::ApiGateway::ClientCertificate",
             "inputs": {
@@ -2466,6 +2512,41 @@
                 "platforms"
             ]
         },
+        "aws-native:appstream:ApplicationEntitlementAssociation": {
+            "cf": "AWS::AppStream::ApplicationEntitlementAssociation",
+            "inputs": {
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "entitlementName": {
+                    "type": "string"
+                },
+                "stackName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "entitlementName": {
+                    "type": "string"
+                },
+                "stackName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "applicationIdentifier",
+                "entitlementName",
+                "stackName"
+            ],
+            "createOnly": [
+                "applicationIdentifier",
+                "entitlementName",
+                "stackName"
+            ]
+        },
         "aws-native:appstream:ApplicationFleetAssociation": {
             "cf": "AWS::AppStream::ApplicationFleetAssociation",
             "inputs": {
@@ -2491,6 +2572,67 @@
             "createOnly": [
                 "applicationArn",
                 "fleetName"
+            ]
+        },
+        "aws-native:appstream:Entitlement": {
+            "cf": "AWS::AppStream::Entitlement",
+            "inputs": {
+                "appVisibility": {
+                    "type": "string"
+                },
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appstream:EntitlementAttribute"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "stackName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "appVisibility": {
+                    "type": "string"
+                },
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appstream:EntitlementAttribute"
+                    }
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "lastModifiedTime": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "stackName": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "appVisibility",
+                "attributes",
+                "stackName"
+            ],
+            "createOnly": [
+                "name",
+                "stackName"
             ]
         },
         "aws-native:appsync:DomainName": {
@@ -38022,6 +38164,17 @@
                     "type": "string"
                 },
                 "tagValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:EntitlementAttribute": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
                     "type": "string"
                 }
             }

@@ -13,6 +13,7 @@ AWS::AmplifyUIBuilder::Theme
 AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
 AWS::ApiGateway::Authorizer
+AWS::ApiGateway::BasePathMapping
 AWS::ApiGateway::ClientCertificate
 AWS::ApiGateway::Deployment
 AWS::ApiGateway::DocumentationVersion
@@ -30,7 +31,9 @@ AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::Service
 AWS::AppStream::AppBlock
 AWS::AppStream::Application
+AWS::AppStream::ApplicationEntitlementAssociation
 AWS::AppStream::ApplicationFleetAssociation
+AWS::AppStream::Entitlement
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
 AWS::ApplicationInsights::Application
