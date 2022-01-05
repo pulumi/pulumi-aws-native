@@ -15,6 +15,7 @@ __all__ = [
     'ApplicationS3LocationArgs',
     'ApplicationTagArgs',
     'DirectoryConfigServiceAccountCredentialsArgs',
+    'EntitlementAttributeArgs',
     'FleetComputeCapacityArgs',
     'FleetDomainJoinInfoArgs',
     'FleetTagArgs',
@@ -213,6 +214,33 @@ class DirectoryConfigServiceAccountCredentialsArgs:
     @account_password.setter
     def account_password(self, value: pulumi.Input[str]):
         pulumi.set(self, "account_password", value)
+
+
+@pulumi.input_type
+class EntitlementAttributeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

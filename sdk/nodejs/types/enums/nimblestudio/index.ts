@@ -20,6 +20,12 @@ export const LaunchProfileStreamingInstanceType = {
 
 export type LaunchProfileStreamingInstanceType = (typeof LaunchProfileStreamingInstanceType)[keyof typeof LaunchProfileStreamingInstanceType];
 
+export const LaunchProfileStreamingSessionStorageMode = {
+    Upload: "UPLOAD",
+} as const;
+
+export type LaunchProfileStreamingSessionStorageMode = (typeof LaunchProfileStreamingSessionStorageMode)[keyof typeof LaunchProfileStreamingSessionStorageMode];
+
 export const StreamingImageEncryptionConfigurationKeyType = {
     CustomerManagedKey: "CUSTOMER_MANAGED_KEY",
 } as const;

@@ -43,11 +43,11 @@ export class AppMonitor extends pulumi.CustomResource {
     /**
      * The top-level internet domain name for which your application has administrative authority.
      */
-    public readonly domain!: pulumi.Output<string | undefined>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * A name for the app monitor
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.rum.AppMonitorTag[] | undefined>;
 
     /**
@@ -57,10 +57,13 @@ export class AppMonitor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AppMonitorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AppMonitorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'domain'");
+            }
             inputs["appMonitorConfiguration"] = args ? args.appMonitorConfiguration : undefined;
             inputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
             inputs["domain"] = args ? args.domain : undefined;
@@ -92,7 +95,7 @@ export interface AppMonitorArgs {
     /**
      * The top-level internet domain name for which your application has administrative authority.
      */
-    domain?: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
     /**
      * A name for the app monitor
      */

@@ -34,6 +34,8 @@ export * from "./localGatewayRouteTableVPCAssociation";
 export * from "./natGateway";
 export * from "./networkAcl";
 export * from "./networkAclEntry";
+export * from "./networkInsightsAccessScope";
+export * from "./networkInsightsAccessScopeAnalysis";
 export * from "./networkInsightsAnalysis";
 export * from "./networkInsightsPath";
 export * from "./networkInterface";
@@ -117,6 +119,8 @@ import { LocalGatewayRouteTableVPCAssociation } from "./localGatewayRouteTableVP
 import { NatGateway } from "./natGateway";
 import { NetworkAcl } from "./networkAcl";
 import { NetworkAclEntry } from "./networkAclEntry";
+import { NetworkInsightsAccessScope } from "./networkInsightsAccessScope";
+import { NetworkInsightsAccessScopeAnalysis } from "./networkInsightsAccessScopeAnalysis";
 import { NetworkInsightsAnalysis } from "./networkInsightsAnalysis";
 import { NetworkInsightsPath } from "./networkInsightsPath";
 import { NetworkInterface } from "./networkInterface";
@@ -229,6 +233,10 @@ const _module = {
                 return new NetworkAcl(name, <any>undefined, { urn })
             case "aws-native:ec2:NetworkAclEntry":
                 return new NetworkAclEntry(name, <any>undefined, { urn })
+            case "aws-native:ec2:NetworkInsightsAccessScope":
+                return new NetworkInsightsAccessScope(name, <any>undefined, { urn })
+            case "aws-native:ec2:NetworkInsightsAccessScopeAnalysis":
+                return new NetworkInsightsAccessScopeAnalysis(name, <any>undefined, { urn })
             case "aws-native:ec2:NetworkInsightsAnalysis":
                 return new NetworkInsightsAnalysis(name, <any>undefined, { urn })
             case "aws-native:ec2:NetworkInsightsPath":

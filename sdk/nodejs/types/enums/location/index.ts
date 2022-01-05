@@ -43,6 +43,7 @@ export type RouteCalculatorPricingPlan = (typeof RouteCalculatorPricingPlan)[key
 export const TrackerPositionFiltering = {
     TimeBased: "TimeBased",
     DistanceBased: "DistanceBased",
+    AccuracyBased: "AccuracyBased",
 } as const;
 
 export type TrackerPositionFiltering = (typeof TrackerPositionFiltering)[keyof typeof TrackerPositionFiltering];

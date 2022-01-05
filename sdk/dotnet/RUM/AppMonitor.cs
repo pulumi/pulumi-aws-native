@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.RUM
         /// The top-level internet domain name for which your application has administrative authority.
         /// </summary>
         [Output("domain")]
-        public Output<string?> Domain { get; private set; } = null!;
+        public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
         /// A name for the app monitor
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.AppMonitorTag>> Tags { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.RUM
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AppMonitor(string name, AppMonitorArgs? args = null, CustomResourceOptions? options = null)
+        public AppMonitor(string name, AppMonitorArgs args, CustomResourceOptions? options = null)
             : base("aws-native:rum:AppMonitor", name, args ?? new AppMonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -96,8 +96,8 @@ namespace Pulumi.AwsNative.RUM
         /// <summary>
         /// The top-level internet domain name for which your application has administrative authority.
         /// </summary>
-        [Input("domain")]
-        public Input<string>? Domain { get; set; }
+        [Input("domain", required: true)]
+        public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
         /// A name for the app monitor

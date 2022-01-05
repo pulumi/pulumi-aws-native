@@ -25,10 +25,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AppBlock{}
 	case "aws-native:appstream:Application":
 		r = &Application{}
+	case "aws-native:appstream:ApplicationEntitlementAssociation":
+		r = &ApplicationEntitlementAssociation{}
 	case "aws-native:appstream:ApplicationFleetAssociation":
 		r = &ApplicationFleetAssociation{}
 	case "aws-native:appstream:DirectoryConfig":
 		r = &DirectoryConfig{}
+	case "aws-native:appstream:Entitlement":
+		r = &Entitlement{}
 	case "aws-native:appstream:Fleet":
 		r = &Fleet{}
 	case "aws-native:appstream:ImageBuilder":

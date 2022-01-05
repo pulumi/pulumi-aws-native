@@ -849,6 +849,92 @@ namespace Pulumi.AwsNative.EC2
     }
 
     [EnumType]
+    public readonly struct NetworkInsightsAccessScopeAnalysisFindingsFound : IEquatable<NetworkInsightsAccessScopeAnalysisFindingsFound>
+    {
+        private readonly string _value;
+
+        private NetworkInsightsAccessScopeAnalysisFindingsFound(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInsightsAccessScopeAnalysisFindingsFound True { get; } = new NetworkInsightsAccessScopeAnalysisFindingsFound("true");
+        public static NetworkInsightsAccessScopeAnalysisFindingsFound False { get; } = new NetworkInsightsAccessScopeAnalysisFindingsFound("false");
+        public static NetworkInsightsAccessScopeAnalysisFindingsFound Unknown { get; } = new NetworkInsightsAccessScopeAnalysisFindingsFound("unknown");
+
+        public static bool operator ==(NetworkInsightsAccessScopeAnalysisFindingsFound left, NetworkInsightsAccessScopeAnalysisFindingsFound right) => left.Equals(right);
+        public static bool operator !=(NetworkInsightsAccessScopeAnalysisFindingsFound left, NetworkInsightsAccessScopeAnalysisFindingsFound right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInsightsAccessScopeAnalysisFindingsFound value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInsightsAccessScopeAnalysisFindingsFound other && Equals(other);
+        public bool Equals(NetworkInsightsAccessScopeAnalysisFindingsFound other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct NetworkInsightsAccessScopeAnalysisStatus : IEquatable<NetworkInsightsAccessScopeAnalysisStatus>
+    {
+        private readonly string _value;
+
+        private NetworkInsightsAccessScopeAnalysisStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInsightsAccessScopeAnalysisStatus Running { get; } = new NetworkInsightsAccessScopeAnalysisStatus("running");
+        public static NetworkInsightsAccessScopeAnalysisStatus Failed { get; } = new NetworkInsightsAccessScopeAnalysisStatus("failed");
+        public static NetworkInsightsAccessScopeAnalysisStatus Succeeded { get; } = new NetworkInsightsAccessScopeAnalysisStatus("succeeded");
+
+        public static bool operator ==(NetworkInsightsAccessScopeAnalysisStatus left, NetworkInsightsAccessScopeAnalysisStatus right) => left.Equals(right);
+        public static bool operator !=(NetworkInsightsAccessScopeAnalysisStatus left, NetworkInsightsAccessScopeAnalysisStatus right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInsightsAccessScopeAnalysisStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInsightsAccessScopeAnalysisStatus other && Equals(other);
+        public bool Equals(NetworkInsightsAccessScopeAnalysisStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct NetworkInsightsAccessScopeProtocol : IEquatable<NetworkInsightsAccessScopeProtocol>
+    {
+        private readonly string _value;
+
+        private NetworkInsightsAccessScopeProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInsightsAccessScopeProtocol Tcp { get; } = new NetworkInsightsAccessScopeProtocol("tcp");
+        public static NetworkInsightsAccessScopeProtocol Udp { get; } = new NetworkInsightsAccessScopeProtocol("udp");
+
+        public static bool operator ==(NetworkInsightsAccessScopeProtocol left, NetworkInsightsAccessScopeProtocol right) => left.Equals(right);
+        public static bool operator !=(NetworkInsightsAccessScopeProtocol left, NetworkInsightsAccessScopeProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInsightsAccessScopeProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInsightsAccessScopeProtocol other && Equals(other);
+        public bool Equals(NetworkInsightsAccessScopeProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct NetworkInsightsAnalysisStatus : IEquatable<NetworkInsightsAnalysisStatus>
     {
         private readonly string _value;

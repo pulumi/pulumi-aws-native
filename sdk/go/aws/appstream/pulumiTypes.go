@@ -832,6 +832,106 @@ func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountPassword() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type EntitlementAttribute struct {
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// EntitlementAttributeInput is an input type that accepts EntitlementAttributeArgs and EntitlementAttributeOutput values.
+// You can construct a concrete instance of `EntitlementAttributeInput` via:
+//
+//          EntitlementAttributeArgs{...}
+type EntitlementAttributeInput interface {
+	pulumi.Input
+
+	ToEntitlementAttributeOutput() EntitlementAttributeOutput
+	ToEntitlementAttributeOutputWithContext(context.Context) EntitlementAttributeOutput
+}
+
+type EntitlementAttributeArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EntitlementAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementAttribute)(nil)).Elem()
+}
+
+func (i EntitlementAttributeArgs) ToEntitlementAttributeOutput() EntitlementAttributeOutput {
+	return i.ToEntitlementAttributeOutputWithContext(context.Background())
+}
+
+func (i EntitlementAttributeArgs) ToEntitlementAttributeOutputWithContext(ctx context.Context) EntitlementAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementAttributeOutput)
+}
+
+// EntitlementAttributeArrayInput is an input type that accepts EntitlementAttributeArray and EntitlementAttributeArrayOutput values.
+// You can construct a concrete instance of `EntitlementAttributeArrayInput` via:
+//
+//          EntitlementAttributeArray{ EntitlementAttributeArgs{...} }
+type EntitlementAttributeArrayInput interface {
+	pulumi.Input
+
+	ToEntitlementAttributeArrayOutput() EntitlementAttributeArrayOutput
+	ToEntitlementAttributeArrayOutputWithContext(context.Context) EntitlementAttributeArrayOutput
+}
+
+type EntitlementAttributeArray []EntitlementAttributeInput
+
+func (EntitlementAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntitlementAttribute)(nil)).Elem()
+}
+
+func (i EntitlementAttributeArray) ToEntitlementAttributeArrayOutput() EntitlementAttributeArrayOutput {
+	return i.ToEntitlementAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i EntitlementAttributeArray) ToEntitlementAttributeArrayOutputWithContext(ctx context.Context) EntitlementAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementAttributeArrayOutput)
+}
+
+type EntitlementAttributeOutput struct{ *pulumi.OutputState }
+
+func (EntitlementAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementAttribute)(nil)).Elem()
+}
+
+func (o EntitlementAttributeOutput) ToEntitlementAttributeOutput() EntitlementAttributeOutput {
+	return o
+}
+
+func (o EntitlementAttributeOutput) ToEntitlementAttributeOutputWithContext(ctx context.Context) EntitlementAttributeOutput {
+	return o
+}
+
+func (o EntitlementAttributeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementAttribute) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EntitlementAttributeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementAttribute) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EntitlementAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (EntitlementAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntitlementAttribute)(nil)).Elem()
+}
+
+func (o EntitlementAttributeArrayOutput) ToEntitlementAttributeArrayOutput() EntitlementAttributeArrayOutput {
+	return o
+}
+
+func (o EntitlementAttributeArrayOutput) ToEntitlementAttributeArrayOutputWithContext(ctx context.Context) EntitlementAttributeArrayOutput {
+	return o
+}
+
+func (o EntitlementAttributeArrayOutput) Index(i pulumi.IntInput) EntitlementAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntitlementAttribute {
+		return vs[0].([]EntitlementAttribute)[vs[1].(int)]
+	}).(EntitlementAttributeOutput)
+}
+
 type FleetComputeCapacity struct {
 	DesiredInstances int `pulumi:"desiredInstances"`
 }
@@ -2424,6 +2524,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsPtrInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementAttributeInput)(nil)).Elem(), EntitlementAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementAttributeArrayInput)(nil)).Elem(), EntitlementAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityInput)(nil)).Elem(), FleetComputeCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityPtrInput)(nil)).Elem(), FleetComputeCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDomainJoinInfoInput)(nil)).Elem(), FleetDomainJoinInfoArgs{})
@@ -2462,6 +2564,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(EntitlementAttributeOutput{})
+	pulumi.RegisterOutputType(EntitlementAttributeArrayOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityPtrOutput{})
 	pulumi.RegisterOutputType(FleetDomainJoinInfoOutput{})

@@ -12852,6 +12852,941 @@ func (o NetworkAclTagArrayOutput) Index(i pulumi.IntInput) NetworkAclTagOutput {
 	}).(NetworkAclTagOutput)
 }
 
+type NetworkInsightsAccessScopeAccessScopePathRequest struct {
+	Destination      *NetworkInsightsAccessScopePathStatementRequest              `pulumi:"destination"`
+	Source           *NetworkInsightsAccessScopePathStatementRequest              `pulumi:"source"`
+	ThroughResources []NetworkInsightsAccessScopeThroughResourcesStatementRequest `pulumi:"throughResources"`
+}
+
+// NetworkInsightsAccessScopeAccessScopePathRequestInput is an input type that accepts NetworkInsightsAccessScopeAccessScopePathRequestArgs and NetworkInsightsAccessScopeAccessScopePathRequestOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeAccessScopePathRequestInput` via:
+//
+//          NetworkInsightsAccessScopeAccessScopePathRequestArgs{...}
+type NetworkInsightsAccessScopeAccessScopePathRequestInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeAccessScopePathRequestOutput() NetworkInsightsAccessScopeAccessScopePathRequestOutput
+	ToNetworkInsightsAccessScopeAccessScopePathRequestOutputWithContext(context.Context) NetworkInsightsAccessScopeAccessScopePathRequestOutput
+}
+
+type NetworkInsightsAccessScopeAccessScopePathRequestArgs struct {
+	Destination      NetworkInsightsAccessScopePathStatementRequestPtrInput               `pulumi:"destination"`
+	Source           NetworkInsightsAccessScopePathStatementRequestPtrInput               `pulumi:"source"`
+	ThroughResources NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayInput `pulumi:"throughResources"`
+}
+
+func (NetworkInsightsAccessScopeAccessScopePathRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeAccessScopePathRequest)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeAccessScopePathRequestArgs) ToNetworkInsightsAccessScopeAccessScopePathRequestOutput() NetworkInsightsAccessScopeAccessScopePathRequestOutput {
+	return i.ToNetworkInsightsAccessScopeAccessScopePathRequestOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeAccessScopePathRequestArgs) ToNetworkInsightsAccessScopeAccessScopePathRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAccessScopePathRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeAccessScopePathRequestOutput)
+}
+
+// NetworkInsightsAccessScopeAccessScopePathRequestArrayInput is an input type that accepts NetworkInsightsAccessScopeAccessScopePathRequestArray and NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeAccessScopePathRequestArrayInput` via:
+//
+//          NetworkInsightsAccessScopeAccessScopePathRequestArray{ NetworkInsightsAccessScopeAccessScopePathRequestArgs{...} }
+type NetworkInsightsAccessScopeAccessScopePathRequestArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeAccessScopePathRequestArrayOutput() NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput
+	ToNetworkInsightsAccessScopeAccessScopePathRequestArrayOutputWithContext(context.Context) NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput
+}
+
+type NetworkInsightsAccessScopeAccessScopePathRequestArray []NetworkInsightsAccessScopeAccessScopePathRequestInput
+
+func (NetworkInsightsAccessScopeAccessScopePathRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAccessScopeAccessScopePathRequest)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeAccessScopePathRequestArray) ToNetworkInsightsAccessScopeAccessScopePathRequestArrayOutput() NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput {
+	return i.ToNetworkInsightsAccessScopeAccessScopePathRequestArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeAccessScopePathRequestArray) ToNetworkInsightsAccessScopeAccessScopePathRequestArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput)
+}
+
+type NetworkInsightsAccessScopeAccessScopePathRequestOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeAccessScopePathRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeAccessScopePathRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) ToNetworkInsightsAccessScopeAccessScopePathRequestOutput() NetworkInsightsAccessScopeAccessScopePathRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) ToNetworkInsightsAccessScopeAccessScopePathRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAccessScopePathRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) Destination() NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeAccessScopePathRequest) *NetworkInsightsAccessScopePathStatementRequest {
+		return v.Destination
+	}).(NetworkInsightsAccessScopePathStatementRequestPtrOutput)
+}
+
+func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) Source() NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeAccessScopePathRequest) *NetworkInsightsAccessScopePathStatementRequest {
+		return v.Source
+	}).(NetworkInsightsAccessScopePathStatementRequestPtrOutput)
+}
+
+func (o NetworkInsightsAccessScopeAccessScopePathRequestOutput) ThroughResources() NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeAccessScopePathRequest) []NetworkInsightsAccessScopeThroughResourcesStatementRequest {
+		return v.ThroughResources
+	}).(NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput)
+}
+
+type NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAccessScopeAccessScopePathRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput) ToNetworkInsightsAccessScopeAccessScopePathRequestArrayOutput() NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput) ToNetworkInsightsAccessScopeAccessScopePathRequestArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAccessScopeAccessScopePathRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAccessScopeAccessScopePathRequest {
+		return vs[0].([]NetworkInsightsAccessScopeAccessScopePathRequest)[vs[1].(int)]
+	}).(NetworkInsightsAccessScopeAccessScopePathRequestOutput)
+}
+
+type NetworkInsightsAccessScopeAnalysisTag struct {
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// NetworkInsightsAccessScopeAnalysisTagInput is an input type that accepts NetworkInsightsAccessScopeAnalysisTagArgs and NetworkInsightsAccessScopeAnalysisTagOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeAnalysisTagInput` via:
+//
+//          NetworkInsightsAccessScopeAnalysisTagArgs{...}
+type NetworkInsightsAccessScopeAnalysisTagInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeAnalysisTagOutput() NetworkInsightsAccessScopeAnalysisTagOutput
+	ToNetworkInsightsAccessScopeAnalysisTagOutputWithContext(context.Context) NetworkInsightsAccessScopeAnalysisTagOutput
+}
+
+type NetworkInsightsAccessScopeAnalysisTagArgs struct {
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (NetworkInsightsAccessScopeAnalysisTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeAnalysisTag)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeAnalysisTagArgs) ToNetworkInsightsAccessScopeAnalysisTagOutput() NetworkInsightsAccessScopeAnalysisTagOutput {
+	return i.ToNetworkInsightsAccessScopeAnalysisTagOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeAnalysisTagArgs) ToNetworkInsightsAccessScopeAnalysisTagOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeAnalysisTagOutput)
+}
+
+// NetworkInsightsAccessScopeAnalysisTagArrayInput is an input type that accepts NetworkInsightsAccessScopeAnalysisTagArray and NetworkInsightsAccessScopeAnalysisTagArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeAnalysisTagArrayInput` via:
+//
+//          NetworkInsightsAccessScopeAnalysisTagArray{ NetworkInsightsAccessScopeAnalysisTagArgs{...} }
+type NetworkInsightsAccessScopeAnalysisTagArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeAnalysisTagArrayOutput() NetworkInsightsAccessScopeAnalysisTagArrayOutput
+	ToNetworkInsightsAccessScopeAnalysisTagArrayOutputWithContext(context.Context) NetworkInsightsAccessScopeAnalysisTagArrayOutput
+}
+
+type NetworkInsightsAccessScopeAnalysisTagArray []NetworkInsightsAccessScopeAnalysisTagInput
+
+func (NetworkInsightsAccessScopeAnalysisTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAccessScopeAnalysisTag)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeAnalysisTagArray) ToNetworkInsightsAccessScopeAnalysisTagArrayOutput() NetworkInsightsAccessScopeAnalysisTagArrayOutput {
+	return i.ToNetworkInsightsAccessScopeAnalysisTagArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeAnalysisTagArray) ToNetworkInsightsAccessScopeAnalysisTagArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeAnalysisTagArrayOutput)
+}
+
+type NetworkInsightsAccessScopeAnalysisTagOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeAnalysisTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeAnalysisTag)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeAnalysisTagOutput) ToNetworkInsightsAccessScopeAnalysisTagOutput() NetworkInsightsAccessScopeAnalysisTagOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeAnalysisTagOutput) ToNetworkInsightsAccessScopeAnalysisTagOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisTagOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeAnalysisTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeAnalysisTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeAnalysisTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAccessScopeAnalysisTagArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeAnalysisTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAccessScopeAnalysisTag)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeAnalysisTagArrayOutput) ToNetworkInsightsAccessScopeAnalysisTagArrayOutput() NetworkInsightsAccessScopeAnalysisTagArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeAnalysisTagArrayOutput) ToNetworkInsightsAccessScopeAnalysisTagArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisTagArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeAnalysisTagArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAccessScopeAnalysisTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAccessScopeAnalysisTag {
+		return vs[0].([]NetworkInsightsAccessScopeAnalysisTag)[vs[1].(int)]
+	}).(NetworkInsightsAccessScopeAnalysisTagOutput)
+}
+
+type NetworkInsightsAccessScopePacketHeaderStatementRequest struct {
+	DestinationAddresses   []string                             `pulumi:"destinationAddresses"`
+	DestinationPorts       []string                             `pulumi:"destinationPorts"`
+	DestinationPrefixLists []string                             `pulumi:"destinationPrefixLists"`
+	Protocols              []NetworkInsightsAccessScopeProtocol `pulumi:"protocols"`
+	SourceAddresses        []string                             `pulumi:"sourceAddresses"`
+	SourcePorts            []string                             `pulumi:"sourcePorts"`
+	SourcePrefixLists      []string                             `pulumi:"sourcePrefixLists"`
+}
+
+// NetworkInsightsAccessScopePacketHeaderStatementRequestInput is an input type that accepts NetworkInsightsAccessScopePacketHeaderStatementRequestArgs and NetworkInsightsAccessScopePacketHeaderStatementRequestOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopePacketHeaderStatementRequestInput` via:
+//
+//          NetworkInsightsAccessScopePacketHeaderStatementRequestArgs{...}
+type NetworkInsightsAccessScopePacketHeaderStatementRequestInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopePacketHeaderStatementRequestOutput() NetworkInsightsAccessScopePacketHeaderStatementRequestOutput
+	ToNetworkInsightsAccessScopePacketHeaderStatementRequestOutputWithContext(context.Context) NetworkInsightsAccessScopePacketHeaderStatementRequestOutput
+}
+
+type NetworkInsightsAccessScopePacketHeaderStatementRequestArgs struct {
+	DestinationAddresses   pulumi.StringArrayInput                      `pulumi:"destinationAddresses"`
+	DestinationPorts       pulumi.StringArrayInput                      `pulumi:"destinationPorts"`
+	DestinationPrefixLists pulumi.StringArrayInput                      `pulumi:"destinationPrefixLists"`
+	Protocols              NetworkInsightsAccessScopeProtocolArrayInput `pulumi:"protocols"`
+	SourceAddresses        pulumi.StringArrayInput                      `pulumi:"sourceAddresses"`
+	SourcePorts            pulumi.StringArrayInput                      `pulumi:"sourcePorts"`
+	SourcePrefixLists      pulumi.StringArrayInput                      `pulumi:"sourcePrefixLists"`
+}
+
+func (NetworkInsightsAccessScopePacketHeaderStatementRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopePacketHeaderStatementRequest)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopePacketHeaderStatementRequestArgs) ToNetworkInsightsAccessScopePacketHeaderStatementRequestOutput() NetworkInsightsAccessScopePacketHeaderStatementRequestOutput {
+	return i.ToNetworkInsightsAccessScopePacketHeaderStatementRequestOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopePacketHeaderStatementRequestArgs) ToNetworkInsightsAccessScopePacketHeaderStatementRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePacketHeaderStatementRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopePacketHeaderStatementRequestOutput)
+}
+
+func (i NetworkInsightsAccessScopePacketHeaderStatementRequestArgs) ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return i.ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopePacketHeaderStatementRequestArgs) ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopePacketHeaderStatementRequestOutput).ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAccessScopePacketHeaderStatementRequestPtrInput is an input type that accepts NetworkInsightsAccessScopePacketHeaderStatementRequestArgs, NetworkInsightsAccessScopePacketHeaderStatementRequestPtr and NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopePacketHeaderStatementRequestPtrInput` via:
+//
+//          NetworkInsightsAccessScopePacketHeaderStatementRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAccessScopePacketHeaderStatementRequestPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput
+	ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(context.Context) NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput
+}
+
+type networkInsightsAccessScopePacketHeaderStatementRequestPtrType NetworkInsightsAccessScopePacketHeaderStatementRequestArgs
+
+func NetworkInsightsAccessScopePacketHeaderStatementRequestPtr(v *NetworkInsightsAccessScopePacketHeaderStatementRequestArgs) NetworkInsightsAccessScopePacketHeaderStatementRequestPtrInput {
+	return (*networkInsightsAccessScopePacketHeaderStatementRequestPtrType)(v)
+}
+
+func (*networkInsightsAccessScopePacketHeaderStatementRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAccessScopePacketHeaderStatementRequest)(nil)).Elem()
+}
+
+func (i *networkInsightsAccessScopePacketHeaderStatementRequestPtrType) ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return i.ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAccessScopePacketHeaderStatementRequestPtrType) ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput)
+}
+
+type NetworkInsightsAccessScopePacketHeaderStatementRequestOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopePacketHeaderStatementRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) ToNetworkInsightsAccessScopePacketHeaderStatementRequestOutput() NetworkInsightsAccessScopePacketHeaderStatementRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) ToNetworkInsightsAccessScopePacketHeaderStatementRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePacketHeaderStatementRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return o.ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAccessScopePacketHeaderStatementRequest) *NetworkInsightsAccessScopePacketHeaderStatementRequest {
+		return &v
+	}).(NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) DestinationPrefixLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
+		return v.DestinationPrefixLists
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) Protocols() NetworkInsightsAccessScopeProtocolArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []NetworkInsightsAccessScopeProtocol {
+		return v.Protocols
+	}).(NetworkInsightsAccessScopeProtocolArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) SourcePorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.SourcePorts }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestOutput) SourcePrefixLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePacketHeaderStatementRequest) []string { return v.SourcePrefixLists }).(pulumi.StringArrayOutput)
+}
+
+type NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAccessScopePacketHeaderStatementRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) ToNetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) Elem() NetworkInsightsAccessScopePacketHeaderStatementRequestOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) NetworkInsightsAccessScopePacketHeaderStatementRequest {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsAccessScopePacketHeaderStatementRequest
+		return ret
+	}).(NetworkInsightsAccessScopePacketHeaderStatementRequestOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPorts
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) DestinationPrefixLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPrefixLists
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) Protocols() NetworkInsightsAccessScopeProtocolArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []NetworkInsightsAccessScopeProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.Protocols
+	}).(NetworkInsightsAccessScopeProtocolArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourcePorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePorts
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput) SourcePrefixLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePacketHeaderStatementRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePrefixLists
+	}).(pulumi.StringArrayOutput)
+}
+
+type NetworkInsightsAccessScopePathStatementRequest struct {
+	PacketHeaderStatement *NetworkInsightsAccessScopePacketHeaderStatementRequest `pulumi:"packetHeaderStatement"`
+	ResourceStatement     *NetworkInsightsAccessScopeResourceStatementRequest     `pulumi:"resourceStatement"`
+}
+
+// NetworkInsightsAccessScopePathStatementRequestInput is an input type that accepts NetworkInsightsAccessScopePathStatementRequestArgs and NetworkInsightsAccessScopePathStatementRequestOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopePathStatementRequestInput` via:
+//
+//          NetworkInsightsAccessScopePathStatementRequestArgs{...}
+type NetworkInsightsAccessScopePathStatementRequestInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopePathStatementRequestOutput() NetworkInsightsAccessScopePathStatementRequestOutput
+	ToNetworkInsightsAccessScopePathStatementRequestOutputWithContext(context.Context) NetworkInsightsAccessScopePathStatementRequestOutput
+}
+
+type NetworkInsightsAccessScopePathStatementRequestArgs struct {
+	PacketHeaderStatement NetworkInsightsAccessScopePacketHeaderStatementRequestPtrInput `pulumi:"packetHeaderStatement"`
+	ResourceStatement     NetworkInsightsAccessScopeResourceStatementRequestPtrInput     `pulumi:"resourceStatement"`
+}
+
+func (NetworkInsightsAccessScopePathStatementRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopePathStatementRequest)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopePathStatementRequestArgs) ToNetworkInsightsAccessScopePathStatementRequestOutput() NetworkInsightsAccessScopePathStatementRequestOutput {
+	return i.ToNetworkInsightsAccessScopePathStatementRequestOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopePathStatementRequestArgs) ToNetworkInsightsAccessScopePathStatementRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePathStatementRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopePathStatementRequestOutput)
+}
+
+func (i NetworkInsightsAccessScopePathStatementRequestArgs) ToNetworkInsightsAccessScopePathStatementRequestPtrOutput() NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return i.ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopePathStatementRequestArgs) ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopePathStatementRequestOutput).ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAccessScopePathStatementRequestPtrInput is an input type that accepts NetworkInsightsAccessScopePathStatementRequestArgs, NetworkInsightsAccessScopePathStatementRequestPtr and NetworkInsightsAccessScopePathStatementRequestPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopePathStatementRequestPtrInput` via:
+//
+//          NetworkInsightsAccessScopePathStatementRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAccessScopePathStatementRequestPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopePathStatementRequestPtrOutput() NetworkInsightsAccessScopePathStatementRequestPtrOutput
+	ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(context.Context) NetworkInsightsAccessScopePathStatementRequestPtrOutput
+}
+
+type networkInsightsAccessScopePathStatementRequestPtrType NetworkInsightsAccessScopePathStatementRequestArgs
+
+func NetworkInsightsAccessScopePathStatementRequestPtr(v *NetworkInsightsAccessScopePathStatementRequestArgs) NetworkInsightsAccessScopePathStatementRequestPtrInput {
+	return (*networkInsightsAccessScopePathStatementRequestPtrType)(v)
+}
+
+func (*networkInsightsAccessScopePathStatementRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAccessScopePathStatementRequest)(nil)).Elem()
+}
+
+func (i *networkInsightsAccessScopePathStatementRequestPtrType) ToNetworkInsightsAccessScopePathStatementRequestPtrOutput() NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return i.ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAccessScopePathStatementRequestPtrType) ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopePathStatementRequestPtrOutput)
+}
+
+type NetworkInsightsAccessScopePathStatementRequestOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopePathStatementRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopePathStatementRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestOutput) ToNetworkInsightsAccessScopePathStatementRequestOutput() NetworkInsightsAccessScopePathStatementRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestOutput) ToNetworkInsightsAccessScopePathStatementRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePathStatementRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestOutput) ToNetworkInsightsAccessScopePathStatementRequestPtrOutput() NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return o.ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestOutput) ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopePathStatementRequest {
+		return &v
+	}).(NetworkInsightsAccessScopePathStatementRequestPtrOutput)
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestOutput) PacketHeaderStatement() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopePacketHeaderStatementRequest {
+		return v.PacketHeaderStatement
+	}).(NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput)
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestOutput) ResourceStatement() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopeResourceStatementRequest {
+		return v.ResourceStatement
+	}).(NetworkInsightsAccessScopeResourceStatementRequestPtrOutput)
+}
+
+type NetworkInsightsAccessScopePathStatementRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopePathStatementRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAccessScopePathStatementRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) ToNetworkInsightsAccessScopePathStatementRequestPtrOutput() NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) ToNetworkInsightsAccessScopePathStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopePathStatementRequestPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) Elem() NetworkInsightsAccessScopePathStatementRequestOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePathStatementRequest) NetworkInsightsAccessScopePathStatementRequest {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsAccessScopePathStatementRequest
+		return ret
+	}).(NetworkInsightsAccessScopePathStatementRequestOutput)
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) PacketHeaderStatement() NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopePacketHeaderStatementRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PacketHeaderStatement
+	}).(NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput)
+}
+
+func (o NetworkInsightsAccessScopePathStatementRequestPtrOutput) ResourceStatement() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopePathStatementRequest) *NetworkInsightsAccessScopeResourceStatementRequest {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceStatement
+	}).(NetworkInsightsAccessScopeResourceStatementRequestPtrOutput)
+}
+
+type NetworkInsightsAccessScopeResourceStatementRequest struct {
+	ResourceTypes []string `pulumi:"resourceTypes"`
+	Resources     []string `pulumi:"resources"`
+}
+
+// NetworkInsightsAccessScopeResourceStatementRequestInput is an input type that accepts NetworkInsightsAccessScopeResourceStatementRequestArgs and NetworkInsightsAccessScopeResourceStatementRequestOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeResourceStatementRequestInput` via:
+//
+//          NetworkInsightsAccessScopeResourceStatementRequestArgs{...}
+type NetworkInsightsAccessScopeResourceStatementRequestInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeResourceStatementRequestOutput() NetworkInsightsAccessScopeResourceStatementRequestOutput
+	ToNetworkInsightsAccessScopeResourceStatementRequestOutputWithContext(context.Context) NetworkInsightsAccessScopeResourceStatementRequestOutput
+}
+
+type NetworkInsightsAccessScopeResourceStatementRequestArgs struct {
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	Resources     pulumi.StringArrayInput `pulumi:"resources"`
+}
+
+func (NetworkInsightsAccessScopeResourceStatementRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeResourceStatementRequest)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeResourceStatementRequestArgs) ToNetworkInsightsAccessScopeResourceStatementRequestOutput() NetworkInsightsAccessScopeResourceStatementRequestOutput {
+	return i.ToNetworkInsightsAccessScopeResourceStatementRequestOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeResourceStatementRequestArgs) ToNetworkInsightsAccessScopeResourceStatementRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeResourceStatementRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeResourceStatementRequestOutput)
+}
+
+func (i NetworkInsightsAccessScopeResourceStatementRequestArgs) ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutput() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return i.ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeResourceStatementRequestArgs) ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeResourceStatementRequestOutput).ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsAccessScopeResourceStatementRequestPtrInput is an input type that accepts NetworkInsightsAccessScopeResourceStatementRequestArgs, NetworkInsightsAccessScopeResourceStatementRequestPtr and NetworkInsightsAccessScopeResourceStatementRequestPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeResourceStatementRequestPtrInput` via:
+//
+//          NetworkInsightsAccessScopeResourceStatementRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkInsightsAccessScopeResourceStatementRequestPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutput() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput
+	ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(context.Context) NetworkInsightsAccessScopeResourceStatementRequestPtrOutput
+}
+
+type networkInsightsAccessScopeResourceStatementRequestPtrType NetworkInsightsAccessScopeResourceStatementRequestArgs
+
+func NetworkInsightsAccessScopeResourceStatementRequestPtr(v *NetworkInsightsAccessScopeResourceStatementRequestArgs) NetworkInsightsAccessScopeResourceStatementRequestPtrInput {
+	return (*networkInsightsAccessScopeResourceStatementRequestPtrType)(v)
+}
+
+func (*networkInsightsAccessScopeResourceStatementRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAccessScopeResourceStatementRequest)(nil)).Elem()
+}
+
+func (i *networkInsightsAccessScopeResourceStatementRequestPtrType) ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutput() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return i.ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsAccessScopeResourceStatementRequestPtrType) ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeResourceStatementRequestPtrOutput)
+}
+
+type NetworkInsightsAccessScopeResourceStatementRequestOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeResourceStatementRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeResourceStatementRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) ToNetworkInsightsAccessScopeResourceStatementRequestOutput() NetworkInsightsAccessScopeResourceStatementRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) ToNetworkInsightsAccessScopeResourceStatementRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeResourceStatementRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutput() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return o.ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAccessScopeResourceStatementRequest) *NetworkInsightsAccessScopeResourceStatementRequest {
+		return &v
+	}).(NetworkInsightsAccessScopeResourceStatementRequestPtrOutput)
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeResourceStatementRequest) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeResourceStatementRequest) []string { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+type NetworkInsightsAccessScopeResourceStatementRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsAccessScopeResourceStatementRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutput() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) ToNetworkInsightsAccessScopeResourceStatementRequestPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) Elem() NetworkInsightsAccessScopeResourceStatementRequestOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeResourceStatementRequest) NetworkInsightsAccessScopeResourceStatementRequest {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsAccessScopeResourceStatementRequest
+		return ret
+	}).(NetworkInsightsAccessScopeResourceStatementRequestOutput)
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeResourceStatementRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAccessScopeResourceStatementRequestPtrOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAccessScopeResourceStatementRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(pulumi.StringArrayOutput)
+}
+
+type NetworkInsightsAccessScopeTag struct {
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// NetworkInsightsAccessScopeTagInput is an input type that accepts NetworkInsightsAccessScopeTagArgs and NetworkInsightsAccessScopeTagOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeTagInput` via:
+//
+//          NetworkInsightsAccessScopeTagArgs{...}
+type NetworkInsightsAccessScopeTagInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeTagOutput() NetworkInsightsAccessScopeTagOutput
+	ToNetworkInsightsAccessScopeTagOutputWithContext(context.Context) NetworkInsightsAccessScopeTagOutput
+}
+
+type NetworkInsightsAccessScopeTagArgs struct {
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (NetworkInsightsAccessScopeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeTag)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeTagArgs) ToNetworkInsightsAccessScopeTagOutput() NetworkInsightsAccessScopeTagOutput {
+	return i.ToNetworkInsightsAccessScopeTagOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeTagArgs) ToNetworkInsightsAccessScopeTagOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeTagOutput)
+}
+
+// NetworkInsightsAccessScopeTagArrayInput is an input type that accepts NetworkInsightsAccessScopeTagArray and NetworkInsightsAccessScopeTagArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeTagArrayInput` via:
+//
+//          NetworkInsightsAccessScopeTagArray{ NetworkInsightsAccessScopeTagArgs{...} }
+type NetworkInsightsAccessScopeTagArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeTagArrayOutput() NetworkInsightsAccessScopeTagArrayOutput
+	ToNetworkInsightsAccessScopeTagArrayOutputWithContext(context.Context) NetworkInsightsAccessScopeTagArrayOutput
+}
+
+type NetworkInsightsAccessScopeTagArray []NetworkInsightsAccessScopeTagInput
+
+func (NetworkInsightsAccessScopeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAccessScopeTag)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeTagArray) ToNetworkInsightsAccessScopeTagArrayOutput() NetworkInsightsAccessScopeTagArrayOutput {
+	return i.ToNetworkInsightsAccessScopeTagArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeTagArray) ToNetworkInsightsAccessScopeTagArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeTagArrayOutput)
+}
+
+type NetworkInsightsAccessScopeTagOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeTag)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeTagOutput) ToNetworkInsightsAccessScopeTagOutput() NetworkInsightsAccessScopeTagOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeTagOutput) ToNetworkInsightsAccessScopeTagOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeTagOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAccessScopeTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsAccessScopeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAccessScopeTag)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeTagArrayOutput) ToNetworkInsightsAccessScopeTagArrayOutput() NetworkInsightsAccessScopeTagArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeTagArrayOutput) ToNetworkInsightsAccessScopeTagArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeTagArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeTagArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAccessScopeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAccessScopeTag {
+		return vs[0].([]NetworkInsightsAccessScopeTag)[vs[1].(int)]
+	}).(NetworkInsightsAccessScopeTagOutput)
+}
+
+type NetworkInsightsAccessScopeThroughResourcesStatementRequest struct {
+	ResourceStatement *NetworkInsightsAccessScopeResourceStatementRequest `pulumi:"resourceStatement"`
+}
+
+// NetworkInsightsAccessScopeThroughResourcesStatementRequestInput is an input type that accepts NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs and NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeThroughResourcesStatementRequestInput` via:
+//
+//          NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs{...}
+type NetworkInsightsAccessScopeThroughResourcesStatementRequestInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeThroughResourcesStatementRequestOutput() NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput
+	ToNetworkInsightsAccessScopeThroughResourcesStatementRequestOutputWithContext(context.Context) NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput
+}
+
+type NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs struct {
+	ResourceStatement NetworkInsightsAccessScopeResourceStatementRequestPtrInput `pulumi:"resourceStatement"`
+}
+
+func (NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeThroughResourcesStatementRequest)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs) ToNetworkInsightsAccessScopeThroughResourcesStatementRequestOutput() NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput {
+	return i.ToNetworkInsightsAccessScopeThroughResourcesStatementRequestOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs) ToNetworkInsightsAccessScopeThroughResourcesStatementRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput)
+}
+
+// NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayInput is an input type that accepts NetworkInsightsAccessScopeThroughResourcesStatementRequestArray and NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput values.
+// You can construct a concrete instance of `NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayInput` via:
+//
+//          NetworkInsightsAccessScopeThroughResourcesStatementRequestArray{ NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs{...} }
+type NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput() NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput
+	ToNetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutputWithContext(context.Context) NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput
+}
+
+type NetworkInsightsAccessScopeThroughResourcesStatementRequestArray []NetworkInsightsAccessScopeThroughResourcesStatementRequestInput
+
+func (NetworkInsightsAccessScopeThroughResourcesStatementRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAccessScopeThroughResourcesStatementRequest)(nil)).Elem()
+}
+
+func (i NetworkInsightsAccessScopeThroughResourcesStatementRequestArray) ToNetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput() NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput {
+	return i.ToNetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsAccessScopeThroughResourcesStatementRequestArray) ToNetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput)
+}
+
+type NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsAccessScopeThroughResourcesStatementRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput) ToNetworkInsightsAccessScopeThroughResourcesStatementRequestOutput() NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput) ToNetworkInsightsAccessScopeThroughResourcesStatementRequestOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput) ResourceStatement() NetworkInsightsAccessScopeResourceStatementRequestPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAccessScopeThroughResourcesStatementRequest) *NetworkInsightsAccessScopeResourceStatementRequest {
+		return v.ResourceStatement
+	}).(NetworkInsightsAccessScopeResourceStatementRequestPtrOutput)
+}
+
+type NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInsightsAccessScopeThroughResourcesStatementRequest)(nil)).Elem()
+}
+
+func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput) ToNetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput() NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput) ToNetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput {
+	return o
+}
+
+func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInsightsAccessScopeThroughResourcesStatementRequest {
+		return vs[0].([]NetworkInsightsAccessScopeThroughResourcesStatementRequest)[vs[1].(int)]
+	}).(NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput)
+}
+
 type NetworkInsightsAnalysisAlternatePathHint struct {
 	ComponentArn *string `pulumi:"componentArn"`
 	ComponentId  *string `pulumi:"componentId"`
@@ -23948,6 +24883,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEntryPortRangePtrInput)(nil)).Elem(), NetworkAclEntryPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclTagInput)(nil)).Elem(), NetworkAclTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclTagArrayInput)(nil)).Elem(), NetworkAclTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeAccessScopePathRequestInput)(nil)).Elem(), NetworkInsightsAccessScopeAccessScopePathRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeAccessScopePathRequestArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeAccessScopePathRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeAnalysisTagInput)(nil)).Elem(), NetworkInsightsAccessScopeAnalysisTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeAnalysisTagArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeAnalysisTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopePacketHeaderStatementRequestInput)(nil)).Elem(), NetworkInsightsAccessScopePacketHeaderStatementRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopePacketHeaderStatementRequestPtrInput)(nil)).Elem(), NetworkInsightsAccessScopePacketHeaderStatementRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopePathStatementRequestInput)(nil)).Elem(), NetworkInsightsAccessScopePathStatementRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopePathStatementRequestPtrInput)(nil)).Elem(), NetworkInsightsAccessScopePathStatementRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeResourceStatementRequestInput)(nil)).Elem(), NetworkInsightsAccessScopeResourceStatementRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeResourceStatementRequestPtrInput)(nil)).Elem(), NetworkInsightsAccessScopeResourceStatementRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeTagInput)(nil)).Elem(), NetworkInsightsAccessScopeTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeTagArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeThroughResourcesStatementRequestInput)(nil)).Elem(), NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeThroughResourcesStatementRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAlternatePathHintInput)(nil)).Elem(), NetworkInsightsAnalysisAlternatePathHintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAlternatePathHintArrayInput)(nil)).Elem(), NetworkInsightsAnalysisAlternatePathHintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisAclRuleInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisAclRuleArgs{})
@@ -24286,6 +25235,20 @@ func init() {
 	pulumi.RegisterOutputType(NetworkAclEntryPortRangePtrOutput{})
 	pulumi.RegisterOutputType(NetworkAclTagOutput{})
 	pulumi.RegisterOutputType(NetworkAclTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAccessScopePathRequestOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisTagOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopePacketHeaderStatementRequestOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopePacketHeaderStatementRequestPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopePathStatementRequestOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopePathStatementRequestPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeResourceStatementRequestOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeResourceStatementRequestPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeTagOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeThroughResourcesStatementRequestOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisAclRuleOutput{})

@@ -276,6 +276,29 @@ export const IPAMScopeIpamScopeType = {
  */
 export type IPAMScopeIpamScopeType = (typeof IPAMScopeIpamScopeType)[keyof typeof IPAMScopeIpamScopeType];
 
+export const NetworkInsightsAccessScopeAnalysisFindingsFound = {
+    True: "true",
+    False: "false",
+    Unknown: "unknown",
+} as const;
+
+export type NetworkInsightsAccessScopeAnalysisFindingsFound = (typeof NetworkInsightsAccessScopeAnalysisFindingsFound)[keyof typeof NetworkInsightsAccessScopeAnalysisFindingsFound];
+
+export const NetworkInsightsAccessScopeAnalysisStatus = {
+    Running: "running",
+    Failed: "failed",
+    Succeeded: "succeeded",
+} as const;
+
+export type NetworkInsightsAccessScopeAnalysisStatus = (typeof NetworkInsightsAccessScopeAnalysisStatus)[keyof typeof NetworkInsightsAccessScopeAnalysisStatus];
+
+export const NetworkInsightsAccessScopeProtocol = {
+    Tcp: "tcp",
+    Udp: "udp",
+} as const;
+
+export type NetworkInsightsAccessScopeProtocol = (typeof NetworkInsightsAccessScopeProtocol)[keyof typeof NetworkInsightsAccessScopeProtocol];
+
 export const NetworkInsightsAnalysisStatus = {
     Running: "running",
     Failed: "failed",

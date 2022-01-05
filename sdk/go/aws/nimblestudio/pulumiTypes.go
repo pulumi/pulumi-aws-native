@@ -13,11 +13,28 @@ import (
 // <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfiguration struct {
 	ClipboardMode LaunchProfileStreamingClipboardMode `pulumi:"clipboardMode"`
-	// <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+	// <p>The EC2 instance types that users can select from when launching a streaming session
+	//             with this launch profile.</p>
 	Ec2InstanceTypes []LaunchProfileStreamingInstanceType `pulumi:"ec2InstanceTypes"`
-	// <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+	// <p>The length of time, in minutes, that a streaming session can be active before it is
+	//             stopped or terminated. After this point, Nimble Studio automatically terminates or
+	//             stops the session. The default length of time is 690 minutes, and the maximum length of
+	//             time is 30 days.</p>
 	MaxSessionLengthInMinutes *float64 `pulumi:"maxSessionLengthInMinutes"`
-	// <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+	// <p>Integer that determines if you can start and stop your sessions and how long a session
+	//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+	//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+	//             StopStreamingSession, the session fails. If the time that a session stays in the READY
+	//             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+	//             terminated by AWS (instead of stopped).</p>
+	//         <p>If the value is set to a positive number, the session can be stopped. You can call
+	//             StopStreamingSession to stop sessions in the READY state. If the time that a session
+	//             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+	//             automatically be stopped by AWS (instead of terminated).</p>
+	MaxStoppedSessionLengthInMinutes *float64                                        `pulumi:"maxStoppedSessionLengthInMinutes"`
+	SessionStorage                   *LaunchProfileStreamConfigurationSessionStorage `pulumi:"sessionStorage"`
+	// <p>The streaming images that users can select from when launching a streaming session
+	//             with this launch profile.</p>
 	StreamingImageIds []string `pulumi:"streamingImageIds"`
 }
 
@@ -35,11 +52,28 @@ type LaunchProfileStreamConfigurationInput interface {
 // <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfigurationArgs struct {
 	ClipboardMode LaunchProfileStreamingClipboardModeInput `pulumi:"clipboardMode"`
-	// <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+	// <p>The EC2 instance types that users can select from when launching a streaming session
+	//             with this launch profile.</p>
 	Ec2InstanceTypes LaunchProfileStreamingInstanceTypeArrayInput `pulumi:"ec2InstanceTypes"`
-	// <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+	// <p>The length of time, in minutes, that a streaming session can be active before it is
+	//             stopped or terminated. After this point, Nimble Studio automatically terminates or
+	//             stops the session. The default length of time is 690 minutes, and the maximum length of
+	//             time is 30 days.</p>
 	MaxSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxSessionLengthInMinutes"`
-	// <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+	// <p>Integer that determines if you can start and stop your sessions and how long a session
+	//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+	//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+	//             StopStreamingSession, the session fails. If the time that a session stays in the READY
+	//             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+	//             terminated by AWS (instead of stopped).</p>
+	//         <p>If the value is set to a positive number, the session can be stopped. You can call
+	//             StopStreamingSession to stop sessions in the READY state. If the time that a session
+	//             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+	//             automatically be stopped by AWS (instead of terminated).</p>
+	MaxStoppedSessionLengthInMinutes pulumi.Float64PtrInput                                 `pulumi:"maxStoppedSessionLengthInMinutes"`
+	SessionStorage                   LaunchProfileStreamConfigurationSessionStoragePtrInput `pulumi:"sessionStorage"`
+	// <p>The streaming images that users can select from when launching a streaming session
+	//             with this launch profile.</p>
 	StreamingImageIds pulumi.StringArrayInput `pulumi:"streamingImageIds"`
 }
 
@@ -125,19 +159,44 @@ func (o LaunchProfileStreamConfigurationOutput) ClipboardMode() LaunchProfileStr
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) LaunchProfileStreamingClipboardMode { return v.ClipboardMode }).(LaunchProfileStreamingClipboardModeOutput)
 }
 
-// <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+// <p>The EC2 instance types that users can select from when launching a streaming session
+//             with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationOutput) Ec2InstanceTypes() LaunchProfileStreamingInstanceTypeArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []LaunchProfileStreamingInstanceType {
 		return v.Ec2InstanceTypes
 	}).(LaunchProfileStreamingInstanceTypeArrayOutput)
 }
 
-// <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+// <p>The length of time, in minutes, that a streaming session can be active before it is
+//             stopped or terminated. After this point, Nimble Studio automatically terminates or
+//             stops the session. The default length of time is 690 minutes, and the maximum length of
+//             time is 30 days.</p>
 func (o LaunchProfileStreamConfigurationOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+// <p>Integer that determines if you can start and stop your sessions and how long a session
+//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+//             StopStreamingSession, the session fails. If the time that a session stays in the READY
+//             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+//             terminated by AWS (instead of stopped).</p>
+//         <p>If the value is set to a positive number, the session can be stopped. You can call
+//             StopStreamingSession to stop sessions in the READY state. If the time that a session
+//             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+//             automatically be stopped by AWS (instead of terminated).</p>
+func (o LaunchProfileStreamConfigurationOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxStoppedSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileStreamConfigurationOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
+		return v.SessionStorage
+	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
+}
+
+// <p>The streaming images that users can select from when launching a streaming session
+//             with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.StreamingImageIds }).(pulumi.StringArrayOutput)
 }
@@ -175,7 +234,8 @@ func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() LaunchProfile
 	}).(LaunchProfileStreamingClipboardModePtrOutput)
 }
 
-// <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+// <p>The EC2 instance types that users can select from when launching a streaming session
+//             with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() LaunchProfileStreamingInstanceTypeArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []LaunchProfileStreamingInstanceType {
 		if v == nil {
@@ -185,7 +245,10 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() LaunchProf
 	}).(LaunchProfileStreamingInstanceTypeArrayOutput)
 }
 
-// <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+// <p>The length of time, in minutes, that a streaming session can be active before it is
+//             stopped or terminated. After this point, Nimble Studio automatically terminates or
+//             stops the session. The default length of time is 690 minutes, and the maximum length of
+//             time is 30 days.</p>
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -195,7 +258,36 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+// <p>Integer that determines if you can start and stop your sessions and how long a session
+//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+//             StopStreamingSession, the session fails. If the time that a session stays in the READY
+//             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+//             terminated by AWS (instead of stopped).</p>
+//         <p>If the value is set to a positive number, the session can be stopped. You can call
+//             StopStreamingSession to stop sessions in the READY state. If the time that a session
+//             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+//             automatically be stopped by AWS (instead of terminated).</p>
+func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxStoppedSessionLengthInMinutes
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
+		if v == nil {
+			return nil
+		}
+		return v.SessionStorage
+	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
+}
+
+// <p>The streaming images that users can select from when launching a streaming session
+//             with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
 		if v == nil {
@@ -203,6 +295,331 @@ func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.St
 		}
 		return v.StreamingImageIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// <p>The configuration for a streaming session’s upload storage.</p>
+type LaunchProfileStreamConfigurationSessionStorage struct {
+	// <p>Allows artists to upload files to their workstations. The only valid option is
+	//                 <code>UPLOAD</code>.</p>
+	Mode []LaunchProfileStreamingSessionStorageMode `pulumi:"mode"`
+	Root *LaunchProfileStreamingSessionStorageRoot  `pulumi:"root"`
+}
+
+// LaunchProfileStreamConfigurationSessionStorageInput is an input type that accepts LaunchProfileStreamConfigurationSessionStorageArgs and LaunchProfileStreamConfigurationSessionStorageOutput values.
+// You can construct a concrete instance of `LaunchProfileStreamConfigurationSessionStorageInput` via:
+//
+//          LaunchProfileStreamConfigurationSessionStorageArgs{...}
+type LaunchProfileStreamConfigurationSessionStorageInput interface {
+	pulumi.Input
+
+	ToLaunchProfileStreamConfigurationSessionStorageOutput() LaunchProfileStreamConfigurationSessionStorageOutput
+	ToLaunchProfileStreamConfigurationSessionStorageOutputWithContext(context.Context) LaunchProfileStreamConfigurationSessionStorageOutput
+}
+
+// <p>The configuration for a streaming session’s upload storage.</p>
+type LaunchProfileStreamConfigurationSessionStorageArgs struct {
+	// <p>Allows artists to upload files to their workstations. The only valid option is
+	//                 <code>UPLOAD</code>.</p>
+	Mode LaunchProfileStreamingSessionStorageModeArrayInput `pulumi:"mode"`
+	Root LaunchProfileStreamingSessionStorageRootPtrInput   `pulumi:"root"`
+}
+
+func (LaunchProfileStreamConfigurationSessionStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileStreamConfigurationSessionStorage)(nil)).Elem()
+}
+
+func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStreamConfigurationSessionStorageOutput() LaunchProfileStreamConfigurationSessionStorageOutput {
+	return i.ToLaunchProfileStreamConfigurationSessionStorageOutputWithContext(context.Background())
+}
+
+func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStreamConfigurationSessionStorageOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionStorageOutput)
+}
+
+func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStreamConfigurationSessionStoragePtrOutput() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return i.ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(context.Background())
+}
+
+func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionStorageOutput).ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx)
+}
+
+// LaunchProfileStreamConfigurationSessionStoragePtrInput is an input type that accepts LaunchProfileStreamConfigurationSessionStorageArgs, LaunchProfileStreamConfigurationSessionStoragePtr and LaunchProfileStreamConfigurationSessionStoragePtrOutput values.
+// You can construct a concrete instance of `LaunchProfileStreamConfigurationSessionStoragePtrInput` via:
+//
+//          LaunchProfileStreamConfigurationSessionStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchProfileStreamConfigurationSessionStoragePtrInput interface {
+	pulumi.Input
+
+	ToLaunchProfileStreamConfigurationSessionStoragePtrOutput() LaunchProfileStreamConfigurationSessionStoragePtrOutput
+	ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(context.Context) LaunchProfileStreamConfigurationSessionStoragePtrOutput
+}
+
+type launchProfileStreamConfigurationSessionStoragePtrType LaunchProfileStreamConfigurationSessionStorageArgs
+
+func LaunchProfileStreamConfigurationSessionStoragePtr(v *LaunchProfileStreamConfigurationSessionStorageArgs) LaunchProfileStreamConfigurationSessionStoragePtrInput {
+	return (*launchProfileStreamConfigurationSessionStoragePtrType)(v)
+}
+
+func (*launchProfileStreamConfigurationSessionStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileStreamConfigurationSessionStorage)(nil)).Elem()
+}
+
+func (i *launchProfileStreamConfigurationSessionStoragePtrType) ToLaunchProfileStreamConfigurationSessionStoragePtrOutput() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return i.ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *launchProfileStreamConfigurationSessionStoragePtrType) ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
+}
+
+// <p>The configuration for a streaming session’s upload storage.</p>
+type LaunchProfileStreamConfigurationSessionStorageOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileStreamConfigurationSessionStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileStreamConfigurationSessionStorage)(nil)).Elem()
+}
+
+func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStreamConfigurationSessionStorageOutput() LaunchProfileStreamConfigurationSessionStorageOutput {
+	return o
+}
+
+func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStreamConfigurationSessionStorageOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionStorageOutput {
+	return o
+}
+
+func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStreamConfigurationSessionStoragePtrOutput() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return o.ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamConfigurationSessionStorage {
+		return &v
+	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
+}
+
+// <p>Allows artists to upload files to their workstations. The only valid option is
+//                 <code>UPLOAD</code>.</p>
+func (o LaunchProfileStreamConfigurationSessionStorageOutput) Mode() LaunchProfileStreamingSessionStorageModeArrayOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) []LaunchProfileStreamingSessionStorageMode {
+		return v.Mode
+	}).(LaunchProfileStreamingSessionStorageModeArrayOutput)
+}
+
+func (o LaunchProfileStreamConfigurationSessionStorageOutput) Root() LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamingSessionStorageRoot {
+		return v.Root
+	}).(LaunchProfileStreamingSessionStorageRootPtrOutput)
+}
+
+type LaunchProfileStreamConfigurationSessionStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileStreamConfigurationSessionStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileStreamConfigurationSessionStorage)(nil)).Elem()
+}
+
+func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) ToLaunchProfileStreamConfigurationSessionStoragePtrOutput() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return o
+}
+
+func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return o
+}
+
+func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Elem() LaunchProfileStreamConfigurationSessionStorageOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) LaunchProfileStreamConfigurationSessionStorage {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchProfileStreamConfigurationSessionStorage
+		return ret
+	}).(LaunchProfileStreamConfigurationSessionStorageOutput)
+}
+
+// <p>Allows artists to upload files to their workstations. The only valid option is
+//                 <code>UPLOAD</code>.</p>
+func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Mode() LaunchProfileStreamingSessionStorageModeArrayOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) []LaunchProfileStreamingSessionStorageMode {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(LaunchProfileStreamingSessionStorageModeArrayOutput)
+}
+
+func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Root() LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamingSessionStorageRoot {
+		if v == nil {
+			return nil
+		}
+		return v.Root
+	}).(LaunchProfileStreamingSessionStorageRootPtrOutput)
+}
+
+// <p>The upload storage root location (folder) on streaming workstations where files are
+//             uploaded.</p>
+type LaunchProfileStreamingSessionStorageRoot struct {
+	// <p>The folder path in Linux workstations where files are uploaded.</p>
+	Linux *string `pulumi:"linux"`
+	// <p>The folder path in Windows workstations where files are uploaded.</p>
+	Windows *string `pulumi:"windows"`
+}
+
+// LaunchProfileStreamingSessionStorageRootInput is an input type that accepts LaunchProfileStreamingSessionStorageRootArgs and LaunchProfileStreamingSessionStorageRootOutput values.
+// You can construct a concrete instance of `LaunchProfileStreamingSessionStorageRootInput` via:
+//
+//          LaunchProfileStreamingSessionStorageRootArgs{...}
+type LaunchProfileStreamingSessionStorageRootInput interface {
+	pulumi.Input
+
+	ToLaunchProfileStreamingSessionStorageRootOutput() LaunchProfileStreamingSessionStorageRootOutput
+	ToLaunchProfileStreamingSessionStorageRootOutputWithContext(context.Context) LaunchProfileStreamingSessionStorageRootOutput
+}
+
+// <p>The upload storage root location (folder) on streaming workstations where files are
+//             uploaded.</p>
+type LaunchProfileStreamingSessionStorageRootArgs struct {
+	// <p>The folder path in Linux workstations where files are uploaded.</p>
+	Linux pulumi.StringPtrInput `pulumi:"linux"`
+	// <p>The folder path in Windows workstations where files are uploaded.</p>
+	Windows pulumi.StringPtrInput `pulumi:"windows"`
+}
+
+func (LaunchProfileStreamingSessionStorageRootArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileStreamingSessionStorageRoot)(nil)).Elem()
+}
+
+func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSessionStorageRootOutput() LaunchProfileStreamingSessionStorageRootOutput {
+	return i.ToLaunchProfileStreamingSessionStorageRootOutputWithContext(context.Background())
+}
+
+func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSessionStorageRootOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageRootOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageRootOutput)
+}
+
+func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSessionStorageRootPtrOutput() LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return i.ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageRootOutput).ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx)
+}
+
+// LaunchProfileStreamingSessionStorageRootPtrInput is an input type that accepts LaunchProfileStreamingSessionStorageRootArgs, LaunchProfileStreamingSessionStorageRootPtr and LaunchProfileStreamingSessionStorageRootPtrOutput values.
+// You can construct a concrete instance of `LaunchProfileStreamingSessionStorageRootPtrInput` via:
+//
+//          LaunchProfileStreamingSessionStorageRootArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchProfileStreamingSessionStorageRootPtrInput interface {
+	pulumi.Input
+
+	ToLaunchProfileStreamingSessionStorageRootPtrOutput() LaunchProfileStreamingSessionStorageRootPtrOutput
+	ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(context.Context) LaunchProfileStreamingSessionStorageRootPtrOutput
+}
+
+type launchProfileStreamingSessionStorageRootPtrType LaunchProfileStreamingSessionStorageRootArgs
+
+func LaunchProfileStreamingSessionStorageRootPtr(v *LaunchProfileStreamingSessionStorageRootArgs) LaunchProfileStreamingSessionStorageRootPtrInput {
+	return (*launchProfileStreamingSessionStorageRootPtrType)(v)
+}
+
+func (*launchProfileStreamingSessionStorageRootPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileStreamingSessionStorageRoot)(nil)).Elem()
+}
+
+func (i *launchProfileStreamingSessionStorageRootPtrType) ToLaunchProfileStreamingSessionStorageRootPtrOutput() LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return i.ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(context.Background())
+}
+
+func (i *launchProfileStreamingSessionStorageRootPtrType) ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageRootPtrOutput)
+}
+
+// <p>The upload storage root location (folder) on streaming workstations where files are
+//             uploaded.</p>
+type LaunchProfileStreamingSessionStorageRootOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileStreamingSessionStorageRootOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileStreamingSessionStorageRoot)(nil)).Elem()
+}
+
+func (o LaunchProfileStreamingSessionStorageRootOutput) ToLaunchProfileStreamingSessionStorageRootOutput() LaunchProfileStreamingSessionStorageRootOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageRootOutput) ToLaunchProfileStreamingSessionStorageRootOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageRootOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageRootOutput) ToLaunchProfileStreamingSessionStorageRootPtrOutput() LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return o.ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileStreamingSessionStorageRootOutput) ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileStreamingSessionStorageRoot) *LaunchProfileStreamingSessionStorageRoot {
+		return &v
+	}).(LaunchProfileStreamingSessionStorageRootPtrOutput)
+}
+
+// <p>The folder path in Linux workstations where files are uploaded.</p>
+func (o LaunchProfileStreamingSessionStorageRootOutput) Linux() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamingSessionStorageRoot) *string { return v.Linux }).(pulumi.StringPtrOutput)
+}
+
+// <p>The folder path in Windows workstations where files are uploaded.</p>
+func (o LaunchProfileStreamingSessionStorageRootOutput) Windows() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamingSessionStorageRoot) *string { return v.Windows }).(pulumi.StringPtrOutput)
+}
+
+type LaunchProfileStreamingSessionStorageRootPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileStreamingSessionStorageRootPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileStreamingSessionStorageRoot)(nil)).Elem()
+}
+
+func (o LaunchProfileStreamingSessionStorageRootPtrOutput) ToLaunchProfileStreamingSessionStorageRootPtrOutput() LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageRootPtrOutput) ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageRootPtrOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Elem() LaunchProfileStreamingSessionStorageRootOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageRoot) LaunchProfileStreamingSessionStorageRoot {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchProfileStreamingSessionStorageRoot
+		return ret
+	}).(LaunchProfileStreamingSessionStorageRootOutput)
+}
+
+// <p>The folder path in Linux workstations where files are uploaded.</p>
+func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Linux() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageRoot) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Linux
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The folder path in Windows workstations where files are uploaded.</p>
+func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Windows() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageRoot) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Windows
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchProfileTags struct {
@@ -2219,6 +2636,10 @@ func (o StudioTagsPtrOutput) Elem() StudioTagsOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamConfigurationInput)(nil)).Elem(), LaunchProfileStreamConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamConfigurationPtrInput)(nil)).Elem(), LaunchProfileStreamConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamConfigurationSessionStorageInput)(nil)).Elem(), LaunchProfileStreamConfigurationSessionStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamConfigurationSessionStoragePtrInput)(nil)).Elem(), LaunchProfileStreamConfigurationSessionStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageRootInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageRootArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageRootPtrInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageRootArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileTagsInput)(nil)).Elem(), LaunchProfileTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileTagsPtrInput)(nil)).Elem(), LaunchProfileTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageEncryptionConfigurationInput)(nil)).Elem(), StreamingImageEncryptionConfigurationArgs{})
@@ -2249,6 +2670,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagsPtrInput)(nil)).Elem(), StudioTagsArgs{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationSessionStorageOutput{})
+	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationSessionStoragePtrOutput{})
+	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageRootOutput{})
+	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageRootPtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileTagsOutput{})
 	pulumi.RegisterOutputType(LaunchProfileTagsPtrOutput{})
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationOutput{})

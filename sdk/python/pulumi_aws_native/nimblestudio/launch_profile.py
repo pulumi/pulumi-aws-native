@@ -26,10 +26,13 @@ class LaunchProfileArgs:
                  tags: Optional[pulumi.Input['LaunchProfileTagsArgs']] = None):
         """
         The set of arguments for constructing a LaunchProfile resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
-        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+                           These subnets must support the specified instance types. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid
+                           version is "2021-03-31".</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this
+                           launch profile.</p>
+        :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
         :param pulumi.Input[str] description: <p>The description.</p>
         :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
         """
@@ -49,7 +52,8 @@ class LaunchProfileArgs:
     @pulumi.getter(name="ec2SubnetIds")
     def ec2_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+        <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+                    These subnets must support the specified instance types. </p>
         """
         return pulumi.get(self, "ec2_subnet_ids")
 
@@ -61,7 +65,8 @@ class LaunchProfileArgs:
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        <p>The version number of the protocol that is used by the launch profile. The only valid
+                    version is "2021-03-31".</p>
         """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
@@ -82,7 +87,8 @@ class LaunchProfileArgs:
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+        <p>Unique identifiers for a collection of studio components that can be used with this
+                    launch profile.</p>
         """
         return pulumi.get(self, "studio_component_ids")
 
@@ -94,7 +100,7 @@ class LaunchProfileArgs:
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
         """
-        <p>The studioId. </p>
+        <p>The studio ID. </p>
         """
         return pulumi.get(self, "studio_id")
 
@@ -156,11 +162,14 @@ class LaunchProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: <p>The description.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+                           These subnets must support the specified instance types. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid
+                           version is "2021-03-31".</p>
         :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
-        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this
+                           launch profile.</p>
+        :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
         """
         ...
     @overload
@@ -270,7 +279,8 @@ class LaunchProfile(pulumi.CustomResource):
     @pulumi.getter(name="ec2SubnetIds")
     def ec2_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+        <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+                    These subnets must support the specified instance types. </p>
         """
         return pulumi.get(self, "ec2_subnet_ids")
 
@@ -283,7 +293,8 @@ class LaunchProfile(pulumi.CustomResource):
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> pulumi.Output[Sequence[str]]:
         """
-        <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        <p>The version number of the protocol that is used by the launch profile. The only valid
+                    version is "2021-03-31".</p>
         """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
@@ -304,7 +315,8 @@ class LaunchProfile(pulumi.CustomResource):
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+        <p>Unique identifiers for a collection of studio components that can be used with this
+                    launch profile.</p>
         """
         return pulumi.get(self, "studio_component_ids")
 
@@ -312,7 +324,7 @@ class LaunchProfile(pulumi.CustomResource):
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
         """
-        <p>The studioId. </p>
+        <p>The studio ID. </p>
         """
         return pulumi.get(self, "studio_id")
 

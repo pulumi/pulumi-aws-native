@@ -46,6 +46,7 @@ class RouteCalculatorPricingPlan(str, Enum):
 class TrackerPositionFiltering(str, Enum):
     TIME_BASED = "TimeBased"
     DISTANCE_BASED = "DistanceBased"
+    ACCURACY_BASED = "AccuracyBased"
 
 
 class TrackerPricingPlan(str, Enum):

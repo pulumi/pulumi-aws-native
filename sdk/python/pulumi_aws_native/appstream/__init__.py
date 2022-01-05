@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from .app_block import *
 from .application import *
+from .application_entitlement_association import *
 from .application_fleet_association import *
 from .directory_config import *
+from .entitlement import *
 from .fleet import *
 from .image_builder import *
 from .stack import *

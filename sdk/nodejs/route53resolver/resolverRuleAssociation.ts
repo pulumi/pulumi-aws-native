@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
- *
- * @deprecated ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ResolverRuleAssociation {
-        pulumi.log.warn("ResolverRuleAssociation is deprecated: ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ResolverRuleAssociation(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,9 +34,21 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverRuleAssociation.__pulumiType;
     }
 
+    /**
+     * The name of an association between a Resolver rule and a VPC.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Primary Identifier for Resolver Rule Association
+     */
     public /*out*/ readonly resolverRuleAssociationId!: pulumi.Output<string>;
+    /**
+     * The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+     */
     public readonly resolverRuleId!: pulumi.Output<string>;
+    /**
+     * The ID of the VPC that you associated the Resolver rule with.
+     */
     public readonly vPCId!: pulumi.Output<string>;
 
     /**
@@ -49,9 +58,7 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ResolverRuleAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ResolverRuleAssociation is deprecated: ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -82,7 +89,16 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ResolverRuleAssociation resource.
  */
 export interface ResolverRuleAssociationArgs {
+    /**
+     * The name of an association between a Resolver rule and a VPC.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+     */
     resolverRuleId: pulumi.Input<string>;
+    /**
+     * The ID of the VPC that you associated the Resolver rule with.
+     */
     vPCId: pulumi.Input<string>;
 }

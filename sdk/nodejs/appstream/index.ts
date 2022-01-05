@@ -7,8 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./appBlock";
 export * from "./application";
+export * from "./applicationEntitlementAssociation";
 export * from "./applicationFleetAssociation";
 export * from "./directoryConfig";
+export * from "./entitlement";
 export * from "./fleet";
 export * from "./imageBuilder";
 export * from "./stack";
@@ -19,8 +21,10 @@ export * from "./user";
 // Import resources to register:
 import { AppBlock } from "./appBlock";
 import { Application } from "./application";
+import { ApplicationEntitlementAssociation } from "./applicationEntitlementAssociation";
 import { ApplicationFleetAssociation } from "./applicationFleetAssociation";
 import { DirectoryConfig } from "./directoryConfig";
+import { Entitlement } from "./entitlement";
 import { Fleet } from "./fleet";
 import { ImageBuilder } from "./imageBuilder";
 import { Stack } from "./stack";
@@ -36,10 +40,14 @@ const _module = {
                 return new AppBlock(name, <any>undefined, { urn })
             case "aws-native:appstream:Application":
                 return new Application(name, <any>undefined, { urn })
+            case "aws-native:appstream:ApplicationEntitlementAssociation":
+                return new ApplicationEntitlementAssociation(name, <any>undefined, { urn })
             case "aws-native:appstream:ApplicationFleetAssociation":
                 return new ApplicationFleetAssociation(name, <any>undefined, { urn })
             case "aws-native:appstream:DirectoryConfig":
                 return new DirectoryConfig(name, <any>undefined, { urn })
+            case "aws-native:appstream:Entitlement":
+                return new Entitlement(name, <any>undefined, { urn })
             case "aws-native:appstream:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
             case "aws-native:appstream:ImageBuilder":

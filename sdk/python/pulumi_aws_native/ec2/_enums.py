@@ -32,6 +32,9 @@ __all__ = [
     'IPAMPoolIpamScopeType',
     'IPAMPoolState',
     'IPAMScopeIpamScopeType',
+    'NetworkInsightsAccessScopeAnalysisFindingsFound',
+    'NetworkInsightsAccessScopeAnalysisStatus',
+    'NetworkInsightsAccessScopeProtocol',
     'NetworkInsightsAnalysisStatus',
     'NetworkInsightsPathProtocol',
     'PrefixListAddressFamily',
@@ -274,6 +277,23 @@ class IPAMScopeIpamScopeType(str, Enum):
     """
     PUBLIC = "public"
     PRIVATE = "private"
+
+
+class NetworkInsightsAccessScopeAnalysisFindingsFound(str, Enum):
+    TRUE = "true"
+    FALSE = "false"
+    UNKNOWN = "unknown"
+
+
+class NetworkInsightsAccessScopeAnalysisStatus(str, Enum):
+    RUNNING = "running"
+    FAILED = "failed"
+    SUCCEEDED = "succeeded"
+
+
+class NetworkInsightsAccessScopeProtocol(str, Enum):
+    TCP = "tcp"
+    UDP = "udp"
 
 
 class NetworkInsightsAnalysisStatus(str, Enum):

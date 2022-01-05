@@ -2683,6 +2683,14 @@ export namespace applicationinsights {
          */
         alarms?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationAlarmArgs>[]>;
         /**
+         * The HA cluster Prometheus Exporter settings.
+         */
+        hAClusterPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHAClusterPrometheusExporterArgs>;
+        /**
+         * The HANA DB Prometheus Exporter settings.
+         */
+        hANAPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHANAPrometheusExporterArgs>;
+        /**
          * The JMX Prometheus Exporter settings.
          */
         jMXPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationJMXPrometheusExporterArgs>;
@@ -2711,6 +2719,45 @@ export namespace applicationinsights {
     }
 
     /**
+     * The HA cluster Prometheus Exporter settings.
+     */
+    export interface ApplicationHAClusterPrometheusExporterArgs {
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: pulumi.Input<string>;
+    }
+
+    /**
+     * The HANA DB Prometheus Exporter settings.
+     */
+    export interface ApplicationHANAPrometheusExporterArgs {
+        /**
+         * A flag which indicates agreeing to install SAP HANA DB client.
+         */
+        agreeToInstallHANADBClient?: pulumi.Input<boolean>;
+        /**
+         * The HANA DB port.
+         */
+        hANAPort?: pulumi.Input<string>;
+        /**
+         * HANA DB SID.
+         */
+        hANASID?: pulumi.Input<string>;
+        /**
+         * The secret name which manages the HANA DB credentials e.g. {
+         *   "username": "<>",
+         *   "password": "<>"
+         * }.
+         */
+        hANASecretName?: pulumi.Input<string>;
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: pulumi.Input<string>;
+    }
+
+    /**
      * The JMX Prometheus Exporter settings.
      */
     export interface ApplicationJMXPrometheusExporterArgs {
@@ -2723,7 +2770,7 @@ export namespace applicationinsights {
          */
         jMXURL?: pulumi.Input<string>;
         /**
-         * Prometheus exporter port
+         * Prometheus exporter port.
          */
         prometheusPort?: pulumi.Input<string>;
     }
@@ -3775,6 +3822,11 @@ export namespace appstream {
     export interface DirectoryConfigServiceAccountCredentialsArgs {
         accountName: pulumi.Input<string>;
         accountPassword: pulumi.Input<string>;
+    }
+
+    export interface EntitlementAttributeArgs {
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface FleetComputeCapacityArgs {
@@ -9010,6 +9062,46 @@ export namespace ec2 {
     export interface NetworkAclTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface NetworkInsightsAccessScopeAccessScopePathRequestArgs {
+        destination?: pulumi.Input<inputs.ec2.NetworkInsightsAccessScopePathStatementRequestArgs>;
+        source?: pulumi.Input<inputs.ec2.NetworkInsightsAccessScopePathStatementRequestArgs>;
+        throughResources?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs>[]>;
+    }
+
+    export interface NetworkInsightsAccessScopeAnalysisTagArgs {
+        key: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface NetworkInsightsAccessScopePacketHeaderStatementRequestArgs {
+        destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        destinationPorts?: pulumi.Input<pulumi.Input<string>[]>;
+        destinationPrefixLists?: pulumi.Input<pulumi.Input<string>[]>;
+        protocols?: pulumi.Input<pulumi.Input<enums.ec2.NetworkInsightsAccessScopeProtocol>[]>;
+        sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        sourcePorts?: pulumi.Input<pulumi.Input<string>[]>;
+        sourcePrefixLists?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface NetworkInsightsAccessScopePathStatementRequestArgs {
+        packetHeaderStatement?: pulumi.Input<inputs.ec2.NetworkInsightsAccessScopePacketHeaderStatementRequestArgs>;
+        resourceStatement?: pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeResourceStatementRequestArgs>;
+    }
+
+    export interface NetworkInsightsAccessScopeResourceStatementRequestArgs {
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        resources?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface NetworkInsightsAccessScopeTagArgs {
+        key: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs {
+        resourceStatement?: pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeResourceStatementRequestArgs>;
     }
 
     export interface NetworkInsightsAnalysisTagArgs {
@@ -17016,6 +17108,36 @@ export namespace kinesisfirehose {
 
 }
 
+export namespace kinesisvideo {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SignalingChannelTagArgs {
+        /**
+         * The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.  The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associated with the Kinesis Video Stream.
+     */
+    export interface StreamTagArgs {
+        /**
+         * The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace kms {
     /**
      * A key-value pair to associate with a resource.
@@ -21204,17 +21326,63 @@ export namespace nimblestudio {
     export interface LaunchProfileStreamConfigurationArgs {
         clipboardMode: pulumi.Input<enums.nimblestudio.LaunchProfileStreamingClipboardMode>;
         /**
-         * <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+         * <p>The EC2 instance types that users can select from when launching a streaming session
+         *             with this launch profile.</p>
          */
         ec2InstanceTypes: pulumi.Input<pulumi.Input<enums.nimblestudio.LaunchProfileStreamingInstanceType>[]>;
         /**
-         * <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+         * <p>The length of time, in minutes, that a streaming session can be active before it is
+         *             stopped or terminated. After this point, Nimble Studio automatically terminates or
+         *             stops the session. The default length of time is 690 minutes, and the maximum length of
+         *             time is 30 days.</p>
          */
         maxSessionLengthInMinutes?: pulumi.Input<number>;
         /**
-         * <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+         * <p>Integer that determines if you can start and stop your sessions and how long a session
+         *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+         *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+         *             StopStreamingSession, the session fails. If the time that a session stays in the READY
+         *             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+         *             terminated by AWS (instead of stopped).</p>
+         *         <p>If the value is set to a positive number, the session can be stopped. You can call
+         *             StopStreamingSession to stop sessions in the READY state. If the time that a session
+         *             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+         *             automatically be stopped by AWS (instead of terminated).</p>
+         */
+        maxStoppedSessionLengthInMinutes?: pulumi.Input<number>;
+        sessionStorage?: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationSessionStorageArgs>;
+        /**
+         * <p>The streaming images that users can select from when launching a streaming session
+         *             with this launch profile.</p>
          */
         streamingImageIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * <p>The configuration for a streaming session’s upload storage.</p>
+     */
+    export interface LaunchProfileStreamConfigurationSessionStorageArgs {
+        /**
+         * <p>Allows artists to upload files to their workstations. The only valid option is
+         *                 <code>UPLOAD</code>.</p>
+         */
+        mode?: pulumi.Input<pulumi.Input<enums.nimblestudio.LaunchProfileStreamingSessionStorageMode>[]>;
+        root?: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamingSessionStorageRootArgs>;
+    }
+
+    /**
+     * <p>The upload storage root location (folder) on streaming workstations where files are
+     *             uploaded.</p>
+     */
+    export interface LaunchProfileStreamingSessionStorageRootArgs {
+        /**
+         * <p>The folder path in Linux workstations where files are uploaded.</p>
+         */
+        linux?: pulumi.Input<string>;
+        /**
+         * <p>The folder path in Windows workstations where files are uploaded.</p>
+         */
+        windows?: pulumi.Input<string>;
     }
 
     export interface LaunchProfileTagsArgs {

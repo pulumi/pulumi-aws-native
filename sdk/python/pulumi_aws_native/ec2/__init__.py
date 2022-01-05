@@ -35,6 +35,8 @@ from .local_gateway_route_table_vpcassociation import *
 from .nat_gateway import *
 from .network_acl import *
 from .network_acl_entry import *
+from .network_insights_access_scope import *
+from .network_insights_access_scope_analysis import *
 from .network_insights_analysis import *
 from .network_insights_path import *
 from .network_interface import *

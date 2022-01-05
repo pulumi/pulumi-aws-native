@@ -1051,6 +1051,52 @@
                 "restApiId"
             ]
         },
+        "aws-native:apigateway:BasePathMapping": {
+            "cf": "AWS::ApiGateway::BasePathMapping",
+            "inputs": {
+                "basePath": {
+                    "type": "string",
+                    "description": "The base path name that callers of the API must provide in the URL after the domain name."
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The DomainName of an AWS::ApiGateway::DomainName resource."
+                },
+                "restApiId": {
+                    "type": "string",
+                    "description": "The ID of the API."
+                },
+                "stage": {
+                    "type": "string",
+                    "description": "The name of the API's stage."
+                }
+            },
+            "outputs": {
+                "basePath": {
+                    "type": "string",
+                    "description": "The base path name that callers of the API must provide in the URL after the domain name."
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The DomainName of an AWS::ApiGateway::DomainName resource."
+                },
+                "restApiId": {
+                    "type": "string",
+                    "description": "The ID of the API."
+                },
+                "stage": {
+                    "type": "string",
+                    "description": "The name of the API's stage."
+                }
+            },
+            "required": [
+                "domainName"
+            ],
+            "createOnly": [
+                "basePath",
+                "domainName"
+            ]
+        },
         "aws-native:apigateway:ClientCertificate": {
             "cf": "AWS::ApiGateway::ClientCertificate",
             "inputs": {
@@ -2466,6 +2512,41 @@
                 "platforms"
             ]
         },
+        "aws-native:appstream:ApplicationEntitlementAssociation": {
+            "cf": "AWS::AppStream::ApplicationEntitlementAssociation",
+            "inputs": {
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "entitlementName": {
+                    "type": "string"
+                },
+                "stackName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "applicationIdentifier": {
+                    "type": "string"
+                },
+                "entitlementName": {
+                    "type": "string"
+                },
+                "stackName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "applicationIdentifier",
+                "entitlementName",
+                "stackName"
+            ],
+            "createOnly": [
+                "applicationIdentifier",
+                "entitlementName",
+                "stackName"
+            ]
+        },
         "aws-native:appstream:ApplicationFleetAssociation": {
             "cf": "AWS::AppStream::ApplicationFleetAssociation",
             "inputs": {
@@ -2491,6 +2572,67 @@
             "createOnly": [
                 "applicationArn",
                 "fleetName"
+            ]
+        },
+        "aws-native:appstream:Entitlement": {
+            "cf": "AWS::AppStream::Entitlement",
+            "inputs": {
+                "appVisibility": {
+                    "type": "string"
+                },
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appstream:EntitlementAttribute"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "stackName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "appVisibility": {
+                    "type": "string"
+                },
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appstream:EntitlementAttribute"
+                    }
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "lastModifiedTime": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "stackName": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "appVisibility",
+                "attributes",
+                "stackName"
+            ],
+            "createOnly": [
+                "name",
+                "stackName"
             ]
         },
         "aws-native:appsync:DomainName": {
@@ -9895,6 +10037,120 @@
             ],
             "createOnly": [
                 "vpcId"
+            ]
+        },
+        "aws-native:ec2:NetworkInsightsAccessScope": {
+            "cf": "AWS::EC2::NetworkInsightsAccessScope",
+            "inputs": {
+                "excludePaths": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAccessScopePathRequest"
+                    }
+                },
+                "matchPaths": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAccessScopePathRequest"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeTag"
+                    }
+                }
+            },
+            "outputs": {
+                "createdDate": {
+                    "type": "string"
+                },
+                "excludePaths": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAccessScopePathRequest"
+                    }
+                },
+                "matchPaths": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAccessScopePathRequest"
+                    }
+                },
+                "networkInsightsAccessScopeArn": {
+                    "type": "string"
+                },
+                "networkInsightsAccessScopeId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeTag"
+                    }
+                },
+                "updatedDate": {
+                    "type": "string"
+                }
+            },
+            "createOnly": [
+                "excludePaths",
+                "matchPaths"
+            ]
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeAnalysis": {
+            "cf": "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
+            "inputs": {
+                "networkInsightsAccessScopeId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAnalysisTag"
+                    }
+                }
+            },
+            "outputs": {
+                "analyzedEniCount": {
+                    "type": "integer"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "findingsFound": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAnalysisFindingsFound"
+                },
+                "networkInsightsAccessScopeAnalysisArn": {
+                    "type": "string"
+                },
+                "networkInsightsAccessScopeAnalysisId": {
+                    "type": "string"
+                },
+                "networkInsightsAccessScopeId": {
+                    "type": "string"
+                },
+                "startDate": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAnalysisStatus"
+                },
+                "statusMessage": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAnalysisTag"
+                    }
+                }
+            },
+            "required": [
+                "networkInsightsAccessScopeId"
+            ],
+            "createOnly": [
+                "networkInsightsAccessScopeId"
             ]
         },
         "aws-native:ec2:NetworkInsightsAnalysis": {
@@ -20147,6 +20403,136 @@
                 "kinesisStreamSourceConfiguration"
             ]
         },
+        "aws-native:kinesisvideo:SignalingChannel": {
+            "cf": "AWS::KinesisVideo::SignalingChannel",
+            "inputs": {
+                "messageTtlSeconds": {
+                    "type": "integer",
+                    "description": "The period of time a signaling channel retains undelivered messages before they are discarded."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Kinesis Video Signaling Channel."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kinesisvideo:SignalingChannelTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:kinesisvideo:SignalingChannelType",
+                    "description": "The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Kinesis Video Signaling Channel."
+                },
+                "messageTtlSeconds": {
+                    "type": "integer",
+                    "description": "The period of time a signaling channel retains undelivered messages before they are discarded."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Kinesis Video Signaling Channel."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kinesisvideo:SignalingChannelTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:kinesisvideo:SignalingChannelType",
+                    "description": "The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
+            "createOnly": [
+                "name"
+            ]
+        },
+        "aws-native:kinesisvideo:Stream": {
+            "cf": "AWS::KinesisVideo::Stream",
+            "inputs": {
+                "dataRetentionInHours": {
+                    "type": "integer",
+                    "description": "The number of hours till which Kinesis Video will retain the data in the stream"
+                },
+                "deviceName": {
+                    "type": "string",
+                    "description": "The name of the device that is writing to the stream."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data."
+                },
+                "mediaType": {
+                    "type": "string",
+                    "description": "The media type of the stream. Consumers of the stream can use this information when processing the stream."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Kinesis Video stream."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kinesisvideo:StreamTag"
+                    },
+                    "description": "An array of key-value pairs associated with the Kinesis Video Stream."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Kinesis Video stream."
+                },
+                "dataRetentionInHours": {
+                    "type": "integer",
+                    "description": "The number of hours till which Kinesis Video will retain the data in the stream"
+                },
+                "deviceName": {
+                    "type": "string",
+                    "description": "The name of the device that is writing to the stream."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data."
+                },
+                "mediaType": {
+                    "type": "string",
+                    "description": "The media type of the stream. Consumers of the stream can use this information when processing the stream."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Kinesis Video stream."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kinesisvideo:StreamTag"
+                    },
+                    "description": "An array of key-value pairs associated with the Kinesis Video Stream."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
+            "createOnly": [
+                "name"
+            ]
+        },
         "aws-native:kms:Alias": {
             "cf": "AWS::KMS::Alias",
             "inputs": {
@@ -25106,14 +25492,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003cp\u003eSpecifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. \u003c/p\u003e"
+                    "description": "\u003cp\u003eSpecifies the IDs of the EC2 subnets where streaming sessions will be accessible from.\n            These subnets must support the specified instance types. \u003c/p\u003e"
                 },
                 "launchProfileProtocolVersions": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003cp\u003eThe version number of the protocol that is used by the launch profile. The only valid version is \"2021-03-31\".\u003c/p\u003e"
+                    "description": "\u003cp\u003eThe version number of the protocol that is used by the launch profile. The only valid\n            version is \"2021-03-31\".\u003c/p\u003e"
                 },
                 "name": {
                     "type": "string",
@@ -25127,11 +25513,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003cp\u003eUnique identifiers for a collection of studio components that can be used with this launch profile.\u003c/p\u003e"
+                    "description": "\u003cp\u003eUnique identifiers for a collection of studio components that can be used with this\n            launch profile.\u003c/p\u003e"
                 },
                 "studioId": {
                     "type": "string",
-                    "description": "\u003cp\u003eThe studioId. \u003c/p\u003e"
+                    "description": "\u003cp\u003eThe studio ID. \u003c/p\u003e"
                 },
                 "tags": {
                     "$ref": "#/types/aws-native:nimblestudio:LaunchProfileTags"
@@ -25147,7 +25533,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003cp\u003eSpecifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. \u003c/p\u003e"
+                    "description": "\u003cp\u003eSpecifies the IDs of the EC2 subnets where streaming sessions will be accessible from.\n            These subnets must support the specified instance types. \u003c/p\u003e"
                 },
                 "launchProfileId": {
                     "type": "string"
@@ -25157,7 +25543,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003cp\u003eThe version number of the protocol that is used by the launch profile. The only valid version is \"2021-03-31\".\u003c/p\u003e"
+                    "description": "\u003cp\u003eThe version number of the protocol that is used by the launch profile. The only valid\n            version is \"2021-03-31\".\u003c/p\u003e"
                 },
                 "name": {
                     "type": "string",
@@ -25171,11 +25557,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003cp\u003eUnique identifiers for a collection of studio components that can be used with this launch profile.\u003c/p\u003e"
+                    "description": "\u003cp\u003eUnique identifiers for a collection of studio components that can be used with this\n            launch profile.\u003c/p\u003e"
                 },
                 "studioId": {
                     "type": "string",
-                    "description": "\u003cp\u003eThe studioId. \u003c/p\u003e"
+                    "description": "\u003cp\u003eThe studio ID. \u003c/p\u003e"
                 },
                 "tags": {
                     "$ref": "#/types/aws-native:nimblestudio:LaunchProfileTags"
@@ -30056,6 +30442,53 @@
                 "ruleType"
             ]
         },
+        "aws-native:route53resolver:ResolverRuleAssociation": {
+            "cf": "AWS::Route53Resolver::ResolverRuleAssociation",
+            "inputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of an association between a Resolver rule and a VPC."
+                },
+                "resolverRuleId": {
+                    "type": "string",
+                    "description": "The ID of the Resolver rule that you associated with the VPC that is specified by VPCId."
+                },
+                "vPCId": {
+                    "type": "string",
+                    "description": "The ID of the VPC that you associated the Resolver rule with."
+                }
+            },
+            "outputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of an association between a Resolver rule and a VPC."
+                },
+                "resolverRuleAssociationId": {
+                    "type": "string",
+                    "description": "Primary Identifier for Resolver Rule Association"
+                },
+                "resolverRuleId": {
+                    "type": "string",
+                    "description": "The ID of the Resolver rule that you associated with the VPC that is specified by VPCId."
+                },
+                "vPCId": {
+                    "type": "string",
+                    "description": "The ID of the VPC that you associated the Resolver rule with."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "resolverRuleId",
+                "vPCId"
+            ],
+            "createOnly": [
+                "name",
+                "resolverRuleId",
+                "vPCId"
+            ]
+        },
         "aws-native:rum:AppMonitor": {
             "cf": "AWS::RUM::AppMonitor",
             "inputs": {
@@ -30109,6 +30542,9 @@
                 "minLength": 1,
                 "maxLength": 255
             },
+            "required": [
+                "domain"
+            ],
             "createOnly": [
                 "name"
             ]
@@ -37544,6 +37980,14 @@
                     },
                     "description": "A list of alarms to monitor for the component."
                 },
+                "hAClusterPrometheusExporter": {
+                    "$ref": "#/types/aws-native:applicationinsights:ApplicationHAClusterPrometheusExporter",
+                    "description": "The HA cluster Prometheus Exporter settings."
+                },
+                "hANAPrometheusExporter": {
+                    "$ref": "#/types/aws-native:applicationinsights:ApplicationHANAPrometheusExporter",
+                    "description": "The HANA DB Prometheus Exporter settings."
+                },
                 "jMXPrometheusExporter": {
                     "$ref": "#/types/aws-native:applicationinsights:ApplicationJMXPrometheusExporter",
                     "description": "The JMX Prometheus Exporter settings."
@@ -37583,6 +38027,40 @@
         "aws-native:applicationinsights:ApplicationEventLevel": {
             "type": "string"
         },
+        "aws-native:applicationinsights:ApplicationHAClusterPrometheusExporter": {
+            "type": "object",
+            "properties": {
+                "prometheusPort": {
+                    "type": "string",
+                    "description": "Prometheus exporter port."
+                }
+            }
+        },
+        "aws-native:applicationinsights:ApplicationHANAPrometheusExporter": {
+            "type": "object",
+            "properties": {
+                "agreeToInstallHANADBClient": {
+                    "type": "boolean",
+                    "description": "A flag which indicates agreeing to install SAP HANA DB client."
+                },
+                "hANAPort": {
+                    "type": "string",
+                    "description": "The HANA DB port."
+                },
+                "hANASID": {
+                    "type": "string",
+                    "description": "HANA DB SID."
+                },
+                "hANASecretName": {
+                    "type": "string",
+                    "description": "The secret name which manages the HANA DB credentials e.g. {\n  \"username\": \"\u003c\u003e\",\n  \"password\": \"\u003c\u003e\"\n}."
+                },
+                "prometheusPort": {
+                    "type": "string",
+                    "description": "Prometheus exporter port."
+                }
+            }
+        },
         "aws-native:applicationinsights:ApplicationJMXPrometheusExporter": {
             "type": "object",
             "properties": {
@@ -37596,7 +38074,7 @@
                 },
                 "prometheusPort": {
                     "type": "string",
-                    "description": "Prometheus exporter port"
+                    "description": "Prometheus exporter port."
                 }
             }
         },
@@ -38022,6 +38500,17 @@
                     "type": "string"
                 },
                 "tagValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:EntitlementAttribute": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
                     "type": "string"
                 }
             }
@@ -43507,6 +43996,137 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeAccessScopePathRequest": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopePathStatementRequest"
+                },
+                "source": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopePathStatementRequest"
+                },
+                "throughResources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeThroughResourcesStatementRequest"
+                    }
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeAnalysisFindingsFound": {
+            "type": "string"
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeAnalysisStatus": {
+            "type": "string"
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeAnalysisTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopePacketHeaderStatementRequest": {
+            "type": "object",
+            "properties": {
+                "destinationAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "destinationPorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "destinationPrefixLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "protocols": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeProtocol"
+                    }
+                },
+                "sourceAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sourcePorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sourcePrefixLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopePathStatementRequest": {
+            "type": "object",
+            "properties": {
+                "packetHeaderStatement": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopePacketHeaderStatementRequest"
+                },
+                "resourceStatement": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeResourceStatementRequest"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeProtocol": {
+            "type": "string"
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeResourceStatementRequest": {
+            "type": "object",
+            "properties": {
+                "resourceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInsightsAccessScopeThroughResourcesStatementRequest": {
+            "type": "object",
+            "properties": {
+                "resourceStatement": {
+                    "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeResourceStatementRequest"
                 }
             }
         },
@@ -54662,6 +55282,35 @@
                 }
             }
         },
+        "aws-native:kinesisvideo:SignalingChannelTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.  The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:kinesisvideo:SignalingChannelType": {
+            "type": "string"
+        },
+        "aws-native:kinesisvideo:StreamTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:kms:KeySpec": {
             "type": "string"
         },
@@ -58396,18 +59045,40 @@
                     "items": {
                         "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamingInstanceType"
                     },
-                    "description": "\u003cp\u003eThe EC2 instance types that users can select from when launching a streaming session with this launch profile.\u003c/p\u003e"
+                    "description": "\u003cp\u003eThe EC2 instance types that users can select from when launching a streaming session\n            with this launch profile.\u003c/p\u003e"
                 },
                 "maxSessionLengthInMinutes": {
                     "type": "number",
-                    "description": "\u003cp\u003eThe length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.\u003c/p\u003e"
+                    "description": "\u003cp\u003eThe length of time, in minutes, that a streaming session can be active before it is\n            stopped or terminated. After this point, Nimble Studio automatically terminates or\n            stops the session. The default length of time is 690 minutes, and the maximum length of\n            time is 30 days.\u003c/p\u003e"
+                },
+                "maxStoppedSessionLengthInMinutes": {
+                    "type": "number",
+                    "description": "\u003cp\u003eInteger that determines if you can start and stop your sessions and how long a session\n            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.\u003c/p\u003e\n        \u003cp\u003eIf the value is missing or set to 0, your sessions can’t be stopped. If you then call\n            StopStreamingSession, the session fails. If the time that a session stays in the READY\n            state exceeds the maxSessionLengthInMinutes value, the session will automatically be\n            terminated by AWS (instead of stopped).\u003c/p\u003e\n        \u003cp\u003eIf the value is set to a positive number, the session can be stopped. You can call\n            StopStreamingSession to stop sessions in the READY state. If the time that a session\n            stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will\n            automatically be stopped by AWS (instead of terminated).\u003c/p\u003e"
+                },
+                "sessionStorage": {
+                    "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamConfigurationSessionStorage"
                 },
                 "streamingImageIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003cp\u003eThe streaming images that users can select from when launching a streaming session with this launch profile.\u003c/p\u003e"
+                    "description": "\u003cp\u003eThe streaming images that users can select from when launching a streaming session\n            with this launch profile.\u003c/p\u003e"
+                }
+            }
+        },
+        "aws-native:nimblestudio:LaunchProfileStreamConfigurationSessionStorage": {
+            "type": "object",
+            "properties": {
+                "mode": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamingSessionStorageMode"
+                    },
+                    "description": "\u003cp\u003eAllows artists to upload files to their workstations. The only valid option is\n                \u003ccode\u003eUPLOAD\u003c/code\u003e.\u003c/p\u003e"
+                },
+                "root": {
+                    "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamingSessionStorageRoot"
                 }
             }
         },
@@ -58416,6 +59087,22 @@
         },
         "aws-native:nimblestudio:LaunchProfileStreamingInstanceType": {
             "type": "string"
+        },
+        "aws-native:nimblestudio:LaunchProfileStreamingSessionStorageMode": {
+            "type": "string"
+        },
+        "aws-native:nimblestudio:LaunchProfileStreamingSessionStorageRoot": {
+            "type": "object",
+            "properties": {
+                "linux": {
+                    "type": "string",
+                    "description": "\u003cp\u003eThe folder path in Linux workstations where files are uploaded.\u003c/p\u003e"
+                },
+                "windows": {
+                    "type": "string",
+                    "description": "\u003cp\u003eThe folder path in Windows workstations where files are uploaded.\u003c/p\u003e"
+                }
+            }
         },
         "aws-native:nimblestudio:LaunchProfileTags": {
             "type": "object"

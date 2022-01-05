@@ -239,6 +239,8 @@ if typing.TYPE_CHECKING:
     kinesisanalyticsv2 = __kinesisanalyticsv2
     import pulumi_aws_native.kinesisfirehose as __kinesisfirehose
     kinesisfirehose = __kinesisfirehose
+    import pulumi_aws_native.kinesisvideo as __kinesisvideo
+    kinesisvideo = __kinesisvideo
     import pulumi_aws_native.kms as __kms
     kms = __kms
     import pulumi_aws_native.lakeformation as __lakeformation
@@ -497,6 +499,7 @@ else:
     kinesisanalytics = _utilities.lazy_import('pulumi_aws_native.kinesisanalytics')
     kinesisanalyticsv2 = _utilities.lazy_import('pulumi_aws_native.kinesisanalyticsv2')
     kinesisfirehose = _utilities.lazy_import('pulumi_aws_native.kinesisfirehose')
+    kinesisvideo = _utilities.lazy_import('pulumi_aws_native.kinesisvideo')
     kms = _utilities.lazy_import('pulumi_aws_native.kms')
     lakeformation = _utilities.lazy_import('pulumi_aws_native.lakeformation')
     lambda_ = _utilities.lazy_import('pulumi_aws_native.lambda_')
@@ -745,8 +748,10 @@ _utilities.register(
   "classes": {
    "aws-native:appstream:AppBlock": "AppBlock",
    "aws-native:appstream:Application": "Application",
+   "aws-native:appstream:ApplicationEntitlementAssociation": "ApplicationEntitlementAssociation",
    "aws-native:appstream:ApplicationFleetAssociation": "ApplicationFleetAssociation",
    "aws-native:appstream:DirectoryConfig": "DirectoryConfig",
+   "aws-native:appstream:Entitlement": "Entitlement",
    "aws-native:appstream:Fleet": "Fleet",
    "aws-native:appstream:ImageBuilder": "ImageBuilder",
    "aws-native:appstream:Stack": "Stack",
@@ -1278,6 +1283,8 @@ _utilities.register(
    "aws-native:ec2:NatGateway": "NatGateway",
    "aws-native:ec2:NetworkAcl": "NetworkAcl",
    "aws-native:ec2:NetworkAclEntry": "NetworkAclEntry",
+   "aws-native:ec2:NetworkInsightsAccessScope": "NetworkInsightsAccessScope",
+   "aws-native:ec2:NetworkInsightsAccessScopeAnalysis": "NetworkInsightsAccessScopeAnalysis",
    "aws-native:ec2:NetworkInsightsAnalysis": "NetworkInsightsAnalysis",
    "aws-native:ec2:NetworkInsightsPath": "NetworkInsightsPath",
    "aws-native:ec2:NetworkInterface": "NetworkInterface",
@@ -1872,6 +1879,15 @@ _utilities.register(
   "fqn": "pulumi_aws_native.kinesisfirehose",
   "classes": {
    "aws-native:kinesisfirehose:DeliveryStream": "DeliveryStream"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "kinesisvideo",
+  "fqn": "pulumi_aws_native.kinesisvideo",
+  "classes": {
+   "aws-native:kinesisvideo:SignalingChannel": "SignalingChannel",
+   "aws-native:kinesisvideo:Stream": "Stream"
   }
  },
  {

@@ -838,6 +838,7 @@ type TrackerPositionFiltering string
 const (
 	TrackerPositionFilteringTimeBased     = TrackerPositionFiltering("TimeBased")
 	TrackerPositionFilteringDistanceBased = TrackerPositionFiltering("DistanceBased")
+	TrackerPositionFilteringAccuracyBased = TrackerPositionFiltering("AccuracyBased")
 )
 
 func (TrackerPositionFiltering) ElementType() reflect.Type {

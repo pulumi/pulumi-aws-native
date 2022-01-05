@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'LaunchProfileStreamConfiguration',
+    'LaunchProfileStreamConfigurationSessionStorage',
+    'LaunchProfileStreamingSessionStorageRoot',
     'LaunchProfileTags',
     'StreamingImageEncryptionConfiguration',
     'StreamingImageTags',
@@ -44,6 +46,10 @@ class LaunchProfileStreamConfiguration(dict):
             suggest = "streaming_image_ids"
         elif key == "maxSessionLengthInMinutes":
             suggest = "max_session_length_in_minutes"
+        elif key == "maxStoppedSessionLengthInMinutes":
+            suggest = "max_stopped_session_length_in_minutes"
+        elif key == "sessionStorage":
+            suggest = "session_storage"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LaunchProfileStreamConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -60,18 +66,39 @@ class LaunchProfileStreamConfiguration(dict):
                  clipboard_mode: 'LaunchProfileStreamingClipboardMode',
                  ec2_instance_types: Sequence['LaunchProfileStreamingInstanceType'],
                  streaming_image_ids: Sequence[str],
-                 max_session_length_in_minutes: Optional[float] = None):
+                 max_session_length_in_minutes: Optional[float] = None,
+                 max_stopped_session_length_in_minutes: Optional[float] = None,
+                 session_storage: Optional['outputs.LaunchProfileStreamConfigurationSessionStorage'] = None):
         """
         <p>A configuration for a streaming session.</p>
-        :param Sequence['LaunchProfileStreamingInstanceType'] ec2_instance_types: <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
-        :param Sequence[str] streaming_image_ids: <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
-        :param float max_session_length_in_minutes: <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+        :param Sequence['LaunchProfileStreamingInstanceType'] ec2_instance_types: <p>The EC2 instance types that users can select from when launching a streaming session
+                           with this launch profile.</p>
+        :param Sequence[str] streaming_image_ids: <p>The streaming images that users can select from when launching a streaming session
+                           with this launch profile.</p>
+        :param float max_session_length_in_minutes: <p>The length of time, in minutes, that a streaming session can be active before it is
+                           stopped or terminated. After this point, Nimble Studio automatically terminates or
+                           stops the session. The default length of time is 690 minutes, and the maximum length of
+                           time is 30 days.</p>
+        :param float max_stopped_session_length_in_minutes: <p>Integer that determines if you can start and stop your sessions and how long a session
+                           can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+                       <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+                           StopStreamingSession, the session fails. If the time that a session stays in the READY
+                           state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+                           terminated by AWS (instead of stopped).</p>
+                       <p>If the value is set to a positive number, the session can be stopped. You can call
+                           StopStreamingSession to stop sessions in the READY state. If the time that a session
+                           stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+                           automatically be stopped by AWS (instead of terminated).</p>
         """
         pulumi.set(__self__, "clipboard_mode", clipboard_mode)
         pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
         pulumi.set(__self__, "streaming_image_ids", streaming_image_ids)
         if max_session_length_in_minutes is not None:
             pulumi.set(__self__, "max_session_length_in_minutes", max_session_length_in_minutes)
+        if max_stopped_session_length_in_minutes is not None:
+            pulumi.set(__self__, "max_stopped_session_length_in_minutes", max_stopped_session_length_in_minutes)
+        if session_storage is not None:
+            pulumi.set(__self__, "session_storage", session_storage)
 
     @property
     @pulumi.getter(name="clipboardMode")
@@ -82,7 +109,8 @@ class LaunchProfileStreamConfiguration(dict):
     @pulumi.getter(name="ec2InstanceTypes")
     def ec2_instance_types(self) -> Sequence['LaunchProfileStreamingInstanceType']:
         """
-        <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+        <p>The EC2 instance types that users can select from when launching a streaming session
+                    with this launch profile.</p>
         """
         return pulumi.get(self, "ec2_instance_types")
 
@@ -90,7 +118,8 @@ class LaunchProfileStreamConfiguration(dict):
     @pulumi.getter(name="streamingImageIds")
     def streaming_image_ids(self) -> Sequence[str]:
         """
-        <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+        <p>The streaming images that users can select from when launching a streaming session
+                    with this launch profile.</p>
         """
         return pulumi.get(self, "streaming_image_ids")
 
@@ -98,9 +127,104 @@ class LaunchProfileStreamConfiguration(dict):
     @pulumi.getter(name="maxSessionLengthInMinutes")
     def max_session_length_in_minutes(self) -> Optional[float]:
         """
-        <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+        <p>The length of time, in minutes, that a streaming session can be active before it is
+                    stopped or terminated. After this point, Nimble Studio automatically terminates or
+                    stops the session. The default length of time is 690 minutes, and the maximum length of
+                    time is 30 days.</p>
         """
         return pulumi.get(self, "max_session_length_in_minutes")
+
+    @property
+    @pulumi.getter(name="maxStoppedSessionLengthInMinutes")
+    def max_stopped_session_length_in_minutes(self) -> Optional[float]:
+        """
+        <p>Integer that determines if you can start and stop your sessions and how long a session
+                    can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+                <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+                    StopStreamingSession, the session fails. If the time that a session stays in the READY
+                    state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+                    terminated by AWS (instead of stopped).</p>
+                <p>If the value is set to a positive number, the session can be stopped. You can call
+                    StopStreamingSession to stop sessions in the READY state. If the time that a session
+                    stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+                    automatically be stopped by AWS (instead of terminated).</p>
+        """
+        return pulumi.get(self, "max_stopped_session_length_in_minutes")
+
+    @property
+    @pulumi.getter(name="sessionStorage")
+    def session_storage(self) -> Optional['outputs.LaunchProfileStreamConfigurationSessionStorage']:
+        return pulumi.get(self, "session_storage")
+
+
+@pulumi.output_type
+class LaunchProfileStreamConfigurationSessionStorage(dict):
+    """
+    <p>The configuration for a streaming session’s upload storage.</p>
+    """
+    def __init__(__self__, *,
+                 mode: Optional[Sequence['LaunchProfileStreamingSessionStorageMode']] = None,
+                 root: Optional['outputs.LaunchProfileStreamingSessionStorageRoot'] = None):
+        """
+        <p>The configuration for a streaming session’s upload storage.</p>
+        :param Sequence['LaunchProfileStreamingSessionStorageMode'] mode: <p>Allows artists to upload files to their workstations. The only valid option is
+                               <code>UPLOAD</code>.</p>
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if root is not None:
+            pulumi.set(__self__, "root", root)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[Sequence['LaunchProfileStreamingSessionStorageMode']]:
+        """
+        <p>Allows artists to upload files to their workstations. The only valid option is
+                        <code>UPLOAD</code>.</p>
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def root(self) -> Optional['outputs.LaunchProfileStreamingSessionStorageRoot']:
+        return pulumi.get(self, "root")
+
+
+@pulumi.output_type
+class LaunchProfileStreamingSessionStorageRoot(dict):
+    """
+    <p>The upload storage root location (folder) on streaming workstations where files are
+                uploaded.</p>
+    """
+    def __init__(__self__, *,
+                 linux: Optional[str] = None,
+                 windows: Optional[str] = None):
+        """
+        <p>The upload storage root location (folder) on streaming workstations where files are
+                    uploaded.</p>
+        :param str linux: <p>The folder path in Linux workstations where files are uploaded.</p>
+        :param str windows: <p>The folder path in Windows workstations where files are uploaded.</p>
+        """
+        if linux is not None:
+            pulumi.set(__self__, "linux", linux)
+        if windows is not None:
+            pulumi.set(__self__, "windows", windows)
+
+    @property
+    @pulumi.getter
+    def linux(self) -> Optional[str]:
+        """
+        <p>The folder path in Linux workstations where files are uploaded.</p>
+        """
+        return pulumi.get(self, "linux")
+
+    @property
+    @pulumi.getter
+    def windows(self) -> Optional[str]:
+        """
+        <p>The folder path in Windows workstations where files are uploaded.</p>
+        """
+        return pulumi.get(self, "windows")
 
 
 @pulumi.output_type

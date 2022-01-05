@@ -162,6 +162,7 @@ namespace Pulumi.AwsNative.Location
 
         public static TrackerPositionFiltering TimeBased { get; } = new TrackerPositionFiltering("TimeBased");
         public static TrackerPositionFiltering DistanceBased { get; } = new TrackerPositionFiltering("DistanceBased");
+        public static TrackerPositionFiltering AccuracyBased { get; } = new TrackerPositionFiltering("AccuracyBased");
 
         public static bool operator ==(TrackerPositionFiltering left, TrackerPositionFiltering right) => left.Equals(right);
         public static bool operator !=(TrackerPositionFiltering left, TrackerPositionFiltering right) => !left.Equals(right);

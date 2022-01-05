@@ -103,6 +103,13 @@ __all__ = [
     'NetworkAclEntryIcmp',
     'NetworkAclEntryPortRange',
     'NetworkAclTag',
+    'NetworkInsightsAccessScopeAccessScopePathRequest',
+    'NetworkInsightsAccessScopeAnalysisTag',
+    'NetworkInsightsAccessScopePacketHeaderStatementRequest',
+    'NetworkInsightsAccessScopePathStatementRequest',
+    'NetworkInsightsAccessScopeResourceStatementRequest',
+    'NetworkInsightsAccessScopeTag',
+    'NetworkInsightsAccessScopeThroughResourcesStatementRequest',
     'NetworkInsightsAnalysisAlternatePathHint',
     'NetworkInsightsAnalysisAnalysisAclRule',
     'NetworkInsightsAnalysisAnalysisComponent',
@@ -4129,6 +4136,288 @@ class NetworkAclTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "throughResources":
+            suggest = "through_resources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeAccessScopePathRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeAccessScopePathRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeAccessScopePathRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.NetworkInsightsAccessScopePathStatementRequest'] = None,
+                 source: Optional['outputs.NetworkInsightsAccessScopePathStatementRequest'] = None,
+                 through_resources: Optional[Sequence['outputs.NetworkInsightsAccessScopeThroughResourcesStatementRequest']] = None):
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if through_resources is not None:
+            pulumi.set(__self__, "through_resources", through_resources)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.NetworkInsightsAccessScopePathStatementRequest']:
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.NetworkInsightsAccessScopePathStatementRequest']:
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="throughResources")
+    def through_resources(self) -> Optional[Sequence['outputs.NetworkInsightsAccessScopeThroughResourcesStatementRequest']]:
+        return pulumi.get(self, "through_resources")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeAnalysisTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopePacketHeaderStatementRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "destinationPrefixLists":
+            suggest = "destination_prefix_lists"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+        elif key == "sourcePrefixLists":
+            suggest = "source_prefix_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopePacketHeaderStatementRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopePacketHeaderStatementRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopePacketHeaderStatementRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_ports: Optional[Sequence[str]] = None,
+                 destination_prefix_lists: Optional[Sequence[str]] = None,
+                 protocols: Optional[Sequence['NetworkInsightsAccessScopeProtocol']] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 source_ports: Optional[Sequence[str]] = None,
+                 source_prefix_lists: Optional[Sequence[str]] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence['NetworkInsightsAccessScopeProtocol']]:
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "source_addresses")
+
+    @property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "source_ports")
+
+    @property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "source_prefix_lists")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopePathStatementRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "packetHeaderStatement":
+            suggest = "packet_header_statement"
+        elif key == "resourceStatement":
+            suggest = "resource_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopePathStatementRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopePathStatementRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopePathStatementRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 packet_header_statement: Optional['outputs.NetworkInsightsAccessScopePacketHeaderStatementRequest'] = None,
+                 resource_statement: Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest'] = None):
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional['outputs.NetworkInsightsAccessScopePacketHeaderStatementRequest']:
+        return pulumi.get(self, "packet_header_statement")
+
+    @property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest']:
+        return pulumi.get(self, "resource_statement")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeResourceStatementRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeResourceStatementRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeResourceStatementRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeResourceStatementRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Optional[Sequence[str]] = None,
+                 resources: Optional[Sequence[str]] = None):
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "resource_types")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeThroughResourcesStatementRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceStatement":
+            suggest = "resource_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeThroughResourcesStatementRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeThroughResourcesStatementRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeThroughResourcesStatementRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_statement: Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest'] = None):
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest']:
+        return pulumi.get(self, "resource_statement")
 
 
 @pulumi.output_type

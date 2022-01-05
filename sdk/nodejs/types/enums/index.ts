@@ -52,6 +52,7 @@ import * as ivs from "./ivs";
 import * as kendra from "./kendra";
 import * as kinesis from "./kinesis";
 import * as kinesisfirehose from "./kinesisfirehose";
+import * as kinesisvideo from "./kinesisvideo";
 import * as kms from "./kms";
 import * as lambda from "./lambda";
 import * as lex from "./lex";
@@ -147,6 +148,7 @@ export {
     kendra,
     kinesis,
     kinesisfirehose,
+    kinesisvideo,
     kms,
     lambda,
     lex,

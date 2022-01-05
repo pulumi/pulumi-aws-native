@@ -130,6 +130,7 @@ import * as kinesis from "./kinesis";
 import * as kinesisanalytics from "./kinesisanalytics";
 import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
 import * as kinesisfirehose from "./kinesisfirehose";
+import * as kinesisvideo from "./kinesisvideo";
 import * as kms from "./kms";
 import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
@@ -316,6 +317,7 @@ export {
     kinesisanalytics,
     kinesisanalyticsv2,
     kinesisfirehose,
+    kinesisvideo,
     kms,
     lakeformation,
     lambda,

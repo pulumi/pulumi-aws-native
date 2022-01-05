@@ -79,6 +79,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkAcl{}
 	case "aws-native:ec2:NetworkAclEntry":
 		r = &NetworkAclEntry{}
+	case "aws-native:ec2:NetworkInsightsAccessScope":
+		r = &NetworkInsightsAccessScope{}
+	case "aws-native:ec2:NetworkInsightsAccessScopeAnalysis":
+		r = &NetworkInsightsAccessScopeAnalysis{}
 	case "aws-native:ec2:NetworkInsightsAnalysis":
 		r = &NetworkInsightsAnalysis{}
 	case "aws-native:ec2:NetworkInsightsPath":

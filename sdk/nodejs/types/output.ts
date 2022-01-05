@@ -2023,6 +2023,14 @@ export namespace applicationinsights {
          */
         alarms?: outputs.applicationinsights.ApplicationAlarm[];
         /**
+         * The HA cluster Prometheus Exporter settings.
+         */
+        hAClusterPrometheusExporter?: outputs.applicationinsights.ApplicationHAClusterPrometheusExporter;
+        /**
+         * The HANA DB Prometheus Exporter settings.
+         */
+        hANAPrometheusExporter?: outputs.applicationinsights.ApplicationHANAPrometheusExporter;
+        /**
          * The JMX Prometheus Exporter settings.
          */
         jMXPrometheusExporter?: outputs.applicationinsights.ApplicationJMXPrometheusExporter;
@@ -2051,6 +2059,45 @@ export namespace applicationinsights {
     }
 
     /**
+     * The HA cluster Prometheus Exporter settings.
+     */
+    export interface ApplicationHAClusterPrometheusExporter {
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: string;
+    }
+
+    /**
+     * The HANA DB Prometheus Exporter settings.
+     */
+    export interface ApplicationHANAPrometheusExporter {
+        /**
+         * A flag which indicates agreeing to install SAP HANA DB client.
+         */
+        agreeToInstallHANADBClient?: boolean;
+        /**
+         * The HANA DB port.
+         */
+        hANAPort?: string;
+        /**
+         * HANA DB SID.
+         */
+        hANASID?: string;
+        /**
+         * The secret name which manages the HANA DB credentials e.g. {
+         *   "username": "<>",
+         *   "password": "<>"
+         * }.
+         */
+        hANASecretName?: string;
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: string;
+    }
+
+    /**
      * The JMX Prometheus Exporter settings.
      */
     export interface ApplicationJMXPrometheusExporter {
@@ -2063,7 +2110,7 @@ export namespace applicationinsights {
          */
         jMXURL?: string;
         /**
-         * Prometheus exporter port
+         * Prometheus exporter port.
          */
         prometheusPort?: string;
     }
@@ -3117,6 +3164,11 @@ export namespace appstream {
     export interface DirectoryConfigServiceAccountCredentials {
         accountName: string;
         accountPassword: string;
+    }
+
+    export interface EntitlementAttribute {
+        name: string;
+        value: string;
     }
 
     export interface FleetComputeCapacity {
@@ -9114,6 +9166,46 @@ export namespace ec2 {
     export interface NetworkAclTag {
         key: string;
         value: string;
+    }
+
+    export interface NetworkInsightsAccessScopeAccessScopePathRequest {
+        destination?: outputs.ec2.NetworkInsightsAccessScopePathStatementRequest;
+        source?: outputs.ec2.NetworkInsightsAccessScopePathStatementRequest;
+        throughResources?: outputs.ec2.NetworkInsightsAccessScopeThroughResourcesStatementRequest[];
+    }
+
+    export interface NetworkInsightsAccessScopeAnalysisTag {
+        key: string;
+        value?: string;
+    }
+
+    export interface NetworkInsightsAccessScopePacketHeaderStatementRequest {
+        destinationAddresses?: string[];
+        destinationPorts?: string[];
+        destinationPrefixLists?: string[];
+        protocols?: enums.ec2.NetworkInsightsAccessScopeProtocol[];
+        sourceAddresses?: string[];
+        sourcePorts?: string[];
+        sourcePrefixLists?: string[];
+    }
+
+    export interface NetworkInsightsAccessScopePathStatementRequest {
+        packetHeaderStatement?: outputs.ec2.NetworkInsightsAccessScopePacketHeaderStatementRequest;
+        resourceStatement?: outputs.ec2.NetworkInsightsAccessScopeResourceStatementRequest;
+    }
+
+    export interface NetworkInsightsAccessScopeResourceStatementRequest {
+        resourceTypes?: string[];
+        resources?: string[];
+    }
+
+    export interface NetworkInsightsAccessScopeTag {
+        key: string;
+        value?: string;
+    }
+
+    export interface NetworkInsightsAccessScopeThroughResourcesStatementRequest {
+        resourceStatement?: outputs.ec2.NetworkInsightsAccessScopeResourceStatementRequest;
     }
 
     export interface NetworkInsightsAnalysisAlternatePathHint {
@@ -17324,6 +17416,37 @@ export namespace kinesisfirehose {
 
 }
 
+export namespace kinesisvideo {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SignalingChannelTag {
+        /**
+         * The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.  The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associated with the Kinesis Video Stream.
+     */
+    export interface StreamTag {
+        /**
+         * The key name of the tag. Specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+}
+
 export namespace kms {
     /**
      * A key-value pair to associate with a resource.
@@ -21598,17 +21721,63 @@ export namespace nimblestudio {
     export interface LaunchProfileStreamConfiguration {
         clipboardMode: enums.nimblestudio.LaunchProfileStreamingClipboardMode;
         /**
-         * <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+         * <p>The EC2 instance types that users can select from when launching a streaming session
+         *             with this launch profile.</p>
          */
         ec2InstanceTypes: enums.nimblestudio.LaunchProfileStreamingInstanceType[];
         /**
-         * <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+         * <p>The length of time, in minutes, that a streaming session can be active before it is
+         *             stopped or terminated. After this point, Nimble Studio automatically terminates or
+         *             stops the session. The default length of time is 690 minutes, and the maximum length of
+         *             time is 30 days.</p>
          */
         maxSessionLengthInMinutes?: number;
         /**
-         * <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+         * <p>Integer that determines if you can start and stop your sessions and how long a session
+         *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+         *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+         *             StopStreamingSession, the session fails. If the time that a session stays in the READY
+         *             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+         *             terminated by AWS (instead of stopped).</p>
+         *         <p>If the value is set to a positive number, the session can be stopped. You can call
+         *             StopStreamingSession to stop sessions in the READY state. If the time that a session
+         *             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+         *             automatically be stopped by AWS (instead of terminated).</p>
+         */
+        maxStoppedSessionLengthInMinutes?: number;
+        sessionStorage?: outputs.nimblestudio.LaunchProfileStreamConfigurationSessionStorage;
+        /**
+         * <p>The streaming images that users can select from when launching a streaming session
+         *             with this launch profile.</p>
          */
         streamingImageIds: string[];
+    }
+
+    /**
+     * <p>The configuration for a streaming session’s upload storage.</p>
+     */
+    export interface LaunchProfileStreamConfigurationSessionStorage {
+        /**
+         * <p>Allows artists to upload files to their workstations. The only valid option is
+         *                 <code>UPLOAD</code>.</p>
+         */
+        mode?: enums.nimblestudio.LaunchProfileStreamingSessionStorageMode[];
+        root?: outputs.nimblestudio.LaunchProfileStreamingSessionStorageRoot;
+    }
+
+    /**
+     * <p>The upload storage root location (folder) on streaming workstations where files are
+     *             uploaded.</p>
+     */
+    export interface LaunchProfileStreamingSessionStorageRoot {
+        /**
+         * <p>The folder path in Linux workstations where files are uploaded.</p>
+         */
+        linux?: string;
+        /**
+         * <p>The folder path in Windows workstations where files are uploaded.</p>
+         */
+        windows?: string;
     }
 
     export interface LaunchProfileTags {

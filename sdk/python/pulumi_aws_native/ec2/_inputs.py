@@ -102,6 +102,13 @@ __all__ = [
     'NetworkAclEntryIcmpArgs',
     'NetworkAclEntryPortRangeArgs',
     'NetworkAclTagArgs',
+    'NetworkInsightsAccessScopeAccessScopePathRequestArgs',
+    'NetworkInsightsAccessScopeAnalysisTagArgs',
+    'NetworkInsightsAccessScopePacketHeaderStatementRequestArgs',
+    'NetworkInsightsAccessScopePathStatementRequestArgs',
+    'NetworkInsightsAccessScopeResourceStatementRequestArgs',
+    'NetworkInsightsAccessScopeTagArgs',
+    'NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs',
     'NetworkInsightsAnalysisTagArgs',
     'NetworkInsightsPathTagArgs',
     'NetworkInterfaceInstanceIpv6AddressArgs',
@@ -4115,6 +4122,267 @@ class NetworkAclTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeAccessScopePathRequestArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']] = None,
+                 source: Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']] = None,
+                 through_resources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs']]]] = None):
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if through_resources is not None:
+            pulumi.set(__self__, "through_resources", through_resources)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="throughResources")
+    def through_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs']]]]:
+        return pulumi.get(self, "through_resources")
+
+    @through_resources.setter
+    def through_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs']]]]):
+        pulumi.set(self, "through_resources", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeAnalysisTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAccessScopePacketHeaderStatementRequestArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeProtocol']]]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @destination_prefix_lists.setter
+    def destination_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_prefix_lists", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeProtocol']]]]:
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeProtocol']]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "source_ports")
+
+    @source_ports.setter
+    def source_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_ports", value)
+
+    @property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "source_prefix_lists")
+
+    @source_prefix_lists.setter
+    def source_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_prefix_lists", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAccessScopePathStatementRequestArgs:
+    def __init__(__self__, *,
+                 packet_header_statement: Optional[pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgs']] = None,
+                 resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']] = None):
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgs']]:
+        return pulumi.get(self, "packet_header_statement")
+
+    @packet_header_statement.setter
+    def packet_header_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgs']]):
+        pulumi.set(self, "packet_header_statement", value)
+
+    @property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']]:
+        return pulumi.get(self, "resource_statement")
+
+    @resource_statement.setter
+    def resource_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']]):
+        pulumi.set(self, "resource_statement", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeResourceStatementRequestArgs:
+    def __init__(__self__, *,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resources", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs:
+    def __init__(__self__, *,
+                 resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']] = None):
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']]:
+        return pulumi.get(self, "resource_statement")
+
+    @resource_statement.setter
+    def resource_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']]):
+        pulumi.set(self, "resource_statement", value)
 
 
 @pulumi.input_type

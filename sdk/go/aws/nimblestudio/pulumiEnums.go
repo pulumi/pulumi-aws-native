@@ -387,6 +387,214 @@ func (o LaunchProfileStreamingInstanceTypeArrayOutput) Index(i pulumi.IntInput) 
 	}).(LaunchProfileStreamingInstanceTypeOutput)
 }
 
+type LaunchProfileStreamingSessionStorageMode string
+
+const (
+	LaunchProfileStreamingSessionStorageModeUpload = LaunchProfileStreamingSessionStorageMode("UPLOAD")
+)
+
+func (LaunchProfileStreamingSessionStorageMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileStreamingSessionStorageMode)(nil)).Elem()
+}
+
+func (e LaunchProfileStreamingSessionStorageMode) ToLaunchProfileStreamingSessionStorageModeOutput() LaunchProfileStreamingSessionStorageModeOutput {
+	return pulumi.ToOutput(e).(LaunchProfileStreamingSessionStorageModeOutput)
+}
+
+func (e LaunchProfileStreamingSessionStorageMode) ToLaunchProfileStreamingSessionStorageModeOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchProfileStreamingSessionStorageModeOutput)
+}
+
+func (e LaunchProfileStreamingSessionStorageMode) ToLaunchProfileStreamingSessionStorageModePtrOutput() LaunchProfileStreamingSessionStorageModePtrOutput {
+	return e.ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(context.Background())
+}
+
+func (e LaunchProfileStreamingSessionStorageMode) ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModePtrOutput {
+	return LaunchProfileStreamingSessionStorageMode(e).ToLaunchProfileStreamingSessionStorageModeOutputWithContext(ctx).ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(ctx)
+}
+
+func (e LaunchProfileStreamingSessionStorageMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchProfileStreamingSessionStorageMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchProfileStreamingSessionStorageMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchProfileStreamingSessionStorageMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchProfileStreamingSessionStorageModeOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileStreamingSessionStorageModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileStreamingSessionStorageMode)(nil)).Elem()
+}
+
+func (o LaunchProfileStreamingSessionStorageModeOutput) ToLaunchProfileStreamingSessionStorageModeOutput() LaunchProfileStreamingSessionStorageModeOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageModeOutput) ToLaunchProfileStreamingSessionStorageModeOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModeOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageModeOutput) ToLaunchProfileStreamingSessionStorageModePtrOutput() LaunchProfileStreamingSessionStorageModePtrOutput {
+	return o.ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileStreamingSessionStorageModeOutput) ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileStreamingSessionStorageMode) *LaunchProfileStreamingSessionStorageMode {
+		return &v
+	}).(LaunchProfileStreamingSessionStorageModePtrOutput)
+}
+
+func (o LaunchProfileStreamingSessionStorageModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileStreamingSessionStorageModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchProfileStreamingSessionStorageMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchProfileStreamingSessionStorageModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileStreamingSessionStorageModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchProfileStreamingSessionStorageMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchProfileStreamingSessionStorageModePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileStreamingSessionStorageModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileStreamingSessionStorageMode)(nil)).Elem()
+}
+
+func (o LaunchProfileStreamingSessionStorageModePtrOutput) ToLaunchProfileStreamingSessionStorageModePtrOutput() LaunchProfileStreamingSessionStorageModePtrOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageModePtrOutput) ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModePtrOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageModePtrOutput) Elem() LaunchProfileStreamingSessionStorageModeOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageMode) LaunchProfileStreamingSessionStorageMode {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchProfileStreamingSessionStorageMode
+		return ret
+	}).(LaunchProfileStreamingSessionStorageModeOutput)
+}
+
+func (o LaunchProfileStreamingSessionStorageModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileStreamingSessionStorageModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchProfileStreamingSessionStorageMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchProfileStreamingSessionStorageModeInput is an input type that accepts LaunchProfileStreamingSessionStorageModeArgs and LaunchProfileStreamingSessionStorageModeOutput values.
+// You can construct a concrete instance of `LaunchProfileStreamingSessionStorageModeInput` via:
+//
+//          LaunchProfileStreamingSessionStorageModeArgs{...}
+type LaunchProfileStreamingSessionStorageModeInput interface {
+	pulumi.Input
+
+	ToLaunchProfileStreamingSessionStorageModeOutput() LaunchProfileStreamingSessionStorageModeOutput
+	ToLaunchProfileStreamingSessionStorageModeOutputWithContext(context.Context) LaunchProfileStreamingSessionStorageModeOutput
+}
+
+var launchProfileStreamingSessionStorageModePtrType = reflect.TypeOf((**LaunchProfileStreamingSessionStorageMode)(nil)).Elem()
+
+type LaunchProfileStreamingSessionStorageModePtrInput interface {
+	pulumi.Input
+
+	ToLaunchProfileStreamingSessionStorageModePtrOutput() LaunchProfileStreamingSessionStorageModePtrOutput
+	ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(context.Context) LaunchProfileStreamingSessionStorageModePtrOutput
+}
+
+type launchProfileStreamingSessionStorageModePtr string
+
+func LaunchProfileStreamingSessionStorageModePtr(v string) LaunchProfileStreamingSessionStorageModePtrInput {
+	return (*launchProfileStreamingSessionStorageModePtr)(&v)
+}
+
+func (*launchProfileStreamingSessionStorageModePtr) ElementType() reflect.Type {
+	return launchProfileStreamingSessionStorageModePtrType
+}
+
+func (in *launchProfileStreamingSessionStorageModePtr) ToLaunchProfileStreamingSessionStorageModePtrOutput() LaunchProfileStreamingSessionStorageModePtrOutput {
+	return pulumi.ToOutput(in).(LaunchProfileStreamingSessionStorageModePtrOutput)
+}
+
+func (in *launchProfileStreamingSessionStorageModePtr) ToLaunchProfileStreamingSessionStorageModePtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileStreamingSessionStorageModePtrOutput)
+}
+
+// LaunchProfileStreamingSessionStorageModeArrayInput is an input type that accepts LaunchProfileStreamingSessionStorageModeArray and LaunchProfileStreamingSessionStorageModeArrayOutput values.
+// You can construct a concrete instance of `LaunchProfileStreamingSessionStorageModeArrayInput` via:
+//
+//          LaunchProfileStreamingSessionStorageModeArray{ LaunchProfileStreamingSessionStorageModeArgs{...} }
+type LaunchProfileStreamingSessionStorageModeArrayInput interface {
+	pulumi.Input
+
+	ToLaunchProfileStreamingSessionStorageModeArrayOutput() LaunchProfileStreamingSessionStorageModeArrayOutput
+	ToLaunchProfileStreamingSessionStorageModeArrayOutputWithContext(context.Context) LaunchProfileStreamingSessionStorageModeArrayOutput
+}
+
+type LaunchProfileStreamingSessionStorageModeArray []LaunchProfileStreamingSessionStorageMode
+
+func (LaunchProfileStreamingSessionStorageModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchProfileStreamingSessionStorageMode)(nil)).Elem()
+}
+
+func (i LaunchProfileStreamingSessionStorageModeArray) ToLaunchProfileStreamingSessionStorageModeArrayOutput() LaunchProfileStreamingSessionStorageModeArrayOutput {
+	return i.ToLaunchProfileStreamingSessionStorageModeArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchProfileStreamingSessionStorageModeArray) ToLaunchProfileStreamingSessionStorageModeArrayOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageModeArrayOutput)
+}
+
+type LaunchProfileStreamingSessionStorageModeArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileStreamingSessionStorageModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchProfileStreamingSessionStorageMode)(nil)).Elem()
+}
+
+func (o LaunchProfileStreamingSessionStorageModeArrayOutput) ToLaunchProfileStreamingSessionStorageModeArrayOutput() LaunchProfileStreamingSessionStorageModeArrayOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageModeArrayOutput) ToLaunchProfileStreamingSessionStorageModeArrayOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageModeArrayOutput {
+	return o
+}
+
+func (o LaunchProfileStreamingSessionStorageModeArrayOutput) Index(i pulumi.IntInput) LaunchProfileStreamingSessionStorageModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchProfileStreamingSessionStorageMode {
+		return vs[0].([]LaunchProfileStreamingSessionStorageMode)[vs[1].(int)]
+	}).(LaunchProfileStreamingSessionStorageModeOutput)
+}
+
 // <p/>
 type StreamingImageEncryptionConfigurationKeyType string
 
@@ -1383,6 +1591,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingInstanceTypeInput)(nil)).Elem(), LaunchProfileStreamingInstanceType("g4dn.xlarge"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingInstanceTypePtrInput)(nil)).Elem(), LaunchProfileStreamingInstanceType("g4dn.xlarge"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingInstanceTypeArrayInput)(nil)).Elem(), LaunchProfileStreamingInstanceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageModeInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageMode("UPLOAD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageModePtrInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageMode("UPLOAD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageModeArrayInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageModeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageEncryptionConfigurationKeyTypeInput)(nil)).Elem(), StreamingImageEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageEncryptionConfigurationKeyTypePtrInput)(nil)).Elem(), StreamingImageEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptRunContextInput)(nil)).Elem(), StudioComponentInitializationScriptRunContext("SYSTEM_INITIALIZATION"))
@@ -1400,6 +1611,9 @@ func init() {
 	pulumi.RegisterOutputType(LaunchProfileStreamingInstanceTypeOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingInstanceTypeArrayOutput{})
+	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageModeOutput{})
+	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageModePtrOutput{})
+	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageModeArrayOutput{})
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationKeyTypeOutput{})
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentInitializationScriptRunContextOutput{})

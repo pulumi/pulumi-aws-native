@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'LaunchProfileStreamingClipboardMode',
     'LaunchProfileStreamingInstanceType',
+    'LaunchProfileStreamingSessionStorageMode',
     'StreamingImageEncryptionConfigurationKeyType',
     'StudioComponentInitializationScriptRunContext',
     'StudioComponentLaunchProfilePlatform',
@@ -28,6 +29,10 @@ class LaunchProfileStreamingInstanceType(str, Enum):
     G4DN8XLARGE = "g4dn.8xlarge"
     G4DN12XLARGE = "g4dn.12xlarge"
     G4DN16XLARGE = "g4dn.16xlarge"
+
+
+class LaunchProfileStreamingSessionStorageMode(str, Enum):
+    UPLOAD = "UPLOAD"
 
 
 class StreamingImageEncryptionConfigurationKeyType(str, Enum):

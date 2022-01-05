@@ -12,15 +12,17 @@ import (
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
-//
-// Deprecated: ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ResolverRuleAssociation struct {
 	pulumi.CustomResourceState
 
-	Name                      pulumi.StringPtrOutput `pulumi:"name"`
-	ResolverRuleAssociationId pulumi.StringOutput    `pulumi:"resolverRuleAssociationId"`
-	ResolverRuleId            pulumi.StringOutput    `pulumi:"resolverRuleId"`
-	VPCId                     pulumi.StringOutput    `pulumi:"vPCId"`
+	// The name of an association between a Resolver rule and a VPC.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Primary Identifier for Resolver Rule Association
+	ResolverRuleAssociationId pulumi.StringOutput `pulumi:"resolverRuleAssociationId"`
+	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+	ResolverRuleId pulumi.StringOutput `pulumi:"resolverRuleId"`
+	// The ID of the VPC that you associated the Resolver rule with.
+	VPCId pulumi.StringOutput `pulumi:"vPCId"`
 }
 
 // NewResolverRuleAssociation registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +70,22 @@ func (ResolverRuleAssociationState) ElementType() reflect.Type {
 }
 
 type resolverRuleAssociationArgs struct {
-	Name           *string `pulumi:"name"`
-	ResolverRuleId string  `pulumi:"resolverRuleId"`
-	VPCId          string  `pulumi:"vPCId"`
+	// The name of an association between a Resolver rule and a VPC.
+	Name *string `pulumi:"name"`
+	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+	ResolverRuleId string `pulumi:"resolverRuleId"`
+	// The ID of the VPC that you associated the Resolver rule with.
+	VPCId string `pulumi:"vPCId"`
 }
 
 // The set of arguments for constructing a ResolverRuleAssociation resource.
 type ResolverRuleAssociationArgs struct {
-	Name           pulumi.StringPtrInput
+	// The name of an association between a Resolver rule and a VPC.
+	Name pulumi.StringPtrInput
+	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
 	ResolverRuleId pulumi.StringInput
-	VPCId          pulumi.StringInput
+	// The ID of the VPC that you associated the Resolver rule with.
+	VPCId pulumi.StringInput
 }
 
 func (ResolverRuleAssociationArgs) ElementType() reflect.Type {

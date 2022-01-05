@@ -22,7 +22,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. &lt;/p&gt;
+        /// &lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+        ///             These subnets must support the specified instance types. &lt;/p&gt;
         /// </summary>
         [Output("ec2SubnetIds")]
         public Output<ImmutableArray<string>> Ec2SubnetIds { get; private set; } = null!;
@@ -31,7 +32,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string> LaunchProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".&lt;/p&gt;
+        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
+        ///             version is "2021-03-31".&lt;/p&gt;
         /// </summary>
         [Output("launchProfileProtocolVersions")]
         public Output<ImmutableArray<string>> LaunchProfileProtocolVersions { get; private set; } = null!;
@@ -46,13 +48,14 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<Outputs.LaunchProfileStreamConfiguration> StreamConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Unique identifiers for a collection of studio components that can be used with this launch profile.&lt;/p&gt;
+        /// &lt;p&gt;Unique identifiers for a collection of studio components that can be used with this
+        ///             launch profile.&lt;/p&gt;
         /// </summary>
         [Output("studioComponentIds")]
         public Output<ImmutableArray<string>> StudioComponentIds { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// &lt;p&gt;The studio ID. &lt;/p&gt;
         /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
@@ -115,7 +118,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         private InputList<string>? _ec2SubnetIds;
 
         /// <summary>
-        /// &lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. &lt;/p&gt;
+        /// &lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+        ///             These subnets must support the specified instance types. &lt;/p&gt;
         /// </summary>
         public InputList<string> Ec2SubnetIds
         {
@@ -127,7 +131,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         private InputList<string>? _launchProfileProtocolVersions;
 
         /// <summary>
-        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".&lt;/p&gt;
+        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
+        ///             version is "2021-03-31".&lt;/p&gt;
         /// </summary>
         public InputList<string> LaunchProfileProtocolVersions
         {
@@ -148,7 +153,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         private InputList<string>? _studioComponentIds;
 
         /// <summary>
-        /// &lt;p&gt;Unique identifiers for a collection of studio components that can be used with this launch profile.&lt;/p&gt;
+        /// &lt;p&gt;Unique identifiers for a collection of studio components that can be used with this
+        ///             launch profile.&lt;/p&gt;
         /// </summary>
         public InputList<string> StudioComponentIds
         {
@@ -157,7 +163,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
 
         /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// &lt;p&gt;The studio ID. &lt;/p&gt;
         /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;

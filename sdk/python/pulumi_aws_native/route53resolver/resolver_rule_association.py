@@ -18,6 +18,9 @@ class ResolverRuleAssociationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResolverRuleAssociation resource.
+        :param pulumi.Input[str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        :param pulumi.Input[str] v_pc_id: The ID of the VPC that you associated the Resolver rule with.
+        :param pulumi.Input[str] name: The name of an association between a Resolver rule and a VPC.
         """
         pulumi.set(__self__, "resolver_rule_id", resolver_rule_id)
         pulumi.set(__self__, "v_pc_id", v_pc_id)
@@ -27,6 +30,9 @@ class ResolverRuleAssociationArgs:
     @property
     @pulumi.getter(name="resolverRuleId")
     def resolver_rule_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        """
         return pulumi.get(self, "resolver_rule_id")
 
     @resolver_rule_id.setter
@@ -36,6 +42,9 @@ class ResolverRuleAssociationArgs:
     @property
     @pulumi.getter(name="vPCId")
     def v_pc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC that you associated the Resolver rule with.
+        """
         return pulumi.get(self, "v_pc_id")
 
     @v_pc_id.setter
@@ -45,6 +54,9 @@ class ResolverRuleAssociationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an association between a Resolver rule and a VPC.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -52,12 +64,7 @@ class ResolverRuleAssociationArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class ResolverRuleAssociation(pulumi.CustomResource):
-    warnings.warn("""ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -71,6 +78,9 @@ class ResolverRuleAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of an association between a Resolver rule and a VPC.
+        :param pulumi.Input[str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        :param pulumi.Input[str] v_pc_id: The ID of the VPC that you associated the Resolver rule with.
         """
         ...
     @overload
@@ -100,7 +110,6 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  resolver_rule_id: Optional[pulumi.Input[str]] = None,
                  v_pc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ResolverRuleAssociation is deprecated: ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -151,20 +160,32 @@ class ResolverRuleAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of an association between a Resolver rule and a VPC.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resolverRuleAssociationId")
     def resolver_rule_association_id(self) -> pulumi.Output[str]:
+        """
+        Primary Identifier for Resolver Rule Association
+        """
         return pulumi.get(self, "resolver_rule_association_id")
 
     @property
     @pulumi.getter(name="resolverRuleId")
     def resolver_rule_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        """
         return pulumi.get(self, "resolver_rule_id")
 
     @property
     @pulumi.getter(name="vPCId")
     def v_pc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC that you associated the Resolver rule with.
+        """
         return pulumi.get(self, "v_pc_id")
 

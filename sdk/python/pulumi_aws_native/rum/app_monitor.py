@@ -16,27 +16,38 @@ __all__ = ['AppMonitorArgs', 'AppMonitor']
 @pulumi.input_type
 class AppMonitorArgs:
     def __init__(__self__, *,
+                 domain: pulumi.Input[str],
                  app_monitor_configuration: Optional[pulumi.Input['AppMonitorConfigurationArgs']] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
-                 domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTagArgs']]]] = None):
         """
         The set of arguments for constructing a AppMonitor resource.
-        :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
+        :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
         :param pulumi.Input[str] name: A name for the app monitor
         """
+        pulumi.set(__self__, "domain", domain)
         if app_monitor_configuration is not None:
             pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
         if cw_log_enabled is not None:
             pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
-        if domain is not None:
-            pulumi.set(__self__, "domain", domain)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        """
+        The top-level internet domain name for which your application has administrative authority.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
 
     @property
     @pulumi.getter(name="appMonitorConfiguration")
@@ -58,18 +69,6 @@ class AppMonitorArgs:
     @cw_log_enabled.setter
     def cw_log_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "cw_log_enabled", value)
-
-    @property
-    @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[str]]:
-        """
-        The top-level internet domain name for which your application has administrative authority.
-        """
-        return pulumi.get(self, "domain")
-
-    @domain.setter
-    def domain(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "domain", value)
 
     @property
     @pulumi.getter
@@ -117,7 +116,7 @@ class AppMonitor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AppMonitorArgs] = None,
+                 args: AppMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RUM::AppMonitor
@@ -156,6 +155,8 @@ class AppMonitor(pulumi.CustomResource):
 
             __props__.__dict__["app_monitor_configuration"] = app_monitor_configuration
             __props__.__dict__["cw_log_enabled"] = cw_log_enabled
+            if domain is None and not opts.urn:
+                raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -203,7 +204,7 @@ class AppMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> pulumi.Output[Optional[str]]:
+    def domain(self) -> pulumi.Output[str]:
         """
         The top-level internet domain name for which your application has administrative authority.
         """
@@ -211,7 +212,7 @@ class AppMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         A name for the app monitor
         """

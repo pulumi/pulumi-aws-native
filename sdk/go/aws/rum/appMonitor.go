@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,9 +19,9 @@ type AppMonitor struct {
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringPtrOutput `pulumi:"domain"`
+	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A name for the app monitor
-	Name pulumi.StringPtrOutput   `pulumi:"name"`
+	Name pulumi.StringOutput      `pulumi:"name"`
 	Tags AppMonitorTagArrayOutput `pulumi:"tags"`
 }
 
@@ -28,9 +29,12 @@ type AppMonitor struct {
 func NewAppMonitor(ctx *pulumi.Context,
 	name string, args *AppMonitorArgs, opts ...pulumi.ResourceOption) (*AppMonitor, error) {
 	if args == nil {
-		args = &AppMonitorArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Domain == nil {
+		return nil, errors.New("invalid value for required argument 'Domain'")
+	}
 	var resource AppMonitor
 	err := ctx.RegisterResource("aws-native:rum:AppMonitor", name, args, &resource, opts...)
 	if err != nil {
@@ -67,7 +71,7 @@ type appMonitorArgs struct {
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
-	Domain *string `pulumi:"domain"`
+	Domain string `pulumi:"domain"`
 	// A name for the app monitor
 	Name *string         `pulumi:"name"`
 	Tags []AppMonitorTag `pulumi:"tags"`
@@ -79,7 +83,7 @@ type AppMonitorArgs struct {
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrInput
 	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringPtrInput
+	Domain pulumi.StringInput
 	// A name for the app monitor
 	Name pulumi.StringPtrInput
 	Tags AppMonitorTagArrayInput

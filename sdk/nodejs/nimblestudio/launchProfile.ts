@@ -40,12 +40,14 @@ export class LaunchProfile extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+     * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+     *             These subnets must support the specified instance types. </p>
      */
     public readonly ec2SubnetIds!: pulumi.Output<string[]>;
     public /*out*/ readonly launchProfileId!: pulumi.Output<string>;
     /**
-     * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+     * <p>The version number of the protocol that is used by the launch profile. The only valid
+     *             version is "2021-03-31".</p>
      */
     public readonly launchProfileProtocolVersions!: pulumi.Output<string[]>;
     /**
@@ -54,11 +56,12 @@ export class LaunchProfile extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly streamConfiguration!: pulumi.Output<outputs.nimblestudio.LaunchProfileStreamConfiguration>;
     /**
-     * <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+     * <p>Unique identifiers for a collection of studio components that can be used with this
+     *             launch profile.</p>
      */
     public readonly studioComponentIds!: pulumi.Output<string[]>;
     /**
-     * <p>The studioId. </p>
+     * <p>The studio ID. </p>
      */
     public readonly studioId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.nimblestudio.LaunchProfileTags | undefined>;
@@ -125,11 +128,13 @@ export interface LaunchProfileArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+     * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+     *             These subnets must support the specified instance types. </p>
      */
     ec2SubnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+     * <p>The version number of the protocol that is used by the launch profile. The only valid
+     *             version is "2021-03-31".</p>
      */
     launchProfileProtocolVersions: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -138,11 +143,12 @@ export interface LaunchProfileArgs {
     name?: pulumi.Input<string>;
     streamConfiguration: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationArgs>;
     /**
-     * <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+     * <p>Unique identifiers for a collection of studio components that can be used with this
+     *             launch profile.</p>
      */
     studioComponentIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * <p>The studioId. </p>
+     * <p>The studio ID. </p>
      */
     studioId: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.nimblestudio.LaunchProfileTagsArgs>;
