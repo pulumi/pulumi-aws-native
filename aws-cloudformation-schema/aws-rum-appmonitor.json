@@ -151,6 +151,7 @@
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
+  "required" : [ "Name", "Domain" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "rum:CreateAppMonitor", "dynamodb:GetItem", "dynamodb:PutItem", "s3:GetObject", "s3:PutObject", "s3:GetObjectAcl", "s3:DoesObjectExist", "logs:CreateLogDelivery", "logs:CreateLogGroup", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "logs:PutRetentionPolicy", "rum:TagResource", "cognito-identity:DescribeIdentityPool", "iam:GetRole", "iam:CreateServiceLinkedRole" ]

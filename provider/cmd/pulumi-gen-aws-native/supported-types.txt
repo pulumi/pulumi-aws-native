@@ -13,6 +13,7 @@ AWS::AmplifyUIBuilder::Theme
 AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
 AWS::ApiGateway::Authorizer
+AWS::ApiGateway::BasePathMapping
 AWS::ApiGateway::ClientCertificate
 AWS::ApiGateway::Deployment
 AWS::ApiGateway::DocumentationVersion
@@ -30,7 +31,9 @@ AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::Service
 AWS::AppStream::AppBlock
 AWS::AppStream::Application
+AWS::AppStream::ApplicationEntitlementAssociation
 AWS::AppStream::ApplicationFleetAssociation
+AWS::AppStream::Entitlement
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
 AWS::ApplicationInsights::Application
@@ -137,6 +140,8 @@ AWS::EC2::InternetGateway
 AWS::EC2::LocalGatewayRoute
 AWS::EC2::LocalGatewayRouteTableVPCAssociation
 AWS::EC2::NetworkAcl
+AWS::EC2::NetworkInsightsAccessScope
+AWS::EC2::NetworkInsightsAccessScopeAnalysis
 AWS::EC2::NetworkInsightsAnalysis
 AWS::EC2::NetworkInsightsPath
 AWS::EC2::NetworkInterface
@@ -277,6 +282,8 @@ AWS::Kendra::Faq
 AWS::Kendra::Index
 AWS::Kinesis::Stream
 AWS::KinesisFirehose::DeliveryStream
+AWS::KinesisVideo::SignalingChannel
+AWS::KinesisVideo::Stream
 AWS::Lambda::CodeSigningConfig
 AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
@@ -396,6 +403,7 @@ AWS::Route53Resolver::ResolverDNSSECConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
 AWS::Route53Resolver::ResolverRule
+AWS::Route53Resolver::ResolverRuleAssociation
 AWS::S3::AccessPoint
 AWS::S3::Bucket
 AWS::S3::MultiRegionAccessPoint

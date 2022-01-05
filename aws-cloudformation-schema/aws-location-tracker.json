@@ -13,7 +13,7 @@
     },
     "PositionFiltering" : {
       "type" : "string",
-      "enum" : [ "TimeBased", "DistanceBased" ]
+      "enum" : [ "TimeBased", "DistanceBased", "AccuracyBased" ]
     }
   },
   "properties" : {
