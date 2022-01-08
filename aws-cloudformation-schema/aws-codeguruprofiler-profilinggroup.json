@@ -9,7 +9,7 @@
     },
     "IamArn" : {
       "type" : "string",
-      "pattern" : "^arn:aws([-\\w]*):iam::([0-9]{12}):[^.]+$"
+      "pattern" : "^arn:aws([-\\w]*):iam::([0-9]{12}):[\\S]+$"
     },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",

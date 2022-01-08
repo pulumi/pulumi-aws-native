@@ -79,6 +79,9 @@
       "properties" : {
         "PassiveIp" : {
           "type" : "string"
+        },
+        "TlsSessionResumptionMode" : {
+          "type" : "string"
         }
       }
     },

@@ -17546,6 +17546,9 @@
                     "type": "string",
                     "description": "Optional for copying a JobTemplate from a pre-existing Job configuration."
                 },
+                "jobExecutionsRetryConfig": {
+                    "$ref": "#/types/aws-native:iot:JobExecutionsRetryConfigProperties"
+                },
                 "jobExecutionsRolloutConfig": {
                     "$ref": "#/types/aws-native:iot:JobExecutionsRolloutConfigProperties",
                     "description": "Allows you to create a staged rollout of a job."
@@ -17592,6 +17595,9 @@
                 "jobArn": {
                     "type": "string",
                     "description": "Optional for copying a JobTemplate from a pre-existing Job configuration."
+                },
+                "jobExecutionsRetryConfig": {
+                    "$ref": "#/types/aws-native:iot:JobExecutionsRetryConfigProperties"
                 },
                 "jobExecutionsRolloutConfig": {
                     "$ref": "#/types/aws-native:iot:JobExecutionsRolloutConfigProperties",
@@ -37980,14 +37986,6 @@
                     },
                     "description": "A list of alarms to monitor for the component."
                 },
-                "hAClusterPrometheusExporter": {
-                    "$ref": "#/types/aws-native:applicationinsights:ApplicationHAClusterPrometheusExporter",
-                    "description": "The HA cluster Prometheus Exporter settings."
-                },
-                "hANAPrometheusExporter": {
-                    "$ref": "#/types/aws-native:applicationinsights:ApplicationHANAPrometheusExporter",
-                    "description": "The HANA DB Prometheus Exporter settings."
-                },
                 "jMXPrometheusExporter": {
                     "$ref": "#/types/aws-native:applicationinsights:ApplicationJMXPrometheusExporter",
                     "description": "The JMX Prometheus Exporter settings."
@@ -38027,40 +38025,6 @@
         "aws-native:applicationinsights:ApplicationEventLevel": {
             "type": "string"
         },
-        "aws-native:applicationinsights:ApplicationHAClusterPrometheusExporter": {
-            "type": "object",
-            "properties": {
-                "prometheusPort": {
-                    "type": "string",
-                    "description": "Prometheus exporter port."
-                }
-            }
-        },
-        "aws-native:applicationinsights:ApplicationHANAPrometheusExporter": {
-            "type": "object",
-            "properties": {
-                "agreeToInstallHANADBClient": {
-                    "type": "boolean",
-                    "description": "A flag which indicates agreeing to install SAP HANA DB client."
-                },
-                "hANAPort": {
-                    "type": "string",
-                    "description": "The HANA DB port."
-                },
-                "hANASID": {
-                    "type": "string",
-                    "description": "HANA DB SID."
-                },
-                "hANASecretName": {
-                    "type": "string",
-                    "description": "The secret name which manages the HANA DB credentials e.g. {\n  \"username\": \"\u003c\u003e\",\n  \"password\": \"\u003c\u003e\"\n}."
-                },
-                "prometheusPort": {
-                    "type": "string",
-                    "description": "Prometheus exporter port."
-                }
-            }
-        },
         "aws-native:applicationinsights:ApplicationJMXPrometheusExporter": {
             "type": "object",
             "properties": {
@@ -38074,7 +38038,7 @@
                 },
                 "prometheusPort": {
                     "type": "string",
-                    "description": "Prometheus exporter port."
+                    "description": "Prometheus exporter port"
                 }
             }
         },
@@ -50219,6 +50183,17 @@
                 }
             }
         },
+        "aws-native:iot:JobExecutionsRetryConfigProperties": {
+            "type": "object",
+            "properties": {
+                "retryCriteriaList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:JobTemplateRetryCriteria"
+                    }
+                }
+            }
+        },
         "aws-native:iot:JobExecutionsRolloutConfigProperties": {
             "type": "object",
             "properties": {
@@ -50276,6 +50251,9 @@
         "aws-native:iot:JobTemplateFailureType": {
             "type": "string"
         },
+        "aws-native:iot:JobTemplateJobRetryFailureType": {
+            "type": "string"
+        },
         "aws-native:iot:JobTemplateRateIncreaseCriteria": {
             "type": "object",
             "properties": {
@@ -50283,6 +50261,17 @@
                     "type": "integer"
                 },
                 "numberOfSucceededThings": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:iot:JobTemplateRetryCriteria": {
+            "type": "object",
+            "properties": {
+                "failureType": {
+                    "$ref": "#/types/aws-native:iot:JobTemplateJobRetryFailureType"
+                },
+                "numberOfRetries": {
                     "type": "integer"
                 }
             }
