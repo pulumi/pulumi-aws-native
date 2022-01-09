@@ -27,15 +27,6 @@
     }
   },
   "definitions" : {
-    "HibernationOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Configured" : {
-          "type" : "boolean"
-        }
-      }
-    },
     "LaunchTemplateData" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -144,6 +135,9 @@
         "InstanceMarketOptions" : {
           "$ref" : "#/definitions/InstanceMarketOptions"
         },
+        "InstanceRequirements" : {
+          "$ref" : "#/definitions/InstanceRequirements"
+        },
         "RamDiskId" : {
           "type" : "string"
         },
@@ -152,6 +146,186 @@
         },
         "CreditSpecification" : {
           "$ref" : "#/definitions/CreditSpecification"
+        }
+      }
+    },
+    "Ipv6Add" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Ipv6Address" : {
+          "type" : "string"
+        }
+      }
+    },
+    "LicenseSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "LicenseConfigurationArn" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ElasticGpuSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "type" : "string"
+        }
+      }
+    },
+    "IamInstanceProfile" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Arn" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MemoryGiBPerVCpu" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "number"
+        },
+        "Min" : {
+          "type" : "number"
+        }
+      }
+    },
+    "VCpuCount" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Placement" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "GroupName" : {
+          "type" : "string"
+        },
+        "Tenancy" : {
+          "type" : "string"
+        },
+        "SpreadDomain" : {
+          "type" : "string"
+        },
+        "PartitionNumber" : {
+          "type" : "integer"
+        },
+        "AvailabilityZone" : {
+          "type" : "string"
+        },
+        "Affinity" : {
+          "type" : "string"
+        },
+        "HostId" : {
+          "type" : "string"
+        },
+        "HostResourceGroupArn" : {
+          "type" : "string"
+        }
+      }
+    },
+    "EnclaveOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Ebs" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SnapshotId" : {
+          "type" : "string"
+        },
+        "VolumeType" : {
+          "type" : "string"
+        },
+        "KmsKeyId" : {
+          "type" : "string"
+        },
+        "Encrypted" : {
+          "type" : "boolean"
+        },
+        "Throughput" : {
+          "type" : "integer"
+        },
+        "Iops" : {
+          "type" : "integer"
+        },
+        "VolumeSize" : {
+          "type" : "integer"
+        },
+        "DeleteOnTermination" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "BlockDeviceMapping" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "NoDevice" : {
+          "type" : "string"
+        },
+        "VirtualName" : {
+          "type" : "string"
+        },
+        "Ebs" : {
+          "$ref" : "#/definitions/Ebs"
+        },
+        "DeviceName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Monitoring" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "MemoryMiB" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "HibernationOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Configured" : {
+          "type" : "boolean"
         }
       }
     },
@@ -173,21 +347,15 @@
         }
       }
     },
-    "Ipv6Add" : {
+    "NetworkInterfaceCount" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Ipv6Address" : {
-          "type" : "string"
-        }
-      }
-    },
-    "LicenseSpecification" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "LicenseConfigurationArn" : {
-          "type" : "string"
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
         }
       }
     },
@@ -220,15 +388,6 @@
           "type" : "integer"
         },
         "ValidUntil" : {
-          "type" : "string"
-        }
-      }
-    },
-    "ElasticGpuSpecification" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Type" : {
           "type" : "string"
         }
       }
@@ -296,18 +455,6 @@
         }
       }
     },
-    "IamInstanceProfile" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Arn" : {
-          "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
     "PrivateIpAdd" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -352,33 +499,15 @@
         }
       }
     },
-    "Placement" : {
+    "AcceleratorCount" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "GroupName" : {
-          "type" : "string"
-        },
-        "Tenancy" : {
-          "type" : "string"
-        },
-        "SpreadDomain" : {
-          "type" : "string"
-        },
-        "PartitionNumber" : {
+        "Max" : {
           "type" : "integer"
         },
-        "AvailabilityZone" : {
-          "type" : "string"
-        },
-        "Affinity" : {
-          "type" : "string"
-        },
-        "HostId" : {
-          "type" : "string"
-        },
-        "HostResourceGroupArn" : {
-          "type" : "string"
+        "Min" : {
+          "type" : "integer"
         }
       }
     },
@@ -394,45 +523,6 @@
         }
       }
     },
-    "EnclaveOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      }
-    },
-    "Ebs" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "SnapshotId" : {
-          "type" : "string"
-        },
-        "VolumeType" : {
-          "type" : "string"
-        },
-        "KmsKeyId" : {
-          "type" : "string"
-        },
-        "Encrypted" : {
-          "type" : "boolean"
-        },
-        "Throughput" : {
-          "type" : "integer"
-        },
-        "Iops" : {
-          "type" : "integer"
-        },
-        "VolumeSize" : {
-          "type" : "integer"
-        },
-        "DeleteOnTermination" : {
-          "type" : "boolean"
-        }
-      }
-    },
     "LaunchTemplateElasticInferenceAccelerator" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -445,21 +535,112 @@
         }
       }
     },
-    "BlockDeviceMapping" : {
+    "BaselineEbsBandwidthMbps" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "NoDevice" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "InstanceRequirements" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "LocalStorageTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "InstanceGenerations" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "NetworkInterfaceCount" : {
+          "$ref" : "#/definitions/NetworkInterfaceCount"
+        },
+        "MemoryGiBPerVCpu" : {
+          "$ref" : "#/definitions/MemoryGiBPerVCpu"
+        },
+        "AcceleratorTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "VCpuCount" : {
+          "$ref" : "#/definitions/VCpuCount"
+        },
+        "ExcludedInstanceTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AcceleratorManufacturers" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "LocalStorage" : {
           "type" : "string"
         },
-        "VirtualName" : {
+        "CpuManufacturers" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AcceleratorCount" : {
+          "$ref" : "#/definitions/AcceleratorCount"
+        },
+        "BareMetal" : {
           "type" : "string"
         },
-        "Ebs" : {
-          "$ref" : "#/definitions/Ebs"
+        "RequireHibernateSupport" : {
+          "type" : "boolean"
         },
-        "DeviceName" : {
+        "SpotMaxPricePercentageOverLowestPrice" : {
+          "type" : "integer"
+        },
+        "BaselineEbsBandwidthMbps" : {
+          "$ref" : "#/definitions/BaselineEbsBandwidthMbps"
+        },
+        "OnDemandMaxPricePercentageOverLowestPrice" : {
+          "type" : "integer"
+        },
+        "AcceleratorNames" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AcceleratorTotalMemoryMiB" : {
+          "$ref" : "#/definitions/AcceleratorTotalMemoryMiB"
+        },
+        "BurstablePerformance" : {
           "type" : "string"
+        },
+        "MemoryMiB" : {
+          "$ref" : "#/definitions/MemoryMiB"
+        },
+        "TotalLocalStorageGB" : {
+          "$ref" : "#/definitions/TotalLocalStorageGB"
         }
       }
     },
@@ -475,6 +656,18 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "AcceleratorTotalMemoryMiB" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
     },
     "CapacityReservationTarget" : {
       "type" : "object",
@@ -509,12 +702,15 @@
         }
       }
     },
-    "Monitoring" : {
+    "TotalLocalStorageGB" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
+        "Max" : {
+          "type" : "number"
+        },
+        "Min" : {
+          "type" : "number"
         }
       }
     }
