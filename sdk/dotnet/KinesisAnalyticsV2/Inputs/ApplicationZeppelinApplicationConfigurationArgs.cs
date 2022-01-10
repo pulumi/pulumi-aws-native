@@ -16,7 +16,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public Input<Inputs.ApplicationCatalogConfigurationArgs>? CatalogConfiguration { get; set; }
 
         [Input("customArtifactsConfiguration")]
-        public Input<Inputs.ApplicationCustomArtifactsConfigurationArgs>? CustomArtifactsConfiguration { get; set; }
+        private InputList<Inputs.ApplicationCustomArtifactConfigurationArgs>? _customArtifactsConfiguration;
+        public InputList<Inputs.ApplicationCustomArtifactConfigurationArgs> CustomArtifactsConfiguration
+        {
+            get => _customArtifactsConfiguration ?? (_customArtifactsConfiguration = new InputList<Inputs.ApplicationCustomArtifactConfigurationArgs>());
+            set => _customArtifactsConfiguration = value;
+        }
 
         [Input("deployAsApplicationConfiguration")]
         public Input<Inputs.ApplicationDeployAsApplicationConfigurationArgs>? DeployAsApplicationConfiguration { get; set; }

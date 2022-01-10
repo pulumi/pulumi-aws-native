@@ -53,6 +53,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     public readonly notificationTarget!: pulumi.Output<string | undefined>;
     public readonly requestTimeoutSeconds!: pulumi.Output<number>;
     public readonly ruleSetName!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.gamelift.MatchmakingConfigurationTag[] | undefined>;
 
     /**
      * Create a MatchmakingConfiguration resource with the given unique name, arguments, and options.
@@ -90,6 +91,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             inputs["notificationTarget"] = args ? args.notificationTarget : undefined;
             inputs["requestTimeoutSeconds"] = args ? args.requestTimeoutSeconds : undefined;
             inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["acceptanceRequired"] = undefined /*out*/;
@@ -107,6 +109,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             inputs["notificationTarget"] = undefined /*out*/;
             inputs["requestTimeoutSeconds"] = undefined /*out*/;
             inputs["ruleSetName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -133,4 +136,5 @@ export interface MatchmakingConfigurationArgs {
     notificationTarget?: pulumi.Input<string>;
     requestTimeoutSeconds: pulumi.Input<number>;
     ruleSetName: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingConfigurationTagArgs>[]>;
 }

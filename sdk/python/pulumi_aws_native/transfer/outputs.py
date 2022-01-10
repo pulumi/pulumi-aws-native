@@ -172,6 +172,8 @@ class ServerProtocolDetails(dict):
         suggest = None
         if key == "passiveIp":
             suggest = "passive_ip"
+        elif key == "tlsSessionResumptionMode":
+            suggest = "tls_session_resumption_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServerProtocolDetails. Access the value via the '{suggest}' property getter instead.")
@@ -185,14 +187,22 @@ class ServerProtocolDetails(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 passive_ip: Optional[str] = None):
+                 passive_ip: Optional[str] = None,
+                 tls_session_resumption_mode: Optional[str] = None):
         if passive_ip is not None:
             pulumi.set(__self__, "passive_ip", passive_ip)
+        if tls_session_resumption_mode is not None:
+            pulumi.set(__self__, "tls_session_resumption_mode", tls_session_resumption_mode)
 
     @property
     @pulumi.getter(name="passiveIp")
     def passive_ip(self) -> Optional[str]:
         return pulumi.get(self, "passive_ip")
+
+    @property
+    @pulumi.getter(name="tlsSessionResumptionMode")
+    def tls_session_resumption_mode(self) -> Optional[str]:
+        return pulumi.get(self, "tls_session_resumption_mode")
 
 
 @pulumi.output_type

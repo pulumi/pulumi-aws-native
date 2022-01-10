@@ -387,25 +387,23 @@ class BotAliasLocaleSettingsItem(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 bot_alias_locale_setting: Optional['outputs.BotAliasLocaleSettings'] = None,
-                 locale_id: Optional[str] = None):
+                 bot_alias_locale_setting: 'outputs.BotAliasLocaleSettings',
+                 locale_id: str):
         """
         A locale setting in alias
         :param str locale_id: A string used to identify the locale
         """
-        if bot_alias_locale_setting is not None:
-            pulumi.set(__self__, "bot_alias_locale_setting", bot_alias_locale_setting)
-        if locale_id is not None:
-            pulumi.set(__self__, "locale_id", locale_id)
+        pulumi.set(__self__, "bot_alias_locale_setting", bot_alias_locale_setting)
+        pulumi.set(__self__, "locale_id", locale_id)
 
     @property
     @pulumi.getter(name="botAliasLocaleSetting")
-    def bot_alias_locale_setting(self) -> Optional['outputs.BotAliasLocaleSettings']:
+    def bot_alias_locale_setting(self) -> 'outputs.BotAliasLocaleSettings':
         return pulumi.get(self, "bot_alias_locale_setting")
 
     @property
     @pulumi.getter(name="localeId")
-    def locale_id(self) -> Optional[str]:
+    def locale_id(self) -> str:
         """
         A string used to identify the locale
         """

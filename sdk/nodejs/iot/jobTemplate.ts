@@ -56,6 +56,7 @@ export class JobTemplate extends pulumi.CustomResource {
      * Optional for copying a JobTemplate from a pre-existing Job configuration.
      */
     public readonly jobArn!: pulumi.Output<string | undefined>;
+    public readonly jobExecutionsRetryConfig!: pulumi.Output<outputs.iot.JobExecutionsRetryConfigProperties | undefined>;
     /**
      * Allows you to create a staged rollout of a job.
      */
@@ -96,6 +97,7 @@ export class JobTemplate extends pulumi.CustomResource {
             inputs["document"] = args ? args.document : undefined;
             inputs["documentSource"] = args ? args.documentSource : undefined;
             inputs["jobArn"] = args ? args.jobArn : undefined;
+            inputs["jobExecutionsRetryConfig"] = args ? args.jobExecutionsRetryConfig : undefined;
             inputs["jobExecutionsRolloutConfig"] = args ? args.jobExecutionsRolloutConfig : undefined;
             inputs["jobTemplateId"] = args ? args.jobTemplateId : undefined;
             inputs["presignedUrlConfig"] = args ? args.presignedUrlConfig : undefined;
@@ -109,6 +111,7 @@ export class JobTemplate extends pulumi.CustomResource {
             inputs["document"] = undefined /*out*/;
             inputs["documentSource"] = undefined /*out*/;
             inputs["jobArn"] = undefined /*out*/;
+            inputs["jobExecutionsRetryConfig"] = undefined /*out*/;
             inputs["jobExecutionsRolloutConfig"] = undefined /*out*/;
             inputs["jobTemplateId"] = undefined /*out*/;
             inputs["presignedUrlConfig"] = undefined /*out*/;
@@ -146,6 +149,7 @@ export interface JobTemplateArgs {
      * Optional for copying a JobTemplate from a pre-existing Job configuration.
      */
     jobArn?: pulumi.Input<string>;
+    jobExecutionsRetryConfig?: pulumi.Input<inputs.iot.JobExecutionsRetryConfigPropertiesArgs>;
     /**
      * Allows you to create a staged rollout of a job.
      */

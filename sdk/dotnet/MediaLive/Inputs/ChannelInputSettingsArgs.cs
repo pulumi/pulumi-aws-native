@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("networkInputSettings")]
         public Input<Inputs.ChannelNetworkInputSettingsArgs>? NetworkInputSettings { get; set; }
 
+        [Input("scte35Pid")]
+        public Input<int>? Scte35Pid { get; set; }
+
         [Input("smpte2038DataPreference")]
         public Input<string>? Smpte2038DataPreference { get; set; }
 

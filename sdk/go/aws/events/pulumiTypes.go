@@ -1242,6 +1242,106 @@ func (o EventBusPolicyConditionPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventBusTagEntry struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// EventBusTagEntryInput is an input type that accepts EventBusTagEntryArgs and EventBusTagEntryOutput values.
+// You can construct a concrete instance of `EventBusTagEntryInput` via:
+//
+//          EventBusTagEntryArgs{...}
+type EventBusTagEntryInput interface {
+	pulumi.Input
+
+	ToEventBusTagEntryOutput() EventBusTagEntryOutput
+	ToEventBusTagEntryOutputWithContext(context.Context) EventBusTagEntryOutput
+}
+
+type EventBusTagEntryArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventBusTagEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusTagEntry)(nil)).Elem()
+}
+
+func (i EventBusTagEntryArgs) ToEventBusTagEntryOutput() EventBusTagEntryOutput {
+	return i.ToEventBusTagEntryOutputWithContext(context.Background())
+}
+
+func (i EventBusTagEntryArgs) ToEventBusTagEntryOutputWithContext(ctx context.Context) EventBusTagEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusTagEntryOutput)
+}
+
+// EventBusTagEntryArrayInput is an input type that accepts EventBusTagEntryArray and EventBusTagEntryArrayOutput values.
+// You can construct a concrete instance of `EventBusTagEntryArrayInput` via:
+//
+//          EventBusTagEntryArray{ EventBusTagEntryArgs{...} }
+type EventBusTagEntryArrayInput interface {
+	pulumi.Input
+
+	ToEventBusTagEntryArrayOutput() EventBusTagEntryArrayOutput
+	ToEventBusTagEntryArrayOutputWithContext(context.Context) EventBusTagEntryArrayOutput
+}
+
+type EventBusTagEntryArray []EventBusTagEntryInput
+
+func (EventBusTagEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventBusTagEntry)(nil)).Elem()
+}
+
+func (i EventBusTagEntryArray) ToEventBusTagEntryArrayOutput() EventBusTagEntryArrayOutput {
+	return i.ToEventBusTagEntryArrayOutputWithContext(context.Background())
+}
+
+func (i EventBusTagEntryArray) ToEventBusTagEntryArrayOutputWithContext(ctx context.Context) EventBusTagEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusTagEntryArrayOutput)
+}
+
+type EventBusTagEntryOutput struct{ *pulumi.OutputState }
+
+func (EventBusTagEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusTagEntry)(nil)).Elem()
+}
+
+func (o EventBusTagEntryOutput) ToEventBusTagEntryOutput() EventBusTagEntryOutput {
+	return o
+}
+
+func (o EventBusTagEntryOutput) ToEventBusTagEntryOutputWithContext(ctx context.Context) EventBusTagEntryOutput {
+	return o
+}
+
+func (o EventBusTagEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventBusTagEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o EventBusTagEntryOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventBusTagEntry) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventBusTagEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (EventBusTagEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventBusTagEntry)(nil)).Elem()
+}
+
+func (o EventBusTagEntryArrayOutput) ToEventBusTagEntryArrayOutput() EventBusTagEntryArrayOutput {
+	return o
+}
+
+func (o EventBusTagEntryArrayOutput) ToEventBusTagEntryArrayOutputWithContext(ctx context.Context) EventBusTagEntryArrayOutput {
+	return o
+}
+
+func (o EventBusTagEntryArrayOutput) Index(i pulumi.IntInput) EventBusTagEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventBusTagEntry {
+		return vs[0].([]EventBusTagEntry)[vs[1].(int)]
+	}).(EventBusTagEntryOutput)
+}
+
 type RuleAwsVpcConfiguration struct {
 	AssignPublicIp *string  `pulumi:"assignPublicIp"`
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -4210,6 +4310,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterArrayInput)(nil)).Elem(), ConnectionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyConditionInput)(nil)).Elem(), EventBusPolicyConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyConditionPtrInput)(nil)).Elem(), EventBusPolicyConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusTagEntryInput)(nil)).Elem(), EventBusTagEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusTagEntryArrayInput)(nil)).Elem(), EventBusTagEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAwsVpcConfigurationInput)(nil)).Elem(), RuleAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAwsVpcConfigurationPtrInput)(nil)).Elem(), RuleAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleBatchArrayPropertiesInput)(nil)).Elem(), RuleBatchArrayPropertiesArgs{})
@@ -4266,6 +4368,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionParameterArrayOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyConditionOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyConditionPtrOutput{})
+	pulumi.RegisterOutputType(EventBusTagEntryOutput{})
+	pulumi.RegisterOutputType(EventBusTagEntryArrayOutput{})
 	pulumi.RegisterOutputType(RuleAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(RuleAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleBatchArrayPropertiesOutput{})

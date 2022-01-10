@@ -118,6 +118,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("programDateTime")]
         public Input<string>? ProgramDateTime { get; set; }
 
+        [Input("programDateTimeClock")]
+        public Input<string>? ProgramDateTimeClock { get; set; }
+
         [Input("programDateTimePeriod")]
         public Input<int>? ProgramDateTimePeriod { get; set; }
 

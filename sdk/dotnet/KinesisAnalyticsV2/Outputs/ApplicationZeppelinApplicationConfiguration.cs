@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationZeppelinApplicationConfiguration
     {
         public readonly Outputs.ApplicationCatalogConfiguration? CatalogConfiguration;
-        public readonly Outputs.ApplicationCustomArtifactsConfiguration? CustomArtifactsConfiguration;
+        public readonly ImmutableArray<Outputs.ApplicationCustomArtifactConfiguration> CustomArtifactsConfiguration;
         public readonly Outputs.ApplicationDeployAsApplicationConfiguration? DeployAsApplicationConfiguration;
         public readonly Outputs.ApplicationZeppelinMonitoringConfiguration? MonitoringConfiguration;
 
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         private ApplicationZeppelinApplicationConfiguration(
             Outputs.ApplicationCatalogConfiguration? catalogConfiguration,
 
-            Outputs.ApplicationCustomArtifactsConfiguration? customArtifactsConfiguration,
+            ImmutableArray<Outputs.ApplicationCustomArtifactConfiguration> customArtifactsConfiguration,
 
             Outputs.ApplicationDeployAsApplicationConfiguration? deployAsApplicationConfiguration,
 

@@ -32,6 +32,7 @@ type MatchmakingConfiguration struct {
 	NotificationTarget       pulumi.StringPtrOutput                          `pulumi:"notificationTarget"`
 	RequestTimeoutSeconds    pulumi.IntOutput                                `pulumi:"requestTimeoutSeconds"`
 	RuleSetName              pulumi.StringOutput                             `pulumi:"ruleSetName"`
+	Tags                     MatchmakingConfigurationTagArrayOutput          `pulumi:"tags"`
 }
 
 // NewMatchmakingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -96,6 +97,7 @@ type matchmakingConfigurationArgs struct {
 	NotificationTarget       *string                                `pulumi:"notificationTarget"`
 	RequestTimeoutSeconds    int                                    `pulumi:"requestTimeoutSeconds"`
 	RuleSetName              string                                 `pulumi:"ruleSetName"`
+	Tags                     []MatchmakingConfigurationTag          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MatchmakingConfiguration resource.
@@ -114,6 +116,7 @@ type MatchmakingConfigurationArgs struct {
 	NotificationTarget       pulumi.StringPtrInput
 	RequestTimeoutSeconds    pulumi.IntInput
 	RuleSetName              pulumi.StringInput
+	Tags                     MatchmakingConfigurationTagArrayInput
 }
 
 func (MatchmakingConfigurationArgs) ElementType() reflect.Type {

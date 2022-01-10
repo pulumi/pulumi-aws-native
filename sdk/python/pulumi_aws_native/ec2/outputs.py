@@ -75,6 +75,9 @@ __all__ = [
     'InstanceTag',
     'InstanceVolume',
     'InternetGatewayTag',
+    'LaunchTemplateAcceleratorCount',
+    'LaunchTemplateAcceleratorTotalMemoryMiB',
+    'LaunchTemplateBaselineEbsBandwidthMbps',
     'LaunchTemplateBlockDeviceMapping',
     'LaunchTemplateCapacityReservationSpecification',
     'LaunchTemplateCapacityReservationTarget',
@@ -88,16 +91,22 @@ __all__ = [
     'LaunchTemplateHibernationOptions',
     'LaunchTemplateIamInstanceProfile',
     'LaunchTemplateInstanceMarketOptions',
+    'LaunchTemplateInstanceRequirements',
     'LaunchTemplateIpv6Add',
     'LaunchTemplateLicenseSpecification',
+    'LaunchTemplateMemoryGiBPerVCpu',
+    'LaunchTemplateMemoryMiB',
     'LaunchTemplateMetadataOptions',
     'LaunchTemplateMonitoring',
     'LaunchTemplateNetworkInterface',
+    'LaunchTemplateNetworkInterfaceCount',
     'LaunchTemplatePlacement',
     'LaunchTemplatePrivateIpAdd',
     'LaunchTemplateSpotOptions',
     'LaunchTemplateTag',
     'LaunchTemplateTagSpecification',
+    'LaunchTemplateTotalLocalStorageGB',
+    'LaunchTemplateVCpuCount',
     'LocalGatewayRouteTableVPCAssociationTag',
     'NatGatewayTag',
     'NetworkAclEntryIcmp',
@@ -2752,6 +2761,69 @@ class InternetGatewayTag(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateAcceleratorCount(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class LaunchTemplateAcceleratorTotalMemoryMiB(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class LaunchTemplateBaselineEbsBandwidthMbps(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
 class LaunchTemplateBlockDeviceMapping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2992,6 +3064,8 @@ class LaunchTemplateData(dict):
             suggest = "instance_initiated_shutdown_behavior"
         elif key == "instanceMarketOptions":
             suggest = "instance_market_options"
+        elif key == "instanceRequirements":
+            suggest = "instance_requirements"
         elif key == "instanceType":
             suggest = "instance_type"
         elif key == "kernelId":
@@ -3041,6 +3115,7 @@ class LaunchTemplateData(dict):
                  image_id: Optional[str] = None,
                  instance_initiated_shutdown_behavior: Optional[str] = None,
                  instance_market_options: Optional['outputs.LaunchTemplateInstanceMarketOptions'] = None,
+                 instance_requirements: Optional['outputs.LaunchTemplateInstanceRequirements'] = None,
                  instance_type: Optional[str] = None,
                  kernel_id: Optional[str] = None,
                  key_name: Optional[str] = None,
@@ -3082,6 +3157,8 @@ class LaunchTemplateData(dict):
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_market_options is not None:
             pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if kernel_id is not None:
@@ -3178,6 +3255,11 @@ class LaunchTemplateData(dict):
     @pulumi.getter(name="instanceMarketOptions")
     def instance_market_options(self) -> Optional['outputs.LaunchTemplateInstanceMarketOptions']:
         return pulumi.get(self, "instance_market_options")
+
+    @property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional['outputs.LaunchTemplateInstanceRequirements']:
+        return pulumi.get(self, "instance_requirements")
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3461,6 +3543,236 @@ class LaunchTemplateInstanceMarketOptions(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateInstanceRequirements(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceleratorCount":
+            suggest = "accelerator_count"
+        elif key == "acceleratorManufacturers":
+            suggest = "accelerator_manufacturers"
+        elif key == "acceleratorNames":
+            suggest = "accelerator_names"
+        elif key == "acceleratorTotalMemoryMiB":
+            suggest = "accelerator_total_memory_mi_b"
+        elif key == "acceleratorTypes":
+            suggest = "accelerator_types"
+        elif key == "bareMetal":
+            suggest = "bare_metal"
+        elif key == "baselineEbsBandwidthMbps":
+            suggest = "baseline_ebs_bandwidth_mbps"
+        elif key == "burstablePerformance":
+            suggest = "burstable_performance"
+        elif key == "cpuManufacturers":
+            suggest = "cpu_manufacturers"
+        elif key == "excludedInstanceTypes":
+            suggest = "excluded_instance_types"
+        elif key == "instanceGenerations":
+            suggest = "instance_generations"
+        elif key == "localStorage":
+            suggest = "local_storage"
+        elif key == "localStorageTypes":
+            suggest = "local_storage_types"
+        elif key == "memoryGiBPerVCpu":
+            suggest = "memory_gi_b_per_v_cpu"
+        elif key == "memoryMiB":
+            suggest = "memory_mi_b"
+        elif key == "networkInterfaceCount":
+            suggest = "network_interface_count"
+        elif key == "onDemandMaxPricePercentageOverLowestPrice":
+            suggest = "on_demand_max_price_percentage_over_lowest_price"
+        elif key == "requireHibernateSupport":
+            suggest = "require_hibernate_support"
+        elif key == "spotMaxPricePercentageOverLowestPrice":
+            suggest = "spot_max_price_percentage_over_lowest_price"
+        elif key == "totalLocalStorageGB":
+            suggest = "total_local_storage_gb"
+        elif key == "vCpuCount":
+            suggest = "v_cpu_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateInstanceRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateInstanceRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateInstanceRequirements.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accelerator_count: Optional['outputs.LaunchTemplateAcceleratorCount'] = None,
+                 accelerator_manufacturers: Optional[Sequence[str]] = None,
+                 accelerator_names: Optional[Sequence[str]] = None,
+                 accelerator_total_memory_mi_b: Optional['outputs.LaunchTemplateAcceleratorTotalMemoryMiB'] = None,
+                 accelerator_types: Optional[Sequence[str]] = None,
+                 bare_metal: Optional[str] = None,
+                 baseline_ebs_bandwidth_mbps: Optional['outputs.LaunchTemplateBaselineEbsBandwidthMbps'] = None,
+                 burstable_performance: Optional[str] = None,
+                 cpu_manufacturers: Optional[Sequence[str]] = None,
+                 excluded_instance_types: Optional[Sequence[str]] = None,
+                 instance_generations: Optional[Sequence[str]] = None,
+                 local_storage: Optional[str] = None,
+                 local_storage_types: Optional[Sequence[str]] = None,
+                 memory_gi_b_per_v_cpu: Optional['outputs.LaunchTemplateMemoryGiBPerVCpu'] = None,
+                 memory_mi_b: Optional['outputs.LaunchTemplateMemoryMiB'] = None,
+                 network_interface_count: Optional['outputs.LaunchTemplateNetworkInterfaceCount'] = None,
+                 on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
+                 require_hibernate_support: Optional[bool] = None,
+                 spot_max_price_percentage_over_lowest_price: Optional[int] = None,
+                 total_local_storage_gb: Optional['outputs.LaunchTemplateTotalLocalStorageGB'] = None,
+                 v_cpu_count: Optional['outputs.LaunchTemplateVCpuCount'] = None):
+        if accelerator_count is not None:
+            pulumi.set(__self__, "accelerator_count", accelerator_count)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_names is not None:
+            pulumi.set(__self__, "accelerator_names", accelerator_names)
+        if accelerator_total_memory_mi_b is not None:
+            pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if bare_metal is not None:
+            pulumi.set(__self__, "bare_metal", bare_metal)
+        if baseline_ebs_bandwidth_mbps is not None:
+            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if burstable_performance is not None:
+            pulumi.set(__self__, "burstable_performance", burstable_performance)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+        if instance_generations is not None:
+            pulumi.set(__self__, "instance_generations", instance_generations)
+        if local_storage is not None:
+            pulumi.set(__self__, "local_storage", local_storage)
+        if local_storage_types is not None:
+            pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if memory_gi_b_per_v_cpu is not None:
+            pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
+        if memory_mi_b is not None:
+            pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        if network_interface_count is not None:
+            pulumi.set(__self__, "network_interface_count", network_interface_count)
+        if on_demand_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_hibernate_support is not None:
+            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+        if spot_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+        if total_local_storage_gb is not None:
+            pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
+        if v_cpu_count is not None:
+            pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+
+    @property
+    @pulumi.getter(name="acceleratorCount")
+    def accelerator_count(self) -> Optional['outputs.LaunchTemplateAcceleratorCount']:
+        return pulumi.get(self, "accelerator_count")
+
+    @property
+    @pulumi.getter(name="acceleratorManufacturers")
+    def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "accelerator_manufacturers")
+
+    @property
+    @pulumi.getter(name="acceleratorNames")
+    def accelerator_names(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "accelerator_names")
+
+    @property
+    @pulumi.getter(name="acceleratorTotalMemoryMiB")
+    def accelerator_total_memory_mi_b(self) -> Optional['outputs.LaunchTemplateAcceleratorTotalMemoryMiB']:
+        return pulumi.get(self, "accelerator_total_memory_mi_b")
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "accelerator_types")
+
+    @property
+    @pulumi.getter(name="bareMetal")
+    def bare_metal(self) -> Optional[str]:
+        return pulumi.get(self, "bare_metal")
+
+    @property
+    @pulumi.getter(name="baselineEbsBandwidthMbps")
+    def baseline_ebs_bandwidth_mbps(self) -> Optional['outputs.LaunchTemplateBaselineEbsBandwidthMbps']:
+        return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
+
+    @property
+    @pulumi.getter(name="burstablePerformance")
+    def burstable_performance(self) -> Optional[str]:
+        return pulumi.get(self, "burstable_performance")
+
+    @property
+    @pulumi.getter(name="cpuManufacturers")
+    def cpu_manufacturers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "cpu_manufacturers")
+
+    @property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excluded_instance_types")
+
+    @property
+    @pulumi.getter(name="instanceGenerations")
+    def instance_generations(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "instance_generations")
+
+    @property
+    @pulumi.getter(name="localStorage")
+    def local_storage(self) -> Optional[str]:
+        return pulumi.get(self, "local_storage")
+
+    @property
+    @pulumi.getter(name="localStorageTypes")
+    def local_storage_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "local_storage_types")
+
+    @property
+    @pulumi.getter(name="memoryGiBPerVCpu")
+    def memory_gi_b_per_v_cpu(self) -> Optional['outputs.LaunchTemplateMemoryGiBPerVCpu']:
+        return pulumi.get(self, "memory_gi_b_per_v_cpu")
+
+    @property
+    @pulumi.getter(name="memoryMiB")
+    def memory_mi_b(self) -> Optional['outputs.LaunchTemplateMemoryMiB']:
+        return pulumi.get(self, "memory_mi_b")
+
+    @property
+    @pulumi.getter(name="networkInterfaceCount")
+    def network_interface_count(self) -> Optional['outputs.LaunchTemplateNetworkInterfaceCount']:
+        return pulumi.get(self, "network_interface_count")
+
+    @property
+    @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
+    def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[int]:
+        return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
+
+    @property
+    @pulumi.getter(name="requireHibernateSupport")
+    def require_hibernate_support(self) -> Optional[bool]:
+        return pulumi.get(self, "require_hibernate_support")
+
+    @property
+    @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
+    def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
+        return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
+
+    @property
+    @pulumi.getter(name="totalLocalStorageGB")
+    def total_local_storage_gb(self) -> Optional['outputs.LaunchTemplateTotalLocalStorageGB']:
+        return pulumi.get(self, "total_local_storage_gb")
+
+    @property
+    @pulumi.getter(name="vCpuCount")
+    def v_cpu_count(self) -> Optional['outputs.LaunchTemplateVCpuCount']:
+        return pulumi.get(self, "v_cpu_count")
+
+
+@pulumi.output_type
 class LaunchTemplateIpv6Add(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3518,6 +3830,48 @@ class LaunchTemplateLicenseSpecification(dict):
     @pulumi.getter(name="licenseConfigurationArn")
     def license_configuration_arn(self) -> Optional[str]:
         return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
+class LaunchTemplateMemoryGiBPerVCpu(dict):
+    def __init__(__self__, *,
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[float]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class LaunchTemplateMemoryMiB(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
 
 
 @pulumi.output_type
@@ -3757,6 +4111,27 @@ class LaunchTemplateNetworkInterface(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class LaunchTemplateNetworkInterfaceCount(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
 
 
 @pulumi.output_type
@@ -4018,6 +4393,48 @@ class LaunchTemplateTagSpecification(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.LaunchTemplateTag']]:
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class LaunchTemplateTotalLocalStorageGB(dict):
+    def __init__(__self__, *,
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[float]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class LaunchTemplateVCpuCount(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
 
 
 @pulumi.output_type

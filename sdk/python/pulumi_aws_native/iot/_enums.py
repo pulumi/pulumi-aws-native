@@ -16,6 +16,7 @@ __all__ = [
     'DomainConfigurationStatus',
     'JobTemplateAction',
     'JobTemplateFailureType',
+    'JobTemplateJobRetryFailureType',
     'LoggingDefaultLogLevel',
     'MitigationActionEnableIoTLoggingParamsLogLevel',
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
@@ -98,6 +99,12 @@ class JobTemplateAction(str, Enum):
 class JobTemplateFailureType(str, Enum):
     FAILED = "FAILED"
     REJECTED = "REJECTED"
+    TIMED_OUT = "TIMED_OUT"
+    ALL = "ALL"
+
+
+class JobTemplateJobRetryFailureType(str, Enum):
+    FAILED = "FAILED"
     TIMED_OUT = "TIMED_OUT"
     ALL = "ALL"
 

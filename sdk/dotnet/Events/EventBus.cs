@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Events
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.EventBusTagEntry>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EventBus resource with the given unique name, arguments, and options.
@@ -78,6 +81,14 @@ namespace Pulumi.AwsNative.Events
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.EventBusTagEntryArgs>? _tags;
+        public InputList<Inputs.EventBusTagEntryArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.EventBusTagEntryArgs>());
+            set => _tags = value;
+        }
 
         public EventBusArgs()
         {

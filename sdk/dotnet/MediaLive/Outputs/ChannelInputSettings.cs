@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly int? FilterStrength;
         public readonly string? InputFilter;
         public readonly Outputs.ChannelNetworkInputSettings? NetworkInputSettings;
+        public readonly int? Scte35Pid;
         public readonly string? Smpte2038DataPreference;
         public readonly string? SourceEndBehavior;
         public readonly Outputs.ChannelVideoSelector? VideoSelector;
@@ -40,6 +41,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             Outputs.ChannelNetworkInputSettings? networkInputSettings,
 
+            int? scte35Pid,
+
             string? smpte2038DataPreference,
 
             string? sourceEndBehavior,
@@ -53,6 +56,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             FilterStrength = filterStrength;
             InputFilter = inputFilter;
             NetworkInputSettings = networkInputSettings;
+            Scte35Pid = scte35Pid;
             Smpte2038DataPreference = smpte2038DataPreference;
             SourceEndBehavior = sourceEndBehavior;
             VideoSelector = videoSelector;

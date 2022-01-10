@@ -46,6 +46,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
     public readonly notificationTarget!: pulumi.Output<string | undefined>;
     public readonly playerLatencyPolicies!: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
     public readonly priorityConfiguration!: pulumi.Output<outputs.gamelift.GameSessionQueuePriorityConfiguration | undefined>;
+    public readonly tags!: pulumi.Output<outputs.gamelift.GameSessionQueueTag[] | undefined>;
     public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
 
     /**
@@ -68,6 +69,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
             inputs["notificationTarget"] = args ? args.notificationTarget : undefined;
             inputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
             inputs["priorityConfiguration"] = args ? args.priorityConfiguration : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
@@ -79,6 +81,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
             inputs["notificationTarget"] = undefined /*out*/;
             inputs["playerLatencyPolicies"] = undefined /*out*/;
             inputs["priorityConfiguration"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["timeoutInSeconds"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -99,5 +102,6 @@ export interface GameSessionQueueArgs {
     notificationTarget?: pulumi.Input<string>;
     playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicyArgs>[]>;
     priorityConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueuePriorityConfigurationArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueueTagArgs>[]>;
     timeoutInSeconds?: pulumi.Input<number>;
 }

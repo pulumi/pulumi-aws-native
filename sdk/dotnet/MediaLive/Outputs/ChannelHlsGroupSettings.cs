@@ -45,6 +45,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly string? Mode;
         public readonly string? OutputSelection;
         public readonly string? ProgramDateTime;
+        public readonly string? ProgramDateTimeClock;
         public readonly int? ProgramDateTimePeriod;
         public readonly string? RedundantManifest;
         public readonly int? SegmentLength;
@@ -122,6 +123,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? programDateTime,
 
+            string? programDateTimeClock,
+
             int? programDateTimePeriod,
 
             string? redundantManifest,
@@ -174,6 +177,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             Mode = mode;
             OutputSelection = outputSelection;
             ProgramDateTime = programDateTime;
+            ProgramDateTimeClock = programDateTimeClock;
             ProgramDateTimePeriod = programDateTimePeriod;
             RedundantManifest = redundantManifest;
             SegmentLength = segmentLength;

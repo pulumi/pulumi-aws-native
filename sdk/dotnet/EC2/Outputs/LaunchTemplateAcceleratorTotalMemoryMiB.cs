@@ -7,15 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
+namespace Pulumi.AwsNative.EC2.Outputs
 {
 
     [OutputType]
-    public sealed class ApplicationCustomArtifactsConfiguration
+    public sealed class LaunchTemplateAcceleratorTotalMemoryMiB
     {
+        public readonly int? Max;
+        public readonly int? Min;
+
         [OutputConstructor]
-        private ApplicationCustomArtifactsConfiguration()
+        private LaunchTemplateAcceleratorTotalMemoryMiB(
+            int? max,
+
+            int? min)
         {
+            Max = max;
+            Min = min;
         }
     }
 }

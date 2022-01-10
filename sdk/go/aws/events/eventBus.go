@@ -16,10 +16,11 @@ import (
 type EventBus struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput    `pulumi:"arn"`
-	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
-	Name            pulumi.StringOutput    `pulumi:"name"`
-	Policy          pulumi.StringOutput    `pulumi:"policy"`
+	Arn             pulumi.StringOutput         `pulumi:"arn"`
+	EventSourceName pulumi.StringPtrOutput      `pulumi:"eventSourceName"`
+	Name            pulumi.StringOutput         `pulumi:"name"`
+	Policy          pulumi.StringOutput         `pulumi:"policy"`
+	Tags            EventBusTagEntryArrayOutput `pulumi:"tags"`
 }
 
 // NewEventBus registers a new resource with the given unique name, arguments, and options.
@@ -61,14 +62,16 @@ func (EventBusState) ElementType() reflect.Type {
 }
 
 type eventBusArgs struct {
-	EventSourceName *string `pulumi:"eventSourceName"`
-	Name            *string `pulumi:"name"`
+	EventSourceName *string            `pulumi:"eventSourceName"`
+	Name            *string            `pulumi:"name"`
+	Tags            []EventBusTagEntry `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
 	EventSourceName pulumi.StringPtrInput
 	Name            pulumi.StringPtrInput
+	Tags            EventBusTagEntryArrayInput
 }
 
 func (EventBusArgs) ElementType() reflect.Type {

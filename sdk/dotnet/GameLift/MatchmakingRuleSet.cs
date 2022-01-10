@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.GameLift
         [Output("ruleSetBody")]
         public Output<string> RuleSetBody { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.MatchmakingRuleSetTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a MatchmakingRuleSet resource with the given unique name, arguments, and options.
@@ -75,6 +78,14 @@ namespace Pulumi.AwsNative.GameLift
 
         [Input("ruleSetBody", required: true)]
         public Input<string> RuleSetBody { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.MatchmakingRuleSetTagArgs>? _tags;
+        public InputList<Inputs.MatchmakingRuleSetTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.MatchmakingRuleSetTagArgs>());
+            set => _tags = value;
+        }
 
         public MatchmakingRuleSetArgs()
         {

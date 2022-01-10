@@ -251,36 +251,34 @@ class BotAliasLambdaCodeHookArgs:
 @pulumi.input_type
 class BotAliasLocaleSettingsItemArgs:
     def __init__(__self__, *,
-                 bot_alias_locale_setting: Optional[pulumi.Input['BotAliasLocaleSettingsArgs']] = None,
-                 locale_id: Optional[pulumi.Input[str]] = None):
+                 bot_alias_locale_setting: pulumi.Input['BotAliasLocaleSettingsArgs'],
+                 locale_id: pulumi.Input[str]):
         """
         A locale setting in alias
         :param pulumi.Input[str] locale_id: A string used to identify the locale
         """
-        if bot_alias_locale_setting is not None:
-            pulumi.set(__self__, "bot_alias_locale_setting", bot_alias_locale_setting)
-        if locale_id is not None:
-            pulumi.set(__self__, "locale_id", locale_id)
+        pulumi.set(__self__, "bot_alias_locale_setting", bot_alias_locale_setting)
+        pulumi.set(__self__, "locale_id", locale_id)
 
     @property
     @pulumi.getter(name="botAliasLocaleSetting")
-    def bot_alias_locale_setting(self) -> Optional[pulumi.Input['BotAliasLocaleSettingsArgs']]:
+    def bot_alias_locale_setting(self) -> pulumi.Input['BotAliasLocaleSettingsArgs']:
         return pulumi.get(self, "bot_alias_locale_setting")
 
     @bot_alias_locale_setting.setter
-    def bot_alias_locale_setting(self, value: Optional[pulumi.Input['BotAliasLocaleSettingsArgs']]):
+    def bot_alias_locale_setting(self, value: pulumi.Input['BotAliasLocaleSettingsArgs']):
         pulumi.set(self, "bot_alias_locale_setting", value)
 
     @property
     @pulumi.getter(name="localeId")
-    def locale_id(self) -> Optional[pulumi.Input[str]]:
+    def locale_id(self) -> pulumi.Input[str]:
         """
         A string used to identify the locale
         """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
-    def locale_id(self, value: Optional[pulumi.Input[str]]):
+    def locale_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "locale_id", value)
 
 

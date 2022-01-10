@@ -16,7 +16,7 @@ __all__ = [
     'ApplicationCodeConfigurationArgs',
     'ApplicationCodeContentArgs',
     'ApplicationConfigurationArgs',
-    'ApplicationCustomArtifactsConfigurationArgs',
+    'ApplicationCustomArtifactConfigurationArgs',
     'ApplicationDeployAsApplicationConfigurationArgs',
     'ApplicationEnvironmentPropertiesArgs',
     'ApplicationFlinkApplicationConfigurationArgs',
@@ -30,6 +30,7 @@ __all__ = [
     'ApplicationKinesisFirehoseInputArgs',
     'ApplicationKinesisStreamsInputArgs',
     'ApplicationMappingParametersArgs',
+    'ApplicationMavenReferenceArgs',
     'ApplicationMonitoringConfigurationArgs',
     'ApplicationOutputResourceDestinationSchemaArgs',
     'ApplicationOutputResourceKinesisFirehoseOutputArgs',
@@ -315,9 +316,43 @@ class ApplicationConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationCustomArtifactsConfigurationArgs:
-    def __init__(__self__):
-        pass
+class ApplicationCustomArtifactConfigurationArgs:
+    def __init__(__self__, *,
+                 artifact_type: pulumi.Input[str],
+                 maven_reference: Optional[pulumi.Input['ApplicationMavenReferenceArgs']] = None,
+                 s3_content_location: Optional[pulumi.Input['ApplicationS3ContentLocationArgs']] = None):
+        pulumi.set(__self__, "artifact_type", artifact_type)
+        if maven_reference is not None:
+            pulumi.set(__self__, "maven_reference", maven_reference)
+        if s3_content_location is not None:
+            pulumi.set(__self__, "s3_content_location", s3_content_location)
+
+    @property
+    @pulumi.getter(name="artifactType")
+    def artifact_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "artifact_type")
+
+    @artifact_type.setter
+    def artifact_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "artifact_type", value)
+
+    @property
+    @pulumi.getter(name="mavenReference")
+    def maven_reference(self) -> Optional[pulumi.Input['ApplicationMavenReferenceArgs']]:
+        return pulumi.get(self, "maven_reference")
+
+    @maven_reference.setter
+    def maven_reference(self, value: Optional[pulumi.Input['ApplicationMavenReferenceArgs']]):
+        pulumi.set(self, "maven_reference", value)
+
+    @property
+    @pulumi.getter(name="s3ContentLocation")
+    def s3_content_location(self) -> Optional[pulumi.Input['ApplicationS3ContentLocationArgs']]:
+        return pulumi.get(self, "s3_content_location")
+
+    @s3_content_location.setter
+    def s3_content_location(self, value: Optional[pulumi.Input['ApplicationS3ContentLocationArgs']]):
+        pulumi.set(self, "s3_content_location", value)
 
 
 @pulumi.input_type
@@ -650,6 +685,44 @@ class ApplicationMappingParametersArgs:
     @j_son_mapping_parameters.setter
     def j_son_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]):
         pulumi.set(self, "j_son_mapping_parameters", value)
+
+
+@pulumi.input_type
+class ApplicationMavenReferenceArgs:
+    def __init__(__self__, *,
+                 artifact_id: pulumi.Input[str],
+                 group_id: pulumi.Input[str],
+                 version: pulumi.Input[str]):
+        pulumi.set(__self__, "artifact_id", artifact_id)
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="artifactId")
+    def artifact_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "artifact_id")
+
+    @artifact_id.setter
+    def artifact_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "artifact_id", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -1346,7 +1419,7 @@ class ApplicationTagArgs:
 class ApplicationZeppelinApplicationConfigurationArgs:
     def __init__(__self__, *,
                  catalog_configuration: Optional[pulumi.Input['ApplicationCatalogConfigurationArgs']] = None,
-                 custom_artifacts_configuration: Optional[pulumi.Input['ApplicationCustomArtifactsConfigurationArgs']] = None,
+                 custom_artifacts_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomArtifactConfigurationArgs']]]] = None,
                  deploy_as_application_configuration: Optional[pulumi.Input['ApplicationDeployAsApplicationConfigurationArgs']] = None,
                  monitoring_configuration: Optional[pulumi.Input['ApplicationZeppelinMonitoringConfigurationArgs']] = None):
         if catalog_configuration is not None:
@@ -1369,11 +1442,11 @@ class ApplicationZeppelinApplicationConfigurationArgs:
 
     @property
     @pulumi.getter(name="customArtifactsConfiguration")
-    def custom_artifacts_configuration(self) -> Optional[pulumi.Input['ApplicationCustomArtifactsConfigurationArgs']]:
+    def custom_artifacts_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomArtifactConfigurationArgs']]]]:
         return pulumi.get(self, "custom_artifacts_configuration")
 
     @custom_artifacts_configuration.setter
-    def custom_artifacts_configuration(self, value: Optional[pulumi.Input['ApplicationCustomArtifactsConfigurationArgs']]):
+    def custom_artifacts_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomArtifactConfigurationArgs']]]]):
         pulumi.set(self, "custom_artifacts_configuration", value)
 
     @property

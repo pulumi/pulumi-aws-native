@@ -35,7 +35,7 @@
           "$ref" : "#/definitions/BotAliasLocaleSettings"
         }
       },
-      "required" : [ "Key", "Value" ],
+      "required" : [ "LocaleId", "BotAliasLocaleSetting" ],
       "additionalProperties" : false
     },
     "BotAliasLocaleSettings" : {

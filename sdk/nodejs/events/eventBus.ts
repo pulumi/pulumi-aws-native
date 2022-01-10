@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,6 +42,7 @@ export class EventBus extends pulumi.CustomResource {
     public readonly eventSourceName!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly policy!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.events.EventBusTagEntry[] | undefined>;
 
     /**
      * Create a EventBus resource with the given unique name, arguments, and options.
@@ -57,6 +59,7 @@ export class EventBus extends pulumi.CustomResource {
         if (!opts.id) {
             inputs["eventSourceName"] = args ? args.eventSourceName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["policy"] = undefined /*out*/;
         } else {
@@ -64,6 +67,7 @@ export class EventBus extends pulumi.CustomResource {
             inputs["eventSourceName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["policy"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -78,4 +82,5 @@ export class EventBus extends pulumi.CustomResource {
 export interface EventBusArgs {
     eventSourceName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.events.EventBusTagEntryArgs>[]>;
 }

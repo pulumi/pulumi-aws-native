@@ -2023,14 +2023,6 @@ export namespace applicationinsights {
          */
         alarms?: outputs.applicationinsights.ApplicationAlarm[];
         /**
-         * The HA cluster Prometheus Exporter settings.
-         */
-        hAClusterPrometheusExporter?: outputs.applicationinsights.ApplicationHAClusterPrometheusExporter;
-        /**
-         * The HANA DB Prometheus Exporter settings.
-         */
-        hANAPrometheusExporter?: outputs.applicationinsights.ApplicationHANAPrometheusExporter;
-        /**
          * The JMX Prometheus Exporter settings.
          */
         jMXPrometheusExporter?: outputs.applicationinsights.ApplicationJMXPrometheusExporter;
@@ -2059,45 +2051,6 @@ export namespace applicationinsights {
     }
 
     /**
-     * The HA cluster Prometheus Exporter settings.
-     */
-    export interface ApplicationHAClusterPrometheusExporter {
-        /**
-         * Prometheus exporter port.
-         */
-        prometheusPort?: string;
-    }
-
-    /**
-     * The HANA DB Prometheus Exporter settings.
-     */
-    export interface ApplicationHANAPrometheusExporter {
-        /**
-         * A flag which indicates agreeing to install SAP HANA DB client.
-         */
-        agreeToInstallHANADBClient?: boolean;
-        /**
-         * The HANA DB port.
-         */
-        hANAPort?: string;
-        /**
-         * HANA DB SID.
-         */
-        hANASID?: string;
-        /**
-         * The secret name which manages the HANA DB credentials e.g. {
-         *   "username": "<>",
-         *   "password": "<>"
-         * }.
-         */
-        hANASecretName?: string;
-        /**
-         * Prometheus exporter port.
-         */
-        prometheusPort?: string;
-    }
-
-    /**
      * The JMX Prometheus Exporter settings.
      */
     export interface ApplicationJMXPrometheusExporter {
@@ -2110,7 +2063,7 @@ export namespace applicationinsights {
          */
         jMXURL?: string;
         /**
-         * Prometheus exporter port.
+         * Prometheus exporter port
          */
         prometheusPort?: string;
     }
@@ -8978,6 +8931,21 @@ export namespace ec2 {
         value: string;
     }
 
+    export interface LaunchTemplateAcceleratorCount {
+        max?: number;
+        min?: number;
+    }
+
+    export interface LaunchTemplateAcceleratorTotalMemoryMiB {
+        max?: number;
+        min?: number;
+    }
+
+    export interface LaunchTemplateBaselineEbsBandwidthMbps {
+        max?: number;
+        min?: number;
+    }
+
     export interface LaunchTemplateBlockDeviceMapping {
         deviceName?: string;
         ebs?: outputs.ec2.LaunchTemplateEbs;
@@ -9019,6 +8987,7 @@ export namespace ec2 {
         imageId?: string;
         instanceInitiatedShutdownBehavior?: string;
         instanceMarketOptions?: outputs.ec2.LaunchTemplateInstanceMarketOptions;
+        instanceRequirements?: outputs.ec2.LaunchTemplateInstanceRequirements;
         instanceType?: string;
         kernelId?: string;
         keyName?: string;
@@ -9072,12 +9041,46 @@ export namespace ec2 {
         spotOptions?: outputs.ec2.LaunchTemplateSpotOptions;
     }
 
+    export interface LaunchTemplateInstanceRequirements {
+        acceleratorCount?: outputs.ec2.LaunchTemplateAcceleratorCount;
+        acceleratorManufacturers?: string[];
+        acceleratorNames?: string[];
+        acceleratorTotalMemoryMiB?: outputs.ec2.LaunchTemplateAcceleratorTotalMemoryMiB;
+        acceleratorTypes?: string[];
+        bareMetal?: string;
+        baselineEbsBandwidthMbps?: outputs.ec2.LaunchTemplateBaselineEbsBandwidthMbps;
+        burstablePerformance?: string;
+        cpuManufacturers?: string[];
+        excludedInstanceTypes?: string[];
+        instanceGenerations?: string[];
+        localStorage?: string;
+        localStorageTypes?: string[];
+        memoryGiBPerVCpu?: outputs.ec2.LaunchTemplateMemoryGiBPerVCpu;
+        memoryMiB?: outputs.ec2.LaunchTemplateMemoryMiB;
+        networkInterfaceCount?: outputs.ec2.LaunchTemplateNetworkInterfaceCount;
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        requireHibernateSupport?: boolean;
+        spotMaxPricePercentageOverLowestPrice?: number;
+        totalLocalStorageGB?: outputs.ec2.LaunchTemplateTotalLocalStorageGB;
+        vCpuCount?: outputs.ec2.LaunchTemplateVCpuCount;
+    }
+
     export interface LaunchTemplateIpv6Add {
         ipv6Address?: string;
     }
 
     export interface LaunchTemplateLicenseSpecification {
         licenseConfigurationArn?: string;
+    }
+
+    export interface LaunchTemplateMemoryGiBPerVCpu {
+        max?: number;
+        min?: number;
+    }
+
+    export interface LaunchTemplateMemoryMiB {
+        max?: number;
+        min?: number;
     }
 
     export interface LaunchTemplateMetadataOptions {
@@ -9107,6 +9110,11 @@ export namespace ec2 {
         privateIpAddresses?: outputs.ec2.LaunchTemplatePrivateIpAdd[];
         secondaryPrivateIpAddressCount?: number;
         subnetId?: string;
+    }
+
+    export interface LaunchTemplateNetworkInterfaceCount {
+        max?: number;
+        min?: number;
     }
 
     export interface LaunchTemplatePlacement {
@@ -9141,6 +9149,16 @@ export namespace ec2 {
     export interface LaunchTemplateTagSpecification {
         resourceType?: string;
         tags?: outputs.ec2.LaunchTemplateTag[];
+    }
+
+    export interface LaunchTemplateTotalLocalStorageGB {
+        max?: number;
+        min?: number;
+    }
+
+    export interface LaunchTemplateVCpuCount {
+        max?: number;
+        min?: number;
     }
 
     export interface LocalGatewayRouteTableVPCAssociationTag {
@@ -11571,6 +11589,11 @@ export namespace events {
         value?: string;
     }
 
+    export interface EventBusTagEntry {
+        key: string;
+        value: string;
+    }
+
     export interface RuleAwsVpcConfiguration {
         assignPublicIp?: string;
         securityGroups?: string[];
@@ -12538,7 +12561,22 @@ export namespace gamelift {
         priorityOrder?: string[];
     }
 
+    export interface GameSessionQueueTag {
+        key: string;
+        value: string;
+    }
+
     export interface MatchmakingConfigurationGameProperty {
+        key: string;
+        value: string;
+    }
+
+    export interface MatchmakingConfigurationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface MatchmakingRuleSetTag {
         key: string;
         value: string;
     }
@@ -12548,6 +12586,11 @@ export namespace gamelift {
         key: string;
         objectVersion?: string;
         roleArn: string;
+    }
+
+    export interface ScriptTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -14339,6 +14382,10 @@ export namespace iot {
         value: string;
     }
 
+    export interface JobExecutionsRetryConfigProperties {
+        retryCriteriaList?: outputs.iot.JobTemplateRetryCriteria[];
+    }
+
     /**
      * Allows you to create a staged rollout of a job.
      */
@@ -14396,6 +14443,14 @@ export namespace iot {
     export interface JobTemplateRateIncreaseCriteria {
         numberOfNotifiedThings?: number;
         numberOfSucceededThings?: number;
+    }
+
+    /**
+     * Specifies how many times a failure type should be retried.
+     */
+    export interface JobTemplateRetryCriteria {
+        failureType?: enums.iot.JobTemplateJobRetryFailureType;
+        numberOfRetries?: number;
     }
 
     /**
@@ -16940,7 +16995,10 @@ export namespace kinesisanalyticsv2 {
         zeppelinApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfiguration;
     }
 
-    export interface ApplicationCustomArtifactsConfiguration {
+    export interface ApplicationCustomArtifactConfiguration {
+        artifactType: string;
+        mavenReference?: outputs.kinesisanalyticsv2.ApplicationMavenReference;
+        s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationS3ContentLocation;
     }
 
     export interface ApplicationDeployAsApplicationConfiguration {
@@ -17003,6 +17061,12 @@ export namespace kinesisanalyticsv2 {
     export interface ApplicationMappingParameters {
         cSVMappingParameters?: outputs.kinesisanalyticsv2.ApplicationCSVMappingParameters;
         jSONMappingParameters?: outputs.kinesisanalyticsv2.ApplicationJSONMappingParameters;
+    }
+
+    export interface ApplicationMavenReference {
+        artifactId: string;
+        groupId: string;
+        version: string;
     }
 
     export interface ApplicationMonitoringConfiguration {
@@ -17126,7 +17190,7 @@ export namespace kinesisanalyticsv2 {
 
     export interface ApplicationZeppelinApplicationConfiguration {
         catalogConfiguration?: outputs.kinesisanalyticsv2.ApplicationCatalogConfiguration;
-        customArtifactsConfiguration?: outputs.kinesisanalyticsv2.ApplicationCustomArtifactsConfiguration;
+        customArtifactsConfiguration?: outputs.kinesisanalyticsv2.ApplicationCustomArtifactConfiguration[];
         deployAsApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationDeployAsApplicationConfiguration;
         monitoringConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinMonitoringConfiguration;
     }
@@ -17859,11 +17923,11 @@ export namespace lex {
      * A locale setting in alias
      */
     export interface BotAliasLocaleSettingsItem {
-        botAliasLocaleSetting?: outputs.lex.BotAliasLocaleSettings;
+        botAliasLocaleSetting: outputs.lex.BotAliasLocaleSettings;
         /**
          * A string used to identify the locale
          */
-        localeId?: string;
+        localeId: string;
     }
 
     /**
@@ -20001,6 +20065,7 @@ export namespace medialive {
         mode?: string;
         outputSelection?: string;
         programDateTime?: string;
+        programDateTimeClock?: string;
         programDateTimePeriod?: number;
         redundantManifest?: string;
         segmentLength?: number;
@@ -20096,6 +20161,7 @@ export namespace medialive {
         filterStrength?: number;
         inputFilter?: string;
         networkInputSettings?: outputs.medialive.ChannelNetworkInputSettings;
+        scte35Pid?: number;
         smpte2038DataPreference?: string;
         sourceEndBehavior?: string;
         videoSelector?: outputs.medialive.ChannelVideoSelector;
@@ -28829,6 +28895,7 @@ export namespace transfer {
 
     export interface ServerProtocolDetails {
         passiveIp?: string;
+        tlsSessionResumptionMode?: string;
     }
 
     export interface ServerTag {

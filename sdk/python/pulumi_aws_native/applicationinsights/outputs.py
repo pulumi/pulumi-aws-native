@@ -17,8 +17,6 @@ __all__ = [
     'ApplicationComponentMonitoringSetting',
     'ApplicationConfigurationDetails',
     'ApplicationCustomComponent',
-    'ApplicationHAClusterPrometheusExporter',
-    'ApplicationHANAPrometheusExporter',
     'ApplicationJMXPrometheusExporter',
     'ApplicationLog',
     'ApplicationLogPattern',
@@ -289,10 +287,6 @@ class ApplicationConfigurationDetails(dict):
         suggest = None
         if key == "alarmMetrics":
             suggest = "alarm_metrics"
-        elif key == "hAClusterPrometheusExporter":
-            suggest = "h_a_cluster_prometheus_exporter"
-        elif key == "hANAPrometheusExporter":
-            suggest = "h_ana_prometheus_exporter"
         elif key == "jMXPrometheusExporter":
             suggest = "j_mx_prometheus_exporter"
         elif key == "windowsEvents":
@@ -312,8 +306,6 @@ class ApplicationConfigurationDetails(dict):
     def __init__(__self__, *,
                  alarm_metrics: Optional[Sequence['outputs.ApplicationAlarmMetric']] = None,
                  alarms: Optional[Sequence['outputs.ApplicationAlarm']] = None,
-                 h_a_cluster_prometheus_exporter: Optional['outputs.ApplicationHAClusterPrometheusExporter'] = None,
-                 h_ana_prometheus_exporter: Optional['outputs.ApplicationHANAPrometheusExporter'] = None,
                  j_mx_prometheus_exporter: Optional['outputs.ApplicationJMXPrometheusExporter'] = None,
                  logs: Optional[Sequence['outputs.ApplicationLog']] = None,
                  windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None):
@@ -321,8 +313,6 @@ class ApplicationConfigurationDetails(dict):
         The configuration settings.
         :param Sequence['ApplicationAlarmMetric'] alarm_metrics: A list of metrics to monitor for the component.
         :param Sequence['ApplicationAlarm'] alarms: A list of alarms to monitor for the component.
-        :param 'ApplicationHAClusterPrometheusExporter' h_a_cluster_prometheus_exporter: The HA cluster Prometheus Exporter settings.
-        :param 'ApplicationHANAPrometheusExporter' h_ana_prometheus_exporter: The HANA DB Prometheus Exporter settings.
         :param 'ApplicationJMXPrometheusExporter' j_mx_prometheus_exporter: The JMX Prometheus Exporter settings.
         :param Sequence['ApplicationLog'] logs: A list of logs to monitor for the component.
         :param Sequence['ApplicationWindowsEvent'] windows_events: A list of Windows Events to log.
@@ -331,10 +321,6 @@ class ApplicationConfigurationDetails(dict):
             pulumi.set(__self__, "alarm_metrics", alarm_metrics)
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
-        if h_a_cluster_prometheus_exporter is not None:
-            pulumi.set(__self__, "h_a_cluster_prometheus_exporter", h_a_cluster_prometheus_exporter)
-        if h_ana_prometheus_exporter is not None:
-            pulumi.set(__self__, "h_ana_prometheus_exporter", h_ana_prometheus_exporter)
         if j_mx_prometheus_exporter is not None:
             pulumi.set(__self__, "j_mx_prometheus_exporter", j_mx_prometheus_exporter)
         if logs is not None:
@@ -357,22 +343,6 @@ class ApplicationConfigurationDetails(dict):
         A list of alarms to monitor for the component.
         """
         return pulumi.get(self, "alarms")
-
-    @property
-    @pulumi.getter(name="hAClusterPrometheusExporter")
-    def h_a_cluster_prometheus_exporter(self) -> Optional['outputs.ApplicationHAClusterPrometheusExporter']:
-        """
-        The HA cluster Prometheus Exporter settings.
-        """
-        return pulumi.get(self, "h_a_cluster_prometheus_exporter")
-
-    @property
-    @pulumi.getter(name="hANAPrometheusExporter")
-    def h_ana_prometheus_exporter(self) -> Optional['outputs.ApplicationHANAPrometheusExporter']:
-        """
-        The HANA DB Prometheus Exporter settings.
-        """
-        return pulumi.get(self, "h_ana_prometheus_exporter")
 
     @property
     @pulumi.getter(name="jMXPrometheusExporter")
@@ -452,148 +422,6 @@ class ApplicationCustomComponent(dict):
 
 
 @pulumi.output_type
-class ApplicationHAClusterPrometheusExporter(dict):
-    """
-    The HA cluster Prometheus Exporter settings.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "prometheusPort":
-            suggest = "prometheus_port"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationHAClusterPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationHAClusterPrometheusExporter.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationHAClusterPrometheusExporter.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 prometheus_port: Optional[str] = None):
-        """
-        The HA cluster Prometheus Exporter settings.
-        :param str prometheus_port: Prometheus exporter port.
-        """
-        if prometheus_port is not None:
-            pulumi.set(__self__, "prometheus_port", prometheus_port)
-
-    @property
-    @pulumi.getter(name="prometheusPort")
-    def prometheus_port(self) -> Optional[str]:
-        """
-        Prometheus exporter port.
-        """
-        return pulumi.get(self, "prometheus_port")
-
-
-@pulumi.output_type
-class ApplicationHANAPrometheusExporter(dict):
-    """
-    The HANA DB Prometheus Exporter settings.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "agreeToInstallHANADBClient":
-            suggest = "agree_to_install_hanadb_client"
-        elif key == "hANAPort":
-            suggest = "h_ana_port"
-        elif key == "hANASID":
-            suggest = "h_anasid"
-        elif key == "hANASecretName":
-            suggest = "h_ana_secret_name"
-        elif key == "prometheusPort":
-            suggest = "prometheus_port"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationHANAPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationHANAPrometheusExporter.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationHANAPrometheusExporter.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 agree_to_install_hanadb_client: Optional[bool] = None,
-                 h_ana_port: Optional[str] = None,
-                 h_anasid: Optional[str] = None,
-                 h_ana_secret_name: Optional[str] = None,
-                 prometheus_port: Optional[str] = None):
-        """
-        The HANA DB Prometheus Exporter settings.
-        :param bool agree_to_install_hanadb_client: A flag which indicates agreeing to install SAP HANA DB client.
-        :param str h_ana_port: The HANA DB port.
-        :param str h_anasid: HANA DB SID.
-        :param str h_ana_secret_name: The secret name which manages the HANA DB credentials e.g. {
-                 "username": "<>",
-                 "password": "<>"
-               }.
-        :param str prometheus_port: Prometheus exporter port.
-        """
-        if agree_to_install_hanadb_client is not None:
-            pulumi.set(__self__, "agree_to_install_hanadb_client", agree_to_install_hanadb_client)
-        if h_ana_port is not None:
-            pulumi.set(__self__, "h_ana_port", h_ana_port)
-        if h_anasid is not None:
-            pulumi.set(__self__, "h_anasid", h_anasid)
-        if h_ana_secret_name is not None:
-            pulumi.set(__self__, "h_ana_secret_name", h_ana_secret_name)
-        if prometheus_port is not None:
-            pulumi.set(__self__, "prometheus_port", prometheus_port)
-
-    @property
-    @pulumi.getter(name="agreeToInstallHANADBClient")
-    def agree_to_install_hanadb_client(self) -> Optional[bool]:
-        """
-        A flag which indicates agreeing to install SAP HANA DB client.
-        """
-        return pulumi.get(self, "agree_to_install_hanadb_client")
-
-    @property
-    @pulumi.getter(name="hANAPort")
-    def h_ana_port(self) -> Optional[str]:
-        """
-        The HANA DB port.
-        """
-        return pulumi.get(self, "h_ana_port")
-
-    @property
-    @pulumi.getter(name="hANASID")
-    def h_anasid(self) -> Optional[str]:
-        """
-        HANA DB SID.
-        """
-        return pulumi.get(self, "h_anasid")
-
-    @property
-    @pulumi.getter(name="hANASecretName")
-    def h_ana_secret_name(self) -> Optional[str]:
-        """
-        The secret name which manages the HANA DB credentials e.g. {
-          "username": "<>",
-          "password": "<>"
-        }.
-        """
-        return pulumi.get(self, "h_ana_secret_name")
-
-    @property
-    @pulumi.getter(name="prometheusPort")
-    def prometheus_port(self) -> Optional[str]:
-        """
-        Prometheus exporter port.
-        """
-        return pulumi.get(self, "prometheus_port")
-
-
-@pulumi.output_type
 class ApplicationJMXPrometheusExporter(dict):
     """
     The JMX Prometheus Exporter settings.
@@ -627,7 +455,7 @@ class ApplicationJMXPrometheusExporter(dict):
         The JMX Prometheus Exporter settings.
         :param str host_port: Java agent host port
         :param str j_mxurl: JMX service URL.
-        :param str prometheus_port: Prometheus exporter port.
+        :param str prometheus_port: Prometheus exporter port
         """
         if host_port is not None:
             pulumi.set(__self__, "host_port", host_port)
@@ -656,7 +484,7 @@ class ApplicationJMXPrometheusExporter(dict):
     @pulumi.getter(name="prometheusPort")
     def prometheus_port(self) -> Optional[str]:
         """
-        Prometheus exporter port.
+        Prometheus exporter port
         """
         return pulumi.get(self, "prometheus_port")
 

@@ -25,7 +25,8 @@ type JobTemplate struct {
 	// An S3 link to the job document to use in the template. Required if you don't specify a value for document.
 	DocumentSource pulumi.StringPtrOutput `pulumi:"documentSource"`
 	// Optional for copying a JobTemplate from a pre-existing Job configuration.
-	JobArn pulumi.StringPtrOutput `pulumi:"jobArn"`
+	JobArn                   pulumi.StringPtrOutput                      `pulumi:"jobArn"`
+	JobExecutionsRetryConfig JobExecutionsRetryConfigPropertiesPtrOutput `pulumi:"jobExecutionsRetryConfig"`
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig JobExecutionsRolloutConfigPropertiesPtrOutput `pulumi:"jobExecutionsRolloutConfig"`
 	JobTemplateId              pulumi.StringOutput                           `pulumi:"jobTemplateId"`
@@ -91,7 +92,8 @@ type jobTemplateArgs struct {
 	// An S3 link to the job document to use in the template. Required if you don't specify a value for document.
 	DocumentSource *string `pulumi:"documentSource"`
 	// Optional for copying a JobTemplate from a pre-existing Job configuration.
-	JobArn *string `pulumi:"jobArn"`
+	JobArn                   *string                             `pulumi:"jobArn"`
+	JobExecutionsRetryConfig *JobExecutionsRetryConfigProperties `pulumi:"jobExecutionsRetryConfig"`
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig *JobExecutionsRolloutConfigProperties `pulumi:"jobExecutionsRolloutConfig"`
 	JobTemplateId              string                                `pulumi:"jobTemplateId"`
@@ -114,7 +116,8 @@ type JobTemplateArgs struct {
 	// An S3 link to the job document to use in the template. Required if you don't specify a value for document.
 	DocumentSource pulumi.StringPtrInput
 	// Optional for copying a JobTemplate from a pre-existing Job configuration.
-	JobArn pulumi.StringPtrInput
+	JobArn                   pulumi.StringPtrInput
+	JobExecutionsRetryConfig JobExecutionsRetryConfigPropertiesPtrInput
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig JobExecutionsRolloutConfigPropertiesPtrInput
 	JobTemplateId              pulumi.StringInput

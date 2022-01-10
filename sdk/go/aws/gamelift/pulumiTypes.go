@@ -2533,6 +2533,106 @@ func (o GameSessionQueuePriorityConfigurationPtrOutput) PriorityOrder() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+type GameSessionQueueTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GameSessionQueueTagInput is an input type that accepts GameSessionQueueTagArgs and GameSessionQueueTagOutput values.
+// You can construct a concrete instance of `GameSessionQueueTagInput` via:
+//
+//          GameSessionQueueTagArgs{...}
+type GameSessionQueueTagInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueTagOutput() GameSessionQueueTagOutput
+	ToGameSessionQueueTagOutputWithContext(context.Context) GameSessionQueueTagOutput
+}
+
+type GameSessionQueueTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GameSessionQueueTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueTag)(nil)).Elem()
+}
+
+func (i GameSessionQueueTagArgs) ToGameSessionQueueTagOutput() GameSessionQueueTagOutput {
+	return i.ToGameSessionQueueTagOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueTagArgs) ToGameSessionQueueTagOutputWithContext(ctx context.Context) GameSessionQueueTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueTagOutput)
+}
+
+// GameSessionQueueTagArrayInput is an input type that accepts GameSessionQueueTagArray and GameSessionQueueTagArrayOutput values.
+// You can construct a concrete instance of `GameSessionQueueTagArrayInput` via:
+//
+//          GameSessionQueueTagArray{ GameSessionQueueTagArgs{...} }
+type GameSessionQueueTagArrayInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueTagArrayOutput() GameSessionQueueTagArrayOutput
+	ToGameSessionQueueTagArrayOutputWithContext(context.Context) GameSessionQueueTagArrayOutput
+}
+
+type GameSessionQueueTagArray []GameSessionQueueTagInput
+
+func (GameSessionQueueTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueueTag)(nil)).Elem()
+}
+
+func (i GameSessionQueueTagArray) ToGameSessionQueueTagArrayOutput() GameSessionQueueTagArrayOutput {
+	return i.ToGameSessionQueueTagArrayOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueTagArray) ToGameSessionQueueTagArrayOutputWithContext(ctx context.Context) GameSessionQueueTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueTagArrayOutput)
+}
+
+type GameSessionQueueTagOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueTag)(nil)).Elem()
+}
+
+func (o GameSessionQueueTagOutput) ToGameSessionQueueTagOutput() GameSessionQueueTagOutput {
+	return o
+}
+
+func (o GameSessionQueueTagOutput) ToGameSessionQueueTagOutputWithContext(ctx context.Context) GameSessionQueueTagOutput {
+	return o
+}
+
+func (o GameSessionQueueTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GameSessionQueueTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GameSessionQueueTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GameSessionQueueTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GameSessionQueueTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueueTag)(nil)).Elem()
+}
+
+func (o GameSessionQueueTagArrayOutput) ToGameSessionQueueTagArrayOutput() GameSessionQueueTagArrayOutput {
+	return o
+}
+
+func (o GameSessionQueueTagArrayOutput) ToGameSessionQueueTagArrayOutputWithContext(ctx context.Context) GameSessionQueueTagArrayOutput {
+	return o
+}
+
+func (o GameSessionQueueTagArrayOutput) Index(i pulumi.IntInput) GameSessionQueueTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameSessionQueueTag {
+		return vs[0].([]GameSessionQueueTag)[vs[1].(int)]
+	}).(GameSessionQueueTagOutput)
+}
+
 type MatchmakingConfigurationGameProperty struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2631,6 +2731,206 @@ func (o MatchmakingConfigurationGamePropertyArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchmakingConfigurationGameProperty {
 		return vs[0].([]MatchmakingConfigurationGameProperty)[vs[1].(int)]
 	}).(MatchmakingConfigurationGamePropertyOutput)
+}
+
+type MatchmakingConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// MatchmakingConfigurationTagInput is an input type that accepts MatchmakingConfigurationTagArgs and MatchmakingConfigurationTagOutput values.
+// You can construct a concrete instance of `MatchmakingConfigurationTagInput` via:
+//
+//          MatchmakingConfigurationTagArgs{...}
+type MatchmakingConfigurationTagInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationTagOutput() MatchmakingConfigurationTagOutput
+	ToMatchmakingConfigurationTagOutputWithContext(context.Context) MatchmakingConfigurationTagOutput
+}
+
+type MatchmakingConfigurationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MatchmakingConfigurationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfigurationTag)(nil)).Elem()
+}
+
+func (i MatchmakingConfigurationTagArgs) ToMatchmakingConfigurationTagOutput() MatchmakingConfigurationTagOutput {
+	return i.ToMatchmakingConfigurationTagOutputWithContext(context.Background())
+}
+
+func (i MatchmakingConfigurationTagArgs) ToMatchmakingConfigurationTagOutputWithContext(ctx context.Context) MatchmakingConfigurationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationTagOutput)
+}
+
+// MatchmakingConfigurationTagArrayInput is an input type that accepts MatchmakingConfigurationTagArray and MatchmakingConfigurationTagArrayOutput values.
+// You can construct a concrete instance of `MatchmakingConfigurationTagArrayInput` via:
+//
+//          MatchmakingConfigurationTagArray{ MatchmakingConfigurationTagArgs{...} }
+type MatchmakingConfigurationTagArrayInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationTagArrayOutput() MatchmakingConfigurationTagArrayOutput
+	ToMatchmakingConfigurationTagArrayOutputWithContext(context.Context) MatchmakingConfigurationTagArrayOutput
+}
+
+type MatchmakingConfigurationTagArray []MatchmakingConfigurationTagInput
+
+func (MatchmakingConfigurationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchmakingConfigurationTag)(nil)).Elem()
+}
+
+func (i MatchmakingConfigurationTagArray) ToMatchmakingConfigurationTagArrayOutput() MatchmakingConfigurationTagArrayOutput {
+	return i.ToMatchmakingConfigurationTagArrayOutputWithContext(context.Background())
+}
+
+func (i MatchmakingConfigurationTagArray) ToMatchmakingConfigurationTagArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationTagArrayOutput)
+}
+
+type MatchmakingConfigurationTagOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingConfigurationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfigurationTag)(nil)).Elem()
+}
+
+func (o MatchmakingConfigurationTagOutput) ToMatchmakingConfigurationTagOutput() MatchmakingConfigurationTagOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationTagOutput) ToMatchmakingConfigurationTagOutputWithContext(ctx context.Context) MatchmakingConfigurationTagOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchmakingConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingConfigurationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchmakingConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MatchmakingConfigurationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingConfigurationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchmakingConfigurationTag)(nil)).Elem()
+}
+
+func (o MatchmakingConfigurationTagArrayOutput) ToMatchmakingConfigurationTagArrayOutput() MatchmakingConfigurationTagArrayOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationTagArrayOutput) ToMatchmakingConfigurationTagArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationTagArrayOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationTagArrayOutput) Index(i pulumi.IntInput) MatchmakingConfigurationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchmakingConfigurationTag {
+		return vs[0].([]MatchmakingConfigurationTag)[vs[1].(int)]
+	}).(MatchmakingConfigurationTagOutput)
+}
+
+type MatchmakingRuleSetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// MatchmakingRuleSetTagInput is an input type that accepts MatchmakingRuleSetTagArgs and MatchmakingRuleSetTagOutput values.
+// You can construct a concrete instance of `MatchmakingRuleSetTagInput` via:
+//
+//          MatchmakingRuleSetTagArgs{...}
+type MatchmakingRuleSetTagInput interface {
+	pulumi.Input
+
+	ToMatchmakingRuleSetTagOutput() MatchmakingRuleSetTagOutput
+	ToMatchmakingRuleSetTagOutputWithContext(context.Context) MatchmakingRuleSetTagOutput
+}
+
+type MatchmakingRuleSetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MatchmakingRuleSetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingRuleSetTag)(nil)).Elem()
+}
+
+func (i MatchmakingRuleSetTagArgs) ToMatchmakingRuleSetTagOutput() MatchmakingRuleSetTagOutput {
+	return i.ToMatchmakingRuleSetTagOutputWithContext(context.Background())
+}
+
+func (i MatchmakingRuleSetTagArgs) ToMatchmakingRuleSetTagOutputWithContext(ctx context.Context) MatchmakingRuleSetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetTagOutput)
+}
+
+// MatchmakingRuleSetTagArrayInput is an input type that accepts MatchmakingRuleSetTagArray and MatchmakingRuleSetTagArrayOutput values.
+// You can construct a concrete instance of `MatchmakingRuleSetTagArrayInput` via:
+//
+//          MatchmakingRuleSetTagArray{ MatchmakingRuleSetTagArgs{...} }
+type MatchmakingRuleSetTagArrayInput interface {
+	pulumi.Input
+
+	ToMatchmakingRuleSetTagArrayOutput() MatchmakingRuleSetTagArrayOutput
+	ToMatchmakingRuleSetTagArrayOutputWithContext(context.Context) MatchmakingRuleSetTagArrayOutput
+}
+
+type MatchmakingRuleSetTagArray []MatchmakingRuleSetTagInput
+
+func (MatchmakingRuleSetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchmakingRuleSetTag)(nil)).Elem()
+}
+
+func (i MatchmakingRuleSetTagArray) ToMatchmakingRuleSetTagArrayOutput() MatchmakingRuleSetTagArrayOutput {
+	return i.ToMatchmakingRuleSetTagArrayOutputWithContext(context.Background())
+}
+
+func (i MatchmakingRuleSetTagArray) ToMatchmakingRuleSetTagArrayOutputWithContext(ctx context.Context) MatchmakingRuleSetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetTagArrayOutput)
+}
+
+type MatchmakingRuleSetTagOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingRuleSetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingRuleSetTag)(nil)).Elem()
+}
+
+func (o MatchmakingRuleSetTagOutput) ToMatchmakingRuleSetTagOutput() MatchmakingRuleSetTagOutput {
+	return o
+}
+
+func (o MatchmakingRuleSetTagOutput) ToMatchmakingRuleSetTagOutputWithContext(ctx context.Context) MatchmakingRuleSetTagOutput {
+	return o
+}
+
+func (o MatchmakingRuleSetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchmakingRuleSetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingRuleSetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchmakingRuleSetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MatchmakingRuleSetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingRuleSetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchmakingRuleSetTag)(nil)).Elem()
+}
+
+func (o MatchmakingRuleSetTagArrayOutput) ToMatchmakingRuleSetTagArrayOutput() MatchmakingRuleSetTagArrayOutput {
+	return o
+}
+
+func (o MatchmakingRuleSetTagArrayOutput) ToMatchmakingRuleSetTagArrayOutputWithContext(ctx context.Context) MatchmakingRuleSetTagArrayOutput {
+	return o
+}
+
+func (o MatchmakingRuleSetTagArrayOutput) Index(i pulumi.IntInput) MatchmakingRuleSetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchmakingRuleSetTag {
+		return vs[0].([]MatchmakingRuleSetTag)[vs[1].(int)]
+	}).(MatchmakingRuleSetTagOutput)
 }
 
 type ScriptS3Location struct {
@@ -2811,6 +3111,106 @@ func (o ScriptS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScriptTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ScriptTagInput is an input type that accepts ScriptTagArgs and ScriptTagOutput values.
+// You can construct a concrete instance of `ScriptTagInput` via:
+//
+//          ScriptTagArgs{...}
+type ScriptTagInput interface {
+	pulumi.Input
+
+	ToScriptTagOutput() ScriptTagOutput
+	ToScriptTagOutputWithContext(context.Context) ScriptTagOutput
+}
+
+type ScriptTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ScriptTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptTag)(nil)).Elem()
+}
+
+func (i ScriptTagArgs) ToScriptTagOutput() ScriptTagOutput {
+	return i.ToScriptTagOutputWithContext(context.Background())
+}
+
+func (i ScriptTagArgs) ToScriptTagOutputWithContext(ctx context.Context) ScriptTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptTagOutput)
+}
+
+// ScriptTagArrayInput is an input type that accepts ScriptTagArray and ScriptTagArrayOutput values.
+// You can construct a concrete instance of `ScriptTagArrayInput` via:
+//
+//          ScriptTagArray{ ScriptTagArgs{...} }
+type ScriptTagArrayInput interface {
+	pulumi.Input
+
+	ToScriptTagArrayOutput() ScriptTagArrayOutput
+	ToScriptTagArrayOutputWithContext(context.Context) ScriptTagArrayOutput
+}
+
+type ScriptTagArray []ScriptTagInput
+
+func (ScriptTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScriptTag)(nil)).Elem()
+}
+
+func (i ScriptTagArray) ToScriptTagArrayOutput() ScriptTagArrayOutput {
+	return i.ToScriptTagArrayOutputWithContext(context.Background())
+}
+
+func (i ScriptTagArray) ToScriptTagArrayOutputWithContext(ctx context.Context) ScriptTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptTagArrayOutput)
+}
+
+type ScriptTagOutput struct{ *pulumi.OutputState }
+
+func (ScriptTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptTag)(nil)).Elem()
+}
+
+func (o ScriptTagOutput) ToScriptTagOutput() ScriptTagOutput {
+	return o
+}
+
+func (o ScriptTagOutput) ToScriptTagOutputWithContext(ctx context.Context) ScriptTagOutput {
+	return o
+}
+
+func (o ScriptTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ScriptTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ScriptTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ScriptTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScriptTag)(nil)).Elem()
+}
+
+func (o ScriptTagArrayOutput) ToScriptTagArrayOutput() ScriptTagArrayOutput {
+	return o
+}
+
+func (o ScriptTagArrayOutput) ToScriptTagArrayOutputWithContext(ctx context.Context) ScriptTagArrayOutput {
+	return o
+}
+
+func (o ScriptTagArrayOutput) Index(i pulumi.IntInput) ScriptTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScriptTag {
+		return vs[0].([]ScriptTag)[vs[1].(int)]
+	}).(ScriptTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyPtrInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
@@ -2848,10 +3248,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyArrayInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityConfigurationInput)(nil)).Elem(), GameSessionQueuePriorityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityConfigurationPtrInput)(nil)).Elem(), GameSessionQueuePriorityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueTagInput)(nil)).Elem(), GameSessionQueueTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueTagArrayInput)(nil)).Elem(), GameSessionQueueTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationGamePropertyInput)(nil)).Elem(), MatchmakingConfigurationGamePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationGamePropertyArrayInput)(nil)).Elem(), MatchmakingConfigurationGamePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationTagInput)(nil)).Elem(), MatchmakingConfigurationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationTagArrayInput)(nil)).Elem(), MatchmakingConfigurationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingRuleSetTagInput)(nil)).Elem(), MatchmakingRuleSetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingRuleSetTagArrayInput)(nil)).Elem(), MatchmakingRuleSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptS3LocationInput)(nil)).Elem(), ScriptS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptS3LocationPtrInput)(nil)).Elem(), ScriptS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagInput)(nil)).Elem(), ScriptTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagArrayInput)(nil)).Elem(), ScriptTagArray{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BuildS3LocationOutput{})
@@ -2888,8 +3296,16 @@ func init() {
 	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePriorityConfigurationOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePriorityConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueTagOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueTagArrayOutput{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyOutput{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyArrayOutput{})
+	pulumi.RegisterOutputType(MatchmakingConfigurationTagOutput{})
+	pulumi.RegisterOutputType(MatchmakingConfigurationTagArrayOutput{})
+	pulumi.RegisterOutputType(MatchmakingRuleSetTagOutput{})
+	pulumi.RegisterOutputType(MatchmakingRuleSetTagArrayOutput{})
 	pulumi.RegisterOutputType(ScriptS3LocationOutput{})
 	pulumi.RegisterOutputType(ScriptS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(ScriptTagOutput{})
+	pulumi.RegisterOutputType(ScriptTagArrayOutput{})
 }

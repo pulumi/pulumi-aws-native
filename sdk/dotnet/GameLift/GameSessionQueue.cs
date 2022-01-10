@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.GameLift
         [Output("priorityConfiguration")]
         public Output<Outputs.GameSessionQueuePriorityConfiguration?> PriorityConfiguration { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.GameSessionQueueTag>> Tags { get; private set; } = null!;
+
         [Output("timeoutInSeconds")]
         public Output<int?> TimeoutInSeconds { get; private set; } = null!;
 
@@ -118,6 +121,14 @@ namespace Pulumi.AwsNative.GameLift
 
         [Input("priorityConfiguration")]
         public Input<Inputs.GameSessionQueuePriorityConfigurationArgs>? PriorityConfiguration { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.GameSessionQueueTagArgs>? _tags;
+        public InputList<Inputs.GameSessionQueueTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.GameSessionQueueTagArgs>());
+            set => _tags = value;
+        }
 
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }

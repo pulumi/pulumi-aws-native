@@ -107,6 +107,22 @@
         }
       }
     },
+    "CustomArtifactConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MavenReference" : {
+          "$ref" : "#/definitions/MavenReference"
+        },
+        "S3ContentLocation" : {
+          "$ref" : "#/definitions/S3ContentLocation"
+        },
+        "ArtifactType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ArtifactType" ]
+    },
     "DeployAsApplicationConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -241,10 +257,6 @@
         }
       }
     },
-    "CustomArtifactsConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false
-    },
     "MappingParameters" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -351,7 +363,11 @@
           "$ref" : "#/definitions/DeployAsApplicationConfiguration"
         },
         "CustomArtifactsConfiguration" : {
-          "$ref" : "#/definitions/CustomArtifactsConfiguration"
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/CustomArtifactConfiguration"
+          }
         }
       }
     },
@@ -426,6 +442,22 @@
           "$ref" : "#/definitions/ParallelismConfiguration"
         }
       }
+    },
+    "MavenReference" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ArtifactId" : {
+          "type" : "string"
+        },
+        "Version" : {
+          "type" : "string"
+        },
+        "GroupId" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ArtifactId", "Version", "GroupId" ]
     },
     "Tag" : {
       "type" : "object",

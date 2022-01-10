@@ -7,12 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
+namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    public sealed class ApplicationCustomArtifactsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateTotalLocalStorageGBArgs : Pulumi.ResourceArgs
     {
-        public ApplicationCustomArtifactsConfigurationArgs()
+        [Input("max")]
+        public Input<double>? Max { get; set; }
+
+        [Input("min")]
+        public Input<double>? Min { get; set; }
+
+        public LaunchTemplateTotalLocalStorageGBArgs()
         {
         }
     }

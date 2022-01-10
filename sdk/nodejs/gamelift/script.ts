@@ -41,6 +41,7 @@ export class Script extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.ScriptS3Location>;
+    public readonly tags!: pulumi.Output<outputs.gamelift.ScriptTag[] | undefined>;
     public readonly version!: pulumi.Output<string | undefined>;
 
     /**
@@ -61,12 +62,14 @@ export class Script extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["storageLocation"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -82,5 +85,6 @@ export class Script extends pulumi.CustomResource {
 export interface ScriptArgs {
     name?: pulumi.Input<string>;
     storageLocation: pulumi.Input<inputs.gamelift.ScriptS3LocationArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.gamelift.ScriptTagArgs>[]>;
     version?: pulumi.Input<string>;
 }

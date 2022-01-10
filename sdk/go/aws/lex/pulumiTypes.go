@@ -804,47 +804,6 @@ func (i BotAliasLocaleSettingsArgs) ToBotAliasLocaleSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasLocaleSettingsOutput)
 }
 
-func (i BotAliasLocaleSettingsArgs) ToBotAliasLocaleSettingsPtrOutput() BotAliasLocaleSettingsPtrOutput {
-	return i.ToBotAliasLocaleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i BotAliasLocaleSettingsArgs) ToBotAliasLocaleSettingsPtrOutputWithContext(ctx context.Context) BotAliasLocaleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasLocaleSettingsOutput).ToBotAliasLocaleSettingsPtrOutputWithContext(ctx)
-}
-
-// BotAliasLocaleSettingsPtrInput is an input type that accepts BotAliasLocaleSettingsArgs, BotAliasLocaleSettingsPtr and BotAliasLocaleSettingsPtrOutput values.
-// You can construct a concrete instance of `BotAliasLocaleSettingsPtrInput` via:
-//
-//          BotAliasLocaleSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type BotAliasLocaleSettingsPtrInput interface {
-	pulumi.Input
-
-	ToBotAliasLocaleSettingsPtrOutput() BotAliasLocaleSettingsPtrOutput
-	ToBotAliasLocaleSettingsPtrOutputWithContext(context.Context) BotAliasLocaleSettingsPtrOutput
-}
-
-type botAliasLocaleSettingsPtrType BotAliasLocaleSettingsArgs
-
-func BotAliasLocaleSettingsPtr(v *BotAliasLocaleSettingsArgs) BotAliasLocaleSettingsPtrInput {
-	return (*botAliasLocaleSettingsPtrType)(v)
-}
-
-func (*botAliasLocaleSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAliasLocaleSettings)(nil)).Elem()
-}
-
-func (i *botAliasLocaleSettingsPtrType) ToBotAliasLocaleSettingsPtrOutput() BotAliasLocaleSettingsPtrOutput {
-	return i.ToBotAliasLocaleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *botAliasLocaleSettingsPtrType) ToBotAliasLocaleSettingsPtrOutputWithContext(ctx context.Context) BotAliasLocaleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasLocaleSettingsPtrOutput)
-}
-
 // You can use this parameter to specify a specific Lambda function to run different functions in different locales.
 type BotAliasLocaleSettingsOutput struct{ *pulumi.OutputState }
 
@@ -860,16 +819,6 @@ func (o BotAliasLocaleSettingsOutput) ToBotAliasLocaleSettingsOutputWithContext(
 	return o
 }
 
-func (o BotAliasLocaleSettingsOutput) ToBotAliasLocaleSettingsPtrOutput() BotAliasLocaleSettingsPtrOutput {
-	return o.ToBotAliasLocaleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o BotAliasLocaleSettingsOutput) ToBotAliasLocaleSettingsPtrOutputWithContext(ctx context.Context) BotAliasLocaleSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAliasLocaleSettings) *BotAliasLocaleSettings {
-		return &v
-	}).(BotAliasLocaleSettingsPtrOutput)
-}
-
 func (o BotAliasLocaleSettingsOutput) CodeHookSpecification() BotAliasCodeHookSpecificationPtrOutput {
 	return o.ApplyT(func(v BotAliasLocaleSettings) *BotAliasCodeHookSpecification { return v.CodeHookSpecification }).(BotAliasCodeHookSpecificationPtrOutput)
 }
@@ -879,54 +828,11 @@ func (o BotAliasLocaleSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotAliasLocaleSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type BotAliasLocaleSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (BotAliasLocaleSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAliasLocaleSettings)(nil)).Elem()
-}
-
-func (o BotAliasLocaleSettingsPtrOutput) ToBotAliasLocaleSettingsPtrOutput() BotAliasLocaleSettingsPtrOutput {
-	return o
-}
-
-func (o BotAliasLocaleSettingsPtrOutput) ToBotAliasLocaleSettingsPtrOutputWithContext(ctx context.Context) BotAliasLocaleSettingsPtrOutput {
-	return o
-}
-
-func (o BotAliasLocaleSettingsPtrOutput) Elem() BotAliasLocaleSettingsOutput {
-	return o.ApplyT(func(v *BotAliasLocaleSettings) BotAliasLocaleSettings {
-		if v != nil {
-			return *v
-		}
-		var ret BotAliasLocaleSettings
-		return ret
-	}).(BotAliasLocaleSettingsOutput)
-}
-
-func (o BotAliasLocaleSettingsPtrOutput) CodeHookSpecification() BotAliasCodeHookSpecificationPtrOutput {
-	return o.ApplyT(func(v *BotAliasLocaleSettings) *BotAliasCodeHookSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.CodeHookSpecification
-	}).(BotAliasCodeHookSpecificationPtrOutput)
-}
-
-// Whether the Lambda code hook is enabled
-func (o BotAliasLocaleSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BotAliasLocaleSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 // A locale setting in alias
 type BotAliasLocaleSettingsItem struct {
-	BotAliasLocaleSetting *BotAliasLocaleSettings `pulumi:"botAliasLocaleSetting"`
+	BotAliasLocaleSetting BotAliasLocaleSettings `pulumi:"botAliasLocaleSetting"`
 	// A string used to identify the locale
-	LocaleId *string `pulumi:"localeId"`
+	LocaleId string `pulumi:"localeId"`
 }
 
 // BotAliasLocaleSettingsItemInput is an input type that accepts BotAliasLocaleSettingsItemArgs and BotAliasLocaleSettingsItemOutput values.
@@ -942,9 +848,9 @@ type BotAliasLocaleSettingsItemInput interface {
 
 // A locale setting in alias
 type BotAliasLocaleSettingsItemArgs struct {
-	BotAliasLocaleSetting BotAliasLocaleSettingsPtrInput `pulumi:"botAliasLocaleSetting"`
+	BotAliasLocaleSetting BotAliasLocaleSettingsInput `pulumi:"botAliasLocaleSetting"`
 	// A string used to identify the locale
-	LocaleId pulumi.StringPtrInput `pulumi:"localeId"`
+	LocaleId pulumi.StringInput `pulumi:"localeId"`
 }
 
 func (BotAliasLocaleSettingsItemArgs) ElementType() reflect.Type {
@@ -999,13 +905,13 @@ func (o BotAliasLocaleSettingsItemOutput) ToBotAliasLocaleSettingsItemOutputWith
 	return o
 }
 
-func (o BotAliasLocaleSettingsItemOutput) BotAliasLocaleSetting() BotAliasLocaleSettingsPtrOutput {
-	return o.ApplyT(func(v BotAliasLocaleSettingsItem) *BotAliasLocaleSettings { return v.BotAliasLocaleSetting }).(BotAliasLocaleSettingsPtrOutput)
+func (o BotAliasLocaleSettingsItemOutput) BotAliasLocaleSetting() BotAliasLocaleSettingsOutput {
+	return o.ApplyT(func(v BotAliasLocaleSettingsItem) BotAliasLocaleSettings { return v.BotAliasLocaleSetting }).(BotAliasLocaleSettingsOutput)
 }
 
 // A string used to identify the locale
-func (o BotAliasLocaleSettingsItemOutput) LocaleId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotAliasLocaleSettingsItem) *string { return v.LocaleId }).(pulumi.StringPtrOutput)
+func (o BotAliasLocaleSettingsItemOutput) LocaleId() pulumi.StringOutput {
+	return o.ApplyT(func(v BotAliasLocaleSettingsItem) string { return v.LocaleId }).(pulumi.StringOutput)
 }
 
 type BotAliasLocaleSettingsItemArrayOutput struct{ *pulumi.OutputState }
@@ -8227,7 +8133,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLambdaCodeHookInput)(nil)).Elem(), BotAliasLambdaCodeHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLambdaCodeHookPtrInput)(nil)).Elem(), BotAliasLambdaCodeHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLocaleSettingsInput)(nil)).Elem(), BotAliasLocaleSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLocaleSettingsPtrInput)(nil)).Elem(), BotAliasLocaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLocaleSettingsItemInput)(nil)).Elem(), BotAliasLocaleSettingsItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLocaleSettingsItemArrayInput)(nil)).Elem(), BotAliasLocaleSettingsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasS3BucketLogDestinationInput)(nil)).Elem(), BotAliasS3BucketLogDestinationArgs{})
@@ -8344,7 +8249,6 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasLambdaCodeHookOutput{})
 	pulumi.RegisterOutputType(BotAliasLambdaCodeHookPtrOutput{})
 	pulumi.RegisterOutputType(BotAliasLocaleSettingsOutput{})
-	pulumi.RegisterOutputType(BotAliasLocaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BotAliasLocaleSettingsItemOutput{})
 	pulumi.RegisterOutputType(BotAliasLocaleSettingsItemArrayOutput{})
 	pulumi.RegisterOutputType(BotAliasS3BucketLogDestinationOutput{})

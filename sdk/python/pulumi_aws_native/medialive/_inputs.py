@@ -4451,6 +4451,7 @@ class ChannelHlsGroupSettingsArgs:
                  mode: Optional[pulumi.Input[str]] = None,
                  output_selection: Optional[pulumi.Input[str]] = None,
                  program_date_time: Optional[pulumi.Input[str]] = None,
+                 program_date_time_clock: Optional[pulumi.Input[str]] = None,
                  program_date_time_period: Optional[pulumi.Input[int]] = None,
                  redundant_manifest: Optional[pulumi.Input[str]] = None,
                  segment_length: Optional[pulumi.Input[int]] = None,
@@ -4525,6 +4526,8 @@ class ChannelHlsGroupSettingsArgs:
             pulumi.set(__self__, "output_selection", output_selection)
         if program_date_time is not None:
             pulumi.set(__self__, "program_date_time", program_date_time)
+        if program_date_time_clock is not None:
+            pulumi.set(__self__, "program_date_time_clock", program_date_time_clock)
         if program_date_time_period is not None:
             pulumi.set(__self__, "program_date_time_period", program_date_time_period)
         if redundant_manifest is not None:
@@ -4833,6 +4836,15 @@ class ChannelHlsGroupSettingsArgs:
     @program_date_time.setter
     def program_date_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "program_date_time", value)
+
+    @property
+    @pulumi.getter(name="programDateTimeClock")
+    def program_date_time_clock(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "program_date_time_clock")
+
+    @program_date_time_clock.setter
+    def program_date_time_clock(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "program_date_time_clock", value)
 
     @property
     @pulumi.getter(name="programDateTimePeriod")
@@ -5464,6 +5476,7 @@ class ChannelInputSettingsArgs:
                  filter_strength: Optional[pulumi.Input[int]] = None,
                  input_filter: Optional[pulumi.Input[str]] = None,
                  network_input_settings: Optional[pulumi.Input['ChannelNetworkInputSettingsArgs']] = None,
+                 scte35_pid: Optional[pulumi.Input[int]] = None,
                  smpte2038_data_preference: Optional[pulumi.Input[str]] = None,
                  source_end_behavior: Optional[pulumi.Input[str]] = None,
                  video_selector: Optional[pulumi.Input['ChannelVideoSelectorArgs']] = None):
@@ -5481,6 +5494,8 @@ class ChannelInputSettingsArgs:
             pulumi.set(__self__, "input_filter", input_filter)
         if network_input_settings is not None:
             pulumi.set(__self__, "network_input_settings", network_input_settings)
+        if scte35_pid is not None:
+            pulumi.set(__self__, "scte35_pid", scte35_pid)
         if smpte2038_data_preference is not None:
             pulumi.set(__self__, "smpte2038_data_preference", smpte2038_data_preference)
         if source_end_behavior is not None:
@@ -5550,6 +5565,15 @@ class ChannelInputSettingsArgs:
     @network_input_settings.setter
     def network_input_settings(self, value: Optional[pulumi.Input['ChannelNetworkInputSettingsArgs']]):
         pulumi.set(self, "network_input_settings", value)
+
+    @property
+    @pulumi.getter(name="scte35Pid")
+    def scte35_pid(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "scte35_pid")
+
+    @scte35_pid.setter
+    def scte35_pid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scte35_pid", value)
 
     @property
     @pulumi.getter(name="smpte2038DataPreference")

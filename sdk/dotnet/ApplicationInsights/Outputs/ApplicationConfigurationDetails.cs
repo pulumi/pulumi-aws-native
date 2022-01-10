@@ -25,14 +25,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationAlarm> Alarms;
         /// <summary>
-        /// The HA cluster Prometheus Exporter settings.
-        /// </summary>
-        public readonly Outputs.ApplicationHAClusterPrometheusExporter? HAClusterPrometheusExporter;
-        /// <summary>
-        /// The HANA DB Prometheus Exporter settings.
-        /// </summary>
-        public readonly Outputs.ApplicationHANAPrometheusExporter? HANAPrometheusExporter;
-        /// <summary>
         /// The JMX Prometheus Exporter settings.
         /// </summary>
         public readonly Outputs.ApplicationJMXPrometheusExporter? JMXPrometheusExporter;
@@ -51,10 +43,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
             ImmutableArray<Outputs.ApplicationAlarm> alarms,
 
-            Outputs.ApplicationHAClusterPrometheusExporter? hAClusterPrometheusExporter,
-
-            Outputs.ApplicationHANAPrometheusExporter? hANAPrometheusExporter,
-
             Outputs.ApplicationJMXPrometheusExporter? jMXPrometheusExporter,
 
             ImmutableArray<Outputs.ApplicationLog> logs,
@@ -63,8 +51,6 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         {
             AlarmMetrics = alarmMetrics;
             Alarms = alarms;
-            HAClusterPrometheusExporter = hAClusterPrometheusExporter;
-            HANAPrometheusExporter = hANAPrometheusExporter;
             JMXPrometheusExporter = jMXPrometheusExporter;
             Logs = logs;
             WindowsEvents = windowsEvents;

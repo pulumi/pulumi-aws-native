@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -40,6 +41,7 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly ruleSetBody!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.gamelift.MatchmakingRuleSetTag[] | undefined>;
 
     /**
      * Create a MatchmakingRuleSet resource with the given unique name, arguments, and options.
@@ -59,11 +61,13 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["ruleSetBody"] = args ? args.ruleSetBody : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ruleSetBody"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -78,4 +82,5 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
 export interface MatchmakingRuleSetArgs {
     name?: pulumi.Input<string>;
     ruleSetBody: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingRuleSetTagArgs>[]>;
 }

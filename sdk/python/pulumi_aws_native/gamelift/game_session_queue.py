@@ -22,6 +22,7 @@ class GameSessionQueueArgs:
                  notification_target: Optional[pulumi.Input[str]] = None,
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]] = None,
                  priority_configuration: Optional[pulumi.Input['GameSessionQueuePriorityConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a GameSessionQueue resource.
@@ -40,6 +41,8 @@ class GameSessionQueueArgs:
             pulumi.set(__self__, "player_latency_policies", player_latency_policies)
         if priority_configuration is not None:
             pulumi.set(__self__, "priority_configuration", priority_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
 
@@ -107,6 +110,15 @@ class GameSessionQueueArgs:
         pulumi.set(self, "priority_configuration", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "timeout_in_seconds")
@@ -133,6 +145,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  notification_target: Optional[pulumi.Input[str]] = None,
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]]] = None,
                  priority_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueueTagArgs']]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -172,6 +185,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  notification_target: Optional[pulumi.Input[str]] = None,
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueuePlayerLatencyPolicyArgs']]]]] = None,
                  priority_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameSessionQueueTagArgs']]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         pulumi.log.warn("""GameSessionQueue is deprecated: GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -193,6 +207,7 @@ class GameSessionQueue(pulumi.CustomResource):
             __props__.__dict__["notification_target"] = notification_target
             __props__.__dict__["player_latency_policies"] = player_latency_policies
             __props__.__dict__["priority_configuration"] = priority_configuration
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
             __props__.__dict__["arn"] = None
         super(GameSessionQueue, __self__).__init__(
@@ -225,6 +240,7 @@ class GameSessionQueue(pulumi.CustomResource):
         __props__.__dict__["notification_target"] = None
         __props__.__dict__["player_latency_policies"] = None
         __props__.__dict__["priority_configuration"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["timeout_in_seconds"] = None
         return GameSessionQueue(resource_name, opts=opts, __props__=__props__)
 
@@ -267,6 +283,11 @@ class GameSessionQueue(pulumi.CustomResource):
     @pulumi.getter(name="priorityConfiguration")
     def priority_configuration(self) -> pulumi.Output[Optional['outputs.GameSessionQueuePriorityConfiguration']]:
         return pulumi.get(self, "priority_configuration")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GameSessionQueueTag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="timeoutInSeconds")

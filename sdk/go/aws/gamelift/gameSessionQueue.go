@@ -24,6 +24,7 @@ type GameSessionQueue struct {
 	NotificationTarget    pulumi.StringPtrOutput                         `pulumi:"notificationTarget"`
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayOutput `pulumi:"playerLatencyPolicies"`
 	PriorityConfiguration GameSessionQueuePriorityConfigurationPtrOutput `pulumi:"priorityConfiguration"`
+	Tags                  GameSessionQueueTagArrayOutput                 `pulumi:"tags"`
 	TimeoutInSeconds      pulumi.IntPtrOutput                            `pulumi:"timeoutInSeconds"`
 }
 
@@ -73,6 +74,7 @@ type gameSessionQueueArgs struct {
 	NotificationTarget    *string                                `pulumi:"notificationTarget"`
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy  `pulumi:"playerLatencyPolicies"`
 	PriorityConfiguration *GameSessionQueuePriorityConfiguration `pulumi:"priorityConfiguration"`
+	Tags                  []GameSessionQueueTag                  `pulumi:"tags"`
 	TimeoutInSeconds      *int                                   `pulumi:"timeoutInSeconds"`
 }
 
@@ -85,6 +87,7 @@ type GameSessionQueueArgs struct {
 	NotificationTarget    pulumi.StringPtrInput
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
 	PriorityConfiguration GameSessionQueuePriorityConfigurationPtrInput
+	Tags                  GameSessionQueueTagArrayInput
 	TimeoutInSeconds      pulumi.IntPtrInput
 }
 

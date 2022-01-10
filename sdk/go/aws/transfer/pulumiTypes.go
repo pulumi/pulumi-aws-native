@@ -470,7 +470,8 @@ func (o ServerProtocolArrayOutput) Index(i pulumi.IntInput) ServerProtocolOutput
 }
 
 type ServerProtocolDetails struct {
-	PassiveIp *string `pulumi:"passiveIp"`
+	PassiveIp                *string `pulumi:"passiveIp"`
+	TlsSessionResumptionMode *string `pulumi:"tlsSessionResumptionMode"`
 }
 
 // ServerProtocolDetailsInput is an input type that accepts ServerProtocolDetailsArgs and ServerProtocolDetailsOutput values.
@@ -485,7 +486,8 @@ type ServerProtocolDetailsInput interface {
 }
 
 type ServerProtocolDetailsArgs struct {
-	PassiveIp pulumi.StringPtrInput `pulumi:"passiveIp"`
+	PassiveIp                pulumi.StringPtrInput `pulumi:"passiveIp"`
+	TlsSessionResumptionMode pulumi.StringPtrInput `pulumi:"tlsSessionResumptionMode"`
 }
 
 func (ServerProtocolDetailsArgs) ElementType() reflect.Type {
@@ -569,6 +571,10 @@ func (o ServerProtocolDetailsOutput) PassiveIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.PassiveIp }).(pulumi.StringPtrOutput)
 }
 
+func (o ServerProtocolDetailsOutput) TlsSessionResumptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.TlsSessionResumptionMode }).(pulumi.StringPtrOutput)
+}
+
 type ServerProtocolDetailsPtrOutput struct{ *pulumi.OutputState }
 
 func (ServerProtocolDetailsPtrOutput) ElementType() reflect.Type {
@@ -599,6 +605,15 @@ func (o ServerProtocolDetailsPtrOutput) PassiveIp() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PassiveIp
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerProtocolDetailsPtrOutput) TlsSessionResumptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsSessionResumptionMode
 	}).(pulumi.StringPtrOutput)
 }
 

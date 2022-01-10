@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.GameLift
         [Output("storageLocation")]
         public Output<Outputs.ScriptS3Location> StorageLocation { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.ScriptTag>> Tags { get; private set; } = null!;
+
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
@@ -78,6 +81,14 @@ namespace Pulumi.AwsNative.GameLift
 
         [Input("storageLocation", required: true)]
         public Input<Inputs.ScriptS3LocationArgs> StorageLocation { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.ScriptTagArgs>? _tags;
+        public InputList<Inputs.ScriptTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.ScriptTagArgs>());
+            set => _tags = value;
+        }
 
         [Input("version")]
         public Input<string>? Version { get; set; }

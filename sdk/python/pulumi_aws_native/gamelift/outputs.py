@@ -29,8 +29,12 @@ __all__ = [
     'GameSessionQueueFilterConfiguration',
     'GameSessionQueuePlayerLatencyPolicy',
     'GameSessionQueuePriorityConfiguration',
+    'GameSessionQueueTag',
     'MatchmakingConfigurationGameProperty',
+    'MatchmakingConfigurationTag',
+    'MatchmakingRuleSetTag',
     'ScriptS3Location',
+    'ScriptTag',
 ]
 
 @pulumi.output_type
@@ -921,7 +925,64 @@ class GameSessionQueuePriorityConfiguration(dict):
 
 
 @pulumi.output_type
+class GameSessionQueueTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class MatchmakingConfigurationGameProperty(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MatchmakingConfigurationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MatchmakingRuleSetTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -990,5 +1051,24 @@ class ScriptS3Location(dict):
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> Optional[str]:
         return pulumi.get(self, "object_version")
+
+
+@pulumi.output_type
+class ScriptTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

@@ -28,7 +28,8 @@ class MatchmakingConfigurationArgs:
                  game_session_data: Optional[pulumi.Input[str]] = None,
                  game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_target: Optional[pulumi.Input[str]] = None):
+                 notification_target: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]] = None):
         """
         The set of arguments for constructing a MatchmakingConfiguration resource.
         """
@@ -57,6 +58,8 @@ class MatchmakingConfigurationArgs:
             pulumi.set(__self__, "name", name)
         if notification_target is not None:
             pulumi.set(__self__, "notification_target", notification_target)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -184,6 +187,15 @@ class MatchmakingConfigurationArgs:
     def notification_target(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "notification_target", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -209,6 +221,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  notification_target: Optional[pulumi.Input[str]] = None,
                  request_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GameLift::MatchmakingConfiguration
@@ -254,6 +267,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  notification_target: Optional[pulumi.Input[str]] = None,
                  request_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""MatchmakingConfiguration is deprecated: MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -287,6 +301,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__.__dict__["rule_set_name"] = rule_set_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(MatchmakingConfiguration, __self__).__init__(
             'aws-native:gamelift:MatchmakingConfiguration',
@@ -325,6 +340,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         __props__.__dict__["notification_target"] = None
         __props__.__dict__["request_timeout_seconds"] = None
         __props__.__dict__["rule_set_name"] = None
+        __props__.__dict__["tags"] = None
         return MatchmakingConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -401,4 +417,9 @@ class MatchmakingConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "rule_set_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MatchmakingConfigurationTag']]]:
+        return pulumi.get(self, "tags")
 

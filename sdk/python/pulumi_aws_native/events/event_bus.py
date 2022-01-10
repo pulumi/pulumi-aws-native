@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['EventBusArgs', 'EventBus']
 
@@ -14,7 +16,8 @@ __all__ = ['EventBusArgs', 'EventBus']
 class EventBusArgs:
     def __init__(__self__, *,
                  event_source_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagEntryArgs']]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
         """
@@ -22,6 +25,8 @@ class EventBusArgs:
             pulumi.set(__self__, "event_source_name", event_source_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="eventSourceName")
@@ -41,6 +46,15 @@ class EventBusArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagEntryArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagEntryArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -54,6 +68,7 @@ class EventBus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventBusTagEntryArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Events::EventBus
@@ -87,6 +102,7 @@ class EventBus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventBusTagEntryArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""EventBus is deprecated: EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -102,6 +118,7 @@ class EventBus(pulumi.CustomResource):
 
             __props__.__dict__["event_source_name"] = event_source_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy"] = None
         super(EventBus, __self__).__init__(
@@ -130,6 +147,7 @@ class EventBus(pulumi.CustomResource):
         __props__.__dict__["event_source_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy"] = None
+        __props__.__dict__["tags"] = None
         return EventBus(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -151,4 +169,9 @@ class EventBus(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventBusTagEntry']]]:
+        return pulumi.get(self, "tags")
 

@@ -20,6 +20,7 @@ type Script struct {
 	Arn             pulumi.StringOutput    `pulumi:"arn"`
 	Name            pulumi.StringPtrOutput `pulumi:"name"`
 	StorageLocation ScriptS3LocationOutput `pulumi:"storageLocation"`
+	Tags            ScriptTagArrayOutput   `pulumi:"tags"`
 	Version         pulumi.StringPtrOutput `pulumi:"version"`
 }
 
@@ -67,6 +68,7 @@ func (ScriptState) ElementType() reflect.Type {
 type scriptArgs struct {
 	Name            *string          `pulumi:"name"`
 	StorageLocation ScriptS3Location `pulumi:"storageLocation"`
+	Tags            []ScriptTag      `pulumi:"tags"`
 	Version         *string          `pulumi:"version"`
 }
 
@@ -74,6 +76,7 @@ type scriptArgs struct {
 type ScriptArgs struct {
 	Name            pulumi.StringPtrInput
 	StorageLocation ScriptS3LocationInput
+	Tags            ScriptTagArrayInput
 	Version         pulumi.StringPtrInput
 }
 

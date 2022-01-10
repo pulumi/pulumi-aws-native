@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['MatchmakingRuleSetArgs', 'MatchmakingRuleSet']
 
@@ -14,13 +16,16 @@ __all__ = ['MatchmakingRuleSetArgs', 'MatchmakingRuleSet']
 class MatchmakingRuleSetArgs:
     def __init__(__self__, *,
                  rule_set_body: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingRuleSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a MatchmakingRuleSet resource.
         """
         pulumi.set(__self__, "rule_set_body", rule_set_body)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="ruleSetBody")
@@ -40,6 +45,15 @@ class MatchmakingRuleSetArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingRuleSetTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingRuleSetTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -53,6 +67,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_set_body: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingRuleSetTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GameLift::MatchmakingRuleSet
@@ -86,6 +101,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_set_body: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingRuleSetTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""MatchmakingRuleSet is deprecated: MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -103,6 +119,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
             if rule_set_body is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_body'")
             __props__.__dict__["rule_set_body"] = rule_set_body
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(MatchmakingRuleSet, __self__).__init__(
             'aws-native:gamelift:MatchmakingRuleSet',
@@ -129,6 +146,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rule_set_body"] = None
+        __props__.__dict__["tags"] = None
         return MatchmakingRuleSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -145,4 +163,9 @@ class MatchmakingRuleSet(pulumi.CustomResource):
     @pulumi.getter(name="ruleSetBody")
     def rule_set_body(self) -> pulumi.Output[str]:
         return pulumi.get(self, "rule_set_body")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MatchmakingRuleSetTag']]]:
+        return pulumi.get(self, "tags")
 

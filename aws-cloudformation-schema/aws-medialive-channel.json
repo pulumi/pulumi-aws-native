@@ -977,6 +977,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Scte35Pid" : {
+          "type" : "integer"
+        },
         "DeblockFilter" : {
           "type" : "string"
         },
@@ -1599,6 +1602,9 @@
           "type" : "string"
         },
         "BaseUrlContent1" : {
+          "type" : "string"
+        },
+        "ProgramDateTimeClock" : {
           "type" : "string"
         },
         "ManifestCompression" : {

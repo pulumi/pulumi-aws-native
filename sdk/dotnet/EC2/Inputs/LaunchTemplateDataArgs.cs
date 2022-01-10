@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("instanceMarketOptions")]
         public Input<Inputs.LaunchTemplateInstanceMarketOptionsArgs>? InstanceMarketOptions { get; set; }
 
+        [Input("instanceRequirements")]
+        public Input<Inputs.LaunchTemplateInstanceRequirementsArgs>? InstanceRequirements { get; set; }
+
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 

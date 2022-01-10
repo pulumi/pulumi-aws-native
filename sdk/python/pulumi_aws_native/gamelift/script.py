@@ -17,6 +17,7 @@ class ScriptArgs:
     def __init__(__self__, *,
                  storage_location: pulumi.Input['ScriptS3LocationArgs'],
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptTagArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Script resource.
@@ -24,6 +25,8 @@ class ScriptArgs:
         pulumi.set(__self__, "storage_location", storage_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -47,6 +50,15 @@ class ScriptArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "version")
 
@@ -67,6 +79,7 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input[pulumi.InputType['ScriptS3LocationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptTagArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -101,6 +114,7 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input[pulumi.InputType['ScriptS3LocationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptTagArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Script is deprecated: Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -119,6 +133,7 @@ class Script(pulumi.CustomResource):
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
         super(Script, __self__).__init__(
@@ -146,6 +161,7 @@ class Script(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["storage_location"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["version"] = None
         return Script(resource_name, opts=opts, __props__=__props__)
 
@@ -163,6 +179,11 @@ class Script(pulumi.CustomResource):
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> pulumi.Output['outputs.ScriptS3Location']:
         return pulumi.get(self, "storage_location")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ScriptTag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

@@ -1131,122 +1131,112 @@ func (o ApplicationConfigurationPtrOutput) ZeppelinApplicationConfiguration() Ap
 	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
 }
 
-type ApplicationCustomArtifactsConfiguration struct {
+type ApplicationCustomArtifactConfiguration struct {
+	ArtifactType      string                        `pulumi:"artifactType"`
+	MavenReference    *ApplicationMavenReference    `pulumi:"mavenReference"`
+	S3ContentLocation *ApplicationS3ContentLocation `pulumi:"s3ContentLocation"`
 }
 
-// ApplicationCustomArtifactsConfigurationInput is an input type that accepts ApplicationCustomArtifactsConfigurationArgs and ApplicationCustomArtifactsConfigurationOutput values.
-// You can construct a concrete instance of `ApplicationCustomArtifactsConfigurationInput` via:
+// ApplicationCustomArtifactConfigurationInput is an input type that accepts ApplicationCustomArtifactConfigurationArgs and ApplicationCustomArtifactConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationCustomArtifactConfigurationInput` via:
 //
-//          ApplicationCustomArtifactsConfigurationArgs{...}
-type ApplicationCustomArtifactsConfigurationInput interface {
+//          ApplicationCustomArtifactConfigurationArgs{...}
+type ApplicationCustomArtifactConfigurationInput interface {
 	pulumi.Input
 
-	ToApplicationCustomArtifactsConfigurationOutput() ApplicationCustomArtifactsConfigurationOutput
-	ToApplicationCustomArtifactsConfigurationOutputWithContext(context.Context) ApplicationCustomArtifactsConfigurationOutput
+	ToApplicationCustomArtifactConfigurationOutput() ApplicationCustomArtifactConfigurationOutput
+	ToApplicationCustomArtifactConfigurationOutputWithContext(context.Context) ApplicationCustomArtifactConfigurationOutput
 }
 
-type ApplicationCustomArtifactsConfigurationArgs struct {
+type ApplicationCustomArtifactConfigurationArgs struct {
+	ArtifactType      pulumi.StringInput                   `pulumi:"artifactType"`
+	MavenReference    ApplicationMavenReferencePtrInput    `pulumi:"mavenReference"`
+	S3ContentLocation ApplicationS3ContentLocationPtrInput `pulumi:"s3ContentLocation"`
 }
 
-func (ApplicationCustomArtifactsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationCustomArtifactsConfiguration)(nil)).Elem()
+func (ApplicationCustomArtifactConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCustomArtifactConfiguration)(nil)).Elem()
 }
 
-func (i ApplicationCustomArtifactsConfigurationArgs) ToApplicationCustomArtifactsConfigurationOutput() ApplicationCustomArtifactsConfigurationOutput {
-	return i.ToApplicationCustomArtifactsConfigurationOutputWithContext(context.Background())
+func (i ApplicationCustomArtifactConfigurationArgs) ToApplicationCustomArtifactConfigurationOutput() ApplicationCustomArtifactConfigurationOutput {
+	return i.ToApplicationCustomArtifactConfigurationOutputWithContext(context.Background())
 }
 
-func (i ApplicationCustomArtifactsConfigurationArgs) ToApplicationCustomArtifactsConfigurationOutputWithContext(ctx context.Context) ApplicationCustomArtifactsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomArtifactsConfigurationOutput)
+func (i ApplicationCustomArtifactConfigurationArgs) ToApplicationCustomArtifactConfigurationOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomArtifactConfigurationOutput)
 }
 
-func (i ApplicationCustomArtifactsConfigurationArgs) ToApplicationCustomArtifactsConfigurationPtrOutput() ApplicationCustomArtifactsConfigurationPtrOutput {
-	return i.ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationCustomArtifactsConfigurationArgs) ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCustomArtifactsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomArtifactsConfigurationOutput).ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(ctx)
-}
-
-// ApplicationCustomArtifactsConfigurationPtrInput is an input type that accepts ApplicationCustomArtifactsConfigurationArgs, ApplicationCustomArtifactsConfigurationPtr and ApplicationCustomArtifactsConfigurationPtrOutput values.
-// You can construct a concrete instance of `ApplicationCustomArtifactsConfigurationPtrInput` via:
+// ApplicationCustomArtifactConfigurationArrayInput is an input type that accepts ApplicationCustomArtifactConfigurationArray and ApplicationCustomArtifactConfigurationArrayOutput values.
+// You can construct a concrete instance of `ApplicationCustomArtifactConfigurationArrayInput` via:
 //
-//          ApplicationCustomArtifactsConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationCustomArtifactsConfigurationPtrInput interface {
+//          ApplicationCustomArtifactConfigurationArray{ ApplicationCustomArtifactConfigurationArgs{...} }
+type ApplicationCustomArtifactConfigurationArrayInput interface {
 	pulumi.Input
 
-	ToApplicationCustomArtifactsConfigurationPtrOutput() ApplicationCustomArtifactsConfigurationPtrOutput
-	ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(context.Context) ApplicationCustomArtifactsConfigurationPtrOutput
+	ToApplicationCustomArtifactConfigurationArrayOutput() ApplicationCustomArtifactConfigurationArrayOutput
+	ToApplicationCustomArtifactConfigurationArrayOutputWithContext(context.Context) ApplicationCustomArtifactConfigurationArrayOutput
 }
 
-type applicationCustomArtifactsConfigurationPtrType ApplicationCustomArtifactsConfigurationArgs
+type ApplicationCustomArtifactConfigurationArray []ApplicationCustomArtifactConfigurationInput
 
-func ApplicationCustomArtifactsConfigurationPtr(v *ApplicationCustomArtifactsConfigurationArgs) ApplicationCustomArtifactsConfigurationPtrInput {
-	return (*applicationCustomArtifactsConfigurationPtrType)(v)
+func (ApplicationCustomArtifactConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationCustomArtifactConfiguration)(nil)).Elem()
 }
 
-func (*applicationCustomArtifactsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationCustomArtifactsConfiguration)(nil)).Elem()
+func (i ApplicationCustomArtifactConfigurationArray) ToApplicationCustomArtifactConfigurationArrayOutput() ApplicationCustomArtifactConfigurationArrayOutput {
+	return i.ToApplicationCustomArtifactConfigurationArrayOutputWithContext(context.Background())
 }
 
-func (i *applicationCustomArtifactsConfigurationPtrType) ToApplicationCustomArtifactsConfigurationPtrOutput() ApplicationCustomArtifactsConfigurationPtrOutput {
-	return i.ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(context.Background())
+func (i ApplicationCustomArtifactConfigurationArray) ToApplicationCustomArtifactConfigurationArrayOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomArtifactConfigurationArrayOutput)
 }
 
-func (i *applicationCustomArtifactsConfigurationPtrType) ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCustomArtifactsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomArtifactsConfigurationPtrOutput)
+type ApplicationCustomArtifactConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationCustomArtifactConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCustomArtifactConfiguration)(nil)).Elem()
 }
 
-type ApplicationCustomArtifactsConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ApplicationCustomArtifactsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationCustomArtifactsConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationCustomArtifactsConfigurationOutput) ToApplicationCustomArtifactsConfigurationOutput() ApplicationCustomArtifactsConfigurationOutput {
+func (o ApplicationCustomArtifactConfigurationOutput) ToApplicationCustomArtifactConfigurationOutput() ApplicationCustomArtifactConfigurationOutput {
 	return o
 }
 
-func (o ApplicationCustomArtifactsConfigurationOutput) ToApplicationCustomArtifactsConfigurationOutputWithContext(ctx context.Context) ApplicationCustomArtifactsConfigurationOutput {
+func (o ApplicationCustomArtifactConfigurationOutput) ToApplicationCustomArtifactConfigurationOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationOutput {
 	return o
 }
 
-func (o ApplicationCustomArtifactsConfigurationOutput) ToApplicationCustomArtifactsConfigurationPtrOutput() ApplicationCustomArtifactsConfigurationPtrOutput {
-	return o.ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(context.Background())
+func (o ApplicationCustomArtifactConfigurationOutput) ArtifactType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationCustomArtifactConfiguration) string { return v.ArtifactType }).(pulumi.StringOutput)
 }
 
-func (o ApplicationCustomArtifactsConfigurationOutput) ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCustomArtifactsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCustomArtifactsConfiguration) *ApplicationCustomArtifactsConfiguration {
-		return &v
-	}).(ApplicationCustomArtifactsConfigurationPtrOutput)
+func (o ApplicationCustomArtifactConfigurationOutput) MavenReference() ApplicationMavenReferencePtrOutput {
+	return o.ApplyT(func(v ApplicationCustomArtifactConfiguration) *ApplicationMavenReference { return v.MavenReference }).(ApplicationMavenReferencePtrOutput)
 }
 
-type ApplicationCustomArtifactsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationCustomArtifactsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationCustomArtifactsConfiguration)(nil)).Elem()
+func (o ApplicationCustomArtifactConfigurationOutput) S3ContentLocation() ApplicationS3ContentLocationPtrOutput {
+	return o.ApplyT(func(v ApplicationCustomArtifactConfiguration) *ApplicationS3ContentLocation {
+		return v.S3ContentLocation
+	}).(ApplicationS3ContentLocationPtrOutput)
 }
 
-func (o ApplicationCustomArtifactsConfigurationPtrOutput) ToApplicationCustomArtifactsConfigurationPtrOutput() ApplicationCustomArtifactsConfigurationPtrOutput {
+type ApplicationCustomArtifactConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationCustomArtifactConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationCustomArtifactConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationCustomArtifactConfigurationArrayOutput) ToApplicationCustomArtifactConfigurationArrayOutput() ApplicationCustomArtifactConfigurationArrayOutput {
 	return o
 }
 
-func (o ApplicationCustomArtifactsConfigurationPtrOutput) ToApplicationCustomArtifactsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCustomArtifactsConfigurationPtrOutput {
+func (o ApplicationCustomArtifactConfigurationArrayOutput) ToApplicationCustomArtifactConfigurationArrayOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationArrayOutput {
 	return o
 }
 
-func (o ApplicationCustomArtifactsConfigurationPtrOutput) Elem() ApplicationCustomArtifactsConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationCustomArtifactsConfiguration) ApplicationCustomArtifactsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationCustomArtifactsConfiguration
-		return ret
-	}).(ApplicationCustomArtifactsConfigurationOutput)
+func (o ApplicationCustomArtifactConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationCustomArtifactConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationCustomArtifactConfiguration {
+		return vs[0].([]ApplicationCustomArtifactConfiguration)[vs[1].(int)]
+	}).(ApplicationCustomArtifactConfigurationOutput)
 }
 
 type ApplicationDeployAsApplicationConfiguration struct {
@@ -2952,6 +2942,169 @@ func (o ApplicationMappingParametersPtrOutput) JSONMappingParameters() Applicati
 		}
 		return v.JSONMappingParameters
 	}).(ApplicationJSONMappingParametersPtrOutput)
+}
+
+type ApplicationMavenReference struct {
+	ArtifactId string `pulumi:"artifactId"`
+	GroupId    string `pulumi:"groupId"`
+	Version    string `pulumi:"version"`
+}
+
+// ApplicationMavenReferenceInput is an input type that accepts ApplicationMavenReferenceArgs and ApplicationMavenReferenceOutput values.
+// You can construct a concrete instance of `ApplicationMavenReferenceInput` via:
+//
+//          ApplicationMavenReferenceArgs{...}
+type ApplicationMavenReferenceInput interface {
+	pulumi.Input
+
+	ToApplicationMavenReferenceOutput() ApplicationMavenReferenceOutput
+	ToApplicationMavenReferenceOutputWithContext(context.Context) ApplicationMavenReferenceOutput
+}
+
+type ApplicationMavenReferenceArgs struct {
+	ArtifactId pulumi.StringInput `pulumi:"artifactId"`
+	GroupId    pulumi.StringInput `pulumi:"groupId"`
+	Version    pulumi.StringInput `pulumi:"version"`
+}
+
+func (ApplicationMavenReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMavenReference)(nil)).Elem()
+}
+
+func (i ApplicationMavenReferenceArgs) ToApplicationMavenReferenceOutput() ApplicationMavenReferenceOutput {
+	return i.ToApplicationMavenReferenceOutputWithContext(context.Background())
+}
+
+func (i ApplicationMavenReferenceArgs) ToApplicationMavenReferenceOutputWithContext(ctx context.Context) ApplicationMavenReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMavenReferenceOutput)
+}
+
+func (i ApplicationMavenReferenceArgs) ToApplicationMavenReferencePtrOutput() ApplicationMavenReferencePtrOutput {
+	return i.ToApplicationMavenReferencePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationMavenReferenceArgs) ToApplicationMavenReferencePtrOutputWithContext(ctx context.Context) ApplicationMavenReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMavenReferenceOutput).ToApplicationMavenReferencePtrOutputWithContext(ctx)
+}
+
+// ApplicationMavenReferencePtrInput is an input type that accepts ApplicationMavenReferenceArgs, ApplicationMavenReferencePtr and ApplicationMavenReferencePtrOutput values.
+// You can construct a concrete instance of `ApplicationMavenReferencePtrInput` via:
+//
+//          ApplicationMavenReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationMavenReferencePtrInput interface {
+	pulumi.Input
+
+	ToApplicationMavenReferencePtrOutput() ApplicationMavenReferencePtrOutput
+	ToApplicationMavenReferencePtrOutputWithContext(context.Context) ApplicationMavenReferencePtrOutput
+}
+
+type applicationMavenReferencePtrType ApplicationMavenReferenceArgs
+
+func ApplicationMavenReferencePtr(v *ApplicationMavenReferenceArgs) ApplicationMavenReferencePtrInput {
+	return (*applicationMavenReferencePtrType)(v)
+}
+
+func (*applicationMavenReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMavenReference)(nil)).Elem()
+}
+
+func (i *applicationMavenReferencePtrType) ToApplicationMavenReferencePtrOutput() ApplicationMavenReferencePtrOutput {
+	return i.ToApplicationMavenReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationMavenReferencePtrType) ToApplicationMavenReferencePtrOutputWithContext(ctx context.Context) ApplicationMavenReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMavenReferencePtrOutput)
+}
+
+type ApplicationMavenReferenceOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMavenReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMavenReference)(nil)).Elem()
+}
+
+func (o ApplicationMavenReferenceOutput) ToApplicationMavenReferenceOutput() ApplicationMavenReferenceOutput {
+	return o
+}
+
+func (o ApplicationMavenReferenceOutput) ToApplicationMavenReferenceOutputWithContext(ctx context.Context) ApplicationMavenReferenceOutput {
+	return o
+}
+
+func (o ApplicationMavenReferenceOutput) ToApplicationMavenReferencePtrOutput() ApplicationMavenReferencePtrOutput {
+	return o.ToApplicationMavenReferencePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationMavenReferenceOutput) ToApplicationMavenReferencePtrOutputWithContext(ctx context.Context) ApplicationMavenReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMavenReference) *ApplicationMavenReference {
+		return &v
+	}).(ApplicationMavenReferencePtrOutput)
+}
+
+func (o ApplicationMavenReferenceOutput) ArtifactId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationMavenReference) string { return v.ArtifactId }).(pulumi.StringOutput)
+}
+
+func (o ApplicationMavenReferenceOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationMavenReference) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o ApplicationMavenReferenceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationMavenReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ApplicationMavenReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMavenReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMavenReference)(nil)).Elem()
+}
+
+func (o ApplicationMavenReferencePtrOutput) ToApplicationMavenReferencePtrOutput() ApplicationMavenReferencePtrOutput {
+	return o
+}
+
+func (o ApplicationMavenReferencePtrOutput) ToApplicationMavenReferencePtrOutputWithContext(ctx context.Context) ApplicationMavenReferencePtrOutput {
+	return o
+}
+
+func (o ApplicationMavenReferencePtrOutput) Elem() ApplicationMavenReferenceOutput {
+	return o.ApplyT(func(v *ApplicationMavenReference) ApplicationMavenReference {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationMavenReference
+		return ret
+	}).(ApplicationMavenReferenceOutput)
+}
+
+func (o ApplicationMavenReferencePtrOutput) ArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMavenReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ArtifactId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationMavenReferencePtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMavenReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationMavenReferencePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMavenReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationMonitoringConfiguration struct {
@@ -6139,7 +6292,7 @@ func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput
 
 type ApplicationZeppelinApplicationConfiguration struct {
 	CatalogConfiguration             *ApplicationCatalogConfiguration             `pulumi:"catalogConfiguration"`
-	CustomArtifactsConfiguration     *ApplicationCustomArtifactsConfiguration     `pulumi:"customArtifactsConfiguration"`
+	CustomArtifactsConfiguration     []ApplicationCustomArtifactConfiguration     `pulumi:"customArtifactsConfiguration"`
 	DeployAsApplicationConfiguration *ApplicationDeployAsApplicationConfiguration `pulumi:"deployAsApplicationConfiguration"`
 	MonitoringConfiguration          *ApplicationZeppelinMonitoringConfiguration  `pulumi:"monitoringConfiguration"`
 }
@@ -6157,7 +6310,7 @@ type ApplicationZeppelinApplicationConfigurationInput interface {
 
 type ApplicationZeppelinApplicationConfigurationArgs struct {
 	CatalogConfiguration             ApplicationCatalogConfigurationPtrInput             `pulumi:"catalogConfiguration"`
-	CustomArtifactsConfiguration     ApplicationCustomArtifactsConfigurationPtrInput     `pulumi:"customArtifactsConfiguration"`
+	CustomArtifactsConfiguration     ApplicationCustomArtifactConfigurationArrayInput    `pulumi:"customArtifactsConfiguration"`
 	DeployAsApplicationConfiguration ApplicationDeployAsApplicationConfigurationPtrInput `pulumi:"deployAsApplicationConfiguration"`
 	MonitoringConfiguration          ApplicationZeppelinMonitoringConfigurationPtrInput  `pulumi:"monitoringConfiguration"`
 }
@@ -6245,10 +6398,10 @@ func (o ApplicationZeppelinApplicationConfigurationOutput) CatalogConfiguration(
 	}).(ApplicationCatalogConfigurationPtrOutput)
 }
 
-func (o ApplicationZeppelinApplicationConfigurationOutput) CustomArtifactsConfiguration() ApplicationCustomArtifactsConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationZeppelinApplicationConfiguration) *ApplicationCustomArtifactsConfiguration {
+func (o ApplicationZeppelinApplicationConfigurationOutput) CustomArtifactsConfiguration() ApplicationCustomArtifactConfigurationArrayOutput {
+	return o.ApplyT(func(v ApplicationZeppelinApplicationConfiguration) []ApplicationCustomArtifactConfiguration {
 		return v.CustomArtifactsConfiguration
-	}).(ApplicationCustomArtifactsConfigurationPtrOutput)
+	}).(ApplicationCustomArtifactConfigurationArrayOutput)
 }
 
 func (o ApplicationZeppelinApplicationConfigurationOutput) DeployAsApplicationConfiguration() ApplicationDeployAsApplicationConfigurationPtrOutput {
@@ -6296,13 +6449,13 @@ func (o ApplicationZeppelinApplicationConfigurationPtrOutput) CatalogConfigurati
 	}).(ApplicationCatalogConfigurationPtrOutput)
 }
 
-func (o ApplicationZeppelinApplicationConfigurationPtrOutput) CustomArtifactsConfiguration() ApplicationCustomArtifactsConfigurationPtrOutput {
-	return o.ApplyT(func(v *ApplicationZeppelinApplicationConfiguration) *ApplicationCustomArtifactsConfiguration {
+func (o ApplicationZeppelinApplicationConfigurationPtrOutput) CustomArtifactsConfiguration() ApplicationCustomArtifactConfigurationArrayOutput {
+	return o.ApplyT(func(v *ApplicationZeppelinApplicationConfiguration) []ApplicationCustomArtifactConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.CustomArtifactsConfiguration
-	}).(ApplicationCustomArtifactsConfigurationPtrOutput)
+	}).(ApplicationCustomArtifactConfigurationArrayOutput)
 }
 
 func (o ApplicationZeppelinApplicationConfigurationPtrOutput) DeployAsApplicationConfiguration() ApplicationDeployAsApplicationConfigurationPtrOutput {
@@ -6471,8 +6624,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCodeContentPtrInput)(nil)).Elem(), ApplicationCodeContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationInput)(nil)).Elem(), ApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactsConfigurationInput)(nil)).Elem(), ApplicationCustomArtifactsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactsConfigurationPtrInput)(nil)).Elem(), ApplicationCustomArtifactsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactConfigurationInput)(nil)).Elem(), ApplicationCustomArtifactConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactConfigurationArrayInput)(nil)).Elem(), ApplicationCustomArtifactConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDeployAsApplicationConfigurationInput)(nil)).Elem(), ApplicationDeployAsApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDeployAsApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationDeployAsApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEnvironmentPropertiesInput)(nil)).Elem(), ApplicationEnvironmentPropertiesArgs{})
@@ -6498,6 +6651,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKinesisStreamsInputPtrInput)(nil)).Elem(), ApplicationKinesisStreamsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMappingParametersInput)(nil)).Elem(), ApplicationMappingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMappingParametersPtrInput)(nil)).Elem(), ApplicationMappingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMavenReferenceInput)(nil)).Elem(), ApplicationMavenReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMavenReferencePtrInput)(nil)).Elem(), ApplicationMavenReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceDestinationSchemaInput)(nil)).Elem(), ApplicationOutputResourceDestinationSchemaArgs{})
@@ -6561,8 +6716,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationCodeContentPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationCustomArtifactsConfigurationOutput{})
-	pulumi.RegisterOutputType(ApplicationCustomArtifactsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationCustomArtifactConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationCustomArtifactConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDeployAsApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationDeployAsApplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationEnvironmentPropertiesOutput{})
@@ -6588,6 +6743,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationKinesisStreamsInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMappingParametersOutput{})
 	pulumi.RegisterOutputType(ApplicationMappingParametersPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationMavenReferenceOutput{})
+	pulumi.RegisterOutputType(ApplicationMavenReferencePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceDestinationSchemaOutput{})

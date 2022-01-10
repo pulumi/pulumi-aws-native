@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotAliasLocaleSettingsItem
     {
-        public readonly Outputs.BotAliasLocaleSettings? BotAliasLocaleSetting;
+        public readonly Outputs.BotAliasLocaleSettings BotAliasLocaleSetting;
         /// <summary>
         /// A string used to identify the locale
         /// </summary>
-        public readonly string? LocaleId;
+        public readonly string LocaleId;
 
         [OutputConstructor]
         private BotAliasLocaleSettingsItem(
-            Outputs.BotAliasLocaleSettings? botAliasLocaleSetting,
+            Outputs.BotAliasLocaleSettings botAliasLocaleSetting,
 
-            string? localeId)
+            string localeId)
         {
             BotAliasLocaleSetting = botAliasLocaleSetting;
             LocaleId = localeId;

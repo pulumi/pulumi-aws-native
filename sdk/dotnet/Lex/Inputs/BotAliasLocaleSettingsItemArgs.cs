@@ -15,14 +15,14 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotAliasLocaleSettingsItemArgs : Pulumi.ResourceArgs
     {
-        [Input("botAliasLocaleSetting")]
-        public Input<Inputs.BotAliasLocaleSettingsArgs>? BotAliasLocaleSetting { get; set; }
+        [Input("botAliasLocaleSetting", required: true)]
+        public Input<Inputs.BotAliasLocaleSettingsArgs> BotAliasLocaleSetting { get; set; } = null!;
 
         /// <summary>
         /// A string used to identify the locale
         /// </summary>
-        [Input("localeId")]
-        public Input<string>? LocaleId { get; set; }
+        [Input("localeId", required: true)]
+        public Input<string> LocaleId { get; set; } = null!;
 
         public BotAliasLocaleSettingsItemArgs()
         {

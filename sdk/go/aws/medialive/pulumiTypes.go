@@ -12835,6 +12835,7 @@ type ChannelHlsGroupSettings struct {
 	Mode                       *string                         `pulumi:"mode"`
 	OutputSelection            *string                         `pulumi:"outputSelection"`
 	ProgramDateTime            *string                         `pulumi:"programDateTime"`
+	ProgramDateTimeClock       *string                         `pulumi:"programDateTimeClock"`
 	ProgramDateTimePeriod      *int                            `pulumi:"programDateTimePeriod"`
 	RedundantManifest          *string                         `pulumi:"redundantManifest"`
 	SegmentLength              *int                            `pulumi:"segmentLength"`
@@ -12891,6 +12892,7 @@ type ChannelHlsGroupSettingsArgs struct {
 	Mode                       pulumi.StringPtrInput                   `pulumi:"mode"`
 	OutputSelection            pulumi.StringPtrInput                   `pulumi:"outputSelection"`
 	ProgramDateTime            pulumi.StringPtrInput                   `pulumi:"programDateTime"`
+	ProgramDateTimeClock       pulumi.StringPtrInput                   `pulumi:"programDateTimeClock"`
 	ProgramDateTimePeriod      pulumi.IntPtrInput                      `pulumi:"programDateTimePeriod"`
 	RedundantManifest          pulumi.StringPtrInput                   `pulumi:"redundantManifest"`
 	SegmentLength              pulumi.IntPtrInput                      `pulumi:"segmentLength"`
@@ -13106,6 +13108,10 @@ func (o ChannelHlsGroupSettingsOutput) OutputSelection() pulumi.StringPtrOutput 
 
 func (o ChannelHlsGroupSettingsOutput) ProgramDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelHlsGroupSettings) *string { return v.ProgramDateTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelHlsGroupSettingsOutput) ProgramDateTimeClock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelHlsGroupSettings) *string { return v.ProgramDateTimeClock }).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelHlsGroupSettingsOutput) ProgramDateTimePeriod() pulumi.IntPtrOutput {
@@ -13457,6 +13463,15 @@ func (o ChannelHlsGroupSettingsPtrOutput) ProgramDateTime() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.ProgramDateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelHlsGroupSettingsPtrOutput) ProgramDateTimeClock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelHlsGroupSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProgramDateTimeClock
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15447,6 +15462,7 @@ type ChannelInputSettings struct {
 	FilterStrength          *int                         `pulumi:"filterStrength"`
 	InputFilter             *string                      `pulumi:"inputFilter"`
 	NetworkInputSettings    *ChannelNetworkInputSettings `pulumi:"networkInputSettings"`
+	Scte35Pid               *int                         `pulumi:"scte35Pid"`
 	Smpte2038DataPreference *string                      `pulumi:"smpte2038DataPreference"`
 	SourceEndBehavior       *string                      `pulumi:"sourceEndBehavior"`
 	VideoSelector           *ChannelVideoSelector        `pulumi:"videoSelector"`
@@ -15471,6 +15487,7 @@ type ChannelInputSettingsArgs struct {
 	FilterStrength          pulumi.IntPtrInput                  `pulumi:"filterStrength"`
 	InputFilter             pulumi.StringPtrInput               `pulumi:"inputFilter"`
 	NetworkInputSettings    ChannelNetworkInputSettingsPtrInput `pulumi:"networkInputSettings"`
+	Scte35Pid               pulumi.IntPtrInput                  `pulumi:"scte35Pid"`
 	Smpte2038DataPreference pulumi.StringPtrInput               `pulumi:"smpte2038DataPreference"`
 	SourceEndBehavior       pulumi.StringPtrInput               `pulumi:"sourceEndBehavior"`
 	VideoSelector           ChannelVideoSelectorPtrInput        `pulumi:"videoSelector"`
@@ -15581,6 +15598,10 @@ func (o ChannelInputSettingsOutput) NetworkInputSettings() ChannelNetworkInputSe
 	return o.ApplyT(func(v ChannelInputSettings) *ChannelNetworkInputSettings { return v.NetworkInputSettings }).(ChannelNetworkInputSettingsPtrOutput)
 }
 
+func (o ChannelInputSettingsOutput) Scte35Pid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelInputSettings) *int { return v.Scte35Pid }).(pulumi.IntPtrOutput)
+}
+
 func (o ChannelInputSettingsOutput) Smpte2038DataPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputSettings) *string { return v.Smpte2038DataPreference }).(pulumi.StringPtrOutput)
 }
@@ -15678,6 +15699,15 @@ func (o ChannelInputSettingsPtrOutput) NetworkInputSettings() ChannelNetworkInpu
 		}
 		return v.NetworkInputSettings
 	}).(ChannelNetworkInputSettingsPtrOutput)
+}
+
+func (o ChannelInputSettingsPtrOutput) Scte35Pid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelInputSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Scte35Pid
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o ChannelInputSettingsPtrOutput) Smpte2038DataPreference() pulumi.StringPtrOutput {

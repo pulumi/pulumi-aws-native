@@ -17,9 +17,10 @@ import (
 type MatchmakingRuleSet struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
-	Name        pulumi.StringOutput `pulumi:"name"`
-	RuleSetBody pulumi.StringOutput `pulumi:"ruleSetBody"`
+	Arn         pulumi.StringOutput              `pulumi:"arn"`
+	Name        pulumi.StringOutput              `pulumi:"name"`
+	RuleSetBody pulumi.StringOutput              `pulumi:"ruleSetBody"`
+	Tags        MatchmakingRuleSetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewMatchmakingRuleSet registers a new resource with the given unique name, arguments, and options.
@@ -64,14 +65,16 @@ func (MatchmakingRuleSetState) ElementType() reflect.Type {
 }
 
 type matchmakingRuleSetArgs struct {
-	Name        *string `pulumi:"name"`
-	RuleSetBody string  `pulumi:"ruleSetBody"`
+	Name        *string                 `pulumi:"name"`
+	RuleSetBody string                  `pulumi:"ruleSetBody"`
+	Tags        []MatchmakingRuleSetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MatchmakingRuleSet resource.
 type MatchmakingRuleSetArgs struct {
 	Name        pulumi.StringPtrInput
 	RuleSetBody pulumi.StringInput
+	Tags        MatchmakingRuleSetTagArrayInput
 }
 
 func (MatchmakingRuleSetArgs) ElementType() reflect.Type {

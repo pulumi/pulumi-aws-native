@@ -8636,6 +8636,450 @@ func (o InternetGatewayTagArrayOutput) Index(i pulumi.IntInput) InternetGatewayT
 	}).(InternetGatewayTagOutput)
 }
 
+type LaunchTemplateAcceleratorCount struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateAcceleratorCountInput is an input type that accepts LaunchTemplateAcceleratorCountArgs and LaunchTemplateAcceleratorCountOutput values.
+// You can construct a concrete instance of `LaunchTemplateAcceleratorCountInput` via:
+//
+//          LaunchTemplateAcceleratorCountArgs{...}
+type LaunchTemplateAcceleratorCountInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateAcceleratorCountOutput() LaunchTemplateAcceleratorCountOutput
+	ToLaunchTemplateAcceleratorCountOutputWithContext(context.Context) LaunchTemplateAcceleratorCountOutput
+}
+
+type LaunchTemplateAcceleratorCountArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateAcceleratorCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateAcceleratorCount)(nil)).Elem()
+}
+
+func (i LaunchTemplateAcceleratorCountArgs) ToLaunchTemplateAcceleratorCountOutput() LaunchTemplateAcceleratorCountOutput {
+	return i.ToLaunchTemplateAcceleratorCountOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateAcceleratorCountArgs) ToLaunchTemplateAcceleratorCountOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorCountOutput)
+}
+
+func (i LaunchTemplateAcceleratorCountArgs) ToLaunchTemplateAcceleratorCountPtrOutput() LaunchTemplateAcceleratorCountPtrOutput {
+	return i.ToLaunchTemplateAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateAcceleratorCountArgs) ToLaunchTemplateAcceleratorCountPtrOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorCountOutput).ToLaunchTemplateAcceleratorCountPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateAcceleratorCountPtrInput is an input type that accepts LaunchTemplateAcceleratorCountArgs, LaunchTemplateAcceleratorCountPtr and LaunchTemplateAcceleratorCountPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateAcceleratorCountPtrInput` via:
+//
+//          LaunchTemplateAcceleratorCountArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateAcceleratorCountPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateAcceleratorCountPtrOutput() LaunchTemplateAcceleratorCountPtrOutput
+	ToLaunchTemplateAcceleratorCountPtrOutputWithContext(context.Context) LaunchTemplateAcceleratorCountPtrOutput
+}
+
+type launchTemplateAcceleratorCountPtrType LaunchTemplateAcceleratorCountArgs
+
+func LaunchTemplateAcceleratorCountPtr(v *LaunchTemplateAcceleratorCountArgs) LaunchTemplateAcceleratorCountPtrInput {
+	return (*launchTemplateAcceleratorCountPtrType)(v)
+}
+
+func (*launchTemplateAcceleratorCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateAcceleratorCount)(nil)).Elem()
+}
+
+func (i *launchTemplateAcceleratorCountPtrType) ToLaunchTemplateAcceleratorCountPtrOutput() LaunchTemplateAcceleratorCountPtrOutput {
+	return i.ToLaunchTemplateAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateAcceleratorCountPtrType) ToLaunchTemplateAcceleratorCountPtrOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorCountPtrOutput)
+}
+
+type LaunchTemplateAcceleratorCountOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateAcceleratorCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateAcceleratorCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateAcceleratorCountOutput) ToLaunchTemplateAcceleratorCountOutput() LaunchTemplateAcceleratorCountOutput {
+	return o
+}
+
+func (o LaunchTemplateAcceleratorCountOutput) ToLaunchTemplateAcceleratorCountOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorCountOutput {
+	return o
+}
+
+func (o LaunchTemplateAcceleratorCountOutput) ToLaunchTemplateAcceleratorCountPtrOutput() LaunchTemplateAcceleratorCountPtrOutput {
+	return o.ToLaunchTemplateAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateAcceleratorCountOutput) ToLaunchTemplateAcceleratorCountPtrOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateAcceleratorCount) *LaunchTemplateAcceleratorCount {
+		return &v
+	}).(LaunchTemplateAcceleratorCountPtrOutput)
+}
+
+func (o LaunchTemplateAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateAcceleratorCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateAcceleratorCount) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateAcceleratorCountPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateAcceleratorCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateAcceleratorCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateAcceleratorCountPtrOutput) ToLaunchTemplateAcceleratorCountPtrOutput() LaunchTemplateAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateAcceleratorCountPtrOutput) ToLaunchTemplateAcceleratorCountPtrOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateAcceleratorCountPtrOutput) Elem() LaunchTemplateAcceleratorCountOutput {
+	return o.ApplyT(func(v *LaunchTemplateAcceleratorCount) LaunchTemplateAcceleratorCount {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateAcceleratorCount
+		return ret
+	}).(LaunchTemplateAcceleratorCountOutput)
+}
+
+func (o LaunchTemplateAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateAcceleratorTotalMemoryMiB struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateAcceleratorTotalMemoryMiBInput is an input type that accepts LaunchTemplateAcceleratorTotalMemoryMiBArgs and LaunchTemplateAcceleratorTotalMemoryMiBOutput values.
+// You can construct a concrete instance of `LaunchTemplateAcceleratorTotalMemoryMiBInput` via:
+//
+//          LaunchTemplateAcceleratorTotalMemoryMiBArgs{...}
+type LaunchTemplateAcceleratorTotalMemoryMiBInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateAcceleratorTotalMemoryMiBOutput() LaunchTemplateAcceleratorTotalMemoryMiBOutput
+	ToLaunchTemplateAcceleratorTotalMemoryMiBOutputWithContext(context.Context) LaunchTemplateAcceleratorTotalMemoryMiBOutput
+}
+
+type LaunchTemplateAcceleratorTotalMemoryMiBArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateAcceleratorTotalMemoryMiBArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiB)(nil)).Elem()
+}
+
+func (i LaunchTemplateAcceleratorTotalMemoryMiBArgs) ToLaunchTemplateAcceleratorTotalMemoryMiBOutput() LaunchTemplateAcceleratorTotalMemoryMiBOutput {
+	return i.ToLaunchTemplateAcceleratorTotalMemoryMiBOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateAcceleratorTotalMemoryMiBArgs) ToLaunchTemplateAcceleratorTotalMemoryMiBOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorTotalMemoryMiBOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorTotalMemoryMiBOutput)
+}
+
+func (i LaunchTemplateAcceleratorTotalMemoryMiBArgs) ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutput() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return i.ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateAcceleratorTotalMemoryMiBArgs) ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorTotalMemoryMiBOutput).ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateAcceleratorTotalMemoryMiBPtrInput is an input type that accepts LaunchTemplateAcceleratorTotalMemoryMiBArgs, LaunchTemplateAcceleratorTotalMemoryMiBPtr and LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateAcceleratorTotalMemoryMiBPtrInput` via:
+//
+//          LaunchTemplateAcceleratorTotalMemoryMiBArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateAcceleratorTotalMemoryMiBPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutput() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput
+	ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(context.Context) LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput
+}
+
+type launchTemplateAcceleratorTotalMemoryMiBPtrType LaunchTemplateAcceleratorTotalMemoryMiBArgs
+
+func LaunchTemplateAcceleratorTotalMemoryMiBPtr(v *LaunchTemplateAcceleratorTotalMemoryMiBArgs) LaunchTemplateAcceleratorTotalMemoryMiBPtrInput {
+	return (*launchTemplateAcceleratorTotalMemoryMiBPtrType)(v)
+}
+
+func (*launchTemplateAcceleratorTotalMemoryMiBPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateAcceleratorTotalMemoryMiB)(nil)).Elem()
+}
+
+func (i *launchTemplateAcceleratorTotalMemoryMiBPtrType) ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutput() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return i.ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateAcceleratorTotalMemoryMiBPtrType) ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
+}
+
+type LaunchTemplateAcceleratorTotalMemoryMiBOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateAcceleratorTotalMemoryMiBOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiB)(nil)).Elem()
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) ToLaunchTemplateAcceleratorTotalMemoryMiBOutput() LaunchTemplateAcceleratorTotalMemoryMiBOutput {
+	return o
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) ToLaunchTemplateAcceleratorTotalMemoryMiBOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorTotalMemoryMiBOutput {
+	return o
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutput() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return o.ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateAcceleratorTotalMemoryMiB) *LaunchTemplateAcceleratorTotalMemoryMiB {
+		return &v
+	}).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateAcceleratorTotalMemoryMiB) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateAcceleratorTotalMemoryMiB) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateAcceleratorTotalMemoryMiB)(nil)).Elem()
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutput() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) ToLaunchTemplateAcceleratorTotalMemoryMiBPtrOutputWithContext(ctx context.Context) LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Elem() LaunchTemplateAcceleratorTotalMemoryMiBOutput {
+	return o.ApplyT(func(v *LaunchTemplateAcceleratorTotalMemoryMiB) LaunchTemplateAcceleratorTotalMemoryMiB {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateAcceleratorTotalMemoryMiB
+		return ret
+	}).(LaunchTemplateAcceleratorTotalMemoryMiBOutput)
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateAcceleratorTotalMemoryMiB) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateAcceleratorTotalMemoryMiB) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateBaselineEbsBandwidthMbps struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateBaselineEbsBandwidthMbpsInput is an input type that accepts LaunchTemplateBaselineEbsBandwidthMbpsArgs and LaunchTemplateBaselineEbsBandwidthMbpsOutput values.
+// You can construct a concrete instance of `LaunchTemplateBaselineEbsBandwidthMbpsInput` via:
+//
+//          LaunchTemplateBaselineEbsBandwidthMbpsArgs{...}
+type LaunchTemplateBaselineEbsBandwidthMbpsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBaselineEbsBandwidthMbpsOutput() LaunchTemplateBaselineEbsBandwidthMbpsOutput
+	ToLaunchTemplateBaselineEbsBandwidthMbpsOutputWithContext(context.Context) LaunchTemplateBaselineEbsBandwidthMbpsOutput
+}
+
+type LaunchTemplateBaselineEbsBandwidthMbpsArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateBaselineEbsBandwidthMbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i LaunchTemplateBaselineEbsBandwidthMbpsArgs) ToLaunchTemplateBaselineEbsBandwidthMbpsOutput() LaunchTemplateBaselineEbsBandwidthMbpsOutput {
+	return i.ToLaunchTemplateBaselineEbsBandwidthMbpsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateBaselineEbsBandwidthMbpsArgs) ToLaunchTemplateBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) LaunchTemplateBaselineEbsBandwidthMbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselineEbsBandwidthMbpsOutput)
+}
+
+func (i LaunchTemplateBaselineEbsBandwidthMbpsArgs) ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateBaselineEbsBandwidthMbpsArgs) ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselineEbsBandwidthMbpsOutput).ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateBaselineEbsBandwidthMbpsPtrInput is an input type that accepts LaunchTemplateBaselineEbsBandwidthMbpsArgs, LaunchTemplateBaselineEbsBandwidthMbpsPtr and LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateBaselineEbsBandwidthMbpsPtrInput` via:
+//
+//          LaunchTemplateBaselineEbsBandwidthMbpsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateBaselineEbsBandwidthMbpsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput
+	ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Context) LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput
+}
+
+type launchTemplateBaselineEbsBandwidthMbpsPtrType LaunchTemplateBaselineEbsBandwidthMbpsArgs
+
+func LaunchTemplateBaselineEbsBandwidthMbpsPtr(v *LaunchTemplateBaselineEbsBandwidthMbpsArgs) LaunchTemplateBaselineEbsBandwidthMbpsPtrInput {
+	return (*launchTemplateBaselineEbsBandwidthMbpsPtrType)(v)
+}
+
+func (*launchTemplateBaselineEbsBandwidthMbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i *launchTemplateBaselineEbsBandwidthMbpsPtrType) ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateBaselineEbsBandwidthMbpsPtrType) ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+type LaunchTemplateBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateBaselineEbsBandwidthMbpsOutput() LaunchTemplateBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) LaunchTemplateBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateBaselineEbsBandwidthMbps) *LaunchTemplateBaselineEbsBandwidthMbps {
+		return &v
+	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBaselineEbsBandwidthMbps) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBaselineEbsBandwidthMbps) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) ToLaunchTemplateBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Elem() LaunchTemplateBaselineEbsBandwidthMbpsOutput {
+	return o.ApplyT(func(v *LaunchTemplateBaselineEbsBandwidthMbps) LaunchTemplateBaselineEbsBandwidthMbps {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateBaselineEbsBandwidthMbps
+		return ret
+	}).(LaunchTemplateBaselineEbsBandwidthMbpsOutput)
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
 type LaunchTemplateBlockDeviceMapping struct {
 	DeviceName  *string            `pulumi:"deviceName"`
 	Ebs         *LaunchTemplateEbs `pulumi:"ebs"`
@@ -9342,6 +9786,7 @@ type LaunchTemplateData struct {
 	ImageId                           *string                                         `pulumi:"imageId"`
 	InstanceInitiatedShutdownBehavior *string                                         `pulumi:"instanceInitiatedShutdownBehavior"`
 	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions            `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              *LaunchTemplateInstanceRequirements             `pulumi:"instanceRequirements"`
 	InstanceType                      *string                                         `pulumi:"instanceType"`
 	KernelId                          *string                                         `pulumi:"kernelId"`
 	KeyName                           *string                                         `pulumi:"keyName"`
@@ -9383,6 +9828,7 @@ type LaunchTemplateDataArgs struct {
 	ImageId                           pulumi.StringPtrInput                                  `pulumi:"imageId"`
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput                                  `pulumi:"instanceInitiatedShutdownBehavior"`
 	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput            `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              LaunchTemplateInstanceRequirementsPtrInput             `pulumi:"instanceRequirements"`
 	InstanceType                      pulumi.StringPtrInput                                  `pulumi:"instanceType"`
 	KernelId                          pulumi.StringPtrInput                                  `pulumi:"kernelId"`
 	KeyName                           pulumi.StringPtrInput                                  `pulumi:"keyName"`
@@ -9533,6 +9979,10 @@ func (o LaunchTemplateDataOutput) InstanceInitiatedShutdownBehavior() pulumi.Str
 
 func (o LaunchTemplateDataOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateInstanceMarketOptions { return v.InstanceMarketOptions }).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) InstanceRequirements() LaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateInstanceRequirements { return v.InstanceRequirements }).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
 
 func (o LaunchTemplateDataOutput) InstanceType() pulumi.StringPtrOutput {
@@ -9735,6 +10185,15 @@ func (o LaunchTemplateDataPtrOutput) InstanceMarketOptions() LaunchTemplateInsta
 		}
 		return v.InstanceMarketOptions
 	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) InstanceRequirements() LaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateInstanceRequirements {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceRequirements
+	}).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
 
 func (o LaunchTemplateDataPtrOutput) InstanceType() pulumi.StringPtrOutput {
@@ -10848,6 +11307,447 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTempla
 	}).(LaunchTemplateSpotOptionsPtrOutput)
 }
 
+type LaunchTemplateInstanceRequirements struct {
+	AcceleratorCount                          *LaunchTemplateAcceleratorCount          `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                  []string                                 `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                          []string                                 `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                 *LaunchTemplateAcceleratorTotalMemoryMiB `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                          []string                                 `pulumi:"acceleratorTypes"`
+	BareMetal                                 *string                                  `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                  *LaunchTemplateBaselineEbsBandwidthMbps  `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                      *string                                  `pulumi:"burstablePerformance"`
+	CpuManufacturers                          []string                                 `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                     []string                                 `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                       []string                                 `pulumi:"instanceGenerations"`
+	LocalStorage                              *string                                  `pulumi:"localStorage"`
+	LocalStorageTypes                         []string                                 `pulumi:"localStorageTypes"`
+	MemoryGiBPerVCpu                          *LaunchTemplateMemoryGiBPerVCpu          `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                 *LaunchTemplateMemoryMiB                 `pulumi:"memoryMiB"`
+	NetworkInterfaceCount                     *LaunchTemplateNetworkInterfaceCount     `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice *int                                     `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                   *bool                                    `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice     *int                                     `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGB                       *LaunchTemplateTotalLocalStorageGB       `pulumi:"totalLocalStorageGB"`
+	VCpuCount                                 *LaunchTemplateVCpuCount                 `pulumi:"vCpuCount"`
+}
+
+// LaunchTemplateInstanceRequirementsInput is an input type that accepts LaunchTemplateInstanceRequirementsArgs and LaunchTemplateInstanceRequirementsOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsInput` via:
+//
+//          LaunchTemplateInstanceRequirementsArgs{...}
+type LaunchTemplateInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsOutput() LaunchTemplateInstanceRequirementsOutput
+	ToLaunchTemplateInstanceRequirementsOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsOutput
+}
+
+type LaunchTemplateInstanceRequirementsArgs struct {
+	AcceleratorCount                          LaunchTemplateAcceleratorCountPtrInput          `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                  pulumi.StringArrayInput                         `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                          pulumi.StringArrayInput                         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                 LaunchTemplateAcceleratorTotalMemoryMiBPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                          pulumi.StringArrayInput                         `pulumi:"acceleratorTypes"`
+	BareMetal                                 pulumi.StringPtrInput                           `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                  LaunchTemplateBaselineEbsBandwidthMbpsPtrInput  `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                      pulumi.StringPtrInput                           `pulumi:"burstablePerformance"`
+	CpuManufacturers                          pulumi.StringArrayInput                         `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                     pulumi.StringArrayInput                         `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                       pulumi.StringArrayInput                         `pulumi:"instanceGenerations"`
+	LocalStorage                              pulumi.StringPtrInput                           `pulumi:"localStorage"`
+	LocalStorageTypes                         pulumi.StringArrayInput                         `pulumi:"localStorageTypes"`
+	MemoryGiBPerVCpu                          LaunchTemplateMemoryGiBPerVCpuPtrInput          `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                 LaunchTemplateMemoryMiBPtrInput                 `pulumi:"memoryMiB"`
+	NetworkInterfaceCount                     LaunchTemplateNetworkInterfaceCountPtrInput     `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                   pulumi.BoolPtrInput                             `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGB                       LaunchTemplateTotalLocalStorageGBPtrInput       `pulumi:"totalLocalStorageGB"`
+	VCpuCount                                 LaunchTemplateVCpuCountPtrInput                 `pulumi:"vCpuCount"`
+}
+
+func (LaunchTemplateInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsArgs) ToLaunchTemplateInstanceRequirementsOutput() LaunchTemplateInstanceRequirementsOutput {
+	return i.ToLaunchTemplateInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsArgs) ToLaunchTemplateInstanceRequirementsOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsArgs) ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsArgs) ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsOutput).ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsArgs, LaunchTemplateInstanceRequirementsPtr and LaunchTemplateInstanceRequirementsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput
+	ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsPtrOutput
+}
+
+type launchTemplateInstanceRequirementsPtrType LaunchTemplateInstanceRequirementsArgs
+
+func LaunchTemplateInstanceRequirementsPtr(v *LaunchTemplateInstanceRequirementsArgs) LaunchTemplateInstanceRequirementsPtrInput {
+	return (*launchTemplateInstanceRequirementsPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsPtrType) ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsPtrType) ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequirementsOutput() LaunchTemplateInstanceRequirementsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequirementsOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirements {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorCount() LaunchTemplateAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorCount { return v.AcceleratorCount }).(LaunchTemplateAcceleratorCountPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorManufacturers }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMiB() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorTotalMemoryMiB {
+		return v.AcceleratorTotalMemoryMiB
+	}).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) BaselineEbsBandwidthMbps() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateBaselineEbsBandwidthMbps {
+		return v.BaselineEbsBandwidthMbps
+	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BurstablePerformance }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.LocalStorage }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) MemoryGiBPerVCpu() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryGiBPerVCpu { return v.MemoryGiBPerVCpu }).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) MemoryMiB() LaunchTemplateMemoryMiBPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryMiB { return v.MemoryMiB }).(LaunchTemplateMemoryMiBPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) NetworkInterfaceCount() LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateNetworkInterfaceCount {
+		return v.NetworkInterfaceCount
+	}).(LaunchTemplateNetworkInterfaceCountPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGB() LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGB {
+		return v.TotalLocalStorageGB
+	}).(LaunchTemplateTotalLocalStorageGBPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) VCpuCount() LaunchTemplateVCpuCountPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateVCpuCount { return v.VCpuCount }).(LaunchTemplateVCpuCountPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) Elem() LaunchTemplateInstanceRequirementsOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) LaunchTemplateInstanceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirements
+		return ret
+	}).(LaunchTemplateInstanceRequirementsOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() LaunchTemplateAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorCount {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorCount
+	}).(LaunchTemplateAcceleratorCountPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMiB() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorTotalMemoryMiB {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTotalMemoryMiB
+	}).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BareMetal
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateBaselineEbsBandwidthMbps {
+		if v == nil {
+			return nil
+		}
+		return v.BaselineEbsBandwidthMbps
+	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryGiBPerVCpu() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryGiBPerVCpu {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryGiBPerVCpu
+	}).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryMiB() LaunchTemplateMemoryMiBPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryMiB {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryMiB
+	}).(LaunchTemplateMemoryMiBPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateNetworkInterfaceCount {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceCount
+	}).(LaunchTemplateNetworkInterfaceCountPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGB() LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGB {
+		if v == nil {
+			return nil
+		}
+		return v.TotalLocalStorageGB
+	}).(LaunchTemplateTotalLocalStorageGBPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) VCpuCount() LaunchTemplateVCpuCountPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateVCpuCount {
+		if v == nil {
+			return nil
+		}
+		return v.VCpuCount
+	}).(LaunchTemplateVCpuCountPtrOutput)
+}
+
 type LaunchTemplateIpv6Add struct {
 	Ipv6Address *string `pulumi:"ipv6Address"`
 }
@@ -11034,6 +11934,302 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLicenseSpecification {
 		return vs[0].([]LaunchTemplateLicenseSpecification)[vs[1].(int)]
 	}).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+type LaunchTemplateMemoryGiBPerVCpu struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// LaunchTemplateMemoryGiBPerVCpuInput is an input type that accepts LaunchTemplateMemoryGiBPerVCpuArgs and LaunchTemplateMemoryGiBPerVCpuOutput values.
+// You can construct a concrete instance of `LaunchTemplateMemoryGiBPerVCpuInput` via:
+//
+//          LaunchTemplateMemoryGiBPerVCpuArgs{...}
+type LaunchTemplateMemoryGiBPerVCpuInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMemoryGiBPerVCpuOutput() LaunchTemplateMemoryGiBPerVCpuOutput
+	ToLaunchTemplateMemoryGiBPerVCpuOutputWithContext(context.Context) LaunchTemplateMemoryGiBPerVCpuOutput
+}
+
+type LaunchTemplateMemoryGiBPerVCpuArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateMemoryGiBPerVCpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMemoryGiBPerVCpu)(nil)).Elem()
+}
+
+func (i LaunchTemplateMemoryGiBPerVCpuArgs) ToLaunchTemplateMemoryGiBPerVCpuOutput() LaunchTemplateMemoryGiBPerVCpuOutput {
+	return i.ToLaunchTemplateMemoryGiBPerVCpuOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMemoryGiBPerVCpuArgs) ToLaunchTemplateMemoryGiBPerVCpuOutputWithContext(ctx context.Context) LaunchTemplateMemoryGiBPerVCpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMemoryGiBPerVCpuOutput)
+}
+
+func (i LaunchTemplateMemoryGiBPerVCpuArgs) ToLaunchTemplateMemoryGiBPerVCpuPtrOutput() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return i.ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMemoryGiBPerVCpuArgs) ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(ctx context.Context) LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMemoryGiBPerVCpuOutput).ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMemoryGiBPerVCpuPtrInput is an input type that accepts LaunchTemplateMemoryGiBPerVCpuArgs, LaunchTemplateMemoryGiBPerVCpuPtr and LaunchTemplateMemoryGiBPerVCpuPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMemoryGiBPerVCpuPtrInput` via:
+//
+//          LaunchTemplateMemoryGiBPerVCpuArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMemoryGiBPerVCpuPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMemoryGiBPerVCpuPtrOutput() LaunchTemplateMemoryGiBPerVCpuPtrOutput
+	ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(context.Context) LaunchTemplateMemoryGiBPerVCpuPtrOutput
+}
+
+type launchTemplateMemoryGiBPerVCpuPtrType LaunchTemplateMemoryGiBPerVCpuArgs
+
+func LaunchTemplateMemoryGiBPerVCpuPtr(v *LaunchTemplateMemoryGiBPerVCpuArgs) LaunchTemplateMemoryGiBPerVCpuPtrInput {
+	return (*launchTemplateMemoryGiBPerVCpuPtrType)(v)
+}
+
+func (*launchTemplateMemoryGiBPerVCpuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMemoryGiBPerVCpu)(nil)).Elem()
+}
+
+func (i *launchTemplateMemoryGiBPerVCpuPtrType) ToLaunchTemplateMemoryGiBPerVCpuPtrOutput() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return i.ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMemoryGiBPerVCpuPtrType) ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(ctx context.Context) LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
+}
+
+type LaunchTemplateMemoryGiBPerVCpuOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMemoryGiBPerVCpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMemoryGiBPerVCpu)(nil)).Elem()
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuOutput) ToLaunchTemplateMemoryGiBPerVCpuOutput() LaunchTemplateMemoryGiBPerVCpuOutput {
+	return o
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuOutput) ToLaunchTemplateMemoryGiBPerVCpuOutputWithContext(ctx context.Context) LaunchTemplateMemoryGiBPerVCpuOutput {
+	return o
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuOutput) ToLaunchTemplateMemoryGiBPerVCpuPtrOutput() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return o.ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuOutput) ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(ctx context.Context) LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMemoryGiBPerVCpu) *LaunchTemplateMemoryGiBPerVCpu {
+		return &v
+	}).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMemoryGiBPerVCpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMemoryGiBPerVCpu) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateMemoryGiBPerVCpuPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMemoryGiBPerVCpuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMemoryGiBPerVCpu)(nil)).Elem()
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) ToLaunchTemplateMemoryGiBPerVCpuPtrOutput() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) ToLaunchTemplateMemoryGiBPerVCpuPtrOutputWithContext(ctx context.Context) LaunchTemplateMemoryGiBPerVCpuPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Elem() LaunchTemplateMemoryGiBPerVCpuOutput {
+	return o.ApplyT(func(v *LaunchTemplateMemoryGiBPerVCpu) LaunchTemplateMemoryGiBPerVCpu {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMemoryGiBPerVCpu
+		return ret
+	}).(LaunchTemplateMemoryGiBPerVCpuOutput)
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMemoryGiBPerVCpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMemoryGiBPerVCpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateMemoryMiB struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateMemoryMiBInput is an input type that accepts LaunchTemplateMemoryMiBArgs and LaunchTemplateMemoryMiBOutput values.
+// You can construct a concrete instance of `LaunchTemplateMemoryMiBInput` via:
+//
+//          LaunchTemplateMemoryMiBArgs{...}
+type LaunchTemplateMemoryMiBInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMemoryMiBOutput() LaunchTemplateMemoryMiBOutput
+	ToLaunchTemplateMemoryMiBOutputWithContext(context.Context) LaunchTemplateMemoryMiBOutput
+}
+
+type LaunchTemplateMemoryMiBArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateMemoryMiBArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMemoryMiB)(nil)).Elem()
+}
+
+func (i LaunchTemplateMemoryMiBArgs) ToLaunchTemplateMemoryMiBOutput() LaunchTemplateMemoryMiBOutput {
+	return i.ToLaunchTemplateMemoryMiBOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMemoryMiBArgs) ToLaunchTemplateMemoryMiBOutputWithContext(ctx context.Context) LaunchTemplateMemoryMiBOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMemoryMiBOutput)
+}
+
+func (i LaunchTemplateMemoryMiBArgs) ToLaunchTemplateMemoryMiBPtrOutput() LaunchTemplateMemoryMiBPtrOutput {
+	return i.ToLaunchTemplateMemoryMiBPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMemoryMiBArgs) ToLaunchTemplateMemoryMiBPtrOutputWithContext(ctx context.Context) LaunchTemplateMemoryMiBPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMemoryMiBOutput).ToLaunchTemplateMemoryMiBPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMemoryMiBPtrInput is an input type that accepts LaunchTemplateMemoryMiBArgs, LaunchTemplateMemoryMiBPtr and LaunchTemplateMemoryMiBPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMemoryMiBPtrInput` via:
+//
+//          LaunchTemplateMemoryMiBArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMemoryMiBPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMemoryMiBPtrOutput() LaunchTemplateMemoryMiBPtrOutput
+	ToLaunchTemplateMemoryMiBPtrOutputWithContext(context.Context) LaunchTemplateMemoryMiBPtrOutput
+}
+
+type launchTemplateMemoryMiBPtrType LaunchTemplateMemoryMiBArgs
+
+func LaunchTemplateMemoryMiBPtr(v *LaunchTemplateMemoryMiBArgs) LaunchTemplateMemoryMiBPtrInput {
+	return (*launchTemplateMemoryMiBPtrType)(v)
+}
+
+func (*launchTemplateMemoryMiBPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMemoryMiB)(nil)).Elem()
+}
+
+func (i *launchTemplateMemoryMiBPtrType) ToLaunchTemplateMemoryMiBPtrOutput() LaunchTemplateMemoryMiBPtrOutput {
+	return i.ToLaunchTemplateMemoryMiBPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMemoryMiBPtrType) ToLaunchTemplateMemoryMiBPtrOutputWithContext(ctx context.Context) LaunchTemplateMemoryMiBPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMemoryMiBPtrOutput)
+}
+
+type LaunchTemplateMemoryMiBOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMemoryMiBOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMemoryMiB)(nil)).Elem()
+}
+
+func (o LaunchTemplateMemoryMiBOutput) ToLaunchTemplateMemoryMiBOutput() LaunchTemplateMemoryMiBOutput {
+	return o
+}
+
+func (o LaunchTemplateMemoryMiBOutput) ToLaunchTemplateMemoryMiBOutputWithContext(ctx context.Context) LaunchTemplateMemoryMiBOutput {
+	return o
+}
+
+func (o LaunchTemplateMemoryMiBOutput) ToLaunchTemplateMemoryMiBPtrOutput() LaunchTemplateMemoryMiBPtrOutput {
+	return o.ToLaunchTemplateMemoryMiBPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMemoryMiBOutput) ToLaunchTemplateMemoryMiBPtrOutputWithContext(ctx context.Context) LaunchTemplateMemoryMiBPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMemoryMiB) *LaunchTemplateMemoryMiB {
+		return &v
+	}).(LaunchTemplateMemoryMiBPtrOutput)
+}
+
+func (o LaunchTemplateMemoryMiBOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMemoryMiB) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateMemoryMiBOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMemoryMiB) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateMemoryMiBPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMemoryMiBPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMemoryMiB)(nil)).Elem()
+}
+
+func (o LaunchTemplateMemoryMiBPtrOutput) ToLaunchTemplateMemoryMiBPtrOutput() LaunchTemplateMemoryMiBPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMemoryMiBPtrOutput) ToLaunchTemplateMemoryMiBPtrOutputWithContext(ctx context.Context) LaunchTemplateMemoryMiBPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMemoryMiBPtrOutput) Elem() LaunchTemplateMemoryMiBOutput {
+	return o.ApplyT(func(v *LaunchTemplateMemoryMiB) LaunchTemplateMemoryMiB {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMemoryMiB
+		return ret
+	}).(LaunchTemplateMemoryMiBOutput)
+}
+
+func (o LaunchTemplateMemoryMiBPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMemoryMiB) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateMemoryMiBPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMemoryMiB) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
 }
 
 type LaunchTemplateMetadataOptions struct {
@@ -11523,6 +12719,154 @@ func (o LaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Laun
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateNetworkInterface {
 		return vs[0].([]LaunchTemplateNetworkInterface)[vs[1].(int)]
 	}).(LaunchTemplateNetworkInterfaceOutput)
+}
+
+type LaunchTemplateNetworkInterfaceCount struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateNetworkInterfaceCountInput is an input type that accepts LaunchTemplateNetworkInterfaceCountArgs and LaunchTemplateNetworkInterfaceCountOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceCountInput` via:
+//
+//          LaunchTemplateNetworkInterfaceCountArgs{...}
+type LaunchTemplateNetworkInterfaceCountInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceCountOutput() LaunchTemplateNetworkInterfaceCountOutput
+	ToLaunchTemplateNetworkInterfaceCountOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceCountOutput
+}
+
+type LaunchTemplateNetworkInterfaceCountArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateNetworkInterfaceCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkInterfaceCountArgs) ToLaunchTemplateNetworkInterfaceCountOutput() LaunchTemplateNetworkInterfaceCountOutput {
+	return i.ToLaunchTemplateNetworkInterfaceCountOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceCountArgs) ToLaunchTemplateNetworkInterfaceCountOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceCountOutput)
+}
+
+func (i LaunchTemplateNetworkInterfaceCountArgs) ToLaunchTemplateNetworkInterfaceCountPtrOutput() LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return i.ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceCountArgs) ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceCountOutput).ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateNetworkInterfaceCountPtrInput is an input type that accepts LaunchTemplateNetworkInterfaceCountArgs, LaunchTemplateNetworkInterfaceCountPtr and LaunchTemplateNetworkInterfaceCountPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceCountPtrInput` via:
+//
+//          LaunchTemplateNetworkInterfaceCountArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateNetworkInterfaceCountPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceCountPtrOutput() LaunchTemplateNetworkInterfaceCountPtrOutput
+	ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceCountPtrOutput
+}
+
+type launchTemplateNetworkInterfaceCountPtrType LaunchTemplateNetworkInterfaceCountArgs
+
+func LaunchTemplateNetworkInterfaceCountPtr(v *LaunchTemplateNetworkInterfaceCountArgs) LaunchTemplateNetworkInterfaceCountPtrInput {
+	return (*launchTemplateNetworkInterfaceCountPtrType)(v)
+}
+
+func (*launchTemplateNetworkInterfaceCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i *launchTemplateNetworkInterfaceCountPtrType) ToLaunchTemplateNetworkInterfaceCountPtrOutput() LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return i.ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateNetworkInterfaceCountPtrType) ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceCountPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceCountOutput) ToLaunchTemplateNetworkInterfaceCountOutput() LaunchTemplateNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceCountOutput) ToLaunchTemplateNetworkInterfaceCountOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceCountOutput) ToLaunchTemplateNetworkInterfaceCountPtrOutput() LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return o.ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateNetworkInterfaceCountOutput) ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateNetworkInterfaceCount) *LaunchTemplateNetworkInterfaceCount {
+		return &v
+	}).(LaunchTemplateNetworkInterfaceCountPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceCount) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceCountPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceCountPtrOutput) ToLaunchTemplateNetworkInterfaceCountPtrOutput() LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceCountPtrOutput) ToLaunchTemplateNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Elem() LaunchTemplateNetworkInterfaceCountOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceCount) LaunchTemplateNetworkInterfaceCount {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateNetworkInterfaceCount
+		return ret
+	}).(LaunchTemplateNetworkInterfaceCountOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
 }
 
 type LaunchTemplatePlacement struct {
@@ -12254,6 +13598,302 @@ func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) Laun
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateTagSpecification {
 		return vs[0].([]LaunchTemplateTagSpecification)[vs[1].(int)]
 	}).(LaunchTemplateTagSpecificationOutput)
+}
+
+type LaunchTemplateTotalLocalStorageGB struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// LaunchTemplateTotalLocalStorageGBInput is an input type that accepts LaunchTemplateTotalLocalStorageGBArgs and LaunchTemplateTotalLocalStorageGBOutput values.
+// You can construct a concrete instance of `LaunchTemplateTotalLocalStorageGBInput` via:
+//
+//          LaunchTemplateTotalLocalStorageGBArgs{...}
+type LaunchTemplateTotalLocalStorageGBInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTotalLocalStorageGBOutput() LaunchTemplateTotalLocalStorageGBOutput
+	ToLaunchTemplateTotalLocalStorageGBOutputWithContext(context.Context) LaunchTemplateTotalLocalStorageGBOutput
+}
+
+type LaunchTemplateTotalLocalStorageGBArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateTotalLocalStorageGBArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTotalLocalStorageGB)(nil)).Elem()
+}
+
+func (i LaunchTemplateTotalLocalStorageGBArgs) ToLaunchTemplateTotalLocalStorageGBOutput() LaunchTemplateTotalLocalStorageGBOutput {
+	return i.ToLaunchTemplateTotalLocalStorageGBOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateTotalLocalStorageGBArgs) ToLaunchTemplateTotalLocalStorageGBOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGBOutput)
+}
+
+func (i LaunchTemplateTotalLocalStorageGBArgs) ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return i.ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateTotalLocalStorageGBArgs) ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGBOutput).ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateTotalLocalStorageGBPtrInput is an input type that accepts LaunchTemplateTotalLocalStorageGBArgs, LaunchTemplateTotalLocalStorageGBPtr and LaunchTemplateTotalLocalStorageGBPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateTotalLocalStorageGBPtrInput` via:
+//
+//          LaunchTemplateTotalLocalStorageGBArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateTotalLocalStorageGBPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput
+	ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput
+}
+
+type launchTemplateTotalLocalStorageGBPtrType LaunchTemplateTotalLocalStorageGBArgs
+
+func LaunchTemplateTotalLocalStorageGBPtr(v *LaunchTemplateTotalLocalStorageGBArgs) LaunchTemplateTotalLocalStorageGBPtrInput {
+	return (*launchTemplateTotalLocalStorageGBPtrType)(v)
+}
+
+func (*launchTemplateTotalLocalStorageGBPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateTotalLocalStorageGB)(nil)).Elem()
+}
+
+func (i *launchTemplateTotalLocalStorageGBPtrType) ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return i.ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateTotalLocalStorageGBPtrType) ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGBPtrOutput)
+}
+
+type LaunchTemplateTotalLocalStorageGBOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateTotalLocalStorageGBOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTotalLocalStorageGB)(nil)).Elem()
+}
+
+func (o LaunchTemplateTotalLocalStorageGBOutput) ToLaunchTemplateTotalLocalStorageGBOutput() LaunchTemplateTotalLocalStorageGBOutput {
+	return o
+}
+
+func (o LaunchTemplateTotalLocalStorageGBOutput) ToLaunchTemplateTotalLocalStorageGBOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBOutput {
+	return o
+}
+
+func (o LaunchTemplateTotalLocalStorageGBOutput) ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return o.ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateTotalLocalStorageGBOutput) ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateTotalLocalStorageGB) *LaunchTemplateTotalLocalStorageGB {
+		return &v
+	}).(LaunchTemplateTotalLocalStorageGBPtrOutput)
+}
+
+func (o LaunchTemplateTotalLocalStorageGBOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateTotalLocalStorageGB) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchTemplateTotalLocalStorageGBOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateTotalLocalStorageGB) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateTotalLocalStorageGBPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateTotalLocalStorageGBPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateTotalLocalStorageGB)(nil)).Elem()
+}
+
+func (o LaunchTemplateTotalLocalStorageGBPtrOutput) ToLaunchTemplateTotalLocalStorageGBPtrOutput() LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateTotalLocalStorageGBPtrOutput) ToLaunchTemplateTotalLocalStorageGBPtrOutputWithContext(ctx context.Context) LaunchTemplateTotalLocalStorageGBPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateTotalLocalStorageGBPtrOutput) Elem() LaunchTemplateTotalLocalStorageGBOutput {
+	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGB) LaunchTemplateTotalLocalStorageGB {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateTotalLocalStorageGB
+		return ret
+	}).(LaunchTemplateTotalLocalStorageGBOutput)
+}
+
+func (o LaunchTemplateTotalLocalStorageGBPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGB) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchTemplateTotalLocalStorageGBPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGB) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateVCpuCount struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateVCpuCountInput is an input type that accepts LaunchTemplateVCpuCountArgs and LaunchTemplateVCpuCountOutput values.
+// You can construct a concrete instance of `LaunchTemplateVCpuCountInput` via:
+//
+//          LaunchTemplateVCpuCountArgs{...}
+type LaunchTemplateVCpuCountInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateVCpuCountOutput() LaunchTemplateVCpuCountOutput
+	ToLaunchTemplateVCpuCountOutputWithContext(context.Context) LaunchTemplateVCpuCountOutput
+}
+
+type LaunchTemplateVCpuCountArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateVCpuCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateVCpuCount)(nil)).Elem()
+}
+
+func (i LaunchTemplateVCpuCountArgs) ToLaunchTemplateVCpuCountOutput() LaunchTemplateVCpuCountOutput {
+	return i.ToLaunchTemplateVCpuCountOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateVCpuCountArgs) ToLaunchTemplateVCpuCountOutputWithContext(ctx context.Context) LaunchTemplateVCpuCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateVCpuCountOutput)
+}
+
+func (i LaunchTemplateVCpuCountArgs) ToLaunchTemplateVCpuCountPtrOutput() LaunchTemplateVCpuCountPtrOutput {
+	return i.ToLaunchTemplateVCpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateVCpuCountArgs) ToLaunchTemplateVCpuCountPtrOutputWithContext(ctx context.Context) LaunchTemplateVCpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateVCpuCountOutput).ToLaunchTemplateVCpuCountPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateVCpuCountPtrInput is an input type that accepts LaunchTemplateVCpuCountArgs, LaunchTemplateVCpuCountPtr and LaunchTemplateVCpuCountPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateVCpuCountPtrInput` via:
+//
+//          LaunchTemplateVCpuCountArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateVCpuCountPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateVCpuCountPtrOutput() LaunchTemplateVCpuCountPtrOutput
+	ToLaunchTemplateVCpuCountPtrOutputWithContext(context.Context) LaunchTemplateVCpuCountPtrOutput
+}
+
+type launchTemplateVCpuCountPtrType LaunchTemplateVCpuCountArgs
+
+func LaunchTemplateVCpuCountPtr(v *LaunchTemplateVCpuCountArgs) LaunchTemplateVCpuCountPtrInput {
+	return (*launchTemplateVCpuCountPtrType)(v)
+}
+
+func (*launchTemplateVCpuCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateVCpuCount)(nil)).Elem()
+}
+
+func (i *launchTemplateVCpuCountPtrType) ToLaunchTemplateVCpuCountPtrOutput() LaunchTemplateVCpuCountPtrOutput {
+	return i.ToLaunchTemplateVCpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateVCpuCountPtrType) ToLaunchTemplateVCpuCountPtrOutputWithContext(ctx context.Context) LaunchTemplateVCpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateVCpuCountPtrOutput)
+}
+
+type LaunchTemplateVCpuCountOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateVCpuCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateVCpuCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateVCpuCountOutput) ToLaunchTemplateVCpuCountOutput() LaunchTemplateVCpuCountOutput {
+	return o
+}
+
+func (o LaunchTemplateVCpuCountOutput) ToLaunchTemplateVCpuCountOutputWithContext(ctx context.Context) LaunchTemplateVCpuCountOutput {
+	return o
+}
+
+func (o LaunchTemplateVCpuCountOutput) ToLaunchTemplateVCpuCountPtrOutput() LaunchTemplateVCpuCountPtrOutput {
+	return o.ToLaunchTemplateVCpuCountPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateVCpuCountOutput) ToLaunchTemplateVCpuCountPtrOutputWithContext(ctx context.Context) LaunchTemplateVCpuCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateVCpuCount) *LaunchTemplateVCpuCount {
+		return &v
+	}).(LaunchTemplateVCpuCountPtrOutput)
+}
+
+func (o LaunchTemplateVCpuCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateVCpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateVCpuCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateVCpuCount) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateVCpuCountPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateVCpuCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateVCpuCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateVCpuCountPtrOutput) ToLaunchTemplateVCpuCountPtrOutput() LaunchTemplateVCpuCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateVCpuCountPtrOutput) ToLaunchTemplateVCpuCountPtrOutputWithContext(ctx context.Context) LaunchTemplateVCpuCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateVCpuCountPtrOutput) Elem() LaunchTemplateVCpuCountOutput {
+	return o.ApplyT(func(v *LaunchTemplateVCpuCount) LaunchTemplateVCpuCount {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateVCpuCount
+		return ret
+	}).(LaunchTemplateVCpuCountOutput)
+}
+
+func (o LaunchTemplateVCpuCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateVCpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateVCpuCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateVCpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
 }
 
 type LocalGatewayRouteTableVPCAssociationTag struct {
@@ -24827,6 +26467,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceVolumeArrayInput)(nil)).Elem(), InstanceVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayTagInput)(nil)).Elem(), InternetGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayTagArrayInput)(nil)).Elem(), InternetGatewayTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountPtrInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiBInput)(nil)).Elem(), LaunchTemplateAcceleratorTotalMemoryMiBArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiBPtrInput)(nil)).Elem(), LaunchTemplateAcceleratorTotalMemoryMiBArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBaselineEbsBandwidthMbpsInput)(nil)).Elem(), LaunchTemplateBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBaselineEbsBandwidthMbpsPtrInput)(nil)).Elem(), LaunchTemplateBaselineEbsBandwidthMbpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBlockDeviceMappingInput)(nil)).Elem(), LaunchTemplateBlockDeviceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBlockDeviceMappingArrayInput)(nil)).Elem(), LaunchTemplateBlockDeviceMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCapacityReservationSpecificationInput)(nil)).Elem(), LaunchTemplateCapacityReservationSpecificationArgs{})
@@ -24853,16 +26499,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIamInstanceProfilePtrInput)(nil)).Elem(), LaunchTemplateIamInstanceProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceMarketOptionsInput)(nil)).Elem(), LaunchTemplateInstanceMarketOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceMarketOptionsPtrInput)(nil)).Elem(), LaunchTemplateInstanceMarketOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv6AddInput)(nil)).Elem(), LaunchTemplateIpv6AddArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateIpv6AddArrayInput)(nil)).Elem(), LaunchTemplateIpv6AddArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationArrayInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMemoryGiBPerVCpuInput)(nil)).Elem(), LaunchTemplateMemoryGiBPerVCpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMemoryGiBPerVCpuPtrInput)(nil)).Elem(), LaunchTemplateMemoryGiBPerVCpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMemoryMiBInput)(nil)).Elem(), LaunchTemplateMemoryMiBArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMemoryMiBPtrInput)(nil)).Elem(), LaunchTemplateMemoryMiBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMetadataOptionsInput)(nil)).Elem(), LaunchTemplateMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMetadataOptionsPtrInput)(nil)).Elem(), LaunchTemplateMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMonitoringInput)(nil)).Elem(), LaunchTemplateMonitoringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMonitoringPtrInput)(nil)).Elem(), LaunchTemplateMonitoringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceArrayInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceCountInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceCountPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementPtrInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateIpAddInput)(nil)).Elem(), LaunchTemplatePrivateIpAddArgs{})
@@ -24873,6 +26527,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagArrayInput)(nil)).Elem(), LaunchTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagSpecificationInput)(nil)).Elem(), LaunchTemplateTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagSpecificationArrayInput)(nil)).Elem(), LaunchTemplateTagSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTotalLocalStorageGBInput)(nil)).Elem(), LaunchTemplateTotalLocalStorageGBArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTotalLocalStorageGBPtrInput)(nil)).Elem(), LaunchTemplateTotalLocalStorageGBArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateVCpuCountInput)(nil)).Elem(), LaunchTemplateVCpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateVCpuCountPtrInput)(nil)).Elem(), LaunchTemplateVCpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTagInput)(nil)).Elem(), LocalGatewayRouteTableVPCAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTagArrayInput)(nil)).Elem(), LocalGatewayRouteTableVPCAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayTagInput)(nil)).Elem(), NatGatewayTagArgs{})
@@ -25179,6 +26837,12 @@ func init() {
 	pulumi.RegisterOutputType(InstanceVolumeArrayOutput{})
 	pulumi.RegisterOutputType(InternetGatewayTagOutput{})
 	pulumi.RegisterOutputType(InternetGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateAcceleratorTotalMemoryMiBOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateBaselineEbsBandwidthMbpsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationOutput{})
@@ -25205,16 +26869,24 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfilePtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIpv6AddOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIpv6AddArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMemoryGiBPerVCpuOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMemoryGiBPerVCpuPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMemoryMiBOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMemoryMiBPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceCountOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceCountPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddOutput{})
@@ -25225,6 +26897,10 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTotalLocalStorageGBOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTotalLocalStorageGBPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateVCpuCountOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateVCpuCountPtrOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(NatGatewayTagOutput{})

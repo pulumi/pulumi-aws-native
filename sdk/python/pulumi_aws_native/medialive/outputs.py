@@ -4665,6 +4665,8 @@ class ChannelHlsGroupSettings(dict):
             suggest = "output_selection"
         elif key == "programDateTime":
             suggest = "program_date_time"
+        elif key == "programDateTimeClock":
+            suggest = "program_date_time_clock"
         elif key == "programDateTimePeriod":
             suggest = "program_date_time_period"
         elif key == "redundantManifest":
@@ -4730,6 +4732,7 @@ class ChannelHlsGroupSettings(dict):
                  mode: Optional[str] = None,
                  output_selection: Optional[str] = None,
                  program_date_time: Optional[str] = None,
+                 program_date_time_clock: Optional[str] = None,
                  program_date_time_period: Optional[int] = None,
                  redundant_manifest: Optional[str] = None,
                  segment_length: Optional[int] = None,
@@ -4804,6 +4807,8 @@ class ChannelHlsGroupSettings(dict):
             pulumi.set(__self__, "output_selection", output_selection)
         if program_date_time is not None:
             pulumi.set(__self__, "program_date_time", program_date_time)
+        if program_date_time_clock is not None:
+            pulumi.set(__self__, "program_date_time_clock", program_date_time_clock)
         if program_date_time_period is not None:
             pulumi.set(__self__, "program_date_time_period", program_date_time_period)
         if redundant_manifest is not None:
@@ -4984,6 +4989,11 @@ class ChannelHlsGroupSettings(dict):
     @pulumi.getter(name="programDateTime")
     def program_date_time(self) -> Optional[str]:
         return pulumi.get(self, "program_date_time")
+
+    @property
+    @pulumi.getter(name="programDateTimeClock")
+    def program_date_time_clock(self) -> Optional[str]:
+        return pulumi.get(self, "program_date_time_clock")
 
     @property
     @pulumi.getter(name="programDateTimePeriod")
@@ -5661,6 +5671,8 @@ class ChannelInputSettings(dict):
             suggest = "input_filter"
         elif key == "networkInputSettings":
             suggest = "network_input_settings"
+        elif key == "scte35Pid":
+            suggest = "scte35_pid"
         elif key == "smpte2038DataPreference":
             suggest = "smpte2038_data_preference"
         elif key == "sourceEndBehavior":
@@ -5687,6 +5699,7 @@ class ChannelInputSettings(dict):
                  filter_strength: Optional[int] = None,
                  input_filter: Optional[str] = None,
                  network_input_settings: Optional['outputs.ChannelNetworkInputSettings'] = None,
+                 scte35_pid: Optional[int] = None,
                  smpte2038_data_preference: Optional[str] = None,
                  source_end_behavior: Optional[str] = None,
                  video_selector: Optional['outputs.ChannelVideoSelector'] = None):
@@ -5704,6 +5717,8 @@ class ChannelInputSettings(dict):
             pulumi.set(__self__, "input_filter", input_filter)
         if network_input_settings is not None:
             pulumi.set(__self__, "network_input_settings", network_input_settings)
+        if scte35_pid is not None:
+            pulumi.set(__self__, "scte35_pid", scte35_pid)
         if smpte2038_data_preference is not None:
             pulumi.set(__self__, "smpte2038_data_preference", smpte2038_data_preference)
         if source_end_behavior is not None:
@@ -5745,6 +5760,11 @@ class ChannelInputSettings(dict):
     @pulumi.getter(name="networkInputSettings")
     def network_input_settings(self) -> Optional['outputs.ChannelNetworkInputSettings']:
         return pulumi.get(self, "network_input_settings")
+
+    @property
+    @pulumi.getter(name="scte35Pid")
+    def scte35_pid(self) -> Optional[int]:
+        return pulumi.get(self, "scte35_pid")
 
     @property
     @pulumi.getter(name="smpte2038DataPreference")

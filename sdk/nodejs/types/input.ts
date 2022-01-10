@@ -2683,14 +2683,6 @@ export namespace applicationinsights {
          */
         alarms?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationAlarmArgs>[]>;
         /**
-         * The HA cluster Prometheus Exporter settings.
-         */
-        hAClusterPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHAClusterPrometheusExporterArgs>;
-        /**
-         * The HANA DB Prometheus Exporter settings.
-         */
-        hANAPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHANAPrometheusExporterArgs>;
-        /**
          * The JMX Prometheus Exporter settings.
          */
         jMXPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationJMXPrometheusExporterArgs>;
@@ -2719,45 +2711,6 @@ export namespace applicationinsights {
     }
 
     /**
-     * The HA cluster Prometheus Exporter settings.
-     */
-    export interface ApplicationHAClusterPrometheusExporterArgs {
-        /**
-         * Prometheus exporter port.
-         */
-        prometheusPort?: pulumi.Input<string>;
-    }
-
-    /**
-     * The HANA DB Prometheus Exporter settings.
-     */
-    export interface ApplicationHANAPrometheusExporterArgs {
-        /**
-         * A flag which indicates agreeing to install SAP HANA DB client.
-         */
-        agreeToInstallHANADBClient?: pulumi.Input<boolean>;
-        /**
-         * The HANA DB port.
-         */
-        hANAPort?: pulumi.Input<string>;
-        /**
-         * HANA DB SID.
-         */
-        hANASID?: pulumi.Input<string>;
-        /**
-         * The secret name which manages the HANA DB credentials e.g. {
-         *   "username": "<>",
-         *   "password": "<>"
-         * }.
-         */
-        hANASecretName?: pulumi.Input<string>;
-        /**
-         * Prometheus exporter port.
-         */
-        prometheusPort?: pulumi.Input<string>;
-    }
-
-    /**
      * The JMX Prometheus Exporter settings.
      */
     export interface ApplicationJMXPrometheusExporterArgs {
@@ -2770,7 +2723,7 @@ export namespace applicationinsights {
          */
         jMXURL?: pulumi.Input<string>;
         /**
-         * Prometheus exporter port.
+         * Prometheus exporter port
          */
         prometheusPort?: pulumi.Input<string>;
     }
@@ -8874,6 +8827,21 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    export interface LaunchTemplateAcceleratorCountArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface LaunchTemplateAcceleratorTotalMemoryMiBArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface LaunchTemplateBaselineEbsBandwidthMbpsArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
     export interface LaunchTemplateBlockDeviceMappingArgs {
         deviceName?: pulumi.Input<string>;
         ebs?: pulumi.Input<inputs.ec2.LaunchTemplateEbsArgs>;
@@ -8915,6 +8883,7 @@ export namespace ec2 {
         imageId?: pulumi.Input<string>;
         instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
         instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptionsArgs>;
+        instanceRequirements?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceRequirementsArgs>;
         instanceType?: pulumi.Input<string>;
         kernelId?: pulumi.Input<string>;
         keyName?: pulumi.Input<string>;
@@ -8968,12 +8937,46 @@ export namespace ec2 {
         spotOptions?: pulumi.Input<inputs.ec2.LaunchTemplateSpotOptionsArgs>;
     }
 
+    export interface LaunchTemplateInstanceRequirementsArgs {
+        acceleratorCount?: pulumi.Input<inputs.ec2.LaunchTemplateAcceleratorCountArgs>;
+        acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        acceleratorNames?: pulumi.Input<pulumi.Input<string>[]>;
+        acceleratorTotalMemoryMiB?: pulumi.Input<inputs.ec2.LaunchTemplateAcceleratorTotalMemoryMiBArgs>;
+        acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        bareMetal?: pulumi.Input<string>;
+        baselineEbsBandwidthMbps?: pulumi.Input<inputs.ec2.LaunchTemplateBaselineEbsBandwidthMbpsArgs>;
+        burstablePerformance?: pulumi.Input<string>;
+        cpuManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        instanceGenerations?: pulumi.Input<pulumi.Input<string>[]>;
+        localStorage?: pulumi.Input<string>;
+        localStorageTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.LaunchTemplateMemoryGiBPerVCpuArgs>;
+        memoryMiB?: pulumi.Input<inputs.ec2.LaunchTemplateMemoryMiBArgs>;
+        networkInterfaceCount?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterfaceCountArgs>;
+        onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        requireHibernateSupport?: pulumi.Input<boolean>;
+        spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        totalLocalStorageGB?: pulumi.Input<inputs.ec2.LaunchTemplateTotalLocalStorageGBArgs>;
+        vCpuCount?: pulumi.Input<inputs.ec2.LaunchTemplateVCpuCountArgs>;
+    }
+
     export interface LaunchTemplateIpv6AddArgs {
         ipv6Address?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateLicenseSpecificationArgs {
         licenseConfigurationArn?: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplateMemoryGiBPerVCpuArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface LaunchTemplateMemoryMiBArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface LaunchTemplateMetadataOptionsArgs {
@@ -9003,6 +9006,11 @@ export namespace ec2 {
         privateIpAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplatePrivateIpAddArgs>[]>;
         secondaryPrivateIpAddressCount?: pulumi.Input<number>;
         subnetId?: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplateNetworkInterfaceCountArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface LaunchTemplatePlacementArgs {
@@ -9037,6 +9045,16 @@ export namespace ec2 {
     export interface LaunchTemplateTagSpecificationArgs {
         resourceType?: pulumi.Input<string>;
         tags?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagArgs>[]>;
+    }
+
+    export interface LaunchTemplateTotalLocalStorageGBArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface LaunchTemplateVCpuCountArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface LocalGatewayRouteTableVPCAssociationTagArgs {
@@ -9538,6 +9556,7 @@ export namespace ec2 {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace ecr {
@@ -11317,6 +11336,11 @@ export namespace events {
         value?: pulumi.Input<string>;
     }
 
+    export interface EventBusTagEntryArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface RuleAwsVpcConfigurationArgs {
         assignPublicIp?: pulumi.Input<string>;
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -12277,7 +12301,22 @@ export namespace gamelift {
         priorityOrder?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface GameSessionQueueTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface MatchmakingConfigurationGamePropertyArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface MatchmakingConfigurationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface MatchmakingRuleSetTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -12287,6 +12326,11 @@ export namespace gamelift {
         key: pulumi.Input<string>;
         objectVersion?: pulumi.Input<string>;
         roleArn: pulumi.Input<string>;
+    }
+
+    export interface ScriptTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -14046,6 +14090,10 @@ export namespace iot {
         value: pulumi.Input<string>;
     }
 
+    export interface JobExecutionsRetryConfigPropertiesArgs {
+        retryCriteriaList?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateRetryCriteriaArgs>[]>;
+    }
+
     /**
      * Allows you to create a staged rollout of a job.
      */
@@ -14103,6 +14151,14 @@ export namespace iot {
     export interface JobTemplateRateIncreaseCriteriaArgs {
         numberOfNotifiedThings?: pulumi.Input<number>;
         numberOfSucceededThings?: pulumi.Input<number>;
+    }
+
+    /**
+     * Specifies how many times a failure type should be retried.
+     */
+    export interface JobTemplateRetryCriteriaArgs {
+        failureType?: pulumi.Input<enums.iot.JobTemplateJobRetryFailureType>;
+        numberOfRetries?: pulumi.Input<number>;
     }
 
     /**
@@ -16632,7 +16688,10 @@ export namespace kinesisanalyticsv2 {
         zeppelinApplicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfigurationArgs>;
     }
 
-    export interface ApplicationCustomArtifactsConfigurationArgs {
+    export interface ApplicationCustomArtifactConfigurationArgs {
+        artifactType: pulumi.Input<string>;
+        mavenReference?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationMavenReferenceArgs>;
+        s3ContentLocation?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationS3ContentLocationArgs>;
     }
 
     export interface ApplicationDeployAsApplicationConfigurationArgs {
@@ -16695,6 +16754,12 @@ export namespace kinesisanalyticsv2 {
     export interface ApplicationMappingParametersArgs {
         cSVMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCSVMappingParametersArgs>;
         jSONMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationJSONMappingParametersArgs>;
+    }
+
+    export interface ApplicationMavenReferenceArgs {
+        artifactId: pulumi.Input<string>;
+        groupId: pulumi.Input<string>;
+        version: pulumi.Input<string>;
     }
 
     export interface ApplicationMonitoringConfigurationArgs {
@@ -16818,7 +16883,7 @@ export namespace kinesisanalyticsv2 {
 
     export interface ApplicationZeppelinApplicationConfigurationArgs {
         catalogConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCatalogConfigurationArgs>;
-        customArtifactsConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCustomArtifactsConfigurationArgs>;
+        customArtifactsConfiguration?: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCustomArtifactConfigurationArgs>[]>;
         deployAsApplicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationDeployAsApplicationConfigurationArgs>;
         monitoringConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationZeppelinMonitoringConfigurationArgs>;
     }
@@ -17547,11 +17612,11 @@ export namespace lex {
      * A locale setting in alias
      */
     export interface BotAliasLocaleSettingsItemArgs {
-        botAliasLocaleSetting?: pulumi.Input<inputs.lex.BotAliasLocaleSettingsArgs>;
+        botAliasLocaleSetting: pulumi.Input<inputs.lex.BotAliasLocaleSettingsArgs>;
         /**
          * A string used to identify the locale
          */
-        localeId?: pulumi.Input<string>;
+        localeId: pulumi.Input<string>;
     }
 
     /**
@@ -19659,6 +19724,7 @@ export namespace medialive {
         mode?: pulumi.Input<string>;
         outputSelection?: pulumi.Input<string>;
         programDateTime?: pulumi.Input<string>;
+        programDateTimeClock?: pulumi.Input<string>;
         programDateTimePeriod?: pulumi.Input<number>;
         redundantManifest?: pulumi.Input<string>;
         segmentLength?: pulumi.Input<number>;
@@ -19754,6 +19820,7 @@ export namespace medialive {
         filterStrength?: pulumi.Input<number>;
         inputFilter?: pulumi.Input<string>;
         networkInputSettings?: pulumi.Input<inputs.medialive.ChannelNetworkInputSettingsArgs>;
+        scte35Pid?: pulumi.Input<number>;
         smpte2038DataPreference?: pulumi.Input<string>;
         sourceEndBehavior?: pulumi.Input<string>;
         videoSelector?: pulumi.Input<inputs.medialive.ChannelVideoSelectorArgs>;
@@ -27972,6 +28039,7 @@ export namespace transfer {
 
     export interface ServerProtocolDetailsArgs {
         passiveIp?: pulumi.Input<string>;
+        tlsSessionResumptionMode?: pulumi.Input<string>;
     }
 
     export interface ServerTagArgs {

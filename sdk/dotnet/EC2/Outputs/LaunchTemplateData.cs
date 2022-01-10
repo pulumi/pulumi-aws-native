@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string? ImageId;
         public readonly string? InstanceInitiatedShutdownBehavior;
         public readonly Outputs.LaunchTemplateInstanceMarketOptions? InstanceMarketOptions;
+        public readonly Outputs.LaunchTemplateInstanceRequirements? InstanceRequirements;
         public readonly string? InstanceType;
         public readonly string? KernelId;
         public readonly string? KeyName;
@@ -71,6 +72,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             Outputs.LaunchTemplateInstanceMarketOptions? instanceMarketOptions,
 
+            Outputs.LaunchTemplateInstanceRequirements? instanceRequirements,
+
             string? instanceType,
 
             string? kernelId,
@@ -111,6 +114,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             ImageId = imageId;
             InstanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
             InstanceMarketOptions = instanceMarketOptions;
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             KernelId = kernelId;
             KeyName = keyName;
