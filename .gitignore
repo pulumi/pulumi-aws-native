@@ -15,3 +15,4 @@ provider/cmd/cf2pulumi/schema.go
 provider/cmd/cf2pulumi/metadata.go
 **/.DS_Store
 ci-scripts
+.vscode

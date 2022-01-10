@@ -1,8 +1,12 @@
 ## HEAD (Unreleased)
-- Serve decompressed schema from GetSchema API
-  [#287](https://github.com/pulumi/pulumi-aws-native/pull/287)
 
 ---
+
+## 0.10.0 (Jan 10, 2022)
+
+- Update to include the latest resource definitions
+- Serve decompressed schema from GetSchema API
+  [#287](https://github.com/pulumi/pulumi-aws-native/pull/287)
 
 ## 0.9.0 (December 15, 2021)
 
