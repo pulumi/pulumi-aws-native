@@ -51,6 +51,7 @@
       "description" : "Specifies the Amazon Redshift event categories to be published by the event notification subscription.",
       "type" : "array",
       "insertionOrder" : false,
+      "uniqueItems" : true,
       "items" : {
         "type" : "string",
         "enum" : [ "configuration", "management", "monitoring", "security", "pending" ]
@@ -102,6 +103,7 @@
       "description" : "The list of Amazon Redshift event categories specified in the event notification subscription.",
       "type" : "array",
       "insertionOrder" : false,
+      "uniqueItems" : true,
       "items" : {
         "type" : "string"
       }
