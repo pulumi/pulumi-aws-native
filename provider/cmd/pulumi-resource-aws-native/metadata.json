@@ -3469,6 +3469,9 @@
                 "autoScalingGroupName": {
                     "type": "string"
                 },
+                "instanceReusePolicy": {
+                    "$ref": "#/types/aws-native:autoscaling:WarmPoolInstanceReusePolicy"
+                },
                 "maxGroupPreparedCapacity": {
                     "type": "integer"
                 },
@@ -3482,6 +3485,9 @@
             "outputs": {
                 "autoScalingGroupName": {
                     "type": "string"
+                },
+                "instanceReusePolicy": {
+                    "$ref": "#/types/aws-native:autoscaling:WarmPoolInstanceReusePolicy"
                 },
                 "maxGroupPreparedCapacity": {
                     "type": "integer"
@@ -11456,6 +11462,117 @@
                 "vpcId"
             ]
         },
+        "aws-native:ec2:VPCEndpoint": {
+            "cf": "AWS::EC2::VPCEndpoint",
+            "inputs": {
+                "policyDocument": {
+                    "type": "string",
+                    "description": "A policy to attach to the endpoint that controls access to the service."
+                },
+                "privateDnsEnabled": {
+                    "type": "boolean",
+                    "description": "Indicate whether to associate a private hosted zone with the specified VPC."
+                },
+                "routeTableIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more route table IDs."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more security groups to associate with the endpoint network interface."
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "The service name."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more subnets in which to create an endpoint network interface."
+                },
+                "vpcEndpointType": {
+                    "$ref": "#/types/aws-native:ec2:VPCEndpointVpcEndpointType"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC in which the endpoint will be used."
+                }
+            },
+            "outputs": {
+                "creationTimestamp": {
+                    "type": "string"
+                },
+                "dnsEntries": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "networkInterfaceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "policyDocument": {
+                    "type": "string",
+                    "description": "A policy to attach to the endpoint that controls access to the service."
+                },
+                "privateDnsEnabled": {
+                    "type": "boolean",
+                    "description": "Indicate whether to associate a private hosted zone with the specified VPC."
+                },
+                "routeTableIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more route table IDs."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more security groups to associate with the endpoint network interface."
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "The service name."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more subnets in which to create an endpoint network interface."
+                },
+                "vpcEndpointType": {
+                    "$ref": "#/types/aws-native:ec2:VPCEndpointVpcEndpointType"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC in which the endpoint will be used."
+                }
+            },
+            "required": [
+                "serviceName",
+                "vpcId"
+            ],
+            "createOnly": [
+                "serviceName",
+                "vpcEndpointType",
+                "vpcId"
+            ]
+        },
         "aws-native:ecr:RegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
             "inputs": {
@@ -14231,6 +14348,151 @@
                 "remediationEnabled",
                 "resourceType",
                 "securityServicePolicyData"
+            ]
+        },
+        "aws-native:forecast:Dataset": {
+            "cf": "AWS::Forecast::Dataset",
+            "inputs": {
+                "dataFrequency": {
+                    "type": "string",
+                    "description": "Frequency of data collection. This parameter is required for RELATED_TIME_SERIES"
+                },
+                "datasetName": {
+                    "type": "string",
+                    "description": "A name for the dataset"
+                },
+                "datasetType": {
+                    "$ref": "#/types/aws-native:forecast:DatasetType",
+                    "description": "The dataset type"
+                },
+                "domain": {
+                    "$ref": "#/types/aws-native:forecast:DatasetDomain",
+                    "description": "The domain associated with the dataset"
+                },
+                "encryptionConfig": {
+                    "$ref": "#/types/aws-native:forecast:EncryptionConfigProperties"
+                },
+                "schema": {
+                    "$ref": "#/types/aws-native:forecast:SchemaProperties"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:TagsItemProperties"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "dataFrequency": {
+                    "type": "string",
+                    "description": "Frequency of data collection. This parameter is required for RELATED_TIME_SERIES"
+                },
+                "datasetName": {
+                    "type": "string",
+                    "description": "A name for the dataset"
+                },
+                "datasetType": {
+                    "$ref": "#/types/aws-native:forecast:DatasetType",
+                    "description": "The dataset type"
+                },
+                "domain": {
+                    "$ref": "#/types/aws-native:forecast:DatasetDomain",
+                    "description": "The domain associated with the dataset"
+                },
+                "encryptionConfig": {
+                    "$ref": "#/types/aws-native:forecast:EncryptionConfigProperties"
+                },
+                "schema": {
+                    "$ref": "#/types/aws-native:forecast:SchemaProperties"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:TagsItemProperties"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "datasetName",
+                "minLength": 1,
+                "maxLength": 63
+            },
+            "required": [
+                "datasetType",
+                "domain",
+                "schema"
+            ],
+            "createOnly": [
+                "datasetName"
+            ]
+        },
+        "aws-native:forecast:DatasetGroup": {
+            "cf": "AWS::Forecast::DatasetGroup",
+            "inputs": {
+                "datasetArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group."
+                },
+                "datasetGroupName": {
+                    "type": "string",
+                    "description": "A name for the dataset group."
+                },
+                "domain": {
+                    "$ref": "#/types/aws-native:forecast:DatasetGroupDomain",
+                    "description": "The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:DatasetGroupTag"
+                    },
+                    "description": "The tags of Application Insights application."
+                }
+            },
+            "outputs": {
+                "datasetArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group."
+                },
+                "datasetGroupArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the dataset group to delete."
+                },
+                "datasetGroupName": {
+                    "type": "string",
+                    "description": "A name for the dataset group."
+                },
+                "domain": {
+                    "$ref": "#/types/aws-native:forecast:DatasetGroupDomain",
+                    "description": "The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:DatasetGroupTag"
+                    },
+                    "description": "The tags of Application Insights application."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "datasetGroupName",
+                "minLength": 1,
+                "maxLength": 63
+            },
+            "required": [
+                "domain"
+            ],
+            "createOnly": [
+                "datasetGroupName"
             ]
         },
         "aws-native:frauddetector:Detector": {
@@ -32411,6 +32673,9 @@
         "aws-native:sagemaker:Pipeline": {
             "cf": "AWS::SageMaker::Pipeline",
             "inputs": {
+                "parallelismConfiguration": {
+                    "$ref": "#/types/aws-native:sagemaker:ParallelismConfigurationProperties"
+                },
                 "pipelineDefinition": {
                     "$ref": "pulumi.json#/Any"
                 },
@@ -32438,6 +32703,9 @@
                 }
             },
             "outputs": {
+                "parallelismConfiguration": {
+                    "$ref": "#/types/aws-native:sagemaker:ParallelismConfigurationProperties"
+                },
                 "pipelineDefinition": {
                     "$ref": "pulumi.json#/Any"
                 },
@@ -38829,6 +39097,14 @@
                 "httpTokens": {
                     "type": "string",
                     "description": "The state of token usage for your instance metadata requests."
+                }
+            }
+        },
+        "aws-native:autoscaling:WarmPoolInstanceReusePolicy": {
+            "type": "object",
+            "properties": {
+                "reuseOnScaleIn": {
+                    "type": "boolean"
                 }
             }
         },
@@ -45348,6 +45624,9 @@
                 }
             }
         },
+        "aws-native:ec2:VPCEndpointVpcEndpointType": {
+            "type": "string"
+        },
         "aws-native:ec2:VPCTag": {
             "type": "object",
             "properties": {
@@ -47798,6 +48077,77 @@
                 },
                 "type": {
                     "$ref": "#/types/aws-native:fms:PolicySecurityServicePolicyDataPropertiesType"
+                }
+            }
+        },
+        "aws-native:forecast:AttributesItemProperties": {
+            "type": "object",
+            "properties": {
+                "attributeName": {
+                    "type": "string",
+                    "description": "Name of the dataset field"
+                },
+                "attributeType": {
+                    "$ref": "#/types/aws-native:forecast:DatasetAttributesItemPropertiesAttributeType",
+                    "description": "Data type of the field"
+                }
+            }
+        },
+        "aws-native:forecast:DatasetAttributesItemPropertiesAttributeType": {
+            "type": "string"
+        },
+        "aws-native:forecast:DatasetDomain": {
+            "type": "string"
+        },
+        "aws-native:forecast:DatasetGroupDomain": {
+            "type": "string"
+        },
+        "aws-native:forecast:DatasetGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:forecast:DatasetType": {
+            "type": "string"
+        },
+        "aws-native:forecast:EncryptionConfigProperties": {
+            "type": "object",
+            "properties": {
+                "kmsKeyArn": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:forecast:SchemaProperties": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:AttributesItemProperties"
+                    }
+                }
+            }
+        },
+        "aws-native:forecast:TagsItemProperties": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },
@@ -65510,6 +65860,15 @@
                 },
                 "securityConfig": {
                     "$ref": "#/types/aws-native:sagemaker:FeatureGroupOnlineStoreSecurityConfig"
+                }
+            }
+        },
+        "aws-native:sagemaker:ParallelismConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "maxParallelExecutionSteps": {
+                    "type": "integer",
+                    "description": "Maximum parallel execution steps"
                 }
             }
         },
