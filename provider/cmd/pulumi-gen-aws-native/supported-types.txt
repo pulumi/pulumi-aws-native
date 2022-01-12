@@ -161,6 +161,7 @@ AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
+AWS::EC2::VPCEndpoint
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
 AWS::ECR::Repository
@@ -197,6 +198,8 @@ AWS::FIS::ExperimentTemplate
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
 AWS::FinSpace::Environment
+AWS::Forecast::Dataset
+AWS::Forecast::DatasetGroup
 AWS::FraudDetector::Detector
 AWS::FraudDetector::EntityType
 AWS::FraudDetector::EventType
