@@ -1,3 +1,3 @@
-module fake_go_module // Exclude this directory from Go tools
+module fake_dotnet_module // Exclude this directory from Go tools
 
 go 1.16
