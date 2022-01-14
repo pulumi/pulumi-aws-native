@@ -166,6 +166,9 @@ func generateExample(yaml string, metadata *pschema.CloudAPIMetadata, languages 
 func findAllExamples(folder string) ([]string, error) {
 	var fileNames, result []string
 	err := filepath.Walk(folder, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
 		if !info.IsDir() && strings.Contains(path, "aws-resource-") {
 			fileNames = append(fileNames, path)
 		}
