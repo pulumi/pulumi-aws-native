@@ -3469,6 +3469,9 @@
                 "autoScalingGroupName": {
                     "type": "string"
                 },
+                "instanceReusePolicy": {
+                    "$ref": "#/types/aws-native:autoscaling:WarmPoolInstanceReusePolicy"
+                },
                 "maxGroupPreparedCapacity": {
                     "type": "integer"
                 },
@@ -3482,6 +3485,9 @@
             "outputs": {
                 "autoScalingGroupName": {
                     "type": "string"
+                },
+                "instanceReusePolicy": {
+                    "$ref": "#/types/aws-native:autoscaling:WarmPoolInstanceReusePolicy"
                 },
                 "maxGroupPreparedCapacity": {
                     "type": "integer"
@@ -14231,6 +14237,151 @@
                 "remediationEnabled",
                 "resourceType",
                 "securityServicePolicyData"
+            ]
+        },
+        "aws-native:forecast:Dataset": {
+            "cf": "AWS::Forecast::Dataset",
+            "inputs": {
+                "dataFrequency": {
+                    "type": "string",
+                    "description": "Frequency of data collection. This parameter is required for RELATED_TIME_SERIES"
+                },
+                "datasetName": {
+                    "type": "string",
+                    "description": "A name for the dataset"
+                },
+                "datasetType": {
+                    "$ref": "#/types/aws-native:forecast:DatasetType",
+                    "description": "The dataset type"
+                },
+                "domain": {
+                    "$ref": "#/types/aws-native:forecast:DatasetDomain",
+                    "description": "The domain associated with the dataset"
+                },
+                "encryptionConfig": {
+                    "$ref": "#/types/aws-native:forecast:EncryptionConfigProperties"
+                },
+                "schema": {
+                    "$ref": "#/types/aws-native:forecast:SchemaProperties"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:TagsItemProperties"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "dataFrequency": {
+                    "type": "string",
+                    "description": "Frequency of data collection. This parameter is required for RELATED_TIME_SERIES"
+                },
+                "datasetName": {
+                    "type": "string",
+                    "description": "A name for the dataset"
+                },
+                "datasetType": {
+                    "$ref": "#/types/aws-native:forecast:DatasetType",
+                    "description": "The dataset type"
+                },
+                "domain": {
+                    "$ref": "#/types/aws-native:forecast:DatasetDomain",
+                    "description": "The domain associated with the dataset"
+                },
+                "encryptionConfig": {
+                    "$ref": "#/types/aws-native:forecast:EncryptionConfigProperties"
+                },
+                "schema": {
+                    "$ref": "#/types/aws-native:forecast:SchemaProperties"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:TagsItemProperties"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "datasetName",
+                "minLength": 1,
+                "maxLength": 63
+            },
+            "required": [
+                "datasetType",
+                "domain",
+                "schema"
+            ],
+            "createOnly": [
+                "datasetName"
+            ]
+        },
+        "aws-native:forecast:DatasetGroup": {
+            "cf": "AWS::Forecast::DatasetGroup",
+            "inputs": {
+                "datasetArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group."
+                },
+                "datasetGroupName": {
+                    "type": "string",
+                    "description": "A name for the dataset group."
+                },
+                "domain": {
+                    "$ref": "#/types/aws-native:forecast:DatasetGroupDomain",
+                    "description": "The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:DatasetGroupTag"
+                    },
+                    "description": "The tags of Application Insights application."
+                }
+            },
+            "outputs": {
+                "datasetArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group."
+                },
+                "datasetGroupArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the dataset group to delete."
+                },
+                "datasetGroupName": {
+                    "type": "string",
+                    "description": "A name for the dataset group."
+                },
+                "domain": {
+                    "$ref": "#/types/aws-native:forecast:DatasetGroupDomain",
+                    "description": "The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:DatasetGroupTag"
+                    },
+                    "description": "The tags of Application Insights application."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "datasetGroupName",
+                "minLength": 1,
+                "maxLength": 63
+            },
+            "required": [
+                "domain"
+            ],
+            "createOnly": [
+                "datasetGroupName"
             ]
         },
         "aws-native:frauddetector:Detector": {
@@ -29168,7 +29319,7 @@
                 },
                 "robotSoftwareSuite": {
                     "$ref": "#/types/aws-native:robomaker:SimulationApplicationRobotSoftwareSuite",
-                    "description": "The robot software suite (ROS distribution) used by the simulation application."
+                    "description": "The robot software suite used by the simulation application."
                 },
                 "simulationSoftwareSuite": {
                     "$ref": "#/types/aws-native:robomaker:SimulationApplicationSimulationSoftwareSuite",
@@ -29207,7 +29358,7 @@
                 },
                 "robotSoftwareSuite": {
                     "$ref": "#/types/aws-native:robomaker:SimulationApplicationRobotSoftwareSuite",
-                    "description": "The robot software suite (ROS distribution) used by the simulation application."
+                    "description": "The robot software suite used by the simulation application."
                 },
                 "simulationSoftwareSuite": {
                     "$ref": "#/types/aws-native:robomaker:SimulationApplicationSimulationSoftwareSuite",
@@ -32411,6 +32562,9 @@
         "aws-native:sagemaker:Pipeline": {
             "cf": "AWS::SageMaker::Pipeline",
             "inputs": {
+                "parallelismConfiguration": {
+                    "$ref": "#/types/aws-native:sagemaker:ParallelismConfigurationProperties"
+                },
                 "pipelineDefinition": {
                     "$ref": "pulumi.json#/Any"
                 },
@@ -32438,6 +32592,9 @@
                 }
             },
             "outputs": {
+                "parallelismConfiguration": {
+                    "$ref": "#/types/aws-native:sagemaker:ParallelismConfigurationProperties"
+                },
                 "pipelineDefinition": {
                     "$ref": "pulumi.json#/Any"
                 },
@@ -37986,6 +38143,14 @@
                     },
                     "description": "A list of alarms to monitor for the component."
                 },
+                "hAClusterPrometheusExporter": {
+                    "$ref": "#/types/aws-native:applicationinsights:ApplicationHAClusterPrometheusExporter",
+                    "description": "The HA cluster Prometheus Exporter settings."
+                },
+                "hANAPrometheusExporter": {
+                    "$ref": "#/types/aws-native:applicationinsights:ApplicationHANAPrometheusExporter",
+                    "description": "The HANA DB Prometheus Exporter settings."
+                },
                 "jMXPrometheusExporter": {
                     "$ref": "#/types/aws-native:applicationinsights:ApplicationJMXPrometheusExporter",
                     "description": "The JMX Prometheus Exporter settings."
@@ -38025,6 +38190,40 @@
         "aws-native:applicationinsights:ApplicationEventLevel": {
             "type": "string"
         },
+        "aws-native:applicationinsights:ApplicationHAClusterPrometheusExporter": {
+            "type": "object",
+            "properties": {
+                "prometheusPort": {
+                    "type": "string",
+                    "description": "Prometheus exporter port."
+                }
+            }
+        },
+        "aws-native:applicationinsights:ApplicationHANAPrometheusExporter": {
+            "type": "object",
+            "properties": {
+                "agreeToInstallHANADBClient": {
+                    "type": "boolean",
+                    "description": "A flag which indicates agreeing to install SAP HANA DB client."
+                },
+                "hANAPort": {
+                    "type": "string",
+                    "description": "The HANA DB port."
+                },
+                "hANASID": {
+                    "type": "string",
+                    "description": "HANA DB SID."
+                },
+                "hANASecretName": {
+                    "type": "string",
+                    "description": "The secret name which manages the HANA DB credentials e.g. {\n  \"username\": \"\u003c\u003e\",\n  \"password\": \"\u003c\u003e\"\n}."
+                },
+                "prometheusPort": {
+                    "type": "string",
+                    "description": "Prometheus exporter port."
+                }
+            }
+        },
         "aws-native:applicationinsights:ApplicationJMXPrometheusExporter": {
             "type": "object",
             "properties": {
@@ -38038,7 +38237,7 @@
                 },
                 "prometheusPort": {
                     "type": "string",
-                    "description": "Prometheus exporter port"
+                    "description": "Prometheus exporter port."
                 }
             }
         },
@@ -38829,6 +39028,14 @@
                 "httpTokens": {
                     "type": "string",
                     "description": "The state of token usage for your instance metadata requests."
+                }
+            }
+        },
+        "aws-native:autoscaling:WarmPoolInstanceReusePolicy": {
+            "type": "object",
+            "properties": {
+                "reuseOnScaleIn": {
+                    "type": "boolean"
                 }
             }
         },
@@ -41863,6 +42070,9 @@
                 "bucket": {
                     "type": "string"
                 },
+                "bucketOwner": {
+                    "type": "string"
+                },
                 "key": {
                     "type": "string"
                 }
@@ -41911,6 +42121,9 @@
             "type": "object",
             "properties": {
                 "bucket": {
+                    "type": "string"
+                },
+                "bucketOwner": {
                     "type": "string"
                 },
                 "key": {
@@ -47801,6 +48014,77 @@
                 }
             }
         },
+        "aws-native:forecast:AttributesItemProperties": {
+            "type": "object",
+            "properties": {
+                "attributeName": {
+                    "type": "string",
+                    "description": "Name of the dataset field"
+                },
+                "attributeType": {
+                    "$ref": "#/types/aws-native:forecast:DatasetAttributesItemPropertiesAttributeType",
+                    "description": "Data type of the field"
+                }
+            }
+        },
+        "aws-native:forecast:DatasetAttributesItemPropertiesAttributeType": {
+            "type": "string"
+        },
+        "aws-native:forecast:DatasetDomain": {
+            "type": "string"
+        },
+        "aws-native:forecast:DatasetGroupDomain": {
+            "type": "string"
+        },
+        "aws-native:forecast:DatasetGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:forecast:DatasetType": {
+            "type": "string"
+        },
+        "aws-native:forecast:EncryptionConfigProperties": {
+            "type": "object",
+            "properties": {
+                "kmsKeyArn": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:forecast:SchemaProperties": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:forecast:AttributesItemProperties"
+                    }
+                }
+            }
+        },
+        "aws-native:forecast:TagsItemProperties": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:frauddetector:DetectorEntityType": {
             "type": "object",
             "properties": {
@@ -52824,12 +53108,25 @@
                 }
             }
         },
+        "aws-native:iotsitewise:GatewayGreengrassV2": {
+            "type": "object",
+            "properties": {
+                "coreDeviceThingName": {
+                    "type": "string",
+                    "description": "The name of the CoreDevice in GreenGrass V2."
+                }
+            }
+        },
         "aws-native:iotsitewise:GatewayPlatform": {
             "type": "object",
             "properties": {
                 "greengrass": {
                     "$ref": "#/types/aws-native:iotsitewise:GatewayGreengrass",
-                    "description": "A gateway that runs on AWS IoT Greengrass."
+                    "description": "A gateway that runs on AWS IoT Greengrass V1."
+                },
+                "greengrassV2": {
+                    "$ref": "#/types/aws-native:iotsitewise:GatewayGreengrassV2",
+                    "description": "A gateway that runs on AWS IoT Greengrass V2."
                 }
             }
         },
@@ -61815,11 +62112,11 @@
             "properties": {
                 "name": {
                     "$ref": "#/types/aws-native:robomaker:SimulationApplicationRobotSoftwareSuiteName",
-                    "description": "The name of the robot software suite (ROS distribution)."
+                    "description": "The name of the robot software suite."
                 },
                 "version": {
                     "$ref": "#/types/aws-native:robomaker:SimulationApplicationRobotSoftwareSuiteVersion",
-                    "description": "The version of the robot software suite (ROS distribution)."
+                    "description": "The version of the robot software suite."
                 }
             }
         },
@@ -65510,6 +65807,15 @@
                 },
                 "securityConfig": {
                     "$ref": "#/types/aws-native:sagemaker:FeatureGroupOnlineStoreSecurityConfig"
+                }
+            }
+        },
+        "aws-native:sagemaker:ParallelismConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "maxParallelExecutionSteps": {
+                    "type": "integer",
+                    "description": "Maximum parallel execution steps"
                 }
             }
         },

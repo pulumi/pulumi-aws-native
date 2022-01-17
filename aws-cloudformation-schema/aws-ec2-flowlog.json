@@ -84,7 +84,7 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "FileDestination", "HiveCompatiblePartitions", "PerHourPartition" ]
+      "required" : [ "FileFormat", "HiveCompatiblePartitions", "PerHourPartition" ]
     }
   },
   "required" : [ "ResourceType", "ResourceId", "TrafficType" ],

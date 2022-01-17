@@ -29,6 +29,9 @@
     "ServerCertificateArn" : {
       "type" : "string"
     },
+    "SessionTimeoutHours" : {
+      "type" : "integer"
+    },
     "DnsServers" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -48,6 +51,9 @@
     },
     "SplitTunnel" : {
       "type" : "boolean"
+    },
+    "ClientLoginBannerOptions" : {
+      "$ref" : "#/definitions/ClientLoginBannerOptions"
     },
     "VpcId" : {
       "type" : "string"
@@ -107,6 +113,19 @@
         }
       },
       "required" : [ "SAMLProviderArn" ]
+    },
+    "ClientLoginBannerOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "BannerText" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Enabled" ]
     },
     "DirectoryServiceAuthenticationRequest" : {
       "type" : "object",

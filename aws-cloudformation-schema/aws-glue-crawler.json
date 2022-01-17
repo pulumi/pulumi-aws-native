@@ -61,12 +61,21 @@
         "Path" : {
           "type" : "string"
         },
+        "SampleSize" : {
+          "type" : "integer"
+        },
         "Exclusions" : {
           "type" : "array",
           "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
+        },
+        "DlqEventQueueArn" : {
+          "type" : "string"
+        },
+        "EventQueueArn" : {
+          "type" : "string"
         }
       }
     },
@@ -100,6 +109,18 @@
         }
       }
     },
+    "MongoDBTarget" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ConnectionName" : {
+          "type" : "string"
+        },
+        "Path" : {
+          "type" : "string"
+        }
+      }
+    },
     "JdbcTarget" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -128,6 +149,13 @@
           "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/CatalogTarget"
+          }
+        },
+        "MongoDBTargets" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/MongoDBTarget"
           }
         },
         "JdbcTargets" : {
