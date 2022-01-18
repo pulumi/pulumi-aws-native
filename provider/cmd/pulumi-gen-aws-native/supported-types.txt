@@ -197,6 +197,8 @@ AWS::FIS::ExperimentTemplate
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
 AWS::FinSpace::Environment
+AWS::Forecast::Dataset
+AWS::Forecast::DatasetGroup
 AWS::FraudDetector::Detector
 AWS::FraudDetector::EntityType
 AWS::FraudDetector::EventType

@@ -18,6 +18,9 @@
     "ResponseMappingTemplate" : {
       "type" : "string"
     },
+    "MaxBatchSize" : {
+      "type" : "integer"
+    },
     "SyncConfig" : {
       "$ref" : "#/definitions/SyncConfig"
     },
