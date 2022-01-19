@@ -39,21 +39,21 @@
       "additionalProperties" : false
     },
     "RobotSoftwareSuite" : {
-      "description" : "Information about a robot software suite (ROS distribution).",
+      "description" : "Information about a robot software suite.",
       "type" : "object",
       "properties" : {
         "Name" : {
           "type" : "string",
-          "description" : "The name of the robot software suite (ROS distribution).",
-          "enum" : [ "ROS", "ROS2" ]
+          "description" : "The name of the robot software suite.",
+          "enum" : [ "ROS", "ROS2", "General" ]
         },
         "Version" : {
           "type" : "string",
-          "description" : "The version of the robot software suite (ROS distribution).",
+          "description" : "The version of the robot software suite.",
           "enum" : [ "Kinetic", "Melodic", "Dashing", "Foxy" ]
         }
       },
-      "required" : [ "Name", "Version" ],
+      "required" : [ "Name" ],
       "additionalProperties" : false
     },
     "SourceConfig" : {
@@ -87,7 +87,7 @@
         "Name" : {
           "type" : "string",
           "description" : "The name of the simulation software suite.",
-          "enum" : [ "Gazebo", "RosbagPlay" ]
+          "enum" : [ "Gazebo", "RosbagPlay", "SimulationRuntime" ]
         },
         "Version" : {
           "type" : "string",
@@ -95,7 +95,7 @@
           "enum" : [ "7", "9", "11", "Kinetic", "Melodic", "Dashing", "Foxy" ]
         }
       },
-      "required" : [ "Name", "Version" ],
+      "required" : [ "Name" ],
       "additionalProperties" : false
     }
   },
@@ -119,7 +119,7 @@
       "$ref" : "#/definitions/RenderingEngine"
     },
     "RobotSoftwareSuite" : {
-      "description" : "The robot software suite (ROS distribution) used by the simulation application.",
+      "description" : "The robot software suite used by the simulation application.",
       "$ref" : "#/definitions/RobotSoftwareSuite"
     },
     "SimulationSoftwareSuite" : {

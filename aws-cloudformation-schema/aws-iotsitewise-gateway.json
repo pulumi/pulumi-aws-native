@@ -9,14 +9,22 @@
       "additionalProperties" : false,
       "properties" : {
         "Greengrass" : {
-          "description" : "A gateway that runs on AWS IoT Greengrass.",
+          "description" : "A gateway that runs on AWS IoT Greengrass V1.",
           "$ref" : "#/definitions/Greengrass"
+        },
+        "GreengrassV2" : {
+          "description" : "A gateway that runs on AWS IoT Greengrass V2.",
+          "$ref" : "#/definitions/GreengrassV2"
         }
       },
-      "required" : [ "Greengrass" ]
+      "oneOf" : [ {
+        "required" : [ "Greengrass" ]
+      }, {
+        "required" : [ "GreengrassV2" ]
+      } ]
     },
     "Greengrass" : {
-      "description" : "Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.",
+      "description" : "Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -26,6 +34,18 @@
         }
       },
       "required" : [ "GroupArn" ]
+    },
+    "GreengrassV2" : {
+      "description" : "Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CoreDeviceThingName" : {
+          "description" : "The name of the CoreDevice in GreenGrass V2.",
+          "type" : "string"
+        }
+      },
+      "required" : [ "CoreDeviceThingName" ]
     },
     "Tag" : {
       "description" : "To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted",
@@ -104,7 +124,7 @@
   "primaryIdentifier" : [ "/properties/GatewayId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotsitewise:CreateGateway", "iotsitewise:UpdateGatewayCapabilityConfiguration", "iam:PassRole", "iam:GetRole" ]
+      "permissions" : [ "iotsitewise:CreateGateway", "iotsitewise:UpdateGatewayCapabilityConfiguration", "iam:PassRole", "iam:GetRole", "greengrass:GetCoreDevice", "iot:DescribeThing" ]
     },
     "read" : {
       "permissions" : [ "iotsitewise:DescribeGateway", "iotsitewise:DescribeGatewayCapabilityConfiguration", "iotsitewise:ListTagsForResource" ]

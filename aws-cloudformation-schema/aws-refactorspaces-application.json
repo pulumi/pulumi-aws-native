@@ -116,8 +116,8 @@
     },
     "ProxyUrl" : {
       "type" : "string",
-      "maxLength" : 1,
-      "minLength" : 2048,
+      "maxLength" : 2048,
+      "minLength" : 1,
       "pattern" : "^http://[-a-zA-Z0-9+\\x38@#/%?=~_|!:,.;]*[-a-zA-Z0-9+\\x38@#/%=~_|]$"
     },
     "Tags" : {
