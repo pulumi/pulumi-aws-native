@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./alarm";
 export * from "./bucket";
+export * from "./certificate";
+export * from "./container";
 export * from "./database";
 export * from "./disk";
 export * from "./instance";
@@ -20,6 +22,8 @@ export * from "../types/enums/lightsail";
 // Import resources to register:
 import { Alarm } from "./alarm";
 import { Bucket } from "./bucket";
+import { Certificate } from "./certificate";
+import { Container } from "./container";
 import { Database } from "./database";
 import { Disk } from "./disk";
 import { Instance } from "./instance";
@@ -35,6 +39,10 @@ const _module = {
                 return new Alarm(name, <any>undefined, { urn })
             case "aws-native:lightsail:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
+            case "aws-native:lightsail:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
+            case "aws-native:lightsail:Container":
+                return new Container(name, <any>undefined, { urn })
             case "aws-native:lightsail:Database":
                 return new Database(name, <any>undefined, { urn })
             case "aws-native:lightsail:Disk":

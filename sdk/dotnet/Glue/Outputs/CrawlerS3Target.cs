@@ -14,20 +14,32 @@ namespace Pulumi.AwsNative.Glue.Outputs
     public sealed class CrawlerS3Target
     {
         public readonly string? ConnectionName;
+        public readonly string? DlqEventQueueArn;
+        public readonly string? EventQueueArn;
         public readonly ImmutableArray<string> Exclusions;
         public readonly string? Path;
+        public readonly int? SampleSize;
 
         [OutputConstructor]
         private CrawlerS3Target(
             string? connectionName,
 
+            string? dlqEventQueueArn,
+
+            string? eventQueueArn,
+
             ImmutableArray<string> exclusions,
 
-            string? path)
+            string? path,
+
+            int? sampleSize)
         {
             ConnectionName = connectionName;
+            DlqEventQueueArn = dlqEventQueueArn;
+            EventQueueArn = eventQueueArn;
             Exclusions = exclusions;
             Path = path;
+            SampleSize = sampleSize;
         }
     }
 }

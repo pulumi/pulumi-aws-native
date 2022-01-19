@@ -4907,6 +4907,139 @@ func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) TargetValue() pulumi.
 	}).(pulumi.Float64PtrOutput)
 }
 
+type WarmPoolInstanceReusePolicy struct {
+	ReuseOnScaleIn *bool `pulumi:"reuseOnScaleIn"`
+}
+
+// WarmPoolInstanceReusePolicyInput is an input type that accepts WarmPoolInstanceReusePolicyArgs and WarmPoolInstanceReusePolicyOutput values.
+// You can construct a concrete instance of `WarmPoolInstanceReusePolicyInput` via:
+//
+//          WarmPoolInstanceReusePolicyArgs{...}
+type WarmPoolInstanceReusePolicyInput interface {
+	pulumi.Input
+
+	ToWarmPoolInstanceReusePolicyOutput() WarmPoolInstanceReusePolicyOutput
+	ToWarmPoolInstanceReusePolicyOutputWithContext(context.Context) WarmPoolInstanceReusePolicyOutput
+}
+
+type WarmPoolInstanceReusePolicyArgs struct {
+	ReuseOnScaleIn pulumi.BoolPtrInput `pulumi:"reuseOnScaleIn"`
+}
+
+func (WarmPoolInstanceReusePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarmPoolInstanceReusePolicy)(nil)).Elem()
+}
+
+func (i WarmPoolInstanceReusePolicyArgs) ToWarmPoolInstanceReusePolicyOutput() WarmPoolInstanceReusePolicyOutput {
+	return i.ToWarmPoolInstanceReusePolicyOutputWithContext(context.Background())
+}
+
+func (i WarmPoolInstanceReusePolicyArgs) ToWarmPoolInstanceReusePolicyOutputWithContext(ctx context.Context) WarmPoolInstanceReusePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmPoolInstanceReusePolicyOutput)
+}
+
+func (i WarmPoolInstanceReusePolicyArgs) ToWarmPoolInstanceReusePolicyPtrOutput() WarmPoolInstanceReusePolicyPtrOutput {
+	return i.ToWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i WarmPoolInstanceReusePolicyArgs) ToWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) WarmPoolInstanceReusePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmPoolInstanceReusePolicyOutput).ToWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx)
+}
+
+// WarmPoolInstanceReusePolicyPtrInput is an input type that accepts WarmPoolInstanceReusePolicyArgs, WarmPoolInstanceReusePolicyPtr and WarmPoolInstanceReusePolicyPtrOutput values.
+// You can construct a concrete instance of `WarmPoolInstanceReusePolicyPtrInput` via:
+//
+//          WarmPoolInstanceReusePolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type WarmPoolInstanceReusePolicyPtrInput interface {
+	pulumi.Input
+
+	ToWarmPoolInstanceReusePolicyPtrOutput() WarmPoolInstanceReusePolicyPtrOutput
+	ToWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Context) WarmPoolInstanceReusePolicyPtrOutput
+}
+
+type warmPoolInstanceReusePolicyPtrType WarmPoolInstanceReusePolicyArgs
+
+func WarmPoolInstanceReusePolicyPtr(v *WarmPoolInstanceReusePolicyArgs) WarmPoolInstanceReusePolicyPtrInput {
+	return (*warmPoolInstanceReusePolicyPtrType)(v)
+}
+
+func (*warmPoolInstanceReusePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WarmPoolInstanceReusePolicy)(nil)).Elem()
+}
+
+func (i *warmPoolInstanceReusePolicyPtrType) ToWarmPoolInstanceReusePolicyPtrOutput() WarmPoolInstanceReusePolicyPtrOutput {
+	return i.ToWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *warmPoolInstanceReusePolicyPtrType) ToWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) WarmPoolInstanceReusePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmPoolInstanceReusePolicyPtrOutput)
+}
+
+type WarmPoolInstanceReusePolicyOutput struct{ *pulumi.OutputState }
+
+func (WarmPoolInstanceReusePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarmPoolInstanceReusePolicy)(nil)).Elem()
+}
+
+func (o WarmPoolInstanceReusePolicyOutput) ToWarmPoolInstanceReusePolicyOutput() WarmPoolInstanceReusePolicyOutput {
+	return o
+}
+
+func (o WarmPoolInstanceReusePolicyOutput) ToWarmPoolInstanceReusePolicyOutputWithContext(ctx context.Context) WarmPoolInstanceReusePolicyOutput {
+	return o
+}
+
+func (o WarmPoolInstanceReusePolicyOutput) ToWarmPoolInstanceReusePolicyPtrOutput() WarmPoolInstanceReusePolicyPtrOutput {
+	return o.ToWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o WarmPoolInstanceReusePolicyOutput) ToWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) WarmPoolInstanceReusePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WarmPoolInstanceReusePolicy) *WarmPoolInstanceReusePolicy {
+		return &v
+	}).(WarmPoolInstanceReusePolicyPtrOutput)
+}
+
+func (o WarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WarmPoolInstanceReusePolicy) *bool { return v.ReuseOnScaleIn }).(pulumi.BoolPtrOutput)
+}
+
+type WarmPoolInstanceReusePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (WarmPoolInstanceReusePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WarmPoolInstanceReusePolicy)(nil)).Elem()
+}
+
+func (o WarmPoolInstanceReusePolicyPtrOutput) ToWarmPoolInstanceReusePolicyPtrOutput() WarmPoolInstanceReusePolicyPtrOutput {
+	return o
+}
+
+func (o WarmPoolInstanceReusePolicyPtrOutput) ToWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) WarmPoolInstanceReusePolicyPtrOutput {
+	return o
+}
+
+func (o WarmPoolInstanceReusePolicyPtrOutput) Elem() WarmPoolInstanceReusePolicyOutput {
+	return o.ApplyT(func(v *WarmPoolInstanceReusePolicy) WarmPoolInstanceReusePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret WarmPoolInstanceReusePolicy
+		return ret
+	}).(WarmPoolInstanceReusePolicyOutput)
+}
+
+func (o WarmPoolInstanceReusePolicyPtrOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WarmPoolInstanceReusePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReuseOnScaleIn
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAcceleratorCountRequestInput)(nil)).Elem(), AutoScalingGroupAcceleratorCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAcceleratorCountRequestPtrInput)(nil)).Elem(), AutoScalingGroupAcceleratorCountRequestArgs{})
@@ -4970,6 +5103,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyStepAdjustmentArrayInput)(nil)).Elem(), ScalingPolicyStepAdjustmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingConfigurationInput)(nil)).Elem(), ScalingPolicyTargetTrackingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingConfigurationPtrInput)(nil)).Elem(), ScalingPolicyTargetTrackingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarmPoolInstanceReusePolicyInput)(nil)).Elem(), WarmPoolInstanceReusePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WarmPoolInstanceReusePolicyPtrInput)(nil)).Elem(), WarmPoolInstanceReusePolicyArgs{})
 	pulumi.RegisterOutputType(AutoScalingGroupAcceleratorCountRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupAcceleratorCountRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupAcceleratorTotalMemoryMiBRequestOutput{})
@@ -5032,4 +5167,6 @@ func init() {
 	pulumi.RegisterOutputType(ScalingPolicyStepAdjustmentArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingConfigurationOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WarmPoolInstanceReusePolicyOutput{})
+	pulumi.RegisterOutputType(WarmPoolInstanceReusePolicyPtrOutput{})
 }

@@ -40,6 +40,7 @@ __all__ = [
     'ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs',
     'ScalingPolicyStepAdjustmentArgs',
     'ScalingPolicyTargetTrackingConfigurationArgs',
+    'WarmPoolInstanceReusePolicyArgs',
 ]
 
 @pulumi.input_type
@@ -1592,5 +1593,22 @@ class ScalingPolicyTargetTrackingConfigurationArgs:
     @predefined_metric_specification.setter
     def predefined_metric_specification(self, value: Optional[pulumi.Input['ScalingPolicyPredefinedMetricSpecificationArgs']]):
         pulumi.set(self, "predefined_metric_specification", value)
+
+
+@pulumi.input_type
+class WarmPoolInstanceReusePolicyArgs:
+    def __init__(__self__, *,
+                 reuse_on_scale_in: Optional[pulumi.Input[bool]] = None):
+        if reuse_on_scale_in is not None:
+            pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
+
+    @property
+    @pulumi.getter(name="reuseOnScaleIn")
+    def reuse_on_scale_in(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "reuse_on_scale_in")
+
+    @reuse_on_scale_in.setter
+    def reuse_on_scale_in(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reuse_on_scale_in", value)
 
 

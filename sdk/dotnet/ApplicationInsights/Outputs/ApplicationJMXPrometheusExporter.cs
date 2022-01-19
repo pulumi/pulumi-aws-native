@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// </summary>
         public readonly string? JMXURL;
         /// <summary>
-        /// Prometheus exporter port
+        /// Prometheus exporter port.
         /// </summary>
         public readonly string? PrometheusPort;
 

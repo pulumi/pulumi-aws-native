@@ -665,12 +665,12 @@ func (o SimulationApplicationRenderingEnginePtrOutput) Version() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a robot software suite (ROS distribution).
+// Information about a robot software suite.
 type SimulationApplicationRobotSoftwareSuite struct {
-	// The name of the robot software suite (ROS distribution).
+	// The name of the robot software suite.
 	Name SimulationApplicationRobotSoftwareSuiteName `pulumi:"name"`
-	// The version of the robot software suite (ROS distribution).
-	Version SimulationApplicationRobotSoftwareSuiteVersion `pulumi:"version"`
+	// The version of the robot software suite.
+	Version *SimulationApplicationRobotSoftwareSuiteVersion `pulumi:"version"`
 }
 
 // SimulationApplicationRobotSoftwareSuiteInput is an input type that accepts SimulationApplicationRobotSoftwareSuiteArgs and SimulationApplicationRobotSoftwareSuiteOutput values.
@@ -684,12 +684,12 @@ type SimulationApplicationRobotSoftwareSuiteInput interface {
 	ToSimulationApplicationRobotSoftwareSuiteOutputWithContext(context.Context) SimulationApplicationRobotSoftwareSuiteOutput
 }
 
-// Information about a robot software suite (ROS distribution).
+// Information about a robot software suite.
 type SimulationApplicationRobotSoftwareSuiteArgs struct {
-	// The name of the robot software suite (ROS distribution).
+	// The name of the robot software suite.
 	Name SimulationApplicationRobotSoftwareSuiteNameInput `pulumi:"name"`
-	// The version of the robot software suite (ROS distribution).
-	Version SimulationApplicationRobotSoftwareSuiteVersionInput `pulumi:"version"`
+	// The version of the robot software suite.
+	Version SimulationApplicationRobotSoftwareSuiteVersionPtrInput `pulumi:"version"`
 }
 
 func (SimulationApplicationRobotSoftwareSuiteArgs) ElementType() reflect.Type {
@@ -745,7 +745,7 @@ func (i *simulationApplicationRobotSoftwareSuitePtrType) ToSimulationApplication
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRobotSoftwareSuitePtrOutput)
 }
 
-// Information about a robot software suite (ROS distribution).
+// Information about a robot software suite.
 type SimulationApplicationRobotSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationRobotSoftwareSuiteOutput) ElementType() reflect.Type {
@@ -770,18 +770,18 @@ func (o SimulationApplicationRobotSoftwareSuiteOutput) ToSimulationApplicationRo
 	}).(SimulationApplicationRobotSoftwareSuitePtrOutput)
 }
 
-// The name of the robot software suite (ROS distribution).
+// The name of the robot software suite.
 func (o SimulationApplicationRobotSoftwareSuiteOutput) Name() SimulationApplicationRobotSoftwareSuiteNameOutput {
 	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) SimulationApplicationRobotSoftwareSuiteName {
 		return v.Name
 	}).(SimulationApplicationRobotSoftwareSuiteNameOutput)
 }
 
-// The version of the robot software suite (ROS distribution).
-func (o SimulationApplicationRobotSoftwareSuiteOutput) Version() SimulationApplicationRobotSoftwareSuiteVersionOutput {
-	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) SimulationApplicationRobotSoftwareSuiteVersion {
+// The version of the robot software suite.
+func (o SimulationApplicationRobotSoftwareSuiteOutput) Version() SimulationApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteVersion {
 		return v.Version
-	}).(SimulationApplicationRobotSoftwareSuiteVersionOutput)
+	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
 type SimulationApplicationRobotSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
@@ -808,7 +808,7 @@ func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Elem() SimulationAppli
 	}).(SimulationApplicationRobotSoftwareSuiteOutput)
 }
 
-// The name of the robot software suite (ROS distribution).
+// The name of the robot software suite.
 func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Name() SimulationApplicationRobotSoftwareSuiteNamePtrOutput {
 	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteName {
 		if v == nil {
@@ -818,13 +818,13 @@ func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Name() SimulationAppli
 	}).(SimulationApplicationRobotSoftwareSuiteNamePtrOutput)
 }
 
-// The version of the robot software suite (ROS distribution).
+// The version of the robot software suite.
 func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Version() SimulationApplicationRobotSoftwareSuiteVersionPtrOutput {
 	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteVersion {
 		if v == nil {
 			return nil
 		}
-		return &v.Version
+		return v.Version
 	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
@@ -833,7 +833,7 @@ type SimulationApplicationSimulationSoftwareSuite struct {
 	// The name of the simulation software suite.
 	Name SimulationApplicationSimulationSoftwareSuiteName `pulumi:"name"`
 	// The version of the simulation software suite.
-	Version SimulationApplicationSimulationSoftwareSuiteVersion `pulumi:"version"`
+	Version *SimulationApplicationSimulationSoftwareSuiteVersion `pulumi:"version"`
 }
 
 // SimulationApplicationSimulationSoftwareSuiteInput is an input type that accepts SimulationApplicationSimulationSoftwareSuiteArgs and SimulationApplicationSimulationSoftwareSuiteOutput values.
@@ -852,7 +852,7 @@ type SimulationApplicationSimulationSoftwareSuiteArgs struct {
 	// The name of the simulation software suite.
 	Name SimulationApplicationSimulationSoftwareSuiteNameInput `pulumi:"name"`
 	// The version of the simulation software suite.
-	Version SimulationApplicationSimulationSoftwareSuiteVersionInput `pulumi:"version"`
+	Version SimulationApplicationSimulationSoftwareSuiteVersionPtrInput `pulumi:"version"`
 }
 
 func (SimulationApplicationSimulationSoftwareSuiteArgs) ElementType() reflect.Type {
@@ -941,10 +941,10 @@ func (o SimulationApplicationSimulationSoftwareSuiteOutput) Name() SimulationApp
 }
 
 // The version of the simulation software suite.
-func (o SimulationApplicationSimulationSoftwareSuiteOutput) Version() SimulationApplicationSimulationSoftwareSuiteVersionOutput {
-	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) SimulationApplicationSimulationSoftwareSuiteVersion {
+func (o SimulationApplicationSimulationSoftwareSuiteOutput) Version() SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput {
+	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteVersion {
 		return v.Version
-	}).(SimulationApplicationSimulationSoftwareSuiteVersionOutput)
+	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
 }
 
 type SimulationApplicationSimulationSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
@@ -987,7 +987,7 @@ func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Version() Simulat
 		if v == nil {
 			return nil
 		}
-		return &v.Version
+		return v.Version
 	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
 }
 

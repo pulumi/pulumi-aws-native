@@ -19,6 +19,7 @@ __all__ = [
     'CrawlerCatalogTargetArgs',
     'CrawlerDynamoDBTargetArgs',
     'CrawlerJdbcTargetArgs',
+    'CrawlerMongoDBTargetArgs',
     'CrawlerRecrawlPolicyArgs',
     'CrawlerS3TargetArgs',
     'CrawlerScheduleArgs',
@@ -485,6 +486,35 @@ class CrawlerJdbcTargetArgs:
 
 
 @pulumi.input_type
+class CrawlerMongoDBTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
 class CrawlerRecrawlPolicyArgs:
     def __init__(__self__, *,
                  recrawl_behavior: Optional[pulumi.Input[str]] = None):
@@ -505,14 +535,23 @@ class CrawlerRecrawlPolicyArgs:
 class CrawlerS3TargetArgs:
     def __init__(__self__, *,
                  connection_name: Optional[pulumi.Input[str]] = None,
+                 dlq_event_queue_arn: Optional[pulumi.Input[str]] = None,
+                 event_queue_arn: Optional[pulumi.Input[str]] = None,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 path: Optional[pulumi.Input[str]] = None):
+                 path: Optional[pulumi.Input[str]] = None,
+                 sample_size: Optional[pulumi.Input[int]] = None):
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -522,6 +561,24 @@ class CrawlerS3TargetArgs:
     @connection_name.setter
     def connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @dlq_event_queue_arn.setter
+    def dlq_event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dlq_event_queue_arn", value)
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "event_queue_arn")
+
+    @event_queue_arn.setter
+    def event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_queue_arn", value)
 
     @property
     @pulumi.getter
@@ -540,6 +597,15 @@ class CrawlerS3TargetArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "sample_size")
+
+    @sample_size.setter
+    def sample_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sample_size", value)
 
 
 @pulumi.input_type
@@ -594,6 +660,7 @@ class CrawlerTargetsArgs:
                  catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
                  dynamo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
+                 mongo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDBTargetArgs']]]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None):
         if catalog_targets is not None:
             pulumi.set(__self__, "catalog_targets", catalog_targets)
@@ -601,6 +668,8 @@ class CrawlerTargetsArgs:
             pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
         if jdbc_targets is not None:
             pulumi.set(__self__, "jdbc_targets", jdbc_targets)
+        if mongo_db_targets is not None:
+            pulumi.set(__self__, "mongo_db_targets", mongo_db_targets)
         if s3_targets is not None:
             pulumi.set(__self__, "s3_targets", s3_targets)
 
@@ -630,6 +699,15 @@ class CrawlerTargetsArgs:
     @jdbc_targets.setter
     def jdbc_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]):
         pulumi.set(self, "jdbc_targets", value)
+
+    @property
+    @pulumi.getter(name="mongoDBTargets")
+    def mongo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDBTargetArgs']]]]:
+        return pulumi.get(self, "mongo_db_targets")
+
+    @mongo_db_targets.setter
+    def mongo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDBTargetArgs']]]]):
+        pulumi.set(self, "mongo_db_targets", value)
 
     @property
     @pulumi.getter(name="s3Targets")

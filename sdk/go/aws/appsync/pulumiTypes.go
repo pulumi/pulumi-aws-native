@@ -2800,7 +2800,7 @@ func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 
 type ResolverCachingConfig struct {
 	CachingKeys []string `pulumi:"cachingKeys"`
-	Ttl         *float64 `pulumi:"ttl"`
+	Ttl         float64  `pulumi:"ttl"`
 }
 
 // ResolverCachingConfigInput is an input type that accepts ResolverCachingConfigArgs and ResolverCachingConfigOutput values.
@@ -2816,7 +2816,7 @@ type ResolverCachingConfigInput interface {
 
 type ResolverCachingConfigArgs struct {
 	CachingKeys pulumi.StringArrayInput `pulumi:"cachingKeys"`
-	Ttl         pulumi.Float64PtrInput  `pulumi:"ttl"`
+	Ttl         pulumi.Float64Input     `pulumi:"ttl"`
 }
 
 func (ResolverCachingConfigArgs) ElementType() reflect.Type {
@@ -2900,8 +2900,8 @@ func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
 }
 
-func (o ResolverCachingConfigOutput) Ttl() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ResolverCachingConfig) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
+func (o ResolverCachingConfigOutput) Ttl() pulumi.Float64Output {
+	return o.ApplyT(func(v ResolverCachingConfig) float64 { return v.Ttl }).(pulumi.Float64Output)
 }
 
 type ResolverCachingConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2942,7 +2942,7 @@ func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Ttl
+		return &v.Ttl
 	}).(pulumi.Float64PtrOutput)
 }
 

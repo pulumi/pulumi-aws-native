@@ -41,6 +41,7 @@ __all__ = [
     'ScalingPolicyPredictiveScalingPredefinedScalingMetric',
     'ScalingPolicyStepAdjustment',
     'ScalingPolicyTargetTrackingConfiguration',
+    'WarmPoolInstanceReusePolicy',
 ]
 
 @pulumi.output_type
@@ -1625,5 +1626,35 @@ class ScalingPolicyTargetTrackingConfiguration(dict):
     @pulumi.getter(name="predefinedMetricSpecification")
     def predefined_metric_specification(self) -> Optional['outputs.ScalingPolicyPredefinedMetricSpecification']:
         return pulumi.get(self, "predefined_metric_specification")
+
+
+@pulumi.output_type
+class WarmPoolInstanceReusePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reuseOnScaleIn":
+            suggest = "reuse_on_scale_in"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WarmPoolInstanceReusePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WarmPoolInstanceReusePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WarmPoolInstanceReusePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reuse_on_scale_in: Optional[bool] = None):
+        if reuse_on_scale_in is not None:
+            pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
+
+    @property
+    @pulumi.getter(name="reuseOnScaleIn")
+    def reuse_on_scale_in(self) -> Optional[bool]:
+        return pulumi.get(self, "reuse_on_scale_in")
 
 

@@ -35,6 +35,7 @@ __all__ = [
     'AssetTagArgs',
     'DashboardTagArgs',
     'GatewayCapabilitySummaryArgs',
+    'GatewayGreengrassV2Args',
     'GatewayGreengrassArgs',
     'GatewayPlatformArgs',
     'GatewayTagArgs',
@@ -987,11 +988,34 @@ class GatewayCapabilitySummaryArgs:
 
 
 @pulumi.input_type
+class GatewayGreengrassV2Args:
+    def __init__(__self__, *,
+                 core_device_thing_name: pulumi.Input[str]):
+        """
+        Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+        :param pulumi.Input[str] core_device_thing_name: The name of the CoreDevice in GreenGrass V2.
+        """
+        pulumi.set(__self__, "core_device_thing_name", core_device_thing_name)
+
+    @property
+    @pulumi.getter(name="coreDeviceThingName")
+    def core_device_thing_name(self) -> pulumi.Input[str]:
+        """
+        The name of the CoreDevice in GreenGrass V2.
+        """
+        return pulumi.get(self, "core_device_thing_name")
+
+    @core_device_thing_name.setter
+    def core_device_thing_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "core_device_thing_name", value)
+
+
+@pulumi.input_type
 class GatewayGreengrassArgs:
     def __init__(__self__, *,
                  group_arn: pulumi.Input[str]):
         """
-        Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
+        Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
         :param pulumi.Input[str] group_arn: The ARN of the Greengrass group.
         """
         pulumi.set(__self__, "group_arn", group_arn)
@@ -1012,24 +1036,41 @@ class GatewayGreengrassArgs:
 @pulumi.input_type
 class GatewayPlatformArgs:
     def __init__(__self__, *,
-                 greengrass: pulumi.Input['GatewayGreengrassArgs']):
+                 greengrass: Optional[pulumi.Input['GatewayGreengrassArgs']] = None,
+                 greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None):
         """
         Contains a gateway's platform information.
-        :param pulumi.Input['GatewayGreengrassArgs'] greengrass: A gateway that runs on AWS IoT Greengrass.
+        :param pulumi.Input['GatewayGreengrassArgs'] greengrass: A gateway that runs on AWS IoT Greengrass V1.
+        :param pulumi.Input['GatewayGreengrassV2Args'] greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
         """
-        pulumi.set(__self__, "greengrass", greengrass)
+        if greengrass is not None:
+            pulumi.set(__self__, "greengrass", greengrass)
+        if greengrass_v2 is not None:
+            pulumi.set(__self__, "greengrass_v2", greengrass_v2)
 
     @property
     @pulumi.getter
-    def greengrass(self) -> pulumi.Input['GatewayGreengrassArgs']:
+    def greengrass(self) -> Optional[pulumi.Input['GatewayGreengrassArgs']]:
         """
-        A gateway that runs on AWS IoT Greengrass.
+        A gateway that runs on AWS IoT Greengrass V1.
         """
         return pulumi.get(self, "greengrass")
 
     @greengrass.setter
-    def greengrass(self, value: pulumi.Input['GatewayGreengrassArgs']):
+    def greengrass(self, value: Optional[pulumi.Input['GatewayGreengrassArgs']]):
         pulumi.set(self, "greengrass", value)
+
+    @property
+    @pulumi.getter(name="greengrassV2")
+    def greengrass_v2(self) -> Optional[pulumi.Input['GatewayGreengrassV2Args']]:
+        """
+        A gateway that runs on AWS IoT Greengrass V2.
+        """
+        return pulumi.get(self, "greengrass_v2")
+
+    @greengrass_v2.setter
+    def greengrass_v2(self, value: Optional[pulumi.Input['GatewayGreengrassV2Args']]):
+        pulumi.set(self, "greengrass_v2", value)
 
 
 @pulumi.input_type

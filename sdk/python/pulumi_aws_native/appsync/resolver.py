@@ -21,6 +21,7 @@ class ResolverArgs:
                  caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -39,6 +40,8 @@ class ResolverArgs:
             pulumi.set(__self__, "data_source_name", data_source_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
         if pipeline_config is not None:
             pulumi.set(__self__, "pipeline_config", pipeline_config)
         if request_mapping_template is not None:
@@ -105,6 +108,15 @@ class ResolverArgs:
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_batch_size")
+
+    @max_batch_size.setter
+    def max_batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_batch_size", value)
 
     @property
     @pulumi.getter(name="pipelineConfig")
@@ -176,6 +188,7 @@ class Resolver(pulumi.CustomResource):
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  field_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -219,6 +232,7 @@ class Resolver(pulumi.CustomResource):
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  field_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -248,6 +262,7 @@ class Resolver(pulumi.CustomResource):
                 raise TypeError("Missing required property 'field_name'")
             __props__.__dict__["field_name"] = field_name
             __props__.__dict__["kind"] = kind
+            __props__.__dict__["max_batch_size"] = max_batch_size
             __props__.__dict__["pipeline_config"] = pipeline_config
             __props__.__dict__["request_mapping_template"] = request_mapping_template
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location
@@ -285,6 +300,7 @@ class Resolver(pulumi.CustomResource):
         __props__.__dict__["data_source_name"] = None
         __props__.__dict__["field_name"] = None
         __props__.__dict__["kind"] = None
+        __props__.__dict__["max_batch_size"] = None
         __props__.__dict__["pipeline_config"] = None
         __props__.__dict__["request_mapping_template"] = None
         __props__.__dict__["request_mapping_template_s3_location"] = None
@@ -319,6 +335,11 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "max_batch_size")
 
     @property
     @pulumi.getter(name="pipelineConfig")

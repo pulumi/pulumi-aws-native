@@ -40,6 +40,7 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.servicediscovery.PublicDnsNamespaceProperties | undefined>;
     public readonly tags!: pulumi.Output<outputs.servicediscovery.PublicDnsNamespaceTag[] | undefined>;
@@ -62,9 +63,11 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["hostedZoneId"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["hostedZoneId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;

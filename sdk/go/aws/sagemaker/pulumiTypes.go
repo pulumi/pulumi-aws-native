@@ -19728,6 +19728,143 @@ func (o OnlineStoreConfigPropertiesPtrOutput) SecurityConfig() FeatureGroupOnlin
 	}).(FeatureGroupOnlineStoreSecurityConfigPtrOutput)
 }
 
+type ParallelismConfigurationProperties struct {
+	// Maximum parallel execution steps
+	MaxParallelExecutionSteps int `pulumi:"maxParallelExecutionSteps"`
+}
+
+// ParallelismConfigurationPropertiesInput is an input type that accepts ParallelismConfigurationPropertiesArgs and ParallelismConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `ParallelismConfigurationPropertiesInput` via:
+//
+//          ParallelismConfigurationPropertiesArgs{...}
+type ParallelismConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToParallelismConfigurationPropertiesOutput() ParallelismConfigurationPropertiesOutput
+	ToParallelismConfigurationPropertiesOutputWithContext(context.Context) ParallelismConfigurationPropertiesOutput
+}
+
+type ParallelismConfigurationPropertiesArgs struct {
+	// Maximum parallel execution steps
+	MaxParallelExecutionSteps pulumi.IntInput `pulumi:"maxParallelExecutionSteps"`
+}
+
+func (ParallelismConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParallelismConfigurationProperties)(nil)).Elem()
+}
+
+func (i ParallelismConfigurationPropertiesArgs) ToParallelismConfigurationPropertiesOutput() ParallelismConfigurationPropertiesOutput {
+	return i.ToParallelismConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ParallelismConfigurationPropertiesArgs) ToParallelismConfigurationPropertiesOutputWithContext(ctx context.Context) ParallelismConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParallelismConfigurationPropertiesOutput)
+}
+
+func (i ParallelismConfigurationPropertiesArgs) ToParallelismConfigurationPropertiesPtrOutput() ParallelismConfigurationPropertiesPtrOutput {
+	return i.ToParallelismConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ParallelismConfigurationPropertiesArgs) ToParallelismConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ParallelismConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParallelismConfigurationPropertiesOutput).ToParallelismConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ParallelismConfigurationPropertiesPtrInput is an input type that accepts ParallelismConfigurationPropertiesArgs, ParallelismConfigurationPropertiesPtr and ParallelismConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ParallelismConfigurationPropertiesPtrInput` via:
+//
+//          ParallelismConfigurationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ParallelismConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToParallelismConfigurationPropertiesPtrOutput() ParallelismConfigurationPropertiesPtrOutput
+	ToParallelismConfigurationPropertiesPtrOutputWithContext(context.Context) ParallelismConfigurationPropertiesPtrOutput
+}
+
+type parallelismConfigurationPropertiesPtrType ParallelismConfigurationPropertiesArgs
+
+func ParallelismConfigurationPropertiesPtr(v *ParallelismConfigurationPropertiesArgs) ParallelismConfigurationPropertiesPtrInput {
+	return (*parallelismConfigurationPropertiesPtrType)(v)
+}
+
+func (*parallelismConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParallelismConfigurationProperties)(nil)).Elem()
+}
+
+func (i *parallelismConfigurationPropertiesPtrType) ToParallelismConfigurationPropertiesPtrOutput() ParallelismConfigurationPropertiesPtrOutput {
+	return i.ToParallelismConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *parallelismConfigurationPropertiesPtrType) ToParallelismConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ParallelismConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParallelismConfigurationPropertiesPtrOutput)
+}
+
+type ParallelismConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ParallelismConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParallelismConfigurationProperties)(nil)).Elem()
+}
+
+func (o ParallelismConfigurationPropertiesOutput) ToParallelismConfigurationPropertiesOutput() ParallelismConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ParallelismConfigurationPropertiesOutput) ToParallelismConfigurationPropertiesOutputWithContext(ctx context.Context) ParallelismConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ParallelismConfigurationPropertiesOutput) ToParallelismConfigurationPropertiesPtrOutput() ParallelismConfigurationPropertiesPtrOutput {
+	return o.ToParallelismConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ParallelismConfigurationPropertiesOutput) ToParallelismConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ParallelismConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParallelismConfigurationProperties) *ParallelismConfigurationProperties {
+		return &v
+	}).(ParallelismConfigurationPropertiesPtrOutput)
+}
+
+// Maximum parallel execution steps
+func (o ParallelismConfigurationPropertiesOutput) MaxParallelExecutionSteps() pulumi.IntOutput {
+	return o.ApplyT(func(v ParallelismConfigurationProperties) int { return v.MaxParallelExecutionSteps }).(pulumi.IntOutput)
+}
+
+type ParallelismConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ParallelismConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParallelismConfigurationProperties)(nil)).Elem()
+}
+
+func (o ParallelismConfigurationPropertiesPtrOutput) ToParallelismConfigurationPropertiesPtrOutput() ParallelismConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ParallelismConfigurationPropertiesPtrOutput) ToParallelismConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ParallelismConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ParallelismConfigurationPropertiesPtrOutput) Elem() ParallelismConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *ParallelismConfigurationProperties) ParallelismConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ParallelismConfigurationProperties
+		return ret
+	}).(ParallelismConfigurationPropertiesOutput)
+}
+
+// Maximum parallel execution steps
+func (o ParallelismConfigurationPropertiesPtrOutput) MaxParallelExecutionSteps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ParallelismConfigurationProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxParallelExecutionSteps
+	}).(pulumi.IntPtrOutput)
+}
+
 type PipelineTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -22124,6 +22261,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OfflineStoreConfigPropertiesPtrInput)(nil)).Elem(), OfflineStoreConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineStoreConfigPropertiesInput)(nil)).Elem(), OnlineStoreConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineStoreConfigPropertiesPtrInput)(nil)).Elem(), OnlineStoreConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParallelismConfigurationPropertiesInput)(nil)).Elem(), ParallelismConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParallelismConfigurationPropertiesPtrInput)(nil)).Elem(), ParallelismConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagInput)(nil)).Elem(), PipelineTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProvisioningParameterInput)(nil)).Elem(), ProjectProvisioningParameterArgs{})
@@ -22416,6 +22555,8 @@ func init() {
 	pulumi.RegisterOutputType(OfflineStoreConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OnlineStoreConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(OnlineStoreConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ParallelismConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(ParallelismConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipelineTagOutput{})
 	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
 	pulumi.RegisterOutputType(ProjectProvisioningParameterOutput{})

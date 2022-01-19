@@ -15,10 +15,11 @@ import (
 type WarmPool struct {
 	pulumi.CustomResourceState
 
-	AutoScalingGroupName     pulumi.StringOutput    `pulumi:"autoScalingGroupName"`
-	MaxGroupPreparedCapacity pulumi.IntPtrOutput    `pulumi:"maxGroupPreparedCapacity"`
-	MinSize                  pulumi.IntPtrOutput    `pulumi:"minSize"`
-	PoolState                pulumi.StringPtrOutput `pulumi:"poolState"`
+	AutoScalingGroupName     pulumi.StringOutput                  `pulumi:"autoScalingGroupName"`
+	InstanceReusePolicy      WarmPoolInstanceReusePolicyPtrOutput `pulumi:"instanceReusePolicy"`
+	MaxGroupPreparedCapacity pulumi.IntPtrOutput                  `pulumi:"maxGroupPreparedCapacity"`
+	MinSize                  pulumi.IntPtrOutput                  `pulumi:"minSize"`
+	PoolState                pulumi.StringPtrOutput               `pulumi:"poolState"`
 }
 
 // NewWarmPool registers a new resource with the given unique name, arguments, and options.
@@ -63,15 +64,17 @@ func (WarmPoolState) ElementType() reflect.Type {
 }
 
 type warmPoolArgs struct {
-	AutoScalingGroupName     string  `pulumi:"autoScalingGroupName"`
-	MaxGroupPreparedCapacity *int    `pulumi:"maxGroupPreparedCapacity"`
-	MinSize                  *int    `pulumi:"minSize"`
-	PoolState                *string `pulumi:"poolState"`
+	AutoScalingGroupName     string                       `pulumi:"autoScalingGroupName"`
+	InstanceReusePolicy      *WarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicy"`
+	MaxGroupPreparedCapacity *int                         `pulumi:"maxGroupPreparedCapacity"`
+	MinSize                  *int                         `pulumi:"minSize"`
+	PoolState                *string                      `pulumi:"poolState"`
 }
 
 // The set of arguments for constructing a WarmPool resource.
 type WarmPoolArgs struct {
 	AutoScalingGroupName     pulumi.StringInput
+	InstanceReusePolicy      WarmPoolInstanceReusePolicyPtrInput
 	MaxGroupPreparedCapacity pulumi.IntPtrInput
 	MinSize                  pulumi.IntPtrInput
 	PoolState                pulumi.StringPtrInput

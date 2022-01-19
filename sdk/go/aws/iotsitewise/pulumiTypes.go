@@ -3191,7 +3191,7 @@ func (o GatewayCapabilitySummaryArrayOutput) Index(i pulumi.IntInput) GatewayCap
 	}).(GatewayCapabilitySummaryOutput)
 }
 
-// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
+// Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
 type GatewayGreengrass struct {
 	// The ARN of the Greengrass group.
 	GroupArn string `pulumi:"groupArn"`
@@ -3208,7 +3208,7 @@ type GatewayGreengrassInput interface {
 	ToGatewayGreengrassOutputWithContext(context.Context) GatewayGreengrassOutput
 }
 
-// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
+// Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
 type GatewayGreengrassArgs struct {
 	// The ARN of the Greengrass group.
 	GroupArn pulumi.StringInput `pulumi:"groupArn"`
@@ -3267,7 +3267,7 @@ func (i *gatewayGreengrassPtrType) ToGatewayGreengrassPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassPtrOutput)
 }
 
-// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
+// Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
 type GatewayGreengrassOutput struct{ *pulumi.OutputState }
 
 func (GatewayGreengrassOutput) ElementType() reflect.Type {
@@ -3331,10 +3331,152 @@ func (o GatewayGreengrassPtrOutput) GroupArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+type GatewayGreengrassV2 struct {
+	// The name of the CoreDevice in GreenGrass V2.
+	CoreDeviceThingName string `pulumi:"coreDeviceThingName"`
+}
+
+// GatewayGreengrassV2Input is an input type that accepts GatewayGreengrassV2Args and GatewayGreengrassV2Output values.
+// You can construct a concrete instance of `GatewayGreengrassV2Input` via:
+//
+//          GatewayGreengrassV2Args{...}
+type GatewayGreengrassV2Input interface {
+	pulumi.Input
+
+	ToGatewayGreengrassV2Output() GatewayGreengrassV2Output
+	ToGatewayGreengrassV2OutputWithContext(context.Context) GatewayGreengrassV2Output
+}
+
+// Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+type GatewayGreengrassV2Args struct {
+	// The name of the CoreDevice in GreenGrass V2.
+	CoreDeviceThingName pulumi.StringInput `pulumi:"coreDeviceThingName"`
+}
+
+func (GatewayGreengrassV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayGreengrassV2)(nil)).Elem()
+}
+
+func (i GatewayGreengrassV2Args) ToGatewayGreengrassV2Output() GatewayGreengrassV2Output {
+	return i.ToGatewayGreengrassV2OutputWithContext(context.Background())
+}
+
+func (i GatewayGreengrassV2Args) ToGatewayGreengrassV2OutputWithContext(ctx context.Context) GatewayGreengrassV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassV2Output)
+}
+
+func (i GatewayGreengrassV2Args) ToGatewayGreengrassV2PtrOutput() GatewayGreengrassV2PtrOutput {
+	return i.ToGatewayGreengrassV2PtrOutputWithContext(context.Background())
+}
+
+func (i GatewayGreengrassV2Args) ToGatewayGreengrassV2PtrOutputWithContext(ctx context.Context) GatewayGreengrassV2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassV2Output).ToGatewayGreengrassV2PtrOutputWithContext(ctx)
+}
+
+// GatewayGreengrassV2PtrInput is an input type that accepts GatewayGreengrassV2Args, GatewayGreengrassV2Ptr and GatewayGreengrassV2PtrOutput values.
+// You can construct a concrete instance of `GatewayGreengrassV2PtrInput` via:
+//
+//          GatewayGreengrassV2Args{...}
+//
+//  or:
+//
+//          nil
+type GatewayGreengrassV2PtrInput interface {
+	pulumi.Input
+
+	ToGatewayGreengrassV2PtrOutput() GatewayGreengrassV2PtrOutput
+	ToGatewayGreengrassV2PtrOutputWithContext(context.Context) GatewayGreengrassV2PtrOutput
+}
+
+type gatewayGreengrassV2PtrType GatewayGreengrassV2Args
+
+func GatewayGreengrassV2Ptr(v *GatewayGreengrassV2Args) GatewayGreengrassV2PtrInput {
+	return (*gatewayGreengrassV2PtrType)(v)
+}
+
+func (*gatewayGreengrassV2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayGreengrassV2)(nil)).Elem()
+}
+
+func (i *gatewayGreengrassV2PtrType) ToGatewayGreengrassV2PtrOutput() GatewayGreengrassV2PtrOutput {
+	return i.ToGatewayGreengrassV2PtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayGreengrassV2PtrType) ToGatewayGreengrassV2PtrOutputWithContext(ctx context.Context) GatewayGreengrassV2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassV2PtrOutput)
+}
+
+// Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+type GatewayGreengrassV2Output struct{ *pulumi.OutputState }
+
+func (GatewayGreengrassV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayGreengrassV2)(nil)).Elem()
+}
+
+func (o GatewayGreengrassV2Output) ToGatewayGreengrassV2Output() GatewayGreengrassV2Output {
+	return o
+}
+
+func (o GatewayGreengrassV2Output) ToGatewayGreengrassV2OutputWithContext(ctx context.Context) GatewayGreengrassV2Output {
+	return o
+}
+
+func (o GatewayGreengrassV2Output) ToGatewayGreengrassV2PtrOutput() GatewayGreengrassV2PtrOutput {
+	return o.ToGatewayGreengrassV2PtrOutputWithContext(context.Background())
+}
+
+func (o GatewayGreengrassV2Output) ToGatewayGreengrassV2PtrOutputWithContext(ctx context.Context) GatewayGreengrassV2PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayGreengrassV2) *GatewayGreengrassV2 {
+		return &v
+	}).(GatewayGreengrassV2PtrOutput)
+}
+
+// The name of the CoreDevice in GreenGrass V2.
+func (o GatewayGreengrassV2Output) CoreDeviceThingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayGreengrassV2) string { return v.CoreDeviceThingName }).(pulumi.StringOutput)
+}
+
+type GatewayGreengrassV2PtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayGreengrassV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayGreengrassV2)(nil)).Elem()
+}
+
+func (o GatewayGreengrassV2PtrOutput) ToGatewayGreengrassV2PtrOutput() GatewayGreengrassV2PtrOutput {
+	return o
+}
+
+func (o GatewayGreengrassV2PtrOutput) ToGatewayGreengrassV2PtrOutputWithContext(ctx context.Context) GatewayGreengrassV2PtrOutput {
+	return o
+}
+
+func (o GatewayGreengrassV2PtrOutput) Elem() GatewayGreengrassV2Output {
+	return o.ApplyT(func(v *GatewayGreengrassV2) GatewayGreengrassV2 {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayGreengrassV2
+		return ret
+	}).(GatewayGreengrassV2Output)
+}
+
+// The name of the CoreDevice in GreenGrass V2.
+func (o GatewayGreengrassV2PtrOutput) CoreDeviceThingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayGreengrassV2) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CoreDeviceThingName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Contains a gateway's platform information.
 type GatewayPlatform struct {
-	// A gateway that runs on AWS IoT Greengrass.
-	Greengrass GatewayGreengrass `pulumi:"greengrass"`
+	// A gateway that runs on AWS IoT Greengrass V1.
+	Greengrass *GatewayGreengrass `pulumi:"greengrass"`
+	// A gateway that runs on AWS IoT Greengrass V2.
+	GreengrassV2 *GatewayGreengrassV2 `pulumi:"greengrassV2"`
 }
 
 // GatewayPlatformInput is an input type that accepts GatewayPlatformArgs and GatewayPlatformOutput values.
@@ -3350,8 +3492,10 @@ type GatewayPlatformInput interface {
 
 // Contains a gateway's platform information.
 type GatewayPlatformArgs struct {
-	// A gateway that runs on AWS IoT Greengrass.
-	Greengrass GatewayGreengrassInput `pulumi:"greengrass"`
+	// A gateway that runs on AWS IoT Greengrass V1.
+	Greengrass GatewayGreengrassPtrInput `pulumi:"greengrass"`
+	// A gateway that runs on AWS IoT Greengrass V2.
+	GreengrassV2 GatewayGreengrassV2PtrInput `pulumi:"greengrassV2"`
 }
 
 func (GatewayPlatformArgs) ElementType() reflect.Type {
@@ -3432,9 +3576,14 @@ func (o GatewayPlatformOutput) ToGatewayPlatformPtrOutputWithContext(ctx context
 	}).(GatewayPlatformPtrOutput)
 }
 
-// A gateway that runs on AWS IoT Greengrass.
-func (o GatewayPlatformOutput) Greengrass() GatewayGreengrassOutput {
-	return o.ApplyT(func(v GatewayPlatform) GatewayGreengrass { return v.Greengrass }).(GatewayGreengrassOutput)
+// A gateway that runs on AWS IoT Greengrass V1.
+func (o GatewayPlatformOutput) Greengrass() GatewayGreengrassPtrOutput {
+	return o.ApplyT(func(v GatewayPlatform) *GatewayGreengrass { return v.Greengrass }).(GatewayGreengrassPtrOutput)
+}
+
+// A gateway that runs on AWS IoT Greengrass V2.
+func (o GatewayPlatformOutput) GreengrassV2() GatewayGreengrassV2PtrOutput {
+	return o.ApplyT(func(v GatewayPlatform) *GatewayGreengrassV2 { return v.GreengrassV2 }).(GatewayGreengrassV2PtrOutput)
 }
 
 type GatewayPlatformPtrOutput struct{ *pulumi.OutputState }
@@ -3461,14 +3610,24 @@ func (o GatewayPlatformPtrOutput) Elem() GatewayPlatformOutput {
 	}).(GatewayPlatformOutput)
 }
 
-// A gateway that runs on AWS IoT Greengrass.
+// A gateway that runs on AWS IoT Greengrass V1.
 func (o GatewayPlatformPtrOutput) Greengrass() GatewayGreengrassPtrOutput {
 	return o.ApplyT(func(v *GatewayPlatform) *GatewayGreengrass {
 		if v == nil {
 			return nil
 		}
-		return &v.Greengrass
+		return v.Greengrass
 	}).(GatewayGreengrassPtrOutput)
+}
+
+// A gateway that runs on AWS IoT Greengrass V2.
+func (o GatewayPlatformPtrOutput) GreengrassV2() GatewayGreengrassV2PtrOutput {
+	return o.ApplyT(func(v *GatewayPlatform) *GatewayGreengrassV2 {
+		if v == nil {
+			return nil
+		}
+		return v.GreengrassV2
+	}).(GatewayGreengrassV2PtrOutput)
 }
 
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
@@ -3831,6 +3990,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCapabilitySummaryArrayInput)(nil)).Elem(), GatewayCapabilitySummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassInput)(nil)).Elem(), GatewayGreengrassArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassPtrInput)(nil)).Elem(), GatewayGreengrassArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2Input)(nil)).Elem(), GatewayGreengrassV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2PtrInput)(nil)).Elem(), GatewayGreengrassV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPlatformInput)(nil)).Elem(), GatewayPlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPlatformPtrInput)(nil)).Elem(), GatewayPlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTagInput)(nil)).Elem(), GatewayTagArgs{})
@@ -3889,6 +4050,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayCapabilitySummaryArrayOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassPtrOutput{})
+	pulumi.RegisterOutputType(GatewayGreengrassV2Output{})
+	pulumi.RegisterOutputType(GatewayGreengrassV2PtrOutput{})
 	pulumi.RegisterOutputType(GatewayPlatformOutput{})
 	pulumi.RegisterOutputType(GatewayPlatformPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTagOutput{})

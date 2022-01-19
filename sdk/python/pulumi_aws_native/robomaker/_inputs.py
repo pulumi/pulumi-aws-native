@@ -146,20 +146,21 @@ class SimulationApplicationRenderingEngineArgs:
 class SimulationApplicationRobotSoftwareSuiteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'],
-                 version: pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']):
+                 version: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']] = None):
         """
-        Information about a robot software suite (ROS distribution).
-        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'] name: The name of the robot software suite (ROS distribution).
-        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion'] version: The version of the robot software suite (ROS distribution).
+        Information about a robot software suite.
+        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'] name: The name of the robot software suite.
+        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion'] version: The version of the robot software suite.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input['SimulationApplicationRobotSoftwareSuiteName']:
         """
-        The name of the robot software suite (ROS distribution).
+        The name of the robot software suite.
         """
         return pulumi.get(self, "name")
 
@@ -169,14 +170,14 @@ class SimulationApplicationRobotSoftwareSuiteArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']:
+    def version(self) -> Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']]:
         """
-        The version of the robot software suite (ROS distribution).
+        The version of the robot software suite.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']):
+    def version(self, value: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']]):
         pulumi.set(self, "version", value)
 
 
@@ -184,14 +185,15 @@ class SimulationApplicationRobotSoftwareSuiteArgs:
 class SimulationApplicationSimulationSoftwareSuiteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'],
-                 version: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']):
+                 version: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']] = None):
         """
         Information about a simulation software suite.
         :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'] name: The name of the simulation software suite.
         :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion'] version: The version of the simulation software suite.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -207,14 +209,14 @@ class SimulationApplicationSimulationSoftwareSuiteArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']:
+    def version(self) -> Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']]:
         """
         The version of the simulation software suite.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']):
+    def version(self, value: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']]):
         pulumi.set(self, "version", value)
 
 

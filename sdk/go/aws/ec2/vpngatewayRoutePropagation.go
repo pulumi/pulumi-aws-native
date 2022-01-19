@@ -17,8 +17,10 @@ import (
 type VPNGatewayRoutePropagation struct {
 	pulumi.CustomResourceState
 
+	// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
-	VpnGatewayId  pulumi.StringOutput      `pulumi:"vpnGatewayId"`
+	// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
+	VpnGatewayId pulumi.StringOutput `pulumi:"vpnGatewayId"`
 }
 
 // NewVPNGatewayRoutePropagation registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +68,18 @@ func (VPNGatewayRoutePropagationState) ElementType() reflect.Type {
 }
 
 type vpngatewayRoutePropagationArgs struct {
+	// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
 	RouteTableIds []string `pulumi:"routeTableIds"`
-	VpnGatewayId  string   `pulumi:"vpnGatewayId"`
+	// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
+	VpnGatewayId string `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a VPNGatewayRoutePropagation resource.
 type VPNGatewayRoutePropagationArgs struct {
+	// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
 	RouteTableIds pulumi.StringArrayInput
-	VpnGatewayId  pulumi.StringInput
+	// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
+	VpnGatewayId pulumi.StringInput
 }
 
 func (VPNGatewayRoutePropagationArgs) ElementType() reflect.Type {

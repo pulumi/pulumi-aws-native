@@ -34,6 +34,7 @@ import * as events from "./events";
 import * as evidently from "./evidently";
 import * as finspace from "./finspace";
 import * as fms from "./fms";
+import * as forecast from "./forecast";
 import * as frauddetector from "./frauddetector";
 import * as gamelift from "./gamelift";
 import * as globalaccelerator from "./globalaccelerator";
@@ -130,6 +131,7 @@ export {
     evidently,
     finspace,
     fms,
+    forecast,
     frauddetector,
     gamelift,
     globalaccelerator,

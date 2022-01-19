@@ -20,6 +20,7 @@ __all__ = [
     'ClientVpnEndpointCertificateAuthenticationRequest',
     'ClientVpnEndpointClientAuthenticationRequest',
     'ClientVpnEndpointClientConnectOptions',
+    'ClientVpnEndpointClientLoginBannerOptions',
     'ClientVpnEndpointConnectionLogOptions',
     'ClientVpnEndpointDirectoryServiceAuthenticationRequest',
     'ClientVpnEndpointFederatedAuthenticationRequest',
@@ -542,6 +543,43 @@ class ClientVpnEndpointClientConnectOptions(dict):
 
 
 @pulumi.output_type
+class ClientVpnEndpointClientLoginBannerOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bannerText":
+            suggest = "banner_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointClientLoginBannerOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointClientLoginBannerOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointClientLoginBannerOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 banner_text: Optional[str] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if banner_text is not None:
+            pulumi.set(__self__, "banner_text", banner_text)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="bannerText")
+    def banner_text(self) -> Optional[str]:
+        return pulumi.get(self, "banner_text")
+
+
+@pulumi.output_type
 class ClientVpnEndpointConnectionLogOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -754,12 +792,12 @@ class DestinationOptionsProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "hiveCompatiblePartitions":
+        if key == "fileFormat":
+            suggest = "file_format"
+        elif key == "hiveCompatiblePartitions":
             suggest = "hive_compatible_partitions"
         elif key == "perHourPartition":
             suggest = "per_hour_partition"
-        elif key == "fileFormat":
-            suggest = "file_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DestinationOptionsProperties. Access the value via the '{suggest}' property getter instead.")
@@ -773,13 +811,17 @@ class DestinationOptionsProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 file_format: 'FlowLogDestinationOptionsPropertiesFileFormat',
                  hive_compatible_partitions: bool,
-                 per_hour_partition: bool,
-                 file_format: Optional['FlowLogDestinationOptionsPropertiesFileFormat'] = None):
+                 per_hour_partition: bool):
+        pulumi.set(__self__, "file_format", file_format)
         pulumi.set(__self__, "hive_compatible_partitions", hive_compatible_partitions)
         pulumi.set(__self__, "per_hour_partition", per_hour_partition)
-        if file_format is not None:
-            pulumi.set(__self__, "file_format", file_format)
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> 'FlowLogDestinationOptionsPropertiesFileFormat':
+        return pulumi.get(self, "file_format")
 
     @property
     @pulumi.getter(name="hiveCompatiblePartitions")
@@ -790,11 +832,6 @@ class DestinationOptionsProperties(dict):
     @pulumi.getter(name="perHourPartition")
     def per_hour_partition(self) -> bool:
         return pulumi.get(self, "per_hour_partition")
-
-    @property
-    @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional['FlowLogDestinationOptionsPropertiesFileFormat']:
-        return pulumi.get(self, "file_format")
 
 
 @pulumi.output_type

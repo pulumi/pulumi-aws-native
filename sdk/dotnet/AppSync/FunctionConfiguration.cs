@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("functionVersion")]
         public Output<string> FunctionVersion { get; private set; } = null!;
 
+        [Output("maxBatchSize")]
+        public Output<int?> MaxBatchSize { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -108,6 +111,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("functionVersion", required: true)]
         public Input<string> FunctionVersion { get; set; } = null!;
+
+        [Input("maxBatchSize")]
+        public Input<int>? MaxBatchSize { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -26,7 +26,7 @@ class SimulationApplicationArgs:
                  tags: Optional[pulumi.Input['SimulationApplicationTagsArgs']] = None):
         """
         The set of arguments for constructing a SimulationApplication resource.
-        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs'] robot_software_suite: The robot software suite (ROS distribution) used by the simulation application.
+        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs'] robot_software_suite: The robot software suite used by the simulation application.
         :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteArgs'] simulation_software_suite: The simulation software suite used by the simulation application.
         :param pulumi.Input[str] current_revision_id: The current revision id.
         :param pulumi.Input[str] environment: The URI of the Docker image for the robot application.
@@ -53,7 +53,7 @@ class SimulationApplicationArgs:
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs']:
         """
-        The robot software suite (ROS distribution) used by the simulation application.
+        The robot software suite used by the simulation application.
         """
         return pulumi.get(self, "robot_software_suite")
 
@@ -166,7 +166,7 @@ class SimulationApplication(pulumi.CustomResource):
         :param pulumi.Input[str] environment: The URI of the Docker image for the robot application.
         :param pulumi.Input[str] name: The name of the simulation application.
         :param pulumi.Input[pulumi.InputType['SimulationApplicationRenderingEngineArgs']] rendering_engine: The rendering engine for the simulation application.
-        :param pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']] robot_software_suite: The robot software suite (ROS distribution) used by the simulation application.
+        :param pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']] robot_software_suite: The robot software suite used by the simulation application.
         :param pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']] simulation_software_suite: The simulation software suite used by the simulation application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]] sources: The sources of the simulation application.
         """
@@ -301,7 +301,7 @@ class SimulationApplication(pulumi.CustomResource):
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> pulumi.Output['outputs.SimulationApplicationRobotSoftwareSuite']:
         """
-        The robot software suite (ROS distribution) used by the simulation application.
+        The robot software suite used by the simulation application.
         """
         return pulumi.get(self, "robot_software_suite")
 

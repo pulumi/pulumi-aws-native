@@ -1097,11 +1097,14 @@ class JobOutputFormatOptionsArgs:
 class JobOutputLocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
+                 bucket_owner: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None):
         """
         Output location
         """
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -1113,6 +1116,15 @@ class JobOutputLocationArgs:
     @bucket.setter
     def bucket(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner", value)
 
     @property
     @pulumi.getter
@@ -1301,11 +1313,14 @@ class JobRecipeArgs:
 class JobS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
+                 bucket_owner: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None):
         """
         S3 Output location
         """
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -1317,6 +1332,15 @@ class JobS3LocationArgs:
     @bucket.setter
     def bucket(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner", value)
 
     @property
     @pulumi.getter

@@ -143,6 +143,7 @@ __all__ = [
     'NotebookInstanceTagArgs',
     'OfflineStoreConfigPropertiesArgs',
     'OnlineStoreConfigPropertiesArgs',
+    'ParallelismConfigurationPropertiesArgs',
     'PipelineTagArgs',
     'ProjectProvisioningParameterArgs',
     'ProjectTagArgs',
@@ -5685,6 +5686,28 @@ class OnlineStoreConfigPropertiesArgs:
     @security_config.setter
     def security_config(self, value: Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']]):
         pulumi.set(self, "security_config", value)
+
+
+@pulumi.input_type
+class ParallelismConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 max_parallel_execution_steps: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_parallel_execution_steps: Maximum parallel execution steps
+        """
+        pulumi.set(__self__, "max_parallel_execution_steps", max_parallel_execution_steps)
+
+    @property
+    @pulumi.getter(name="maxParallelExecutionSteps")
+    def max_parallel_execution_steps(self) -> pulumi.Input[int]:
+        """
+        Maximum parallel execution steps
+        """
+        return pulumi.get(self, "max_parallel_execution_steps")
+
+    @max_parallel_execution_steps.setter
+    def max_parallel_execution_steps(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_parallel_execution_steps", value)
 
 
 @pulumi.input_type

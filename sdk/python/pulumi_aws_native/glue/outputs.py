@@ -20,6 +20,7 @@ __all__ = [
     'CrawlerCatalogTarget',
     'CrawlerDynamoDBTarget',
     'CrawlerJdbcTarget',
+    'CrawlerMongoDBTarget',
     'CrawlerRecrawlPolicy',
     'CrawlerS3Target',
     'CrawlerSchedule',
@@ -516,6 +517,44 @@ class CrawlerJdbcTarget(dict):
 
 
 @pulumi.output_type
+class CrawlerMongoDBTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerMongoDBTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerMongoDBTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerMongoDBTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_name: Optional[str] = None,
+                 path: Optional[str] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class CrawlerRecrawlPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -552,6 +591,12 @@ class CrawlerS3Target(dict):
         suggest = None
         if key == "connectionName":
             suggest = "connection_name"
+        elif key == "dlqEventQueueArn":
+            suggest = "dlq_event_queue_arn"
+        elif key == "eventQueueArn":
+            suggest = "event_queue_arn"
+        elif key == "sampleSize":
+            suggest = "sample_size"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CrawlerS3Target. Access the value via the '{suggest}' property getter instead.")
@@ -566,19 +611,38 @@ class CrawlerS3Target(dict):
 
     def __init__(__self__, *,
                  connection_name: Optional[str] = None,
+                 dlq_event_queue_arn: Optional[str] = None,
+                 event_queue_arn: Optional[str] = None,
                  exclusions: Optional[Sequence[str]] = None,
-                 path: Optional[str] = None):
+                 path: Optional[str] = None,
+                 sample_size: Optional[int] = None):
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
 
     @property
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[str]:
         return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[str]:
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[str]:
+        return pulumi.get(self, "event_queue_arn")
 
     @property
     @pulumi.getter
@@ -589,6 +653,11 @@ class CrawlerS3Target(dict):
     @pulumi.getter
     def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[int]:
+        return pulumi.get(self, "sample_size")
 
 
 @pulumi.output_type
@@ -672,6 +741,8 @@ class CrawlerTargets(dict):
             suggest = "dynamo_db_targets"
         elif key == "jdbcTargets":
             suggest = "jdbc_targets"
+        elif key == "mongoDBTargets":
+            suggest = "mongo_db_targets"
         elif key == "s3Targets":
             suggest = "s3_targets"
 
@@ -690,6 +761,7 @@ class CrawlerTargets(dict):
                  catalog_targets: Optional[Sequence['outputs.CrawlerCatalogTarget']] = None,
                  dynamo_db_targets: Optional[Sequence['outputs.CrawlerDynamoDBTarget']] = None,
                  jdbc_targets: Optional[Sequence['outputs.CrawlerJdbcTarget']] = None,
+                 mongo_db_targets: Optional[Sequence['outputs.CrawlerMongoDBTarget']] = None,
                  s3_targets: Optional[Sequence['outputs.CrawlerS3Target']] = None):
         if catalog_targets is not None:
             pulumi.set(__self__, "catalog_targets", catalog_targets)
@@ -697,6 +769,8 @@ class CrawlerTargets(dict):
             pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
         if jdbc_targets is not None:
             pulumi.set(__self__, "jdbc_targets", jdbc_targets)
+        if mongo_db_targets is not None:
+            pulumi.set(__self__, "mongo_db_targets", mongo_db_targets)
         if s3_targets is not None:
             pulumi.set(__self__, "s3_targets", s3_targets)
 
@@ -714,6 +788,11 @@ class CrawlerTargets(dict):
     @pulumi.getter(name="jdbcTargets")
     def jdbc_targets(self) -> Optional[Sequence['outputs.CrawlerJdbcTarget']]:
         return pulumi.get(self, "jdbc_targets")
+
+    @property
+    @pulumi.getter(name="mongoDBTargets")
+    def mongo_db_targets(self) -> Optional[Sequence['outputs.CrawlerMongoDBTarget']]:
+        return pulumi.get(self, "mongo_db_targets")
 
     @property
     @pulumi.getter(name="s3Targets")

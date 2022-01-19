@@ -933,6 +933,154 @@ func (o MaintenanceWindowTargetTargetsArrayOutput) Index(i pulumi.IntInput) Main
 	}).(MaintenanceWindowTargetTargetsOutput)
 }
 
+type MaintenanceWindowTaskCloudWatchOutputConfig struct {
+	CloudWatchLogGroupName  *string `pulumi:"cloudWatchLogGroupName"`
+	CloudWatchOutputEnabled *bool   `pulumi:"cloudWatchOutputEnabled"`
+}
+
+// MaintenanceWindowTaskCloudWatchOutputConfigInput is an input type that accepts MaintenanceWindowTaskCloudWatchOutputConfigArgs and MaintenanceWindowTaskCloudWatchOutputConfigOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskCloudWatchOutputConfigInput` via:
+//
+//          MaintenanceWindowTaskCloudWatchOutputConfigArgs{...}
+type MaintenanceWindowTaskCloudWatchOutputConfigInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskCloudWatchOutputConfigOutput() MaintenanceWindowTaskCloudWatchOutputConfigOutput
+	ToMaintenanceWindowTaskCloudWatchOutputConfigOutputWithContext(context.Context) MaintenanceWindowTaskCloudWatchOutputConfigOutput
+}
+
+type MaintenanceWindowTaskCloudWatchOutputConfigArgs struct {
+	CloudWatchLogGroupName  pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
+	CloudWatchOutputEnabled pulumi.BoolPtrInput   `pulumi:"cloudWatchOutputEnabled"`
+}
+
+func (MaintenanceWindowTaskCloudWatchOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskCloudWatchOutputConfig)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskCloudWatchOutputConfigArgs) ToMaintenanceWindowTaskCloudWatchOutputConfigOutput() MaintenanceWindowTaskCloudWatchOutputConfigOutput {
+	return i.ToMaintenanceWindowTaskCloudWatchOutputConfigOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskCloudWatchOutputConfigArgs) ToMaintenanceWindowTaskCloudWatchOutputConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskCloudWatchOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskCloudWatchOutputConfigOutput)
+}
+
+func (i MaintenanceWindowTaskCloudWatchOutputConfigArgs) ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutput() MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return i.ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskCloudWatchOutputConfigArgs) ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskCloudWatchOutputConfigOutput).ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskCloudWatchOutputConfigPtrInput is an input type that accepts MaintenanceWindowTaskCloudWatchOutputConfigArgs, MaintenanceWindowTaskCloudWatchOutputConfigPtr and MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskCloudWatchOutputConfigPtrInput` via:
+//
+//          MaintenanceWindowTaskCloudWatchOutputConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskCloudWatchOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutput() MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput
+	ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(context.Context) MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput
+}
+
+type maintenanceWindowTaskCloudWatchOutputConfigPtrType MaintenanceWindowTaskCloudWatchOutputConfigArgs
+
+func MaintenanceWindowTaskCloudWatchOutputConfigPtr(v *MaintenanceWindowTaskCloudWatchOutputConfigArgs) MaintenanceWindowTaskCloudWatchOutputConfigPtrInput {
+	return (*maintenanceWindowTaskCloudWatchOutputConfigPtrType)(v)
+}
+
+func (*maintenanceWindowTaskCloudWatchOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskCloudWatchOutputConfig)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskCloudWatchOutputConfigPtrType) ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutput() MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return i.ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskCloudWatchOutputConfigPtrType) ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput)
+}
+
+type MaintenanceWindowTaskCloudWatchOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskCloudWatchOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskCloudWatchOutputConfig)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigOutput) ToMaintenanceWindowTaskCloudWatchOutputConfigOutput() MaintenanceWindowTaskCloudWatchOutputConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigOutput) ToMaintenanceWindowTaskCloudWatchOutputConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskCloudWatchOutputConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigOutput) ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutput() MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return o.ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigOutput) ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskCloudWatchOutputConfig) *MaintenanceWindowTaskCloudWatchOutputConfig {
+		return &v
+	}).(MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput)
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskCloudWatchOutputConfig) *string { return v.CloudWatchLogGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigOutput) CloudWatchOutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskCloudWatchOutputConfig) *bool { return v.CloudWatchOutputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskCloudWatchOutputConfig)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput) ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutput() MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput) ToMaintenanceWindowTaskCloudWatchOutputConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput) Elem() MaintenanceWindowTaskCloudWatchOutputConfigOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskCloudWatchOutputConfig) MaintenanceWindowTaskCloudWatchOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskCloudWatchOutputConfig
+		return ret
+	}).(MaintenanceWindowTaskCloudWatchOutputConfigOutput)
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskCloudWatchOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput) CloudWatchOutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskCloudWatchOutputConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchOutputEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type MaintenanceWindowTaskLoggingInfo struct {
 	Region   string  `pulumi:"region"`
 	S3Bucket string  `pulumi:"s3Bucket"`
@@ -1408,15 +1556,17 @@ func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) Qualifi
 }
 
 type MaintenanceWindowTaskMaintenanceWindowRunCommandParameters struct {
-	Comment            *string                                  `pulumi:"comment"`
-	DocumentHash       *string                                  `pulumi:"documentHash"`
-	DocumentHashType   *string                                  `pulumi:"documentHashType"`
-	NotificationConfig *MaintenanceWindowTaskNotificationConfig `pulumi:"notificationConfig"`
-	OutputS3BucketName *string                                  `pulumi:"outputS3BucketName"`
-	OutputS3KeyPrefix  *string                                  `pulumi:"outputS3KeyPrefix"`
-	Parameters         interface{}                              `pulumi:"parameters"`
-	ServiceRoleArn     *string                                  `pulumi:"serviceRoleArn"`
-	TimeoutSeconds     *int                                     `pulumi:"timeoutSeconds"`
+	CloudWatchOutputConfig *MaintenanceWindowTaskCloudWatchOutputConfig `pulumi:"cloudWatchOutputConfig"`
+	Comment                *string                                      `pulumi:"comment"`
+	DocumentHash           *string                                      `pulumi:"documentHash"`
+	DocumentHashType       *string                                      `pulumi:"documentHashType"`
+	DocumentVersion        *string                                      `pulumi:"documentVersion"`
+	NotificationConfig     *MaintenanceWindowTaskNotificationConfig     `pulumi:"notificationConfig"`
+	OutputS3BucketName     *string                                      `pulumi:"outputS3BucketName"`
+	OutputS3KeyPrefix      *string                                      `pulumi:"outputS3KeyPrefix"`
+	Parameters             interface{}                                  `pulumi:"parameters"`
+	ServiceRoleArn         *string                                      `pulumi:"serviceRoleArn"`
+	TimeoutSeconds         *int                                         `pulumi:"timeoutSeconds"`
 }
 
 // MaintenanceWindowTaskMaintenanceWindowRunCommandParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs and MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput values.
@@ -1431,15 +1581,17 @@ type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersInput interface {
 }
 
 type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs struct {
-	Comment            pulumi.StringPtrInput                           `pulumi:"comment"`
-	DocumentHash       pulumi.StringPtrInput                           `pulumi:"documentHash"`
-	DocumentHashType   pulumi.StringPtrInput                           `pulumi:"documentHashType"`
-	NotificationConfig MaintenanceWindowTaskNotificationConfigPtrInput `pulumi:"notificationConfig"`
-	OutputS3BucketName pulumi.StringPtrInput                           `pulumi:"outputS3BucketName"`
-	OutputS3KeyPrefix  pulumi.StringPtrInput                           `pulumi:"outputS3KeyPrefix"`
-	Parameters         pulumi.Input                                    `pulumi:"parameters"`
-	ServiceRoleArn     pulumi.StringPtrInput                           `pulumi:"serviceRoleArn"`
-	TimeoutSeconds     pulumi.IntPtrInput                              `pulumi:"timeoutSeconds"`
+	CloudWatchOutputConfig MaintenanceWindowTaskCloudWatchOutputConfigPtrInput `pulumi:"cloudWatchOutputConfig"`
+	Comment                pulumi.StringPtrInput                               `pulumi:"comment"`
+	DocumentHash           pulumi.StringPtrInput                               `pulumi:"documentHash"`
+	DocumentHashType       pulumi.StringPtrInput                               `pulumi:"documentHashType"`
+	DocumentVersion        pulumi.StringPtrInput                               `pulumi:"documentVersion"`
+	NotificationConfig     MaintenanceWindowTaskNotificationConfigPtrInput     `pulumi:"notificationConfig"`
+	OutputS3BucketName     pulumi.StringPtrInput                               `pulumi:"outputS3BucketName"`
+	OutputS3KeyPrefix      pulumi.StringPtrInput                               `pulumi:"outputS3KeyPrefix"`
+	Parameters             pulumi.Input                                        `pulumi:"parameters"`
+	ServiceRoleArn         pulumi.StringPtrInput                               `pulumi:"serviceRoleArn"`
+	TimeoutSeconds         pulumi.IntPtrInput                                  `pulumi:"timeoutSeconds"`
 }
 
 func (MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ElementType() reflect.Type {
@@ -1519,6 +1671,12 @@ func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMain
 	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
 }
 
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) CloudWatchOutputConfig() MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *MaintenanceWindowTaskCloudWatchOutputConfig {
+		return v.CloudWatchOutputConfig
+	}).(MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput)
+}
+
 func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -1529,6 +1687,10 @@ func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) Docume
 
 func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) DocumentHashType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.DocumentHashType }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) NotificationConfig() MaintenanceWindowTaskNotificationConfigPtrOutput {
@@ -1583,6 +1745,15 @@ func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Ele
 	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput)
 }
 
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) CloudWatchOutputConfig() MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *MaintenanceWindowTaskCloudWatchOutputConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchOutputConfig
+	}).(MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput)
+}
+
 func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
 		if v == nil {
@@ -1607,6 +1778,15 @@ func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Doc
 			return nil
 		}
 		return v.DocumentHashType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3607,6 +3787,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTagArrayInput)(nil)).Elem(), MaintenanceWindowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetsInput)(nil)).Elem(), MaintenanceWindowTargetTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetsArrayInput)(nil)).Elem(), MaintenanceWindowTargetTargetsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskCloudWatchOutputConfigInput)(nil)).Elem(), MaintenanceWindowTaskCloudWatchOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskCloudWatchOutputConfigPtrInput)(nil)).Elem(), MaintenanceWindowTaskCloudWatchOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskLoggingInfoInput)(nil)).Elem(), MaintenanceWindowTaskLoggingInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskLoggingInfoPtrInput)(nil)).Elem(), MaintenanceWindowTaskLoggingInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowAutomationParametersInput)(nil)).Elem(), MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs{})
@@ -3659,6 +3841,8 @@ func init() {
 	pulumi.RegisterOutputType(MaintenanceWindowTagArrayOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskCloudWatchOutputConfigOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskCloudWatchOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskLoggingInfoOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskLoggingInfoPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput{})

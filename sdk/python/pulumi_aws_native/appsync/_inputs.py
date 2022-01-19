@@ -639,12 +639,20 @@ class GraphQLApiUserPoolConfigArgs:
 @pulumi.input_type
 class ResolverCachingConfigArgs:
     def __init__(__self__, *,
-                 caching_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ttl: Optional[pulumi.Input[float]] = None):
+                 ttl: pulumi.Input[float],
+                 caching_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "ttl", ttl)
         if caching_keys is not None:
             pulumi.set(__self__, "caching_keys", caching_keys)
-        if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: pulumi.Input[float]):
+        pulumi.set(self, "ttl", value)
 
     @property
     @pulumi.getter(name="cachingKeys")
@@ -654,15 +662,6 @@ class ResolverCachingConfigArgs:
     @caching_keys.setter
     def caching_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "caching_keys", value)
-
-    @property
-    @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "ttl")
-
-    @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "ttl", value)
 
 
 @pulumi.input_type

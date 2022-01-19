@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Glue.Inputs
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
+        [Input("dlqEventQueueArn")]
+        public Input<string>? DlqEventQueueArn { get; set; }
+
+        [Input("eventQueueArn")]
+        public Input<string>? EventQueueArn { get; set; }
+
         [Input("exclusions")]
         private InputList<string>? _exclusions;
         public InputList<string> Exclusions
@@ -25,6 +31,9 @@ namespace Pulumi.AwsNative.Glue.Inputs
 
         [Input("path")]
         public Input<string>? Path { get; set; }
+
+        [Input("sampleSize")]
+        public Input<int>? SampleSize { get; set; }
 
         public CrawlerS3TargetArgs()
         {

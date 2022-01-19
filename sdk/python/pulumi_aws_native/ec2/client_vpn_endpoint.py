@@ -20,10 +20,12 @@ class ClientVpnEndpointArgs:
                  connection_log_options: pulumi.Input['ClientVpnEndpointConnectionLogOptionsArgs'],
                  server_certificate_arn: pulumi.Input[str],
                  client_connect_options: Optional[pulumi.Input['ClientVpnEndpointClientConnectOptionsArgs']] = None,
+                 client_login_banner_options: Optional[pulumi.Input['ClientVpnEndpointClientLoginBannerOptionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[str]] = None,
+                 session_timeout_hours: Optional[pulumi.Input[int]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagSpecificationArgs']]]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None,
@@ -38,6 +40,8 @@ class ClientVpnEndpointArgs:
         pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
         if client_connect_options is not None:
             pulumi.set(__self__, "client_connect_options", client_connect_options)
+        if client_login_banner_options is not None:
+            pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if dns_servers is not None:
@@ -46,6 +50,8 @@ class ClientVpnEndpointArgs:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if self_service_portal is not None:
             pulumi.set(__self__, "self_service_portal", self_service_portal)
+        if session_timeout_hours is not None:
+            pulumi.set(__self__, "session_timeout_hours", session_timeout_hours)
         if split_tunnel is not None:
             pulumi.set(__self__, "split_tunnel", split_tunnel)
         if tag_specifications is not None:
@@ -103,6 +109,15 @@ class ClientVpnEndpointArgs:
         pulumi.set(self, "client_connect_options", value)
 
     @property
+    @pulumi.getter(name="clientLoginBannerOptions")
+    def client_login_banner_options(self) -> Optional[pulumi.Input['ClientVpnEndpointClientLoginBannerOptionsArgs']]:
+        return pulumi.get(self, "client_login_banner_options")
+
+    @client_login_banner_options.setter
+    def client_login_banner_options(self, value: Optional[pulumi.Input['ClientVpnEndpointClientLoginBannerOptionsArgs']]):
+        pulumi.set(self, "client_login_banner_options", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -137,6 +152,15 @@ class ClientVpnEndpointArgs:
     @self_service_portal.setter
     def self_service_portal(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "self_service_portal", value)
+
+    @property
+    @pulumi.getter(name="sessionTimeoutHours")
+    def session_timeout_hours(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "session_timeout_hours")
+
+    @session_timeout_hours.setter
+    def session_timeout_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "session_timeout_hours", value)
 
     @property
     @pulumi.getter(name="splitTunnel")
@@ -197,12 +221,14 @@ class ClientVpnEndpoint(pulumi.CustomResource):
                  authentication_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientAuthenticationRequestArgs']]]]] = None,
                  client_cidr_block: Optional[pulumi.Input[str]] = None,
                  client_connect_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientConnectOptionsArgs']]] = None,
+                 client_login_banner_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientLoginBannerOptionsArgs']]] = None,
                  connection_log_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointConnectionLogOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[str]] = None,
                  server_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 session_timeout_hours: Optional[pulumi.Input[int]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientVpnEndpointTagSpecificationArgs']]]]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None,
@@ -242,12 +268,14 @@ class ClientVpnEndpoint(pulumi.CustomResource):
                  authentication_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientAuthenticationRequestArgs']]]]] = None,
                  client_cidr_block: Optional[pulumi.Input[str]] = None,
                  client_connect_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientConnectOptionsArgs']]] = None,
+                 client_login_banner_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientLoginBannerOptionsArgs']]] = None,
                  connection_log_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointConnectionLogOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[str]] = None,
                  server_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 session_timeout_hours: Optional[pulumi.Input[int]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientVpnEndpointTagSpecificationArgs']]]]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None,
@@ -273,6 +301,7 @@ class ClientVpnEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_cidr_block'")
             __props__.__dict__["client_cidr_block"] = client_cidr_block
             __props__.__dict__["client_connect_options"] = client_connect_options
+            __props__.__dict__["client_login_banner_options"] = client_login_banner_options
             if connection_log_options is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_log_options'")
             __props__.__dict__["connection_log_options"] = connection_log_options
@@ -283,6 +312,7 @@ class ClientVpnEndpoint(pulumi.CustomResource):
             if server_certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'server_certificate_arn'")
             __props__.__dict__["server_certificate_arn"] = server_certificate_arn
+            __props__.__dict__["session_timeout_hours"] = session_timeout_hours
             __props__.__dict__["split_tunnel"] = split_tunnel
             __props__.__dict__["tag_specifications"] = tag_specifications
             __props__.__dict__["transport_protocol"] = transport_protocol
@@ -313,12 +343,14 @@ class ClientVpnEndpoint(pulumi.CustomResource):
         __props__.__dict__["authentication_options"] = None
         __props__.__dict__["client_cidr_block"] = None
         __props__.__dict__["client_connect_options"] = None
+        __props__.__dict__["client_login_banner_options"] = None
         __props__.__dict__["connection_log_options"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["dns_servers"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["self_service_portal"] = None
         __props__.__dict__["server_certificate_arn"] = None
+        __props__.__dict__["session_timeout_hours"] = None
         __props__.__dict__["split_tunnel"] = None
         __props__.__dict__["tag_specifications"] = None
         __props__.__dict__["transport_protocol"] = None
@@ -340,6 +372,11 @@ class ClientVpnEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="clientConnectOptions")
     def client_connect_options(self) -> pulumi.Output[Optional['outputs.ClientVpnEndpointClientConnectOptions']]:
         return pulumi.get(self, "client_connect_options")
+
+    @property
+    @pulumi.getter(name="clientLoginBannerOptions")
+    def client_login_banner_options(self) -> pulumi.Output[Optional['outputs.ClientVpnEndpointClientLoginBannerOptions']]:
+        return pulumi.get(self, "client_login_banner_options")
 
     @property
     @pulumi.getter(name="connectionLogOptions")
@@ -370,6 +407,11 @@ class ClientVpnEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="serverCertificateArn")
     def server_certificate_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "server_certificate_arn")
+
+    @property
+    @pulumi.getter(name="sessionTimeoutHours")
+    def session_timeout_hours(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "session_timeout_hours")
 
     @property
     @pulumi.getter(name="splitTunnel")

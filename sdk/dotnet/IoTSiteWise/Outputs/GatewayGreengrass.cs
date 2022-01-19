@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 {
 
     /// <summary>
-    /// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
+    /// Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
     /// </summary>
     [OutputType]
     public sealed class GatewayGreengrass

@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Alarm{}
 	case "aws-native:lightsail:Bucket":
 		r = &Bucket{}
+	case "aws-native:lightsail:Certificate":
+		r = &Certificate{}
+	case "aws-native:lightsail:Container":
+		r = &Container{}
 	case "aws-native:lightsail:Database":
 		r = &Database{}
 	case "aws-native:lightsail:Disk":

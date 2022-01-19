@@ -22,6 +22,7 @@ type Resolver struct {
 	DataSourceName                    pulumi.StringPtrOutput          `pulumi:"dataSourceName"`
 	FieldName                         pulumi.StringOutput             `pulumi:"fieldName"`
 	Kind                              pulumi.StringPtrOutput          `pulumi:"kind"`
+	MaxBatchSize                      pulumi.IntPtrOutput             `pulumi:"maxBatchSize"`
 	PipelineConfig                    ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
 	RequestMappingTemplate            pulumi.StringPtrOutput          `pulumi:"requestMappingTemplate"`
 	RequestMappingTemplateS3Location  pulumi.StringPtrOutput          `pulumi:"requestMappingTemplateS3Location"`
@@ -85,6 +86,7 @@ type resolverArgs struct {
 	DataSourceName                    *string                 `pulumi:"dataSourceName"`
 	FieldName                         string                  `pulumi:"fieldName"`
 	Kind                              *string                 `pulumi:"kind"`
+	MaxBatchSize                      *int                    `pulumi:"maxBatchSize"`
 	PipelineConfig                    *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	RequestMappingTemplate            *string                 `pulumi:"requestMappingTemplate"`
 	RequestMappingTemplateS3Location  *string                 `pulumi:"requestMappingTemplateS3Location"`
@@ -101,6 +103,7 @@ type ResolverArgs struct {
 	DataSourceName                    pulumi.StringPtrInput
 	FieldName                         pulumi.StringInput
 	Kind                              pulumi.StringPtrInput
+	MaxBatchSize                      pulumi.IntPtrInput
 	PipelineConfig                    ResolverPipelineConfigPtrInput
 	RequestMappingTemplate            pulumi.StringPtrInput
 	RequestMappingTemplateS3Location  pulumi.StringPtrInput

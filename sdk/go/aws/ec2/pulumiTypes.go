@@ -1041,6 +1041,154 @@ func (o ClientVpnEndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClientVpnEndpointClientLoginBannerOptions struct {
+	BannerText *string `pulumi:"bannerText"`
+	Enabled    bool    `pulumi:"enabled"`
+}
+
+// ClientVpnEndpointClientLoginBannerOptionsInput is an input type that accepts ClientVpnEndpointClientLoginBannerOptionsArgs and ClientVpnEndpointClientLoginBannerOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientLoginBannerOptionsInput` via:
+//
+//          ClientVpnEndpointClientLoginBannerOptionsArgs{...}
+type ClientVpnEndpointClientLoginBannerOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientLoginBannerOptionsOutput() ClientVpnEndpointClientLoginBannerOptionsOutput
+	ToClientVpnEndpointClientLoginBannerOptionsOutputWithContext(context.Context) ClientVpnEndpointClientLoginBannerOptionsOutput
+}
+
+type ClientVpnEndpointClientLoginBannerOptionsArgs struct {
+	BannerText pulumi.StringPtrInput `pulumi:"bannerText"`
+	Enabled    pulumi.BoolInput      `pulumi:"enabled"`
+}
+
+func (ClientVpnEndpointClientLoginBannerOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientLoginBannerOptionsArgs) ToClientVpnEndpointClientLoginBannerOptionsOutput() ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return i.ToClientVpnEndpointClientLoginBannerOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientLoginBannerOptionsArgs) ToClientVpnEndpointClientLoginBannerOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientLoginBannerOptionsOutput)
+}
+
+func (i ClientVpnEndpointClientLoginBannerOptionsArgs) ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientLoginBannerOptionsArgs) ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientLoginBannerOptionsOutput).ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointClientLoginBannerOptionsPtrInput is an input type that accepts ClientVpnEndpointClientLoginBannerOptionsArgs, ClientVpnEndpointClientLoginBannerOptionsPtr and ClientVpnEndpointClientLoginBannerOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientLoginBannerOptionsPtrInput` via:
+//
+//          ClientVpnEndpointClientLoginBannerOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointClientLoginBannerOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput
+	ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput
+}
+
+type clientVpnEndpointClientLoginBannerOptionsPtrType ClientVpnEndpointClientLoginBannerOptionsArgs
+
+func ClientVpnEndpointClientLoginBannerOptionsPtr(v *ClientVpnEndpointClientLoginBannerOptionsArgs) ClientVpnEndpointClientLoginBannerOptionsPtrInput {
+	return (*clientVpnEndpointClientLoginBannerOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointClientLoginBannerOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointClientLoginBannerOptionsPtrType) ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointClientLoginBannerOptionsPtrType) ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientLoginBannerOptionsPtrOutput)
+}
+
+type ClientVpnEndpointClientLoginBannerOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientLoginBannerOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) ToClientVpnEndpointClientLoginBannerOptionsOutput() ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) ToClientVpnEndpointClientLoginBannerOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o.ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointClientLoginBannerOptions) *ClientVpnEndpointClientLoginBannerOptions {
+		return &v
+	}).(ClientVpnEndpointClientLoginBannerOptionsPtrOutput)
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) BannerText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientLoginBannerOptions) *string { return v.BannerText }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientLoginBannerOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClientVpnEndpointClientLoginBannerOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientLoginBannerOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientLoginBannerOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) ToClientVpnEndpointClientLoginBannerOptionsPtrOutput() ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) ToClientVpnEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) Elem() ClientVpnEndpointClientLoginBannerOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientLoginBannerOptions) ClientVpnEndpointClientLoginBannerOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointClientLoginBannerOptions
+		return ret
+	}).(ClientVpnEndpointClientLoginBannerOptionsOutput)
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) BannerText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientLoginBannerOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BannerText
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientLoginBannerOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ClientVpnEndpointConnectionLogOptions struct {
 	CloudwatchLogGroup  *string `pulumi:"cloudwatchLogGroup"`
 	CloudwatchLogStream *string `pulumi:"cloudwatchLogStream"`
@@ -1886,9 +2034,9 @@ func (o DHCPOptionsTagArrayOutput) Index(i pulumi.IntInput) DHCPOptionsTagOutput
 }
 
 type DestinationOptionsProperties struct {
-	FileFormat               *FlowLogDestinationOptionsPropertiesFileFormat `pulumi:"fileFormat"`
-	HiveCompatiblePartitions bool                                           `pulumi:"hiveCompatiblePartitions"`
-	PerHourPartition         bool                                           `pulumi:"perHourPartition"`
+	FileFormat               FlowLogDestinationOptionsPropertiesFileFormat `pulumi:"fileFormat"`
+	HiveCompatiblePartitions bool                                          `pulumi:"hiveCompatiblePartitions"`
+	PerHourPartition         bool                                          `pulumi:"perHourPartition"`
 }
 
 // DestinationOptionsPropertiesInput is an input type that accepts DestinationOptionsPropertiesArgs and DestinationOptionsPropertiesOutput values.
@@ -1903,9 +2051,9 @@ type DestinationOptionsPropertiesInput interface {
 }
 
 type DestinationOptionsPropertiesArgs struct {
-	FileFormat               FlowLogDestinationOptionsPropertiesFileFormatPtrInput `pulumi:"fileFormat"`
-	HiveCompatiblePartitions pulumi.BoolInput                                      `pulumi:"hiveCompatiblePartitions"`
-	PerHourPartition         pulumi.BoolInput                                      `pulumi:"perHourPartition"`
+	FileFormat               FlowLogDestinationOptionsPropertiesFileFormatInput `pulumi:"fileFormat"`
+	HiveCompatiblePartitions pulumi.BoolInput                                   `pulumi:"hiveCompatiblePartitions"`
+	PerHourPartition         pulumi.BoolInput                                   `pulumi:"perHourPartition"`
 }
 
 func (DestinationOptionsPropertiesArgs) ElementType() reflect.Type {
@@ -1985,10 +2133,10 @@ func (o DestinationOptionsPropertiesOutput) ToDestinationOptionsPropertiesPtrOut
 	}).(DestinationOptionsPropertiesPtrOutput)
 }
 
-func (o DestinationOptionsPropertiesOutput) FileFormat() FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
-	return o.ApplyT(func(v DestinationOptionsProperties) *FlowLogDestinationOptionsPropertiesFileFormat {
+func (o DestinationOptionsPropertiesOutput) FileFormat() FlowLogDestinationOptionsPropertiesFileFormatOutput {
+	return o.ApplyT(func(v DestinationOptionsProperties) FlowLogDestinationOptionsPropertiesFileFormat {
 		return v.FileFormat
-	}).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
+	}).(FlowLogDestinationOptionsPropertiesFileFormatOutput)
 }
 
 func (o DestinationOptionsPropertiesOutput) HiveCompatiblePartitions() pulumi.BoolOutput {
@@ -2028,7 +2176,7 @@ func (o DestinationOptionsPropertiesPtrOutput) FileFormat() FlowLogDestinationOp
 		if v == nil {
 			return nil
 		}
-		return v.FileFormat
+		return &v.FileFormat
 	}).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
 }
 
@@ -26357,6 +26505,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequestArrayInput)(nil)).Elem(), ClientVpnEndpointClientAuthenticationRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientConnectOptionsInput)(nil)).Elem(), ClientVpnEndpointClientConnectOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientConnectOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientConnectOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointConnectionLogOptionsInput)(nil)).Elem(), ClientVpnEndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointConnectionLogOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
@@ -26727,6 +26877,8 @@ func init() {
 	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestArrayOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})

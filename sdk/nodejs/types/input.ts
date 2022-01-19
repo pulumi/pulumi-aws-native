@@ -2683,6 +2683,14 @@ export namespace applicationinsights {
          */
         alarms?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationAlarmArgs>[]>;
         /**
+         * The HA cluster Prometheus Exporter settings.
+         */
+        hAClusterPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHAClusterPrometheusExporterArgs>;
+        /**
+         * The HANA DB Prometheus Exporter settings.
+         */
+        hANAPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHANAPrometheusExporterArgs>;
+        /**
          * The JMX Prometheus Exporter settings.
          */
         jMXPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationJMXPrometheusExporterArgs>;
@@ -2711,6 +2719,45 @@ export namespace applicationinsights {
     }
 
     /**
+     * The HA cluster Prometheus Exporter settings.
+     */
+    export interface ApplicationHAClusterPrometheusExporterArgs {
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: pulumi.Input<string>;
+    }
+
+    /**
+     * The HANA DB Prometheus Exporter settings.
+     */
+    export interface ApplicationHANAPrometheusExporterArgs {
+        /**
+         * A flag which indicates agreeing to install SAP HANA DB client.
+         */
+        agreeToInstallHANADBClient?: pulumi.Input<boolean>;
+        /**
+         * The HANA DB port.
+         */
+        hANAPort?: pulumi.Input<string>;
+        /**
+         * HANA DB SID.
+         */
+        hANASID?: pulumi.Input<string>;
+        /**
+         * The secret name which manages the HANA DB credentials e.g. {
+         *   "username": "<>",
+         *   "password": "<>"
+         * }.
+         */
+        hANASecretName?: pulumi.Input<string>;
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: pulumi.Input<string>;
+    }
+
+    /**
      * The JMX Prometheus Exporter settings.
      */
     export interface ApplicationJMXPrometheusExporterArgs {
@@ -2723,7 +2770,7 @@ export namespace applicationinsights {
          */
         jMXURL?: pulumi.Input<string>;
         /**
-         * Prometheus exporter port
+         * Prometheus exporter port.
          */
         prometheusPort?: pulumi.Input<string>;
     }
@@ -3949,7 +3996,7 @@ export namespace appsync {
 
     export interface ResolverCachingConfigArgs {
         cachingKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        ttl?: pulumi.Input<number>;
+        ttl: pulumi.Input<number>;
     }
 
     export interface ResolverLambdaConflictHandlerConfigArgs {
@@ -4404,6 +4451,10 @@ export namespace autoscaling {
         disableScaleIn?: pulumi.Input<boolean>;
         predefinedMetricSpecification?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredefinedMetricSpecificationArgs>;
         targetValue: pulumi.Input<number>;
+    }
+
+    export interface WarmPoolInstanceReusePolicyArgs {
+        reuseOnScaleIn?: pulumi.Input<boolean>;
     }
 }
 
@@ -7139,6 +7190,7 @@ export namespace databrew {
      */
     export interface JobOutputLocationArgs {
         bucket: pulumi.Input<string>;
+        bucketOwner?: pulumi.Input<string>;
         key?: pulumi.Input<string>;
     }
 
@@ -7168,6 +7220,7 @@ export namespace databrew {
      */
     export interface JobS3LocationArgs {
         bucket: pulumi.Input<string>;
+        bucketOwner?: pulumi.Input<string>;
         key?: pulumi.Input<string>;
     }
 
@@ -8464,6 +8517,11 @@ export namespace ec2 {
         lambdaFunctionArn?: pulumi.Input<string>;
     }
 
+    export interface ClientVpnEndpointClientLoginBannerOptionsArgs {
+        bannerText?: pulumi.Input<string>;
+        enabled: pulumi.Input<boolean>;
+    }
+
     export interface ClientVpnEndpointConnectionLogOptionsArgs {
         cloudwatchLogGroup?: pulumi.Input<string>;
         cloudwatchLogStream?: pulumi.Input<string>;
@@ -8500,7 +8558,7 @@ export namespace ec2 {
     }
 
     export interface DestinationOptionsPropertiesArgs {
-        fileFormat?: pulumi.Input<enums.ec2.FlowLogDestinationOptionsPropertiesFileFormat>;
+        fileFormat: pulumi.Input<enums.ec2.FlowLogDestinationOptionsPropertiesFileFormat>;
         hiveCompatiblePartitions: pulumi.Input<boolean>;
         perHourPartition: pulumi.Input<boolean>;
     }
@@ -11740,6 +11798,50 @@ export namespace fms {
     }
 }
 
+export namespace forecast {
+    export interface AttributesItemPropertiesArgs {
+        /**
+         * Name of the dataset field
+         */
+        attributeName?: pulumi.Input<string>;
+        /**
+         * Data type of the field
+         */
+        attributeType?: pulumi.Input<enums.forecast.DatasetAttributesItemPropertiesAttributeType>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DatasetGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface EncryptionConfigPropertiesArgs {
+        kmsKeyArn?: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
+    }
+
+    export interface SchemaPropertiesArgs {
+        attributes?: pulumi.Input<pulumi.Input<inputs.forecast.AttributesItemPropertiesArgs>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface TagsItemPropertiesArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace frauddetector {
     export interface DetectorEntityTypeArgs {
         arn?: pulumi.Input<string>;
@@ -12443,14 +12545,22 @@ export namespace glue {
         path?: pulumi.Input<string>;
     }
 
+    export interface CrawlerMongoDBTargetArgs {
+        connectionName?: pulumi.Input<string>;
+        path?: pulumi.Input<string>;
+    }
+
     export interface CrawlerRecrawlPolicyArgs {
         recrawlBehavior?: pulumi.Input<string>;
     }
 
     export interface CrawlerS3TargetArgs {
         connectionName?: pulumi.Input<string>;
+        dlqEventQueueArn?: pulumi.Input<string>;
+        eventQueueArn?: pulumi.Input<string>;
         exclusions?: pulumi.Input<pulumi.Input<string>[]>;
         path?: pulumi.Input<string>;
+        sampleSize?: pulumi.Input<number>;
     }
 
     export interface CrawlerScheduleArgs {
@@ -12466,6 +12576,7 @@ export namespace glue {
         catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTargetArgs>[]>;
         dynamoDBTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamoDBTargetArgs>[]>;
         jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTargetArgs>[]>;
+        mongoDBTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongoDBTargetArgs>[]>;
         s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3TargetArgs>[]>;
     }
 
@@ -15770,7 +15881,7 @@ export namespace iotsitewise {
     }
 
     /**
-     * Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
+     * Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
      */
     export interface GatewayGreengrassArgs {
         /**
@@ -15780,13 +15891,27 @@ export namespace iotsitewise {
     }
 
     /**
+     * Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+     */
+    export interface GatewayGreengrassV2Args {
+        /**
+         * The name of the CoreDevice in GreenGrass V2.
+         */
+        coreDeviceThingName: pulumi.Input<string>;
+    }
+
+    /**
      * Contains a gateway's platform information.
      */
     export interface GatewayPlatformArgs {
         /**
-         * A gateway that runs on AWS IoT Greengrass.
+         * A gateway that runs on AWS IoT Greengrass V1.
          */
-        greengrass: pulumi.Input<inputs.iotsitewise.GatewayGreengrassArgs>;
+        greengrass?: pulumi.Input<inputs.iotsitewise.GatewayGreengrassArgs>;
+        /**
+         * A gateway that runs on AWS IoT Greengrass V2.
+         */
+        greengrassV2?: pulumi.Input<inputs.iotsitewise.GatewayGreengrassV2Args>;
     }
 
     /**
@@ -18299,6 +18424,143 @@ export namespace lightsail {
     }
 
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CertificateTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+     */
+    export interface ContainerArgs {
+        /**
+         * The launch command for the container.
+         */
+        command?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the container.
+         */
+        containerName?: pulumi.Input<string>;
+        /**
+         * The environment variables of the container.
+         */
+        environment?: pulumi.Input<pulumi.Input<inputs.lightsail.ContainerEnvironmentVariableArgs>[]>;
+        /**
+         * The name of the image used for the container.
+         */
+        image?: pulumi.Input<string>;
+        /**
+         * The open firewall ports of the container.
+         */
+        ports?: pulumi.Input<pulumi.Input<inputs.lightsail.ContainerPortInfoArgs>[]>;
+    }
+
+    export interface ContainerEnvironmentVariableArgs {
+        value?: pulumi.Input<string>;
+        variable?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the health check configuration of an Amazon Lightsail container service.
+     */
+    export interface ContainerHealthCheckConfigArgs {
+        /**
+         * The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
+         */
+        healthyThreshold?: pulumi.Input<number>;
+        /**
+         * The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
+         */
+        intervalSeconds?: pulumi.Input<number>;
+        /**
+         * The path on the container on which to perform the health check. The default value is /.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
+         */
+        successCodes?: pulumi.Input<string>;
+        /**
+         * The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
+         */
+        timeoutSeconds?: pulumi.Input<number>;
+        /**
+         * The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
+         */
+        unhealthyThreshold?: pulumi.Input<number>;
+    }
+
+    export interface ContainerPortInfoArgs {
+        port?: pulumi.Input<string>;
+        protocol?: pulumi.Input<string>;
+    }
+
+    /**
+     * The public domain name to use with the container service, such as example.com and www.example.com.
+     */
+    export interface ContainerPublicDomainNameArgs {
+        certificateName?: pulumi.Input<string>;
+        /**
+         * An object that describes the configuration for the containers of the deployment.
+         */
+        domainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Describes the settings of a public endpoint for an Amazon Lightsail container service.
+     */
+    export interface ContainerPublicEndpointArgs {
+        /**
+         * The name of the container for the endpoint.
+         */
+        containerName?: pulumi.Input<string>;
+        /**
+         * The port of the container to which traffic is forwarded to.
+         */
+        containerPort?: pulumi.Input<number>;
+        /**
+         * An object that describes the health check configuration of the container.
+         */
+        healthCheckConfig?: pulumi.Input<inputs.lightsail.ContainerHealthCheckConfigArgs>;
+    }
+
+    /**
+     * Describes a container deployment configuration of an Amazon Lightsail container service.
+     */
+    export interface ContainerServiceDeploymentArgs {
+        /**
+         * An object that describes the configuration for the containers of the deployment.
+         */
+        containers?: pulumi.Input<pulumi.Input<inputs.lightsail.ContainerArgs>[]>;
+        /**
+         * An object that describes the endpoint of the deployment.
+         */
+        publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerPublicEndpointArgs>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ContainerTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
      * Describes the parameters of the database.
      */
     export interface DatabaseRelationalDatabaseParameterArgs {
@@ -18579,6 +18841,7 @@ export namespace lightsail {
          */
         value?: pulumi.Input<string>;
     }
+
 }
 
 export namespace location {
@@ -23840,17 +24103,17 @@ export namespace robomaker {
     }
 
     /**
-     * Information about a robot software suite (ROS distribution).
+     * Information about a robot software suite.
      */
     export interface SimulationApplicationRobotSoftwareSuiteArgs {
         /**
-         * The name of the robot software suite (ROS distribution).
+         * The name of the robot software suite.
          */
         name: pulumi.Input<enums.robomaker.SimulationApplicationRobotSoftwareSuiteName>;
         /**
-         * The version of the robot software suite (ROS distribution).
+         * The version of the robot software suite.
          */
-        version: pulumi.Input<enums.robomaker.SimulationApplicationRobotSoftwareSuiteVersion>;
+        version?: pulumi.Input<enums.robomaker.SimulationApplicationRobotSoftwareSuiteVersion>;
     }
 
     /**
@@ -23864,7 +24127,7 @@ export namespace robomaker {
         /**
          * The version of the simulation software suite.
          */
-        version: pulumi.Input<enums.robomaker.SimulationApplicationSimulationSoftwareSuiteVersion>;
+        version?: pulumi.Input<enums.robomaker.SimulationApplicationSimulationSoftwareSuiteVersion>;
     }
 
     /**
@@ -26910,6 +27173,13 @@ export namespace sagemaker {
         securityConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreSecurityConfigArgs>;
     }
 
+    export interface ParallelismConfigurationPropertiesArgs {
+        /**
+         * Maximum parallel execution steps
+         */
+        maxParallelExecutionSteps: pulumi.Input<number>;
+    }
+
     export interface PipelineTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -27457,6 +27727,11 @@ export namespace ssm {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface MaintenanceWindowTaskCloudWatchOutputConfigArgs {
+        cloudWatchLogGroupName?: pulumi.Input<string>;
+        cloudWatchOutputEnabled?: pulumi.Input<boolean>;
+    }
+
     export interface MaintenanceWindowTaskLoggingInfoArgs {
         region: pulumi.Input<string>;
         s3Bucket: pulumi.Input<string>;
@@ -27475,9 +27750,11 @@ export namespace ssm {
     }
 
     export interface MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs {
+        cloudWatchOutputConfig?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskCloudWatchOutputConfigArgs>;
         comment?: pulumi.Input<string>;
         documentHash?: pulumi.Input<string>;
         documentHashType?: pulumi.Input<string>;
+        documentVersion?: pulumi.Input<string>;
         notificationConfig?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskNotificationConfigArgs>;
         outputS3BucketName?: pulumi.Input<string>;
         outputS3KeyPrefix?: pulumi.Input<string>;

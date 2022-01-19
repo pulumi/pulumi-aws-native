@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     public sealed class ResolverCachingConfig
     {
         public readonly ImmutableArray<string> CachingKeys;
-        public readonly double? Ttl;
+        public readonly double Ttl;
 
         [OutputConstructor]
         private ResolverCachingConfig(
             ImmutableArray<string> cachingKeys,
 
-            double? ttl)
+            double ttl)
         {
             CachingKeys = cachingKeys;
             Ttl = ttl;

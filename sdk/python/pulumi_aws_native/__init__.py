@@ -181,6 +181,8 @@ if typing.TYPE_CHECKING:
     fis = __fis
     import pulumi_aws_native.fms as __fms
     fms = __fms
+    import pulumi_aws_native.forecast as __forecast
+    forecast = __forecast
     import pulumi_aws_native.frauddetector as __frauddetector
     frauddetector = __frauddetector
     import pulumi_aws_native.fsx as __fsx
@@ -470,6 +472,7 @@ else:
     finspace = _utilities.lazy_import('pulumi_aws_native.finspace')
     fis = _utilities.lazy_import('pulumi_aws_native.fis')
     fms = _utilities.lazy_import('pulumi_aws_native.fms')
+    forecast = _utilities.lazy_import('pulumi_aws_native.forecast')
     frauddetector = _utilities.lazy_import('pulumi_aws_native.frauddetector')
     fsx = _utilities.lazy_import('pulumi_aws_native.fsx')
     gamelift = _utilities.lazy_import('pulumi_aws_native.gamelift')
@@ -1521,6 +1524,15 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "forecast",
+  "fqn": "pulumi_aws_native.forecast",
+  "classes": {
+   "aws-native:forecast:Dataset": "Dataset",
+   "aws-native:forecast:DatasetGroup": "DatasetGroup"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "frauddetector",
   "fqn": "pulumi_aws_native.frauddetector",
   "classes": {
@@ -1954,6 +1966,8 @@ _utilities.register(
   "classes": {
    "aws-native:lightsail:Alarm": "Alarm",
    "aws-native:lightsail:Bucket": "Bucket",
+   "aws-native:lightsail:Certificate": "Certificate",
+   "aws-native:lightsail:Container": "Container",
    "aws-native:lightsail:Database": "Database",
    "aws-native:lightsail:Disk": "Disk",
    "aws-native:lightsail:Instance": "Instance",

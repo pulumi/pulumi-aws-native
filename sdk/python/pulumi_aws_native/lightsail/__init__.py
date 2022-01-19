@@ -8,6 +8,8 @@ import typing
 from ._enums import *
 from .alarm import *
 from .bucket import *
+from .certificate import *
+from .container import *
 from .database import *
 from .disk import *
 from .instance import *

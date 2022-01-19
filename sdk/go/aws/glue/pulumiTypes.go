@@ -1395,6 +1395,106 @@ func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTarget
 	}).(CrawlerJdbcTargetOutput)
 }
 
+type CrawlerMongoDBTarget struct {
+	ConnectionName *string `pulumi:"connectionName"`
+	Path           *string `pulumi:"path"`
+}
+
+// CrawlerMongoDBTargetInput is an input type that accepts CrawlerMongoDBTargetArgs and CrawlerMongoDBTargetOutput values.
+// You can construct a concrete instance of `CrawlerMongoDBTargetInput` via:
+//
+//          CrawlerMongoDBTargetArgs{...}
+type CrawlerMongoDBTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerMongoDBTargetOutput() CrawlerMongoDBTargetOutput
+	ToCrawlerMongoDBTargetOutputWithContext(context.Context) CrawlerMongoDBTargetOutput
+}
+
+type CrawlerMongoDBTargetArgs struct {
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	Path           pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CrawlerMongoDBTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerMongoDBTarget)(nil)).Elem()
+}
+
+func (i CrawlerMongoDBTargetArgs) ToCrawlerMongoDBTargetOutput() CrawlerMongoDBTargetOutput {
+	return i.ToCrawlerMongoDBTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerMongoDBTargetArgs) ToCrawlerMongoDBTargetOutputWithContext(ctx context.Context) CrawlerMongoDBTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDBTargetOutput)
+}
+
+// CrawlerMongoDBTargetArrayInput is an input type that accepts CrawlerMongoDBTargetArray and CrawlerMongoDBTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerMongoDBTargetArrayInput` via:
+//
+//          CrawlerMongoDBTargetArray{ CrawlerMongoDBTargetArgs{...} }
+type CrawlerMongoDBTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerMongoDBTargetArrayOutput() CrawlerMongoDBTargetArrayOutput
+	ToCrawlerMongoDBTargetArrayOutputWithContext(context.Context) CrawlerMongoDBTargetArrayOutput
+}
+
+type CrawlerMongoDBTargetArray []CrawlerMongoDBTargetInput
+
+func (CrawlerMongoDBTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerMongoDBTarget)(nil)).Elem()
+}
+
+func (i CrawlerMongoDBTargetArray) ToCrawlerMongoDBTargetArrayOutput() CrawlerMongoDBTargetArrayOutput {
+	return i.ToCrawlerMongoDBTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerMongoDBTargetArray) ToCrawlerMongoDBTargetArrayOutputWithContext(ctx context.Context) CrawlerMongoDBTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDBTargetArrayOutput)
+}
+
+type CrawlerMongoDBTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerMongoDBTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerMongoDBTarget)(nil)).Elem()
+}
+
+func (o CrawlerMongoDBTargetOutput) ToCrawlerMongoDBTargetOutput() CrawlerMongoDBTargetOutput {
+	return o
+}
+
+func (o CrawlerMongoDBTargetOutput) ToCrawlerMongoDBTargetOutputWithContext(ctx context.Context) CrawlerMongoDBTargetOutput {
+	return o
+}
+
+func (o CrawlerMongoDBTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerMongoDBTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerMongoDBTargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerMongoDBTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerMongoDBTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerMongoDBTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerMongoDBTarget)(nil)).Elem()
+}
+
+func (o CrawlerMongoDBTargetArrayOutput) ToCrawlerMongoDBTargetArrayOutput() CrawlerMongoDBTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerMongoDBTargetArrayOutput) ToCrawlerMongoDBTargetArrayOutputWithContext(ctx context.Context) CrawlerMongoDBTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerMongoDBTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongoDBTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerMongoDBTarget {
+		return vs[0].([]CrawlerMongoDBTarget)[vs[1].(int)]
+	}).(CrawlerMongoDBTargetOutput)
+}
+
 type CrawlerRecrawlPolicy struct {
 	RecrawlBehavior *string `pulumi:"recrawlBehavior"`
 }
@@ -1529,9 +1629,12 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 }
 
 type CrawlerS3Target struct {
-	ConnectionName *string  `pulumi:"connectionName"`
-	Exclusions     []string `pulumi:"exclusions"`
-	Path           *string  `pulumi:"path"`
+	ConnectionName   *string  `pulumi:"connectionName"`
+	DlqEventQueueArn *string  `pulumi:"dlqEventQueueArn"`
+	EventQueueArn    *string  `pulumi:"eventQueueArn"`
+	Exclusions       []string `pulumi:"exclusions"`
+	Path             *string  `pulumi:"path"`
+	SampleSize       *int     `pulumi:"sampleSize"`
 }
 
 // CrawlerS3TargetInput is an input type that accepts CrawlerS3TargetArgs and CrawlerS3TargetOutput values.
@@ -1546,9 +1649,12 @@ type CrawlerS3TargetInput interface {
 }
 
 type CrawlerS3TargetArgs struct {
-	ConnectionName pulumi.StringPtrInput   `pulumi:"connectionName"`
-	Exclusions     pulumi.StringArrayInput `pulumi:"exclusions"`
-	Path           pulumi.StringPtrInput   `pulumi:"path"`
+	ConnectionName   pulumi.StringPtrInput   `pulumi:"connectionName"`
+	DlqEventQueueArn pulumi.StringPtrInput   `pulumi:"dlqEventQueueArn"`
+	EventQueueArn    pulumi.StringPtrInput   `pulumi:"eventQueueArn"`
+	Exclusions       pulumi.StringArrayInput `pulumi:"exclusions"`
+	Path             pulumi.StringPtrInput   `pulumi:"path"`
+	SampleSize       pulumi.IntPtrInput      `pulumi:"sampleSize"`
 }
 
 func (CrawlerS3TargetArgs) ElementType() reflect.Type {
@@ -1606,12 +1712,24 @@ func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
+func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
+}
+
 func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
 func (o CrawlerS3TargetOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerS3TargetOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
 }
 
 type CrawlerS3TargetArrayOutput struct{ *pulumi.OutputState }
@@ -1919,6 +2037,7 @@ type CrawlerTargets struct {
 	CatalogTargets  []CrawlerCatalogTarget  `pulumi:"catalogTargets"`
 	DynamoDBTargets []CrawlerDynamoDBTarget `pulumi:"dynamoDBTargets"`
 	JdbcTargets     []CrawlerJdbcTarget     `pulumi:"jdbcTargets"`
+	MongoDBTargets  []CrawlerMongoDBTarget  `pulumi:"mongoDBTargets"`
 	S3Targets       []CrawlerS3Target       `pulumi:"s3Targets"`
 }
 
@@ -1937,6 +2056,7 @@ type CrawlerTargetsArgs struct {
 	CatalogTargets  CrawlerCatalogTargetArrayInput  `pulumi:"catalogTargets"`
 	DynamoDBTargets CrawlerDynamoDBTargetArrayInput `pulumi:"dynamoDBTargets"`
 	JdbcTargets     CrawlerJdbcTargetArrayInput     `pulumi:"jdbcTargets"`
+	MongoDBTargets  CrawlerMongoDBTargetArrayInput  `pulumi:"mongoDBTargets"`
 	S3Targets       CrawlerS3TargetArrayInput       `pulumi:"s3Targets"`
 }
 
@@ -2029,6 +2149,10 @@ func (o CrawlerTargetsOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerJdbcTarget { return v.JdbcTargets }).(CrawlerJdbcTargetArrayOutput)
 }
 
+func (o CrawlerTargetsOutput) MongoDBTargets() CrawlerMongoDBTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerMongoDBTarget { return v.MongoDBTargets }).(CrawlerMongoDBTargetArrayOutput)
+}
+
 func (o CrawlerTargetsOutput) S3Targets() CrawlerS3TargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerS3Target { return v.S3Targets }).(CrawlerS3TargetArrayOutput)
 }
@@ -2082,6 +2206,15 @@ func (o CrawlerTargetsPtrOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 		}
 		return v.JdbcTargets
 	}).(CrawlerJdbcTargetArrayOutput)
+}
+
+func (o CrawlerTargetsPtrOutput) MongoDBTargets() CrawlerMongoDBTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerMongoDBTarget {
+		if v == nil {
+			return nil
+		}
+		return v.MongoDBTargets
+	}).(CrawlerMongoDBTargetArrayOutput)
 }
 
 func (o CrawlerTargetsPtrOutput) S3Targets() CrawlerS3TargetArrayOutput {
@@ -9347,6 +9480,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDBTargetArrayInput)(nil)).Elem(), CrawlerDynamoDBTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetArrayInput)(nil)).Elem(), CrawlerJdbcTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDBTargetInput)(nil)).Elem(), CrawlerMongoDBTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDBTargetArrayInput)(nil)).Elem(), CrawlerMongoDBTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerRecrawlPolicyInput)(nil)).Elem(), CrawlerRecrawlPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerRecrawlPolicyPtrInput)(nil)).Elem(), CrawlerRecrawlPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerS3TargetInput)(nil)).Elem(), CrawlerS3TargetArgs{})
@@ -9469,6 +9604,8 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerDynamoDBTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerMongoDBTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerMongoDBTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerRecrawlPolicyOutput{})
 	pulumi.RegisterOutputType(CrawlerRecrawlPolicyPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerS3TargetOutput{})

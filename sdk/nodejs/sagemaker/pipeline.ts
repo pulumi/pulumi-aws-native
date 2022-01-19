@@ -35,6 +35,7 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    public readonly parallelismConfiguration!: pulumi.Output<outputs.sagemaker.ParallelismConfigurationProperties | undefined>;
     public readonly pipelineDefinition!: pulumi.Output<any>;
     /**
      * The description of the Pipeline.
@@ -71,6 +72,7 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["parallelismConfiguration"] = args ? args.parallelismConfiguration : undefined;
             inputs["pipelineDefinition"] = args ? args.pipelineDefinition : undefined;
             inputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
             inputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
@@ -78,6 +80,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         } else {
+            inputs["parallelismConfiguration"] = undefined /*out*/;
             inputs["pipelineDefinition"] = undefined /*out*/;
             inputs["pipelineDescription"] = undefined /*out*/;
             inputs["pipelineDisplayName"] = undefined /*out*/;
@@ -96,6 +99,7 @@ export class Pipeline extends pulumi.CustomResource {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    parallelismConfiguration?: pulumi.Input<inputs.sagemaker.ParallelismConfigurationPropertiesArgs>;
     pipelineDefinition: any;
     /**
      * The description of the Pipeline.

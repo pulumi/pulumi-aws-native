@@ -25,10 +25,11 @@ export type SimulationApplicationRenderingEngineName = (typeof SimulationApplica
 export const SimulationApplicationRobotSoftwareSuiteName = {
     Ros: "ROS",
     Ros2: "ROS2",
+    General: "General",
 } as const;
 
 /**
- * The name of the robot software suite (ROS distribution).
+ * The name of the robot software suite.
  */
 export type SimulationApplicationRobotSoftwareSuiteName = (typeof SimulationApplicationRobotSoftwareSuiteName)[keyof typeof SimulationApplicationRobotSoftwareSuiteName];
 
@@ -40,13 +41,14 @@ export const SimulationApplicationRobotSoftwareSuiteVersion = {
 } as const;
 
 /**
- * The version of the robot software suite (ROS distribution).
+ * The version of the robot software suite.
  */
 export type SimulationApplicationRobotSoftwareSuiteVersion = (typeof SimulationApplicationRobotSoftwareSuiteVersion)[keyof typeof SimulationApplicationRobotSoftwareSuiteVersion];
 
 export const SimulationApplicationSimulationSoftwareSuiteName = {
     Gazebo: "Gazebo",
     RosbagPlay: "RosbagPlay",
+    SimulationRuntime: "SimulationRuntime",
 } as const;
 
 /**

@@ -145,32 +145,33 @@ class SimulationApplicationRenderingEngine(dict):
 @pulumi.output_type
 class SimulationApplicationRobotSoftwareSuite(dict):
     """
-    Information about a robot software suite (ROS distribution).
+    Information about a robot software suite.
     """
     def __init__(__self__, *,
                  name: 'SimulationApplicationRobotSoftwareSuiteName',
-                 version: 'SimulationApplicationRobotSoftwareSuiteVersion'):
+                 version: Optional['SimulationApplicationRobotSoftwareSuiteVersion'] = None):
         """
-        Information about a robot software suite (ROS distribution).
-        :param 'SimulationApplicationRobotSoftwareSuiteName' name: The name of the robot software suite (ROS distribution).
-        :param 'SimulationApplicationRobotSoftwareSuiteVersion' version: The version of the robot software suite (ROS distribution).
+        Information about a robot software suite.
+        :param 'SimulationApplicationRobotSoftwareSuiteName' name: The name of the robot software suite.
+        :param 'SimulationApplicationRobotSoftwareSuiteVersion' version: The version of the robot software suite.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
     def name(self) -> 'SimulationApplicationRobotSoftwareSuiteName':
         """
-        The name of the robot software suite (ROS distribution).
+        The name of the robot software suite.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def version(self) -> 'SimulationApplicationRobotSoftwareSuiteVersion':
+    def version(self) -> Optional['SimulationApplicationRobotSoftwareSuiteVersion']:
         """
-        The version of the robot software suite (ROS distribution).
+        The version of the robot software suite.
         """
         return pulumi.get(self, "version")
 
@@ -182,14 +183,15 @@ class SimulationApplicationSimulationSoftwareSuite(dict):
     """
     def __init__(__self__, *,
                  name: 'SimulationApplicationSimulationSoftwareSuiteName',
-                 version: 'SimulationApplicationSimulationSoftwareSuiteVersion'):
+                 version: Optional['SimulationApplicationSimulationSoftwareSuiteVersion'] = None):
         """
         Information about a simulation software suite.
         :param 'SimulationApplicationSimulationSoftwareSuiteName' name: The name of the simulation software suite.
         :param 'SimulationApplicationSimulationSoftwareSuiteVersion' version: The version of the simulation software suite.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -201,7 +203,7 @@ class SimulationApplicationSimulationSoftwareSuite(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> 'SimulationApplicationSimulationSoftwareSuiteVersion':
+    def version(self) -> Optional['SimulationApplicationSimulationSoftwareSuiteVersion']:
         """
         The version of the simulation software suite.
         """

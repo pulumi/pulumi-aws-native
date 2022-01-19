@@ -53,7 +53,7 @@ export class SimulationApplication extends pulumi.CustomResource {
      */
     public readonly renderingEngine!: pulumi.Output<outputs.robomaker.SimulationApplicationRenderingEngine | undefined>;
     /**
-     * The robot software suite (ROS distribution) used by the simulation application.
+     * The robot software suite used by the simulation application.
      */
     public readonly robotSoftwareSuite!: pulumi.Output<outputs.robomaker.SimulationApplicationRobotSoftwareSuite>;
     /**
@@ -131,7 +131,7 @@ export interface SimulationApplicationArgs {
      */
     renderingEngine?: pulumi.Input<inputs.robomaker.SimulationApplicationRenderingEngineArgs>;
     /**
-     * The robot software suite (ROS distribution) used by the simulation application.
+     * The robot software suite used by the simulation application.
      */
     robotSoftwareSuite: pulumi.Input<inputs.robomaker.SimulationApplicationRobotSoftwareSuiteArgs>;
     /**

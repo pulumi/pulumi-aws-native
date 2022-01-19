@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
     public sealed class DestinationOptionsPropertiesArgs : Pulumi.ResourceArgs
     {
-        [Input("fileFormat")]
-        public Input<Pulumi.AwsNative.EC2.FlowLogDestinationOptionsPropertiesFileFormat>? FileFormat { get; set; }
+        [Input("fileFormat", required: true)]
+        public Input<Pulumi.AwsNative.EC2.FlowLogDestinationOptionsPropertiesFileFormat> FileFormat { get; set; } = null!;
 
         [Input("hiveCompatiblePartitions", required: true)]
         public Input<bool> HiveCompatiblePartitions { get; set; } = null!;

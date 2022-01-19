@@ -36,6 +36,14 @@ namespace Pulumi.AwsNative.Glue.Inputs
             set => _jdbcTargets = value;
         }
 
+        [Input("mongoDBTargets")]
+        private InputList<Inputs.CrawlerMongoDBTargetArgs>? _mongoDBTargets;
+        public InputList<Inputs.CrawlerMongoDBTargetArgs> MongoDBTargets
+        {
+            get => _mongoDBTargets ?? (_mongoDBTargets = new InputList<Inputs.CrawlerMongoDBTargetArgs>());
+            set => _mongoDBTargets = value;
+        }
+
         [Input("s3Targets")]
         private InputList<Inputs.CrawlerS3TargetArgs>? _s3Targets;
         public InputList<Inputs.CrawlerS3TargetArgs> S3Targets

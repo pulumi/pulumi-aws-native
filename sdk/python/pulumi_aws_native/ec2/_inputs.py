@@ -19,6 +19,7 @@ __all__ = [
     'ClientVpnEndpointCertificateAuthenticationRequestArgs',
     'ClientVpnEndpointClientAuthenticationRequestArgs',
     'ClientVpnEndpointClientConnectOptionsArgs',
+    'ClientVpnEndpointClientLoginBannerOptionsArgs',
     'ClientVpnEndpointConnectionLogOptionsArgs',
     'ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs',
     'ClientVpnEndpointFederatedAuthenticationRequestArgs',
@@ -511,6 +512,34 @@ class ClientVpnEndpointClientConnectOptionsArgs:
 
 
 @pulumi.input_type
+class ClientVpnEndpointClientLoginBannerOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 banner_text: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if banner_text is not None:
+            pulumi.set(__self__, "banner_text", banner_text)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="bannerText")
+    def banner_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "banner_text")
+
+    @banner_text.setter
+    def banner_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "banner_text", value)
+
+
+@pulumi.input_type
 class ClientVpnEndpointConnectionLogOptionsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -705,13 +734,21 @@ class DHCPOptionsTagArgs:
 @pulumi.input_type
 class DestinationOptionsPropertiesArgs:
     def __init__(__self__, *,
+                 file_format: pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat'],
                  hive_compatible_partitions: pulumi.Input[bool],
-                 per_hour_partition: pulumi.Input[bool],
-                 file_format: Optional[pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']] = None):
+                 per_hour_partition: pulumi.Input[bool]):
+        pulumi.set(__self__, "file_format", file_format)
         pulumi.set(__self__, "hive_compatible_partitions", hive_compatible_partitions)
         pulumi.set(__self__, "per_hour_partition", per_hour_partition)
-        if file_format is not None:
-            pulumi.set(__self__, "file_format", file_format)
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']:
+        return pulumi.get(self, "file_format")
+
+    @file_format.setter
+    def file_format(self, value: pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']):
+        pulumi.set(self, "file_format", value)
 
     @property
     @pulumi.getter(name="hiveCompatiblePartitions")
@@ -730,15 +767,6 @@ class DestinationOptionsPropertiesArgs:
     @per_hour_partition.setter
     def per_hour_partition(self, value: pulumi.Input[bool]):
         pulumi.set(self, "per_hour_partition", value)
-
-    @property
-    @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']]:
-        return pulumi.get(self, "file_format")
-
-    @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']]):
-        pulumi.set(self, "file_format", value)
 
 
 @pulumi.input_type

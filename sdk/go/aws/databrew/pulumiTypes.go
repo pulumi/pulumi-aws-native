@@ -3797,8 +3797,9 @@ func (o JobOutputFormatOptionsPtrOutput) Csv() JobCsvOutputOptionsPtrOutput {
 
 // Output location
 type JobOutputLocation struct {
-	Bucket string  `pulumi:"bucket"`
-	Key    *string `pulumi:"key"`
+	Bucket      string  `pulumi:"bucket"`
+	BucketOwner *string `pulumi:"bucketOwner"`
+	Key         *string `pulumi:"key"`
 }
 
 // JobOutputLocationInput is an input type that accepts JobOutputLocationArgs and JobOutputLocationOutput values.
@@ -3814,8 +3815,9 @@ type JobOutputLocationInput interface {
 
 // Output location
 type JobOutputLocationArgs struct {
-	Bucket pulumi.StringInput    `pulumi:"bucket"`
-	Key    pulumi.StringPtrInput `pulumi:"key"`
+	Bucket      pulumi.StringInput    `pulumi:"bucket"`
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (JobOutputLocationArgs) ElementType() reflect.Type {
@@ -3900,6 +3902,10 @@ func (o JobOutputLocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputLocation) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+func (o JobOutputLocationOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobOutputLocation) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
 func (o JobOutputLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobOutputLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -3934,6 +3940,15 @@ func (o JobOutputLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobOutputLocationPtrOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobOutputLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwner
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4327,8 +4342,9 @@ func (o JobRecipePtrOutput) Version() pulumi.StringPtrOutput {
 
 // S3 Output location
 type JobS3Location struct {
-	Bucket string  `pulumi:"bucket"`
-	Key    *string `pulumi:"key"`
+	Bucket      string  `pulumi:"bucket"`
+	BucketOwner *string `pulumi:"bucketOwner"`
+	Key         *string `pulumi:"key"`
 }
 
 // JobS3LocationInput is an input type that accepts JobS3LocationArgs and JobS3LocationOutput values.
@@ -4344,8 +4360,9 @@ type JobS3LocationInput interface {
 
 // S3 Output location
 type JobS3LocationArgs struct {
-	Bucket pulumi.StringInput    `pulumi:"bucket"`
-	Key    pulumi.StringPtrInput `pulumi:"key"`
+	Bucket      pulumi.StringInput    `pulumi:"bucket"`
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (JobS3LocationArgs) ElementType() reflect.Type {
@@ -4430,6 +4447,10 @@ func (o JobS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v JobS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+func (o JobS3LocationOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobS3Location) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
 func (o JobS3LocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -4464,6 +4485,15 @@ func (o JobS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobS3LocationPtrOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwner
 	}).(pulumi.StringPtrOutput)
 }
 

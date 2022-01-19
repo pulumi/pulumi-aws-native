@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("autoScalingGroupName")]
         public Output<string> AutoScalingGroupName { get; private set; } = null!;
 
+        [Output("instanceReusePolicy")]
+        public Output<Outputs.WarmPoolInstanceReusePolicy?> InstanceReusePolicy { get; private set; } = null!;
+
         [Output("maxGroupPreparedCapacity")]
         public Output<int?> MaxGroupPreparedCapacity { get; private set; } = null!;
 
@@ -74,6 +77,9 @@ namespace Pulumi.AwsNative.AutoScaling
     {
         [Input("autoScalingGroupName", required: true)]
         public Input<string> AutoScalingGroupName { get; set; } = null!;
+
+        [Input("instanceReusePolicy")]
+        public Input<Inputs.WarmPoolInstanceReusePolicyArgs>? InstanceReusePolicy { get; set; }
 
         [Input("maxGroupPreparedCapacity")]
         public Input<int>? MaxGroupPreparedCapacity { get; set; }

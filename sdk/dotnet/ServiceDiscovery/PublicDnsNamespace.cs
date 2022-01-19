@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("hostedZoneId")]
+        public Output<string> HostedZoneId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

@@ -151,6 +151,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc'")
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
+            __props__.__dict__["hosted_zone_id"] = None
         super(PrivateDnsNamespace, __self__).__init__(
             'aws-native:servicediscovery:PrivateDnsNamespace',
             resource_name,
@@ -175,6 +176,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["hosted_zone_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
@@ -190,6 +192,11 @@ class PrivateDnsNamespace(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "hosted_zone_id")
 
     @property
     @pulumi.getter

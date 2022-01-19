@@ -44,6 +44,7 @@ export class FunctionConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
     public /*out*/ readonly functionId!: pulumi.Output<string>;
     public readonly functionVersion!: pulumi.Output<string>;
+    public readonly maxBatchSize!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly requestMappingTemplate!: pulumi.Output<string | undefined>;
     public readonly requestMappingTemplateS3Location!: pulumi.Output<string | undefined>;
@@ -77,6 +78,7 @@ export class FunctionConfiguration extends pulumi.CustomResource {
             inputs["dataSourceName"] = args ? args.dataSourceName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["functionVersion"] = args ? args.functionVersion : undefined;
+            inputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
             inputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
@@ -92,6 +94,7 @@ export class FunctionConfiguration extends pulumi.CustomResource {
             inputs["functionArn"] = undefined /*out*/;
             inputs["functionId"] = undefined /*out*/;
             inputs["functionVersion"] = undefined /*out*/;
+            inputs["maxBatchSize"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["requestMappingTemplate"] = undefined /*out*/;
             inputs["requestMappingTemplateS3Location"] = undefined /*out*/;
@@ -114,6 +117,7 @@ export interface FunctionConfigurationArgs {
     dataSourceName: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     functionVersion: pulumi.Input<string>;
+    maxBatchSize?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     requestMappingTemplate?: pulumi.Input<string>;
     requestMappingTemplateS3Location?: pulumi.Input<string>;

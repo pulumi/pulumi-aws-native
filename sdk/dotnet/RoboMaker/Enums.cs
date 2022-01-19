@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.RoboMaker
     }
 
     /// <summary>
-    /// The name of the robot software suite (ROS distribution).
+    /// The name of the robot software suite.
     /// </summary>
     [EnumType]
     public readonly struct SimulationApplicationRobotSoftwareSuiteName : IEquatable<SimulationApplicationRobotSoftwareSuiteName>
@@ -84,6 +84,7 @@ namespace Pulumi.AwsNative.RoboMaker
 
         public static SimulationApplicationRobotSoftwareSuiteName Ros { get; } = new SimulationApplicationRobotSoftwareSuiteName("ROS");
         public static SimulationApplicationRobotSoftwareSuiteName Ros2 { get; } = new SimulationApplicationRobotSoftwareSuiteName("ROS2");
+        public static SimulationApplicationRobotSoftwareSuiteName General { get; } = new SimulationApplicationRobotSoftwareSuiteName("General");
 
         public static bool operator ==(SimulationApplicationRobotSoftwareSuiteName left, SimulationApplicationRobotSoftwareSuiteName right) => left.Equals(right);
         public static bool operator !=(SimulationApplicationRobotSoftwareSuiteName left, SimulationApplicationRobotSoftwareSuiteName right) => !left.Equals(right);
@@ -101,7 +102,7 @@ namespace Pulumi.AwsNative.RoboMaker
     }
 
     /// <summary>
-    /// The version of the robot software suite (ROS distribution).
+    /// The version of the robot software suite.
     /// </summary>
     [EnumType]
     public readonly struct SimulationApplicationRobotSoftwareSuiteVersion : IEquatable<SimulationApplicationRobotSoftwareSuiteVersion>
@@ -148,6 +149,7 @@ namespace Pulumi.AwsNative.RoboMaker
 
         public static SimulationApplicationSimulationSoftwareSuiteName Gazebo { get; } = new SimulationApplicationSimulationSoftwareSuiteName("Gazebo");
         public static SimulationApplicationSimulationSoftwareSuiteName RosbagPlay { get; } = new SimulationApplicationSimulationSoftwareSuiteName("RosbagPlay");
+        public static SimulationApplicationSimulationSoftwareSuiteName SimulationRuntime { get; } = new SimulationApplicationSimulationSoftwareSuiteName("SimulationRuntime");
 
         public static bool operator ==(SimulationApplicationSimulationSoftwareSuiteName left, SimulationApplicationSimulationSoftwareSuiteName right) => left.Equals(right);
         public static bool operator !=(SimulationApplicationSimulationSoftwareSuiteName left, SimulationApplicationSimulationSoftwareSuiteName right) => !left.Equals(right);

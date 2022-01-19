@@ -278,6 +278,1238 @@ func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
 	}).(BucketTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type CertificateTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// CertificateTagInput is an input type that accepts CertificateTagArgs and CertificateTagOutput values.
+// You can construct a concrete instance of `CertificateTagInput` via:
+//
+//          CertificateTagArgs{...}
+type CertificateTagInput interface {
+	pulumi.Input
+
+	ToCertificateTagOutput() CertificateTagOutput
+	ToCertificateTagOutputWithContext(context.Context) CertificateTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CertificateTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (CertificateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
+}
+
+func (i CertificateTagArgs) ToCertificateTagOutput() CertificateTagOutput {
+	return i.ToCertificateTagOutputWithContext(context.Background())
+}
+
+func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagOutput)
+}
+
+// CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
+// You can construct a concrete instance of `CertificateTagArrayInput` via:
+//
+//          CertificateTagArray{ CertificateTagArgs{...} }
+type CertificateTagArrayInput interface {
+	pulumi.Input
+
+	ToCertificateTagArrayOutput() CertificateTagArrayOutput
+	ToCertificateTagArrayOutputWithContext(context.Context) CertificateTagArrayOutput
+}
+
+type CertificateTagArray []CertificateTagInput
+
+func (CertificateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
+}
+
+func (i CertificateTagArray) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
+	return i.ToCertificateTagArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateTagArray) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CertificateTagOutput struct{ *pulumi.OutputState }
+
+func (CertificateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
+}
+
+func (o CertificateTagOutput) ToCertificateTagOutput() CertificateTagOutput {
+	return o
+}
+
+func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CertificateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CertificateTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type CertificateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
+}
+
+func (o CertificateTagArrayOutput) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
+	return o
+}
+
+func (o CertificateTagArrayOutput) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
+	return o
+}
+
+func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateTag {
+		return vs[0].([]CertificateTag)[vs[1].(int)]
+	}).(CertificateTagOutput)
+}
+
+// Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+type ContainerType struct {
+	// The launch command for the container.
+	Command []string `pulumi:"command"`
+	// The name of the container.
+	ContainerName *string `pulumi:"containerName"`
+	// The environment variables of the container.
+	Environment []ContainerEnvironmentVariable `pulumi:"environment"`
+	// The name of the image used for the container.
+	Image *string `pulumi:"image"`
+	// The open firewall ports of the container.
+	Ports []ContainerPortInfo `pulumi:"ports"`
+}
+
+// ContainerTypeInput is an input type that accepts ContainerTypeArgs and ContainerTypeOutput values.
+// You can construct a concrete instance of `ContainerTypeInput` via:
+//
+//          ContainerTypeArgs{...}
+type ContainerTypeInput interface {
+	pulumi.Input
+
+	ToContainerTypeOutput() ContainerTypeOutput
+	ToContainerTypeOutputWithContext(context.Context) ContainerTypeOutput
+}
+
+// Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+type ContainerTypeArgs struct {
+	// The launch command for the container.
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// The name of the container.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// The environment variables of the container.
+	Environment ContainerEnvironmentVariableArrayInput `pulumi:"environment"`
+	// The name of the image used for the container.
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// The open firewall ports of the container.
+	Ports ContainerPortInfoArrayInput `pulumi:"ports"`
+}
+
+func (ContainerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerType)(nil)).Elem()
+}
+
+func (i ContainerTypeArgs) ToContainerTypeOutput() ContainerTypeOutput {
+	return i.ToContainerTypeOutputWithContext(context.Background())
+}
+
+func (i ContainerTypeArgs) ToContainerTypeOutputWithContext(ctx context.Context) ContainerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerTypeOutput)
+}
+
+// ContainerTypeArrayInput is an input type that accepts ContainerTypeArray and ContainerTypeArrayOutput values.
+// You can construct a concrete instance of `ContainerTypeArrayInput` via:
+//
+//          ContainerTypeArray{ ContainerTypeArgs{...} }
+type ContainerTypeArrayInput interface {
+	pulumi.Input
+
+	ToContainerTypeArrayOutput() ContainerTypeArrayOutput
+	ToContainerTypeArrayOutputWithContext(context.Context) ContainerTypeArrayOutput
+}
+
+type ContainerTypeArray []ContainerTypeInput
+
+func (ContainerTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerType)(nil)).Elem()
+}
+
+func (i ContainerTypeArray) ToContainerTypeArrayOutput() ContainerTypeArrayOutput {
+	return i.ToContainerTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerTypeArray) ToContainerTypeArrayOutputWithContext(ctx context.Context) ContainerTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerTypeArrayOutput)
+}
+
+// Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+type ContainerTypeOutput struct{ *pulumi.OutputState }
+
+func (ContainerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerType)(nil)).Elem()
+}
+
+func (o ContainerTypeOutput) ToContainerTypeOutput() ContainerTypeOutput {
+	return o
+}
+
+func (o ContainerTypeOutput) ToContainerTypeOutputWithContext(ctx context.Context) ContainerTypeOutput {
+	return o
+}
+
+// The launch command for the container.
+func (o ContainerTypeOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerType) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+// The name of the container.
+func (o ContainerTypeOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerType) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// The environment variables of the container.
+func (o ContainerTypeOutput) Environment() ContainerEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v ContainerType) []ContainerEnvironmentVariable { return v.Environment }).(ContainerEnvironmentVariableArrayOutput)
+}
+
+// The name of the image used for the container.
+func (o ContainerTypeOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerType) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// The open firewall ports of the container.
+func (o ContainerTypeOutput) Ports() ContainerPortInfoArrayOutput {
+	return o.ApplyT(func(v ContainerType) []ContainerPortInfo { return v.Ports }).(ContainerPortInfoArrayOutput)
+}
+
+type ContainerTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerType)(nil)).Elem()
+}
+
+func (o ContainerTypeArrayOutput) ToContainerTypeArrayOutput() ContainerTypeArrayOutput {
+	return o
+}
+
+func (o ContainerTypeArrayOutput) ToContainerTypeArrayOutputWithContext(ctx context.Context) ContainerTypeArrayOutput {
+	return o
+}
+
+func (o ContainerTypeArrayOutput) Index(i pulumi.IntInput) ContainerTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerType {
+		return vs[0].([]ContainerType)[vs[1].(int)]
+	}).(ContainerTypeOutput)
+}
+
+type ContainerEnvironmentVariable struct {
+	Value    *string `pulumi:"value"`
+	Variable *string `pulumi:"variable"`
+}
+
+// ContainerEnvironmentVariableInput is an input type that accepts ContainerEnvironmentVariableArgs and ContainerEnvironmentVariableOutput values.
+// You can construct a concrete instance of `ContainerEnvironmentVariableInput` via:
+//
+//          ContainerEnvironmentVariableArgs{...}
+type ContainerEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToContainerEnvironmentVariableOutput() ContainerEnvironmentVariableOutput
+	ToContainerEnvironmentVariableOutputWithContext(context.Context) ContainerEnvironmentVariableOutput
+}
+
+type ContainerEnvironmentVariableArgs struct {
+	Value    pulumi.StringPtrInput `pulumi:"value"`
+	Variable pulumi.StringPtrInput `pulumi:"variable"`
+}
+
+func (ContainerEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ContainerEnvironmentVariableArgs) ToContainerEnvironmentVariableOutput() ContainerEnvironmentVariableOutput {
+	return i.ToContainerEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i ContainerEnvironmentVariableArgs) ToContainerEnvironmentVariableOutputWithContext(ctx context.Context) ContainerEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerEnvironmentVariableOutput)
+}
+
+// ContainerEnvironmentVariableArrayInput is an input type that accepts ContainerEnvironmentVariableArray and ContainerEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `ContainerEnvironmentVariableArrayInput` via:
+//
+//          ContainerEnvironmentVariableArray{ ContainerEnvironmentVariableArgs{...} }
+type ContainerEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToContainerEnvironmentVariableArrayOutput() ContainerEnvironmentVariableArrayOutput
+	ToContainerEnvironmentVariableArrayOutputWithContext(context.Context) ContainerEnvironmentVariableArrayOutput
+}
+
+type ContainerEnvironmentVariableArray []ContainerEnvironmentVariableInput
+
+func (ContainerEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ContainerEnvironmentVariableArray) ToContainerEnvironmentVariableArrayOutput() ContainerEnvironmentVariableArrayOutput {
+	return i.ToContainerEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerEnvironmentVariableArray) ToContainerEnvironmentVariableArrayOutputWithContext(ctx context.Context) ContainerEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerEnvironmentVariableArrayOutput)
+}
+
+type ContainerEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (ContainerEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ContainerEnvironmentVariableOutput) ToContainerEnvironmentVariableOutput() ContainerEnvironmentVariableOutput {
+	return o
+}
+
+func (o ContainerEnvironmentVariableOutput) ToContainerEnvironmentVariableOutputWithContext(ctx context.Context) ContainerEnvironmentVariableOutput {
+	return o
+}
+
+func (o ContainerEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerEnvironmentVariableOutput) Variable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEnvironmentVariable) *string { return v.Variable }).(pulumi.StringPtrOutput)
+}
+
+type ContainerEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ContainerEnvironmentVariableArrayOutput) ToContainerEnvironmentVariableArrayOutput() ContainerEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ContainerEnvironmentVariableArrayOutput) ToContainerEnvironmentVariableArrayOutputWithContext(ctx context.Context) ContainerEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ContainerEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ContainerEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerEnvironmentVariable {
+		return vs[0].([]ContainerEnvironmentVariable)[vs[1].(int)]
+	}).(ContainerEnvironmentVariableOutput)
+}
+
+// Describes the health check configuration of an Amazon Lightsail container service.
+type ContainerHealthCheckConfig struct {
+	// The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
+	HealthyThreshold *int `pulumi:"healthyThreshold"`
+	// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
+	IntervalSeconds *int `pulumi:"intervalSeconds"`
+	// The path on the container on which to perform the health check. The default value is /.
+	Path *string `pulumi:"path"`
+	// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
+	SuccessCodes *string `pulumi:"successCodes"`
+	// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+	// The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
+	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
+}
+
+// ContainerHealthCheckConfigInput is an input type that accepts ContainerHealthCheckConfigArgs and ContainerHealthCheckConfigOutput values.
+// You can construct a concrete instance of `ContainerHealthCheckConfigInput` via:
+//
+//          ContainerHealthCheckConfigArgs{...}
+type ContainerHealthCheckConfigInput interface {
+	pulumi.Input
+
+	ToContainerHealthCheckConfigOutput() ContainerHealthCheckConfigOutput
+	ToContainerHealthCheckConfigOutputWithContext(context.Context) ContainerHealthCheckConfigOutput
+}
+
+// Describes the health check configuration of an Amazon Lightsail container service.
+type ContainerHealthCheckConfigArgs struct {
+	// The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
+	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
+	// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
+	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
+	// The path on the container on which to perform the health check. The default value is /.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
+	SuccessCodes pulumi.StringPtrInput `pulumi:"successCodes"`
+	// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+	// The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
+	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
+}
+
+func (ContainerHealthCheckConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerHealthCheckConfig)(nil)).Elem()
+}
+
+func (i ContainerHealthCheckConfigArgs) ToContainerHealthCheckConfigOutput() ContainerHealthCheckConfigOutput {
+	return i.ToContainerHealthCheckConfigOutputWithContext(context.Background())
+}
+
+func (i ContainerHealthCheckConfigArgs) ToContainerHealthCheckConfigOutputWithContext(ctx context.Context) ContainerHealthCheckConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerHealthCheckConfigOutput)
+}
+
+func (i ContainerHealthCheckConfigArgs) ToContainerHealthCheckConfigPtrOutput() ContainerHealthCheckConfigPtrOutput {
+	return i.ToContainerHealthCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerHealthCheckConfigArgs) ToContainerHealthCheckConfigPtrOutputWithContext(ctx context.Context) ContainerHealthCheckConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerHealthCheckConfigOutput).ToContainerHealthCheckConfigPtrOutputWithContext(ctx)
+}
+
+// ContainerHealthCheckConfigPtrInput is an input type that accepts ContainerHealthCheckConfigArgs, ContainerHealthCheckConfigPtr and ContainerHealthCheckConfigPtrOutput values.
+// You can construct a concrete instance of `ContainerHealthCheckConfigPtrInput` via:
+//
+//          ContainerHealthCheckConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerHealthCheckConfigPtrInput interface {
+	pulumi.Input
+
+	ToContainerHealthCheckConfigPtrOutput() ContainerHealthCheckConfigPtrOutput
+	ToContainerHealthCheckConfigPtrOutputWithContext(context.Context) ContainerHealthCheckConfigPtrOutput
+}
+
+type containerHealthCheckConfigPtrType ContainerHealthCheckConfigArgs
+
+func ContainerHealthCheckConfigPtr(v *ContainerHealthCheckConfigArgs) ContainerHealthCheckConfigPtrInput {
+	return (*containerHealthCheckConfigPtrType)(v)
+}
+
+func (*containerHealthCheckConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerHealthCheckConfig)(nil)).Elem()
+}
+
+func (i *containerHealthCheckConfigPtrType) ToContainerHealthCheckConfigPtrOutput() ContainerHealthCheckConfigPtrOutput {
+	return i.ToContainerHealthCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *containerHealthCheckConfigPtrType) ToContainerHealthCheckConfigPtrOutputWithContext(ctx context.Context) ContainerHealthCheckConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerHealthCheckConfigPtrOutput)
+}
+
+// Describes the health check configuration of an Amazon Lightsail container service.
+type ContainerHealthCheckConfigOutput struct{ *pulumi.OutputState }
+
+func (ContainerHealthCheckConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerHealthCheckConfig)(nil)).Elem()
+}
+
+func (o ContainerHealthCheckConfigOutput) ToContainerHealthCheckConfigOutput() ContainerHealthCheckConfigOutput {
+	return o
+}
+
+func (o ContainerHealthCheckConfigOutput) ToContainerHealthCheckConfigOutputWithContext(ctx context.Context) ContainerHealthCheckConfigOutput {
+	return o
+}
+
+func (o ContainerHealthCheckConfigOutput) ToContainerHealthCheckConfigPtrOutput() ContainerHealthCheckConfigPtrOutput {
+	return o.ToContainerHealthCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerHealthCheckConfigOutput) ToContainerHealthCheckConfigPtrOutputWithContext(ctx context.Context) ContainerHealthCheckConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerHealthCheckConfig) *ContainerHealthCheckConfig {
+		return &v
+	}).(ContainerHealthCheckConfigPtrOutput)
+}
+
+// The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
+func (o ContainerHealthCheckConfigOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerHealthCheckConfig) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
+func (o ContainerHealthCheckConfigOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerHealthCheckConfig) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The path on the container on which to perform the health check. The default value is /.
+func (o ContainerHealthCheckConfigOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerHealthCheckConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
+func (o ContainerHealthCheckConfigOutput) SuccessCodes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerHealthCheckConfig) *string { return v.SuccessCodes }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
+func (o ContainerHealthCheckConfigOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerHealthCheckConfig) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
+func (o ContainerHealthCheckConfigOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerHealthCheckConfig) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
+}
+
+type ContainerHealthCheckConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerHealthCheckConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerHealthCheckConfig)(nil)).Elem()
+}
+
+func (o ContainerHealthCheckConfigPtrOutput) ToContainerHealthCheckConfigPtrOutput() ContainerHealthCheckConfigPtrOutput {
+	return o
+}
+
+func (o ContainerHealthCheckConfigPtrOutput) ToContainerHealthCheckConfigPtrOutputWithContext(ctx context.Context) ContainerHealthCheckConfigPtrOutput {
+	return o
+}
+
+func (o ContainerHealthCheckConfigPtrOutput) Elem() ContainerHealthCheckConfigOutput {
+	return o.ApplyT(func(v *ContainerHealthCheckConfig) ContainerHealthCheckConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerHealthCheckConfig
+		return ret
+	}).(ContainerHealthCheckConfigOutput)
+}
+
+// The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
+func (o ContainerHealthCheckConfigPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
+func (o ContainerHealthCheckConfigPtrOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The path on the container on which to perform the health check. The default value is /.
+func (o ContainerHealthCheckConfigPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerHealthCheckConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
+func (o ContainerHealthCheckConfigPtrOutput) SuccessCodes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerHealthCheckConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessCodes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
+func (o ContainerHealthCheckConfigPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
+func (o ContainerHealthCheckConfigPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContainerPortInfo struct {
+	Port     *string `pulumi:"port"`
+	Protocol *string `pulumi:"protocol"`
+}
+
+// ContainerPortInfoInput is an input type that accepts ContainerPortInfoArgs and ContainerPortInfoOutput values.
+// You can construct a concrete instance of `ContainerPortInfoInput` via:
+//
+//          ContainerPortInfoArgs{...}
+type ContainerPortInfoInput interface {
+	pulumi.Input
+
+	ToContainerPortInfoOutput() ContainerPortInfoOutput
+	ToContainerPortInfoOutputWithContext(context.Context) ContainerPortInfoOutput
+}
+
+type ContainerPortInfoArgs struct {
+	Port     pulumi.StringPtrInput `pulumi:"port"`
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (ContainerPortInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPortInfo)(nil)).Elem()
+}
+
+func (i ContainerPortInfoArgs) ToContainerPortInfoOutput() ContainerPortInfoOutput {
+	return i.ToContainerPortInfoOutputWithContext(context.Background())
+}
+
+func (i ContainerPortInfoArgs) ToContainerPortInfoOutputWithContext(ctx context.Context) ContainerPortInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPortInfoOutput)
+}
+
+// ContainerPortInfoArrayInput is an input type that accepts ContainerPortInfoArray and ContainerPortInfoArrayOutput values.
+// You can construct a concrete instance of `ContainerPortInfoArrayInput` via:
+//
+//          ContainerPortInfoArray{ ContainerPortInfoArgs{...} }
+type ContainerPortInfoArrayInput interface {
+	pulumi.Input
+
+	ToContainerPortInfoArrayOutput() ContainerPortInfoArrayOutput
+	ToContainerPortInfoArrayOutputWithContext(context.Context) ContainerPortInfoArrayOutput
+}
+
+type ContainerPortInfoArray []ContainerPortInfoInput
+
+func (ContainerPortInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerPortInfo)(nil)).Elem()
+}
+
+func (i ContainerPortInfoArray) ToContainerPortInfoArrayOutput() ContainerPortInfoArrayOutput {
+	return i.ToContainerPortInfoArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerPortInfoArray) ToContainerPortInfoArrayOutputWithContext(ctx context.Context) ContainerPortInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPortInfoArrayOutput)
+}
+
+type ContainerPortInfoOutput struct{ *pulumi.OutputState }
+
+func (ContainerPortInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPortInfo)(nil)).Elem()
+}
+
+func (o ContainerPortInfoOutput) ToContainerPortInfoOutput() ContainerPortInfoOutput {
+	return o
+}
+
+func (o ContainerPortInfoOutput) ToContainerPortInfoOutputWithContext(ctx context.Context) ContainerPortInfoOutput {
+	return o
+}
+
+func (o ContainerPortInfoOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerPortInfo) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerPortInfoOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerPortInfo) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type ContainerPortInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerPortInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerPortInfo)(nil)).Elem()
+}
+
+func (o ContainerPortInfoArrayOutput) ToContainerPortInfoArrayOutput() ContainerPortInfoArrayOutput {
+	return o
+}
+
+func (o ContainerPortInfoArrayOutput) ToContainerPortInfoArrayOutputWithContext(ctx context.Context) ContainerPortInfoArrayOutput {
+	return o
+}
+
+func (o ContainerPortInfoArrayOutput) Index(i pulumi.IntInput) ContainerPortInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerPortInfo {
+		return vs[0].([]ContainerPortInfo)[vs[1].(int)]
+	}).(ContainerPortInfoOutput)
+}
+
+// The public domain name to use with the container service, such as example.com and www.example.com.
+type ContainerPublicDomainName struct {
+	CertificateName *string `pulumi:"certificateName"`
+	// An object that describes the configuration for the containers of the deployment.
+	DomainNames []string `pulumi:"domainNames"`
+}
+
+// ContainerPublicDomainNameInput is an input type that accepts ContainerPublicDomainNameArgs and ContainerPublicDomainNameOutput values.
+// You can construct a concrete instance of `ContainerPublicDomainNameInput` via:
+//
+//          ContainerPublicDomainNameArgs{...}
+type ContainerPublicDomainNameInput interface {
+	pulumi.Input
+
+	ToContainerPublicDomainNameOutput() ContainerPublicDomainNameOutput
+	ToContainerPublicDomainNameOutputWithContext(context.Context) ContainerPublicDomainNameOutput
+}
+
+// The public domain name to use with the container service, such as example.com and www.example.com.
+type ContainerPublicDomainNameArgs struct {
+	CertificateName pulumi.StringPtrInput `pulumi:"certificateName"`
+	// An object that describes the configuration for the containers of the deployment.
+	DomainNames pulumi.StringArrayInput `pulumi:"domainNames"`
+}
+
+func (ContainerPublicDomainNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPublicDomainName)(nil)).Elem()
+}
+
+func (i ContainerPublicDomainNameArgs) ToContainerPublicDomainNameOutput() ContainerPublicDomainNameOutput {
+	return i.ToContainerPublicDomainNameOutputWithContext(context.Background())
+}
+
+func (i ContainerPublicDomainNameArgs) ToContainerPublicDomainNameOutputWithContext(ctx context.Context) ContainerPublicDomainNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicDomainNameOutput)
+}
+
+// ContainerPublicDomainNameArrayInput is an input type that accepts ContainerPublicDomainNameArray and ContainerPublicDomainNameArrayOutput values.
+// You can construct a concrete instance of `ContainerPublicDomainNameArrayInput` via:
+//
+//          ContainerPublicDomainNameArray{ ContainerPublicDomainNameArgs{...} }
+type ContainerPublicDomainNameArrayInput interface {
+	pulumi.Input
+
+	ToContainerPublicDomainNameArrayOutput() ContainerPublicDomainNameArrayOutput
+	ToContainerPublicDomainNameArrayOutputWithContext(context.Context) ContainerPublicDomainNameArrayOutput
+}
+
+type ContainerPublicDomainNameArray []ContainerPublicDomainNameInput
+
+func (ContainerPublicDomainNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerPublicDomainName)(nil)).Elem()
+}
+
+func (i ContainerPublicDomainNameArray) ToContainerPublicDomainNameArrayOutput() ContainerPublicDomainNameArrayOutput {
+	return i.ToContainerPublicDomainNameArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerPublicDomainNameArray) ToContainerPublicDomainNameArrayOutputWithContext(ctx context.Context) ContainerPublicDomainNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicDomainNameArrayOutput)
+}
+
+// The public domain name to use with the container service, such as example.com and www.example.com.
+type ContainerPublicDomainNameOutput struct{ *pulumi.OutputState }
+
+func (ContainerPublicDomainNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPublicDomainName)(nil)).Elem()
+}
+
+func (o ContainerPublicDomainNameOutput) ToContainerPublicDomainNameOutput() ContainerPublicDomainNameOutput {
+	return o
+}
+
+func (o ContainerPublicDomainNameOutput) ToContainerPublicDomainNameOutputWithContext(ctx context.Context) ContainerPublicDomainNameOutput {
+	return o
+}
+
+func (o ContainerPublicDomainNameOutput) CertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerPublicDomainName) *string { return v.CertificateName }).(pulumi.StringPtrOutput)
+}
+
+// An object that describes the configuration for the containers of the deployment.
+func (o ContainerPublicDomainNameOutput) DomainNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerPublicDomainName) []string { return v.DomainNames }).(pulumi.StringArrayOutput)
+}
+
+type ContainerPublicDomainNameArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerPublicDomainNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerPublicDomainName)(nil)).Elem()
+}
+
+func (o ContainerPublicDomainNameArrayOutput) ToContainerPublicDomainNameArrayOutput() ContainerPublicDomainNameArrayOutput {
+	return o
+}
+
+func (o ContainerPublicDomainNameArrayOutput) ToContainerPublicDomainNameArrayOutputWithContext(ctx context.Context) ContainerPublicDomainNameArrayOutput {
+	return o
+}
+
+func (o ContainerPublicDomainNameArrayOutput) Index(i pulumi.IntInput) ContainerPublicDomainNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerPublicDomainName {
+		return vs[0].([]ContainerPublicDomainName)[vs[1].(int)]
+	}).(ContainerPublicDomainNameOutput)
+}
+
+// Describes the settings of a public endpoint for an Amazon Lightsail container service.
+type ContainerPublicEndpoint struct {
+	// The name of the container for the endpoint.
+	ContainerName *string `pulumi:"containerName"`
+	// The port of the container to which traffic is forwarded to.
+	ContainerPort *int `pulumi:"containerPort"`
+	// An object that describes the health check configuration of the container.
+	HealthCheckConfig *ContainerHealthCheckConfig `pulumi:"healthCheckConfig"`
+}
+
+// ContainerPublicEndpointInput is an input type that accepts ContainerPublicEndpointArgs and ContainerPublicEndpointOutput values.
+// You can construct a concrete instance of `ContainerPublicEndpointInput` via:
+//
+//          ContainerPublicEndpointArgs{...}
+type ContainerPublicEndpointInput interface {
+	pulumi.Input
+
+	ToContainerPublicEndpointOutput() ContainerPublicEndpointOutput
+	ToContainerPublicEndpointOutputWithContext(context.Context) ContainerPublicEndpointOutput
+}
+
+// Describes the settings of a public endpoint for an Amazon Lightsail container service.
+type ContainerPublicEndpointArgs struct {
+	// The name of the container for the endpoint.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// The port of the container to which traffic is forwarded to.
+	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
+	// An object that describes the health check configuration of the container.
+	HealthCheckConfig ContainerHealthCheckConfigPtrInput `pulumi:"healthCheckConfig"`
+}
+
+func (ContainerPublicEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPublicEndpoint)(nil)).Elem()
+}
+
+func (i ContainerPublicEndpointArgs) ToContainerPublicEndpointOutput() ContainerPublicEndpointOutput {
+	return i.ToContainerPublicEndpointOutputWithContext(context.Background())
+}
+
+func (i ContainerPublicEndpointArgs) ToContainerPublicEndpointOutputWithContext(ctx context.Context) ContainerPublicEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicEndpointOutput)
+}
+
+func (i ContainerPublicEndpointArgs) ToContainerPublicEndpointPtrOutput() ContainerPublicEndpointPtrOutput {
+	return i.ToContainerPublicEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerPublicEndpointArgs) ToContainerPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerPublicEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicEndpointOutput).ToContainerPublicEndpointPtrOutputWithContext(ctx)
+}
+
+// ContainerPublicEndpointPtrInput is an input type that accepts ContainerPublicEndpointArgs, ContainerPublicEndpointPtr and ContainerPublicEndpointPtrOutput values.
+// You can construct a concrete instance of `ContainerPublicEndpointPtrInput` via:
+//
+//          ContainerPublicEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerPublicEndpointPtrInput interface {
+	pulumi.Input
+
+	ToContainerPublicEndpointPtrOutput() ContainerPublicEndpointPtrOutput
+	ToContainerPublicEndpointPtrOutputWithContext(context.Context) ContainerPublicEndpointPtrOutput
+}
+
+type containerPublicEndpointPtrType ContainerPublicEndpointArgs
+
+func ContainerPublicEndpointPtr(v *ContainerPublicEndpointArgs) ContainerPublicEndpointPtrInput {
+	return (*containerPublicEndpointPtrType)(v)
+}
+
+func (*containerPublicEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPublicEndpoint)(nil)).Elem()
+}
+
+func (i *containerPublicEndpointPtrType) ToContainerPublicEndpointPtrOutput() ContainerPublicEndpointPtrOutput {
+	return i.ToContainerPublicEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *containerPublicEndpointPtrType) ToContainerPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerPublicEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicEndpointPtrOutput)
+}
+
+// Describes the settings of a public endpoint for an Amazon Lightsail container service.
+type ContainerPublicEndpointOutput struct{ *pulumi.OutputState }
+
+func (ContainerPublicEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPublicEndpoint)(nil)).Elem()
+}
+
+func (o ContainerPublicEndpointOutput) ToContainerPublicEndpointOutput() ContainerPublicEndpointOutput {
+	return o
+}
+
+func (o ContainerPublicEndpointOutput) ToContainerPublicEndpointOutputWithContext(ctx context.Context) ContainerPublicEndpointOutput {
+	return o
+}
+
+func (o ContainerPublicEndpointOutput) ToContainerPublicEndpointPtrOutput() ContainerPublicEndpointPtrOutput {
+	return o.ToContainerPublicEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerPublicEndpointOutput) ToContainerPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerPublicEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerPublicEndpoint) *ContainerPublicEndpoint {
+		return &v
+	}).(ContainerPublicEndpointPtrOutput)
+}
+
+// The name of the container for the endpoint.
+func (o ContainerPublicEndpointOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerPublicEndpoint) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// The port of the container to which traffic is forwarded to.
+func (o ContainerPublicEndpointOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerPublicEndpoint) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
+}
+
+// An object that describes the health check configuration of the container.
+func (o ContainerPublicEndpointOutput) HealthCheckConfig() ContainerHealthCheckConfigPtrOutput {
+	return o.ApplyT(func(v ContainerPublicEndpoint) *ContainerHealthCheckConfig { return v.HealthCheckConfig }).(ContainerHealthCheckConfigPtrOutput)
+}
+
+type ContainerPublicEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerPublicEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPublicEndpoint)(nil)).Elem()
+}
+
+func (o ContainerPublicEndpointPtrOutput) ToContainerPublicEndpointPtrOutput() ContainerPublicEndpointPtrOutput {
+	return o
+}
+
+func (o ContainerPublicEndpointPtrOutput) ToContainerPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerPublicEndpointPtrOutput {
+	return o
+}
+
+func (o ContainerPublicEndpointPtrOutput) Elem() ContainerPublicEndpointOutput {
+	return o.ApplyT(func(v *ContainerPublicEndpoint) ContainerPublicEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerPublicEndpoint
+		return ret
+	}).(ContainerPublicEndpointOutput)
+}
+
+// The name of the container for the endpoint.
+func (o ContainerPublicEndpointPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerPublicEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port of the container to which traffic is forwarded to.
+func (o ContainerPublicEndpointPtrOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerPublicEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// An object that describes the health check configuration of the container.
+func (o ContainerPublicEndpointPtrOutput) HealthCheckConfig() ContainerHealthCheckConfigPtrOutput {
+	return o.ApplyT(func(v *ContainerPublicEndpoint) *ContainerHealthCheckConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckConfig
+	}).(ContainerHealthCheckConfigPtrOutput)
+}
+
+// Describes a container deployment configuration of an Amazon Lightsail container service.
+type ContainerServiceDeployment struct {
+	// An object that describes the configuration for the containers of the deployment.
+	Containers []ContainerType `pulumi:"containers"`
+	// An object that describes the endpoint of the deployment.
+	PublicEndpoint *ContainerPublicEndpoint `pulumi:"publicEndpoint"`
+}
+
+// ContainerServiceDeploymentInput is an input type that accepts ContainerServiceDeploymentArgs and ContainerServiceDeploymentOutput values.
+// You can construct a concrete instance of `ContainerServiceDeploymentInput` via:
+//
+//          ContainerServiceDeploymentArgs{...}
+type ContainerServiceDeploymentInput interface {
+	pulumi.Input
+
+	ToContainerServiceDeploymentOutput() ContainerServiceDeploymentOutput
+	ToContainerServiceDeploymentOutputWithContext(context.Context) ContainerServiceDeploymentOutput
+}
+
+// Describes a container deployment configuration of an Amazon Lightsail container service.
+type ContainerServiceDeploymentArgs struct {
+	// An object that describes the configuration for the containers of the deployment.
+	Containers ContainerTypeArrayInput `pulumi:"containers"`
+	// An object that describes the endpoint of the deployment.
+	PublicEndpoint ContainerPublicEndpointPtrInput `pulumi:"publicEndpoint"`
+}
+
+func (ContainerServiceDeploymentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceDeployment)(nil)).Elem()
+}
+
+func (i ContainerServiceDeploymentArgs) ToContainerServiceDeploymentOutput() ContainerServiceDeploymentOutput {
+	return i.ToContainerServiceDeploymentOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceDeploymentArgs) ToContainerServiceDeploymentOutputWithContext(ctx context.Context) ContainerServiceDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentOutput)
+}
+
+func (i ContainerServiceDeploymentArgs) ToContainerServiceDeploymentPtrOutput() ContainerServiceDeploymentPtrOutput {
+	return i.ToContainerServiceDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceDeploymentArgs) ToContainerServiceDeploymentPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentOutput).ToContainerServiceDeploymentPtrOutputWithContext(ctx)
+}
+
+// ContainerServiceDeploymentPtrInput is an input type that accepts ContainerServiceDeploymentArgs, ContainerServiceDeploymentPtr and ContainerServiceDeploymentPtrOutput values.
+// You can construct a concrete instance of `ContainerServiceDeploymentPtrInput` via:
+//
+//          ContainerServiceDeploymentArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerServiceDeploymentPtrInput interface {
+	pulumi.Input
+
+	ToContainerServiceDeploymentPtrOutput() ContainerServiceDeploymentPtrOutput
+	ToContainerServiceDeploymentPtrOutputWithContext(context.Context) ContainerServiceDeploymentPtrOutput
+}
+
+type containerServiceDeploymentPtrType ContainerServiceDeploymentArgs
+
+func ContainerServiceDeploymentPtr(v *ContainerServiceDeploymentArgs) ContainerServiceDeploymentPtrInput {
+	return (*containerServiceDeploymentPtrType)(v)
+}
+
+func (*containerServiceDeploymentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceDeployment)(nil)).Elem()
+}
+
+func (i *containerServiceDeploymentPtrType) ToContainerServiceDeploymentPtrOutput() ContainerServiceDeploymentPtrOutput {
+	return i.ToContainerServiceDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *containerServiceDeploymentPtrType) ToContainerServiceDeploymentPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentPtrOutput)
+}
+
+// Describes a container deployment configuration of an Amazon Lightsail container service.
+type ContainerServiceDeploymentOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceDeployment)(nil)).Elem()
+}
+
+func (o ContainerServiceDeploymentOutput) ToContainerServiceDeploymentOutput() ContainerServiceDeploymentOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentOutput) ToContainerServiceDeploymentOutputWithContext(ctx context.Context) ContainerServiceDeploymentOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentOutput) ToContainerServiceDeploymentPtrOutput() ContainerServiceDeploymentPtrOutput {
+	return o.ToContainerServiceDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceDeploymentOutput) ToContainerServiceDeploymentPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDeployment) *ContainerServiceDeployment {
+		return &v
+	}).(ContainerServiceDeploymentPtrOutput)
+}
+
+// An object that describes the configuration for the containers of the deployment.
+func (o ContainerServiceDeploymentOutput) Containers() ContainerTypeArrayOutput {
+	return o.ApplyT(func(v ContainerServiceDeployment) []ContainerType { return v.Containers }).(ContainerTypeArrayOutput)
+}
+
+// An object that describes the endpoint of the deployment.
+func (o ContainerServiceDeploymentOutput) PublicEndpoint() ContainerPublicEndpointPtrOutput {
+	return o.ApplyT(func(v ContainerServiceDeployment) *ContainerPublicEndpoint { return v.PublicEndpoint }).(ContainerPublicEndpointPtrOutput)
+}
+
+type ContainerServiceDeploymentPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceDeployment)(nil)).Elem()
+}
+
+func (o ContainerServiceDeploymentPtrOutput) ToContainerServiceDeploymentPtrOutput() ContainerServiceDeploymentPtrOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentPtrOutput) ToContainerServiceDeploymentPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentPtrOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentPtrOutput) Elem() ContainerServiceDeploymentOutput {
+	return o.ApplyT(func(v *ContainerServiceDeployment) ContainerServiceDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceDeployment
+		return ret
+	}).(ContainerServiceDeploymentOutput)
+}
+
+// An object that describes the configuration for the containers of the deployment.
+func (o ContainerServiceDeploymentPtrOutput) Containers() ContainerTypeArrayOutput {
+	return o.ApplyT(func(v *ContainerServiceDeployment) []ContainerType {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(ContainerTypeArrayOutput)
+}
+
+// An object that describes the endpoint of the deployment.
+func (o ContainerServiceDeploymentPtrOutput) PublicEndpoint() ContainerPublicEndpointPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeployment) *ContainerPublicEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PublicEndpoint
+	}).(ContainerPublicEndpointPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ContainerTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// ContainerTagInput is an input type that accepts ContainerTagArgs and ContainerTagOutput values.
+// You can construct a concrete instance of `ContainerTagInput` via:
+//
+//          ContainerTagArgs{...}
+type ContainerTagInput interface {
+	pulumi.Input
+
+	ToContainerTagOutput() ContainerTagOutput
+	ToContainerTagOutputWithContext(context.Context) ContainerTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ContainerTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ContainerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerTag)(nil)).Elem()
+}
+
+func (i ContainerTagArgs) ToContainerTagOutput() ContainerTagOutput {
+	return i.ToContainerTagOutputWithContext(context.Background())
+}
+
+func (i ContainerTagArgs) ToContainerTagOutputWithContext(ctx context.Context) ContainerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerTagOutput)
+}
+
+// ContainerTagArrayInput is an input type that accepts ContainerTagArray and ContainerTagArrayOutput values.
+// You can construct a concrete instance of `ContainerTagArrayInput` via:
+//
+//          ContainerTagArray{ ContainerTagArgs{...} }
+type ContainerTagArrayInput interface {
+	pulumi.Input
+
+	ToContainerTagArrayOutput() ContainerTagArrayOutput
+	ToContainerTagArrayOutputWithContext(context.Context) ContainerTagArrayOutput
+}
+
+type ContainerTagArray []ContainerTagInput
+
+func (ContainerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerTag)(nil)).Elem()
+}
+
+func (i ContainerTagArray) ToContainerTagArrayOutput() ContainerTagArrayOutput {
+	return i.ToContainerTagArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerTagArray) ToContainerTagArrayOutputWithContext(ctx context.Context) ContainerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ContainerTagOutput struct{ *pulumi.OutputState }
+
+func (ContainerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerTag)(nil)).Elem()
+}
+
+func (o ContainerTagOutput) ToContainerTagOutput() ContainerTagOutput {
+	return o
+}
+
+func (o ContainerTagOutput) ToContainerTagOutputWithContext(ctx context.Context) ContainerTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ContainerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ContainerTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ContainerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerTag)(nil)).Elem()
+}
+
+func (o ContainerTagArrayOutput) ToContainerTagArrayOutput() ContainerTagArrayOutput {
+	return o
+}
+
+func (o ContainerTagArrayOutput) ToContainerTagArrayOutputWithContext(ctx context.Context) ContainerTagArrayOutput {
+	return o
+}
+
+func (o ContainerTagArrayOutput) Index(i pulumi.IntInput) ContainerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerTag {
+		return vs[0].([]ContainerTag)[vs[1].(int)]
+	}).(ContainerTagOutput)
+}
+
 // Describes the parameters of the database.
 type DatabaseRelationalDatabaseParameter struct {
 	// Specifies the valid range of values for the parameter.
@@ -2668,6 +3900,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessRulesPtrInput)(nil)).Elem(), BucketAccessRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagInput)(nil)).Elem(), CertificateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagArrayInput)(nil)).Elem(), CertificateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTypeInput)(nil)).Elem(), ContainerTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTypeArrayInput)(nil)).Elem(), ContainerTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerEnvironmentVariableInput)(nil)).Elem(), ContainerEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerEnvironmentVariableArrayInput)(nil)).Elem(), ContainerEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerHealthCheckConfigInput)(nil)).Elem(), ContainerHealthCheckConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerHealthCheckConfigPtrInput)(nil)).Elem(), ContainerHealthCheckConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPortInfoInput)(nil)).Elem(), ContainerPortInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPortInfoArrayInput)(nil)).Elem(), ContainerPortInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPublicDomainNameInput)(nil)).Elem(), ContainerPublicDomainNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPublicDomainNameArrayInput)(nil)).Elem(), ContainerPublicDomainNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPublicEndpointInput)(nil)).Elem(), ContainerPublicEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPublicEndpointPtrInput)(nil)).Elem(), ContainerPublicEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentInput)(nil)).Elem(), ContainerServiceDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentPtrInput)(nil)).Elem(), ContainerServiceDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTagInput)(nil)).Elem(), ContainerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTagArrayInput)(nil)).Elem(), ContainerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseRelationalDatabaseParameterInput)(nil)).Elem(), DatabaseRelationalDatabaseParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseRelationalDatabaseParameterArrayInput)(nil)).Elem(), DatabaseRelationalDatabaseParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
@@ -2706,6 +3956,24 @@ func init() {
 	pulumi.RegisterOutputType(BucketAccessRulesPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagOutput{})
 	pulumi.RegisterOutputType(BucketTagArrayOutput{})
+	pulumi.RegisterOutputType(CertificateTagOutput{})
+	pulumi.RegisterOutputType(CertificateTagArrayOutput{})
+	pulumi.RegisterOutputType(ContainerTypeOutput{})
+	pulumi.RegisterOutputType(ContainerTypeArrayOutput{})
+	pulumi.RegisterOutputType(ContainerEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(ContainerEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(ContainerHealthCheckConfigOutput{})
+	pulumi.RegisterOutputType(ContainerHealthCheckConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContainerPortInfoOutput{})
+	pulumi.RegisterOutputType(ContainerPortInfoArrayOutput{})
+	pulumi.RegisterOutputType(ContainerPublicDomainNameOutput{})
+	pulumi.RegisterOutputType(ContainerPublicDomainNameArrayOutput{})
+	pulumi.RegisterOutputType(ContainerPublicEndpointOutput{})
+	pulumi.RegisterOutputType(ContainerPublicEndpointPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceDeploymentOutput{})
+	pulumi.RegisterOutputType(ContainerServiceDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(ContainerTagOutput{})
+	pulumi.RegisterOutputType(ContainerTagArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseRelationalDatabaseParameterOutput{})
 	pulumi.RegisterOutputType(DatabaseRelationalDatabaseParameterArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseTagOutput{})

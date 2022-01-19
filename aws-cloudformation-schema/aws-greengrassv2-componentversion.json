@@ -19,7 +19,8 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/ComponentPlatform"
-          }
+          },
+          "insertionOrder" : false
         },
         "ComponentDependencies" : {
           "type" : "object",
@@ -74,7 +75,8 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/LambdaEventSource"
-          }
+          },
+          "insertionOrder" : false
         },
         "MaxQueueSize" : {
           "type" : "integer"
@@ -102,7 +104,8 @@
           "type" : "array",
           "items" : {
             "type" : "string"
-          }
+          },
+          "insertionOrder" : true
         },
         "EnvironmentVariables" : {
           "type" : "object",
@@ -158,13 +161,15 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/LambdaVolumeMount"
-          }
+          },
+          "insertionOrder" : false
         },
         "Devices" : {
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/LambdaDeviceMount"
-          }
+          },
+          "insertionOrder" : false
         }
       },
       "additionalProperties" : false

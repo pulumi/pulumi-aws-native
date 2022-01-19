@@ -1293,13 +1293,33 @@ class JobOutputLocation(dict):
     """
     Output location
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwner":
+            suggest = "bucket_owner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobOutputLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobOutputLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobOutputLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
+                 bucket_owner: Optional[str] = None,
                  key: Optional[str] = None):
         """
         Output location
         """
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -1307,6 +1327,11 @@ class JobOutputLocation(dict):
     @pulumi.getter
     def bucket(self) -> str:
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_owner")
 
     @property
     @pulumi.getter
@@ -1415,13 +1440,33 @@ class JobS3Location(dict):
     """
     S3 Output location
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwner":
+            suggest = "bucket_owner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobS3Location.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
+                 bucket_owner: Optional[str] = None,
                  key: Optional[str] = None):
         """
         S3 Output location
         """
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -1429,6 +1474,11 @@ class JobS3Location(dict):
     @pulumi.getter
     def bucket(self) -> str:
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_owner")
 
     @property
     @pulumi.getter

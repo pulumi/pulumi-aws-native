@@ -20,8 +20,8 @@ namespace Pulumi.AwsNative.AppSync.Inputs
             set => _cachingKeys = value;
         }
 
-        [Input("ttl")]
-        public Input<double>? Ttl { get; set; }
+        [Input("ttl", required: true)]
+        public Input<double> Ttl { get; set; } = null!;
 
         public ResolverCachingConfigArgs()
         {

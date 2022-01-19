@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.EC2
         [Output("clientConnectOptions")]
         public Output<Outputs.ClientVpnEndpointClientConnectOptions?> ClientConnectOptions { get; private set; } = null!;
 
+        [Output("clientLoginBannerOptions")]
+        public Output<Outputs.ClientVpnEndpointClientLoginBannerOptions?> ClientLoginBannerOptions { get; private set; } = null!;
+
         [Output("connectionLogOptions")]
         public Output<Outputs.ClientVpnEndpointConnectionLogOptions> ConnectionLogOptions { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Output("serverCertificateArn")]
         public Output<string> ServerCertificateArn { get; private set; } = null!;
+
+        [Output("sessionTimeoutHours")]
+        public Output<int?> SessionTimeoutHours { get; private set; } = null!;
 
         [Output("splitTunnel")]
         public Output<bool?> SplitTunnel { get; private set; } = null!;
@@ -117,6 +123,9 @@ namespace Pulumi.AwsNative.EC2
         [Input("clientConnectOptions")]
         public Input<Inputs.ClientVpnEndpointClientConnectOptionsArgs>? ClientConnectOptions { get; set; }
 
+        [Input("clientLoginBannerOptions")]
+        public Input<Inputs.ClientVpnEndpointClientLoginBannerOptionsArgs>? ClientLoginBannerOptions { get; set; }
+
         [Input("connectionLogOptions", required: true)]
         public Input<Inputs.ClientVpnEndpointConnectionLogOptionsArgs> ConnectionLogOptions { get; set; } = null!;
 
@@ -144,6 +153,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Input("serverCertificateArn", required: true)]
         public Input<string> ServerCertificateArn { get; set; } = null!;
+
+        [Input("sessionTimeoutHours")]
+        public Input<int>? SessionTimeoutHours { get; set; }
 
         [Input("splitTunnel")]
         public Input<bool>? SplitTunnel { get; set; }

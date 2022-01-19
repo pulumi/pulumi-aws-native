@@ -340,12 +340,13 @@ func (in *simulationApplicationRenderingEngineNamePtr) ToSimulationApplicationRe
 	return pulumi.ToOutputWithContext(ctx, in).(SimulationApplicationRenderingEngineNamePtrOutput)
 }
 
-// The name of the robot software suite (ROS distribution).
+// The name of the robot software suite.
 type SimulationApplicationRobotSoftwareSuiteName string
 
 const (
-	SimulationApplicationRobotSoftwareSuiteNameRos  = SimulationApplicationRobotSoftwareSuiteName("ROS")
-	SimulationApplicationRobotSoftwareSuiteNameRos2 = SimulationApplicationRobotSoftwareSuiteName("ROS2")
+	SimulationApplicationRobotSoftwareSuiteNameRos     = SimulationApplicationRobotSoftwareSuiteName("ROS")
+	SimulationApplicationRobotSoftwareSuiteNameRos2    = SimulationApplicationRobotSoftwareSuiteName("ROS2")
+	SimulationApplicationRobotSoftwareSuiteNameGeneral = SimulationApplicationRobotSoftwareSuiteName("General")
 )
 
 func (SimulationApplicationRobotSoftwareSuiteName) ElementType() reflect.Type {
@@ -505,7 +506,7 @@ func (in *simulationApplicationRobotSoftwareSuiteNamePtr) ToSimulationApplicatio
 	return pulumi.ToOutputWithContext(ctx, in).(SimulationApplicationRobotSoftwareSuiteNamePtrOutput)
 }
 
-// The version of the robot software suite (ROS distribution).
+// The version of the robot software suite.
 type SimulationApplicationRobotSoftwareSuiteVersion string
 
 const (
@@ -676,8 +677,9 @@ func (in *simulationApplicationRobotSoftwareSuiteVersionPtr) ToSimulationApplica
 type SimulationApplicationSimulationSoftwareSuiteName string
 
 const (
-	SimulationApplicationSimulationSoftwareSuiteNameGazebo     = SimulationApplicationSimulationSoftwareSuiteName("Gazebo")
-	SimulationApplicationSimulationSoftwareSuiteNameRosbagPlay = SimulationApplicationSimulationSoftwareSuiteName("RosbagPlay")
+	SimulationApplicationSimulationSoftwareSuiteNameGazebo            = SimulationApplicationSimulationSoftwareSuiteName("Gazebo")
+	SimulationApplicationSimulationSoftwareSuiteNameRosbagPlay        = SimulationApplicationSimulationSoftwareSuiteName("RosbagPlay")
+	SimulationApplicationSimulationSoftwareSuiteNameSimulationRuntime = SimulationApplicationSimulationSoftwareSuiteName("SimulationRuntime")
 )
 
 func (SimulationApplicationSimulationSoftwareSuiteName) ElementType() reflect.Type {

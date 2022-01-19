@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class DestinationOptionsProperties
     {
-        public readonly Pulumi.AwsNative.EC2.FlowLogDestinationOptionsPropertiesFileFormat? FileFormat;
+        public readonly Pulumi.AwsNative.EC2.FlowLogDestinationOptionsPropertiesFileFormat FileFormat;
         public readonly bool HiveCompatiblePartitions;
         public readonly bool PerHourPartition;
 
         [OutputConstructor]
         private DestinationOptionsProperties(
-            Pulumi.AwsNative.EC2.FlowLogDestinationOptionsPropertiesFileFormat? fileFormat,
+            Pulumi.AwsNative.EC2.FlowLogDestinationOptionsPropertiesFileFormat fileFormat,
 
             bool hiveCompatiblePartitions,
 

@@ -11,25 +11,25 @@ namespace Pulumi.AwsNative.RoboMaker.Outputs
 {
 
     /// <summary>
-    /// Information about a robot software suite (ROS distribution).
+    /// Information about a robot software suite.
     /// </summary>
     [OutputType]
     public sealed class SimulationApplicationRobotSoftwareSuite
     {
         /// <summary>
-        /// The name of the robot software suite (ROS distribution).
+        /// The name of the robot software suite.
         /// </summary>
         public readonly Pulumi.AwsNative.RoboMaker.SimulationApplicationRobotSoftwareSuiteName Name;
         /// <summary>
-        /// The version of the robot software suite (ROS distribution).
+        /// The version of the robot software suite.
         /// </summary>
-        public readonly Pulumi.AwsNative.RoboMaker.SimulationApplicationRobotSoftwareSuiteVersion Version;
+        public readonly Pulumi.AwsNative.RoboMaker.SimulationApplicationRobotSoftwareSuiteVersion? Version;
 
         [OutputConstructor]
         private SimulationApplicationRobotSoftwareSuite(
             Pulumi.AwsNative.RoboMaker.SimulationApplicationRobotSoftwareSuiteName name,
 
-            Pulumi.AwsNative.RoboMaker.SimulationApplicationRobotSoftwareSuiteVersion version)
+            Pulumi.AwsNative.RoboMaker.SimulationApplicationRobotSoftwareSuiteVersion? version)
         {
             Name = name;
             Version = version;

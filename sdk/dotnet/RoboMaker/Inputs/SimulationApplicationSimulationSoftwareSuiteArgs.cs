@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         /// <summary>
         /// The version of the simulation software suite.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<Pulumi.AwsNative.RoboMaker.SimulationApplicationSimulationSoftwareSuiteVersion> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<Pulumi.AwsNative.RoboMaker.SimulationApplicationSimulationSoftwareSuiteVersion>? Version { get; set; }
 
         public SimulationApplicationSimulationSoftwareSuiteArgs()
         {

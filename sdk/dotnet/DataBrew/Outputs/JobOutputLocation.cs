@@ -17,15 +17,19 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     public sealed class JobOutputLocation
     {
         public readonly string Bucket;
+        public readonly string? BucketOwner;
         public readonly string? Key;
 
         [OutputConstructor]
         private JobOutputLocation(
             string bucket,
 
+            string? bucketOwner,
+
             string? key)
         {
             Bucket = bucket;
+            BucketOwner = bucketOwner;
             Key = key;
         }
     }

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,6 +36,7 @@ export class WarmPool extends pulumi.CustomResource {
     }
 
     public readonly autoScalingGroupName!: pulumi.Output<string>;
+    public readonly instanceReusePolicy!: pulumi.Output<outputs.autoscaling.WarmPoolInstanceReusePolicy | undefined>;
     public readonly maxGroupPreparedCapacity!: pulumi.Output<number | undefined>;
     public readonly minSize!: pulumi.Output<number | undefined>;
     public readonly poolState!: pulumi.Output<string | undefined>;
@@ -54,11 +56,13 @@ export class WarmPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
             inputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
+            inputs["instanceReusePolicy"] = args ? args.instanceReusePolicy : undefined;
             inputs["maxGroupPreparedCapacity"] = args ? args.maxGroupPreparedCapacity : undefined;
             inputs["minSize"] = args ? args.minSize : undefined;
             inputs["poolState"] = args ? args.poolState : undefined;
         } else {
             inputs["autoScalingGroupName"] = undefined /*out*/;
+            inputs["instanceReusePolicy"] = undefined /*out*/;
             inputs["maxGroupPreparedCapacity"] = undefined /*out*/;
             inputs["minSize"] = undefined /*out*/;
             inputs["poolState"] = undefined /*out*/;
@@ -75,6 +79,7 @@ export class WarmPool extends pulumi.CustomResource {
  */
 export interface WarmPoolArgs {
     autoScalingGroupName: pulumi.Input<string>;
+    instanceReusePolicy?: pulumi.Input<inputs.autoscaling.WarmPoolInstanceReusePolicyArgs>;
     maxGroupPreparedCapacity?: pulumi.Input<number>;
     minSize?: pulumi.Input<number>;
     poolState?: pulumi.Input<string>;

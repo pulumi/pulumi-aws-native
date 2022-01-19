@@ -2023,6 +2023,14 @@ export namespace applicationinsights {
          */
         alarms?: outputs.applicationinsights.ApplicationAlarm[];
         /**
+         * The HA cluster Prometheus Exporter settings.
+         */
+        hAClusterPrometheusExporter?: outputs.applicationinsights.ApplicationHAClusterPrometheusExporter;
+        /**
+         * The HANA DB Prometheus Exporter settings.
+         */
+        hANAPrometheusExporter?: outputs.applicationinsights.ApplicationHANAPrometheusExporter;
+        /**
          * The JMX Prometheus Exporter settings.
          */
         jMXPrometheusExporter?: outputs.applicationinsights.ApplicationJMXPrometheusExporter;
@@ -2051,6 +2059,45 @@ export namespace applicationinsights {
     }
 
     /**
+     * The HA cluster Prometheus Exporter settings.
+     */
+    export interface ApplicationHAClusterPrometheusExporter {
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: string;
+    }
+
+    /**
+     * The HANA DB Prometheus Exporter settings.
+     */
+    export interface ApplicationHANAPrometheusExporter {
+        /**
+         * A flag which indicates agreeing to install SAP HANA DB client.
+         */
+        agreeToInstallHANADBClient?: boolean;
+        /**
+         * The HANA DB port.
+         */
+        hANAPort?: string;
+        /**
+         * HANA DB SID.
+         */
+        hANASID?: string;
+        /**
+         * The secret name which manages the HANA DB credentials e.g. {
+         *   "username": "<>",
+         *   "password": "<>"
+         * }.
+         */
+        hANASecretName?: string;
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: string;
+    }
+
+    /**
      * The JMX Prometheus Exporter settings.
      */
     export interface ApplicationJMXPrometheusExporter {
@@ -2063,7 +2110,7 @@ export namespace applicationinsights {
          */
         jMXURL?: string;
         /**
-         * Prometheus exporter port
+         * Prometheus exporter port.
          */
         prometheusPort?: string;
     }
@@ -3292,7 +3339,7 @@ export namespace appsync {
 
     export interface ResolverCachingConfig {
         cachingKeys?: string[];
-        ttl?: number;
+        ttl: number;
     }
 
     export interface ResolverLambdaConflictHandlerConfig {
@@ -3768,6 +3815,10 @@ export namespace autoscaling {
         disableScaleIn?: boolean;
         predefinedMetricSpecification?: outputs.autoscaling.ScalingPolicyPredefinedMetricSpecification;
         targetValue: number;
+    }
+
+    export interface WarmPoolInstanceReusePolicy {
+        reuseOnScaleIn?: boolean;
     }
 
 }
@@ -7232,6 +7283,7 @@ export namespace databrew {
      */
     export interface JobOutputLocation {
         bucket: string;
+        bucketOwner?: string;
         key?: string;
     }
 
@@ -7261,6 +7313,7 @@ export namespace databrew {
      */
     export interface JobS3Location {
         bucket: string;
+        bucketOwner?: string;
         key?: string;
     }
 
@@ -8568,6 +8621,11 @@ export namespace ec2 {
         lambdaFunctionArn?: string;
     }
 
+    export interface ClientVpnEndpointClientLoginBannerOptions {
+        bannerText?: string;
+        enabled: boolean;
+    }
+
     export interface ClientVpnEndpointConnectionLogOptions {
         cloudwatchLogGroup?: string;
         cloudwatchLogStream?: string;
@@ -8604,7 +8662,7 @@ export namespace ec2 {
     }
 
     export interface DestinationOptionsProperties {
-        fileFormat?: enums.ec2.FlowLogDestinationOptionsPropertiesFileFormat;
+        fileFormat: enums.ec2.FlowLogDestinationOptionsPropertiesFileFormat;
         hiveCompatiblePartitions: boolean;
         perHourPartition: boolean;
     }
@@ -11998,6 +12056,51 @@ export namespace fms {
 
 }
 
+export namespace forecast {
+    export interface AttributesItemProperties {
+        /**
+         * Name of the dataset field
+         */
+        attributeName?: string;
+        /**
+         * Data type of the field
+         */
+        attributeType?: enums.forecast.DatasetAttributesItemPropertiesAttributeType;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DatasetGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    export interface EncryptionConfigProperties {
+        kmsKeyArn?: string;
+        roleArn?: string;
+    }
+
+    export interface SchemaProperties {
+        attributes?: outputs.forecast.AttributesItemProperties[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface TagsItemProperties {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace frauddetector {
     export interface DetectorEntityType {
         arn?: string;
@@ -12705,14 +12808,22 @@ export namespace glue {
         path?: string;
     }
 
+    export interface CrawlerMongoDBTarget {
+        connectionName?: string;
+        path?: string;
+    }
+
     export interface CrawlerRecrawlPolicy {
         recrawlBehavior?: string;
     }
 
     export interface CrawlerS3Target {
         connectionName?: string;
+        dlqEventQueueArn?: string;
+        eventQueueArn?: string;
         exclusions?: string[];
         path?: string;
+        sampleSize?: number;
     }
 
     export interface CrawlerSchedule {
@@ -12728,6 +12839,7 @@ export namespace glue {
         catalogTargets?: outputs.glue.CrawlerCatalogTarget[];
         dynamoDBTargets?: outputs.glue.CrawlerDynamoDBTarget[];
         jdbcTargets?: outputs.glue.CrawlerJdbcTarget[];
+        mongoDBTargets?: outputs.glue.CrawlerMongoDBTarget[];
         s3Targets?: outputs.glue.CrawlerS3Target[];
     }
 
@@ -16066,7 +16178,7 @@ export namespace iotsitewise {
     }
 
     /**
-     * Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
+     * Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
      */
     export interface GatewayGreengrass {
         /**
@@ -16076,13 +16188,27 @@ export namespace iotsitewise {
     }
 
     /**
+     * Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+     */
+    export interface GatewayGreengrassV2 {
+        /**
+         * The name of the CoreDevice in GreenGrass V2.
+         */
+        coreDeviceThingName: string;
+    }
+
+    /**
      * Contains a gateway's platform information.
      */
     export interface GatewayPlatform {
         /**
-         * A gateway that runs on AWS IoT Greengrass.
+         * A gateway that runs on AWS IoT Greengrass V1.
          */
-        greengrass: outputs.iotsitewise.GatewayGreengrass;
+        greengrass?: outputs.iotsitewise.GatewayGreengrass;
+        /**
+         * A gateway that runs on AWS IoT Greengrass V2.
+         */
+        greengrassV2?: outputs.iotsitewise.GatewayGreengrassV2;
     }
 
     /**
@@ -16108,7 +16234,6 @@ export namespace iotsitewise {
         key: string;
         value: string;
     }
-
 }
 
 export namespace iotthingsgraph {
@@ -18599,6 +18724,143 @@ export namespace lightsail {
      * A key-value pair to associate with a resource.
      */
     export interface BucketTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CertificateTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
+     * Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+     */
+    export interface Container {
+        /**
+         * The launch command for the container.
+         */
+        command?: string[];
+        /**
+         * The name of the container.
+         */
+        containerName?: string;
+        /**
+         * The environment variables of the container.
+         */
+        environment?: outputs.lightsail.ContainerEnvironmentVariable[];
+        /**
+         * The name of the image used for the container.
+         */
+        image?: string;
+        /**
+         * The open firewall ports of the container.
+         */
+        ports?: outputs.lightsail.ContainerPortInfo[];
+    }
+
+    export interface ContainerEnvironmentVariable {
+        value?: string;
+        variable?: string;
+    }
+
+    /**
+     * Describes the health check configuration of an Amazon Lightsail container service.
+     */
+    export interface ContainerHealthCheckConfig {
+        /**
+         * The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
+         */
+        healthyThreshold?: number;
+        /**
+         * The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
+         */
+        intervalSeconds?: number;
+        /**
+         * The path on the container on which to perform the health check. The default value is /.
+         */
+        path?: string;
+        /**
+         * The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
+         */
+        successCodes?: string;
+        /**
+         * The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
+         */
+        timeoutSeconds?: number;
+        /**
+         * The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
+         */
+        unhealthyThreshold?: number;
+    }
+
+    export interface ContainerPortInfo {
+        port?: string;
+        protocol?: string;
+    }
+
+    /**
+     * The public domain name to use with the container service, such as example.com and www.example.com.
+     */
+    export interface ContainerPublicDomainName {
+        certificateName?: string;
+        /**
+         * An object that describes the configuration for the containers of the deployment.
+         */
+        domainNames?: string[];
+    }
+
+    /**
+     * Describes the settings of a public endpoint for an Amazon Lightsail container service.
+     */
+    export interface ContainerPublicEndpoint {
+        /**
+         * The name of the container for the endpoint.
+         */
+        containerName?: string;
+        /**
+         * The port of the container to which traffic is forwarded to.
+         */
+        containerPort?: number;
+        /**
+         * An object that describes the health check configuration of the container.
+         */
+        healthCheckConfig?: outputs.lightsail.ContainerHealthCheckConfig;
+    }
+
+    /**
+     * Describes a container deployment configuration of an Amazon Lightsail container service.
+     */
+    export interface ContainerServiceDeployment {
+        /**
+         * An object that describes the configuration for the containers of the deployment.
+         */
+        containers?: outputs.lightsail.Container[];
+        /**
+         * An object that describes the endpoint of the deployment.
+         */
+        publicEndpoint?: outputs.lightsail.ContainerPublicEndpoint;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ContainerTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -24621,17 +24883,17 @@ export namespace robomaker {
     }
 
     /**
-     * Information about a robot software suite (ROS distribution).
+     * Information about a robot software suite.
      */
     export interface SimulationApplicationRobotSoftwareSuite {
         /**
-         * The name of the robot software suite (ROS distribution).
+         * The name of the robot software suite.
          */
         name: enums.robomaker.SimulationApplicationRobotSoftwareSuiteName;
         /**
-         * The version of the robot software suite (ROS distribution).
+         * The version of the robot software suite.
          */
-        version: enums.robomaker.SimulationApplicationRobotSoftwareSuiteVersion;
+        version?: enums.robomaker.SimulationApplicationRobotSoftwareSuiteVersion;
     }
 
     /**
@@ -24645,7 +24907,7 @@ export namespace robomaker {
         /**
          * The version of the simulation software suite.
          */
-        version: enums.robomaker.SimulationApplicationSimulationSoftwareSuiteVersion;
+        version?: enums.robomaker.SimulationApplicationSimulationSoftwareSuiteVersion;
     }
 
     /**
@@ -27743,6 +28005,13 @@ export namespace sagemaker {
         securityConfig?: outputs.sagemaker.FeatureGroupOnlineStoreSecurityConfig;
     }
 
+    export interface ParallelismConfigurationProperties {
+        /**
+         * Maximum parallel execution steps
+         */
+        maxParallelExecutionSteps: number;
+    }
+
     export interface PipelineTag {
         key: string;
         value: string;
@@ -28306,6 +28575,11 @@ export namespace ssm {
         values: string[];
     }
 
+    export interface MaintenanceWindowTaskCloudWatchOutputConfig {
+        cloudWatchLogGroupName?: string;
+        cloudWatchOutputEnabled?: boolean;
+    }
+
     export interface MaintenanceWindowTaskLoggingInfo {
         region: string;
         s3Bucket: string;
@@ -28324,9 +28598,11 @@ export namespace ssm {
     }
 
     export interface MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+        cloudWatchOutputConfig?: outputs.ssm.MaintenanceWindowTaskCloudWatchOutputConfig;
         comment?: string;
         documentHash?: string;
         documentHashType?: string;
+        documentVersion?: string;
         notificationConfig?: outputs.ssm.MaintenanceWindowTaskNotificationConfig;
         outputS3BucketName?: string;
         outputS3KeyPrefix?: string;

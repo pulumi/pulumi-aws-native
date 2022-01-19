@@ -19,6 +19,7 @@ __all__ = [
     'DocumentTag',
     'MaintenanceWindowTag',
     'MaintenanceWindowTargetTargets',
+    'MaintenanceWindowTaskCloudWatchOutputConfig',
     'MaintenanceWindowTaskLoggingInfo',
     'MaintenanceWindowTaskMaintenanceWindowAutomationParameters',
     'MaintenanceWindowTaskMaintenanceWindowLambdaParameters',
@@ -282,6 +283,46 @@ class MaintenanceWindowTargetTargets(dict):
 
 
 @pulumi.output_type
+class MaintenanceWindowTaskCloudWatchOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupName":
+            suggest = "cloud_watch_log_group_name"
+        elif key == "cloudWatchOutputEnabled":
+            suggest = "cloud_watch_output_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskCloudWatchOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskCloudWatchOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskCloudWatchOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_log_group_name: Optional[str] = None,
+                 cloud_watch_output_enabled: Optional[bool] = None):
+        if cloud_watch_log_group_name is not None:
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
+        if cloud_watch_output_enabled is not None:
+            pulumi.set(__self__, "cloud_watch_output_enabled", cloud_watch_output_enabled)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogGroupName")
+    def cloud_watch_log_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "cloud_watch_log_group_name")
+
+    @property
+    @pulumi.getter(name="cloudWatchOutputEnabled")
+    def cloud_watch_output_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "cloud_watch_output_enabled")
+
+
+@pulumi.output_type
 class MaintenanceWindowTaskLoggingInfo(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -416,10 +457,14 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "documentHash":
+        if key == "cloudWatchOutputConfig":
+            suggest = "cloud_watch_output_config"
+        elif key == "documentHash":
             suggest = "document_hash"
         elif key == "documentHashType":
             suggest = "document_hash_type"
+        elif key == "documentVersion":
+            suggest = "document_version"
         elif key == "notificationConfig":
             suggest = "notification_config"
         elif key == "outputS3BucketName":
@@ -443,21 +488,27 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cloud_watch_output_config: Optional['outputs.MaintenanceWindowTaskCloudWatchOutputConfig'] = None,
                  comment: Optional[str] = None,
                  document_hash: Optional[str] = None,
                  document_hash_type: Optional[str] = None,
+                 document_version: Optional[str] = None,
                  notification_config: Optional['outputs.MaintenanceWindowTaskNotificationConfig'] = None,
                  output_s3_bucket_name: Optional[str] = None,
                  output_s3_key_prefix: Optional[str] = None,
                  parameters: Optional[Any] = None,
                  service_role_arn: Optional[str] = None,
                  timeout_seconds: Optional[int] = None):
+        if cloud_watch_output_config is not None:
+            pulumi.set(__self__, "cloud_watch_output_config", cloud_watch_output_config)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if document_hash is not None:
             pulumi.set(__self__, "document_hash", document_hash)
         if document_hash_type is not None:
             pulumi.set(__self__, "document_hash_type", document_hash_type)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
         if notification_config is not None:
             pulumi.set(__self__, "notification_config", notification_config)
         if output_s3_bucket_name is not None:
@@ -470,6 +521,11 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if timeout_seconds is not None:
             pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="cloudWatchOutputConfig")
+    def cloud_watch_output_config(self) -> Optional['outputs.MaintenanceWindowTaskCloudWatchOutputConfig']:
+        return pulumi.get(self, "cloud_watch_output_config")
 
     @property
     @pulumi.getter
@@ -485,6 +541,11 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
     @pulumi.getter(name="documentHashType")
     def document_hash_type(self) -> Optional[str]:
         return pulumi.get(self, "document_hash_type")
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[str]:
+        return pulumi.get(self, "document_version")
 
     @property
     @pulumi.getter(name="notificationConfig")

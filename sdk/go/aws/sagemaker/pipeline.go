@@ -15,7 +15,8 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	PipelineDefinition pulumi.AnyOutput `pulumi:"pipelineDefinition"`
+	ParallelismConfiguration ParallelismConfigurationPropertiesPtrOutput `pulumi:"parallelismConfiguration"`
+	PipelineDefinition       pulumi.AnyOutput                            `pulumi:"pipelineDefinition"`
 	// The description of the Pipeline.
 	PipelineDescription pulumi.StringPtrOutput `pulumi:"pipelineDescription"`
 	// The display name of the Pipeline.
@@ -72,7 +73,8 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	PipelineDefinition interface{} `pulumi:"pipelineDefinition"`
+	ParallelismConfiguration *ParallelismConfigurationProperties `pulumi:"parallelismConfiguration"`
+	PipelineDefinition       interface{}                         `pulumi:"pipelineDefinition"`
 	// The description of the Pipeline.
 	PipelineDescription *string `pulumi:"pipelineDescription"`
 	// The display name of the Pipeline.
@@ -86,7 +88,8 @@ type pipelineArgs struct {
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	PipelineDefinition pulumi.Input
+	ParallelismConfiguration ParallelismConfigurationPropertiesPtrInput
+	PipelineDefinition       pulumi.Input
 	// The description of the Pipeline.
 	PipelineDescription pulumi.StringPtrInput
 	// The display name of the Pipeline.

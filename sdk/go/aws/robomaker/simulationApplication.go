@@ -24,7 +24,7 @@ type SimulationApplication struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The rendering engine for the simulation application.
 	RenderingEngine SimulationApplicationRenderingEnginePtrOutput `pulumi:"renderingEngine"`
-	// The robot software suite (ROS distribution) used by the simulation application.
+	// The robot software suite used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuiteOutput `pulumi:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuiteOutput `pulumi:"simulationSoftwareSuite"`
@@ -86,7 +86,7 @@ type simulationApplicationArgs struct {
 	Name *string `pulumi:"name"`
 	// The rendering engine for the simulation application.
 	RenderingEngine *SimulationApplicationRenderingEngine `pulumi:"renderingEngine"`
-	// The robot software suite (ROS distribution) used by the simulation application.
+	// The robot software suite used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuite `pulumi:"simulationSoftwareSuite"`
@@ -105,7 +105,7 @@ type SimulationApplicationArgs struct {
 	Name pulumi.StringPtrInput
 	// The rendering engine for the simulation application.
 	RenderingEngine SimulationApplicationRenderingEnginePtrInput
-	// The robot software suite (ROS distribution) used by the simulation application.
+	// The robot software suite used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuiteInput
 	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuiteInput

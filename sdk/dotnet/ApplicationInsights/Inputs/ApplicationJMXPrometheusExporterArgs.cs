@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         public Input<string>? JMXURL { get; set; }
 
         /// <summary>
-        /// Prometheus exporter port
+        /// Prometheus exporter port.
         /// </summary>
         [Input("prometheusPort")]
         public Input<string>? PrometheusPort { get; set; }

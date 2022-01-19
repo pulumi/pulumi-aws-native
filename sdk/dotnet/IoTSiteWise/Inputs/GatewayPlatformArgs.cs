@@ -16,10 +16,16 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     public sealed class GatewayPlatformArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A gateway that runs on AWS IoT Greengrass.
+        /// A gateway that runs on AWS IoT Greengrass V1.
         /// </summary>
-        [Input("greengrass", required: true)]
-        public Input<Inputs.GatewayGreengrassArgs> Greengrass { get; set; } = null!;
+        [Input("greengrass")]
+        public Input<Inputs.GatewayGreengrassArgs>? Greengrass { get; set; }
+
+        /// <summary>
+        /// A gateway that runs on AWS IoT Greengrass V2.
+        /// </summary>
+        [Input("greengrassV2")]
+        public Input<Inputs.GatewayGreengrassV2Args>? GreengrassV2 { get; set; }
 
         public GatewayPlatformArgs()
         {

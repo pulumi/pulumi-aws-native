@@ -16,11 +16,12 @@ import (
 type PublicDnsNamespace struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput                   `pulumi:"arn"`
-	Description pulumi.StringPtrOutput                `pulumi:"description"`
-	Name        pulumi.StringOutput                   `pulumi:"name"`
-	Properties  PublicDnsNamespacePropertiesPtrOutput `pulumi:"properties"`
-	Tags        PublicDnsNamespaceTagArrayOutput      `pulumi:"tags"`
+	Arn          pulumi.StringOutput                   `pulumi:"arn"`
+	Description  pulumi.StringPtrOutput                `pulumi:"description"`
+	HostedZoneId pulumi.StringOutput                   `pulumi:"hostedZoneId"`
+	Name         pulumi.StringOutput                   `pulumi:"name"`
+	Properties   PublicDnsNamespacePropertiesPtrOutput `pulumi:"properties"`
+	Tags         PublicDnsNamespaceTagArrayOutput      `pulumi:"tags"`
 }
 
 // NewPublicDnsNamespace registers a new resource with the given unique name, arguments, and options.

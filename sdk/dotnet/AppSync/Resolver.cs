@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
+        [Output("maxBatchSize")]
+        public Output<int?> MaxBatchSize { get; private set; } = null!;
+
         [Output("pipelineConfig")]
         public Output<Outputs.ResolverPipelineConfig?> PipelineConfig { get; private set; } = null!;
 
@@ -114,6 +117,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        [Input("maxBatchSize")]
+        public Input<int>? MaxBatchSize { get; set; }
 
         [Input("pipelineConfig")]
         public Input<Inputs.ResolverPipelineConfigArgs>? PipelineConfig { get; set; }

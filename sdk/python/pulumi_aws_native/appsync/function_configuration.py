@@ -19,6 +19,7 @@ class FunctionConfigurationArgs:
                  data_source_name: pulumi.Input[str],
                  function_version: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,8 @@ class FunctionConfigurationArgs:
         pulumi.set(__self__, "function_version", function_version)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if request_mapping_template is not None:
@@ -81,6 +84,15 @@ class FunctionConfigurationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_batch_size")
+
+    @max_batch_size.setter
+    def max_batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_batch_size", value)
 
     @property
     @pulumi.getter
@@ -151,6 +163,7 @@ class FunctionConfiguration(pulumi.CustomResource):
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  function_version: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -192,6 +205,7 @@ class FunctionConfiguration(pulumi.CustomResource):
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  function_version: Optional[pulumi.Input[str]] = None,
+                 max_batch_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -221,6 +235,7 @@ class FunctionConfiguration(pulumi.CustomResource):
             if function_version is None and not opts.urn:
                 raise TypeError("Missing required property 'function_version'")
             __props__.__dict__["function_version"] = function_version
+            __props__.__dict__["max_batch_size"] = max_batch_size
             __props__.__dict__["name"] = name
             __props__.__dict__["request_mapping_template"] = request_mapping_template
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location
@@ -257,6 +272,7 @@ class FunctionConfiguration(pulumi.CustomResource):
         __props__.__dict__["function_arn"] = None
         __props__.__dict__["function_id"] = None
         __props__.__dict__["function_version"] = None
+        __props__.__dict__["max_batch_size"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["request_mapping_template"] = None
         __props__.__dict__["request_mapping_template_s3_location"] = None
@@ -294,6 +310,11 @@ class FunctionConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> pulumi.Output[str]:
         return pulumi.get(self, "function_version")
+
+    @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "max_batch_size")
 
     @property
     @pulumi.getter

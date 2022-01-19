@@ -23,6 +23,7 @@ type FunctionConfiguration struct {
 	FunctionArn                       pulumi.StringOutput                      `pulumi:"functionArn"`
 	FunctionId                        pulumi.StringOutput                      `pulumi:"functionId"`
 	FunctionVersion                   pulumi.StringOutput                      `pulumi:"functionVersion"`
+	MaxBatchSize                      pulumi.IntPtrOutput                      `pulumi:"maxBatchSize"`
 	Name                              pulumi.StringOutput                      `pulumi:"name"`
 	RequestMappingTemplate            pulumi.StringPtrOutput                   `pulumi:"requestMappingTemplate"`
 	RequestMappingTemplateS3Location  pulumi.StringPtrOutput                   `pulumi:"requestMappingTemplateS3Location"`
@@ -83,6 +84,7 @@ type functionConfigurationArgs struct {
 	DataSourceName                    string                           `pulumi:"dataSourceName"`
 	Description                       *string                          `pulumi:"description"`
 	FunctionVersion                   string                           `pulumi:"functionVersion"`
+	MaxBatchSize                      *int                             `pulumi:"maxBatchSize"`
 	Name                              *string                          `pulumi:"name"`
 	RequestMappingTemplate            *string                          `pulumi:"requestMappingTemplate"`
 	RequestMappingTemplateS3Location  *string                          `pulumi:"requestMappingTemplateS3Location"`
@@ -97,6 +99,7 @@ type FunctionConfigurationArgs struct {
 	DataSourceName                    pulumi.StringInput
 	Description                       pulumi.StringPtrInput
 	FunctionVersion                   pulumi.StringInput
+	MaxBatchSize                      pulumi.IntPtrInput
 	Name                              pulumi.StringPtrInput
 	RequestMappingTemplate            pulumi.StringPtrInput
 	RequestMappingTemplateS3Location  pulumi.StringPtrInput

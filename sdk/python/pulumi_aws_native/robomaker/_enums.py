@@ -33,15 +33,16 @@ class SimulationApplicationRenderingEngineName(str, Enum):
 
 class SimulationApplicationRobotSoftwareSuiteName(str, Enum):
     """
-    The name of the robot software suite (ROS distribution).
+    The name of the robot software suite.
     """
     ROS = "ROS"
     ROS2 = "ROS2"
+    GENERAL = "General"
 
 
 class SimulationApplicationRobotSoftwareSuiteVersion(str, Enum):
     """
-    The version of the robot software suite (ROS distribution).
+    The version of the robot software suite.
     """
     KINETIC = "Kinetic"
     MELODIC = "Melodic"
@@ -55,6 +56,7 @@ class SimulationApplicationSimulationSoftwareSuiteName(str, Enum):
     """
     GAZEBO = "Gazebo"
     ROSBAG_PLAY = "RosbagPlay"
+    SIMULATION_RUNTIME = "SimulationRuntime"
 
 
 class SimulationApplicationSimulationSoftwareSuiteVersion(str, Enum):

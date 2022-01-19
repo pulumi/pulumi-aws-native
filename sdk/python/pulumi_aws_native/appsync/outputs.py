@@ -797,22 +797,21 @@ class ResolverCachingConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 caching_keys: Optional[Sequence[str]] = None,
-                 ttl: Optional[float] = None):
+                 ttl: float,
+                 caching_keys: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "ttl", ttl)
         if caching_keys is not None:
             pulumi.set(__self__, "caching_keys", caching_keys)
-        if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> float:
+        return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter(name="cachingKeys")
     def caching_keys(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "caching_keys")
-
-    @property
-    @pulumi.getter
-    def ttl(self) -> Optional[float]:
-        return pulumi.get(self, "ttl")
 
 
 @pulumi.output_type

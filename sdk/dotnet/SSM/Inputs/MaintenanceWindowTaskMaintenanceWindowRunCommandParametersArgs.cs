@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SSM.Inputs
 
     public sealed class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs : Pulumi.ResourceArgs
     {
+        [Input("cloudWatchOutputConfig")]
+        public Input<Inputs.MaintenanceWindowTaskCloudWatchOutputConfigArgs>? CloudWatchOutputConfig { get; set; }
+
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
@@ -20,6 +23,9 @@ namespace Pulumi.AwsNative.SSM.Inputs
 
         [Input("documentHashType")]
         public Input<string>? DocumentHashType { get; set; }
+
+        [Input("documentVersion")]
+        public Input<string>? DocumentVersion { get; set; }
 
         [Input("notificationConfig")]
         public Input<Inputs.MaintenanceWindowTaskNotificationConfigArgs>? NotificationConfig { get; set; }

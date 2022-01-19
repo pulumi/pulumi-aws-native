@@ -17,6 +17,7 @@ class PipelineArgs:
     def __init__(__self__, *,
                  pipeline_definition: Any,
                  role_arn: pulumi.Input[str],
+                 parallelism_configuration: Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,8 @@ class PipelineArgs:
         """
         pulumi.set(__self__, "pipeline_definition", pipeline_definition)
         pulumi.set(__self__, "role_arn", role_arn)
+        if parallelism_configuration is not None:
+            pulumi.set(__self__, "parallelism_configuration", parallelism_configuration)
         if pipeline_description is not None:
             pulumi.set(__self__, "pipeline_description", pipeline_description)
         if pipeline_display_name is not None:
@@ -59,6 +62,15 @@ class PipelineArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="parallelismConfiguration")
+    def parallelism_configuration(self) -> Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "parallelism_configuration")
+
+    @parallelism_configuration.setter
+    def parallelism_configuration(self, value: Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']]):
+        pulumi.set(self, "parallelism_configuration", value)
 
     @property
     @pulumi.getter(name="pipelineDescription")
@@ -111,6 +123,7 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['ParallelismConfigurationPropertiesArgs']]] = None,
                  pipeline_definition: Optional[Any] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
@@ -152,6 +165,7 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['ParallelismConfigurationPropertiesArgs']]] = None,
                  pipeline_definition: Optional[Any] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
@@ -170,6 +184,7 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
+            __props__.__dict__["parallelism_configuration"] = parallelism_configuration
             if pipeline_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_definition'")
             __props__.__dict__["pipeline_definition"] = pipeline_definition
@@ -202,6 +217,7 @@ class Pipeline(pulumi.CustomResource):
 
         __props__ = PipelineArgs.__new__(PipelineArgs)
 
+        __props__.__dict__["parallelism_configuration"] = None
         __props__.__dict__["pipeline_definition"] = None
         __props__.__dict__["pipeline_description"] = None
         __props__.__dict__["pipeline_display_name"] = None
@@ -209,6 +225,11 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="parallelismConfiguration")
+    def parallelism_configuration(self) -> pulumi.Output[Optional['outputs.ParallelismConfigurationProperties']]:
+        return pulumi.get(self, "parallelism_configuration")
 
     @property
     @pulumi.getter(name="pipelineDefinition")

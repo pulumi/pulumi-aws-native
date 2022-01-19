@@ -101,6 +101,7 @@ import * as evidently from "./evidently";
 import * as finspace from "./finspace";
 import * as fis from "./fis";
 import * as fms from "./fms";
+import * as forecast from "./forecast";
 import * as frauddetector from "./frauddetector";
 import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
@@ -288,6 +289,7 @@ export {
     finspace,
     fis,
     fms,
+    forecast,
     frauddetector,
     fsx,
     gamelift,

@@ -13,9 +13,11 @@ namespace Pulumi.AwsNative.SSM.Outputs
     [OutputType]
     public sealed class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters
     {
+        public readonly Outputs.MaintenanceWindowTaskCloudWatchOutputConfig? CloudWatchOutputConfig;
         public readonly string? Comment;
         public readonly string? DocumentHash;
         public readonly string? DocumentHashType;
+        public readonly string? DocumentVersion;
         public readonly Outputs.MaintenanceWindowTaskNotificationConfig? NotificationConfig;
         public readonly string? OutputS3BucketName;
         public readonly string? OutputS3KeyPrefix;
@@ -25,11 +27,15 @@ namespace Pulumi.AwsNative.SSM.Outputs
 
         [OutputConstructor]
         private MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(
+            Outputs.MaintenanceWindowTaskCloudWatchOutputConfig? cloudWatchOutputConfig,
+
             string? comment,
 
             string? documentHash,
 
             string? documentHashType,
+
+            string? documentVersion,
 
             Outputs.MaintenanceWindowTaskNotificationConfig? notificationConfig,
 
@@ -43,9 +49,11 @@ namespace Pulumi.AwsNative.SSM.Outputs
 
             int? timeoutSeconds)
         {
+            CloudWatchOutputConfig = cloudWatchOutputConfig;
             Comment = comment;
             DocumentHash = documentHash;
             DocumentHashType = documentHashType;
+            DocumentVersion = documentVersion;
             NotificationConfig = notificationConfig;
             OutputS3BucketName = outputS3BucketName;
             OutputS3KeyPrefix = outputS3KeyPrefix;

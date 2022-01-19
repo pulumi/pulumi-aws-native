@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.RoboMaker
         public Output<Outputs.SimulationApplicationRenderingEngine?> RenderingEngine { get; private set; } = null!;
 
         /// <summary>
-        /// The robot software suite (ROS distribution) used by the simulation application.
+        /// The robot software suite used by the simulation application.
         /// </summary>
         [Output("robotSoftwareSuite")]
         public Output<Outputs.SimulationApplicationRobotSoftwareSuite> RobotSoftwareSuite { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.RoboMaker
         public Input<Inputs.SimulationApplicationRenderingEngineArgs>? RenderingEngine { get; set; }
 
         /// <summary>
-        /// The robot software suite (ROS distribution) used by the simulation application.
+        /// The robot software suite used by the simulation application.
         /// </summary>
         [Input("robotSoftwareSuite", required: true)]
         public Input<Inputs.SimulationApplicationRobotSoftwareSuiteArgs> RobotSoftwareSuite { get; set; } = null!;
