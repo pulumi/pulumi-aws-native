@@ -279,6 +279,7 @@ AWS::IoTWireless::WirelessGateway
 AWS::KMS::Alias
 AWS::KMS::Key
 AWS::KMS::ReplicaKey
+AWS::KafkaConnect::Connector
 AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
