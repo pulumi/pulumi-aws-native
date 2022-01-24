@@ -8239,6 +8239,22 @@ export namespace dms {
         serviceAccessRoleArn?: string;
     }
 
+    export interface EndpointGcpMySQLSettings {
+        afterConnectScript?: string;
+        cleanSourceMetadataOnMismatch?: boolean;
+        databaseName?: string;
+        eventsPollInterval?: number;
+        maxFileSize?: number;
+        parallelLoadThreads?: number;
+        password?: string;
+        port?: number;
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+        serverName?: string;
+        serverTimezone?: string;
+        username?: string;
+    }
+
     export interface EndpointIbmDb2Settings {
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
@@ -10547,7 +10563,7 @@ export namespace eks {
      */
     export interface ClusterKubernetesNetworkConfig {
         /**
-         * Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+         * Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
          */
         ipFamily?: enums.eks.ClusterKubernetesNetworkConfigIpFamily;
         /**
@@ -16484,6 +16500,214 @@ export namespace ivs {
 
 }
 
+export namespace kafkaconnect {
+    /**
+     * Details of how to connect to an Apache Kafka cluster.
+     */
+    export interface ConnectorApacheKafkaCluster {
+        /**
+         * The bootstrap servers string of the Apache Kafka cluster.
+         */
+        bootstrapServers: string;
+        vpc: outputs.kafkaconnect.ConnectorVpc;
+    }
+
+    /**
+     * Details about auto scaling of a connector. 
+     */
+    export interface ConnectorAutoScaling {
+        /**
+         * The maximum number of workers for a connector.
+         */
+        maxWorkerCount: number;
+        /**
+         * Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
+         */
+        mcuCount: number;
+        /**
+         * The minimum number of workers for a connector.
+         */
+        minWorkerCount: number;
+        scaleInPolicy: outputs.kafkaconnect.ConnectorScaleInPolicy;
+        scaleOutPolicy: outputs.kafkaconnect.ConnectorScaleOutPolicy;
+    }
+
+    /**
+     * Information about the capacity allocated to the connector.
+     */
+    export interface ConnectorCapacity {
+        autoScaling?: outputs.kafkaconnect.ConnectorAutoScaling;
+        provisionedCapacity?: outputs.kafkaconnect.ConnectorProvisionedCapacity;
+    }
+
+    /**
+     * Details about delivering logs to Amazon CloudWatch Logs.
+     */
+    export interface ConnectorCloudWatchLogsLogDelivery {
+        /**
+         * Specifies whether the logs get sent to the specified CloudWatch Logs destination.
+         */
+        enabled: boolean;
+        /**
+         * The CloudWatch log group that is the destination for log delivery.
+         */
+        logGroup?: string;
+    }
+
+    /**
+     * Details about a custom plugin.
+     */
+    export interface ConnectorCustomPlugin {
+        /**
+         * The Amazon Resource Name (ARN) of the custom plugin to use.
+         */
+        customPluginArn: string;
+        /**
+         * The revision of the custom plugin to use.
+         */
+        revision: number;
+    }
+
+    /**
+     * Details about delivering logs to Amazon Kinesis Data Firehose.
+     */
+    export interface ConnectorFirehoseLogDelivery {
+        /**
+         * The Kinesis Data Firehose delivery stream that is the destination for log delivery.
+         */
+        deliveryStream?: string;
+        /**
+         * Specifies whether the logs get sent to the specified Kinesis Data Firehose delivery stream.
+         */
+        enabled: boolean;
+    }
+
+    /**
+     * Details of how to connect to the Kafka cluster.
+     */
+    export interface ConnectorKafkaCluster {
+        apacheKafkaCluster: outputs.kafkaconnect.ConnectorApacheKafkaCluster;
+    }
+
+    /**
+     * Details of the client authentication used by the Kafka cluster.
+     */
+    export interface ConnectorKafkaClusterClientAuthentication {
+        authenticationType: enums.kafkaconnect.ConnectorKafkaClusterClientAuthenticationType;
+    }
+
+    /**
+     * Details of encryption in transit to the Kafka cluster.
+     */
+    export interface ConnectorKafkaClusterEncryptionInTransit {
+        encryptionType: enums.kafkaconnect.ConnectorKafkaClusterEncryptionInTransitType;
+    }
+
+    /**
+     * Details of what logs are delivered and where they are delivered.
+     */
+    export interface ConnectorLogDelivery {
+        workerLogDelivery: outputs.kafkaconnect.ConnectorWorkerLogDelivery;
+    }
+
+    /**
+     * Details about a Kafka Connect plugin which will be used with the connector.
+     */
+    export interface ConnectorPlugin {
+        customPlugin: outputs.kafkaconnect.ConnectorCustomPlugin;
+    }
+
+    /**
+     * Details about a fixed capacity allocated to a connector.
+     */
+    export interface ConnectorProvisionedCapacity {
+        /**
+         * Specifies how many MSK Connect Units (MCU) are allocated to the connector.
+         */
+        mcuCount?: number;
+        /**
+         * Number of workers for a connector.
+         */
+        workerCount: number;
+    }
+
+    /**
+     * Details about delivering logs to Amazon S3.
+     */
+    export interface ConnectorS3LogDelivery {
+        /**
+         * The name of the S3 bucket that is the destination for log delivery.
+         */
+        bucket?: string;
+        /**
+         * Specifies whether the logs get sent to the specified Amazon S3 destination.
+         */
+        enabled: boolean;
+        /**
+         * The S3 prefix that is the destination for log delivery.
+         */
+        prefix?: string;
+    }
+
+    /**
+     * Information about the scale in policy of the connector.
+     */
+    export interface ConnectorScaleInPolicy {
+        /**
+         * Specifies the CPU utilization percentage threshold at which connector scale in should trigger.
+         */
+        cpuUtilizationPercentage: number;
+    }
+
+    /**
+     * Information about the scale out policy of the connector.
+     */
+    export interface ConnectorScaleOutPolicy {
+        /**
+         * Specifies the CPU utilization percentage threshold at which connector scale out should trigger.
+         */
+        cpuUtilizationPercentage: number;
+    }
+
+    /**
+     * Information about a VPC used with the connector.
+     */
+    export interface ConnectorVpc {
+        /**
+         * The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to.
+         */
+        securityGroups: string[];
+        /**
+         * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
+         */
+        subnets: string[];
+    }
+
+    /**
+     * Specifies the worker configuration to use with the connector.
+     */
+    export interface ConnectorWorkerConfiguration {
+        /**
+         * The revision of the worker configuration to use.
+         */
+        revision: number;
+        /**
+         * The Amazon Resource Name (ARN) of the worker configuration to use.
+         */
+        workerConfigurationArn: string;
+    }
+
+    /**
+     * Specifies where worker logs are delivered.
+     */
+    export interface ConnectorWorkerLogDelivery {
+        cloudWatchLogs?: outputs.kafkaconnect.ConnectorCloudWatchLogsLogDelivery;
+        firehose?: outputs.kafkaconnect.ConnectorFirehoseLogDelivery;
+        s3?: outputs.kafkaconnect.ConnectorS3LogDelivery;
+    }
+
+}
+
 export namespace kendra {
     export interface DataSourceAccessControlListConfiguration {
         keyPath?: string;
@@ -18966,6 +19190,142 @@ export namespace lightsail {
      * A key-value pair to associate with a resource.
      */
     export interface DiskTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
+     * Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
+     */
+    export interface DistributionCacheBehavior {
+        /**
+         * The cache behavior of the distribution.
+         */
+        behavior?: string;
+    }
+
+    /**
+     * Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
+     */
+    export interface DistributionCacheBehaviorPerPath {
+        /**
+         * The cache behavior for the specified path.
+         */
+        behavior?: string;
+        /**
+         * The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
+         */
+        path?: string;
+    }
+
+    /**
+     * Describes the cache settings of an Amazon Lightsail content delivery network (CDN) distribution.
+     */
+    export interface DistributionCacheSettings {
+        /**
+         * The HTTP methods that are processed and forwarded to the distribution's origin.
+         */
+        allowedHTTPMethods?: string;
+        /**
+         * The HTTP method responses that are cached by your distribution.
+         */
+        cachedHTTPMethods?: string;
+        /**
+         * The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+         */
+        defaultTTL?: number;
+        /**
+         * An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
+         */
+        forwardedCookies?: outputs.lightsail.DistributionCookieObject;
+        /**
+         * An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
+         */
+        forwardedHeaders?: outputs.lightsail.DistributionHeaderObject;
+        /**
+         * An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
+         */
+        forwardedQueryStrings?: outputs.lightsail.DistributionQueryStringObject;
+        /**
+         * The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+         */
+        maximumTTL?: number;
+        /**
+         * The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+         */
+        minimumTTL?: number;
+    }
+
+    /**
+     * Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards cookies to the origin and, if so, which ones.
+     */
+    export interface DistributionCookieObject {
+        /**
+         * The specific cookies to forward to your distribution's origin.
+         */
+        cookiesAllowList?: string[];
+        /**
+         * Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+         */
+        option?: string;
+    }
+
+    /**
+     * Describes the request headers that a Lightsail distribution bases caching on.
+     */
+    export interface DistributionHeaderObject {
+        /**
+         * The specific headers to forward to your distribution's origin.
+         */
+        headersAllowList?: string[];
+        /**
+         * The headers that you want your distribution to forward to your origin and base caching on.
+         */
+        option?: string;
+    }
+
+    /**
+     * Describes the origin resource of an Amazon Lightsail content delivery network (CDN) distribution.
+     */
+    export interface DistributionInputOrigin {
+        /**
+         * The name of the origin resource.
+         */
+        name?: string;
+        /**
+         * The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+         */
+        protocolPolicy?: string;
+        /**
+         * The AWS Region name of the origin resource.
+         */
+        regionName?: string;
+    }
+
+    /**
+     * Describes the query string parameters that an Amazon Lightsail content delivery network (CDN) distribution to bases caching on.
+     */
+    export interface DistributionQueryStringObject {
+        /**
+         * Indicates whether the distribution forwards and caches based on query strings.
+         */
+        option?: boolean;
+        /**
+         * The specific query strings that the distribution forwards to the origin.
+         */
+        queryStringsAllowList?: string[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DistributionTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */

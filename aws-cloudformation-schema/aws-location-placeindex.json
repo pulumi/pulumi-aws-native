@@ -17,7 +17,7 @@
     },
     "PricingPlan" : {
       "type" : "string",
-      "enum" : [ "RequestBasedUsage", "MobileAssetTracking", "MobileAssetManagement" ]
+      "enum" : [ "RequestBasedUsage" ]
     },
     "iso8601UTC" : {
       "description" : "The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)",
@@ -65,7 +65,7 @@
   },
   "readOnlyProperties" : [ "/properties/CreateTime", "/properties/IndexArn", "/properties/Arn", "/properties/UpdateTime" ],
   "createOnlyProperties" : [ "/properties/IndexName", "/properties/DataSource", "/properties/DataSourceConfiguration", "/properties/Description", "/properties/PricingPlan" ],
-  "required" : [ "IndexName", "DataSource", "PricingPlan" ],
+  "required" : [ "IndexName", "DataSource" ],
   "primaryIdentifier" : [ "/properties/IndexName" ],
   "additionalProperties" : false,
   "handlers" : {

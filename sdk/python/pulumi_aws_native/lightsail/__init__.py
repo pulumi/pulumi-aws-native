@@ -12,6 +12,7 @@ from .certificate import *
 from .container import *
 from .database import *
 from .disk import *
+from .distribution import *
 from .instance import *
 from .load_balancer import *
 from .load_balancer_tls_certificate import *

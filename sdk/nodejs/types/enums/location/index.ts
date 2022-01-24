@@ -4,16 +4,12 @@
 
 export const GeofenceCollectionPricingPlan = {
     RequestBasedUsage: "RequestBasedUsage",
-    MobileAssetTracking: "MobileAssetTracking",
-    MobileAssetManagement: "MobileAssetManagement",
 } as const;
 
 export type GeofenceCollectionPricingPlan = (typeof GeofenceCollectionPricingPlan)[keyof typeof GeofenceCollectionPricingPlan];
 
 export const MapPricingPlan = {
     RequestBasedUsage: "RequestBasedUsage",
-    MobileAssetTracking: "MobileAssetTracking",
-    MobileAssetManagement: "MobileAssetManagement",
 } as const;
 
 export type MapPricingPlan = (typeof MapPricingPlan)[keyof typeof MapPricingPlan];
@@ -27,15 +23,12 @@ export type PlaceIndexIntendedUse = (typeof PlaceIndexIntendedUse)[keyof typeof 
 
 export const PlaceIndexPricingPlan = {
     RequestBasedUsage: "RequestBasedUsage",
-    MobileAssetTracking: "MobileAssetTracking",
-    MobileAssetManagement: "MobileAssetManagement",
 } as const;
 
 export type PlaceIndexPricingPlan = (typeof PlaceIndexPricingPlan)[keyof typeof PlaceIndexPricingPlan];
 
 export const RouteCalculatorPricingPlan = {
     RequestBasedUsage: "RequestBasedUsage",
-    MobileAssetManagement: "MobileAssetManagement",
 } as const;
 
 export type RouteCalculatorPricingPlan = (typeof RouteCalculatorPricingPlan)[keyof typeof RouteCalculatorPricingPlan];
@@ -50,8 +43,6 @@ export type TrackerPositionFiltering = (typeof TrackerPositionFiltering)[keyof t
 
 export const TrackerPricingPlan = {
     RequestBasedUsage: "RequestBasedUsage",
-    MobileAssetTracking: "MobileAssetTracking",
-    MobileAssetManagement: "MobileAssetManagement",
 } as const;
 
 export type TrackerPricingPlan = (typeof TrackerPricingPlan)[keyof typeof TrackerPricingPlan];

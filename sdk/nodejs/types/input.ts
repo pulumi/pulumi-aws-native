@@ -8137,6 +8137,22 @@ export namespace dms {
         serviceAccessRoleArn?: pulumi.Input<string>;
     }
 
+    export interface EndpointGcpMySQLSettingsArgs {
+        afterConnectScript?: pulumi.Input<string>;
+        cleanSourceMetadataOnMismatch?: pulumi.Input<boolean>;
+        databaseName?: pulumi.Input<string>;
+        eventsPollInterval?: pulumi.Input<number>;
+        maxFileSize?: pulumi.Input<number>;
+        parallelLoadThreads?: pulumi.Input<number>;
+        password?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
+        secretsManagerAccessRoleArn?: pulumi.Input<string>;
+        secretsManagerSecretId?: pulumi.Input<string>;
+        serverName?: pulumi.Input<string>;
+        serverTimezone?: pulumi.Input<string>;
+        username?: pulumi.Input<string>;
+    }
+
     export interface EndpointIbmDb2SettingsArgs {
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
@@ -10302,7 +10318,7 @@ export namespace eks {
      */
     export interface ClusterKubernetesNetworkConfigArgs {
         /**
-         * Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+         * Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
          */
         ipFamily?: pulumi.Input<enums.eks.ClusterKubernetesNetworkConfigIpFamily>;
         /**
@@ -16180,6 +16196,213 @@ export namespace ivs {
     }
 }
 
+export namespace kafkaconnect {
+    /**
+     * Details of how to connect to an Apache Kafka cluster.
+     */
+    export interface ConnectorApacheKafkaClusterArgs {
+        /**
+         * The bootstrap servers string of the Apache Kafka cluster.
+         */
+        bootstrapServers: pulumi.Input<string>;
+        vpc: pulumi.Input<inputs.kafkaconnect.ConnectorVpcArgs>;
+    }
+
+    /**
+     * Details about auto scaling of a connector. 
+     */
+    export interface ConnectorAutoScalingArgs {
+        /**
+         * The maximum number of workers for a connector.
+         */
+        maxWorkerCount: pulumi.Input<number>;
+        /**
+         * Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
+         */
+        mcuCount: pulumi.Input<number>;
+        /**
+         * The minimum number of workers for a connector.
+         */
+        minWorkerCount: pulumi.Input<number>;
+        scaleInPolicy: pulumi.Input<inputs.kafkaconnect.ConnectorScaleInPolicyArgs>;
+        scaleOutPolicy: pulumi.Input<inputs.kafkaconnect.ConnectorScaleOutPolicyArgs>;
+    }
+
+    /**
+     * Information about the capacity allocated to the connector.
+     */
+    export interface ConnectorCapacityArgs {
+        autoScaling?: pulumi.Input<inputs.kafkaconnect.ConnectorAutoScalingArgs>;
+        provisionedCapacity?: pulumi.Input<inputs.kafkaconnect.ConnectorProvisionedCapacityArgs>;
+    }
+
+    /**
+     * Details about delivering logs to Amazon CloudWatch Logs.
+     */
+    export interface ConnectorCloudWatchLogsLogDeliveryArgs {
+        /**
+         * Specifies whether the logs get sent to the specified CloudWatch Logs destination.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch log group that is the destination for log delivery.
+         */
+        logGroup?: pulumi.Input<string>;
+    }
+
+    /**
+     * Details about a custom plugin.
+     */
+    export interface ConnectorCustomPluginArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the custom plugin to use.
+         */
+        customPluginArn: pulumi.Input<string>;
+        /**
+         * The revision of the custom plugin to use.
+         */
+        revision: pulumi.Input<number>;
+    }
+
+    /**
+     * Details about delivering logs to Amazon Kinesis Data Firehose.
+     */
+    export interface ConnectorFirehoseLogDeliveryArgs {
+        /**
+         * The Kinesis Data Firehose delivery stream that is the destination for log delivery.
+         */
+        deliveryStream?: pulumi.Input<string>;
+        /**
+         * Specifies whether the logs get sent to the specified Kinesis Data Firehose delivery stream.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Details of how to connect to the Kafka cluster.
+     */
+    export interface ConnectorKafkaClusterArgs {
+        apacheKafkaCluster: pulumi.Input<inputs.kafkaconnect.ConnectorApacheKafkaClusterArgs>;
+    }
+
+    /**
+     * Details of the client authentication used by the Kafka cluster.
+     */
+    export interface ConnectorKafkaClusterClientAuthenticationArgs {
+        authenticationType: pulumi.Input<enums.kafkaconnect.ConnectorKafkaClusterClientAuthenticationType>;
+    }
+
+    /**
+     * Details of encryption in transit to the Kafka cluster.
+     */
+    export interface ConnectorKafkaClusterEncryptionInTransitArgs {
+        encryptionType: pulumi.Input<enums.kafkaconnect.ConnectorKafkaClusterEncryptionInTransitType>;
+    }
+
+    /**
+     * Details of what logs are delivered and where they are delivered.
+     */
+    export interface ConnectorLogDeliveryArgs {
+        workerLogDelivery: pulumi.Input<inputs.kafkaconnect.ConnectorWorkerLogDeliveryArgs>;
+    }
+
+    /**
+     * Details about a Kafka Connect plugin which will be used with the connector.
+     */
+    export interface ConnectorPluginArgs {
+        customPlugin: pulumi.Input<inputs.kafkaconnect.ConnectorCustomPluginArgs>;
+    }
+
+    /**
+     * Details about a fixed capacity allocated to a connector.
+     */
+    export interface ConnectorProvisionedCapacityArgs {
+        /**
+         * Specifies how many MSK Connect Units (MCU) are allocated to the connector.
+         */
+        mcuCount?: pulumi.Input<number>;
+        /**
+         * Number of workers for a connector.
+         */
+        workerCount: pulumi.Input<number>;
+    }
+
+    /**
+     * Details about delivering logs to Amazon S3.
+     */
+    export interface ConnectorS3LogDeliveryArgs {
+        /**
+         * The name of the S3 bucket that is the destination for log delivery.
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * Specifies whether the logs get sent to the specified Amazon S3 destination.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The S3 prefix that is the destination for log delivery.
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * Information about the scale in policy of the connector.
+     */
+    export interface ConnectorScaleInPolicyArgs {
+        /**
+         * Specifies the CPU utilization percentage threshold at which connector scale in should trigger.
+         */
+        cpuUtilizationPercentage: pulumi.Input<number>;
+    }
+
+    /**
+     * Information about the scale out policy of the connector.
+     */
+    export interface ConnectorScaleOutPolicyArgs {
+        /**
+         * Specifies the CPU utilization percentage threshold at which connector scale out should trigger.
+         */
+        cpuUtilizationPercentage: pulumi.Input<number>;
+    }
+
+    /**
+     * Information about a VPC used with the connector.
+     */
+    export interface ConnectorVpcArgs {
+        /**
+         * The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to.
+         */
+        securityGroups: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
+         */
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Specifies the worker configuration to use with the connector.
+     */
+    export interface ConnectorWorkerConfigurationArgs {
+        /**
+         * The revision of the worker configuration to use.
+         */
+        revision: pulumi.Input<number>;
+        /**
+         * The Amazon Resource Name (ARN) of the worker configuration to use.
+         */
+        workerConfigurationArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies where worker logs are delivered.
+     */
+    export interface ConnectorWorkerLogDeliveryArgs {
+        cloudWatchLogs?: pulumi.Input<inputs.kafkaconnect.ConnectorCloudWatchLogsLogDeliveryArgs>;
+        firehose?: pulumi.Input<inputs.kafkaconnect.ConnectorFirehoseLogDeliveryArgs>;
+        s3?: pulumi.Input<inputs.kafkaconnect.ConnectorS3LogDeliveryArgs>;
+    }
+}
+
 export namespace kendra {
     export interface DataSourceAccessControlListConfigurationArgs {
         keyPath?: pulumi.Input<string>;
@@ -18641,6 +18864,142 @@ export namespace lightsail {
      * A key-value pair to associate with a resource.
      */
     export interface DiskTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
+     */
+    export interface DistributionCacheBehaviorArgs {
+        /**
+         * The cache behavior of the distribution.
+         */
+        behavior?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
+     */
+    export interface DistributionCacheBehaviorPerPathArgs {
+        /**
+         * The cache behavior for the specified path.
+         */
+        behavior?: pulumi.Input<string>;
+        /**
+         * The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/*), and file types (*.html, *jpg, *js). Directories and file paths are case-sensitive.
+         */
+        path?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the cache settings of an Amazon Lightsail content delivery network (CDN) distribution.
+     */
+    export interface DistributionCacheSettingsArgs {
+        /**
+         * The HTTP methods that are processed and forwarded to the distribution's origin.
+         */
+        allowedHTTPMethods?: pulumi.Input<string>;
+        /**
+         * The HTTP method responses that are cached by your distribution.
+         */
+        cachedHTTPMethods?: pulumi.Input<string>;
+        /**
+         * The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+         */
+        defaultTTL?: pulumi.Input<number>;
+        /**
+         * An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
+         */
+        forwardedCookies?: pulumi.Input<inputs.lightsail.DistributionCookieObjectArgs>;
+        /**
+         * An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
+         */
+        forwardedHeaders?: pulumi.Input<inputs.lightsail.DistributionHeaderObjectArgs>;
+        /**
+         * An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
+         */
+        forwardedQueryStrings?: pulumi.Input<inputs.lightsail.DistributionQueryStringObjectArgs>;
+        /**
+         * The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+         */
+        maximumTTL?: pulumi.Input<number>;
+        /**
+         * The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+         */
+        minimumTTL?: pulumi.Input<number>;
+    }
+
+    /**
+     * Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards cookies to the origin and, if so, which ones.
+     */
+    export interface DistributionCookieObjectArgs {
+        /**
+         * The specific cookies to forward to your distribution's origin.
+         */
+        cookiesAllowList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+         */
+        option?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the request headers that a Lightsail distribution bases caching on.
+     */
+    export interface DistributionHeaderObjectArgs {
+        /**
+         * The specific headers to forward to your distribution's origin.
+         */
+        headersAllowList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The headers that you want your distribution to forward to your origin and base caching on.
+         */
+        option?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the origin resource of an Amazon Lightsail content delivery network (CDN) distribution.
+     */
+    export interface DistributionInputOriginArgs {
+        /**
+         * The name of the origin resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+         */
+        protocolPolicy?: pulumi.Input<string>;
+        /**
+         * The AWS Region name of the origin resource.
+         */
+        regionName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the query string parameters that an Amazon Lightsail content delivery network (CDN) distribution to bases caching on.
+     */
+    export interface DistributionQueryStringObjectArgs {
+        /**
+         * Indicates whether the distribution forwards and caches based on query strings.
+         */
+        option?: pulumi.Input<boolean>;
+        /**
+         * The specific query strings that the distribution forwards to the origin.
+         */
+        queryStringsAllowList?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DistributionTagArgs {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */

@@ -15,15 +15,15 @@ import (
 type Map struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput    `pulumi:"arn"`
-	Configuration MapConfigurationOutput `pulumi:"configuration"`
-	CreateTime    pulumi.StringOutput    `pulumi:"createTime"`
-	DataSource    pulumi.StringOutput    `pulumi:"dataSource"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
-	MapArn        pulumi.StringOutput    `pulumi:"mapArn"`
-	MapName       pulumi.StringOutput    `pulumi:"mapName"`
-	PricingPlan   MapPricingPlanOutput   `pulumi:"pricingPlan"`
-	UpdateTime    pulumi.StringOutput    `pulumi:"updateTime"`
+	Arn           pulumi.StringOutput     `pulumi:"arn"`
+	Configuration MapConfigurationOutput  `pulumi:"configuration"`
+	CreateTime    pulumi.StringOutput     `pulumi:"createTime"`
+	DataSource    pulumi.StringOutput     `pulumi:"dataSource"`
+	Description   pulumi.StringPtrOutput  `pulumi:"description"`
+	MapArn        pulumi.StringOutput     `pulumi:"mapArn"`
+	MapName       pulumi.StringOutput     `pulumi:"mapName"`
+	PricingPlan   MapPricingPlanPtrOutput `pulumi:"pricingPlan"`
+	UpdateTime    pulumi.StringOutput     `pulumi:"updateTime"`
 }
 
 // NewMap registers a new resource with the given unique name, arguments, and options.
@@ -35,9 +35,6 @@ func NewMap(ctx *pulumi.Context,
 
 	if args.Configuration == nil {
 		return nil, errors.New("invalid value for required argument 'Configuration'")
-	}
-	if args.PricingPlan == nil {
-		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
 	var resource Map
 	err := ctx.RegisterResource("aws-native:location:Map", name, args, &resource, opts...)
@@ -74,7 +71,7 @@ type mapArgs struct {
 	Configuration MapConfiguration `pulumi:"configuration"`
 	Description   *string          `pulumi:"description"`
 	MapName       *string          `pulumi:"mapName"`
-	PricingPlan   MapPricingPlan   `pulumi:"pricingPlan"`
+	PricingPlan   *MapPricingPlan  `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a Map resource.
@@ -82,7 +79,7 @@ type MapArgs struct {
 	Configuration MapConfigurationInput
 	Description   pulumi.StringPtrInput
 	MapName       pulumi.StringPtrInput
-	PricingPlan   MapPricingPlanInput
+	PricingPlan   MapPricingPlanPtrInput
 }
 
 func (MapArgs) ElementType() reflect.Type {

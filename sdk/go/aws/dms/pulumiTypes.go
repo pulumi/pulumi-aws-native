@@ -469,6 +469,319 @@ func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointGcpMySQLSettings struct {
+	AfterConnectScript            *string `pulumi:"afterConnectScript"`
+	CleanSourceMetadataOnMismatch *bool   `pulumi:"cleanSourceMetadataOnMismatch"`
+	DatabaseName                  *string `pulumi:"databaseName"`
+	EventsPollInterval            *int    `pulumi:"eventsPollInterval"`
+	MaxFileSize                   *int    `pulumi:"maxFileSize"`
+	ParallelLoadThreads           *int    `pulumi:"parallelLoadThreads"`
+	Password                      *string `pulumi:"password"`
+	Port                          *int    `pulumi:"port"`
+	SecretsManagerAccessRoleArn   *string `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerSecretId        *string `pulumi:"secretsManagerSecretId"`
+	ServerName                    *string `pulumi:"serverName"`
+	ServerTimezone                *string `pulumi:"serverTimezone"`
+	Username                      *string `pulumi:"username"`
+}
+
+// EndpointGcpMySQLSettingsInput is an input type that accepts EndpointGcpMySQLSettingsArgs and EndpointGcpMySQLSettingsOutput values.
+// You can construct a concrete instance of `EndpointGcpMySQLSettingsInput` via:
+//
+//          EndpointGcpMySQLSettingsArgs{...}
+type EndpointGcpMySQLSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointGcpMySQLSettingsOutput() EndpointGcpMySQLSettingsOutput
+	ToEndpointGcpMySQLSettingsOutputWithContext(context.Context) EndpointGcpMySQLSettingsOutput
+}
+
+type EndpointGcpMySQLSettingsArgs struct {
+	AfterConnectScript            pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	CleanSourceMetadataOnMismatch pulumi.BoolPtrInput   `pulumi:"cleanSourceMetadataOnMismatch"`
+	DatabaseName                  pulumi.StringPtrInput `pulumi:"databaseName"`
+	EventsPollInterval            pulumi.IntPtrInput    `pulumi:"eventsPollInterval"`
+	MaxFileSize                   pulumi.IntPtrInput    `pulumi:"maxFileSize"`
+	ParallelLoadThreads           pulumi.IntPtrInput    `pulumi:"parallelLoadThreads"`
+	Password                      pulumi.StringPtrInput `pulumi:"password"`
+	Port                          pulumi.IntPtrInput    `pulumi:"port"`
+	SecretsManagerAccessRoleArn   pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerSecretId        pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+	ServerName                    pulumi.StringPtrInput `pulumi:"serverName"`
+	ServerTimezone                pulumi.StringPtrInput `pulumi:"serverTimezone"`
+	Username                      pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (EndpointGcpMySQLSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGcpMySQLSettings)(nil)).Elem()
+}
+
+func (i EndpointGcpMySQLSettingsArgs) ToEndpointGcpMySQLSettingsOutput() EndpointGcpMySQLSettingsOutput {
+	return i.ToEndpointGcpMySQLSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointGcpMySQLSettingsArgs) ToEndpointGcpMySQLSettingsOutputWithContext(ctx context.Context) EndpointGcpMySQLSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGcpMySQLSettingsOutput)
+}
+
+func (i EndpointGcpMySQLSettingsArgs) ToEndpointGcpMySQLSettingsPtrOutput() EndpointGcpMySQLSettingsPtrOutput {
+	return i.ToEndpointGcpMySQLSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointGcpMySQLSettingsArgs) ToEndpointGcpMySQLSettingsPtrOutputWithContext(ctx context.Context) EndpointGcpMySQLSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGcpMySQLSettingsOutput).ToEndpointGcpMySQLSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointGcpMySQLSettingsPtrInput is an input type that accepts EndpointGcpMySQLSettingsArgs, EndpointGcpMySQLSettingsPtr and EndpointGcpMySQLSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointGcpMySQLSettingsPtrInput` via:
+//
+//          EndpointGcpMySQLSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointGcpMySQLSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointGcpMySQLSettingsPtrOutput() EndpointGcpMySQLSettingsPtrOutput
+	ToEndpointGcpMySQLSettingsPtrOutputWithContext(context.Context) EndpointGcpMySQLSettingsPtrOutput
+}
+
+type endpointGcpMySQLSettingsPtrType EndpointGcpMySQLSettingsArgs
+
+func EndpointGcpMySQLSettingsPtr(v *EndpointGcpMySQLSettingsArgs) EndpointGcpMySQLSettingsPtrInput {
+	return (*endpointGcpMySQLSettingsPtrType)(v)
+}
+
+func (*endpointGcpMySQLSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGcpMySQLSettings)(nil)).Elem()
+}
+
+func (i *endpointGcpMySQLSettingsPtrType) ToEndpointGcpMySQLSettingsPtrOutput() EndpointGcpMySQLSettingsPtrOutput {
+	return i.ToEndpointGcpMySQLSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointGcpMySQLSettingsPtrType) ToEndpointGcpMySQLSettingsPtrOutputWithContext(ctx context.Context) EndpointGcpMySQLSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGcpMySQLSettingsPtrOutput)
+}
+
+type EndpointGcpMySQLSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointGcpMySQLSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGcpMySQLSettings)(nil)).Elem()
+}
+
+func (o EndpointGcpMySQLSettingsOutput) ToEndpointGcpMySQLSettingsOutput() EndpointGcpMySQLSettingsOutput {
+	return o
+}
+
+func (o EndpointGcpMySQLSettingsOutput) ToEndpointGcpMySQLSettingsOutputWithContext(ctx context.Context) EndpointGcpMySQLSettingsOutput {
+	return o
+}
+
+func (o EndpointGcpMySQLSettingsOutput) ToEndpointGcpMySQLSettingsPtrOutput() EndpointGcpMySQLSettingsPtrOutput {
+	return o.ToEndpointGcpMySQLSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointGcpMySQLSettingsOutput) ToEndpointGcpMySQLSettingsPtrOutputWithContext(ctx context.Context) EndpointGcpMySQLSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointGcpMySQLSettings) *EndpointGcpMySQLSettings {
+		return &v
+	}).(EndpointGcpMySQLSettingsPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) CleanSourceMetadataOnMismatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *bool { return v.CleanSourceMetadataOnMismatch }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) EventsPollInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *int { return v.EventsPollInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) ParallelLoadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *int { return v.ParallelLoadThreads }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) ServerTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *string { return v.ServerTimezone }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGcpMySQLSettings) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type EndpointGcpMySQLSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointGcpMySQLSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGcpMySQLSettings)(nil)).Elem()
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) ToEndpointGcpMySQLSettingsPtrOutput() EndpointGcpMySQLSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) ToEndpointGcpMySQLSettingsPtrOutputWithContext(ctx context.Context) EndpointGcpMySQLSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) Elem() EndpointGcpMySQLSettingsOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) EndpointGcpMySQLSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointGcpMySQLSettings
+		return ret
+	}).(EndpointGcpMySQLSettingsOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AfterConnectScript
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) CleanSourceMetadataOnMismatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CleanSourceMetadataOnMismatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) EventsPollInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EventsPollInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) ParallelLoadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ParallelLoadThreads
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) ServerTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerTimezone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointGcpMySQLSettingsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGcpMySQLSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointIbmDb2Settings struct {
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
@@ -3620,6 +3933,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDynamoDbSettingsPtrInput)(nil)).Elem(), EndpointDynamoDbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointElasticsearchSettingsInput)(nil)).Elem(), EndpointElasticsearchSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointElasticsearchSettingsPtrInput)(nil)).Elem(), EndpointElasticsearchSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGcpMySQLSettingsInput)(nil)).Elem(), EndpointGcpMySQLSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGcpMySQLSettingsPtrInput)(nil)).Elem(), EndpointGcpMySQLSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointIbmDb2SettingsInput)(nil)).Elem(), EndpointIbmDb2SettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointIbmDb2SettingsPtrInput)(nil)).Elem(), EndpointIbmDb2SettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKafkaSettingsInput)(nil)).Elem(), EndpointKafkaSettingsArgs{})
@@ -3662,6 +3977,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointDynamoDbSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointGcpMySQLSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointGcpMySQLSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointIbmDb2SettingsOutput{})
 	pulumi.RegisterOutputType(EndpointIbmDb2SettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointKafkaSettingsOutput{})

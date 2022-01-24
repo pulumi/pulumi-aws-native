@@ -12,6 +12,7 @@ __all__ = [
     'EndpointDocDbSettings',
     'EndpointDynamoDbSettings',
     'EndpointElasticsearchSettings',
+    'EndpointGcpMySQLSettings',
     'EndpointIbmDb2Settings',
     'EndpointKafkaSettings',
     'EndpointKinesisSettings',
@@ -160,6 +161,150 @@ class EndpointElasticsearchSettings(dict):
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[str]:
         return pulumi.get(self, "service_access_role_arn")
+
+
+@pulumi.output_type
+class EndpointGcpMySQLSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "afterConnectScript":
+            suggest = "after_connect_script"
+        elif key == "cleanSourceMetadataOnMismatch":
+            suggest = "clean_source_metadata_on_mismatch"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "eventsPollInterval":
+            suggest = "events_poll_interval"
+        elif key == "maxFileSize":
+            suggest = "max_file_size"
+        elif key == "parallelLoadThreads":
+            suggest = "parallel_load_threads"
+        elif key == "secretsManagerAccessRoleArn":
+            suggest = "secrets_manager_access_role_arn"
+        elif key == "secretsManagerSecretId":
+            suggest = "secrets_manager_secret_id"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serverTimezone":
+            suggest = "server_timezone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGcpMySQLSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGcpMySQLSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGcpMySQLSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 after_connect_script: Optional[str] = None,
+                 clean_source_metadata_on_mismatch: Optional[bool] = None,
+                 database_name: Optional[str] = None,
+                 events_poll_interval: Optional[int] = None,
+                 max_file_size: Optional[int] = None,
+                 parallel_load_threads: Optional[int] = None,
+                 password: Optional[str] = None,
+                 port: Optional[int] = None,
+                 secrets_manager_access_role_arn: Optional[str] = None,
+                 secrets_manager_secret_id: Optional[str] = None,
+                 server_name: Optional[str] = None,
+                 server_timezone: Optional[str] = None,
+                 username: Optional[str] = None):
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if clean_source_metadata_on_mismatch is not None:
+            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if events_poll_interval is not None:
+            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parallel_load_threads is not None:
+            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if server_timezone is not None:
+            pulumi.set(__self__, "server_timezone", server_timezone)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[str]:
+        return pulumi.get(self, "after_connect_script")
+
+    @property
+    @pulumi.getter(name="cleanSourceMetadataOnMismatch")
+    def clean_source_metadata_on_mismatch(self) -> Optional[bool]:
+        return pulumi.get(self, "clean_source_metadata_on_mismatch")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="eventsPollInterval")
+    def events_poll_interval(self) -> Optional[int]:
+        return pulumi.get(self, "events_poll_interval")
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[int]:
+        return pulumi.get(self, "max_file_size")
+
+    @property
+    @pulumi.getter(name="parallelLoadThreads")
+    def parallel_load_threads(self) -> Optional[int]:
+        return pulumi.get(self, "parallel_load_threads")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> Optional[str]:
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="serverTimezone")
+    def server_timezone(self) -> Optional[str]:
+        return pulumi.get(self, "server_timezone")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

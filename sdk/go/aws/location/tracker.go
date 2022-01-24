@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +19,7 @@ type Tracker struct {
 	Description           pulumi.StringPtrOutput            `pulumi:"description"`
 	KmsKeyId              pulumi.StringPtrOutput            `pulumi:"kmsKeyId"`
 	PositionFiltering     TrackerPositionFilteringPtrOutput `pulumi:"positionFiltering"`
-	PricingPlan           TrackerPricingPlanOutput          `pulumi:"pricingPlan"`
+	PricingPlan           TrackerPricingPlanPtrOutput       `pulumi:"pricingPlan"`
 	PricingPlanDataSource pulumi.StringPtrOutput            `pulumi:"pricingPlanDataSource"`
 	TrackerArn            pulumi.StringOutput               `pulumi:"trackerArn"`
 	TrackerName           pulumi.StringOutput               `pulumi:"trackerName"`
@@ -31,12 +30,9 @@ type Tracker struct {
 func NewTracker(ctx *pulumi.Context,
 	name string, args *TrackerArgs, opts ...pulumi.ResourceOption) (*Tracker, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TrackerArgs{}
 	}
 
-	if args.PricingPlan == nil {
-		return nil, errors.New("invalid value for required argument 'PricingPlan'")
-	}
 	var resource Tracker
 	err := ctx.RegisterResource("aws-native:location:Tracker", name, args, &resource, opts...)
 	if err != nil {
@@ -72,7 +68,7 @@ type trackerArgs struct {
 	Description           *string                   `pulumi:"description"`
 	KmsKeyId              *string                   `pulumi:"kmsKeyId"`
 	PositionFiltering     *TrackerPositionFiltering `pulumi:"positionFiltering"`
-	PricingPlan           TrackerPricingPlan        `pulumi:"pricingPlan"`
+	PricingPlan           *TrackerPricingPlan       `pulumi:"pricingPlan"`
 	PricingPlanDataSource *string                   `pulumi:"pricingPlanDataSource"`
 	TrackerName           *string                   `pulumi:"trackerName"`
 }
@@ -82,7 +78,7 @@ type TrackerArgs struct {
 	Description           pulumi.StringPtrInput
 	KmsKeyId              pulumi.StringPtrInput
 	PositionFiltering     TrackerPositionFilteringPtrInput
-	PricingPlan           TrackerPricingPlanInput
+	PricingPlan           TrackerPricingPlanPtrInput
 	PricingPlanDataSource pulumi.StringPtrInput
 	TrackerName           pulumi.StringPtrInput
 }

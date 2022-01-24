@@ -41,7 +41,7 @@ export class RouteCalculator extends pulumi.CustomResource {
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly dataSource!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly pricingPlan!: pulumi.Output<enums.location.RouteCalculatorPricingPlan>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.RouteCalculatorPricingPlan | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -60,9 +60,6 @@ export class RouteCalculator extends pulumi.CustomResource {
             }
             if ((!args || args.dataSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
-            }
-            if ((!args || args.pricingPlan === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'pricingPlan'");
             }
             inputs["calculatorName"] = args ? args.calculatorName : undefined;
             inputs["dataSource"] = args ? args.dataSource : undefined;
@@ -96,5 +93,5 @@ export interface RouteCalculatorArgs {
     calculatorName: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    pricingPlan: pulumi.Input<enums.location.RouteCalculatorPricingPlan>;
+    pricingPlan?: pulumi.Input<enums.location.RouteCalculatorPricingPlan>;
 }

@@ -42,7 +42,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly indexArn!: pulumi.Output<string>;
     public readonly indexName!: pulumi.Output<string>;
-    public readonly pricingPlan!: pulumi.Output<enums.location.PlaceIndexPricingPlan>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.PlaceIndexPricingPlan | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -61,9 +61,6 @@ export class PlaceIndex extends pulumi.CustomResource {
             }
             if ((!args || args.indexName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexName'");
-            }
-            if ((!args || args.pricingPlan === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'pricingPlan'");
             }
             inputs["dataSource"] = args ? args.dataSource : undefined;
             inputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
@@ -100,5 +97,5 @@ export interface PlaceIndexArgs {
     dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfigurationArgs>;
     description?: pulumi.Input<string>;
     indexName: pulumi.Input<string>;
-    pricingPlan: pulumi.Input<enums.location.PlaceIndexPricingPlan>;
+    pricingPlan?: pulumi.Input<enums.location.PlaceIndexPricingPlan>;
 }

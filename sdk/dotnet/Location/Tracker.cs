@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Location
         public Output<Pulumi.AwsNative.Location.TrackerPositionFiltering?> PositionFiltering { get; private set; } = null!;
 
         [Output("pricingPlan")]
-        public Output<Pulumi.AwsNative.Location.TrackerPricingPlan> PricingPlan { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Location.TrackerPricingPlan?> PricingPlan { get; private set; } = null!;
 
         [Output("pricingPlanDataSource")]
         public Output<string?> PricingPlanDataSource { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Location
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Tracker(string name, TrackerArgs args, CustomResourceOptions? options = null)
+        public Tracker(string name, TrackerArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:location:Tracker", name, args ?? new TrackerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.Location
         [Input("positionFiltering")]
         public Input<Pulumi.AwsNative.Location.TrackerPositionFiltering>? PositionFiltering { get; set; }
 
-        [Input("pricingPlan", required: true)]
-        public Input<Pulumi.AwsNative.Location.TrackerPricingPlan> PricingPlan { get; set; } = null!;
+        [Input("pricingPlan")]
+        public Input<Pulumi.AwsNative.Location.TrackerPricingPlan>? PricingPlan { get; set; }
 
         [Input("pricingPlanDataSource")]
         public Input<string>? PricingPlanDataSource { get; set; }

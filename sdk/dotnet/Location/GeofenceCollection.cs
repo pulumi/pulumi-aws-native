@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Location
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         [Output("pricingPlan")]
-        public Output<Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan> PricingPlan { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan?> PricingPlan { get; private set; } = null!;
 
         [Output("pricingPlanDataSource")]
         public Output<string?> PricingPlanDataSource { get; private set; } = null!;
@@ -96,8 +96,8 @@ namespace Pulumi.AwsNative.Location
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("pricingPlan", required: true)]
-        public Input<Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan> PricingPlan { get; set; } = null!;
+        [Input("pricingPlan")]
+        public Input<Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan>? PricingPlan { get; set; }
 
         [Input("pricingPlanDataSource")]
         public Input<string>? PricingPlanDataSource { get; set; }

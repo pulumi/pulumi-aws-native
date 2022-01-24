@@ -27,6 +27,7 @@ type Endpoint struct {
 	EngineName                 pulumi.StringOutput                         `pulumi:"engineName"`
 	ExternalId                 pulumi.StringOutput                         `pulumi:"externalId"`
 	ExtraConnectionAttributes  pulumi.StringPtrOutput                      `pulumi:"extraConnectionAttributes"`
+	GcpMySQLSettings           EndpointGcpMySQLSettingsPtrOutput           `pulumi:"gcpMySQLSettings"`
 	IbmDb2Settings             EndpointIbmDb2SettingsPtrOutput             `pulumi:"ibmDb2Settings"`
 	KafkaSettings              EndpointKafkaSettingsPtrOutput              `pulumi:"kafkaSettings"`
 	KinesisSettings            EndpointKinesisSettingsPtrOutput            `pulumi:"kinesisSettings"`
@@ -104,6 +105,7 @@ type endpointArgs struct {
 	EndpointType               string                              `pulumi:"endpointType"`
 	EngineName                 string                              `pulumi:"engineName"`
 	ExtraConnectionAttributes  *string                             `pulumi:"extraConnectionAttributes"`
+	GcpMySQLSettings           *EndpointGcpMySQLSettings           `pulumi:"gcpMySQLSettings"`
 	IbmDb2Settings             *EndpointIbmDb2Settings             `pulumi:"ibmDb2Settings"`
 	KafkaSettings              *EndpointKafkaSettings              `pulumi:"kafkaSettings"`
 	KinesisSettings            *EndpointKinesisSettings            `pulumi:"kinesisSettings"`
@@ -138,6 +140,7 @@ type EndpointArgs struct {
 	EndpointType               pulumi.StringInput
 	EngineName                 pulumi.StringInput
 	ExtraConnectionAttributes  pulumi.StringPtrInput
+	GcpMySQLSettings           EndpointGcpMySQLSettingsPtrInput
 	IbmDb2Settings             EndpointIbmDb2SettingsPtrInput
 	KafkaSettings              EndpointKafkaSettingsPtrInput
 	KinesisSettings            EndpointKinesisSettingsPtrInput

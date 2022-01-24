@@ -15,14 +15,14 @@ import (
 type RouteCalculator struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput              `pulumi:"arn"`
-	CalculatorArn  pulumi.StringOutput              `pulumi:"calculatorArn"`
-	CalculatorName pulumi.StringOutput              `pulumi:"calculatorName"`
-	CreateTime     pulumi.StringOutput              `pulumi:"createTime"`
-	DataSource     pulumi.StringOutput              `pulumi:"dataSource"`
-	Description    pulumi.StringPtrOutput           `pulumi:"description"`
-	PricingPlan    RouteCalculatorPricingPlanOutput `pulumi:"pricingPlan"`
-	UpdateTime     pulumi.StringOutput              `pulumi:"updateTime"`
+	Arn            pulumi.StringOutput                 `pulumi:"arn"`
+	CalculatorArn  pulumi.StringOutput                 `pulumi:"calculatorArn"`
+	CalculatorName pulumi.StringOutput                 `pulumi:"calculatorName"`
+	CreateTime     pulumi.StringOutput                 `pulumi:"createTime"`
+	DataSource     pulumi.StringOutput                 `pulumi:"dataSource"`
+	Description    pulumi.StringPtrOutput              `pulumi:"description"`
+	PricingPlan    RouteCalculatorPricingPlanPtrOutput `pulumi:"pricingPlan"`
+	UpdateTime     pulumi.StringOutput                 `pulumi:"updateTime"`
 }
 
 // NewRouteCalculator registers a new resource with the given unique name, arguments, and options.
@@ -37,9 +37,6 @@ func NewRouteCalculator(ctx *pulumi.Context,
 	}
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
-	}
-	if args.PricingPlan == nil {
-		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
 	var resource RouteCalculator
 	err := ctx.RegisterResource("aws-native:location:RouteCalculator", name, args, &resource, opts...)
@@ -73,10 +70,10 @@ func (RouteCalculatorState) ElementType() reflect.Type {
 }
 
 type routeCalculatorArgs struct {
-	CalculatorName string                     `pulumi:"calculatorName"`
-	DataSource     string                     `pulumi:"dataSource"`
-	Description    *string                    `pulumi:"description"`
-	PricingPlan    RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
+	CalculatorName string                      `pulumi:"calculatorName"`
+	DataSource     string                      `pulumi:"dataSource"`
+	Description    *string                     `pulumi:"description"`
+	PricingPlan    *RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a RouteCalculator resource.
@@ -84,7 +81,7 @@ type RouteCalculatorArgs struct {
 	CalculatorName pulumi.StringInput
 	DataSource     pulumi.StringInput
 	Description    pulumi.StringPtrInput
-	PricingPlan    RouteCalculatorPricingPlanInput
+	PricingPlan    RouteCalculatorPricingPlanPtrInput
 }
 
 func (RouteCalculatorArgs) ElementType() reflect.Type {

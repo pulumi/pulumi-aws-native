@@ -40,7 +40,7 @@ export class Tracker extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly positionFiltering!: pulumi.Output<enums.location.TrackerPositionFiltering | undefined>;
-    public readonly pricingPlan!: pulumi.Output<enums.location.TrackerPricingPlan>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.TrackerPricingPlan | undefined>;
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
     public /*out*/ readonly trackerArn!: pulumi.Output<string>;
     public readonly trackerName!: pulumi.Output<string>;
@@ -53,13 +53,10 @@ export class Tracker extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TrackerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: TrackerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.pricingPlan === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'pricingPlan'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["positionFiltering"] = args ? args.positionFiltering : undefined;
@@ -96,7 +93,7 @@ export interface TrackerArgs {
     description?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
     positionFiltering?: pulumi.Input<enums.location.TrackerPositionFiltering>;
-    pricingPlan: pulumi.Input<enums.location.TrackerPricingPlan>;
+    pricingPlan?: pulumi.Input<enums.location.TrackerPricingPlan>;
     pricingPlanDataSource?: pulumi.Input<string>;
     trackerName?: pulumi.Input<string>;
 }

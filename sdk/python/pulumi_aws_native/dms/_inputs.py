@@ -12,6 +12,7 @@ __all__ = [
     'EndpointDocDbSettingsArgs',
     'EndpointDynamoDbSettingsArgs',
     'EndpointElasticsearchSettingsArgs',
+    'EndpointGcpMySQLSettingsArgs',
     'EndpointIbmDb2SettingsArgs',
     'EndpointKafkaSettingsArgs',
     'EndpointKinesisSettingsArgs',
@@ -129,6 +130,167 @@ class EndpointElasticsearchSettingsArgs:
     @service_access_role_arn.setter
     def service_access_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_access_role_arn", value)
+
+
+@pulumi.input_type
+class EndpointGcpMySQLSettingsArgs:
+    def __init__(__self__, *,
+                 after_connect_script: Optional[pulumi.Input[str]] = None,
+                 clean_source_metadata_on_mismatch: Optional[pulumi.Input[bool]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 events_poll_interval: Optional[pulumi.Input[int]] = None,
+                 max_file_size: Optional[pulumi.Input[int]] = None,
+                 parallel_load_threads: Optional[pulumi.Input[int]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 server_timezone: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if clean_source_metadata_on_mismatch is not None:
+            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if events_poll_interval is not None:
+            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parallel_load_threads is not None:
+            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if server_timezone is not None:
+            pulumi.set(__self__, "server_timezone", server_timezone)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @property
+    @pulumi.getter(name="cleanSourceMetadataOnMismatch")
+    def clean_source_metadata_on_mismatch(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "clean_source_metadata_on_mismatch")
+
+    @clean_source_metadata_on_mismatch.setter
+    def clean_source_metadata_on_mismatch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "clean_source_metadata_on_mismatch", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="eventsPollInterval")
+    def events_poll_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "events_poll_interval")
+
+    @events_poll_interval.setter
+    def events_poll_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "events_poll_interval", value)
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @property
+    @pulumi.getter(name="parallelLoadThreads")
+    def parallel_load_threads(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "parallel_load_threads")
+
+    @parallel_load_threads.setter
+    def parallel_load_threads(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parallel_load_threads", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="serverTimezone")
+    def server_timezone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_timezone")
+
+    @server_timezone.setter
+    def server_timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_timezone", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

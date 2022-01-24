@@ -42,7 +42,7 @@ export class Map extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly mapArn!: pulumi.Output<string>;
     public readonly mapName!: pulumi.Output<string>;
-    public readonly pricingPlan!: pulumi.Output<enums.location.MapPricingPlan>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.MapPricingPlan | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -58,9 +58,6 @@ export class Map extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
-            }
-            if ((!args || args.pricingPlan === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'pricingPlan'");
             }
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -96,5 +93,5 @@ export interface MapArgs {
     configuration: pulumi.Input<inputs.location.MapConfigurationArgs>;
     description?: pulumi.Input<string>;
     mapName?: pulumi.Input<string>;
-    pricingPlan: pulumi.Input<enums.location.MapPricingPlan>;
+    pricingPlan?: pulumi.Input<enums.location.MapPricingPlan>;
 }

@@ -18,19 +18,20 @@ class PlaceIndexArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[str],
                  index_name: pulumi.Input[str],
-                 pricing_plan: pulumi.Input['PlaceIndexPricingPlan'],
                  data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None):
         """
         The set of arguments for constructing a PlaceIndex resource.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "index_name", index_name)
-        pulumi.set(__self__, "pricing_plan", pricing_plan)
         if data_source_configuration is not None:
             pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if pricing_plan is not None:
+            pulumi.set(__self__, "pricing_plan", pricing_plan)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -51,15 +52,6 @@ class PlaceIndexArgs:
         pulumi.set(self, "index_name", value)
 
     @property
-    @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input['PlaceIndexPricingPlan']:
-        return pulumi.get(self, "pricing_plan")
-
-    @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input['PlaceIndexPricingPlan']):
-        pulumi.set(self, "pricing_plan", value)
-
-    @property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']]:
         return pulumi.get(self, "data_source_configuration")
@@ -76,6 +68,15 @@ class PlaceIndexArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="pricingPlan")
+    def pricing_plan(self) -> Optional[pulumi.Input['PlaceIndexPricingPlan']]:
+        return pulumi.get(self, "pricing_plan")
+
+    @pricing_plan.setter
+    def pricing_plan(self, value: Optional[pulumi.Input['PlaceIndexPricingPlan']]):
+        pulumi.set(self, "pricing_plan", value)
 
 
 class PlaceIndex(pulumi.CustomResource):
@@ -144,8 +145,6 @@ class PlaceIndex(pulumi.CustomResource):
             if index_name is None and not opts.urn:
                 raise TypeError("Missing required property 'index_name'")
             __props__.__dict__["index_name"] = index_name
-            if pricing_plan is None and not opts.urn:
-                raise TypeError("Missing required property 'pricing_plan'")
             __props__.__dict__["pricing_plan"] = pricing_plan
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
@@ -221,7 +220,7 @@ class PlaceIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output['PlaceIndexPricingPlan']:
+    def pricing_plan(self) -> pulumi.Output[Optional['PlaceIndexPricingPlan']]:
         return pulumi.get(self, "pricing_plan")
 
     @property

@@ -13,9 +13,7 @@ import (
 type GeofenceCollectionPricingPlan string
 
 const (
-	GeofenceCollectionPricingPlanRequestBasedUsage     = GeofenceCollectionPricingPlan("RequestBasedUsage")
-	GeofenceCollectionPricingPlanMobileAssetTracking   = GeofenceCollectionPricingPlan("MobileAssetTracking")
-	GeofenceCollectionPricingPlanMobileAssetManagement = GeofenceCollectionPricingPlan("MobileAssetManagement")
+	GeofenceCollectionPricingPlanRequestBasedUsage = GeofenceCollectionPricingPlan("RequestBasedUsage")
 )
 
 func (GeofenceCollectionPricingPlan) ElementType() reflect.Type {
@@ -178,9 +176,7 @@ func (in *geofenceCollectionPricingPlanPtr) ToGeofenceCollectionPricingPlanPtrOu
 type MapPricingPlan string
 
 const (
-	MapPricingPlanRequestBasedUsage     = MapPricingPlan("RequestBasedUsage")
-	MapPricingPlanMobileAssetTracking   = MapPricingPlan("MobileAssetTracking")
-	MapPricingPlanMobileAssetManagement = MapPricingPlan("MobileAssetManagement")
+	MapPricingPlanRequestBasedUsage = MapPricingPlan("RequestBasedUsage")
 )
 
 func (MapPricingPlan) ElementType() reflect.Type {
@@ -507,9 +503,7 @@ func (in *placeIndexIntendedUsePtr) ToPlaceIndexIntendedUsePtrOutputWithContext(
 type PlaceIndexPricingPlan string
 
 const (
-	PlaceIndexPricingPlanRequestBasedUsage     = PlaceIndexPricingPlan("RequestBasedUsage")
-	PlaceIndexPricingPlanMobileAssetTracking   = PlaceIndexPricingPlan("MobileAssetTracking")
-	PlaceIndexPricingPlanMobileAssetManagement = PlaceIndexPricingPlan("MobileAssetManagement")
+	PlaceIndexPricingPlanRequestBasedUsage = PlaceIndexPricingPlan("RequestBasedUsage")
 )
 
 func (PlaceIndexPricingPlan) ElementType() reflect.Type {
@@ -672,8 +666,7 @@ func (in *placeIndexPricingPlanPtr) ToPlaceIndexPricingPlanPtrOutputWithContext(
 type RouteCalculatorPricingPlan string
 
 const (
-	RouteCalculatorPricingPlanRequestBasedUsage     = RouteCalculatorPricingPlan("RequestBasedUsage")
-	RouteCalculatorPricingPlanMobileAssetManagement = RouteCalculatorPricingPlan("MobileAssetManagement")
+	RouteCalculatorPricingPlanRequestBasedUsage = RouteCalculatorPricingPlan("RequestBasedUsage")
 )
 
 func (RouteCalculatorPricingPlan) ElementType() reflect.Type {
@@ -1001,9 +994,7 @@ func (in *trackerPositionFilteringPtr) ToTrackerPositionFilteringPtrOutputWithCo
 type TrackerPricingPlan string
 
 const (
-	TrackerPricingPlanRequestBasedUsage     = TrackerPricingPlan("RequestBasedUsage")
-	TrackerPricingPlanMobileAssetTracking   = TrackerPricingPlan("MobileAssetTracking")
-	TrackerPricingPlanMobileAssetManagement = TrackerPricingPlan("MobileAssetManagement")
+	TrackerPricingPlanRequestBasedUsage = TrackerPricingPlan("RequestBasedUsage")
 )
 
 func (TrackerPricingPlan) ElementType() reflect.Type {

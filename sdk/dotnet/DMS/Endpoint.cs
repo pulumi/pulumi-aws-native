@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.DMS
         [Output("extraConnectionAttributes")]
         public Output<string?> ExtraConnectionAttributes { get; private set; } = null!;
 
+        [Output("gcpMySQLSettings")]
+        public Output<Outputs.EndpointGcpMySQLSettings?> GcpMySQLSettings { get; private set; } = null!;
+
         [Output("ibmDb2Settings")]
         public Output<Outputs.EndpointIbmDb2Settings?> IbmDb2Settings { get; private set; } = null!;
 
@@ -180,6 +183,9 @@ namespace Pulumi.AwsNative.DMS
 
         [Input("extraConnectionAttributes")]
         public Input<string>? ExtraConnectionAttributes { get; set; }
+
+        [Input("gcpMySQLSettings")]
+        public Input<Inputs.EndpointGcpMySQLSettingsArgs>? GcpMySQLSettings { get; set; }
 
         [Input("ibmDb2Settings")]
         public Input<Inputs.EndpointIbmDb2SettingsArgs>? IbmDb2Settings { get; set; }

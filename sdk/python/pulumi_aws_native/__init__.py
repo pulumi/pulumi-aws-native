@@ -231,6 +231,8 @@ if typing.TYPE_CHECKING:
     iotwireless = __iotwireless
     import pulumi_aws_native.ivs as __ivs
     ivs = __ivs
+    import pulumi_aws_native.kafkaconnect as __kafkaconnect
+    kafkaconnect = __kafkaconnect
     import pulumi_aws_native.kendra as __kendra
     kendra = __kendra
     import pulumi_aws_native.kinesis as __kinesis
@@ -497,6 +499,7 @@ else:
     iotthingsgraph = _utilities.lazy_import('pulumi_aws_native.iotthingsgraph')
     iotwireless = _utilities.lazy_import('pulumi_aws_native.iotwireless')
     ivs = _utilities.lazy_import('pulumi_aws_native.ivs')
+    kafkaconnect = _utilities.lazy_import('pulumi_aws_native.kafkaconnect')
     kendra = _utilities.lazy_import('pulumi_aws_native.kendra')
     kinesis = _utilities.lazy_import('pulumi_aws_native.kinesis')
     kinesisanalytics = _utilities.lazy_import('pulumi_aws_native.kinesisanalytics')
@@ -1847,6 +1850,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "kafkaconnect",
+  "fqn": "pulumi_aws_native.kafkaconnect",
+  "classes": {
+   "aws-native:kafkaconnect:Connector": "Connector"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "kendra",
   "fqn": "pulumi_aws_native.kendra",
   "classes": {
@@ -1970,6 +1981,7 @@ _utilities.register(
    "aws-native:lightsail:Container": "Container",
    "aws-native:lightsail:Database": "Database",
    "aws-native:lightsail:Disk": "Disk",
+   "aws-native:lightsail:Distribution": "Distribution",
    "aws-native:lightsail:Instance": "Instance",
    "aws-native:lightsail:LoadBalancer": "LoadBalancer",
    "aws-native:lightsail:LoadBalancerTlsCertificate": "LoadBalancerTlsCertificate",

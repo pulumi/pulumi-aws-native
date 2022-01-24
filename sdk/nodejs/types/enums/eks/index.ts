@@ -18,6 +18,6 @@ export const ClusterKubernetesNetworkConfigIpFamily = {
 } as const;
 
 /**
- * Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21
+ * Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
  */
 export type ClusterKubernetesNetworkConfigIpFamily = (typeof ClusterKubernetesNetworkConfigIpFamily)[keyof typeof ClusterKubernetesNetworkConfigIpFamily];

@@ -11,6 +11,7 @@ export * from "./certificate";
 export * from "./container";
 export * from "./database";
 export * from "./disk";
+export * from "./distribution";
 export * from "./instance";
 export * from "./loadBalancer";
 export * from "./loadBalancerTlsCertificate";
@@ -26,6 +27,7 @@ import { Certificate } from "./certificate";
 import { Container } from "./container";
 import { Database } from "./database";
 import { Disk } from "./disk";
+import { Distribution } from "./distribution";
 import { Instance } from "./instance";
 import { LoadBalancer } from "./loadBalancer";
 import { LoadBalancerTlsCertificate } from "./loadBalancerTlsCertificate";
@@ -47,6 +49,8 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "aws-native:lightsail:Disk":
                 return new Disk(name, <any>undefined, { urn })
+            case "aws-native:lightsail:Distribution":
+                return new Distribution(name, <any>undefined, { urn })
             case "aws-native:lightsail:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "aws-native:lightsail:LoadBalancer":

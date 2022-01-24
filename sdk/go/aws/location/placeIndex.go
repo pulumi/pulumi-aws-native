@@ -22,7 +22,7 @@ type PlaceIndex struct {
 	Description             pulumi.StringPtrOutput                     `pulumi:"description"`
 	IndexArn                pulumi.StringOutput                        `pulumi:"indexArn"`
 	IndexName               pulumi.StringOutput                        `pulumi:"indexName"`
-	PricingPlan             PlaceIndexPricingPlanOutput                `pulumi:"pricingPlan"`
+	PricingPlan             PlaceIndexPricingPlanPtrOutput             `pulumi:"pricingPlan"`
 	UpdateTime              pulumi.StringOutput                        `pulumi:"updateTime"`
 }
 
@@ -38,9 +38,6 @@ func NewPlaceIndex(ctx *pulumi.Context,
 	}
 	if args.IndexName == nil {
 		return nil, errors.New("invalid value for required argument 'IndexName'")
-	}
-	if args.PricingPlan == nil {
-		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
 	var resource PlaceIndex
 	err := ctx.RegisterResource("aws-native:location:PlaceIndex", name, args, &resource, opts...)
@@ -78,7 +75,7 @@ type placeIndexArgs struct {
 	DataSourceConfiguration *PlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	Description             *string                            `pulumi:"description"`
 	IndexName               string                             `pulumi:"indexName"`
-	PricingPlan             PlaceIndexPricingPlan              `pulumi:"pricingPlan"`
+	PricingPlan             *PlaceIndexPricingPlan             `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a PlaceIndex resource.
@@ -87,7 +84,7 @@ type PlaceIndexArgs struct {
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationPtrInput
 	Description             pulumi.StringPtrInput
 	IndexName               pulumi.StringInput
-	PricingPlan             PlaceIndexPricingPlanInput
+	PricingPlan             PlaceIndexPricingPlanPtrInput
 }
 
 func (PlaceIndexArgs) ElementType() reflect.Type {

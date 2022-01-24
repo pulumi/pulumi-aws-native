@@ -14,35 +14,27 @@ __all__ = ['TrackerArgs', 'Tracker']
 @pulumi.input_type
 class TrackerArgs:
     def __init__(__self__, *,
-                 pricing_plan: pulumi.Input['TrackerPricingPlan'],
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
+                 pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Tracker resource.
         """
-        pulumi.set(__self__, "pricing_plan", pricing_plan)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if position_filtering is not None:
             pulumi.set(__self__, "position_filtering", position_filtering)
+        if pricing_plan is not None:
+            pulumi.set(__self__, "pricing_plan", pricing_plan)
         if pricing_plan_data_source is not None:
             pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
         if tracker_name is not None:
             pulumi.set(__self__, "tracker_name", tracker_name)
-
-    @property
-    @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input['TrackerPricingPlan']:
-        return pulumi.get(self, "pricing_plan")
-
-    @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input['TrackerPricingPlan']):
-        pulumi.set(self, "pricing_plan", value)
 
     @property
     @pulumi.getter
@@ -70,6 +62,15 @@ class TrackerArgs:
     @position_filtering.setter
     def position_filtering(self, value: Optional[pulumi.Input['TrackerPositionFiltering']]):
         pulumi.set(self, "position_filtering", value)
+
+    @property
+    @pulumi.getter(name="pricingPlan")
+    def pricing_plan(self) -> Optional[pulumi.Input['TrackerPricingPlan']]:
+        return pulumi.get(self, "pricing_plan")
+
+    @pricing_plan.setter
+    def pricing_plan(self, value: Optional[pulumi.Input['TrackerPricingPlan']]):
+        pulumi.set(self, "pricing_plan", value)
 
     @property
     @pulumi.getter(name="pricingPlanDataSource")
@@ -112,7 +113,7 @@ class Tracker(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TrackerArgs,
+                 args: Optional[TrackerArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Location::Tracker Resource Type
@@ -153,8 +154,6 @@ class Tracker(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["position_filtering"] = position_filtering
-            if pricing_plan is None and not opts.urn:
-                raise TypeError("Missing required property 'pricing_plan'")
             __props__.__dict__["pricing_plan"] = pricing_plan
             __props__.__dict__["pricing_plan_data_source"] = pricing_plan_data_source
             __props__.__dict__["tracker_name"] = tracker_name
@@ -223,7 +222,7 @@ class Tracker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output['TrackerPricingPlan']:
+    def pricing_plan(self) -> pulumi.Output[Optional['TrackerPricingPlan']]:
         return pulumi.get(self, "pricing_plan")
 
     @property

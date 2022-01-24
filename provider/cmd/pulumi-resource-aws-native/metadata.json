@@ -20114,6 +20114,135 @@
                 "channelArn"
             ]
         },
+        "aws-native:kafkaconnect:Connector": {
+            "cf": "AWS::KafkaConnect::Connector",
+            "inputs": {
+                "capacity": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorCapacity"
+                },
+                "connectorConfiguration": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The configuration for the connector."
+                },
+                "connectorDescription": {
+                    "type": "string",
+                    "description": "A summary description of the connector."
+                },
+                "connectorName": {
+                    "type": "string",
+                    "description": "The name of the connector."
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorKafkaCluster"
+                },
+                "kafkaClusterClientAuthentication": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorKafkaClusterClientAuthentication"
+                },
+                "kafkaClusterEncryptionInTransit": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorKafkaClusterEncryptionInTransit"
+                },
+                "kafkaConnectVersion": {
+                    "type": "string",
+                    "description": "The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins."
+                },
+                "logDelivery": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorLogDelivery"
+                },
+                "plugins": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kafkaconnect:ConnectorPlugin"
+                    },
+                    "description": "List of plugins to use with the connector."
+                },
+                "serviceExecutionRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources."
+                },
+                "workerConfiguration": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorWorkerConfiguration"
+                }
+            },
+            "outputs": {
+                "capacity": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorCapacity"
+                },
+                "connectorArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name for the created Connector."
+                },
+                "connectorConfiguration": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The configuration for the connector."
+                },
+                "connectorDescription": {
+                    "type": "string",
+                    "description": "A summary description of the connector."
+                },
+                "connectorName": {
+                    "type": "string",
+                    "description": "The name of the connector."
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorKafkaCluster"
+                },
+                "kafkaClusterClientAuthentication": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorKafkaClusterClientAuthentication"
+                },
+                "kafkaClusterEncryptionInTransit": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorKafkaClusterEncryptionInTransit"
+                },
+                "kafkaConnectVersion": {
+                    "type": "string",
+                    "description": "The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins."
+                },
+                "logDelivery": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorLogDelivery"
+                },
+                "plugins": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kafkaconnect:ConnectorPlugin"
+                    },
+                    "description": "List of plugins to use with the connector."
+                },
+                "serviceExecutionRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources."
+                },
+                "workerConfiguration": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorWorkerConfiguration"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "connectorName",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "capacity",
+                "connectorConfiguration",
+                "kafkaCluster",
+                "kafkaClusterClientAuthentication",
+                "kafkaClusterEncryptionInTransit",
+                "kafkaConnectVersion",
+                "plugins",
+                "serviceExecutionRoleArn"
+            ],
+            "createOnly": [
+                "connectorConfiguration",
+                "connectorDescription",
+                "connectorName",
+                "kafkaCluster",
+                "kafkaClusterClientAuthentication",
+                "kafkaClusterEncryptionInTransit",
+                "kafkaConnectVersion",
+                "logDelivery",
+                "plugins",
+                "serviceExecutionRoleArn",
+                "workerConfiguration"
+            ]
+        },
         "aws-native:kendra:DataSource": {
             "cf": "AWS::Kendra::DataSource",
             "inputs": {
@@ -22858,8 +22987,7 @@
                 }
             },
             "required": [
-                "collectionName",
-                "pricingPlan"
+                "collectionName"
             ],
             "createOnly": [
                 "collectionName",
@@ -22919,8 +23047,7 @@
                 "maxLength": 100
             },
             "required": [
-                "configuration",
-                "pricingPlan"
+                "configuration"
             ],
             "createOnly": [
                 "configuration",
@@ -22979,8 +23106,7 @@
             },
             "required": [
                 "dataSource",
-                "indexName",
-                "pricingPlan"
+                "indexName"
             ],
             "createOnly": [
                 "dataSource",
@@ -23034,8 +23160,7 @@
             },
             "required": [
                 "calculatorName",
-                "dataSource",
-                "pricingPlan"
+                "dataSource"
             ],
             "createOnly": [
                 "calculatorName",
@@ -23103,9 +23228,6 @@
                 "minLength": 1,
                 "maxLength": 100
             },
-            "required": [
-                "pricingPlan"
-            ],
             "createOnly": [
                 "description",
                 "kmsKeyId",
@@ -46991,7 +47113,7 @@
             "properties": {
                 "ipFamily": {
                     "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfigIpFamily",
-                    "description": "Ipv4 or Ipv6, Ipv6 is only supported on cluster with k8s version 1.21"
+                    "description": "Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on"
                 },
                 "serviceIpv4Cidr": {
                     "type": "string",
@@ -53796,6 +53918,231 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorApacheKafkaCluster": {
+            "type": "object",
+            "properties": {
+                "bootstrapServers": {
+                    "type": "string",
+                    "description": "The bootstrap servers string of the Apache Kafka cluster."
+                },
+                "vpc": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorVpc"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorAutoScaling": {
+            "type": "object",
+            "properties": {
+                "maxWorkerCount": {
+                    "type": "integer",
+                    "description": "The maximum number of workers for a connector."
+                },
+                "mcuCount": {
+                    "type": "integer",
+                    "description": "Specifies how many MSK Connect Units (MCU) as the minimum scaling unit."
+                },
+                "minWorkerCount": {
+                    "type": "integer",
+                    "description": "The minimum number of workers for a connector."
+                },
+                "scaleInPolicy": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorScaleInPolicy"
+                },
+                "scaleOutPolicy": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorScaleOutPolicy"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorCapacity": {
+            "type": "object",
+            "properties": {
+                "autoScaling": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorAutoScaling"
+                },
+                "provisionedCapacity": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorProvisionedCapacity"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorCloudWatchLogsLogDelivery": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether the logs get sent to the specified CloudWatch Logs destination."
+                },
+                "logGroup": {
+                    "type": "string",
+                    "description": "The CloudWatch log group that is the destination for log delivery."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorCustomPlugin": {
+            "type": "object",
+            "properties": {
+                "customPluginArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the custom plugin to use."
+                },
+                "revision": {
+                    "type": "integer",
+                    "description": "The revision of the custom plugin to use."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorFirehoseLogDelivery": {
+            "type": "object",
+            "properties": {
+                "deliveryStream": {
+                    "type": "string",
+                    "description": "The Kinesis Data Firehose delivery stream that is the destination for log delivery."
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether the logs get sent to the specified Kinesis Data Firehose delivery stream."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorKafkaCluster": {
+            "type": "object",
+            "properties": {
+                "apacheKafkaCluster": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorApacheKafkaCluster"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorKafkaClusterClientAuthentication": {
+            "type": "object",
+            "properties": {
+                "authenticationType": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorKafkaClusterClientAuthenticationType"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorKafkaClusterClientAuthenticationType": {
+            "type": "string"
+        },
+        "aws-native:kafkaconnect:ConnectorKafkaClusterEncryptionInTransit": {
+            "type": "object",
+            "properties": {
+                "encryptionType": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorKafkaClusterEncryptionInTransitType"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorKafkaClusterEncryptionInTransitType": {
+            "type": "string"
+        },
+        "aws-native:kafkaconnect:ConnectorLogDelivery": {
+            "type": "object",
+            "properties": {
+                "workerLogDelivery": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorWorkerLogDelivery"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorPlugin": {
+            "type": "object",
+            "properties": {
+                "customPlugin": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorCustomPlugin"
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorProvisionedCapacity": {
+            "type": "object",
+            "properties": {
+                "mcuCount": {
+                    "type": "integer",
+                    "description": "Specifies how many MSK Connect Units (MCU) are allocated to the connector."
+                },
+                "workerCount": {
+                    "type": "integer",
+                    "description": "Number of workers for a connector."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorS3LogDelivery": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "The name of the S3 bucket that is the destination for log delivery."
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether the logs get sent to the specified Amazon S3 destination."
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "The S3 prefix that is the destination for log delivery."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorScaleInPolicy": {
+            "type": "object",
+            "properties": {
+                "cpuUtilizationPercentage": {
+                    "type": "integer",
+                    "description": "Specifies the CPU utilization percentage threshold at which connector scale in should trigger."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorScaleOutPolicy": {
+            "type": "object",
+            "properties": {
+                "cpuUtilizationPercentage": {
+                    "type": "integer",
+                    "description": "Specifies the CPU utilization percentage threshold at which connector scale out should trigger."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorVpc": {
+            "type": "object",
+            "properties": {
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to."
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorWorkerConfiguration": {
+            "type": "object",
+            "properties": {
+                "revision": {
+                    "type": "integer",
+                    "description": "The revision of the worker configuration to use."
+                },
+                "workerConfigurationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the worker configuration to use."
+                }
+            }
+        },
+        "aws-native:kafkaconnect:ConnectorWorkerLogDelivery": {
+            "type": "object",
+            "properties": {
+                "cloudWatchLogs": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorCloudWatchLogsLogDelivery"
+                },
+                "firehose": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorFirehoseLogDelivery"
+                },
+                "s3": {
+                    "$ref": "#/types/aws-native:kafkaconnect:ConnectorS3LogDelivery"
                 }
             }
         },

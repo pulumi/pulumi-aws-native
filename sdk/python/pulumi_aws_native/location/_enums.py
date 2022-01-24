@@ -17,14 +17,10 @@ __all__ = [
 
 class GeofenceCollectionPricingPlan(str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
-    MOBILE_ASSET_TRACKING = "MobileAssetTracking"
-    MOBILE_ASSET_MANAGEMENT = "MobileAssetManagement"
 
 
 class MapPricingPlan(str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
-    MOBILE_ASSET_TRACKING = "MobileAssetTracking"
-    MOBILE_ASSET_MANAGEMENT = "MobileAssetManagement"
 
 
 class PlaceIndexIntendedUse(str, Enum):
@@ -34,13 +30,10 @@ class PlaceIndexIntendedUse(str, Enum):
 
 class PlaceIndexPricingPlan(str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
-    MOBILE_ASSET_TRACKING = "MobileAssetTracking"
-    MOBILE_ASSET_MANAGEMENT = "MobileAssetManagement"
 
 
 class RouteCalculatorPricingPlan(str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
-    MOBILE_ASSET_MANAGEMENT = "MobileAssetManagement"
 
 
 class TrackerPositionFiltering(str, Enum):
@@ -51,5 +44,3 @@ class TrackerPositionFiltering(str, Enum):
 
 class TrackerPricingPlan(str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
-    MOBILE_ASSET_TRACKING = "MobileAssetTracking"
-    MOBILE_ASSET_MANAGEMENT = "MobileAssetManagement"

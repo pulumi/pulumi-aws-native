@@ -48,6 +48,7 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly engineName!: pulumi.Output<string>;
     public /*out*/ readonly externalId!: pulumi.Output<string>;
     public readonly extraConnectionAttributes!: pulumi.Output<string | undefined>;
+    public readonly gcpMySQLSettings!: pulumi.Output<outputs.dms.EndpointGcpMySQLSettings | undefined>;
     public readonly ibmDb2Settings!: pulumi.Output<outputs.dms.EndpointIbmDb2Settings | undefined>;
     public readonly kafkaSettings!: pulumi.Output<outputs.dms.EndpointKafkaSettings | undefined>;
     public readonly kinesisSettings!: pulumi.Output<outputs.dms.EndpointKinesisSettings | undefined>;
@@ -98,6 +99,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["endpointType"] = args ? args.endpointType : undefined;
             inputs["engineName"] = args ? args.engineName : undefined;
             inputs["extraConnectionAttributes"] = args ? args.extraConnectionAttributes : undefined;
+            inputs["gcpMySQLSettings"] = args ? args.gcpMySQLSettings : undefined;
             inputs["ibmDb2Settings"] = args ? args.ibmDb2Settings : undefined;
             inputs["kafkaSettings"] = args ? args.kafkaSettings : undefined;
             inputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
@@ -131,6 +133,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["engineName"] = undefined /*out*/;
             inputs["externalId"] = undefined /*out*/;
             inputs["extraConnectionAttributes"] = undefined /*out*/;
+            inputs["gcpMySQLSettings"] = undefined /*out*/;
             inputs["ibmDb2Settings"] = undefined /*out*/;
             inputs["kafkaSettings"] = undefined /*out*/;
             inputs["kinesisSettings"] = undefined /*out*/;
@@ -173,6 +176,7 @@ export interface EndpointArgs {
     endpointType: pulumi.Input<string>;
     engineName: pulumi.Input<string>;
     extraConnectionAttributes?: pulumi.Input<string>;
+    gcpMySQLSettings?: pulumi.Input<inputs.dms.EndpointGcpMySQLSettingsArgs>;
     ibmDb2Settings?: pulumi.Input<inputs.dms.EndpointIbmDb2SettingsArgs>;
     kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettingsArgs>;
     kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettingsArgs>;

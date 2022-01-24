@@ -16,16 +16,17 @@ class RouteCalculatorArgs:
     def __init__(__self__, *,
                  calculator_name: pulumi.Input[str],
                  data_source: pulumi.Input[str],
-                 pricing_plan: pulumi.Input['RouteCalculatorPricingPlan'],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None):
         """
         The set of arguments for constructing a RouteCalculator resource.
         """
         pulumi.set(__self__, "calculator_name", calculator_name)
         pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "pricing_plan", pricing_plan)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if pricing_plan is not None:
+            pulumi.set(__self__, "pricing_plan", pricing_plan)
 
     @property
     @pulumi.getter(name="calculatorName")
@@ -46,15 +47,6 @@ class RouteCalculatorArgs:
         pulumi.set(self, "data_source", value)
 
     @property
-    @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input['RouteCalculatorPricingPlan']:
-        return pulumi.get(self, "pricing_plan")
-
-    @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input['RouteCalculatorPricingPlan']):
-        pulumi.set(self, "pricing_plan", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -62,6 +54,15 @@ class RouteCalculatorArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="pricingPlan")
+    def pricing_plan(self) -> Optional[pulumi.Input['RouteCalculatorPricingPlan']]:
+        return pulumi.get(self, "pricing_plan")
+
+    @pricing_plan.setter
+    def pricing_plan(self, value: Optional[pulumi.Input['RouteCalculatorPricingPlan']]):
+        pulumi.set(self, "pricing_plan", value)
 
 
 class RouteCalculator(pulumi.CustomResource):
@@ -127,8 +128,6 @@ class RouteCalculator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_source'")
             __props__.__dict__["data_source"] = data_source
             __props__.__dict__["description"] = description
-            if pricing_plan is None and not opts.urn:
-                raise TypeError("Missing required property 'pricing_plan'")
             __props__.__dict__["pricing_plan"] = pricing_plan
             __props__.__dict__["arn"] = None
             __props__.__dict__["calculator_arn"] = None
@@ -198,7 +197,7 @@ class RouteCalculator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output['RouteCalculatorPricingPlan']:
+    def pricing_plan(self) -> pulumi.Output[Optional['RouteCalculatorPricingPlan']]:
         return pulumi.get(self, "pricing_plan")
 
     @property

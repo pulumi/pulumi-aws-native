@@ -41,7 +41,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    public readonly pricingPlan!: pulumi.Output<enums.location.GeofenceCollectionPricingPlan>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.GeofenceCollectionPricingPlan | undefined>;
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
@@ -58,9 +58,6 @@ export class GeofenceCollection extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.collectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'collectionName'");
-            }
-            if ((!args || args.pricingPlan === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'pricingPlan'");
             }
             inputs["collectionName"] = args ? args.collectionName : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -96,6 +93,6 @@ export interface GeofenceCollectionArgs {
     collectionName: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
-    pricingPlan: pulumi.Input<enums.location.GeofenceCollectionPricingPlan>;
+    pricingPlan?: pulumi.Input<enums.location.GeofenceCollectionPricingPlan>;
     pricingPlanDataSource?: pulumi.Input<string>;
 }

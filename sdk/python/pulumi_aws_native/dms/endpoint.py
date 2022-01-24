@@ -24,6 +24,7 @@ class EndpointArgs:
                  elasticsearch_settings: Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']] = None,
                  endpoint_identifier: Optional[pulumi.Input[str]] = None,
                  extra_connection_attributes: Optional[pulumi.Input[str]] = None,
+                 gcp_my_sql_settings: Optional[pulumi.Input['EndpointGcpMySQLSettingsArgs']] = None,
                  ibm_db2_settings: Optional[pulumi.Input['EndpointIbmDb2SettingsArgs']] = None,
                  kafka_settings: Optional[pulumi.Input['EndpointKafkaSettingsArgs']] = None,
                  kinesis_settings: Optional[pulumi.Input['EndpointKinesisSettingsArgs']] = None,
@@ -64,6 +65,8 @@ class EndpointArgs:
             pulumi.set(__self__, "endpoint_identifier", endpoint_identifier)
         if extra_connection_attributes is not None:
             pulumi.set(__self__, "extra_connection_attributes", extra_connection_attributes)
+        if gcp_my_sql_settings is not None:
+            pulumi.set(__self__, "gcp_my_sql_settings", gcp_my_sql_settings)
         if ibm_db2_settings is not None:
             pulumi.set(__self__, "ibm_db2_settings", ibm_db2_settings)
         if kafka_settings is not None:
@@ -187,6 +190,15 @@ class EndpointArgs:
     @extra_connection_attributes.setter
     def extra_connection_attributes(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extra_connection_attributes", value)
+
+    @property
+    @pulumi.getter(name="gcpMySQLSettings")
+    def gcp_my_sql_settings(self) -> Optional[pulumi.Input['EndpointGcpMySQLSettingsArgs']]:
+        return pulumi.get(self, "gcp_my_sql_settings")
+
+    @gcp_my_sql_settings.setter
+    def gcp_my_sql_settings(self, value: Optional[pulumi.Input['EndpointGcpMySQLSettingsArgs']]):
+        pulumi.set(self, "gcp_my_sql_settings", value)
 
     @property
     @pulumi.getter(name="ibmDb2Settings")
@@ -397,6 +409,7 @@ class Endpoint(pulumi.CustomResource):
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  engine_name: Optional[pulumi.Input[str]] = None,
                  extra_connection_attributes: Optional[pulumi.Input[str]] = None,
+                 gcp_my_sql_settings: Optional[pulumi.Input[pulumi.InputType['EndpointGcpMySQLSettingsArgs']]] = None,
                  ibm_db2_settings: Optional[pulumi.Input[pulumi.InputType['EndpointIbmDb2SettingsArgs']]] = None,
                  kafka_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']]] = None,
                  kinesis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']]] = None,
@@ -458,6 +471,7 @@ class Endpoint(pulumi.CustomResource):
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  engine_name: Optional[pulumi.Input[str]] = None,
                  extra_connection_attributes: Optional[pulumi.Input[str]] = None,
+                 gcp_my_sql_settings: Optional[pulumi.Input[pulumi.InputType['EndpointGcpMySQLSettingsArgs']]] = None,
                  ibm_db2_settings: Optional[pulumi.Input[pulumi.InputType['EndpointIbmDb2SettingsArgs']]] = None,
                  kafka_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']]] = None,
                  kinesis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']]] = None,
@@ -505,6 +519,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'engine_name'")
             __props__.__dict__["engine_name"] = engine_name
             __props__.__dict__["extra_connection_attributes"] = extra_connection_attributes
+            __props__.__dict__["gcp_my_sql_settings"] = gcp_my_sql_settings
             __props__.__dict__["ibm_db2_settings"] = ibm_db2_settings
             __props__.__dict__["kafka_settings"] = kafka_settings
             __props__.__dict__["kinesis_settings"] = kinesis_settings
@@ -559,6 +574,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["engine_name"] = None
         __props__.__dict__["external_id"] = None
         __props__.__dict__["extra_connection_attributes"] = None
+        __props__.__dict__["gcp_my_sql_settings"] = None
         __props__.__dict__["ibm_db2_settings"] = None
         __props__.__dict__["kafka_settings"] = None
         __props__.__dict__["kinesis_settings"] = None
@@ -631,6 +647,11 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="extraConnectionAttributes")
     def extra_connection_attributes(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "extra_connection_attributes")
+
+    @property
+    @pulumi.getter(name="gcpMySQLSettings")
+    def gcp_my_sql_settings(self) -> pulumi.Output[Optional['outputs.EndpointGcpMySQLSettings']]:
+        return pulumi.get(self, "gcp_my_sql_settings")
 
     @property
     @pulumi.getter(name="ibmDb2Settings")

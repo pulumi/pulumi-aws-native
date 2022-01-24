@@ -18,8 +18,6 @@ namespace Pulumi.AwsNative.Location
         }
 
         public static GeofenceCollectionPricingPlan RequestBasedUsage { get; } = new GeofenceCollectionPricingPlan("RequestBasedUsage");
-        public static GeofenceCollectionPricingPlan MobileAssetTracking { get; } = new GeofenceCollectionPricingPlan("MobileAssetTracking");
-        public static GeofenceCollectionPricingPlan MobileAssetManagement { get; } = new GeofenceCollectionPricingPlan("MobileAssetManagement");
 
         public static bool operator ==(GeofenceCollectionPricingPlan left, GeofenceCollectionPricingPlan right) => left.Equals(right);
         public static bool operator !=(GeofenceCollectionPricingPlan left, GeofenceCollectionPricingPlan right) => !left.Equals(right);
@@ -47,8 +45,6 @@ namespace Pulumi.AwsNative.Location
         }
 
         public static MapPricingPlan RequestBasedUsage { get; } = new MapPricingPlan("RequestBasedUsage");
-        public static MapPricingPlan MobileAssetTracking { get; } = new MapPricingPlan("MobileAssetTracking");
-        public static MapPricingPlan MobileAssetManagement { get; } = new MapPricingPlan("MobileAssetManagement");
 
         public static bool operator ==(MapPricingPlan left, MapPricingPlan right) => left.Equals(right);
         public static bool operator !=(MapPricingPlan left, MapPricingPlan right) => !left.Equals(right);
@@ -104,8 +100,6 @@ namespace Pulumi.AwsNative.Location
         }
 
         public static PlaceIndexPricingPlan RequestBasedUsage { get; } = new PlaceIndexPricingPlan("RequestBasedUsage");
-        public static PlaceIndexPricingPlan MobileAssetTracking { get; } = new PlaceIndexPricingPlan("MobileAssetTracking");
-        public static PlaceIndexPricingPlan MobileAssetManagement { get; } = new PlaceIndexPricingPlan("MobileAssetManagement");
 
         public static bool operator ==(PlaceIndexPricingPlan left, PlaceIndexPricingPlan right) => left.Equals(right);
         public static bool operator !=(PlaceIndexPricingPlan left, PlaceIndexPricingPlan right) => !left.Equals(right);
@@ -133,7 +127,6 @@ namespace Pulumi.AwsNative.Location
         }
 
         public static RouteCalculatorPricingPlan RequestBasedUsage { get; } = new RouteCalculatorPricingPlan("RequestBasedUsage");
-        public static RouteCalculatorPricingPlan MobileAssetManagement { get; } = new RouteCalculatorPricingPlan("MobileAssetManagement");
 
         public static bool operator ==(RouteCalculatorPricingPlan left, RouteCalculatorPricingPlan right) => left.Equals(right);
         public static bool operator !=(RouteCalculatorPricingPlan left, RouteCalculatorPricingPlan right) => !left.Equals(right);
@@ -190,8 +183,6 @@ namespace Pulumi.AwsNative.Location
         }
 
         public static TrackerPricingPlan RequestBasedUsage { get; } = new TrackerPricingPlan("RequestBasedUsage");
-        public static TrackerPricingPlan MobileAssetTracking { get; } = new TrackerPricingPlan("MobileAssetTracking");
-        public static TrackerPricingPlan MobileAssetManagement { get; } = new TrackerPricingPlan("MobileAssetManagement");
 
         public static bool operator ==(TrackerPricingPlan left, TrackerPricingPlan right) => left.Equals(right);
         public static bool operator !=(TrackerPricingPlan left, TrackerPricingPlan right) => !left.Equals(right);

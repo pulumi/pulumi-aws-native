@@ -126,6 +126,7 @@ import * as iotsitewise from "./iotsitewise";
 import * as iotthingsgraph from "./iotthingsgraph";
 import * as iotwireless from "./iotwireless";
 import * as ivs from "./ivs";
+import * as kafkaconnect from "./kafkaconnect";
 import * as kendra from "./kendra";
 import * as kinesis from "./kinesis";
 import * as kinesisanalytics from "./kinesisanalytics";
@@ -314,6 +315,7 @@ export {
     iotthingsgraph,
     iotwireless,
     ivs,
+    kafkaconnect,
     kendra,
     kinesis,
     kinesisanalytics,

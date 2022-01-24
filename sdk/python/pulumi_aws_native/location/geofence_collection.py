@@ -15,19 +15,20 @@ __all__ = ['GeofenceCollectionArgs', 'GeofenceCollection']
 class GeofenceCollectionArgs:
     def __init__(__self__, *,
                  collection_name: pulumi.Input[str],
-                 pricing_plan: pulumi.Input['GeofenceCollectionPricingPlan'],
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GeofenceCollection resource.
         """
         pulumi.set(__self__, "collection_name", collection_name)
-        pulumi.set(__self__, "pricing_plan", pricing_plan)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if pricing_plan is not None:
+            pulumi.set(__self__, "pricing_plan", pricing_plan)
         if pricing_plan_data_source is not None:
             pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
 
@@ -39,15 +40,6 @@ class GeofenceCollectionArgs:
     @collection_name.setter
     def collection_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "collection_name", value)
-
-    @property
-    @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input['GeofenceCollectionPricingPlan']:
-        return pulumi.get(self, "pricing_plan")
-
-    @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input['GeofenceCollectionPricingPlan']):
-        pulumi.set(self, "pricing_plan", value)
 
     @property
     @pulumi.getter
@@ -66,6 +58,15 @@ class GeofenceCollectionArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="pricingPlan")
+    def pricing_plan(self) -> Optional[pulumi.Input['GeofenceCollectionPricingPlan']]:
+        return pulumi.get(self, "pricing_plan")
+
+    @pricing_plan.setter
+    def pricing_plan(self, value: Optional[pulumi.Input['GeofenceCollectionPricingPlan']]):
+        pulumi.set(self, "pricing_plan", value)
 
     @property
     @pulumi.getter(name="pricingPlanDataSource")
@@ -140,8 +141,6 @@ class GeofenceCollection(pulumi.CustomResource):
             __props__.__dict__["collection_name"] = collection_name
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if pricing_plan is None and not opts.urn:
-                raise TypeError("Missing required property 'pricing_plan'")
             __props__.__dict__["pricing_plan"] = pricing_plan
             __props__.__dict__["pricing_plan_data_source"] = pricing_plan_data_source
             __props__.__dict__["arn"] = None
@@ -213,7 +212,7 @@ class GeofenceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output['GeofenceCollectionPricingPlan']:
+    def pricing_plan(self) -> pulumi.Output[Optional['GeofenceCollectionPricingPlan']]:
         return pulumi.get(self, "pricing_plan")
 
     @property

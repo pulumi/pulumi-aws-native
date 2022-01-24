@@ -15,15 +15,15 @@ import (
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                 `pulumi:"arn"`
-	CollectionArn         pulumi.StringOutput                 `pulumi:"collectionArn"`
-	CollectionName        pulumi.StringOutput                 `pulumi:"collectionName"`
-	CreateTime            pulumi.StringOutput                 `pulumi:"createTime"`
-	Description           pulumi.StringPtrOutput              `pulumi:"description"`
-	KmsKeyId              pulumi.StringPtrOutput              `pulumi:"kmsKeyId"`
-	PricingPlan           GeofenceCollectionPricingPlanOutput `pulumi:"pricingPlan"`
-	PricingPlanDataSource pulumi.StringPtrOutput              `pulumi:"pricingPlanDataSource"`
-	UpdateTime            pulumi.StringOutput                 `pulumi:"updateTime"`
+	Arn                   pulumi.StringOutput                    `pulumi:"arn"`
+	CollectionArn         pulumi.StringOutput                    `pulumi:"collectionArn"`
+	CollectionName        pulumi.StringOutput                    `pulumi:"collectionName"`
+	CreateTime            pulumi.StringOutput                    `pulumi:"createTime"`
+	Description           pulumi.StringPtrOutput                 `pulumi:"description"`
+	KmsKeyId              pulumi.StringPtrOutput                 `pulumi:"kmsKeyId"`
+	PricingPlan           GeofenceCollectionPricingPlanPtrOutput `pulumi:"pricingPlan"`
+	PricingPlanDataSource pulumi.StringPtrOutput                 `pulumi:"pricingPlanDataSource"`
+	UpdateTime            pulumi.StringOutput                    `pulumi:"updateTime"`
 }
 
 // NewGeofenceCollection registers a new resource with the given unique name, arguments, and options.
@@ -35,9 +35,6 @@ func NewGeofenceCollection(ctx *pulumi.Context,
 
 	if args.CollectionName == nil {
 		return nil, errors.New("invalid value for required argument 'CollectionName'")
-	}
-	if args.PricingPlan == nil {
-		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
 	var resource GeofenceCollection
 	err := ctx.RegisterResource("aws-native:location:GeofenceCollection", name, args, &resource, opts...)
@@ -71,11 +68,11 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 }
 
 type geofenceCollectionArgs struct {
-	CollectionName        string                        `pulumi:"collectionName"`
-	Description           *string                       `pulumi:"description"`
-	KmsKeyId              *string                       `pulumi:"kmsKeyId"`
-	PricingPlan           GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
-	PricingPlanDataSource *string                       `pulumi:"pricingPlanDataSource"`
+	CollectionName        string                         `pulumi:"collectionName"`
+	Description           *string                        `pulumi:"description"`
+	KmsKeyId              *string                        `pulumi:"kmsKeyId"`
+	PricingPlan           *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
+	PricingPlanDataSource *string                        `pulumi:"pricingPlanDataSource"`
 }
 
 // The set of arguments for constructing a GeofenceCollection resource.
@@ -83,7 +80,7 @@ type GeofenceCollectionArgs struct {
 	CollectionName        pulumi.StringInput
 	Description           pulumi.StringPtrInput
 	KmsKeyId              pulumi.StringPtrInput
-	PricingPlan           GeofenceCollectionPricingPlanInput
+	PricingPlan           GeofenceCollectionPricingPlanPtrInput
 	PricingPlanDataSource pulumi.StringPtrInput
 }
 

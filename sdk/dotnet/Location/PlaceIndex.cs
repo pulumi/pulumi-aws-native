@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Location
         public Output<string> IndexName { get; private set; } = null!;
 
         [Output("pricingPlan")]
-        public Output<Pulumi.AwsNative.Location.PlaceIndexPricingPlan> PricingPlan { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Location.PlaceIndexPricingPlan?> PricingPlan { get; private set; } = null!;
 
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.Location
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
-        [Input("pricingPlan", required: true)]
-        public Input<Pulumi.AwsNative.Location.PlaceIndexPricingPlan> PricingPlan { get; set; } = null!;
+        [Input("pricingPlan")]
+        public Input<Pulumi.AwsNative.Location.PlaceIndexPricingPlan>? PricingPlan { get; set; }
 
         public PlaceIndexArgs()
         {
