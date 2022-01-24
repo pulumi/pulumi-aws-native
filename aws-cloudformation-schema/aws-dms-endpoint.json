@@ -85,6 +85,9 @@
     "MicrosoftSqlServerSettings" : {
       "$ref" : "#/definitions/MicrosoftSqlServerSettings"
     },
+    "GcpMySQLSettings" : {
+      "$ref" : "#/definitions/GcpMySQLSettings"
+    },
     "ServerName" : {
       "type" : "string"
     },
@@ -360,6 +363,51 @@
         },
         "IncludeNullAndEmpty" : {
           "type" : "boolean"
+        }
+      }
+    },
+    "GcpMySQLSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AfterConnectScript" : {
+          "type" : "string"
+        },
+        "Port" : {
+          "type" : "integer"
+        },
+        "DatabaseName" : {
+          "type" : "string"
+        },
+        "CleanSourceMetadataOnMismatch" : {
+          "type" : "boolean"
+        },
+        "ServerTimezone" : {
+          "type" : "string"
+        },
+        "EventsPollInterval" : {
+          "type" : "integer"
+        },
+        "ParallelLoadThreads" : {
+          "type" : "integer"
+        },
+        "Username" : {
+          "type" : "string"
+        },
+        "MaxFileSize" : {
+          "type" : "integer"
+        },
+        "ServerName" : {
+          "type" : "string"
+        },
+        "SecretsManagerSecretId" : {
+          "type" : "string"
+        },
+        "SecretsManagerAccessRoleArn" : {
+          "type" : "string"
+        },
+        "Password" : {
+          "type" : "string"
         }
       }
     },

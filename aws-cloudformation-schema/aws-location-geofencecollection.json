@@ -4,7 +4,7 @@
   "definitions" : {
     "PricingPlan" : {
       "type" : "string",
-      "enum" : [ "RequestBasedUsage", "MobileAssetTracking", "MobileAssetManagement" ]
+      "enum" : [ "RequestBasedUsage" ]
     },
     "iso8601UTC" : {
       "description" : "The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)",
@@ -54,7 +54,7 @@
   },
   "readOnlyProperties" : [ "/properties/CollectionArn", "/properties/Arn", "/properties/CreateTime", "/properties/UpdateTime" ],
   "createOnlyProperties" : [ "/properties/PricingPlanDataSource", "/properties/PricingPlan", "/properties/Description", "/properties/CollectionName" ],
-  "required" : [ "CollectionName", "PricingPlan" ],
+  "required" : [ "CollectionName" ],
   "primaryIdentifier" : [ "/properties/CollectionName" ],
   "additionalProperties" : false,
   "handlers" : {
