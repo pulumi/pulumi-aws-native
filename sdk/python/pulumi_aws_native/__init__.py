@@ -2346,6 +2346,7 @@ _utilities.register(
   "mod": "rekognition",
   "fqn": "pulumi_aws_native.rekognition",
   "classes": {
+   "aws-native:rekognition:Collection": "Collection",
    "aws-native:rekognition:Project": "Project"
   }
  },

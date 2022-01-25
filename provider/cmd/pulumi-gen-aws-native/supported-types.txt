@@ -379,6 +379,7 @@ AWS::RefactorSpaces::Application
 AWS::RefactorSpaces::Environment
 AWS::RefactorSpaces::Route
 AWS::RefactorSpaces::Service
+AWS::Rekognition::Collection
 AWS::Rekognition::Project
 AWS::ResilienceHub::App
 AWS::ResilienceHub::ResiliencyPolicy

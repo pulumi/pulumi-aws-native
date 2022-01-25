@@ -29219,6 +29219,42 @@
                 "vpcId"
             ]
         },
+        "aws-native:rekognition:Collection": {
+            "cf": "AWS::Rekognition::Collection",
+            "inputs": {
+                "collectionId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rekognition:CollectionTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "collectionId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rekognition:CollectionTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "required": [
+                "collectionId"
+            ],
+            "createOnly": [
+                "collectionId"
+            ]
+        },
         "aws-native:rekognition:Project": {
             "cf": "AWS::Rekognition::Project",
             "inputs": {
@@ -62608,6 +62644,19 @@
                 },
                 "url": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:rekognition:CollectionTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },

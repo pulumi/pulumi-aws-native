@@ -888,6 +888,7 @@
         "refactorspaces/index.ts",
         "refactorspaces/route.ts",
         "refactorspaces/service.ts",
+        "rekognition/collection.ts",
         "rekognition/index.ts",
         "rekognition/project.ts",
         "resiliencehub/app.ts",

@@ -5,15 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./collection";
 export * from "./project";
 
 // Import resources to register:
+import { Collection } from "./collection";
 import { Project } from "./project";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:rekognition:Collection":
+                return new Collection(name, <any>undefined, { urn })
             case "aws-native:rekognition:Project":
                 return new Project(name, <any>undefined, { urn })
             default:
