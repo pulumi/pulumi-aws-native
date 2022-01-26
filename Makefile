@@ -47,13 +47,13 @@ generate_schema::
 	echo "Finished generating schema."
 
 codegen::
-	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
+	(cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
 
 provider::
-	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
+	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
 cf2pulumi::
-	(cd provider && go build -a -o $(WORKING_DIR)/bin/cf2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/cf2pulumi)
+	(cd provider && go build -o $(WORKING_DIR)/bin/cf2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/cf2pulumi)
 
 test_provider::
 	(cd provider && go test -v $(PROVIDER_PKGS))
