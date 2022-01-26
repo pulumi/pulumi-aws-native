@@ -20031,6 +20031,9 @@
                         "$ref": "#/types/aws-native:ivs:RecordingConfigurationTag"
                     },
                     "description": "A list of key-value pairs that contain metadata for the asset model."
+                },
+                "thumbnailConfiguration": {
+                    "$ref": "#/types/aws-native:ivs:RecordingConfigurationThumbnailConfiguration"
                 }
             },
             "outputs": {
@@ -20055,6 +20058,9 @@
                         "$ref": "#/types/aws-native:ivs:RecordingConfigurationTag"
                     },
                     "description": "A list of key-value pairs that contain metadata for the asset model."
+                },
+                "thumbnailConfiguration": {
+                    "$ref": "#/types/aws-native:ivs:RecordingConfigurationThumbnailConfiguration"
                 }
             },
             "autoNamingSpec": {
@@ -20068,7 +20074,10 @@
                 "destinationConfiguration",
                 "destinationConfiguration/S3",
                 "destinationConfiguration/S3/BucketName",
-                "name"
+                "name",
+                "thumbnailConfiguration",
+                "thumbnailConfiguration/RecordingMode",
+                "thumbnailConfiguration/TargetIntervalSeconds"
             ]
         },
         "aws-native:ivs:StreamKey": {
@@ -34872,6 +34881,10 @@
                     "type": "string",
                     "description": "The name for the database which the table to be created belongs to."
                 },
+                "magneticStoreWriteProperties": {
+                    "$ref": "#/types/aws-native:timestream:MagneticStoreWritePropertiesProperties",
+                    "description": "The properties that determine whether magnetic store writes are enabled."
+                },
                 "retentionProperties": {
                     "$ref": "#/types/aws-native:timestream:RetentionPropertiesProperties",
                     "description": "The retention duration of the memory store and the magnetic store."
@@ -34895,6 +34908,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name for the database which the table to be created belongs to."
+                },
+                "magneticStoreWriteProperties": {
+                    "$ref": "#/types/aws-native:timestream:MagneticStoreWritePropertiesProperties",
+                    "description": "The properties that determine whether magnetic store writes are enabled."
                 },
                 "name": {
                     "type": "string",
@@ -53946,6 +53963,22 @@
                 }
             }
         },
+        "aws-native:ivs:RecordingConfigurationThumbnailConfiguration": {
+            "type": "object",
+            "properties": {
+                "recordingMode": {
+                    "$ref": "#/types/aws-native:ivs:RecordingConfigurationThumbnailConfigurationRecordingMode",
+                    "description": "Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled."
+                },
+                "targetIntervalSeconds": {
+                    "type": "integer",
+                    "description": "Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL."
+                }
+            }
+        },
+        "aws-native:ivs:RecordingConfigurationThumbnailConfigurationRecordingMode": {
+            "type": "string"
+        },
         "aws-native:ivs:StreamKeyTag": {
             "type": "object",
             "properties": {
@@ -67496,6 +67529,49 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:MagneticStoreWritePropertiesProperties": {
+            "type": "object",
+            "properties": {
+                "enableMagneticStoreWrites": {
+                    "type": "boolean",
+                    "description": "Boolean flag indicating whether magnetic store writes are enabled."
+                },
+                "magneticStoreRejectedDataLocation": {
+                    "$ref": "#/types/aws-native:timestream:MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties",
+                    "description": "Location to store information about records that were asynchronously rejected during magnetic store writes."
+                }
+            }
+        },
+        "aws-native:timestream:MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties": {
+            "type": "object",
+            "properties": {
+                "s3Configuration": {
+                    "$ref": "#/types/aws-native:timestream:MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties",
+                    "description": "S3 configuration for location to store rejections from magnetic store writes"
+                }
+            }
+        },
+        "aws-native:timestream:MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "The bucket name used to store the data."
+                },
+                "encryptionOption": {
+                    "type": "string",
+                    "description": "Either SSE_KMS or SSE_S3."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "Must be provided if SSE_KMS is specified as the encryption option"
+                },
+                "objectKeyPrefix": {
+                    "type": "string",
+                    "description": "String used to prefix all data in the bucket."
                 }
             }
         },
