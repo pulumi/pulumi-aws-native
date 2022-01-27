@@ -52,26 +52,24 @@ export class UserProfile extends pulumi.CustomResource {
     /** @deprecated UserProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserProfileArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserProfile is deprecated: UserProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.iamUserArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamUserArn'");
             }
-            inputs["allowSelfManagement"] = args ? args.allowSelfManagement : undefined;
-            inputs["iamUserArn"] = args ? args.iamUserArn : undefined;
-            inputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
-            inputs["sshUsername"] = args ? args.sshUsername : undefined;
+            resourceInputs["allowSelfManagement"] = args ? args.allowSelfManagement : undefined;
+            resourceInputs["iamUserArn"] = args ? args.iamUserArn : undefined;
+            resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
+            resourceInputs["sshUsername"] = args ? args.sshUsername : undefined;
         } else {
-            inputs["allowSelfManagement"] = undefined /*out*/;
-            inputs["iamUserArn"] = undefined /*out*/;
-            inputs["sshPublicKey"] = undefined /*out*/;
-            inputs["sshUsername"] = undefined /*out*/;
+            resourceInputs["allowSelfManagement"] = undefined /*out*/;
+            resourceInputs["iamUserArn"] = undefined /*out*/;
+            resourceInputs["sshPublicKey"] = undefined /*out*/;
+            resourceInputs["sshUsername"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

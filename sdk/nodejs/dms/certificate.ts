@@ -51,21 +51,19 @@ export class Certificate extends pulumi.CustomResource {
     /** @deprecated Certificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Certificate is deprecated: Certificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["certificateIdentifier"] = args ? args.certificateIdentifier : undefined;
-            inputs["certificatePem"] = args ? args.certificatePem : undefined;
-            inputs["certificateWallet"] = args ? args.certificateWallet : undefined;
+            resourceInputs["certificateIdentifier"] = args ? args.certificateIdentifier : undefined;
+            resourceInputs["certificatePem"] = args ? args.certificatePem : undefined;
+            resourceInputs["certificateWallet"] = args ? args.certificateWallet : undefined;
         } else {
-            inputs["certificateIdentifier"] = undefined /*out*/;
-            inputs["certificatePem"] = undefined /*out*/;
-            inputs["certificateWallet"] = undefined /*out*/;
+            resourceInputs["certificateIdentifier"] = undefined /*out*/;
+            resourceInputs["certificatePem"] = undefined /*out*/;
+            resourceInputs["certificateWallet"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

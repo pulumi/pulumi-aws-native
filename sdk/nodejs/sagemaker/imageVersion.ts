@@ -49,7 +49,7 @@ export class ImageVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ImageVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.baseImage === undefined) && !opts.urn) {
@@ -58,24 +58,22 @@ export class ImageVersion extends pulumi.CustomResource {
             if ((!args || args.imageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
-            inputs["baseImage"] = args ? args.baseImage : undefined;
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["containerImage"] = undefined /*out*/;
-            inputs["imageArn"] = undefined /*out*/;
-            inputs["imageVersionArn"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["baseImage"] = args ? args.baseImage : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["containerImage"] = undefined /*out*/;
+            resourceInputs["imageArn"] = undefined /*out*/;
+            resourceInputs["imageVersionArn"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["baseImage"] = undefined /*out*/;
-            inputs["containerImage"] = undefined /*out*/;
-            inputs["imageArn"] = undefined /*out*/;
-            inputs["imageName"] = undefined /*out*/;
-            inputs["imageVersionArn"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["baseImage"] = undefined /*out*/;
+            resourceInputs["containerImage"] = undefined /*out*/;
+            resourceInputs["imageArn"] = undefined /*out*/;
+            resourceInputs["imageName"] = undefined /*out*/;
+            resourceInputs["imageVersionArn"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ImageVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ImageVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -48,7 +48,7 @@ export class ProfilePermission extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProfilePermissionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -63,22 +63,20 @@ export class ProfilePermission extends pulumi.CustomResource {
             if ((!args || args.statementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["profileVersion"] = args ? args.profileVersion : undefined;
-            inputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["profileVersion"] = args ? args.profileVersion : undefined;
+            resourceInputs["statementId"] = args ? args.statementId : undefined;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["principal"] = undefined /*out*/;
-            inputs["profileName"] = undefined /*out*/;
-            inputs["profileVersion"] = undefined /*out*/;
-            inputs["statementId"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["principal"] = undefined /*out*/;
+            resourceInputs["profileName"] = undefined /*out*/;
+            resourceInputs["profileVersion"] = undefined /*out*/;
+            resourceInputs["statementId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfilePermission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfilePermission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

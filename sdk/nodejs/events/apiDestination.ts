@@ -63,7 +63,7 @@ export class ApiDestination extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiDestinationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.connectionArn === undefined) && !opts.urn) {
@@ -75,26 +75,24 @@ export class ApiDestination extends pulumi.CustomResource {
             if ((!args || args.invocationEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'invocationEndpoint'");
             }
-            inputs["connectionArn"] = args ? args.connectionArn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["invocationEndpoint"] = args ? args.invocationEndpoint : undefined;
-            inputs["invocationRateLimitPerSecond"] = args ? args.invocationRateLimitPerSecond : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["invocationEndpoint"] = args ? args.invocationEndpoint : undefined;
+            resourceInputs["invocationRateLimitPerSecond"] = args ? args.invocationRateLimitPerSecond : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["connectionArn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["httpMethod"] = undefined /*out*/;
-            inputs["invocationEndpoint"] = undefined /*out*/;
-            inputs["invocationRateLimitPerSecond"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["connectionArn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["httpMethod"] = undefined /*out*/;
+            resourceInputs["invocationEndpoint"] = undefined /*out*/;
+            resourceInputs["invocationRateLimitPerSecond"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiDestination.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiDestination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

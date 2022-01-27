@@ -50,30 +50,28 @@ export class FirewallPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.firewallPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicy'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
-            inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["firewallPolicyArn"] = undefined /*out*/;
-            inputs["firewallPolicyId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
+            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["firewallPolicyArn"] = undefined /*out*/;
+            resourceInputs["firewallPolicyId"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["firewallPolicy"] = undefined /*out*/;
-            inputs["firewallPolicyArn"] = undefined /*out*/;
-            inputs["firewallPolicyId"] = undefined /*out*/;
-            inputs["firewallPolicyName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["firewallPolicy"] = undefined /*out*/;
+            resourceInputs["firewallPolicyArn"] = undefined /*out*/;
+            resourceInputs["firewallPolicyId"] = undefined /*out*/;
+            resourceInputs["firewallPolicyName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FirewallPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

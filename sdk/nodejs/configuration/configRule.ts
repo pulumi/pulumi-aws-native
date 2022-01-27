@@ -58,36 +58,34 @@ export class ConfigRule extends pulumi.CustomResource {
     /** @deprecated ConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigRule is deprecated: ConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["complianceType"] = args ? args.complianceType : undefined;
-            inputs["configRuleName"] = args ? args.configRuleName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["inputParameters"] = args ? args.inputParameters : undefined;
-            inputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["configRuleId"] = undefined /*out*/;
+            resourceInputs["complianceType"] = args ? args.complianceType : undefined;
+            resourceInputs["configRuleName"] = args ? args.configRuleName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
+            resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["configRuleId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["complianceType"] = undefined /*out*/;
-            inputs["configRuleId"] = undefined /*out*/;
-            inputs["configRuleName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["inputParameters"] = undefined /*out*/;
-            inputs["maximumExecutionFrequency"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["complianceType"] = undefined /*out*/;
+            resourceInputs["configRuleId"] = undefined /*out*/;
+            resourceInputs["configRuleName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["inputParameters"] = undefined /*out*/;
+            resourceInputs["maximumExecutionFrequency"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

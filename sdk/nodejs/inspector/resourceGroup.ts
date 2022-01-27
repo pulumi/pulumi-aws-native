@@ -51,22 +51,20 @@ export class ResourceGroup extends pulumi.CustomResource {
     /** @deprecated ResourceGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ResourceGroup is deprecated: ResourceGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupTags === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupTags'");
             }
-            inputs["resourceGroupTags"] = args ? args.resourceGroupTags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["resourceGroupTags"] = args ? args.resourceGroupTags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["resourceGroupTags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["resourceGroupTags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

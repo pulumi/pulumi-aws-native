@@ -70,7 +70,7 @@ export class ReplicaKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReplicaKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.keyPolicy === undefined) && !opts.urn) {
@@ -79,28 +79,26 @@ export class ReplicaKey extends pulumi.CustomResource {
             if ((!args || args.primaryKeyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryKeyArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["keyPolicy"] = args ? args.keyPolicy : undefined;
-            inputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
-            inputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["keyPolicy"] = args ? args.keyPolicy : undefined;
+            resourceInputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
+            resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
-            inputs["keyPolicy"] = undefined /*out*/;
-            inputs["pendingWindowInDays"] = undefined /*out*/;
-            inputs["primaryKeyArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
+            resourceInputs["keyPolicy"] = undefined /*out*/;
+            resourceInputs["pendingWindowInDays"] = undefined /*out*/;
+            resourceInputs["primaryKeyArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicaKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicaKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

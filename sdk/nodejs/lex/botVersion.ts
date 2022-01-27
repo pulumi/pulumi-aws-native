@@ -48,7 +48,7 @@ export class BotVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BotVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.botId === undefined) && !opts.urn) {
@@ -57,20 +57,18 @@ export class BotVersion extends pulumi.CustomResource {
             if ((!args || args.botVersionLocaleSpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'botVersionLocaleSpecification'");
             }
-            inputs["botId"] = args ? args.botId : undefined;
-            inputs["botVersionLocaleSpecification"] = args ? args.botVersionLocaleSpecification : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["botVersion"] = undefined /*out*/;
+            resourceInputs["botId"] = args ? args.botId : undefined;
+            resourceInputs["botVersionLocaleSpecification"] = args ? args.botVersionLocaleSpecification : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["botVersion"] = undefined /*out*/;
         } else {
-            inputs["botId"] = undefined /*out*/;
-            inputs["botVersion"] = undefined /*out*/;
-            inputs["botVersionLocaleSpecification"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
+            resourceInputs["botId"] = undefined /*out*/;
+            resourceInputs["botVersion"] = undefined /*out*/;
+            resourceInputs["botVersionLocaleSpecification"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BotVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BotVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

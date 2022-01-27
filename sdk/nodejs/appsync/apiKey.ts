@@ -54,30 +54,28 @@ export class ApiKey extends pulumi.CustomResource {
     /** @deprecated ApiKey is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApiKeyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApiKey is deprecated: ApiKey is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["expires"] = args ? args.expires : undefined;
-            inputs["apiKey"] = undefined /*out*/;
-            inputs["apiKeyId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["expires"] = args ? args.expires : undefined;
+            resourceInputs["apiKey"] = undefined /*out*/;
+            resourceInputs["apiKeyId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["apiKey"] = undefined /*out*/;
-            inputs["apiKeyId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["expires"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["apiKey"] = undefined /*out*/;
+            resourceInputs["apiKeyId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["expires"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

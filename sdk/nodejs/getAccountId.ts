@@ -9,9 +9,7 @@ export function getAccountId(opts?: pulumi.InvokeOptions): Promise<GetAccountIdR
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:index:getAccountId", {
     }, opts);
 }

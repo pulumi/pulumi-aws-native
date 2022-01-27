@@ -85,33 +85,31 @@ export class PartnerAccount extends pulumi.CustomResource {
     /** @deprecated PartnerAccount is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: PartnerAccountArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PartnerAccount is deprecated: PartnerAccount is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accountLinked"] = args ? args.accountLinked : undefined;
-            inputs["fingerprint"] = args ? args.fingerprint : undefined;
-            inputs["partnerAccountId"] = args ? args.partnerAccountId : undefined;
-            inputs["partnerType"] = args ? args.partnerType : undefined;
-            inputs["sidewalk"] = args ? args.sidewalk : undefined;
-            inputs["sidewalkUpdate"] = args ? args.sidewalkUpdate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["sidewalkResponse"] = undefined /*out*/;
+            resourceInputs["accountLinked"] = args ? args.accountLinked : undefined;
+            resourceInputs["fingerprint"] = args ? args.fingerprint : undefined;
+            resourceInputs["partnerAccountId"] = args ? args.partnerAccountId : undefined;
+            resourceInputs["partnerType"] = args ? args.partnerType : undefined;
+            resourceInputs["sidewalk"] = args ? args.sidewalk : undefined;
+            resourceInputs["sidewalkUpdate"] = args ? args.sidewalkUpdate : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["sidewalkResponse"] = undefined /*out*/;
         } else {
-            inputs["accountLinked"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fingerprint"] = undefined /*out*/;
-            inputs["partnerAccountId"] = undefined /*out*/;
-            inputs["partnerType"] = undefined /*out*/;
-            inputs["sidewalk"] = undefined /*out*/;
-            inputs["sidewalkResponse"] = undefined /*out*/;
-            inputs["sidewalkUpdate"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["accountLinked"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fingerprint"] = undefined /*out*/;
+            resourceInputs["partnerAccountId"] = undefined /*out*/;
+            resourceInputs["partnerType"] = undefined /*out*/;
+            resourceInputs["sidewalk"] = undefined /*out*/;
+            resourceInputs["sidewalkResponse"] = undefined /*out*/;
+            resourceInputs["sidewalkUpdate"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PartnerAccount.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PartnerAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

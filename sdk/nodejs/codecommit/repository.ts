@@ -58,33 +58,31 @@ export class Repository extends pulumi.CustomResource {
     /** @deprecated Repository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Repository is deprecated: Repository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["code"] = args ? args.code : undefined;
-            inputs["repositoryDescription"] = args ? args.repositoryDescription : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["triggers"] = args ? args.triggers : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["cloneUrlHttp"] = undefined /*out*/;
-            inputs["cloneUrlSsh"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["repositoryDescription"] = args ? args.repositoryDescription : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cloneUrlHttp"] = undefined /*out*/;
+            resourceInputs["cloneUrlSsh"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["cloneUrlHttp"] = undefined /*out*/;
-            inputs["cloneUrlSsh"] = undefined /*out*/;
-            inputs["code"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["repositoryDescription"] = undefined /*out*/;
-            inputs["repositoryName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["triggers"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cloneUrlHttp"] = undefined /*out*/;
+            resourceInputs["cloneUrlSsh"] = undefined /*out*/;
+            resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["repositoryDescription"] = undefined /*out*/;
+            resourceInputs["repositoryName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["triggers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Repository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -59,7 +59,7 @@ export class VPCEndpoint extends pulumi.CustomResource {
     /** @deprecated VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPCEndpoint is deprecated: VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
@@ -68,34 +68,32 @@ export class VPCEndpoint extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
-            inputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
-            inputs["routeTableIds"] = args ? args.routeTableIds : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["creationTimestamp"] = undefined /*out*/;
-            inputs["dnsEntries"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
+            resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["creationTimestamp"] = undefined /*out*/;
+            resourceInputs["dnsEntries"] = undefined /*out*/;
+            resourceInputs["networkInterfaceIds"] = undefined /*out*/;
         } else {
-            inputs["creationTimestamp"] = undefined /*out*/;
-            inputs["dnsEntries"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
-            inputs["policyDocument"] = undefined /*out*/;
-            inputs["privateDnsEnabled"] = undefined /*out*/;
-            inputs["routeTableIds"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["serviceName"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["vpcEndpointType"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["creationTimestamp"] = undefined /*out*/;
+            resourceInputs["dnsEntries"] = undefined /*out*/;
+            resourceInputs["networkInterfaceIds"] = undefined /*out*/;
+            resourceInputs["policyDocument"] = undefined /*out*/;
+            resourceInputs["privateDnsEnabled"] = undefined /*out*/;
+            resourceInputs["routeTableIds"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["serviceName"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["vpcEndpointType"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

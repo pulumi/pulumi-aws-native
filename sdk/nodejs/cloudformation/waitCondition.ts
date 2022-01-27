@@ -52,23 +52,21 @@ export class WaitCondition extends pulumi.CustomResource {
     /** @deprecated WaitCondition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: WaitConditionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("WaitCondition is deprecated: WaitCondition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["count"] = args ? args.count : undefined;
-            inputs["handle"] = args ? args.handle : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["data"] = undefined /*out*/;
+            resourceInputs["count"] = args ? args.count : undefined;
+            resourceInputs["handle"] = args ? args.handle : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["data"] = undefined /*out*/;
         } else {
-            inputs["count"] = undefined /*out*/;
-            inputs["data"] = undefined /*out*/;
-            inputs["handle"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
+            resourceInputs["count"] = undefined /*out*/;
+            resourceInputs["data"] = undefined /*out*/;
+            resourceInputs["handle"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WaitCondition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WaitCondition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

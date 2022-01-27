@@ -80,7 +80,7 @@ export class Link extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bandwidth === undefined) && !opts.urn) {
@@ -92,30 +92,28 @@ export class Link extends pulumi.CustomResource {
             if ((!args || args.siteId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'siteId'");
             }
-            inputs["bandwidth"] = args ? args.bandwidth : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            inputs["provider"] = args ? args.provider : undefined;
-            inputs["siteId"] = args ? args.siteId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["linkArn"] = undefined /*out*/;
-            inputs["linkId"] = undefined /*out*/;
+            resourceInputs["bandwidth"] = args ? args.bandwidth : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            resourceInputs["provider"] = args ? args.provider : undefined;
+            resourceInputs["siteId"] = args ? args.siteId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["linkArn"] = undefined /*out*/;
+            resourceInputs["linkId"] = undefined /*out*/;
         } else {
-            inputs["bandwidth"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["globalNetworkId"] = undefined /*out*/;
-            inputs["linkArn"] = undefined /*out*/;
-            inputs["linkId"] = undefined /*out*/;
-            inputs["provider"] = undefined /*out*/;
-            inputs["siteId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bandwidth"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["globalNetworkId"] = undefined /*out*/;
+            resourceInputs["linkArn"] = undefined /*out*/;
+            resourceInputs["linkId"] = undefined /*out*/;
+            resourceInputs["provider"] = undefined /*out*/;
+            resourceInputs["siteId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Link.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Link.__pulumiType, name, resourceInputs, opts);
     }
 }
 

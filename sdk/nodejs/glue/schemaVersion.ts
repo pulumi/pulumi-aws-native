@@ -53,7 +53,7 @@ export class SchemaVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SchemaVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.schema === undefined) && !opts.urn) {
@@ -62,18 +62,16 @@ export class SchemaVersion extends pulumi.CustomResource {
             if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaDefinition'");
             }
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
-            inputs["versionId"] = undefined /*out*/;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
+            resourceInputs["versionId"] = undefined /*out*/;
         } else {
-            inputs["schema"] = undefined /*out*/;
-            inputs["schemaDefinition"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["schemaDefinition"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SchemaVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SchemaVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

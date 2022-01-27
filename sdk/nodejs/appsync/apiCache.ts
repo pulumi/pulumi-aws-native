@@ -54,7 +54,7 @@ export class ApiCache extends pulumi.CustomResource {
     /** @deprecated ApiCache is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApiCacheArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApiCache is deprecated: ApiCache is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiCachingBehavior === undefined) && !opts.urn) {
@@ -69,24 +69,22 @@ export class ApiCache extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["apiCachingBehavior"] = args ? args.apiCachingBehavior : undefined;
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
-            inputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["apiCachingBehavior"] = args ? args.apiCachingBehavior : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
+            resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["apiCachingBehavior"] = undefined /*out*/;
-            inputs["apiId"] = undefined /*out*/;
-            inputs["atRestEncryptionEnabled"] = undefined /*out*/;
-            inputs["transitEncryptionEnabled"] = undefined /*out*/;
-            inputs["ttl"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiCachingBehavior"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["ttl"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiCache.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiCache.__pulumiType, name, resourceInputs, opts);
     }
 }
 

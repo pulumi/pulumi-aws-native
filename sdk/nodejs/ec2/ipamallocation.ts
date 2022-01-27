@@ -57,28 +57,26 @@ export class IPAMAllocation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IPAMAllocationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
-            inputs["cidr"] = args ? args.cidr : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
-            inputs["netmaskLength"] = args ? args.netmaskLength : undefined;
-            inputs["ipamPoolAllocationId"] = undefined /*out*/;
+            resourceInputs["cidr"] = args ? args.cidr : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
+            resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["ipamPoolAllocationId"] = undefined /*out*/;
         } else {
-            inputs["cidr"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["ipamPoolAllocationId"] = undefined /*out*/;
-            inputs["ipamPoolId"] = undefined /*out*/;
-            inputs["netmaskLength"] = undefined /*out*/;
+            resourceInputs["cidr"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ipamPoolAllocationId"] = undefined /*out*/;
+            resourceInputs["ipamPoolId"] = undefined /*out*/;
+            resourceInputs["netmaskLength"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IPAMAllocation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IPAMAllocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

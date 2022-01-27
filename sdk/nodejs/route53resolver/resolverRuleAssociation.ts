@@ -59,7 +59,7 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResolverRuleAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resolverRuleId === undefined) && !opts.urn) {
@@ -68,20 +68,18 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
             if ((!args || args.vPCId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vPCId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
-            inputs["vPCId"] = args ? args.vPCId : undefined;
-            inputs["resolverRuleAssociationId"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
+            resourceInputs["vPCId"] = args ? args.vPCId : undefined;
+            resourceInputs["resolverRuleAssociationId"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["resolverRuleAssociationId"] = undefined /*out*/;
-            inputs["resolverRuleId"] = undefined /*out*/;
-            inputs["vPCId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resolverRuleAssociationId"] = undefined /*out*/;
+            resourceInputs["resolverRuleId"] = undefined /*out*/;
+            resourceInputs["vPCId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverRuleAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverRuleAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

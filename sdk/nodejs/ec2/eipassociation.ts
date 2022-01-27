@@ -53,25 +53,23 @@ export class EIPAssociation extends pulumi.CustomResource {
     /** @deprecated EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: EIPAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EIPAssociation is deprecated: EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["allocationId"] = args ? args.allocationId : undefined;
-            inputs["eIP"] = args ? args.eIP : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
+            resourceInputs["eIP"] = args ? args.eIP : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
         } else {
-            inputs["allocationId"] = undefined /*out*/;
-            inputs["eIP"] = undefined /*out*/;
-            inputs["instanceId"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
-            inputs["privateIpAddress"] = undefined /*out*/;
+            resourceInputs["allocationId"] = undefined /*out*/;
+            resourceInputs["eIP"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["privateIpAddress"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EIPAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EIPAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

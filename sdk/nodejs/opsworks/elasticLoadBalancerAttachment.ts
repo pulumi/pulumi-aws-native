@@ -50,7 +50,7 @@ export class ElasticLoadBalancerAttachment extends pulumi.CustomResource {
     /** @deprecated ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ElasticLoadBalancerAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ElasticLoadBalancerAttachment is deprecated: ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.elasticLoadBalancerName === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class ElasticLoadBalancerAttachment extends pulumi.CustomResource {
             if ((!args || args.layerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'layerId'");
             }
-            inputs["elasticLoadBalancerName"] = args ? args.elasticLoadBalancerName : undefined;
-            inputs["layerId"] = args ? args.layerId : undefined;
+            resourceInputs["elasticLoadBalancerName"] = args ? args.elasticLoadBalancerName : undefined;
+            resourceInputs["layerId"] = args ? args.layerId : undefined;
         } else {
-            inputs["elasticLoadBalancerName"] = undefined /*out*/;
-            inputs["layerId"] = undefined /*out*/;
+            resourceInputs["elasticLoadBalancerName"] = undefined /*out*/;
+            resourceInputs["layerId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ElasticLoadBalancerAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ElasticLoadBalancerAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

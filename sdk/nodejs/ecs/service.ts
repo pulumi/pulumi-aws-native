@@ -67,61 +67,59 @@ export class Service extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["capacityProviderStrategy"] = args ? args.capacityProviderStrategy : undefined;
-            inputs["cluster"] = args ? args.cluster : undefined;
-            inputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
-            inputs["deploymentController"] = args ? args.deploymentController : undefined;
-            inputs["desiredCount"] = args ? args.desiredCount : undefined;
-            inputs["enableECSManagedTags"] = args ? args.enableECSManagedTags : undefined;
-            inputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
-            inputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
-            inputs["launchType"] = args ? args.launchType : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
-            inputs["placementStrategies"] = args ? args.placementStrategies : undefined;
-            inputs["platformVersion"] = args ? args.platformVersion : undefined;
-            inputs["propagateTags"] = args ? args.propagateTags : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["serviceArn"] = undefined /*out*/;
+            resourceInputs["capacityProviderStrategy"] = args ? args.capacityProviderStrategy : undefined;
+            resourceInputs["cluster"] = args ? args.cluster : undefined;
+            resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
+            resourceInputs["deploymentController"] = args ? args.deploymentController : undefined;
+            resourceInputs["desiredCount"] = args ? args.desiredCount : undefined;
+            resourceInputs["enableECSManagedTags"] = args ? args.enableECSManagedTags : undefined;
+            resourceInputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
+            resourceInputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
+            resourceInputs["launchType"] = args ? args.launchType : undefined;
+            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
+            resourceInputs["placementStrategies"] = args ? args.placementStrategies : undefined;
+            resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
+            resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["serviceArn"] = undefined /*out*/;
         } else {
-            inputs["capacityProviderStrategy"] = undefined /*out*/;
-            inputs["cluster"] = undefined /*out*/;
-            inputs["deploymentConfiguration"] = undefined /*out*/;
-            inputs["deploymentController"] = undefined /*out*/;
-            inputs["desiredCount"] = undefined /*out*/;
-            inputs["enableECSManagedTags"] = undefined /*out*/;
-            inputs["enableExecuteCommand"] = undefined /*out*/;
-            inputs["healthCheckGracePeriodSeconds"] = undefined /*out*/;
-            inputs["launchType"] = undefined /*out*/;
-            inputs["loadBalancers"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkConfiguration"] = undefined /*out*/;
-            inputs["placementConstraints"] = undefined /*out*/;
-            inputs["placementStrategies"] = undefined /*out*/;
-            inputs["platformVersion"] = undefined /*out*/;
-            inputs["propagateTags"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["schedulingStrategy"] = undefined /*out*/;
-            inputs["serviceArn"] = undefined /*out*/;
-            inputs["serviceName"] = undefined /*out*/;
-            inputs["serviceRegistries"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["taskDefinition"] = undefined /*out*/;
+            resourceInputs["capacityProviderStrategy"] = undefined /*out*/;
+            resourceInputs["cluster"] = undefined /*out*/;
+            resourceInputs["deploymentConfiguration"] = undefined /*out*/;
+            resourceInputs["deploymentController"] = undefined /*out*/;
+            resourceInputs["desiredCount"] = undefined /*out*/;
+            resourceInputs["enableECSManagedTags"] = undefined /*out*/;
+            resourceInputs["enableExecuteCommand"] = undefined /*out*/;
+            resourceInputs["healthCheckGracePeriodSeconds"] = undefined /*out*/;
+            resourceInputs["launchType"] = undefined /*out*/;
+            resourceInputs["loadBalancers"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkConfiguration"] = undefined /*out*/;
+            resourceInputs["placementConstraints"] = undefined /*out*/;
+            resourceInputs["placementStrategies"] = undefined /*out*/;
+            resourceInputs["platformVersion"] = undefined /*out*/;
+            resourceInputs["propagateTags"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["schedulingStrategy"] = undefined /*out*/;
+            resourceInputs["serviceArn"] = undefined /*out*/;
+            resourceInputs["serviceName"] = undefined /*out*/;
+            resourceInputs["serviceRegistries"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["taskDefinition"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

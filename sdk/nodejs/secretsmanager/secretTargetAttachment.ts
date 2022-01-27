@@ -51,7 +51,7 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
     /** @deprecated SecretTargetAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecretTargetAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SecretTargetAttachment is deprecated: SecretTargetAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.secretId === undefined) && !opts.urn) {
@@ -63,18 +63,16 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
             if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            inputs["secretId"] = args ? args.secretId : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
         } else {
-            inputs["secretId"] = undefined /*out*/;
-            inputs["targetId"] = undefined /*out*/;
-            inputs["targetType"] = undefined /*out*/;
+            resourceInputs["secretId"] = undefined /*out*/;
+            resourceInputs["targetId"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecretTargetAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecretTargetAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

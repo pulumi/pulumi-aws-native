@@ -68,27 +68,25 @@ export class UsagePlan extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: UsagePlanArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["apiStages"] = args ? args.apiStages : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["quota"] = args ? args.quota : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throttle"] = args ? args.throttle : undefined;
-            inputs["usagePlanName"] = args ? args.usagePlanName : undefined;
+            resourceInputs["apiStages"] = args ? args.apiStages : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["quota"] = args ? args.quota : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throttle"] = args ? args.throttle : undefined;
+            resourceInputs["usagePlanName"] = args ? args.usagePlanName : undefined;
         } else {
-            inputs["apiStages"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["quota"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["throttle"] = undefined /*out*/;
-            inputs["usagePlanName"] = undefined /*out*/;
+            resourceInputs["apiStages"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["quota"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["throttle"] = undefined /*out*/;
+            resourceInputs["usagePlanName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UsagePlan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UsagePlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

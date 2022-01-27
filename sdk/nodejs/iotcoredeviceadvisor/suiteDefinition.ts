@@ -61,28 +61,26 @@ export class SuiteDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SuiteDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.suiteDefinitionConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'suiteDefinitionConfiguration'");
             }
-            inputs["suiteDefinitionConfiguration"] = args ? args.suiteDefinitionConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["suiteDefinitionArn"] = undefined /*out*/;
-            inputs["suiteDefinitionId"] = undefined /*out*/;
-            inputs["suiteDefinitionVersion"] = undefined /*out*/;
+            resourceInputs["suiteDefinitionConfiguration"] = args ? args.suiteDefinitionConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["suiteDefinitionArn"] = undefined /*out*/;
+            resourceInputs["suiteDefinitionId"] = undefined /*out*/;
+            resourceInputs["suiteDefinitionVersion"] = undefined /*out*/;
         } else {
-            inputs["suiteDefinitionArn"] = undefined /*out*/;
-            inputs["suiteDefinitionConfiguration"] = undefined /*out*/;
-            inputs["suiteDefinitionId"] = undefined /*out*/;
-            inputs["suiteDefinitionVersion"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["suiteDefinitionArn"] = undefined /*out*/;
+            resourceInputs["suiteDefinitionConfiguration"] = undefined /*out*/;
+            resourceInputs["suiteDefinitionId"] = undefined /*out*/;
+            resourceInputs["suiteDefinitionVersion"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SuiteDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SuiteDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

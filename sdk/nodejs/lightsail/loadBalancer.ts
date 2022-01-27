@@ -77,36 +77,34 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instancePort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instancePort'");
             }
-            inputs["attachedInstances"] = args ? args.attachedInstances : undefined;
-            inputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            inputs["instancePort"] = args ? args.instancePort : undefined;
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["sessionStickinessEnabled"] = args ? args.sessionStickinessEnabled : undefined;
-            inputs["sessionStickinessLBCookieDurationSeconds"] = args ? args.sessionStickinessLBCookieDurationSeconds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["loadBalancerArn"] = undefined /*out*/;
+            resourceInputs["attachedInstances"] = args ? args.attachedInstances : undefined;
+            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
+            resourceInputs["instancePort"] = args ? args.instancePort : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["sessionStickinessEnabled"] = args ? args.sessionStickinessEnabled : undefined;
+            resourceInputs["sessionStickinessLBCookieDurationSeconds"] = args ? args.sessionStickinessLBCookieDurationSeconds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["loadBalancerArn"] = undefined /*out*/;
         } else {
-            inputs["attachedInstances"] = undefined /*out*/;
-            inputs["healthCheckPath"] = undefined /*out*/;
-            inputs["instancePort"] = undefined /*out*/;
-            inputs["ipAddressType"] = undefined /*out*/;
-            inputs["loadBalancerArn"] = undefined /*out*/;
-            inputs["loadBalancerName"] = undefined /*out*/;
-            inputs["sessionStickinessEnabled"] = undefined /*out*/;
-            inputs["sessionStickinessLBCookieDurationSeconds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["attachedInstances"] = undefined /*out*/;
+            resourceInputs["healthCheckPath"] = undefined /*out*/;
+            resourceInputs["instancePort"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["loadBalancerArn"] = undefined /*out*/;
+            resourceInputs["loadBalancerName"] = undefined /*out*/;
+            resourceInputs["sessionStickinessEnabled"] = undefined /*out*/;
+            resourceInputs["sessionStickinessLBCookieDurationSeconds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

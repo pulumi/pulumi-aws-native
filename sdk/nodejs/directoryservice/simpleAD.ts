@@ -59,7 +59,7 @@ export class SimpleAD extends pulumi.CustomResource {
     /** @deprecated SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SimpleADArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SimpleAD is deprecated: SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.password === undefined) && !opts.urn) {
@@ -71,32 +71,30 @@ export class SimpleAD extends pulumi.CustomResource {
             if ((!args || args.vpcSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSettings'");
             }
-            inputs["createAlias"] = args ? args.createAlias : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enableSso"] = args ? args.enableSso : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["shortName"] = args ? args.shortName : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["vpcSettings"] = args ? args.vpcSettings : undefined;
-            inputs["alias"] = undefined /*out*/;
-            inputs["dnsIpAddresses"] = undefined /*out*/;
+            resourceInputs["createAlias"] = args ? args.createAlias : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableSso"] = args ? args.enableSso : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["shortName"] = args ? args.shortName : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["dnsIpAddresses"] = undefined /*out*/;
         } else {
-            inputs["alias"] = undefined /*out*/;
-            inputs["createAlias"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["dnsIpAddresses"] = undefined /*out*/;
-            inputs["enableSso"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["shortName"] = undefined /*out*/;
-            inputs["size"] = undefined /*out*/;
-            inputs["vpcSettings"] = undefined /*out*/;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["createAlias"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["dnsIpAddresses"] = undefined /*out*/;
+            resourceInputs["enableSso"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["shortName"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["vpcSettings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SimpleAD.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SimpleAD.__pulumiType, name, resourceInputs, opts);
     }
 }
 

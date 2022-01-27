@@ -69,58 +69,56 @@ export class Fleet extends pulumi.CustomResource {
     /** @deprecated Fleet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Fleet is deprecated: Fleet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["computeCapacity"] = args ? args.computeCapacity : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disconnectTimeoutInSeconds"] = args ? args.disconnectTimeoutInSeconds : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
-            inputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            inputs["fleetType"] = args ? args.fleetType : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["idleDisconnectTimeoutInSeconds"] = args ? args.idleDisconnectTimeoutInSeconds : undefined;
-            inputs["imageArn"] = args ? args.imageArn : undefined;
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["maxConcurrentSessions"] = args ? args.maxConcurrentSessions : undefined;
-            inputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["streamView"] = args ? args.streamView : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["usbDeviceFilterStrings"] = args ? args.usbDeviceFilterStrings : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["computeCapacity"] = args ? args.computeCapacity : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disconnectTimeoutInSeconds"] = args ? args.disconnectTimeoutInSeconds : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
+            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
+            resourceInputs["fleetType"] = args ? args.fleetType : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["idleDisconnectTimeoutInSeconds"] = args ? args.idleDisconnectTimeoutInSeconds : undefined;
+            resourceInputs["imageArn"] = args ? args.imageArn : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["maxConcurrentSessions"] = args ? args.maxConcurrentSessions : undefined;
+            resourceInputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["streamView"] = args ? args.streamView : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["usbDeviceFilterStrings"] = args ? args.usbDeviceFilterStrings : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
         } else {
-            inputs["computeCapacity"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["disconnectTimeoutInSeconds"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["domainJoinInfo"] = undefined /*out*/;
-            inputs["enableDefaultInternetAccess"] = undefined /*out*/;
-            inputs["fleetType"] = undefined /*out*/;
-            inputs["iamRoleArn"] = undefined /*out*/;
-            inputs["idleDisconnectTimeoutInSeconds"] = undefined /*out*/;
-            inputs["imageArn"] = undefined /*out*/;
-            inputs["imageName"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["maxConcurrentSessions"] = undefined /*out*/;
-            inputs["maxUserDurationInSeconds"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["streamView"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["usbDeviceFilterStrings"] = undefined /*out*/;
-            inputs["vpcConfig"] = undefined /*out*/;
+            resourceInputs["computeCapacity"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["disconnectTimeoutInSeconds"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["domainJoinInfo"] = undefined /*out*/;
+            resourceInputs["enableDefaultInternetAccess"] = undefined /*out*/;
+            resourceInputs["fleetType"] = undefined /*out*/;
+            resourceInputs["iamRoleArn"] = undefined /*out*/;
+            resourceInputs["idleDisconnectTimeoutInSeconds"] = undefined /*out*/;
+            resourceInputs["imageArn"] = undefined /*out*/;
+            resourceInputs["imageName"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["maxConcurrentSessions"] = undefined /*out*/;
+            resourceInputs["maxUserDurationInSeconds"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["streamView"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["usbDeviceFilterStrings"] = undefined /*out*/;
+            resourceInputs["vpcConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Fleet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

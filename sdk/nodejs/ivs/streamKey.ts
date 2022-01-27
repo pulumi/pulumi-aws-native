@@ -60,26 +60,24 @@ export class StreamKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StreamKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.channelArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelArn'");
             }
-            inputs["channelArn"] = args ? args.channelArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["channelArn"] = args ? args.channelArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["channelArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["channelArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

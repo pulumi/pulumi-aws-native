@@ -94,7 +94,7 @@ export class Dashboard extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.awsAccountId === undefined) && !opts.urn) {
@@ -106,42 +106,40 @@ export class Dashboard extends pulumi.CustomResource {
             if ((!args || args.sourceEntity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceEntity'");
             }
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["dashboardId"] = args ? args.dashboardId : undefined;
-            inputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["themeArn"] = args ? args.themeArn : undefined;
-            inputs["versionDescription"] = args ? args.versionDescription : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastPublishedTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["dashboardId"] = args ? args.dashboardId : undefined;
+            resourceInputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["themeArn"] = args ? args.themeArn : undefined;
+            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastPublishedTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["dashboardId"] = undefined /*out*/;
-            inputs["dashboardPublishOptions"] = undefined /*out*/;
-            inputs["lastPublishedTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["sourceEntity"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["themeArn"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionDescription"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["dashboardId"] = undefined /*out*/;
+            resourceInputs["dashboardPublishOptions"] = undefined /*out*/;
+            resourceInputs["lastPublishedTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["sourceEntity"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["themeArn"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versionDescription"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dashboard.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }
 

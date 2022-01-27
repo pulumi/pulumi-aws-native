@@ -77,36 +77,34 @@ export class IPAMScope extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IPAMScopeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ipamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ipamId"] = args ? args.ipamId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ipamArn"] = undefined /*out*/;
-            inputs["ipamScopeId"] = undefined /*out*/;
-            inputs["ipamScopeType"] = undefined /*out*/;
-            inputs["isDefault"] = undefined /*out*/;
-            inputs["poolCount"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ipamId"] = args ? args.ipamId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ipamArn"] = undefined /*out*/;
+            resourceInputs["ipamScopeId"] = undefined /*out*/;
+            resourceInputs["ipamScopeType"] = undefined /*out*/;
+            resourceInputs["isDefault"] = undefined /*out*/;
+            resourceInputs["poolCount"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["ipamArn"] = undefined /*out*/;
-            inputs["ipamId"] = undefined /*out*/;
-            inputs["ipamScopeId"] = undefined /*out*/;
-            inputs["ipamScopeType"] = undefined /*out*/;
-            inputs["isDefault"] = undefined /*out*/;
-            inputs["poolCount"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ipamArn"] = undefined /*out*/;
+            resourceInputs["ipamId"] = undefined /*out*/;
+            resourceInputs["ipamScopeId"] = undefined /*out*/;
+            resourceInputs["ipamScopeType"] = undefined /*out*/;
+            resourceInputs["isDefault"] = undefined /*out*/;
+            resourceInputs["poolCount"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IPAMScope.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IPAMScope.__pulumiType, name, resourceInputs, opts);
     }
 }
 

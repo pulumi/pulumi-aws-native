@@ -68,30 +68,28 @@ export class Workflow extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkflowArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.steps === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["onExceptionSteps"] = args ? args.onExceptionSteps : undefined;
-            inputs["steps"] = args ? args.steps : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["workflowId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["onExceptionSteps"] = args ? args.onExceptionSteps : undefined;
+            resourceInputs["steps"] = args ? args.steps : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["workflowId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["onExceptionSteps"] = undefined /*out*/;
-            inputs["steps"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["workflowId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["onExceptionSteps"] = undefined /*out*/;
+            resourceInputs["steps"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workflowId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Workflow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Workflow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

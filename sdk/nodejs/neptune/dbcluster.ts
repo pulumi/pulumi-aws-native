@@ -74,65 +74,63 @@ export class DBCluster extends pulumi.CustomResource {
     /** @deprecated DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: DBClusterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DBCluster is deprecated: DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["associatedRoles"] = args ? args.associatedRoles : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
-            inputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
-            inputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
-            inputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
-            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            inputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["iamAuthEnabled"] = args ? args.iamAuthEnabled : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["restoreToTime"] = args ? args.restoreToTime : undefined;
-            inputs["restoreType"] = args ? args.restoreType : undefined;
-            inputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            inputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
-            inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["clusterResourceId"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["readEndpoint"] = undefined /*out*/;
+            resourceInputs["associatedRoles"] = args ? args.associatedRoles : undefined;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
+            resourceInputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
+            resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["iamAuthEnabled"] = args ? args.iamAuthEnabled : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["restoreToTime"] = args ? args.restoreToTime : undefined;
+            resourceInputs["restoreType"] = args ? args.restoreType : undefined;
+            resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
+            resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
+            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["clusterResourceId"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["readEndpoint"] = undefined /*out*/;
         } else {
-            inputs["associatedRoles"] = undefined /*out*/;
-            inputs["availabilityZones"] = undefined /*out*/;
-            inputs["backupRetentionPeriod"] = undefined /*out*/;
-            inputs["clusterResourceId"] = undefined /*out*/;
-            inputs["dBClusterIdentifier"] = undefined /*out*/;
-            inputs["dBClusterParameterGroupName"] = undefined /*out*/;
-            inputs["dBSubnetGroupName"] = undefined /*out*/;
-            inputs["deletionProtection"] = undefined /*out*/;
-            inputs["enableCloudwatchLogsExports"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["iamAuthEnabled"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["preferredBackupWindow"] = undefined /*out*/;
-            inputs["preferredMaintenanceWindow"] = undefined /*out*/;
-            inputs["readEndpoint"] = undefined /*out*/;
-            inputs["restoreToTime"] = undefined /*out*/;
-            inputs["restoreType"] = undefined /*out*/;
-            inputs["snapshotIdentifier"] = undefined /*out*/;
-            inputs["sourceDBClusterIdentifier"] = undefined /*out*/;
-            inputs["storageEncrypted"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["useLatestRestorableTime"] = undefined /*out*/;
-            inputs["vpcSecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["associatedRoles"] = undefined /*out*/;
+            resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["clusterResourceId"] = undefined /*out*/;
+            resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = undefined /*out*/;
+            resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["iamAuthEnabled"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["preferredBackupWindow"] = undefined /*out*/;
+            resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
+            resourceInputs["readEndpoint"] = undefined /*out*/;
+            resourceInputs["restoreToTime"] = undefined /*out*/;
+            resourceInputs["restoreType"] = undefined /*out*/;
+            resourceInputs["snapshotIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["useLatestRestorableTime"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DBCluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DBCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

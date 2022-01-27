@@ -65,7 +65,7 @@ export class LocationEFS extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocationEFSArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ec2Config === undefined) && !opts.urn) {
@@ -74,24 +74,22 @@ export class LocationEFS extends pulumi.CustomResource {
             if ((!args || args.efsFilesystemArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'efsFilesystemArn'");
             }
-            inputs["ec2Config"] = args ? args.ec2Config : undefined;
-            inputs["efsFilesystemArn"] = args ? args.efsFilesystemArn : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
+            resourceInputs["ec2Config"] = args ? args.ec2Config : undefined;
+            resourceInputs["efsFilesystemArn"] = args ? args.efsFilesystemArn : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
         } else {
-            inputs["ec2Config"] = undefined /*out*/;
-            inputs["efsFilesystemArn"] = undefined /*out*/;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
-            inputs["subdirectory"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["ec2Config"] = undefined /*out*/;
+            resourceInputs["efsFilesystemArn"] = undefined /*out*/;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["subdirectory"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationEFS.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationEFS.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -80,36 +80,34 @@ export class Document extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DocumentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            inputs["attachments"] = args ? args.attachments : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["documentFormat"] = args ? args.documentFormat : undefined;
-            inputs["documentType"] = args ? args.documentType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["requires"] = args ? args.requires : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["versionName"] = args ? args.versionName : undefined;
+            resourceInputs["attachments"] = args ? args.attachments : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["documentFormat"] = args ? args.documentFormat : undefined;
+            resourceInputs["documentType"] = args ? args.documentType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["requires"] = args ? args.requires : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["versionName"] = args ? args.versionName : undefined;
         } else {
-            inputs["attachments"] = undefined /*out*/;
-            inputs["content"] = undefined /*out*/;
-            inputs["documentFormat"] = undefined /*out*/;
-            inputs["documentType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requires"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetType"] = undefined /*out*/;
-            inputs["versionName"] = undefined /*out*/;
+            resourceInputs["attachments"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["documentFormat"] = undefined /*out*/;
+            resourceInputs["documentType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requires"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
+            resourceInputs["versionName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Document.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Document.__pulumiType, name, resourceInputs, opts);
     }
 }
 

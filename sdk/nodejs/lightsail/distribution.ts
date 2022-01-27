@@ -98,7 +98,7 @@ export class Distribution extends pulumi.CustomResource {
     /** @deprecated Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DistributionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Distribution is deprecated: Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bundleId === undefined) && !opts.urn) {
@@ -110,38 +110,36 @@ export class Distribution extends pulumi.CustomResource {
             if ((!args || args.origin === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'origin'");
             }
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["cacheBehaviorSettings"] = args ? args.cacheBehaviorSettings : undefined;
-            inputs["cacheBehaviors"] = args ? args.cacheBehaviors : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["defaultCacheBehavior"] = args ? args.defaultCacheBehavior : undefined;
-            inputs["distributionName"] = args ? args.distributionName : undefined;
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["origin"] = args ? args.origin : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ableToUpdateBundle"] = undefined /*out*/;
-            inputs["distributionArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["cacheBehaviorSettings"] = args ? args.cacheBehaviorSettings : undefined;
+            resourceInputs["cacheBehaviors"] = args ? args.cacheBehaviors : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["defaultCacheBehavior"] = args ? args.defaultCacheBehavior : undefined;
+            resourceInputs["distributionName"] = args ? args.distributionName : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["origin"] = args ? args.origin : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ableToUpdateBundle"] = undefined /*out*/;
+            resourceInputs["distributionArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["ableToUpdateBundle"] = undefined /*out*/;
-            inputs["bundleId"] = undefined /*out*/;
-            inputs["cacheBehaviorSettings"] = undefined /*out*/;
-            inputs["cacheBehaviors"] = undefined /*out*/;
-            inputs["certificateName"] = undefined /*out*/;
-            inputs["defaultCacheBehavior"] = undefined /*out*/;
-            inputs["distributionArn"] = undefined /*out*/;
-            inputs["distributionName"] = undefined /*out*/;
-            inputs["ipAddressType"] = undefined /*out*/;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["origin"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["ableToUpdateBundle"] = undefined /*out*/;
+            resourceInputs["bundleId"] = undefined /*out*/;
+            resourceInputs["cacheBehaviorSettings"] = undefined /*out*/;
+            resourceInputs["cacheBehaviors"] = undefined /*out*/;
+            resourceInputs["certificateName"] = undefined /*out*/;
+            resourceInputs["defaultCacheBehavior"] = undefined /*out*/;
+            resourceInputs["distributionArn"] = undefined /*out*/;
+            resourceInputs["distributionName"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["origin"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Distribution.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Distribution.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -63,7 +63,7 @@ export class MemberInvitation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MemberInvitationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.graphArn === undefined) && !opts.urn) {
@@ -75,22 +75,20 @@ export class MemberInvitation extends pulumi.CustomResource {
             if ((!args || args.memberId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
-            inputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            inputs["graphArn"] = args ? args.graphArn : undefined;
-            inputs["memberEmailAddress"] = args ? args.memberEmailAddress : undefined;
-            inputs["memberId"] = args ? args.memberId : undefined;
-            inputs["message"] = args ? args.message : undefined;
+            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
+            resourceInputs["graphArn"] = args ? args.graphArn : undefined;
+            resourceInputs["memberEmailAddress"] = args ? args.memberEmailAddress : undefined;
+            resourceInputs["memberId"] = args ? args.memberId : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
         } else {
-            inputs["disableEmailNotification"] = undefined /*out*/;
-            inputs["graphArn"] = undefined /*out*/;
-            inputs["memberEmailAddress"] = undefined /*out*/;
-            inputs["memberId"] = undefined /*out*/;
-            inputs["message"] = undefined /*out*/;
+            resourceInputs["disableEmailNotification"] = undefined /*out*/;
+            resourceInputs["graphArn"] = undefined /*out*/;
+            resourceInputs["memberEmailAddress"] = undefined /*out*/;
+            resourceInputs["memberId"] = undefined /*out*/;
+            resourceInputs["message"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MemberInvitation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MemberInvitation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -69,29 +69,27 @@ export class Accelerator extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: AcceleratorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["ipAddresses"] = args ? args.ipAddresses : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["acceleratorArn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceleratorArn"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
         } else {
-            inputs["acceleratorArn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["ipAddressType"] = undefined /*out*/;
-            inputs["ipAddresses"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["acceleratorArn"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["ipAddresses"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Accelerator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Accelerator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

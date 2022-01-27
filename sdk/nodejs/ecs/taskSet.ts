@@ -78,7 +78,7 @@ export class TaskSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TaskSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cluster === undefined) && !opts.urn) {
@@ -90,32 +90,30 @@ export class TaskSet extends pulumi.CustomResource {
             if ((!args || args.taskDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
-            inputs["cluster"] = args ? args.cluster : undefined;
-            inputs["externalId"] = args ? args.externalId : undefined;
-            inputs["launchType"] = args ? args.launchType : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["platformVersion"] = args ? args.platformVersion : undefined;
-            inputs["scale"] = args ? args.scale : undefined;
-            inputs["service"] = args ? args.service : undefined;
-            inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["cluster"] = args ? args.cluster : undefined;
+            resourceInputs["externalId"] = args ? args.externalId : undefined;
+            resourceInputs["launchType"] = args ? args.launchType : undefined;
+            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
+            resourceInputs["scale"] = args ? args.scale : undefined;
+            resourceInputs["service"] = args ? args.service : undefined;
+            resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
+            resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
         } else {
-            inputs["cluster"] = undefined /*out*/;
-            inputs["externalId"] = undefined /*out*/;
-            inputs["launchType"] = undefined /*out*/;
-            inputs["loadBalancers"] = undefined /*out*/;
-            inputs["networkConfiguration"] = undefined /*out*/;
-            inputs["platformVersion"] = undefined /*out*/;
-            inputs["scale"] = undefined /*out*/;
-            inputs["service"] = undefined /*out*/;
-            inputs["serviceRegistries"] = undefined /*out*/;
-            inputs["taskDefinition"] = undefined /*out*/;
+            resourceInputs["cluster"] = undefined /*out*/;
+            resourceInputs["externalId"] = undefined /*out*/;
+            resourceInputs["launchType"] = undefined /*out*/;
+            resourceInputs["loadBalancers"] = undefined /*out*/;
+            resourceInputs["networkConfiguration"] = undefined /*out*/;
+            resourceInputs["platformVersion"] = undefined /*out*/;
+            resourceInputs["scale"] = undefined /*out*/;
+            resourceInputs["service"] = undefined /*out*/;
+            resourceInputs["serviceRegistries"] = undefined /*out*/;
+            resourceInputs["taskDefinition"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TaskSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TaskSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

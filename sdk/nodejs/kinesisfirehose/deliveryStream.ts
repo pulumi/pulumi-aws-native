@@ -57,41 +57,39 @@ export class DeliveryStream extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DeliveryStreamArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["amazonopensearchserviceDestinationConfiguration"] = args ? args.amazonopensearchserviceDestinationConfiguration : undefined;
-            inputs["deliveryStreamEncryptionConfigurationInput"] = args ? args.deliveryStreamEncryptionConfigurationInput : undefined;
-            inputs["deliveryStreamName"] = args ? args.deliveryStreamName : undefined;
-            inputs["deliveryStreamType"] = args ? args.deliveryStreamType : undefined;
-            inputs["elasticsearchDestinationConfiguration"] = args ? args.elasticsearchDestinationConfiguration : undefined;
-            inputs["extendedS3DestinationConfiguration"] = args ? args.extendedS3DestinationConfiguration : undefined;
-            inputs["httpEndpointDestinationConfiguration"] = args ? args.httpEndpointDestinationConfiguration : undefined;
-            inputs["kinesisStreamSourceConfiguration"] = args ? args.kinesisStreamSourceConfiguration : undefined;
-            inputs["redshiftDestinationConfiguration"] = args ? args.redshiftDestinationConfiguration : undefined;
-            inputs["s3DestinationConfiguration"] = args ? args.s3DestinationConfiguration : undefined;
-            inputs["splunkDestinationConfiguration"] = args ? args.splunkDestinationConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["amazonopensearchserviceDestinationConfiguration"] = args ? args.amazonopensearchserviceDestinationConfiguration : undefined;
+            resourceInputs["deliveryStreamEncryptionConfigurationInput"] = args ? args.deliveryStreamEncryptionConfigurationInput : undefined;
+            resourceInputs["deliveryStreamName"] = args ? args.deliveryStreamName : undefined;
+            resourceInputs["deliveryStreamType"] = args ? args.deliveryStreamType : undefined;
+            resourceInputs["elasticsearchDestinationConfiguration"] = args ? args.elasticsearchDestinationConfiguration : undefined;
+            resourceInputs["extendedS3DestinationConfiguration"] = args ? args.extendedS3DestinationConfiguration : undefined;
+            resourceInputs["httpEndpointDestinationConfiguration"] = args ? args.httpEndpointDestinationConfiguration : undefined;
+            resourceInputs["kinesisStreamSourceConfiguration"] = args ? args.kinesisStreamSourceConfiguration : undefined;
+            resourceInputs["redshiftDestinationConfiguration"] = args ? args.redshiftDestinationConfiguration : undefined;
+            resourceInputs["s3DestinationConfiguration"] = args ? args.s3DestinationConfiguration : undefined;
+            resourceInputs["splunkDestinationConfiguration"] = args ? args.splunkDestinationConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["amazonopensearchserviceDestinationConfiguration"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["deliveryStreamEncryptionConfigurationInput"] = undefined /*out*/;
-            inputs["deliveryStreamName"] = undefined /*out*/;
-            inputs["deliveryStreamType"] = undefined /*out*/;
-            inputs["elasticsearchDestinationConfiguration"] = undefined /*out*/;
-            inputs["extendedS3DestinationConfiguration"] = undefined /*out*/;
-            inputs["httpEndpointDestinationConfiguration"] = undefined /*out*/;
-            inputs["kinesisStreamSourceConfiguration"] = undefined /*out*/;
-            inputs["redshiftDestinationConfiguration"] = undefined /*out*/;
-            inputs["s3DestinationConfiguration"] = undefined /*out*/;
-            inputs["splunkDestinationConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["amazonopensearchserviceDestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deliveryStreamEncryptionConfigurationInput"] = undefined /*out*/;
+            resourceInputs["deliveryStreamName"] = undefined /*out*/;
+            resourceInputs["deliveryStreamType"] = undefined /*out*/;
+            resourceInputs["elasticsearchDestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["extendedS3DestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["httpEndpointDestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["kinesisStreamSourceConfiguration"] = undefined /*out*/;
+            resourceInputs["redshiftDestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["s3DestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["splunkDestinationConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DeliveryStream.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

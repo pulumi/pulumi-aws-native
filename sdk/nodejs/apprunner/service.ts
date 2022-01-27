@@ -73,40 +73,38 @@ export class Service extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.sourceConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceConfiguration'");
             }
-            inputs["autoScalingConfigurationArn"] = args ? args.autoScalingConfigurationArn : undefined;
-            inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            inputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
-            inputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["serviceArn"] = undefined /*out*/;
-            inputs["serviceId"] = undefined /*out*/;
-            inputs["serviceUrl"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["autoScalingConfigurationArn"] = args ? args.autoScalingConfigurationArn : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
+            resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["serviceArn"] = undefined /*out*/;
+            resourceInputs["serviceId"] = undefined /*out*/;
+            resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["autoScalingConfigurationArn"] = undefined /*out*/;
-            inputs["encryptionConfiguration"] = undefined /*out*/;
-            inputs["healthCheckConfiguration"] = undefined /*out*/;
-            inputs["instanceConfiguration"] = undefined /*out*/;
-            inputs["serviceArn"] = undefined /*out*/;
-            inputs["serviceId"] = undefined /*out*/;
-            inputs["serviceName"] = undefined /*out*/;
-            inputs["serviceUrl"] = undefined /*out*/;
-            inputs["sourceConfiguration"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["autoScalingConfigurationArn"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["healthCheckConfiguration"] = undefined /*out*/;
+            resourceInputs["instanceConfiguration"] = undefined /*out*/;
+            resourceInputs["serviceArn"] = undefined /*out*/;
+            resourceInputs["serviceId"] = undefined /*out*/;
+            resourceInputs["serviceName"] = undefined /*out*/;
+            resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["sourceConfiguration"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

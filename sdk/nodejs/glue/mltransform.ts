@@ -62,7 +62,7 @@ export class MLTransform extends pulumi.CustomResource {
     /** @deprecated MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MLTransformArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MLTransform is deprecated: MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.inputRecordTables === undefined) && !opts.urn) {
@@ -74,38 +74,36 @@ export class MLTransform extends pulumi.CustomResource {
             if ((!args || args.transformParameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transformParameters'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["glueVersion"] = args ? args.glueVersion : undefined;
-            inputs["inputRecordTables"] = args ? args.inputRecordTables : undefined;
-            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            inputs["maxRetries"] = args ? args.maxRetries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["transformEncryption"] = args ? args.transformEncryption : undefined;
-            inputs["transformParameters"] = args ? args.transformParameters : undefined;
-            inputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["inputRecordTables"] = args ? args.inputRecordTables : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["transformEncryption"] = args ? args.transformEncryption : undefined;
+            resourceInputs["transformParameters"] = args ? args.transformParameters : undefined;
+            resourceInputs["workerType"] = args ? args.workerType : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["glueVersion"] = undefined /*out*/;
-            inputs["inputRecordTables"] = undefined /*out*/;
-            inputs["maxCapacity"] = undefined /*out*/;
-            inputs["maxRetries"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfWorkers"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["transformEncryption"] = undefined /*out*/;
-            inputs["transformParameters"] = undefined /*out*/;
-            inputs["workerType"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["glueVersion"] = undefined /*out*/;
+            resourceInputs["inputRecordTables"] = undefined /*out*/;
+            resourceInputs["maxCapacity"] = undefined /*out*/;
+            resourceInputs["maxRetries"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfWorkers"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["transformEncryption"] = undefined /*out*/;
+            resourceInputs["transformParameters"] = undefined /*out*/;
+            resourceInputs["workerType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MLTransform.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MLTransform.__pulumiType, name, resourceInputs, opts);
     }
 }
 

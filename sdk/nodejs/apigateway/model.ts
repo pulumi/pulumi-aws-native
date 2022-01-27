@@ -63,28 +63,26 @@ export class Model extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
         } else {
-            inputs["contentType"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
+            resourceInputs["contentType"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Model.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Model.__pulumiType, name, resourceInputs, opts);
     }
 }
 

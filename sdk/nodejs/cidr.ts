@@ -9,9 +9,7 @@ export function cidr(args: CidrArgs, opts?: pulumi.InvokeOptions): Promise<CidrR
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:index:cidr", {
         "cidrBits": args.cidrBits,
         "count": args.count,

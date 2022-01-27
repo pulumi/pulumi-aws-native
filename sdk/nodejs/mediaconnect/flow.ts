@@ -68,30 +68,28 @@ export class Flow extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FlowArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
-            inputs["flowArn"] = undefined /*out*/;
-            inputs["flowAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
+            resourceInputs["flowArn"] = undefined /*out*/;
+            resourceInputs["flowAvailabilityZone"] = undefined /*out*/;
         } else {
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["flowArn"] = undefined /*out*/;
-            inputs["flowAvailabilityZone"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["sourceFailoverConfig"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["flowArn"] = undefined /*out*/;
+            resourceInputs["flowAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["sourceFailoverConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Flow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Flow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -50,7 +50,7 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
     /** @deprecated SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SubnetCidrBlockArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SubnetCidrBlock is deprecated: SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ipv6CidrBlock === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         } else {
-            inputs["ipv6CidrBlock"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
+            resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SubnetCidrBlock.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SubnetCidrBlock.__pulumiType, name, resourceInputs, opts);
     }
 }
 

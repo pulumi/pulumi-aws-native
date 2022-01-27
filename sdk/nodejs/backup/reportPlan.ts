@@ -68,7 +68,7 @@ export class ReportPlan extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReportPlanArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.reportDeliveryChannel === undefined) && !opts.urn) {
@@ -77,24 +77,22 @@ export class ReportPlan extends pulumi.CustomResource {
             if ((!args || args.reportSetting === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'reportSetting'");
             }
-            inputs["reportDeliveryChannel"] = args ? args.reportDeliveryChannel : undefined;
-            inputs["reportPlanDescription"] = args ? args.reportPlanDescription : undefined;
-            inputs["reportPlanName"] = args ? args.reportPlanName : undefined;
-            inputs["reportPlanTags"] = args ? args.reportPlanTags : undefined;
-            inputs["reportSetting"] = args ? args.reportSetting : undefined;
-            inputs["reportPlanArn"] = undefined /*out*/;
+            resourceInputs["reportDeliveryChannel"] = args ? args.reportDeliveryChannel : undefined;
+            resourceInputs["reportPlanDescription"] = args ? args.reportPlanDescription : undefined;
+            resourceInputs["reportPlanName"] = args ? args.reportPlanName : undefined;
+            resourceInputs["reportPlanTags"] = args ? args.reportPlanTags : undefined;
+            resourceInputs["reportSetting"] = args ? args.reportSetting : undefined;
+            resourceInputs["reportPlanArn"] = undefined /*out*/;
         } else {
-            inputs["reportDeliveryChannel"] = undefined /*out*/;
-            inputs["reportPlanArn"] = undefined /*out*/;
-            inputs["reportPlanDescription"] = undefined /*out*/;
-            inputs["reportPlanName"] = undefined /*out*/;
-            inputs["reportPlanTags"] = undefined /*out*/;
-            inputs["reportSetting"] = undefined /*out*/;
+            resourceInputs["reportDeliveryChannel"] = undefined /*out*/;
+            resourceInputs["reportPlanArn"] = undefined /*out*/;
+            resourceInputs["reportPlanDescription"] = undefined /*out*/;
+            resourceInputs["reportPlanName"] = undefined /*out*/;
+            resourceInputs["reportPlanTags"] = undefined /*out*/;
+            resourceInputs["reportSetting"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReportPlan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReportPlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -58,25 +58,23 @@ export class Group extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["filterExpression"] = args ? args.filterExpression : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["insightsConfiguration"] = args ? args.insightsConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["groupARN"] = undefined /*out*/;
+            resourceInputs["filterExpression"] = args ? args.filterExpression : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["insightsConfiguration"] = args ? args.insightsConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["groupARN"] = undefined /*out*/;
         } else {
-            inputs["filterExpression"] = undefined /*out*/;
-            inputs["groupARN"] = undefined /*out*/;
-            inputs["groupName"] = undefined /*out*/;
-            inputs["insightsConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["filterExpression"] = undefined /*out*/;
+            resourceInputs["groupARN"] = undefined /*out*/;
+            resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["insightsConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Group.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

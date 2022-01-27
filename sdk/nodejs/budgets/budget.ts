@@ -51,22 +51,20 @@ export class Budget extends pulumi.CustomResource {
     /** @deprecated Budget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Budget is deprecated: Budget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.budget === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'budget'");
             }
-            inputs["budget"] = args ? args.budget : undefined;
-            inputs["notificationsWithSubscribers"] = args ? args.notificationsWithSubscribers : undefined;
+            resourceInputs["budget"] = args ? args.budget : undefined;
+            resourceInputs["notificationsWithSubscribers"] = args ? args.notificationsWithSubscribers : undefined;
         } else {
-            inputs["budget"] = undefined /*out*/;
-            inputs["notificationsWithSubscribers"] = undefined /*out*/;
+            resourceInputs["budget"] = undefined /*out*/;
+            resourceInputs["notificationsWithSubscribers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Budget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Budget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

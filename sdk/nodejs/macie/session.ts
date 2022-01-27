@@ -60,23 +60,21 @@ export class Session extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: SessionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["serviceRole"] = undefined /*out*/;
+            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["serviceRole"] = undefined /*out*/;
         } else {
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["findingPublishingFrequency"] = undefined /*out*/;
-            inputs["serviceRole"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["findingPublishingFrequency"] = undefined /*out*/;
+            resourceInputs["serviceRole"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Session.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Session.__pulumiType, name, resourceInputs, opts);
     }
 }
 

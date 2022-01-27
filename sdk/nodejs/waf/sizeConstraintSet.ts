@@ -51,22 +51,20 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     /** @deprecated SizeConstraintSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SizeConstraintSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SizeConstraintSet is deprecated: SizeConstraintSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.sizeConstraints === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sizeConstraints'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["sizeConstraints"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sizeConstraints"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SizeConstraintSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SizeConstraintSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

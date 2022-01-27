@@ -53,7 +53,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /** @deprecated ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ParameterGroup is deprecated: ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cacheParameterGroupFamily === undefined) && !opts.urn) {
@@ -62,20 +62,18 @@ export class ParameterGroup extends pulumi.CustomResource {
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            inputs["cacheParameterGroupFamily"] = args ? args.cacheParameterGroupFamily : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cacheParameterGroupFamily"] = args ? args.cacheParameterGroupFamily : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["cacheParameterGroupFamily"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["cacheParameterGroupFamily"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ParameterGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

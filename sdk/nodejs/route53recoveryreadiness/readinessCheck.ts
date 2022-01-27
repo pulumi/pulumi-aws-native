@@ -60,23 +60,21 @@ export class ReadinessCheck extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ReadinessCheckArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["readinessCheckName"] = args ? args.readinessCheckName : undefined;
-            inputs["resourceSetName"] = args ? args.resourceSetName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["readinessCheckArn"] = undefined /*out*/;
+            resourceInputs["readinessCheckName"] = args ? args.readinessCheckName : undefined;
+            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["readinessCheckArn"] = undefined /*out*/;
         } else {
-            inputs["readinessCheckArn"] = undefined /*out*/;
-            inputs["readinessCheckName"] = undefined /*out*/;
-            inputs["resourceSetName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["readinessCheckArn"] = undefined /*out*/;
+            resourceInputs["readinessCheckName"] = undefined /*out*/;
+            resourceInputs["resourceSetName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReadinessCheck.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReadinessCheck.__pulumiType, name, resourceInputs, opts);
     }
 }
 

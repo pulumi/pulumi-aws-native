@@ -9,9 +9,7 @@ export function getSsmParameterString(args: GetSsmParameterStringArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:index:getSsmParameterString", {
         "name": args.name,
     }, opts);

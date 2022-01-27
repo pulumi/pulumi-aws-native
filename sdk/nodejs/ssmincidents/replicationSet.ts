@@ -53,24 +53,22 @@ export class ReplicationSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReplicationSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.regions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            inputs["deletionProtected"] = args ? args.deletionProtected : undefined;
-            inputs["regions"] = args ? args.regions : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["deletionProtected"] = args ? args.deletionProtected : undefined;
+            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["deletionProtected"] = undefined /*out*/;
-            inputs["regions"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deletionProtected"] = undefined /*out*/;
+            resourceInputs["regions"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicationSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicationSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

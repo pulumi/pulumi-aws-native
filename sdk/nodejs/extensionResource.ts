@@ -47,7 +47,7 @@ export class ExtensionResource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExtensionResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.properties === undefined) && !opts.urn) {
@@ -56,16 +56,14 @@ export class ExtensionResource extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["outputs"] = undefined /*out*/;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["outputs"] = undefined /*out*/;
         } else {
-            inputs["outputs"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExtensionResource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExtensionResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

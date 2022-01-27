@@ -49,20 +49,18 @@ export class CustomResource extends pulumi.CustomResource {
     /** @deprecated CustomResource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CustomResourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CustomResource is deprecated: CustomResource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.serviceToken === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceToken'");
             }
-            inputs["serviceToken"] = args ? args.serviceToken : undefined;
+            resourceInputs["serviceToken"] = args ? args.serviceToken : undefined;
         } else {
-            inputs["serviceToken"] = undefined /*out*/;
+            resourceInputs["serviceToken"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CustomResource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CustomResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

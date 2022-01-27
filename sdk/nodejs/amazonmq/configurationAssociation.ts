@@ -51,7 +51,7 @@ export class ConfigurationAssociation extends pulumi.CustomResource {
     /** @deprecated ConfigurationAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigurationAssociation is deprecated: ConfigurationAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.broker === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class ConfigurationAssociation extends pulumi.CustomResource {
             if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            inputs["broker"] = args ? args.broker : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["broker"] = args ? args.broker : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
         } else {
-            inputs["broker"] = undefined /*out*/;
-            inputs["configuration"] = undefined /*out*/;
+            resourceInputs["broker"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

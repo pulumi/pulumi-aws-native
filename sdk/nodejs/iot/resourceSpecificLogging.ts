@@ -60,7 +60,7 @@ export class ResourceSpecificLogging extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResourceSpecificLoggingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.logLevel === undefined) && !opts.urn) {
@@ -72,20 +72,18 @@ export class ResourceSpecificLogging extends pulumi.CustomResource {
             if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            inputs["logLevel"] = args ? args.logLevel : undefined;
-            inputs["targetName"] = args ? args.targetName : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["targetId"] = undefined /*out*/;
+            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
+            resourceInputs["targetName"] = args ? args.targetName : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["targetId"] = undefined /*out*/;
         } else {
-            inputs["logLevel"] = undefined /*out*/;
-            inputs["targetId"] = undefined /*out*/;
-            inputs["targetName"] = undefined /*out*/;
-            inputs["targetType"] = undefined /*out*/;
+            resourceInputs["logLevel"] = undefined /*out*/;
+            resourceInputs["targetId"] = undefined /*out*/;
+            resourceInputs["targetName"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceSpecificLogging.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceSpecificLogging.__pulumiType, name, resourceInputs, opts);
     }
 }
 

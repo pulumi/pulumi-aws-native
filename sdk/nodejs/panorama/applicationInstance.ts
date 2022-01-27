@@ -62,7 +62,7 @@ export class ApplicationInstance extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationInstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.defaultRuntimeContextDevice === undefined) && !opts.urn) {
@@ -71,48 +71,46 @@ export class ApplicationInstance extends pulumi.CustomResource {
             if ((!args || args.manifestPayload === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'manifestPayload'");
             }
-            inputs["applicationInstanceIdToReplace"] = args ? args.applicationInstanceIdToReplace : undefined;
-            inputs["defaultRuntimeContextDevice"] = args ? args.defaultRuntimeContextDevice : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["deviceId"] = args ? args.deviceId : undefined;
-            inputs["manifestOverridesPayload"] = args ? args.manifestOverridesPayload : undefined;
-            inputs["manifestPayload"] = args ? args.manifestPayload : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["runtimeRoleArn"] = args ? args.runtimeRoleArn : undefined;
-            inputs["statusFilter"] = args ? args.statusFilter : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["applicationInstanceId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["defaultRuntimeContextDeviceName"] = undefined /*out*/;
-            inputs["healthStatus"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDescription"] = undefined /*out*/;
+            resourceInputs["applicationInstanceIdToReplace"] = args ? args.applicationInstanceIdToReplace : undefined;
+            resourceInputs["defaultRuntimeContextDevice"] = args ? args.defaultRuntimeContextDevice : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
+            resourceInputs["manifestOverridesPayload"] = args ? args.manifestOverridesPayload : undefined;
+            resourceInputs["manifestPayload"] = args ? args.manifestPayload : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["runtimeRoleArn"] = args ? args.runtimeRoleArn : undefined;
+            resourceInputs["statusFilter"] = args ? args.statusFilter : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationInstanceId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["defaultRuntimeContextDeviceName"] = undefined /*out*/;
+            resourceInputs["healthStatus"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDescription"] = undefined /*out*/;
         } else {
-            inputs["applicationInstanceId"] = undefined /*out*/;
-            inputs["applicationInstanceIdToReplace"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["defaultRuntimeContextDevice"] = undefined /*out*/;
-            inputs["defaultRuntimeContextDeviceName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["deviceId"] = undefined /*out*/;
-            inputs["healthStatus"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["manifestOverridesPayload"] = undefined /*out*/;
-            inputs["manifestPayload"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["runtimeRoleArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDescription"] = undefined /*out*/;
-            inputs["statusFilter"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["applicationInstanceId"] = undefined /*out*/;
+            resourceInputs["applicationInstanceIdToReplace"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["defaultRuntimeContextDevice"] = undefined /*out*/;
+            resourceInputs["defaultRuntimeContextDeviceName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["deviceId"] = undefined /*out*/;
+            resourceInputs["healthStatus"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["manifestOverridesPayload"] = undefined /*out*/;
+            resourceInputs["manifestPayload"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["runtimeRoleArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDescription"] = undefined /*out*/;
+            resourceInputs["statusFilter"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

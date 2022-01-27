@@ -57,7 +57,7 @@ export class Subscription extends pulumi.CustomResource {
     /** @deprecated Subscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Subscription is deprecated: Subscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.protocol === undefined) && !opts.urn) {
@@ -66,30 +66,28 @@ export class Subscription extends pulumi.CustomResource {
             if ((!args || args.topicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicArn'");
             }
-            inputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["filterPolicy"] = args ? args.filterPolicy : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
-            inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
-            inputs["topicArn"] = args ? args.topicArn : undefined;
+            resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["filterPolicy"] = args ? args.filterPolicy : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
+            resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
+            resourceInputs["topicArn"] = args ? args.topicArn : undefined;
         } else {
-            inputs["deliveryPolicy"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["filterPolicy"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["rawMessageDelivery"] = undefined /*out*/;
-            inputs["redrivePolicy"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
-            inputs["subscriptionRoleArn"] = undefined /*out*/;
-            inputs["topicArn"] = undefined /*out*/;
+            resourceInputs["deliveryPolicy"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["filterPolicy"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["rawMessageDelivery"] = undefined /*out*/;
+            resourceInputs["redrivePolicy"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["subscriptionRoleArn"] = undefined /*out*/;
+            resourceInputs["topicArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Subscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Subscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -58,7 +58,7 @@ export class Configuration extends pulumi.CustomResource {
     /** @deprecated Configuration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Configuration is deprecated: Configuration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.data === undefined) && !opts.urn) {
@@ -70,30 +70,28 @@ export class Configuration extends pulumi.CustomResource {
             if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            inputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
-            inputs["data"] = args ? args.data : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["engineType"] = args ? args.engineType : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
+            resourceInputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["authenticationStrategy"] = undefined /*out*/;
-            inputs["data"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["engineType"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authenticationStrategy"] = undefined /*out*/;
+            resourceInputs["data"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["engineType"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Configuration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Configuration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

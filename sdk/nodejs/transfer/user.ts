@@ -60,7 +60,7 @@ export class User extends pulumi.CustomResource {
     /** @deprecated User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("User is deprecated: User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.role === undefined) && !opts.urn) {
@@ -69,34 +69,32 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            inputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            inputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
-            inputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["posixProfile"] = args ? args.posixProfile : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
+            resourceInputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
+            resourceInputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["posixProfile"] = args ? args.posixProfile : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["homeDirectory"] = undefined /*out*/;
-            inputs["homeDirectoryMappings"] = undefined /*out*/;
-            inputs["homeDirectoryType"] = undefined /*out*/;
-            inputs["policy"] = undefined /*out*/;
-            inputs["posixProfile"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["serverId"] = undefined /*out*/;
-            inputs["sshPublicKeys"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["homeDirectory"] = undefined /*out*/;
+            resourceInputs["homeDirectoryMappings"] = undefined /*out*/;
+            resourceInputs["homeDirectoryType"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["posixProfile"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["serverId"] = undefined /*out*/;
+            resourceInputs["sshPublicKeys"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

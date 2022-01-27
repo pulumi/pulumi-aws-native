@@ -49,17 +49,15 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
     /** @deprecated ReceiptRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ReceiptRuleSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReceiptRuleSet is deprecated: ReceiptRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
         } else {
-            inputs["ruleSetName"] = undefined /*out*/;
+            resourceInputs["ruleSetName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReceiptRuleSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReceiptRuleSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

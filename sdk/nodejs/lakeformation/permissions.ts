@@ -53,7 +53,7 @@ export class Permissions extends pulumi.CustomResource {
     /** @deprecated Permissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PermissionsArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Permissions is deprecated: Permissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataLakePrincipal === undefined) && !opts.urn) {
@@ -62,20 +62,18 @@ export class Permissions extends pulumi.CustomResource {
             if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            inputs["dataLakePrincipal"] = args ? args.dataLakePrincipal : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["permissionsWithGrantOption"] = args ? args.permissionsWithGrantOption : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["dataLakePrincipal"] = args ? args.dataLakePrincipal : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["permissionsWithGrantOption"] = args ? args.permissionsWithGrantOption : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
         } else {
-            inputs["dataLakePrincipal"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["permissionsWithGrantOption"] = undefined /*out*/;
-            inputs["resource"] = undefined /*out*/;
+            resourceInputs["dataLakePrincipal"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["permissionsWithGrantOption"] = undefined /*out*/;
+            resourceInputs["resource"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Permissions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Permissions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

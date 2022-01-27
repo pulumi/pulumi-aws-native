@@ -51,7 +51,7 @@ export class CoreDefinitionVersion extends pulumi.CustomResource {
     /** @deprecated CoreDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CoreDefinitionVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CoreDefinitionVersion is deprecated: CoreDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.coreDefinitionId === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class CoreDefinitionVersion extends pulumi.CustomResource {
             if ((!args || args.cores === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cores'");
             }
-            inputs["coreDefinitionId"] = args ? args.coreDefinitionId : undefined;
-            inputs["cores"] = args ? args.cores : undefined;
+            resourceInputs["coreDefinitionId"] = args ? args.coreDefinitionId : undefined;
+            resourceInputs["cores"] = args ? args.cores : undefined;
         } else {
-            inputs["coreDefinitionId"] = undefined /*out*/;
-            inputs["cores"] = undefined /*out*/;
+            resourceInputs["coreDefinitionId"] = undefined /*out*/;
+            resourceInputs["cores"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CoreDefinitionVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CoreDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

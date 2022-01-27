@@ -60,7 +60,7 @@ export class AggregationAuthorization extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AggregationAuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authorizedAccountId === undefined) && !opts.urn) {
@@ -69,20 +69,18 @@ export class AggregationAuthorization extends pulumi.CustomResource {
             if ((!args || args.authorizedAwsRegion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizedAwsRegion'");
             }
-            inputs["authorizedAccountId"] = args ? args.authorizedAccountId : undefined;
-            inputs["authorizedAwsRegion"] = args ? args.authorizedAwsRegion : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["aggregationAuthorizationArn"] = undefined /*out*/;
+            resourceInputs["authorizedAccountId"] = args ? args.authorizedAccountId : undefined;
+            resourceInputs["authorizedAwsRegion"] = args ? args.authorizedAwsRegion : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aggregationAuthorizationArn"] = undefined /*out*/;
         } else {
-            inputs["aggregationAuthorizationArn"] = undefined /*out*/;
-            inputs["authorizedAccountId"] = undefined /*out*/;
-            inputs["authorizedAwsRegion"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["aggregationAuthorizationArn"] = undefined /*out*/;
+            resourceInputs["authorizedAccountId"] = undefined /*out*/;
+            resourceInputs["authorizedAwsRegion"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AggregationAuthorization.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AggregationAuthorization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

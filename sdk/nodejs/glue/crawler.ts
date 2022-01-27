@@ -62,7 +62,7 @@ export class Crawler extends pulumi.CustomResource {
     /** @deprecated Crawler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CrawlerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Crawler is deprecated: Crawler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.role === undefined) && !opts.urn) {
@@ -71,38 +71,36 @@ export class Crawler extends pulumi.CustomResource {
             if ((!args || args.targets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            inputs["classifiers"] = args ? args.classifiers : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["crawlerSecurityConfiguration"] = args ? args.crawlerSecurityConfiguration : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recrawlPolicy"] = args ? args.recrawlPolicy : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
-            inputs["tablePrefix"] = args ? args.tablePrefix : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["classifiers"] = args ? args.classifiers : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["crawlerSecurityConfiguration"] = args ? args.crawlerSecurityConfiguration : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recrawlPolicy"] = args ? args.recrawlPolicy : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
+            resourceInputs["tablePrefix"] = args ? args.tablePrefix : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
         } else {
-            inputs["classifiers"] = undefined /*out*/;
-            inputs["configuration"] = undefined /*out*/;
-            inputs["crawlerSecurityConfiguration"] = undefined /*out*/;
-            inputs["databaseName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["recrawlPolicy"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["schemaChangePolicy"] = undefined /*out*/;
-            inputs["tablePrefix"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targets"] = undefined /*out*/;
+            resourceInputs["classifiers"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["crawlerSecurityConfiguration"] = undefined /*out*/;
+            resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recrawlPolicy"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["schemaChangePolicy"] = undefined /*out*/;
+            resourceInputs["tablePrefix"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targets"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Crawler.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Crawler.__pulumiType, name, resourceInputs, opts);
     }
 }
 

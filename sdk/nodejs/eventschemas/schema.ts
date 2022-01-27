@@ -57,7 +57,7 @@ export class Schema extends pulumi.CustomResource {
     /** @deprecated Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Schema is deprecated: Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.content === undefined) && !opts.urn) {
@@ -69,28 +69,26 @@ export class Schema extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["schemaArn"] = undefined /*out*/;
-            inputs["schemaVersion"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["schemaArn"] = undefined /*out*/;
+            resourceInputs["schemaVersion"] = undefined /*out*/;
         } else {
-            inputs["content"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["registryName"] = undefined /*out*/;
-            inputs["schemaArn"] = undefined /*out*/;
-            inputs["schemaName"] = undefined /*out*/;
-            inputs["schemaVersion"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["registryName"] = undefined /*out*/;
+            resourceInputs["schemaArn"] = undefined /*out*/;
+            resourceInputs["schemaName"] = undefined /*out*/;
+            resourceInputs["schemaVersion"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Schema.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Schema.__pulumiType, name, resourceInputs, opts);
     }
 }
 

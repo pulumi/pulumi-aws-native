@@ -68,27 +68,25 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ResolverQueryLoggingConfigAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["error"] = undefined /*out*/;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["error"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["error"] = undefined /*out*/;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["resolverQueryLogConfigId"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["error"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["resolverQueryLogConfigId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverQueryLoggingConfigAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverQueryLoggingConfigAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

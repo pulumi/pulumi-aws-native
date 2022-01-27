@@ -88,40 +88,38 @@ export class Device extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["model"] = args ? args.model : undefined;
-            inputs["serialNumber"] = args ? args.serialNumber : undefined;
-            inputs["siteId"] = args ? args.siteId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vendor"] = args ? args.vendor : undefined;
-            inputs["deviceArn"] = undefined /*out*/;
-            inputs["deviceId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["model"] = args ? args.model : undefined;
+            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
+            resourceInputs["siteId"] = args ? args.siteId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vendor"] = args ? args.vendor : undefined;
+            resourceInputs["deviceArn"] = undefined /*out*/;
+            resourceInputs["deviceId"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["deviceArn"] = undefined /*out*/;
-            inputs["deviceId"] = undefined /*out*/;
-            inputs["globalNetworkId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["model"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["siteId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vendor"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["deviceArn"] = undefined /*out*/;
+            resourceInputs["deviceId"] = undefined /*out*/;
+            resourceInputs["globalNetworkId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["model"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["siteId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vendor"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Device.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Device.__pulumiType, name, resourceInputs, opts);
     }
 }
 

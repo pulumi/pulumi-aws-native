@@ -81,7 +81,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.keyAlgorithm === undefined) && !opts.urn) {
@@ -96,32 +96,30 @@ export class CertificateAuthority extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["csrExtensions"] = args ? args.csrExtensions : undefined;
-            inputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
-            inputs["keyStorageSecurityStandard"] = args ? args.keyStorageSecurityStandard : undefined;
-            inputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
-            inputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
-            inputs["subject"] = args ? args.subject : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateSigningRequest"] = undefined /*out*/;
+            resourceInputs["csrExtensions"] = args ? args.csrExtensions : undefined;
+            resourceInputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
+            resourceInputs["keyStorageSecurityStandard"] = args ? args.keyStorageSecurityStandard : undefined;
+            resourceInputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
+            resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
+            resourceInputs["subject"] = args ? args.subject : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateSigningRequest"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateSigningRequest"] = undefined /*out*/;
-            inputs["csrExtensions"] = undefined /*out*/;
-            inputs["keyAlgorithm"] = undefined /*out*/;
-            inputs["keyStorageSecurityStandard"] = undefined /*out*/;
-            inputs["revocationConfiguration"] = undefined /*out*/;
-            inputs["signingAlgorithm"] = undefined /*out*/;
-            inputs["subject"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateSigningRequest"] = undefined /*out*/;
+            resourceInputs["csrExtensions"] = undefined /*out*/;
+            resourceInputs["keyAlgorithm"] = undefined /*out*/;
+            resourceInputs["keyStorageSecurityStandard"] = undefined /*out*/;
+            resourceInputs["revocationConfiguration"] = undefined /*out*/;
+            resourceInputs["signingAlgorithm"] = undefined /*out*/;
+            resourceInputs["subject"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CertificateAuthority.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CertificateAuthority.__pulumiType, name, resourceInputs, opts);
     }
 }
 

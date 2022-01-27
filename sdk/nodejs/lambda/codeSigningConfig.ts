@@ -64,28 +64,26 @@ export class CodeSigningConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CodeSigningConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.allowedPublishers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allowedPublishers'");
             }
-            inputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
-            inputs["codeSigningPolicies"] = args ? args.codeSigningPolicies : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["codeSigningConfigArn"] = undefined /*out*/;
-            inputs["codeSigningConfigId"] = undefined /*out*/;
+            resourceInputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
+            resourceInputs["codeSigningPolicies"] = args ? args.codeSigningPolicies : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["codeSigningConfigArn"] = undefined /*out*/;
+            resourceInputs["codeSigningConfigId"] = undefined /*out*/;
         } else {
-            inputs["allowedPublishers"] = undefined /*out*/;
-            inputs["codeSigningConfigArn"] = undefined /*out*/;
-            inputs["codeSigningConfigId"] = undefined /*out*/;
-            inputs["codeSigningPolicies"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
+            resourceInputs["allowedPublishers"] = undefined /*out*/;
+            resourceInputs["codeSigningConfigArn"] = undefined /*out*/;
+            resourceInputs["codeSigningConfigId"] = undefined /*out*/;
+            resourceInputs["codeSigningPolicies"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CodeSigningConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CodeSigningConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

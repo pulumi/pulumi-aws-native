@@ -61,28 +61,26 @@ export class Analyzer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AnalyzerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["analyzerName"] = args ? args.analyzerName : undefined;
-            inputs["archiveRules"] = args ? args.archiveRules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
+            resourceInputs["archiveRules"] = args ? args.archiveRules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["analyzerName"] = undefined /*out*/;
-            inputs["archiveRules"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["analyzerName"] = undefined /*out*/;
+            resourceInputs["archiveRules"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Analyzer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Analyzer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

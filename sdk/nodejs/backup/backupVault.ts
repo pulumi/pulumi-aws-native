@@ -51,29 +51,27 @@ export class BackupVault extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            inputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            inputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
-            inputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
-            inputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["backupVaultArn"] = undefined /*out*/;
+            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
+            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
+            resourceInputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
+            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
+            resourceInputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["backupVaultArn"] = undefined /*out*/;
         } else {
-            inputs["accessPolicy"] = undefined /*out*/;
-            inputs["backupVaultArn"] = undefined /*out*/;
-            inputs["backupVaultName"] = undefined /*out*/;
-            inputs["backupVaultTags"] = undefined /*out*/;
-            inputs["encryptionKeyArn"] = undefined /*out*/;
-            inputs["lockConfiguration"] = undefined /*out*/;
-            inputs["notifications"] = undefined /*out*/;
+            resourceInputs["accessPolicy"] = undefined /*out*/;
+            resourceInputs["backupVaultArn"] = undefined /*out*/;
+            resourceInputs["backupVaultName"] = undefined /*out*/;
+            resourceInputs["backupVaultTags"] = undefined /*out*/;
+            resourceInputs["encryptionKeyArn"] = undefined /*out*/;
+            resourceInputs["lockConfiguration"] = undefined /*out*/;
+            resourceInputs["notifications"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BackupVault.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BackupVault.__pulumiType, name, resourceInputs, opts);
     }
 }
 

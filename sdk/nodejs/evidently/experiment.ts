@@ -57,7 +57,7 @@ export class Experiment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExperimentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.metricGoals === undefined) && !opts.urn) {
@@ -72,32 +72,30 @@ export class Experiment extends pulumi.CustomResource {
             if ((!args || args.treatments === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'treatments'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["metricGoals"] = args ? args.metricGoals : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["onlineAbConfig"] = args ? args.onlineAbConfig : undefined;
-            inputs["project"] = args ? args.project : undefined;
-            inputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
-            inputs["samplingRate"] = args ? args.samplingRate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["treatments"] = args ? args.treatments : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["metricGoals"] = args ? args.metricGoals : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onlineAbConfig"] = args ? args.onlineAbConfig : undefined;
+            resourceInputs["project"] = args ? args.project : undefined;
+            resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
+            resourceInputs["samplingRate"] = args ? args.samplingRate : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["treatments"] = args ? args.treatments : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["metricGoals"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["onlineAbConfig"] = undefined /*out*/;
-            inputs["project"] = undefined /*out*/;
-            inputs["randomizationSalt"] = undefined /*out*/;
-            inputs["samplingRate"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["treatments"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["metricGoals"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["onlineAbConfig"] = undefined /*out*/;
+            resourceInputs["project"] = undefined /*out*/;
+            resourceInputs["randomizationSalt"] = undefined /*out*/;
+            resourceInputs["samplingRate"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["treatments"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Experiment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Experiment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

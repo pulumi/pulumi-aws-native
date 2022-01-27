@@ -58,7 +58,7 @@ export class Trigger extends pulumi.CustomResource {
     /** @deprecated Trigger is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Trigger is deprecated: Trigger is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -67,30 +67,28 @@ export class Trigger extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["predicate"] = args ? args.predicate : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["startOnCreation"] = args ? args.startOnCreation : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["predicate"] = args ? args.predicate : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["startOnCreation"] = args ? args.startOnCreation : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["predicate"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["startOnCreation"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workflowName"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["predicate"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["startOnCreation"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workflowName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Trigger.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Trigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

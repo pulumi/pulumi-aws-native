@@ -54,29 +54,27 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: TransitGatewayVpcAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["addSubnetIds"] = args ? args.addSubnetIds : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["removeSubnetIds"] = args ? args.removeSubnetIds : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["addSubnetIds"] = args ? args.addSubnetIds : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["removeSubnetIds"] = args ? args.removeSubnetIds : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         } else {
-            inputs["addSubnetIds"] = undefined /*out*/;
-            inputs["options"] = undefined /*out*/;
-            inputs["removeSubnetIds"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["transitGatewayId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["addSubnetIds"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
+            resourceInputs["removeSubnetIds"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayVpcAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayVpcAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -51,19 +51,17 @@ export class DedicatedIpPool extends pulumi.CustomResource {
     /** @deprecated DedicatedIpPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: DedicatedIpPoolArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DedicatedIpPool is deprecated: DedicatedIpPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["poolName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["poolName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DedicatedIpPool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DedicatedIpPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class Authorizer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
@@ -93,34 +93,32 @@ export class Authorizer extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["authType"] = args ? args.authType : undefined;
-            inputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;
-            inputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
-            inputs["authorizerUri"] = args ? args.authorizerUri : undefined;
-            inputs["identitySource"] = args ? args.identitySource : undefined;
-            inputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["providerARNs"] = args ? args.providerARNs : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["authorizerId"] = undefined /*out*/;
+            resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerUri"] = args ? args.authorizerUri : undefined;
+            resourceInputs["identitySource"] = args ? args.identitySource : undefined;
+            resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerARNs"] = args ? args.providerARNs : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["authorizerId"] = undefined /*out*/;
         } else {
-            inputs["authType"] = undefined /*out*/;
-            inputs["authorizerCredentials"] = undefined /*out*/;
-            inputs["authorizerId"] = undefined /*out*/;
-            inputs["authorizerResultTtlInSeconds"] = undefined /*out*/;
-            inputs["authorizerUri"] = undefined /*out*/;
-            inputs["identitySource"] = undefined /*out*/;
-            inputs["identityValidationExpression"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["providerARNs"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authType"] = undefined /*out*/;
+            resourceInputs["authorizerCredentials"] = undefined /*out*/;
+            resourceInputs["authorizerId"] = undefined /*out*/;
+            resourceInputs["authorizerResultTtlInSeconds"] = undefined /*out*/;
+            resourceInputs["authorizerUri"] = undefined /*out*/;
+            resourceInputs["identitySource"] = undefined /*out*/;
+            resourceInputs["identityValidationExpression"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["providerARNs"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Authorizer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Authorizer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

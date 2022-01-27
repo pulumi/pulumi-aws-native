@@ -77,7 +77,7 @@ export class Container extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.power === undefined) && !opts.urn) {
@@ -89,30 +89,28 @@ export class Container extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["containerServiceDeployment"] = args ? args.containerServiceDeployment : undefined;
-            inputs["isDisabled"] = args ? args.isDisabled : undefined;
-            inputs["power"] = args ? args.power : undefined;
-            inputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
-            inputs["scale"] = args ? args.scale : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["containerArn"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["containerServiceDeployment"] = args ? args.containerServiceDeployment : undefined;
+            resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
+            resourceInputs["power"] = args ? args.power : undefined;
+            resourceInputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
+            resourceInputs["scale"] = args ? args.scale : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerArn"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         } else {
-            inputs["containerArn"] = undefined /*out*/;
-            inputs["containerServiceDeployment"] = undefined /*out*/;
-            inputs["isDisabled"] = undefined /*out*/;
-            inputs["power"] = undefined /*out*/;
-            inputs["publicDomainNames"] = undefined /*out*/;
-            inputs["scale"] = undefined /*out*/;
-            inputs["serviceName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["containerArn"] = undefined /*out*/;
+            resourceInputs["containerServiceDeployment"] = undefined /*out*/;
+            resourceInputs["isDisabled"] = undefined /*out*/;
+            resourceInputs["power"] = undefined /*out*/;
+            resourceInputs["publicDomainNames"] = undefined /*out*/;
+            resourceInputs["scale"] = undefined /*out*/;
+            resourceInputs["serviceName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Container.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Container.__pulumiType, name, resourceInputs, opts);
     }
 }
 

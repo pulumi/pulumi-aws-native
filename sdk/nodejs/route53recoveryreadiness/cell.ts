@@ -64,25 +64,23 @@ export class Cell extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: CellArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["cellName"] = args ? args.cellName : undefined;
-            inputs["cells"] = args ? args.cells : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["cellArn"] = undefined /*out*/;
-            inputs["parentReadinessScopes"] = undefined /*out*/;
+            resourceInputs["cellName"] = args ? args.cellName : undefined;
+            resourceInputs["cells"] = args ? args.cells : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cellArn"] = undefined /*out*/;
+            resourceInputs["parentReadinessScopes"] = undefined /*out*/;
         } else {
-            inputs["cellArn"] = undefined /*out*/;
-            inputs["cellName"] = undefined /*out*/;
-            inputs["cells"] = undefined /*out*/;
-            inputs["parentReadinessScopes"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["cellArn"] = undefined /*out*/;
+            resourceInputs["cellName"] = undefined /*out*/;
+            resourceInputs["cells"] = undefined /*out*/;
+            resourceInputs["parentReadinessScopes"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cell.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cell.__pulumiType, name, resourceInputs, opts);
     }
 }
 

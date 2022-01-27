@@ -54,28 +54,26 @@ export class Version extends pulumi.CustomResource {
     /** @deprecated Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Version is deprecated: Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            inputs["codeSha256"] = args ? args.codeSha256 : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["codeSha256"] = args ? args.codeSha256 : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["codeSha256"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["functionName"] = undefined /*out*/;
-            inputs["provisionedConcurrencyConfig"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["codeSha256"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["provisionedConcurrencyConfig"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Version.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Version.__pulumiType, name, resourceInputs, opts);
     }
 }
 

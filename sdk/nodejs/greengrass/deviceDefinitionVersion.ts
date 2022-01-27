@@ -51,7 +51,7 @@ export class DeviceDefinitionVersion extends pulumi.CustomResource {
     /** @deprecated DeviceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DeviceDefinitionVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DeviceDefinitionVersion is deprecated: DeviceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceDefinitionId === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class DeviceDefinitionVersion extends pulumi.CustomResource {
             if ((!args || args.devices === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'devices'");
             }
-            inputs["deviceDefinitionId"] = args ? args.deviceDefinitionId : undefined;
-            inputs["devices"] = args ? args.devices : undefined;
+            resourceInputs["deviceDefinitionId"] = args ? args.deviceDefinitionId : undefined;
+            resourceInputs["devices"] = args ? args.devices : undefined;
         } else {
-            inputs["deviceDefinitionId"] = undefined /*out*/;
-            inputs["devices"] = undefined /*out*/;
+            resourceInputs["deviceDefinitionId"] = undefined /*out*/;
+            resourceInputs["devices"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DeviceDefinitionVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DeviceDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

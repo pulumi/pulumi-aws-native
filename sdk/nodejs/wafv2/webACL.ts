@@ -59,7 +59,7 @@ export class WebACL extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebACLArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.defaultAction === undefined) && !opts.urn) {
@@ -71,36 +71,34 @@ export class WebACL extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
-            inputs["captchaConfig"] = args ? args.captchaConfig : undefined;
-            inputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
-            inputs["defaultAction"] = args ? args.defaultAction : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["capacity"] = undefined /*out*/;
-            inputs["labelNamespace"] = undefined /*out*/;
+            resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
+            resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
+            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["capacity"] = undefined /*out*/;
+            resourceInputs["labelNamespace"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["capacity"] = undefined /*out*/;
-            inputs["captchaConfig"] = undefined /*out*/;
-            inputs["customResponseBodies"] = undefined /*out*/;
-            inputs["defaultAction"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["labelNamespace"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["visibilityConfig"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["capacity"] = undefined /*out*/;
+            resourceInputs["captchaConfig"] = undefined /*out*/;
+            resourceInputs["customResponseBodies"] = undefined /*out*/;
+            resourceInputs["defaultAction"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["labelNamespace"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["visibilityConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WebACL.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WebACL.__pulumiType, name, resourceInputs, opts);
     }
 }
 

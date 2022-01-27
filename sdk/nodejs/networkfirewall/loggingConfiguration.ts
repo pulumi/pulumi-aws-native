@@ -47,7 +47,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.firewallArn === undefined) && !opts.urn) {
@@ -56,18 +56,16 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             if ((!args || args.loggingConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
-            inputs["firewallArn"] = args ? args.firewallArn : undefined;
-            inputs["firewallName"] = args ? args.firewallName : undefined;
-            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
+            resourceInputs["firewallName"] = args ? args.firewallName : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
         } else {
-            inputs["firewallArn"] = undefined /*out*/;
-            inputs["firewallName"] = undefined /*out*/;
-            inputs["loggingConfiguration"] = undefined /*out*/;
+            resourceInputs["firewallArn"] = undefined /*out*/;
+            resourceInputs["firewallName"] = undefined /*out*/;
+            resourceInputs["loggingConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoggingConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

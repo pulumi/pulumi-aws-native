@@ -120,56 +120,54 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EventSourceMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            inputs["batchSize"] = args ? args.batchSize : undefined;
-            inputs["bisectBatchOnFunctionError"] = args ? args.bisectBatchOnFunctionError : undefined;
-            inputs["destinationConfig"] = args ? args.destinationConfig : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
-            inputs["filterCriteria"] = args ? args.filterCriteria : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["functionResponseTypes"] = args ? args.functionResponseTypes : undefined;
-            inputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
-            inputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
-            inputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
-            inputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
-            inputs["queues"] = args ? args.queues : undefined;
-            inputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
-            inputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
-            inputs["startingPosition"] = args ? args.startingPosition : undefined;
-            inputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
-            inputs["topics"] = args ? args.topics : undefined;
-            inputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
+            resourceInputs["batchSize"] = args ? args.batchSize : undefined;
+            resourceInputs["bisectBatchOnFunctionError"] = args ? args.bisectBatchOnFunctionError : undefined;
+            resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
+            resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["functionResponseTypes"] = args ? args.functionResponseTypes : undefined;
+            resourceInputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
+            resourceInputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
+            resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
+            resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
+            resourceInputs["queues"] = args ? args.queues : undefined;
+            resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
+            resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
+            resourceInputs["startingPosition"] = args ? args.startingPosition : undefined;
+            resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
+            resourceInputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
         } else {
-            inputs["batchSize"] = undefined /*out*/;
-            inputs["bisectBatchOnFunctionError"] = undefined /*out*/;
-            inputs["destinationConfig"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["eventSourceArn"] = undefined /*out*/;
-            inputs["filterCriteria"] = undefined /*out*/;
-            inputs["functionName"] = undefined /*out*/;
-            inputs["functionResponseTypes"] = undefined /*out*/;
-            inputs["maximumBatchingWindowInSeconds"] = undefined /*out*/;
-            inputs["maximumRecordAgeInSeconds"] = undefined /*out*/;
-            inputs["maximumRetryAttempts"] = undefined /*out*/;
-            inputs["parallelizationFactor"] = undefined /*out*/;
-            inputs["queues"] = undefined /*out*/;
-            inputs["selfManagedEventSource"] = undefined /*out*/;
-            inputs["sourceAccessConfigurations"] = undefined /*out*/;
-            inputs["startingPosition"] = undefined /*out*/;
-            inputs["startingPositionTimestamp"] = undefined /*out*/;
-            inputs["topics"] = undefined /*out*/;
-            inputs["tumblingWindowInSeconds"] = undefined /*out*/;
+            resourceInputs["batchSize"] = undefined /*out*/;
+            resourceInputs["bisectBatchOnFunctionError"] = undefined /*out*/;
+            resourceInputs["destinationConfig"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["eventSourceArn"] = undefined /*out*/;
+            resourceInputs["filterCriteria"] = undefined /*out*/;
+            resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["functionResponseTypes"] = undefined /*out*/;
+            resourceInputs["maximumBatchingWindowInSeconds"] = undefined /*out*/;
+            resourceInputs["maximumRecordAgeInSeconds"] = undefined /*out*/;
+            resourceInputs["maximumRetryAttempts"] = undefined /*out*/;
+            resourceInputs["parallelizationFactor"] = undefined /*out*/;
+            resourceInputs["queues"] = undefined /*out*/;
+            resourceInputs["selfManagedEventSource"] = undefined /*out*/;
+            resourceInputs["sourceAccessConfigurations"] = undefined /*out*/;
+            resourceInputs["startingPosition"] = undefined /*out*/;
+            resourceInputs["startingPositionTimestamp"] = undefined /*out*/;
+            resourceInputs["topics"] = undefined /*out*/;
+            resourceInputs["tumblingWindowInSeconds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventSourceMapping.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventSourceMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

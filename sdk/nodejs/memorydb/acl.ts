@@ -64,25 +64,23 @@ export class ACL extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ACLArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["aCLName"] = args ? args.aCLName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userNames"] = args ? args.userNames : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["aCLName"] = args ? args.aCLName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userNames"] = args ? args.userNames : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["aCLName"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userNames"] = undefined /*out*/;
+            resourceInputs["aCLName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userNames"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ACL.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ACL.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -61,7 +61,7 @@ export class Ruleset extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RulesetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.rules === undefined) && !opts.urn) {
@@ -70,22 +70,20 @@ export class Ruleset extends pulumi.CustomResource {
             if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetArn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Ruleset.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Ruleset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

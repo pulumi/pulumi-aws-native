@@ -50,7 +50,7 @@ export class TransitGatewayRouteTableAssociation extends pulumi.CustomResource {
     /** @deprecated TransitGatewayRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TransitGatewayRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TransitGatewayRouteTableAssociation is deprecated: TransitGatewayRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class TransitGatewayRouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
         } else {
-            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
-            inputs["transitGatewayRouteTableId"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayRouteTableAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

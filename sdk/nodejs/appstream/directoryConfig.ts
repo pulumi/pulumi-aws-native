@@ -52,7 +52,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
     /** @deprecated DirectoryConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DirectoryConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DirectoryConfig is deprecated: DirectoryConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.directoryName === undefined) && !opts.urn) {
@@ -64,18 +64,16 @@ export class DirectoryConfig extends pulumi.CustomResource {
             if ((!args || args.serviceAccountCredentials === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountCredentials'");
             }
-            inputs["directoryName"] = args ? args.directoryName : undefined;
-            inputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
-            inputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
+            resourceInputs["directoryName"] = args ? args.directoryName : undefined;
+            resourceInputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
+            resourceInputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
         } else {
-            inputs["directoryName"] = undefined /*out*/;
-            inputs["organizationalUnitDistinguishedNames"] = undefined /*out*/;
-            inputs["serviceAccountCredentials"] = undefined /*out*/;
+            resourceInputs["directoryName"] = undefined /*out*/;
+            resourceInputs["organizationalUnitDistinguishedNames"] = undefined /*out*/;
+            resourceInputs["serviceAccountCredentials"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DirectoryConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DirectoryConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

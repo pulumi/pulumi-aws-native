@@ -80,33 +80,31 @@ export class ApiKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ApiKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["customerId"] = args ? args.customerId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["generateDistinctId"] = args ? args.generateDistinctId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["stageKeys"] = args ? args.stageKeys : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["aPIKeyId"] = undefined /*out*/;
+            resourceInputs["customerId"] = args ? args.customerId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["generateDistinctId"] = args ? args.generateDistinctId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["stageKeys"] = args ? args.stageKeys : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["aPIKeyId"] = undefined /*out*/;
         } else {
-            inputs["aPIKeyId"] = undefined /*out*/;
-            inputs["customerId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["generateDistinctId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["stageKeys"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["aPIKeyId"] = undefined /*out*/;
+            resourceInputs["customerId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["generateDistinctId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["stageKeys"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

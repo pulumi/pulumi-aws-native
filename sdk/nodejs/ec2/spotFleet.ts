@@ -45,20 +45,18 @@ export class SpotFleet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SpotFleetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.spotFleetRequestConfigData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spotFleetRequestConfigData'");
             }
-            inputs["spotFleetRequestConfigData"] = args ? args.spotFleetRequestConfigData : undefined;
+            resourceInputs["spotFleetRequestConfigData"] = args ? args.spotFleetRequestConfigData : undefined;
         } else {
-            inputs["spotFleetRequestConfigData"] = undefined /*out*/;
+            resourceInputs["spotFleetRequestConfigData"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SpotFleet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SpotFleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

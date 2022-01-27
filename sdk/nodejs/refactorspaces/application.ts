@@ -61,43 +61,41 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["apiGatewayProxy"] = args ? args.apiGatewayProxy : undefined;
-            inputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["proxyType"] = args ? args.proxyType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["apiGatewayId"] = undefined /*out*/;
-            inputs["applicationIdentifier"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["nlbArn"] = undefined /*out*/;
-            inputs["nlbName"] = undefined /*out*/;
-            inputs["proxyUrl"] = undefined /*out*/;
-            inputs["stageName"] = undefined /*out*/;
-            inputs["vpcLinkId"] = undefined /*out*/;
+            resourceInputs["apiGatewayProxy"] = args ? args.apiGatewayProxy : undefined;
+            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["proxyType"] = args ? args.proxyType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["apiGatewayId"] = undefined /*out*/;
+            resourceInputs["applicationIdentifier"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["nlbArn"] = undefined /*out*/;
+            resourceInputs["nlbName"] = undefined /*out*/;
+            resourceInputs["proxyUrl"] = undefined /*out*/;
+            resourceInputs["stageName"] = undefined /*out*/;
+            resourceInputs["vpcLinkId"] = undefined /*out*/;
         } else {
-            inputs["apiGatewayId"] = undefined /*out*/;
-            inputs["apiGatewayProxy"] = undefined /*out*/;
-            inputs["applicationIdentifier"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["environmentIdentifier"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nlbArn"] = undefined /*out*/;
-            inputs["nlbName"] = undefined /*out*/;
-            inputs["proxyType"] = undefined /*out*/;
-            inputs["proxyUrl"] = undefined /*out*/;
-            inputs["stageName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
-            inputs["vpcLinkId"] = undefined /*out*/;
+            resourceInputs["apiGatewayId"] = undefined /*out*/;
+            resourceInputs["apiGatewayProxy"] = undefined /*out*/;
+            resourceInputs["applicationIdentifier"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["environmentIdentifier"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nlbArn"] = undefined /*out*/;
+            resourceInputs["nlbName"] = undefined /*out*/;
+            resourceInputs["proxyType"] = undefined /*out*/;
+            resourceInputs["proxyUrl"] = undefined /*out*/;
+            resourceInputs["stageName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
+            resourceInputs["vpcLinkId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

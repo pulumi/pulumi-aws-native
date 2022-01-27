@@ -65,33 +65,31 @@ export class Repository extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            inputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
-            inputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
-            inputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["repositoryPolicyText"] = args ? args.repositoryPolicyText : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["repositoryUri"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
+            resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
+            resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["repositoryPolicyText"] = args ? args.repositoryPolicyText : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["repositoryUri"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["encryptionConfiguration"] = undefined /*out*/;
-            inputs["imageScanningConfiguration"] = undefined /*out*/;
-            inputs["imageTagMutability"] = undefined /*out*/;
-            inputs["lifecyclePolicy"] = undefined /*out*/;
-            inputs["repositoryName"] = undefined /*out*/;
-            inputs["repositoryPolicyText"] = undefined /*out*/;
-            inputs["repositoryUri"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["imageScanningConfiguration"] = undefined /*out*/;
+            resourceInputs["imageTagMutability"] = undefined /*out*/;
+            resourceInputs["lifecyclePolicy"] = undefined /*out*/;
+            resourceInputs["repositoryName"] = undefined /*out*/;
+            resourceInputs["repositoryPolicyText"] = undefined /*out*/;
+            resourceInputs["repositoryUri"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Repository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

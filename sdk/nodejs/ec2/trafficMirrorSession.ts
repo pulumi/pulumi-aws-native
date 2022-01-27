@@ -57,7 +57,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     /** @deprecated TrafficMirrorSession is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TrafficMirrorSessionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TrafficMirrorSession is deprecated: TrafficMirrorSession is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
@@ -72,28 +72,26 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             if ((!args || args.trafficMirrorTargetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorTargetId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["packetLength"] = args ? args.packetLength : undefined;
-            inputs["sessionNumber"] = args ? args.sessionNumber : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
-            inputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
-            inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["packetLength"] = args ? args.packetLength : undefined;
+            resourceInputs["sessionNumber"] = args ? args.sessionNumber : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
+            resourceInputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
+            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
-            inputs["packetLength"] = undefined /*out*/;
-            inputs["sessionNumber"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trafficMirrorFilterId"] = undefined /*out*/;
-            inputs["trafficMirrorTargetId"] = undefined /*out*/;
-            inputs["virtualNetworkId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["packetLength"] = undefined /*out*/;
+            resourceInputs["sessionNumber"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trafficMirrorFilterId"] = undefined /*out*/;
+            resourceInputs["trafficMirrorTargetId"] = undefined /*out*/;
+            resourceInputs["virtualNetworkId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TrafficMirrorSession.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TrafficMirrorSession.__pulumiType, name, resourceInputs, opts);
     }
 }
 

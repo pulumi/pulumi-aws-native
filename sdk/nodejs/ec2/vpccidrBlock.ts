@@ -53,28 +53,26 @@ export class VPCCidrBlock extends pulumi.CustomResource {
     /** @deprecated VPCCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCCidrBlockArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPCCidrBlock is deprecated: VPCCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["amazonProvidedIpv6CidrBlock"] = args ? args.amazonProvidedIpv6CidrBlock : undefined;
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["amazonProvidedIpv6CidrBlock"] = args ? args.amazonProvidedIpv6CidrBlock : undefined;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         } else {
-            inputs["amazonProvidedIpv6CidrBlock"] = undefined /*out*/;
-            inputs["cidrBlock"] = undefined /*out*/;
-            inputs["ipv6CidrBlock"] = undefined /*out*/;
-            inputs["ipv6Pool"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["amazonProvidedIpv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["ipv6Pool"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCCidrBlock.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCCidrBlock.__pulumiType, name, resourceInputs, opts);
     }
 }
 

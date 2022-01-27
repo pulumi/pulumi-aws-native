@@ -74,65 +74,63 @@ export class UserPool extends pulumi.CustomResource {
     /** @deprecated UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: UserPoolArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserPool is deprecated: UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accountRecoverySetting"] = args ? args.accountRecoverySetting : undefined;
-            inputs["adminCreateUserConfig"] = args ? args.adminCreateUserConfig : undefined;
-            inputs["aliasAttributes"] = args ? args.aliasAttributes : undefined;
-            inputs["autoVerifiedAttributes"] = args ? args.autoVerifiedAttributes : undefined;
-            inputs["deviceConfiguration"] = args ? args.deviceConfiguration : undefined;
-            inputs["emailConfiguration"] = args ? args.emailConfiguration : undefined;
-            inputs["emailVerificationMessage"] = args ? args.emailVerificationMessage : undefined;
-            inputs["emailVerificationSubject"] = args ? args.emailVerificationSubject : undefined;
-            inputs["enabledMfas"] = args ? args.enabledMfas : undefined;
-            inputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
-            inputs["mfaConfiguration"] = args ? args.mfaConfiguration : undefined;
-            inputs["policies"] = args ? args.policies : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["smsAuthenticationMessage"] = args ? args.smsAuthenticationMessage : undefined;
-            inputs["smsConfiguration"] = args ? args.smsConfiguration : undefined;
-            inputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
-            inputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
-            inputs["userPoolName"] = args ? args.userPoolName : undefined;
-            inputs["userPoolTags"] = args ? args.userPoolTags : undefined;
-            inputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
-            inputs["usernameConfiguration"] = args ? args.usernameConfiguration : undefined;
-            inputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["providerName"] = undefined /*out*/;
-            inputs["providerURL"] = undefined /*out*/;
+            resourceInputs["accountRecoverySetting"] = args ? args.accountRecoverySetting : undefined;
+            resourceInputs["adminCreateUserConfig"] = args ? args.adminCreateUserConfig : undefined;
+            resourceInputs["aliasAttributes"] = args ? args.aliasAttributes : undefined;
+            resourceInputs["autoVerifiedAttributes"] = args ? args.autoVerifiedAttributes : undefined;
+            resourceInputs["deviceConfiguration"] = args ? args.deviceConfiguration : undefined;
+            resourceInputs["emailConfiguration"] = args ? args.emailConfiguration : undefined;
+            resourceInputs["emailVerificationMessage"] = args ? args.emailVerificationMessage : undefined;
+            resourceInputs["emailVerificationSubject"] = args ? args.emailVerificationSubject : undefined;
+            resourceInputs["enabledMfas"] = args ? args.enabledMfas : undefined;
+            resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
+            resourceInputs["mfaConfiguration"] = args ? args.mfaConfiguration : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["smsAuthenticationMessage"] = args ? args.smsAuthenticationMessage : undefined;
+            resourceInputs["smsConfiguration"] = args ? args.smsConfiguration : undefined;
+            resourceInputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
+            resourceInputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
+            resourceInputs["userPoolName"] = args ? args.userPoolName : undefined;
+            resourceInputs["userPoolTags"] = args ? args.userPoolTags : undefined;
+            resourceInputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
+            resourceInputs["usernameConfiguration"] = args ? args.usernameConfiguration : undefined;
+            resourceInputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["providerName"] = undefined /*out*/;
+            resourceInputs["providerURL"] = undefined /*out*/;
         } else {
-            inputs["accountRecoverySetting"] = undefined /*out*/;
-            inputs["adminCreateUserConfig"] = undefined /*out*/;
-            inputs["aliasAttributes"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoVerifiedAttributes"] = undefined /*out*/;
-            inputs["deviceConfiguration"] = undefined /*out*/;
-            inputs["emailConfiguration"] = undefined /*out*/;
-            inputs["emailVerificationMessage"] = undefined /*out*/;
-            inputs["emailVerificationSubject"] = undefined /*out*/;
-            inputs["enabledMfas"] = undefined /*out*/;
-            inputs["lambdaConfig"] = undefined /*out*/;
-            inputs["mfaConfiguration"] = undefined /*out*/;
-            inputs["policies"] = undefined /*out*/;
-            inputs["providerName"] = undefined /*out*/;
-            inputs["providerURL"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
-            inputs["smsAuthenticationMessage"] = undefined /*out*/;
-            inputs["smsConfiguration"] = undefined /*out*/;
-            inputs["smsVerificationMessage"] = undefined /*out*/;
-            inputs["userPoolAddOns"] = undefined /*out*/;
-            inputs["userPoolName"] = undefined /*out*/;
-            inputs["userPoolTags"] = undefined /*out*/;
-            inputs["usernameAttributes"] = undefined /*out*/;
-            inputs["usernameConfiguration"] = undefined /*out*/;
-            inputs["verificationMessageTemplate"] = undefined /*out*/;
+            resourceInputs["accountRecoverySetting"] = undefined /*out*/;
+            resourceInputs["adminCreateUserConfig"] = undefined /*out*/;
+            resourceInputs["aliasAttributes"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoVerifiedAttributes"] = undefined /*out*/;
+            resourceInputs["deviceConfiguration"] = undefined /*out*/;
+            resourceInputs["emailConfiguration"] = undefined /*out*/;
+            resourceInputs["emailVerificationMessage"] = undefined /*out*/;
+            resourceInputs["emailVerificationSubject"] = undefined /*out*/;
+            resourceInputs["enabledMfas"] = undefined /*out*/;
+            resourceInputs["lambdaConfig"] = undefined /*out*/;
+            resourceInputs["mfaConfiguration"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["providerName"] = undefined /*out*/;
+            resourceInputs["providerURL"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["smsAuthenticationMessage"] = undefined /*out*/;
+            resourceInputs["smsConfiguration"] = undefined /*out*/;
+            resourceInputs["smsVerificationMessage"] = undefined /*out*/;
+            resourceInputs["userPoolAddOns"] = undefined /*out*/;
+            resourceInputs["userPoolName"] = undefined /*out*/;
+            resourceInputs["userPoolTags"] = undefined /*out*/;
+            resourceInputs["usernameAttributes"] = undefined /*out*/;
+            resourceInputs["usernameConfiguration"] = undefined /*out*/;
+            resourceInputs["verificationMessageTemplate"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

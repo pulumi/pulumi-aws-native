@@ -45,7 +45,7 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubnetRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
@@ -54,16 +54,14 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         } else {
-            inputs["routeTableId"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
+            resourceInputs["routeTableId"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SubnetRouteTableAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SubnetRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

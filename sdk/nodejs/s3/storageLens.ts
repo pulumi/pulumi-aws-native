@@ -49,22 +49,20 @@ export class StorageLens extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StorageLensArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.storageLensConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageLensConfiguration'");
             }
-            inputs["storageLensConfiguration"] = args ? args.storageLensConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["storageLensConfiguration"] = args ? args.storageLensConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["storageLensConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["storageLensConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StorageLens.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StorageLens.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -69,7 +69,7 @@ export class App extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.appTemplateBody === undefined) && !opts.urn) {
@@ -78,26 +78,24 @@ export class App extends pulumi.CustomResource {
             if ((!args || args.resourceMappings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceMappings'");
             }
-            inputs["appTemplateBody"] = args ? args.appTemplateBody : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resiliencyPolicyArn"] = args ? args.resiliencyPolicyArn : undefined;
-            inputs["resourceMappings"] = args ? args.resourceMappings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["appArn"] = undefined /*out*/;
+            resourceInputs["appTemplateBody"] = args ? args.appTemplateBody : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resiliencyPolicyArn"] = args ? args.resiliencyPolicyArn : undefined;
+            resourceInputs["resourceMappings"] = args ? args.resourceMappings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appArn"] = undefined /*out*/;
         } else {
-            inputs["appArn"] = undefined /*out*/;
-            inputs["appTemplateBody"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resiliencyPolicyArn"] = undefined /*out*/;
-            inputs["resourceMappings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["appArn"] = undefined /*out*/;
+            resourceInputs["appTemplateBody"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resiliencyPolicyArn"] = undefined /*out*/;
+            resourceInputs["resourceMappings"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(App.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
 

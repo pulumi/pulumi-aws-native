@@ -68,7 +68,7 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LoadBalancerTlsCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.certificateDomainName === undefined) && !opts.urn) {
@@ -80,26 +80,24 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
             if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            inputs["certificateAlternativeNames"] = args ? args.certificateAlternativeNames : undefined;
-            inputs["certificateDomainName"] = args ? args.certificateDomainName : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["isAttached"] = args ? args.isAttached : undefined;
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["loadBalancerTlsCertificateArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["certificateAlternativeNames"] = args ? args.certificateAlternativeNames : undefined;
+            resourceInputs["certificateDomainName"] = args ? args.certificateDomainName : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["isAttached"] = args ? args.isAttached : undefined;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["loadBalancerTlsCertificateArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["certificateAlternativeNames"] = undefined /*out*/;
-            inputs["certificateDomainName"] = undefined /*out*/;
-            inputs["certificateName"] = undefined /*out*/;
-            inputs["isAttached"] = undefined /*out*/;
-            inputs["loadBalancerName"] = undefined /*out*/;
-            inputs["loadBalancerTlsCertificateArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["certificateAlternativeNames"] = undefined /*out*/;
+            resourceInputs["certificateDomainName"] = undefined /*out*/;
+            resourceInputs["certificateName"] = undefined /*out*/;
+            resourceInputs["isAttached"] = undefined /*out*/;
+            resourceInputs["loadBalancerName"] = undefined /*out*/;
+            resourceInputs["loadBalancerTlsCertificateArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancerTlsCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancerTlsCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

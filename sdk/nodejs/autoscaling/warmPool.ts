@@ -49,28 +49,26 @@ export class WarmPool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WarmPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            inputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            inputs["instanceReusePolicy"] = args ? args.instanceReusePolicy : undefined;
-            inputs["maxGroupPreparedCapacity"] = args ? args.maxGroupPreparedCapacity : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["poolState"] = args ? args.poolState : undefined;
+            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
+            resourceInputs["instanceReusePolicy"] = args ? args.instanceReusePolicy : undefined;
+            resourceInputs["maxGroupPreparedCapacity"] = args ? args.maxGroupPreparedCapacity : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["poolState"] = args ? args.poolState : undefined;
         } else {
-            inputs["autoScalingGroupName"] = undefined /*out*/;
-            inputs["instanceReusePolicy"] = undefined /*out*/;
-            inputs["maxGroupPreparedCapacity"] = undefined /*out*/;
-            inputs["minSize"] = undefined /*out*/;
-            inputs["poolState"] = undefined /*out*/;
+            resourceInputs["autoScalingGroupName"] = undefined /*out*/;
+            resourceInputs["instanceReusePolicy"] = undefined /*out*/;
+            resourceInputs["maxGroupPreparedCapacity"] = undefined /*out*/;
+            resourceInputs["minSize"] = undefined /*out*/;
+            resourceInputs["poolState"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WarmPool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WarmPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

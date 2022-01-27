@@ -80,7 +80,7 @@ export class LocationFSxWindows extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocationFSxWindowsArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
@@ -95,30 +95,28 @@ export class LocationFSxWindows extends pulumi.CustomResource {
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["user"] = args ? args.user : undefined;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
         } else {
-            inputs["domain"] = undefined /*out*/;
-            inputs["fsxFilesystemArn"] = undefined /*out*/;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["securityGroupArns"] = undefined /*out*/;
-            inputs["subdirectory"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["user"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["fsxFilesystemArn"] = undefined /*out*/;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["securityGroupArns"] = undefined /*out*/;
+            resourceInputs["subdirectory"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["user"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationFSxWindows.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationFSxWindows.__pulumiType, name, resourceInputs, opts);
     }
 }
 

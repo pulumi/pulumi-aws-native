@@ -70,7 +70,7 @@ export class Index extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IndexArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.edition === undefined) && !opts.urn) {
@@ -79,34 +79,32 @@ export class Index extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["capacityUnits"] = args ? args.capacityUnits : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["documentMetadataConfigurations"] = args ? args.documentMetadataConfigurations : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userContextPolicy"] = args ? args.userContextPolicy : undefined;
-            inputs["userTokenConfigurations"] = args ? args.userTokenConfigurations : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["capacityUnits"] = args ? args.capacityUnits : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["documentMetadataConfigurations"] = args ? args.documentMetadataConfigurations : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userContextPolicy"] = args ? args.userContextPolicy : undefined;
+            resourceInputs["userTokenConfigurations"] = args ? args.userTokenConfigurations : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["capacityUnits"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["documentMetadataConfigurations"] = undefined /*out*/;
-            inputs["edition"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["serverSideEncryptionConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userContextPolicy"] = undefined /*out*/;
-            inputs["userTokenConfigurations"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["capacityUnits"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentMetadataConfigurations"] = undefined /*out*/;
+            resourceInputs["edition"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["serverSideEncryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userContextPolicy"] = undefined /*out*/;
+            resourceInputs["userTokenConfigurations"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Index.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Index.__pulumiType, name, resourceInputs, opts);
     }
 }
 

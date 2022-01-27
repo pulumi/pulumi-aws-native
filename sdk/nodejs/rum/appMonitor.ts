@@ -58,28 +58,26 @@ export class AppMonitor extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppMonitorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            inputs["appMonitorConfiguration"] = args ? args.appMonitorConfiguration : undefined;
-            inputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appMonitorConfiguration"] = args ? args.appMonitorConfiguration : undefined;
+            resourceInputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["appMonitorConfiguration"] = undefined /*out*/;
-            inputs["cwLogEnabled"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["appMonitorConfiguration"] = undefined /*out*/;
+            resourceInputs["cwLogEnabled"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AppMonitor.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AppMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

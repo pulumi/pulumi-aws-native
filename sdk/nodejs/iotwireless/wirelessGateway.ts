@@ -76,34 +76,32 @@ export class WirelessGateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WirelessGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.loRaWAN === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loRaWAN'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["lastUplinkReceivedAt"] = args ? args.lastUplinkReceivedAt : undefined;
-            inputs["loRaWAN"] = args ? args.loRaWAN : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["thingArn"] = args ? args.thingArn : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["thingName"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["lastUplinkReceivedAt"] = args ? args.lastUplinkReceivedAt : undefined;
+            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["thingArn"] = args ? args.thingArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["thingName"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastUplinkReceivedAt"] = undefined /*out*/;
-            inputs["loRaWAN"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["thingArn"] = undefined /*out*/;
-            inputs["thingName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastUplinkReceivedAt"] = undefined /*out*/;
+            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["thingArn"] = undefined /*out*/;
+            resourceInputs["thingName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WirelessGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WirelessGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

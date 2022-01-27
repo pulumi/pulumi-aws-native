@@ -70,27 +70,25 @@ export class GlobalCluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: GlobalClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
-            inputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
-            inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
+            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
         } else {
-            inputs["deletionProtection"] = undefined /*out*/;
-            inputs["engine"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["globalClusterIdentifier"] = undefined /*out*/;
-            inputs["sourceDBClusterIdentifier"] = undefined /*out*/;
-            inputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["globalClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["storageEncrypted"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GlobalCluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GlobalCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

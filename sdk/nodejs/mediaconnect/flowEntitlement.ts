@@ -76,7 +76,7 @@ export class FlowEntitlement extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FlowEntitlementArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -88,28 +88,26 @@ export class FlowEntitlement extends pulumi.CustomResource {
             if ((!args || args.subscribers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            inputs["dataTransferSubscriberFeePercent"] = args ? args.dataTransferSubscriberFeePercent : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["entitlementStatus"] = args ? args.entitlementStatus : undefined;
-            inputs["flowArn"] = args ? args.flowArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["subscribers"] = args ? args.subscribers : undefined;
-            inputs["entitlementArn"] = undefined /*out*/;
+            resourceInputs["dataTransferSubscriberFeePercent"] = args ? args.dataTransferSubscriberFeePercent : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["entitlementStatus"] = args ? args.entitlementStatus : undefined;
+            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["entitlementArn"] = undefined /*out*/;
         } else {
-            inputs["dataTransferSubscriberFeePercent"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["entitlementArn"] = undefined /*out*/;
-            inputs["entitlementStatus"] = undefined /*out*/;
-            inputs["flowArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["subscribers"] = undefined /*out*/;
+            resourceInputs["dataTransferSubscriberFeePercent"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["entitlementArn"] = undefined /*out*/;
+            resourceInputs["entitlementStatus"] = undefined /*out*/;
+            resourceInputs["flowArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["subscribers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FlowEntitlement.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FlowEntitlement.__pulumiType, name, resourceInputs, opts);
     }
 }
 

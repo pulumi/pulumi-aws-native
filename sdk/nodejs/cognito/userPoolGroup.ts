@@ -53,28 +53,26 @@ export class UserPoolGroup extends pulumi.CustomResource {
     /** @deprecated UserPoolGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserPoolGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserPoolGroup is deprecated: UserPoolGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["precedence"] = args ? args.precedence : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["precedence"] = args ? args.precedence : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["groupName"] = undefined /*out*/;
-            inputs["precedence"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["userPoolId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["precedence"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["userPoolId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPoolGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPoolGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

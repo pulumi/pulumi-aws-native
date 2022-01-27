@@ -52,26 +52,24 @@ export class VpcLink extends pulumi.CustomResource {
     /** @deprecated VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VpcLinkArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VpcLink is deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpcLink.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpcLink.__pulumiType, name, resourceInputs, opts);
     }
 }
 

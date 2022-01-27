@@ -72,32 +72,30 @@ export class UserProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            inputs["domainId"] = args ? args.domainId : undefined;
-            inputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
-            inputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userProfileName"] = args ? args.userProfileName : undefined;
-            inputs["userSettings"] = args ? args.userSettings : undefined;
-            inputs["userProfileArn"] = undefined /*out*/;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
+            resourceInputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
+            resourceInputs["userSettings"] = args ? args.userSettings : undefined;
+            resourceInputs["userProfileArn"] = undefined /*out*/;
         } else {
-            inputs["domainId"] = undefined /*out*/;
-            inputs["singleSignOnUserIdentifier"] = undefined /*out*/;
-            inputs["singleSignOnUserValue"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userProfileArn"] = undefined /*out*/;
-            inputs["userProfileName"] = undefined /*out*/;
-            inputs["userSettings"] = undefined /*out*/;
+            resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["singleSignOnUserIdentifier"] = undefined /*out*/;
+            resourceInputs["singleSignOnUserValue"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userProfileArn"] = undefined /*out*/;
+            resourceInputs["userProfileName"] = undefined /*out*/;
+            resourceInputs["userSettings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

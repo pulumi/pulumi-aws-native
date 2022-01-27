@@ -72,7 +72,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectorProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.connectionMode === undefined) && !opts.urn) {
@@ -81,26 +81,24 @@ export class ConnectorProfile extends pulumi.CustomResource {
             if ((!args || args.connectorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            inputs["connectionMode"] = args ? args.connectionMode : undefined;
-            inputs["connectorProfileConfig"] = args ? args.connectorProfileConfig : undefined;
-            inputs["connectorProfileName"] = args ? args.connectorProfileName : undefined;
-            inputs["connectorType"] = args ? args.connectorType : undefined;
-            inputs["kMSArn"] = args ? args.kMSArn : undefined;
-            inputs["connectorProfileArn"] = undefined /*out*/;
-            inputs["credentialsArn"] = undefined /*out*/;
+            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
+            resourceInputs["connectorProfileConfig"] = args ? args.connectorProfileConfig : undefined;
+            resourceInputs["connectorProfileName"] = args ? args.connectorProfileName : undefined;
+            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
+            resourceInputs["kMSArn"] = args ? args.kMSArn : undefined;
+            resourceInputs["connectorProfileArn"] = undefined /*out*/;
+            resourceInputs["credentialsArn"] = undefined /*out*/;
         } else {
-            inputs["connectionMode"] = undefined /*out*/;
-            inputs["connectorProfileArn"] = undefined /*out*/;
-            inputs["connectorProfileConfig"] = undefined /*out*/;
-            inputs["connectorProfileName"] = undefined /*out*/;
-            inputs["connectorType"] = undefined /*out*/;
-            inputs["credentialsArn"] = undefined /*out*/;
-            inputs["kMSArn"] = undefined /*out*/;
+            resourceInputs["connectionMode"] = undefined /*out*/;
+            resourceInputs["connectorProfileArn"] = undefined /*out*/;
+            resourceInputs["connectorProfileConfig"] = undefined /*out*/;
+            resourceInputs["connectorProfileName"] = undefined /*out*/;
+            resourceInputs["connectorType"] = undefined /*out*/;
+            resourceInputs["credentialsArn"] = undefined /*out*/;
+            resourceInputs["kMSArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConnectorProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConnectorProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

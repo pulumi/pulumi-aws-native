@@ -86,7 +86,7 @@ export class Task extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.destinationLocationArn === undefined) && !opts.urn) {
@@ -95,42 +95,40 @@ export class Task extends pulumi.CustomResource {
             if ((!args || args.sourceLocationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceLocationArn'");
             }
-            inputs["cloudWatchLogGroupArn"] = args ? args.cloudWatchLogGroupArn : undefined;
-            inputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
-            inputs["excludes"] = args ? args.excludes : undefined;
-            inputs["includes"] = args ? args.includes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
-            inputs["errorCode"] = undefined /*out*/;
-            inputs["errorDetail"] = undefined /*out*/;
-            inputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["taskArn"] = undefined /*out*/;
+            resourceInputs["cloudWatchLogGroupArn"] = args ? args.cloudWatchLogGroupArn : undefined;
+            resourceInputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
+            resourceInputs["excludes"] = args ? args.excludes : undefined;
+            resourceInputs["includes"] = args ? args.includes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
+            resourceInputs["errorCode"] = undefined /*out*/;
+            resourceInputs["errorDetail"] = undefined /*out*/;
+            resourceInputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["taskArn"] = undefined /*out*/;
         } else {
-            inputs["cloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["destinationLocationArn"] = undefined /*out*/;
-            inputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
-            inputs["errorCode"] = undefined /*out*/;
-            inputs["errorDetail"] = undefined /*out*/;
-            inputs["excludes"] = undefined /*out*/;
-            inputs["includes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["options"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["sourceLocationArn"] = undefined /*out*/;
-            inputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["taskArn"] = undefined /*out*/;
+            resourceInputs["cloudWatchLogGroupArn"] = undefined /*out*/;
+            resourceInputs["destinationLocationArn"] = undefined /*out*/;
+            resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
+            resourceInputs["errorCode"] = undefined /*out*/;
+            resourceInputs["errorDetail"] = undefined /*out*/;
+            resourceInputs["excludes"] = undefined /*out*/;
+            resourceInputs["includes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["sourceLocationArn"] = undefined /*out*/;
+            resourceInputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["taskArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Task.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Task.__pulumiType, name, resourceInputs, opts);
     }
 }
 

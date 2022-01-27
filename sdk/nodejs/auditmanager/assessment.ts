@@ -66,41 +66,39 @@ export class Assessment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
-            inputs["awsAccount"] = args ? args.awsAccount : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["frameworkId"] = args ? args.frameworkId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["assessmentId"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["delegations"] = undefined /*out*/;
+            resourceInputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
+            resourceInputs["awsAccount"] = args ? args.awsAccount : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["assessmentId"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["delegations"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["assessmentId"] = undefined /*out*/;
-            inputs["assessmentReportsDestination"] = undefined /*out*/;
-            inputs["awsAccount"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["delegations"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["frameworkId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["assessmentId"] = undefined /*out*/;
+            resourceInputs["assessmentReportsDestination"] = undefined /*out*/;
+            resourceInputs["awsAccount"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["delegations"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["frameworkId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Assessment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Assessment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -57,7 +57,7 @@ export class VirtualGateway extends pulumi.CustomResource {
     /** @deprecated VirtualGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VirtualGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VirtualGateway is deprecated: VirtualGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.meshName === undefined) && !opts.urn) {
@@ -66,28 +66,26 @@ export class VirtualGateway extends pulumi.CustomResource {
             if ((!args || args.spec === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spec'");
             }
-            inputs["meshName"] = args ? args.meshName : undefined;
-            inputs["meshOwner"] = args ? args.meshOwner : undefined;
-            inputs["spec"] = args ? args.spec : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualGatewayName"] = args ? args.virtualGatewayName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["resourceOwner"] = undefined /*out*/;
-            inputs["uid"] = undefined /*out*/;
+            resourceInputs["meshName"] = args ? args.meshName : undefined;
+            resourceInputs["meshOwner"] = args ? args.meshOwner : undefined;
+            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualGatewayName"] = args ? args.virtualGatewayName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["uid"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["meshName"] = undefined /*out*/;
-            inputs["meshOwner"] = undefined /*out*/;
-            inputs["resourceOwner"] = undefined /*out*/;
-            inputs["spec"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["uid"] = undefined /*out*/;
-            inputs["virtualGatewayName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["meshName"] = undefined /*out*/;
+            resourceInputs["meshOwner"] = undefined /*out*/;
+            resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["spec"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["uid"] = undefined /*out*/;
+            resourceInputs["virtualGatewayName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

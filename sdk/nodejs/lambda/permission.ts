@@ -54,7 +54,7 @@ export class Permission extends pulumi.CustomResource {
     /** @deprecated Permission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Permission is deprecated: Permission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -66,24 +66,22 @@ export class Permission extends pulumi.CustomResource {
             if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["sourceAccount"] = args ? args.sourceAccount : undefined;
-            inputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["eventSourceToken"] = undefined /*out*/;
-            inputs["functionName"] = undefined /*out*/;
-            inputs["principal"] = undefined /*out*/;
-            inputs["sourceAccount"] = undefined /*out*/;
-            inputs["sourceArn"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["eventSourceToken"] = undefined /*out*/;
+            resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["principal"] = undefined /*out*/;
+            resourceInputs["sourceAccount"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Permission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Permission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

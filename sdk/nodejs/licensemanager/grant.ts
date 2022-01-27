@@ -66,31 +66,29 @@ export class Grant extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: GrantArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["allowedOperations"] = args ? args.allowedOperations : undefined;
-            inputs["grantName"] = args ? args.grantName : undefined;
-            inputs["homeRegion"] = args ? args.homeRegion : undefined;
-            inputs["licenseArn"] = args ? args.licenseArn : undefined;
-            inputs["principals"] = args ? args.principals : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["grantArn"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["allowedOperations"] = args ? args.allowedOperations : undefined;
+            resourceInputs["grantName"] = args ? args.grantName : undefined;
+            resourceInputs["homeRegion"] = args ? args.homeRegion : undefined;
+            resourceInputs["licenseArn"] = args ? args.licenseArn : undefined;
+            resourceInputs["principals"] = args ? args.principals : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["grantArn"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["allowedOperations"] = undefined /*out*/;
-            inputs["grantArn"] = undefined /*out*/;
-            inputs["grantName"] = undefined /*out*/;
-            inputs["homeRegion"] = undefined /*out*/;
-            inputs["licenseArn"] = undefined /*out*/;
-            inputs["principals"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["allowedOperations"] = undefined /*out*/;
+            resourceInputs["grantArn"] = undefined /*out*/;
+            resourceInputs["grantName"] = undefined /*out*/;
+            resourceInputs["homeRegion"] = undefined /*out*/;
+            resourceInputs["licenseArn"] = undefined /*out*/;
+            resourceInputs["principals"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Grant.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Grant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

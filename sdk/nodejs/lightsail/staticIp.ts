@@ -60,25 +60,23 @@ export class StaticIp extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: StaticIpArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["attachedTo"] = args ? args.attachedTo : undefined;
-            inputs["staticIpName"] = args ? args.staticIpName : undefined;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["isAttached"] = undefined /*out*/;
-            inputs["staticIpArn"] = undefined /*out*/;
+            resourceInputs["attachedTo"] = args ? args.attachedTo : undefined;
+            resourceInputs["staticIpName"] = args ? args.staticIpName : undefined;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["isAttached"] = undefined /*out*/;
+            resourceInputs["staticIpArn"] = undefined /*out*/;
         } else {
-            inputs["attachedTo"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["isAttached"] = undefined /*out*/;
-            inputs["staticIpArn"] = undefined /*out*/;
-            inputs["staticIpName"] = undefined /*out*/;
+            resourceInputs["attachedTo"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["isAttached"] = undefined /*out*/;
+            resourceInputs["staticIpArn"] = undefined /*out*/;
+            resourceInputs["staticIpName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StaticIp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StaticIp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

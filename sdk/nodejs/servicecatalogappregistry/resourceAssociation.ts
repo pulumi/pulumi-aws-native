@@ -58,7 +58,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResourceAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.application === undefined) && !opts.urn) {
@@ -70,22 +70,20 @@ export class ResourceAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            inputs["application"] = args ? args.application : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["applicationArn"] = undefined /*out*/;
-            inputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["application"] = args ? args.application : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
         } else {
-            inputs["application"] = undefined /*out*/;
-            inputs["applicationArn"] = undefined /*out*/;
-            inputs["resource"] = undefined /*out*/;
-            inputs["resourceArn"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
+            resourceInputs["application"] = undefined /*out*/;
+            resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["resource"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

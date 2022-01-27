@@ -56,7 +56,7 @@ export class VPNGatewayRoutePropagation extends pulumi.CustomResource {
     /** @deprecated VPNGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPNGatewayRoutePropagationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPNGatewayRoutePropagation is deprecated: VPNGatewayRoutePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.routeTableIds === undefined) && !opts.urn) {
@@ -65,16 +65,14 @@ export class VPNGatewayRoutePropagation extends pulumi.CustomResource {
             if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            inputs["routeTableIds"] = args ? args.routeTableIds : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         } else {
-            inputs["routeTableIds"] = undefined /*out*/;
-            inputs["vpnGatewayId"] = undefined /*out*/;
+            resourceInputs["routeTableIds"] = undefined /*out*/;
+            resourceInputs["vpnGatewayId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPNGatewayRoutePropagation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPNGatewayRoutePropagation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

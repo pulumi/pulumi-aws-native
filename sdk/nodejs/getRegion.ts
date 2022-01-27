@@ -9,9 +9,7 @@ export function getRegion(opts?: pulumi.InvokeOptions): Promise<GetRegionResult>
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:index:getRegion", {
     }, opts);
 }

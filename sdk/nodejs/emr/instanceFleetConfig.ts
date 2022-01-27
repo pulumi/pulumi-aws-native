@@ -56,7 +56,7 @@ export class InstanceFleetConfig extends pulumi.CustomResource {
     /** @deprecated InstanceFleetConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: InstanceFleetConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("InstanceFleetConfig is deprecated: InstanceFleetConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterId === undefined) && !opts.urn) {
@@ -65,26 +65,24 @@ export class InstanceFleetConfig extends pulumi.CustomResource {
             if ((!args || args.instanceFleetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceFleetType'");
             }
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["instanceFleetType"] = args ? args.instanceFleetType : undefined;
-            inputs["instanceTypeConfigs"] = args ? args.instanceTypeConfigs : undefined;
-            inputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["targetOnDemandCapacity"] = args ? args.targetOnDemandCapacity : undefined;
-            inputs["targetSpotCapacity"] = args ? args.targetSpotCapacity : undefined;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["instanceFleetType"] = args ? args.instanceFleetType : undefined;
+            resourceInputs["instanceTypeConfigs"] = args ? args.instanceTypeConfigs : undefined;
+            resourceInputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["targetOnDemandCapacity"] = args ? args.targetOnDemandCapacity : undefined;
+            resourceInputs["targetSpotCapacity"] = args ? args.targetSpotCapacity : undefined;
         } else {
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["instanceFleetType"] = undefined /*out*/;
-            inputs["instanceTypeConfigs"] = undefined /*out*/;
-            inputs["launchSpecifications"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["targetOnDemandCapacity"] = undefined /*out*/;
-            inputs["targetSpotCapacity"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["instanceFleetType"] = undefined /*out*/;
+            resourceInputs["instanceTypeConfigs"] = undefined /*out*/;
+            resourceInputs["launchSpecifications"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["targetOnDemandCapacity"] = undefined /*out*/;
+            resourceInputs["targetSpotCapacity"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InstanceFleetConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InstanceFleetConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

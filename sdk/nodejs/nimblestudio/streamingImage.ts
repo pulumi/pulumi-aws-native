@@ -75,7 +75,7 @@ export class StreamingImage extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StreamingImageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ec2ImageId === undefined) && !opts.urn) {
@@ -84,32 +84,30 @@ export class StreamingImage extends pulumi.CustomResource {
             if ((!args || args.studioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ec2ImageId"] = args ? args.ec2ImageId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["studioId"] = args ? args.studioId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["encryptionConfiguration"] = undefined /*out*/;
-            inputs["eulaIds"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["streamingImageId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ec2ImageId"] = args ? args.ec2ImageId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["studioId"] = args ? args.studioId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["eulaIds"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["streamingImageId"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["ec2ImageId"] = undefined /*out*/;
-            inputs["encryptionConfiguration"] = undefined /*out*/;
-            inputs["eulaIds"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["streamingImageId"] = undefined /*out*/;
-            inputs["studioId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ec2ImageId"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["eulaIds"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["streamingImageId"] = undefined /*out*/;
+            resourceInputs["studioId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamingImage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamingImage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

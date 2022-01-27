@@ -51,7 +51,7 @@ export class Entitlement extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EntitlementArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.appVisibility === undefined) && !opts.urn) {
@@ -63,26 +63,24 @@ export class Entitlement extends pulumi.CustomResource {
             if ((!args || args.stackName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            inputs["appVisibility"] = args ? args.appVisibility : undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["stackName"] = args ? args.stackName : undefined;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["appVisibility"] = args ? args.appVisibility : undefined;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["appVisibility"] = undefined /*out*/;
-            inputs["attributes"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["stackName"] = undefined /*out*/;
+            resourceInputs["appVisibility"] = undefined /*out*/;
+            resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["stackName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Entitlement.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Entitlement.__pulumiType, name, resourceInputs, opts);
     }
 }
 

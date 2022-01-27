@@ -54,7 +54,7 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
     /** @deprecated UserPoolRiskConfigurationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserPoolRiskConfigurationAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserPoolRiskConfigurationAttachment is deprecated: UserPoolRiskConfigurationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clientId === undefined) && !opts.urn) {
@@ -63,22 +63,20 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["accountTakeoverRiskConfiguration"] = args ? args.accountTakeoverRiskConfiguration : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["compromisedCredentialsRiskConfiguration"] = args ? args.compromisedCredentialsRiskConfiguration : undefined;
-            inputs["riskExceptionConfiguration"] = args ? args.riskExceptionConfiguration : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["accountTakeoverRiskConfiguration"] = args ? args.accountTakeoverRiskConfiguration : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["compromisedCredentialsRiskConfiguration"] = args ? args.compromisedCredentialsRiskConfiguration : undefined;
+            resourceInputs["riskExceptionConfiguration"] = args ? args.riskExceptionConfiguration : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         } else {
-            inputs["accountTakeoverRiskConfiguration"] = undefined /*out*/;
-            inputs["clientId"] = undefined /*out*/;
-            inputs["compromisedCredentialsRiskConfiguration"] = undefined /*out*/;
-            inputs["riskExceptionConfiguration"] = undefined /*out*/;
-            inputs["userPoolId"] = undefined /*out*/;
+            resourceInputs["accountTakeoverRiskConfiguration"] = undefined /*out*/;
+            resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["compromisedCredentialsRiskConfiguration"] = undefined /*out*/;
+            resourceInputs["riskExceptionConfiguration"] = undefined /*out*/;
+            resourceInputs["userPoolId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPoolRiskConfigurationAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPoolRiskConfigurationAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

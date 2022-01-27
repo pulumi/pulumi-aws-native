@@ -85,7 +85,7 @@ export class NetworkAclEntry extends pulumi.CustomResource {
     /** @deprecated NetworkAclEntry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NetworkAclEntryArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NetworkAclEntry is deprecated: NetworkAclEntry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkAclId === undefined) && !opts.urn) {
@@ -100,30 +100,28 @@ export class NetworkAclEntry extends pulumi.CustomResource {
             if ((!args || args.ruleNumber === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleNumber'");
             }
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["egress"] = args ? args.egress : undefined;
-            inputs["icmp"] = args ? args.icmp : undefined;
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["networkAclId"] = args ? args.networkAclId : undefined;
-            inputs["portRange"] = args ? args.portRange : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["ruleAction"] = args ? args.ruleAction : undefined;
-            inputs["ruleNumber"] = args ? args.ruleNumber : undefined;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["egress"] = args ? args.egress : undefined;
+            resourceInputs["icmp"] = args ? args.icmp : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
+            resourceInputs["portRange"] = args ? args.portRange : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["ruleAction"] = args ? args.ruleAction : undefined;
+            resourceInputs["ruleNumber"] = args ? args.ruleNumber : undefined;
         } else {
-            inputs["cidrBlock"] = undefined /*out*/;
-            inputs["egress"] = undefined /*out*/;
-            inputs["icmp"] = undefined /*out*/;
-            inputs["ipv6CidrBlock"] = undefined /*out*/;
-            inputs["networkAclId"] = undefined /*out*/;
-            inputs["portRange"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["ruleAction"] = undefined /*out*/;
-            inputs["ruleNumber"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["egress"] = undefined /*out*/;
+            resourceInputs["icmp"] = undefined /*out*/;
+            resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["networkAclId"] = undefined /*out*/;
+            resourceInputs["portRange"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["ruleAction"] = undefined /*out*/;
+            resourceInputs["ruleNumber"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkAclEntry.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkAclEntry.__pulumiType, name, resourceInputs, opts);
     }
 }
 

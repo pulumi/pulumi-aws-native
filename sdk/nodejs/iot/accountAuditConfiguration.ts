@@ -54,7 +54,7 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccountAuditConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -66,20 +66,18 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["auditCheckConfigurations"] = args ? args.auditCheckConfigurations : undefined;
-            inputs["auditNotificationTargetConfigurations"] = args ? args.auditNotificationTargetConfigurations : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["auditCheckConfigurations"] = args ? args.auditCheckConfigurations : undefined;
+            resourceInputs["auditNotificationTargetConfigurations"] = args ? args.auditNotificationTargetConfigurations : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         } else {
-            inputs["accountId"] = undefined /*out*/;
-            inputs["auditCheckConfigurations"] = undefined /*out*/;
-            inputs["auditNotificationTargetConfigurations"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["auditCheckConfigurations"] = undefined /*out*/;
+            resourceInputs["auditNotificationTargetConfigurations"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccountAuditConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccountAuditConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

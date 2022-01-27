@@ -58,33 +58,31 @@ export class Service extends pulumi.CustomResource {
     /** @deprecated Service is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Service is deprecated: Service is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            inputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
-            inputs["healthCheckCustomConfig"] = args ? args.healthCheckCustomConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceId"] = args ? args.namespaceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
+            resourceInputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
+            resourceInputs["healthCheckCustomConfig"] = args ? args.healthCheckCustomConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["dnsConfig"] = undefined /*out*/;
-            inputs["healthCheckConfig"] = undefined /*out*/;
-            inputs["healthCheckCustomConfig"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["namespaceId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["dnsConfig"] = undefined /*out*/;
+            resourceInputs["healthCheckConfig"] = undefined /*out*/;
+            resourceInputs["healthCheckCustomConfig"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["namespaceId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

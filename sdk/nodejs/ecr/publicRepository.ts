@@ -66,25 +66,23 @@ export class PublicRepository extends pulumi.CustomResource {
     /** @deprecated PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: PublicRepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PublicRepository is deprecated: PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["repositoryCatalogData"] = args ? args.repositoryCatalogData : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["repositoryPolicyText"] = args ? args.repositoryPolicyText : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["repositoryCatalogData"] = args ? args.repositoryCatalogData : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["repositoryPolicyText"] = args ? args.repositoryPolicyText : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["repositoryCatalogData"] = undefined /*out*/;
-            inputs["repositoryName"] = undefined /*out*/;
-            inputs["repositoryPolicyText"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["repositoryCatalogData"] = undefined /*out*/;
+            resourceInputs["repositoryName"] = undefined /*out*/;
+            resourceInputs["repositoryPolicyText"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PublicRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PublicRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

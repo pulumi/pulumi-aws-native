@@ -60,7 +60,7 @@ export class Route extends pulumi.CustomResource {
     /** @deprecated Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Route is deprecated: Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -69,36 +69,34 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.routeKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeKey'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
-            inputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
-            inputs["authorizationType"] = args ? args.authorizationType : undefined;
-            inputs["authorizerId"] = args ? args.authorizerId : undefined;
-            inputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
-            inputs["operationName"] = args ? args.operationName : undefined;
-            inputs["requestModels"] = args ? args.requestModels : undefined;
-            inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["routeKey"] = args ? args.routeKey : undefined;
-            inputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
-            inputs["target"] = args ? args.target : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
+            resourceInputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
+            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
+            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
+            resourceInputs["operationName"] = args ? args.operationName : undefined;
+            resourceInputs["requestModels"] = args ? args.requestModels : undefined;
+            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
+            resourceInputs["routeKey"] = args ? args.routeKey : undefined;
+            resourceInputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["apiKeyRequired"] = undefined /*out*/;
-            inputs["authorizationScopes"] = undefined /*out*/;
-            inputs["authorizationType"] = undefined /*out*/;
-            inputs["authorizerId"] = undefined /*out*/;
-            inputs["modelSelectionExpression"] = undefined /*out*/;
-            inputs["operationName"] = undefined /*out*/;
-            inputs["requestModels"] = undefined /*out*/;
-            inputs["requestParameters"] = undefined /*out*/;
-            inputs["routeKey"] = undefined /*out*/;
-            inputs["routeResponseSelectionExpression"] = undefined /*out*/;
-            inputs["target"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["apiKeyRequired"] = undefined /*out*/;
+            resourceInputs["authorizationScopes"] = undefined /*out*/;
+            resourceInputs["authorizationType"] = undefined /*out*/;
+            resourceInputs["authorizerId"] = undefined /*out*/;
+            resourceInputs["modelSelectionExpression"] = undefined /*out*/;
+            resourceInputs["operationName"] = undefined /*out*/;
+            resourceInputs["requestModels"] = undefined /*out*/;
+            resourceInputs["requestParameters"] = undefined /*out*/;
+            resourceInputs["routeKey"] = undefined /*out*/;
+            resourceInputs["routeResponseSelectionExpression"] = undefined /*out*/;
+            resourceInputs["target"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Route.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

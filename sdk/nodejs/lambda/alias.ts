@@ -55,7 +55,7 @@ export class Alias extends pulumi.CustomResource {
     /** @deprecated Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Alias is deprecated: Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.functionName === undefined) && !opts.urn) {
@@ -64,24 +64,22 @@ export class Alias extends pulumi.CustomResource {
             if ((!args || args.functionVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionVersion'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["functionVersion"] = args ? args.functionVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
-            inputs["routingConfig"] = args ? args.routingConfig : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
+            resourceInputs["routingConfig"] = args ? args.routingConfig : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["functionName"] = undefined /*out*/;
-            inputs["functionVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisionedConcurrencyConfig"] = undefined /*out*/;
-            inputs["routingConfig"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["functionVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisionedConcurrencyConfig"] = undefined /*out*/;
+            resourceInputs["routingConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Alias.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Alias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

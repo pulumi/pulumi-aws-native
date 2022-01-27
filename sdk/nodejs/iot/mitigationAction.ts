@@ -56,7 +56,7 @@ export class MitigationAction extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MitigationActionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actionParams === undefined) && !opts.urn) {
@@ -65,24 +65,22 @@ export class MitigationAction extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["actionName"] = args ? args.actionName : undefined;
-            inputs["actionParams"] = args ? args.actionParams : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["mitigationActionArn"] = undefined /*out*/;
-            inputs["mitigationActionId"] = undefined /*out*/;
+            resourceInputs["actionName"] = args ? args.actionName : undefined;
+            resourceInputs["actionParams"] = args ? args.actionParams : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["mitigationActionArn"] = undefined /*out*/;
+            resourceInputs["mitigationActionId"] = undefined /*out*/;
         } else {
-            inputs["actionName"] = undefined /*out*/;
-            inputs["actionParams"] = undefined /*out*/;
-            inputs["mitigationActionArn"] = undefined /*out*/;
-            inputs["mitigationActionId"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["actionName"] = undefined /*out*/;
+            resourceInputs["actionParams"] = undefined /*out*/;
+            resourceInputs["mitigationActionArn"] = undefined /*out*/;
+            resourceInputs["mitigationActionId"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MitigationAction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MitigationAction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

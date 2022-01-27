@@ -62,51 +62,49 @@ export class App extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: AppArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accessToken"] = args ? args.accessToken : undefined;
-            inputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
-            inputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
-            inputs["buildSpec"] = args ? args.buildSpec : undefined;
-            inputs["customHeaders"] = args ? args.customHeaders : undefined;
-            inputs["customRules"] = args ? args.customRules : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
-            inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            inputs["iAMServiceRole"] = args ? args.iAMServiceRole : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["oauthToken"] = args ? args.oauthToken : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["appId"] = undefined /*out*/;
-            inputs["appName"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultDomain"] = undefined /*out*/;
+            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
+            resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
+            resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["customRules"] = args ? args.customRules : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["iAMServiceRole"] = args ? args.iAMServiceRole : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["oauthToken"] = args ? args.oauthToken : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["appName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultDomain"] = undefined /*out*/;
         } else {
-            inputs["accessToken"] = undefined /*out*/;
-            inputs["appId"] = undefined /*out*/;
-            inputs["appName"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoBranchCreationConfig"] = undefined /*out*/;
-            inputs["basicAuthConfig"] = undefined /*out*/;
-            inputs["buildSpec"] = undefined /*out*/;
-            inputs["customHeaders"] = undefined /*out*/;
-            inputs["customRules"] = undefined /*out*/;
-            inputs["defaultDomain"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enableBranchAutoDeletion"] = undefined /*out*/;
-            inputs["environmentVariables"] = undefined /*out*/;
-            inputs["iAMServiceRole"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["oauthToken"] = undefined /*out*/;
-            inputs["repository"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["accessToken"] = undefined /*out*/;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["appName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoBranchCreationConfig"] = undefined /*out*/;
+            resourceInputs["basicAuthConfig"] = undefined /*out*/;
+            resourceInputs["buildSpec"] = undefined /*out*/;
+            resourceInputs["customHeaders"] = undefined /*out*/;
+            resourceInputs["customRules"] = undefined /*out*/;
+            resourceInputs["defaultDomain"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enableBranchAutoDeletion"] = undefined /*out*/;
+            resourceInputs["environmentVariables"] = undefined /*out*/;
+            resourceInputs["iAMServiceRole"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["oauthToken"] = undefined /*out*/;
+            resourceInputs["repository"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(App.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
 

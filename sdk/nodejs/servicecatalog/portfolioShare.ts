@@ -52,7 +52,7 @@ export class PortfolioShare extends pulumi.CustomResource {
     /** @deprecated PortfolioShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PortfolioShareArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PortfolioShare is deprecated: PortfolioShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -61,20 +61,18 @@ export class PortfolioShare extends pulumi.CustomResource {
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["accountId"] = undefined /*out*/;
-            inputs["portfolioId"] = undefined /*out*/;
-            inputs["shareTagOptions"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["portfolioId"] = undefined /*out*/;
+            resourceInputs["shareTagOptions"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PortfolioShare.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PortfolioShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -125,7 +125,7 @@ export class IPAMPool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IPAMPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.addressFamily === undefined) && !opts.urn) {
@@ -134,54 +134,52 @@ export class IPAMPool extends pulumi.CustomResource {
             if ((!args || args.ipamScopeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamScopeId'");
             }
-            inputs["addressFamily"] = args ? args.addressFamily : undefined;
-            inputs["allocationDefaultNetmaskLength"] = args ? args.allocationDefaultNetmaskLength : undefined;
-            inputs["allocationMaxNetmaskLength"] = args ? args.allocationMaxNetmaskLength : undefined;
-            inputs["allocationMinNetmaskLength"] = args ? args.allocationMinNetmaskLength : undefined;
-            inputs["allocationResourceTags"] = args ? args.allocationResourceTags : undefined;
-            inputs["autoImport"] = args ? args.autoImport : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
-            inputs["locale"] = args ? args.locale : undefined;
-            inputs["provisionedCidrs"] = args ? args.provisionedCidrs : undefined;
-            inputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
-            inputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ipamArn"] = undefined /*out*/;
-            inputs["ipamPoolId"] = undefined /*out*/;
-            inputs["ipamScopeArn"] = undefined /*out*/;
-            inputs["ipamScopeType"] = undefined /*out*/;
-            inputs["poolDepth"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["stateMessage"] = undefined /*out*/;
+            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["allocationDefaultNetmaskLength"] = args ? args.allocationDefaultNetmaskLength : undefined;
+            resourceInputs["allocationMaxNetmaskLength"] = args ? args.allocationMaxNetmaskLength : undefined;
+            resourceInputs["allocationMinNetmaskLength"] = args ? args.allocationMinNetmaskLength : undefined;
+            resourceInputs["allocationResourceTags"] = args ? args.allocationResourceTags : undefined;
+            resourceInputs["autoImport"] = args ? args.autoImport : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
+            resourceInputs["locale"] = args ? args.locale : undefined;
+            resourceInputs["provisionedCidrs"] = args ? args.provisionedCidrs : undefined;
+            resourceInputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
+            resourceInputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ipamArn"] = undefined /*out*/;
+            resourceInputs["ipamPoolId"] = undefined /*out*/;
+            resourceInputs["ipamScopeArn"] = undefined /*out*/;
+            resourceInputs["ipamScopeType"] = undefined /*out*/;
+            resourceInputs["poolDepth"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["stateMessage"] = undefined /*out*/;
         } else {
-            inputs["addressFamily"] = undefined /*out*/;
-            inputs["allocationDefaultNetmaskLength"] = undefined /*out*/;
-            inputs["allocationMaxNetmaskLength"] = undefined /*out*/;
-            inputs["allocationMinNetmaskLength"] = undefined /*out*/;
-            inputs["allocationResourceTags"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoImport"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["ipamArn"] = undefined /*out*/;
-            inputs["ipamPoolId"] = undefined /*out*/;
-            inputs["ipamScopeArn"] = undefined /*out*/;
-            inputs["ipamScopeId"] = undefined /*out*/;
-            inputs["ipamScopeType"] = undefined /*out*/;
-            inputs["locale"] = undefined /*out*/;
-            inputs["poolDepth"] = undefined /*out*/;
-            inputs["provisionedCidrs"] = undefined /*out*/;
-            inputs["publiclyAdvertisable"] = undefined /*out*/;
-            inputs["sourceIpamPoolId"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["stateMessage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["addressFamily"] = undefined /*out*/;
+            resourceInputs["allocationDefaultNetmaskLength"] = undefined /*out*/;
+            resourceInputs["allocationMaxNetmaskLength"] = undefined /*out*/;
+            resourceInputs["allocationMinNetmaskLength"] = undefined /*out*/;
+            resourceInputs["allocationResourceTags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoImport"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ipamArn"] = undefined /*out*/;
+            resourceInputs["ipamPoolId"] = undefined /*out*/;
+            resourceInputs["ipamScopeArn"] = undefined /*out*/;
+            resourceInputs["ipamScopeId"] = undefined /*out*/;
+            resourceInputs["ipamScopeType"] = undefined /*out*/;
+            resourceInputs["locale"] = undefined /*out*/;
+            resourceInputs["poolDepth"] = undefined /*out*/;
+            resourceInputs["provisionedCidrs"] = undefined /*out*/;
+            resourceInputs["publiclyAdvertisable"] = undefined /*out*/;
+            resourceInputs["sourceIpamPoolId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["stateMessage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IPAMPool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IPAMPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

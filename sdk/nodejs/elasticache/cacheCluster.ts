@@ -75,7 +75,7 @@ export class CacheCluster extends pulumi.CustomResource {
     /** @deprecated CacheCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CacheClusterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CacheCluster is deprecated: CacheCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cacheNodeType === undefined) && !opts.urn) {
@@ -87,64 +87,62 @@ export class CacheCluster extends pulumi.CustomResource {
             if ((!args || args.numCacheNodes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'numCacheNodes'");
             }
-            inputs["aZMode"] = args ? args.aZMode : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
-            inputs["cacheParameterGroupName"] = args ? args.cacheParameterGroupName : undefined;
-            inputs["cacheSecurityGroupNames"] = args ? args.cacheSecurityGroupNames : undefined;
-            inputs["cacheSubnetGroupName"] = args ? args.cacheSubnetGroupName : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["configurationEndpointAddress"] = args ? args.configurationEndpointAddress : undefined;
-            inputs["configurationEndpointPort"] = args ? args.configurationEndpointPort : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["logDeliveryConfigurations"] = args ? args.logDeliveryConfigurations : undefined;
-            inputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
-            inputs["numCacheNodes"] = args ? args.numCacheNodes : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["preferredAvailabilityZone"] = args ? args.preferredAvailabilityZone : undefined;
-            inputs["preferredAvailabilityZones"] = args ? args.preferredAvailabilityZones : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["redisEndpointAddress"] = args ? args.redisEndpointAddress : undefined;
-            inputs["redisEndpointPort"] = args ? args.redisEndpointPort : undefined;
-            inputs["snapshotArns"] = args ? args.snapshotArns : undefined;
-            inputs["snapshotName"] = args ? args.snapshotName : undefined;
-            inputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
-            inputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["aZMode"] = args ? args.aZMode : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
+            resourceInputs["cacheParameterGroupName"] = args ? args.cacheParameterGroupName : undefined;
+            resourceInputs["cacheSecurityGroupNames"] = args ? args.cacheSecurityGroupNames : undefined;
+            resourceInputs["cacheSubnetGroupName"] = args ? args.cacheSubnetGroupName : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["configurationEndpointAddress"] = args ? args.configurationEndpointAddress : undefined;
+            resourceInputs["configurationEndpointPort"] = args ? args.configurationEndpointPort : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["logDeliveryConfigurations"] = args ? args.logDeliveryConfigurations : undefined;
+            resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
+            resourceInputs["numCacheNodes"] = args ? args.numCacheNodes : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["preferredAvailabilityZone"] = args ? args.preferredAvailabilityZone : undefined;
+            resourceInputs["preferredAvailabilityZones"] = args ? args.preferredAvailabilityZones : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["redisEndpointAddress"] = args ? args.redisEndpointAddress : undefined;
+            resourceInputs["redisEndpointPort"] = args ? args.redisEndpointPort : undefined;
+            resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
+            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
+            resourceInputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
         } else {
-            inputs["aZMode"] = undefined /*out*/;
-            inputs["autoMinorVersionUpgrade"] = undefined /*out*/;
-            inputs["cacheNodeType"] = undefined /*out*/;
-            inputs["cacheParameterGroupName"] = undefined /*out*/;
-            inputs["cacheSecurityGroupNames"] = undefined /*out*/;
-            inputs["cacheSubnetGroupName"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["configurationEndpointAddress"] = undefined /*out*/;
-            inputs["configurationEndpointPort"] = undefined /*out*/;
-            inputs["engine"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["logDeliveryConfigurations"] = undefined /*out*/;
-            inputs["notificationTopicArn"] = undefined /*out*/;
-            inputs["numCacheNodes"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["preferredAvailabilityZone"] = undefined /*out*/;
-            inputs["preferredAvailabilityZones"] = undefined /*out*/;
-            inputs["preferredMaintenanceWindow"] = undefined /*out*/;
-            inputs["redisEndpointAddress"] = undefined /*out*/;
-            inputs["redisEndpointPort"] = undefined /*out*/;
-            inputs["snapshotArns"] = undefined /*out*/;
-            inputs["snapshotName"] = undefined /*out*/;
-            inputs["snapshotRetentionLimit"] = undefined /*out*/;
-            inputs["snapshotWindow"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcSecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["aZMode"] = undefined /*out*/;
+            resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["cacheNodeType"] = undefined /*out*/;
+            resourceInputs["cacheParameterGroupName"] = undefined /*out*/;
+            resourceInputs["cacheSecurityGroupNames"] = undefined /*out*/;
+            resourceInputs["cacheSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["configurationEndpointAddress"] = undefined /*out*/;
+            resourceInputs["configurationEndpointPort"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["logDeliveryConfigurations"] = undefined /*out*/;
+            resourceInputs["notificationTopicArn"] = undefined /*out*/;
+            resourceInputs["numCacheNodes"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["preferredAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["preferredAvailabilityZones"] = undefined /*out*/;
+            resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
+            resourceInputs["redisEndpointAddress"] = undefined /*out*/;
+            resourceInputs["redisEndpointPort"] = undefined /*out*/;
+            resourceInputs["snapshotArns"] = undefined /*out*/;
+            resourceInputs["snapshotName"] = undefined /*out*/;
+            resourceInputs["snapshotRetentionLimit"] = undefined /*out*/;
+            resourceInputs["snapshotWindow"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CacheCluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CacheCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

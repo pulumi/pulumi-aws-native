@@ -65,47 +65,45 @@ export class Queue extends pulumi.CustomResource {
     /** @deprecated Queue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: QueueArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Queue is deprecated: Queue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
-            inputs["deduplicationScope"] = args ? args.deduplicationScope : undefined;
-            inputs["delaySeconds"] = args ? args.delaySeconds : undefined;
-            inputs["fifoQueue"] = args ? args.fifoQueue : undefined;
-            inputs["fifoThroughputLimit"] = args ? args.fifoThroughputLimit : undefined;
-            inputs["kmsDataKeyReusePeriodSeconds"] = args ? args.kmsDataKeyReusePeriodSeconds : undefined;
-            inputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            inputs["maximumMessageSize"] = args ? args.maximumMessageSize : undefined;
-            inputs["messageRetentionPeriod"] = args ? args.messageRetentionPeriod : undefined;
-            inputs["queueName"] = args ? args.queueName : undefined;
-            inputs["receiveMessageWaitTimeSeconds"] = args ? args.receiveMessageWaitTimeSeconds : undefined;
-            inputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
-            inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibilityTimeout"] = args ? args.visibilityTimeout : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
+            resourceInputs["deduplicationScope"] = args ? args.deduplicationScope : undefined;
+            resourceInputs["delaySeconds"] = args ? args.delaySeconds : undefined;
+            resourceInputs["fifoQueue"] = args ? args.fifoQueue : undefined;
+            resourceInputs["fifoThroughputLimit"] = args ? args.fifoThroughputLimit : undefined;
+            resourceInputs["kmsDataKeyReusePeriodSeconds"] = args ? args.kmsDataKeyReusePeriodSeconds : undefined;
+            resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
+            resourceInputs["maximumMessageSize"] = args ? args.maximumMessageSize : undefined;
+            resourceInputs["messageRetentionPeriod"] = args ? args.messageRetentionPeriod : undefined;
+            resourceInputs["queueName"] = args ? args.queueName : undefined;
+            resourceInputs["receiveMessageWaitTimeSeconds"] = args ? args.receiveMessageWaitTimeSeconds : undefined;
+            resourceInputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
+            resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["visibilityTimeout"] = args ? args.visibilityTimeout : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["contentBasedDeduplication"] = undefined /*out*/;
-            inputs["deduplicationScope"] = undefined /*out*/;
-            inputs["delaySeconds"] = undefined /*out*/;
-            inputs["fifoQueue"] = undefined /*out*/;
-            inputs["fifoThroughputLimit"] = undefined /*out*/;
-            inputs["kmsDataKeyReusePeriodSeconds"] = undefined /*out*/;
-            inputs["kmsMasterKeyId"] = undefined /*out*/;
-            inputs["maximumMessageSize"] = undefined /*out*/;
-            inputs["messageRetentionPeriod"] = undefined /*out*/;
-            inputs["queueName"] = undefined /*out*/;
-            inputs["receiveMessageWaitTimeSeconds"] = undefined /*out*/;
-            inputs["redriveAllowPolicy"] = undefined /*out*/;
-            inputs["redrivePolicy"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["visibilityTimeout"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["contentBasedDeduplication"] = undefined /*out*/;
+            resourceInputs["deduplicationScope"] = undefined /*out*/;
+            resourceInputs["delaySeconds"] = undefined /*out*/;
+            resourceInputs["fifoQueue"] = undefined /*out*/;
+            resourceInputs["fifoThroughputLimit"] = undefined /*out*/;
+            resourceInputs["kmsDataKeyReusePeriodSeconds"] = undefined /*out*/;
+            resourceInputs["kmsMasterKeyId"] = undefined /*out*/;
+            resourceInputs["maximumMessageSize"] = undefined /*out*/;
+            resourceInputs["messageRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["queueName"] = undefined /*out*/;
+            resourceInputs["receiveMessageWaitTimeSeconds"] = undefined /*out*/;
+            resourceInputs["redriveAllowPolicy"] = undefined /*out*/;
+            resourceInputs["redrivePolicy"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["visibilityTimeout"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Queue.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

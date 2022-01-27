@@ -68,27 +68,25 @@ export class Channel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
-            inputs["ingressAccessLogs"] = args ? args.ingressAccessLogs : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["hlsIngest"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
+            resourceInputs["ingressAccessLogs"] = args ? args.ingressAccessLogs : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["hlsIngest"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["egressAccessLogs"] = undefined /*out*/;
-            inputs["hlsIngest"] = undefined /*out*/;
-            inputs["ingressAccessLogs"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["egressAccessLogs"] = undefined /*out*/;
+            resourceInputs["hlsIngest"] = undefined /*out*/;
+            resourceInputs["ingressAccessLogs"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Channel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

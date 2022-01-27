@@ -52,7 +52,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /** @deprecated ReceiptRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ReceiptRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReceiptRule is deprecated: ReceiptRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.rule === undefined) && !opts.urn) {
@@ -61,18 +61,16 @@ export class ReceiptRule extends pulumi.CustomResource {
             if ((!args || args.ruleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            inputs["after"] = args ? args.after : undefined;
-            inputs["rule"] = args ? args.rule : undefined;
-            inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["after"] = args ? args.after : undefined;
+            resourceInputs["rule"] = args ? args.rule : undefined;
+            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
         } else {
-            inputs["after"] = undefined /*out*/;
-            inputs["rule"] = undefined /*out*/;
-            inputs["ruleSetName"] = undefined /*out*/;
+            resourceInputs["after"] = undefined /*out*/;
+            resourceInputs["rule"] = undefined /*out*/;
+            resourceInputs["ruleSetName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReceiptRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReceiptRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

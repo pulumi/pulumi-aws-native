@@ -61,7 +61,7 @@ export class App extends pulumi.CustomResource {
     /** @deprecated App is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("App is deprecated: App is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.stackId === undefined) && !opts.urn) {
@@ -70,36 +70,34 @@ export class App extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["appSource"] = args ? args.appSource : undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["dataSources"] = args ? args.dataSources : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["domains"] = args ? args.domains : undefined;
-            inputs["enableSsl"] = args ? args.enableSsl : undefined;
-            inputs["environment"] = args ? args.environment : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["shortname"] = args ? args.shortname : undefined;
-            inputs["sslConfiguration"] = args ? args.sslConfiguration : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["appSource"] = args ? args.appSource : undefined;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domains"] = args ? args.domains : undefined;
+            resourceInputs["enableSsl"] = args ? args.enableSsl : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["shortname"] = args ? args.shortname : undefined;
+            resourceInputs["sslConfiguration"] = args ? args.sslConfiguration : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["appSource"] = undefined /*out*/;
-            inputs["attributes"] = undefined /*out*/;
-            inputs["dataSources"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["domains"] = undefined /*out*/;
-            inputs["enableSsl"] = undefined /*out*/;
-            inputs["environment"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["shortname"] = undefined /*out*/;
-            inputs["sslConfiguration"] = undefined /*out*/;
-            inputs["stackId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appSource"] = undefined /*out*/;
+            resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["dataSources"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["domains"] = undefined /*out*/;
+            resourceInputs["enableSsl"] = undefined /*out*/;
+            resourceInputs["environment"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["shortname"] = undefined /*out*/;
+            resourceInputs["sslConfiguration"] = undefined /*out*/;
+            resourceInputs["stackId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(App.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
 

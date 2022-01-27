@@ -92,39 +92,37 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: FirewallRuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["firewallRules"] = args ? args.firewallRules : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["creatorRequestId"] = undefined /*out*/;
-            inputs["modificationTime"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["ruleCount"] = undefined /*out*/;
-            inputs["shareStatus"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["creatorRequestId"] = undefined /*out*/;
+            resourceInputs["modificationTime"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["ruleCount"] = undefined /*out*/;
+            resourceInputs["shareStatus"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["creatorRequestId"] = undefined /*out*/;
-            inputs["firewallRules"] = undefined /*out*/;
-            inputs["modificationTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["ruleCount"] = undefined /*out*/;
-            inputs["shareStatus"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["creatorRequestId"] = undefined /*out*/;
+            resourceInputs["firewallRules"] = undefined /*out*/;
+            resourceInputs["modificationTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["ruleCount"] = undefined /*out*/;
+            resourceInputs["shareStatus"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FirewallRuleGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FirewallRuleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

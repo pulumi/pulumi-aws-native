@@ -68,30 +68,28 @@ export class ParameterGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["family"] = args ? args.family : undefined;
-            inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["aRN"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["family"] = args ? args.family : undefined;
+            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aRN"] = undefined /*out*/;
         } else {
-            inputs["aRN"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["family"] = undefined /*out*/;
-            inputs["parameterGroupName"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["aRN"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["family"] = undefined /*out*/;
+            resourceInputs["parameterGroupName"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ParameterGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -50,27 +50,25 @@ export class Package extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: PackageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["packageName"] = args ? args.packageName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["packageId"] = undefined /*out*/;
-            inputs["storageLocation"] = undefined /*out*/;
+            resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["packageId"] = undefined /*out*/;
+            resourceInputs["storageLocation"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["packageId"] = undefined /*out*/;
-            inputs["packageName"] = undefined /*out*/;
-            inputs["storageLocation"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["packageId"] = undefined /*out*/;
+            resourceInputs["packageName"] = undefined /*out*/;
+            resourceInputs["storageLocation"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Package.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Package.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -56,29 +56,27 @@ export class ResourceShare extends pulumi.CustomResource {
     /** @deprecated ResourceShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ResourceShareArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ResourceShare is deprecated: ResourceShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["allowExternalPrincipals"] = args ? args.allowExternalPrincipals : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissionArns"] = args ? args.permissionArns : undefined;
-            inputs["principals"] = args ? args.principals : undefined;
-            inputs["resourceArns"] = args ? args.resourceArns : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["allowExternalPrincipals"] = args ? args.allowExternalPrincipals : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissionArns"] = args ? args.permissionArns : undefined;
+            resourceInputs["principals"] = args ? args.principals : undefined;
+            resourceInputs["resourceArns"] = args ? args.resourceArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["allowExternalPrincipals"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["permissionArns"] = undefined /*out*/;
-            inputs["principals"] = undefined /*out*/;
-            inputs["resourceArns"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["allowExternalPrincipals"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissionArns"] = undefined /*out*/;
+            resourceInputs["principals"] = undefined /*out*/;
+            resourceInputs["resourceArns"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceShare.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

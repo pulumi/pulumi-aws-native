@@ -48,28 +48,26 @@ export class DomainName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.certificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["appSyncDomainName"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["appSyncDomainName"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
         } else {
-            inputs["appSyncDomainName"] = undefined /*out*/;
-            inputs["certificateArn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["appSyncDomainName"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainName.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

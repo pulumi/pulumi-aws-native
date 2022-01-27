@@ -53,7 +53,7 @@ export class PlaceIndex extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PlaceIndexArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataSource === undefined) && !opts.urn) {
@@ -62,30 +62,28 @@ export class PlaceIndex extends pulumi.CustomResource {
             if ((!args || args.indexName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexName'");
             }
-            inputs["dataSource"] = args ? args.dataSource : undefined;
-            inputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["indexName"] = args ? args.indexName : undefined;
-            inputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["indexArn"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
+            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["indexName"] = args ? args.indexName : undefined;
+            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["indexArn"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["dataSource"] = undefined /*out*/;
-            inputs["dataSourceConfiguration"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["indexArn"] = undefined /*out*/;
-            inputs["indexName"] = undefined /*out*/;
-            inputs["pricingPlan"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["dataSource"] = undefined /*out*/;
+            resourceInputs["dataSourceConfiguration"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["indexArn"] = undefined /*out*/;
+            resourceInputs["indexName"] = undefined /*out*/;
+            resourceInputs["pricingPlan"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PlaceIndex.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PlaceIndex.__pulumiType, name, resourceInputs, opts);
     }
 }
 

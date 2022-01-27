@@ -53,26 +53,24 @@ export class NatGateway extends pulumi.CustomResource {
     /** @deprecated NatGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NatGateway is deprecated: NatGateway is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["allocationId"] = args ? args.allocationId : undefined;
-            inputs["connectivityType"] = args ? args.connectivityType : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
+            resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["allocationId"] = undefined /*out*/;
-            inputs["connectivityType"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["allocationId"] = undefined /*out*/;
+            resourceInputs["connectivityType"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NatGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NatGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

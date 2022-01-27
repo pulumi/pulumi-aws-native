@@ -55,30 +55,28 @@ export class EndpointConfig extends pulumi.CustomResource {
     /** @deprecated EndpointConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EndpointConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EndpointConfig is deprecated: EndpointConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.productionVariants === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productionVariants'");
             }
-            inputs["asyncInferenceConfig"] = args ? args.asyncInferenceConfig : undefined;
-            inputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
-            inputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["productionVariants"] = args ? args.productionVariants : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["asyncInferenceConfig"] = args ? args.asyncInferenceConfig : undefined;
+            resourceInputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
+            resourceInputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["productionVariants"] = args ? args.productionVariants : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["asyncInferenceConfig"] = undefined /*out*/;
-            inputs["dataCaptureConfig"] = undefined /*out*/;
-            inputs["endpointConfigName"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["productionVariants"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["asyncInferenceConfig"] = undefined /*out*/;
+            resourceInputs["dataCaptureConfig"] = undefined /*out*/;
+            resourceInputs["endpointConfigName"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["productionVariants"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EndpointConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EndpointConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -57,7 +57,7 @@ export class ScalableTarget extends pulumi.CustomResource {
     /** @deprecated ScalableTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ScalableTargetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ScalableTarget is deprecated: ScalableTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.maxCapacity === undefined) && !opts.urn) {
@@ -78,28 +78,26 @@ export class ScalableTarget extends pulumi.CustomResource {
             if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            inputs["minCapacity"] = args ? args.minCapacity : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["roleARN"] = args ? args.roleARN : undefined;
-            inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            inputs["scheduledActions"] = args ? args.scheduledActions : undefined;
-            inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            inputs["suspendedState"] = args ? args.suspendedState : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["roleARN"] = args ? args.roleARN : undefined;
+            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
+            resourceInputs["scheduledActions"] = args ? args.scheduledActions : undefined;
+            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
+            resourceInputs["suspendedState"] = args ? args.suspendedState : undefined;
         } else {
-            inputs["maxCapacity"] = undefined /*out*/;
-            inputs["minCapacity"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["roleARN"] = undefined /*out*/;
-            inputs["scalableDimension"] = undefined /*out*/;
-            inputs["scheduledActions"] = undefined /*out*/;
-            inputs["serviceNamespace"] = undefined /*out*/;
-            inputs["suspendedState"] = undefined /*out*/;
+            resourceInputs["maxCapacity"] = undefined /*out*/;
+            resourceInputs["minCapacity"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["roleARN"] = undefined /*out*/;
+            resourceInputs["scalableDimension"] = undefined /*out*/;
+            resourceInputs["scheduledActions"] = undefined /*out*/;
+            resourceInputs["serviceNamespace"] = undefined /*out*/;
+            resourceInputs["suspendedState"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScalableTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScalableTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

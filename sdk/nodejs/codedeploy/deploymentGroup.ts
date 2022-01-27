@@ -66,7 +66,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /** @deprecated DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DeploymentGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DeploymentGroup is deprecated: DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
@@ -75,46 +75,44 @@ export class DeploymentGroup extends pulumi.CustomResource {
             if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            inputs["alarmConfiguration"] = args ? args.alarmConfiguration : undefined;
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["autoRollbackConfiguration"] = args ? args.autoRollbackConfiguration : undefined;
-            inputs["autoScalingGroups"] = args ? args.autoScalingGroups : undefined;
-            inputs["blueGreenDeploymentConfiguration"] = args ? args.blueGreenDeploymentConfiguration : undefined;
-            inputs["deployment"] = args ? args.deployment : undefined;
-            inputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
-            inputs["deploymentGroupName"] = args ? args.deploymentGroupName : undefined;
-            inputs["deploymentStyle"] = args ? args.deploymentStyle : undefined;
-            inputs["eCSServices"] = args ? args.eCSServices : undefined;
-            inputs["ec2TagFilters"] = args ? args.ec2TagFilters : undefined;
-            inputs["ec2TagSet"] = args ? args.ec2TagSet : undefined;
-            inputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
-            inputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
-            inputs["onPremisesTagSet"] = args ? args.onPremisesTagSet : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
+            resourceInputs["alarmConfiguration"] = args ? args.alarmConfiguration : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["autoRollbackConfiguration"] = args ? args.autoRollbackConfiguration : undefined;
+            resourceInputs["autoScalingGroups"] = args ? args.autoScalingGroups : undefined;
+            resourceInputs["blueGreenDeploymentConfiguration"] = args ? args.blueGreenDeploymentConfiguration : undefined;
+            resourceInputs["deployment"] = args ? args.deployment : undefined;
+            resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
+            resourceInputs["deploymentGroupName"] = args ? args.deploymentGroupName : undefined;
+            resourceInputs["deploymentStyle"] = args ? args.deploymentStyle : undefined;
+            resourceInputs["eCSServices"] = args ? args.eCSServices : undefined;
+            resourceInputs["ec2TagFilters"] = args ? args.ec2TagFilters : undefined;
+            resourceInputs["ec2TagSet"] = args ? args.ec2TagSet : undefined;
+            resourceInputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
+            resourceInputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
+            resourceInputs["onPremisesTagSet"] = args ? args.onPremisesTagSet : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
         } else {
-            inputs["alarmConfiguration"] = undefined /*out*/;
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["autoRollbackConfiguration"] = undefined /*out*/;
-            inputs["autoScalingGroups"] = undefined /*out*/;
-            inputs["blueGreenDeploymentConfiguration"] = undefined /*out*/;
-            inputs["deployment"] = undefined /*out*/;
-            inputs["deploymentConfigName"] = undefined /*out*/;
-            inputs["deploymentGroupName"] = undefined /*out*/;
-            inputs["deploymentStyle"] = undefined /*out*/;
-            inputs["eCSServices"] = undefined /*out*/;
-            inputs["ec2TagFilters"] = undefined /*out*/;
-            inputs["ec2TagSet"] = undefined /*out*/;
-            inputs["loadBalancerInfo"] = undefined /*out*/;
-            inputs["onPremisesInstanceTagFilters"] = undefined /*out*/;
-            inputs["onPremisesTagSet"] = undefined /*out*/;
-            inputs["serviceRoleArn"] = undefined /*out*/;
-            inputs["triggerConfigurations"] = undefined /*out*/;
+            resourceInputs["alarmConfiguration"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["autoRollbackConfiguration"] = undefined /*out*/;
+            resourceInputs["autoScalingGroups"] = undefined /*out*/;
+            resourceInputs["blueGreenDeploymentConfiguration"] = undefined /*out*/;
+            resourceInputs["deployment"] = undefined /*out*/;
+            resourceInputs["deploymentConfigName"] = undefined /*out*/;
+            resourceInputs["deploymentGroupName"] = undefined /*out*/;
+            resourceInputs["deploymentStyle"] = undefined /*out*/;
+            resourceInputs["eCSServices"] = undefined /*out*/;
+            resourceInputs["ec2TagFilters"] = undefined /*out*/;
+            resourceInputs["ec2TagSet"] = undefined /*out*/;
+            resourceInputs["loadBalancerInfo"] = undefined /*out*/;
+            resourceInputs["onPremisesInstanceTagFilters"] = undefined /*out*/;
+            resourceInputs["onPremisesTagSet"] = undefined /*out*/;
+            resourceInputs["serviceRoleArn"] = undefined /*out*/;
+            resourceInputs["triggerConfigurations"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DeploymentGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DeploymentGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

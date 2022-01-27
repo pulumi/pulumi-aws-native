@@ -63,28 +63,26 @@ export class RequestValidator extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RequestValidatorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
-            inputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
-            inputs["requestValidatorId"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
+            resourceInputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
+            resourceInputs["requestValidatorId"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["requestValidatorId"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
-            inputs["validateRequestBody"] = undefined /*out*/;
-            inputs["validateRequestParameters"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requestValidatorId"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
+            resourceInputs["validateRequestBody"] = undefined /*out*/;
+            resourceInputs["validateRequestParameters"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RequestValidator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RequestValidator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

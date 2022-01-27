@@ -50,7 +50,7 @@ export class ListenerRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -65,24 +65,22 @@ export class ListenerRule extends pulumi.CustomResource {
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["conditions"] = args ? args.conditions : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["isDefault"] = undefined /*out*/;
-            inputs["ruleArn"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["isDefault"] = undefined /*out*/;
+            resourceInputs["ruleArn"] = undefined /*out*/;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["conditions"] = undefined /*out*/;
-            inputs["isDefault"] = undefined /*out*/;
-            inputs["listenerArn"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["ruleArn"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["conditions"] = undefined /*out*/;
+            resourceInputs["isDefault"] = undefined /*out*/;
+            resourceInputs["listenerArn"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["ruleArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ListenerRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ListenerRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -56,7 +56,7 @@ export class VPNConnection extends pulumi.CustomResource {
     /** @deprecated VPNConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPNConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPNConnection is deprecated: VPNConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.customerGatewayId === undefined) && !opts.urn) {
@@ -65,26 +65,24 @@ export class VPNConnection extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
-            inputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            inputs["vpnTunnelOptionsSpecifications"] = args ? args.vpnTunnelOptionsSpecifications : undefined;
+            resourceInputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
+            resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["vpnTunnelOptionsSpecifications"] = args ? args.vpnTunnelOptionsSpecifications : undefined;
         } else {
-            inputs["customerGatewayId"] = undefined /*out*/;
-            inputs["staticRoutesOnly"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["transitGatewayId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vpnGatewayId"] = undefined /*out*/;
-            inputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
+            resourceInputs["customerGatewayId"] = undefined /*out*/;
+            resourceInputs["staticRoutesOnly"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpnGatewayId"] = undefined /*out*/;
+            resourceInputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPNConnection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPNConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

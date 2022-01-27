@@ -72,29 +72,27 @@ export class Stream extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: StreamArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
-            inputs["shardCount"] = args ? args.shardCount : undefined;
-            inputs["streamEncryption"] = args ? args.streamEncryption : undefined;
-            inputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
+            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
+            resourceInputs["streamEncryption"] = args ? args.streamEncryption : undefined;
+            resourceInputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["retentionPeriodHours"] = undefined /*out*/;
-            inputs["shardCount"] = undefined /*out*/;
-            inputs["streamEncryption"] = undefined /*out*/;
-            inputs["streamModeDetails"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["retentionPeriodHours"] = undefined /*out*/;
+            resourceInputs["shardCount"] = undefined /*out*/;
+            resourceInputs["streamEncryption"] = undefined /*out*/;
+            resourceInputs["streamModeDetails"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stream.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

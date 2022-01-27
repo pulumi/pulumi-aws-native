@@ -67,51 +67,49 @@ export class Api extends pulumi.CustomResource {
     /** @deprecated Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ApiArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Api is deprecated: Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["apiKeySelectionExpression"] = args ? args.apiKeySelectionExpression : undefined;
-            inputs["basePath"] = args ? args.basePath : undefined;
-            inputs["body"] = args ? args.body : undefined;
-            inputs["bodyS3Location"] = args ? args.bodyS3Location : undefined;
-            inputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            inputs["credentialsArn"] = args ? args.credentialsArn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
-            inputs["disableSchemaValidation"] = args ? args.disableSchemaValidation : undefined;
-            inputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protocolType"] = args ? args.protocolType : undefined;
-            inputs["routeKey"] = args ? args.routeKey : undefined;
-            inputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["target"] = args ? args.target : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["apiEndpoint"] = undefined /*out*/;
+            resourceInputs["apiKeySelectionExpression"] = args ? args.apiKeySelectionExpression : undefined;
+            resourceInputs["basePath"] = args ? args.basePath : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["bodyS3Location"] = args ? args.bodyS3Location : undefined;
+            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
+            resourceInputs["credentialsArn"] = args ? args.credentialsArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
+            resourceInputs["disableSchemaValidation"] = args ? args.disableSchemaValidation : undefined;
+            resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
+            resourceInputs["routeKey"] = args ? args.routeKey : undefined;
+            resourceInputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["apiEndpoint"] = undefined /*out*/;
         } else {
-            inputs["apiEndpoint"] = undefined /*out*/;
-            inputs["apiKeySelectionExpression"] = undefined /*out*/;
-            inputs["basePath"] = undefined /*out*/;
-            inputs["body"] = undefined /*out*/;
-            inputs["bodyS3Location"] = undefined /*out*/;
-            inputs["corsConfiguration"] = undefined /*out*/;
-            inputs["credentialsArn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["disableExecuteApiEndpoint"] = undefined /*out*/;
-            inputs["disableSchemaValidation"] = undefined /*out*/;
-            inputs["failOnWarnings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["protocolType"] = undefined /*out*/;
-            inputs["routeKey"] = undefined /*out*/;
-            inputs["routeSelectionExpression"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["target"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["apiEndpoint"] = undefined /*out*/;
+            resourceInputs["apiKeySelectionExpression"] = undefined /*out*/;
+            resourceInputs["basePath"] = undefined /*out*/;
+            resourceInputs["body"] = undefined /*out*/;
+            resourceInputs["bodyS3Location"] = undefined /*out*/;
+            resourceInputs["corsConfiguration"] = undefined /*out*/;
+            resourceInputs["credentialsArn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["disableExecuteApiEndpoint"] = undefined /*out*/;
+            resourceInputs["disableSchemaValidation"] = undefined /*out*/;
+            resourceInputs["failOnWarnings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protocolType"] = undefined /*out*/;
+            resourceInputs["routeKey"] = undefined /*out*/;
+            resourceInputs["routeSelectionExpression"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["target"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Api.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Api.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -54,28 +54,26 @@ export class Script extends pulumi.CustomResource {
     /** @deprecated Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ScriptArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Script is deprecated: Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.storageLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageLocation"] = args ? args.storageLocation : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageLocation"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageLocation"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Script.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Script.__pulumiType, name, resourceInputs, opts);
     }
 }
 

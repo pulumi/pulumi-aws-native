@@ -55,7 +55,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DocumentationVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.documentationVersion === undefined) && !opts.urn) {
@@ -64,18 +64,16 @@ export class DocumentationVersion extends pulumi.CustomResource {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["documentationVersion"] = args ? args.documentationVersion : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["documentationVersion"] = args ? args.documentationVersion : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["documentationVersion"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationVersion"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DocumentationVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DocumentationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

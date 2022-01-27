@@ -70,60 +70,58 @@ export class LoadBalancer extends pulumi.CustomResource {
     /** @deprecated LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LoadBalancer is deprecated: LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.listeners === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listeners'");
             }
-            inputs["accessLoggingPolicy"] = args ? args.accessLoggingPolicy : undefined;
-            inputs["appCookieStickinessPolicy"] = args ? args.appCookieStickinessPolicy : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["connectionDrainingPolicy"] = args ? args.connectionDrainingPolicy : undefined;
-            inputs["connectionSettings"] = args ? args.connectionSettings : undefined;
-            inputs["crossZone"] = args ? args.crossZone : undefined;
-            inputs["healthCheck"] = args ? args.healthCheck : undefined;
-            inputs["instances"] = args ? args.instances : undefined;
-            inputs["lBCookieStickinessPolicy"] = args ? args.lBCookieStickinessPolicy : undefined;
-            inputs["listeners"] = args ? args.listeners : undefined;
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["policies"] = args ? args.policies : undefined;
-            inputs["scheme"] = args ? args.scheme : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["sourceSecurityGroupGroupName"] = args ? args.sourceSecurityGroupGroupName : undefined;
-            inputs["sourceSecurityGroupOwnerAlias"] = args ? args.sourceSecurityGroupOwnerAlias : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["canonicalHostedZoneName"] = undefined /*out*/;
-            inputs["canonicalHostedZoneNameID"] = undefined /*out*/;
-            inputs["dNSName"] = undefined /*out*/;
+            resourceInputs["accessLoggingPolicy"] = args ? args.accessLoggingPolicy : undefined;
+            resourceInputs["appCookieStickinessPolicy"] = args ? args.appCookieStickinessPolicy : undefined;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["connectionDrainingPolicy"] = args ? args.connectionDrainingPolicy : undefined;
+            resourceInputs["connectionSettings"] = args ? args.connectionSettings : undefined;
+            resourceInputs["crossZone"] = args ? args.crossZone : undefined;
+            resourceInputs["healthCheck"] = args ? args.healthCheck : undefined;
+            resourceInputs["instances"] = args ? args.instances : undefined;
+            resourceInputs["lBCookieStickinessPolicy"] = args ? args.lBCookieStickinessPolicy : undefined;
+            resourceInputs["listeners"] = args ? args.listeners : undefined;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["scheme"] = args ? args.scheme : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["sourceSecurityGroupGroupName"] = args ? args.sourceSecurityGroupGroupName : undefined;
+            resourceInputs["sourceSecurityGroupOwnerAlias"] = args ? args.sourceSecurityGroupOwnerAlias : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["canonicalHostedZoneName"] = undefined /*out*/;
+            resourceInputs["canonicalHostedZoneNameID"] = undefined /*out*/;
+            resourceInputs["dNSName"] = undefined /*out*/;
         } else {
-            inputs["accessLoggingPolicy"] = undefined /*out*/;
-            inputs["appCookieStickinessPolicy"] = undefined /*out*/;
-            inputs["availabilityZones"] = undefined /*out*/;
-            inputs["canonicalHostedZoneName"] = undefined /*out*/;
-            inputs["canonicalHostedZoneNameID"] = undefined /*out*/;
-            inputs["connectionDrainingPolicy"] = undefined /*out*/;
-            inputs["connectionSettings"] = undefined /*out*/;
-            inputs["crossZone"] = undefined /*out*/;
-            inputs["dNSName"] = undefined /*out*/;
-            inputs["healthCheck"] = undefined /*out*/;
-            inputs["instances"] = undefined /*out*/;
-            inputs["lBCookieStickinessPolicy"] = undefined /*out*/;
-            inputs["listeners"] = undefined /*out*/;
-            inputs["loadBalancerName"] = undefined /*out*/;
-            inputs["policies"] = undefined /*out*/;
-            inputs["scheme"] = undefined /*out*/;
-            inputs["securityGroups"] = undefined /*out*/;
-            inputs["sourceSecurityGroupGroupName"] = undefined /*out*/;
-            inputs["sourceSecurityGroupOwnerAlias"] = undefined /*out*/;
-            inputs["subnets"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["accessLoggingPolicy"] = undefined /*out*/;
+            resourceInputs["appCookieStickinessPolicy"] = undefined /*out*/;
+            resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["canonicalHostedZoneName"] = undefined /*out*/;
+            resourceInputs["canonicalHostedZoneNameID"] = undefined /*out*/;
+            resourceInputs["connectionDrainingPolicy"] = undefined /*out*/;
+            resourceInputs["connectionSettings"] = undefined /*out*/;
+            resourceInputs["crossZone"] = undefined /*out*/;
+            resourceInputs["dNSName"] = undefined /*out*/;
+            resourceInputs["healthCheck"] = undefined /*out*/;
+            resourceInputs["instances"] = undefined /*out*/;
+            resourceInputs["lBCookieStickinessPolicy"] = undefined /*out*/;
+            resourceInputs["listeners"] = undefined /*out*/;
+            resourceInputs["loadBalancerName"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["scheme"] = undefined /*out*/;
+            resourceInputs["securityGroups"] = undefined /*out*/;
+            resourceInputs["sourceSecurityGroupGroupName"] = undefined /*out*/;
+            resourceInputs["sourceSecurityGroupOwnerAlias"] = undefined /*out*/;
+            resourceInputs["subnets"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -50,7 +50,7 @@ export class ClientVpnTargetNetworkAssociation extends pulumi.CustomResource {
     /** @deprecated ClientVpnTargetNetworkAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ClientVpnTargetNetworkAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ClientVpnTargetNetworkAssociation is deprecated: ClientVpnTargetNetworkAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class ClientVpnTargetNetworkAssociation extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         } else {
-            inputs["clientVpnEndpointId"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
+            resourceInputs["clientVpnEndpointId"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ClientVpnTargetNetworkAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ClientVpnTargetNetworkAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

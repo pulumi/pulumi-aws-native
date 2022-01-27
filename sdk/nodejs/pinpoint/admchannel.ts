@@ -52,7 +52,7 @@ export class ADMChannel extends pulumi.CustomResource {
     /** @deprecated ADMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ADMChannelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ADMChannel is deprecated: ADMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -64,20 +64,18 @@ export class ADMChannel extends pulumi.CustomResource {
             if ((!args || args.clientSecret === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["clientId"] = undefined /*out*/;
-            inputs["clientSecret"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["clientSecret"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ADMChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ADMChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -50,20 +50,18 @@ export class ReceiptFilter extends pulumi.CustomResource {
     /** @deprecated ReceiptFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ReceiptFilterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReceiptFilter is deprecated: ReceiptFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.filter === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            inputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
         } else {
-            inputs["filter"] = undefined /*out*/;
+            resourceInputs["filter"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReceiptFilter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReceiptFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

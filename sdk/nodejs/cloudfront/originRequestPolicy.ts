@@ -46,22 +46,20 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OriginRequestPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.originRequestPolicyConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'originRequestPolicyConfig'");
             }
-            inputs["originRequestPolicyConfig"] = args ? args.originRequestPolicyConfig : undefined;
-            inputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["originRequestPolicyConfig"] = args ? args.originRequestPolicyConfig : undefined;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["originRequestPolicyConfig"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["originRequestPolicyConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OriginRequestPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OriginRequestPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

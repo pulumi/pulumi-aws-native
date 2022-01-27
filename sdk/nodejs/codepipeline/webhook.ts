@@ -58,7 +58,7 @@ export class Webhook extends pulumi.CustomResource {
     /** @deprecated Webhook is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Webhook is deprecated: Webhook is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authentication === undefined) && !opts.urn) {
@@ -79,30 +79,28 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.targetPipelineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetPipelineVersion'");
             }
-            inputs["authentication"] = args ? args.authentication : undefined;
-            inputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["registerWithThirdParty"] = args ? args.registerWithThirdParty : undefined;
-            inputs["targetAction"] = args ? args.targetAction : undefined;
-            inputs["targetPipeline"] = args ? args.targetPipeline : undefined;
-            inputs["targetPipelineVersion"] = args ? args.targetPipelineVersion : undefined;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["registerWithThirdParty"] = args ? args.registerWithThirdParty : undefined;
+            resourceInputs["targetAction"] = args ? args.targetAction : undefined;
+            resourceInputs["targetPipeline"] = args ? args.targetPipeline : undefined;
+            resourceInputs["targetPipelineVersion"] = args ? args.targetPipelineVersion : undefined;
+            resourceInputs["url"] = undefined /*out*/;
         } else {
-            inputs["authentication"] = undefined /*out*/;
-            inputs["authenticationConfiguration"] = undefined /*out*/;
-            inputs["filters"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["registerWithThirdParty"] = undefined /*out*/;
-            inputs["targetAction"] = undefined /*out*/;
-            inputs["targetPipeline"] = undefined /*out*/;
-            inputs["targetPipelineVersion"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["authentication"] = undefined /*out*/;
+            resourceInputs["authenticationConfiguration"] = undefined /*out*/;
+            resourceInputs["filters"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["registerWithThirdParty"] = undefined /*out*/;
+            resourceInputs["targetAction"] = undefined /*out*/;
+            resourceInputs["targetPipeline"] = undefined /*out*/;
+            resourceInputs["targetPipelineVersion"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Webhook.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

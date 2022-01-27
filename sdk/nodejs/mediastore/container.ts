@@ -57,31 +57,29 @@ export class Container extends pulumi.CustomResource {
     /** @deprecated Container is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ContainerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Container is deprecated: Container is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accessLoggingEnabled"] = args ? args.accessLoggingEnabled : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["corsPolicy"] = args ? args.corsPolicy : undefined;
-            inputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
-            inputs["metricPolicy"] = args ? args.metricPolicy : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["endpoint"] = undefined /*out*/;
+            resourceInputs["accessLoggingEnabled"] = args ? args.accessLoggingEnabled : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["corsPolicy"] = args ? args.corsPolicy : undefined;
+            resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
+            resourceInputs["metricPolicy"] = args ? args.metricPolicy : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
         } else {
-            inputs["accessLoggingEnabled"] = undefined /*out*/;
-            inputs["containerName"] = undefined /*out*/;
-            inputs["corsPolicy"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["lifecyclePolicy"] = undefined /*out*/;
-            inputs["metricPolicy"] = undefined /*out*/;
-            inputs["policy"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["accessLoggingEnabled"] = undefined /*out*/;
+            resourceInputs["containerName"] = undefined /*out*/;
+            resourceInputs["corsPolicy"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["lifecyclePolicy"] = undefined /*out*/;
+            resourceInputs["metricPolicy"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Container.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Container.__pulumiType, name, resourceInputs, opts);
     }
 }
 

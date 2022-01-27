@@ -90,38 +90,36 @@ export class VPC extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VPCArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidrBlock'");
             }
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
-            inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
-            inputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["cidrBlockAssociations"] = undefined /*out*/;
-            inputs["defaultNetworkAcl"] = undefined /*out*/;
-            inputs["defaultSecurityGroup"] = undefined /*out*/;
-            inputs["ipv6CidrBlocks"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
+            resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
+            resourceInputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cidrBlockAssociations"] = undefined /*out*/;
+            resourceInputs["defaultNetworkAcl"] = undefined /*out*/;
+            resourceInputs["defaultSecurityGroup"] = undefined /*out*/;
+            resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         } else {
-            inputs["cidrBlock"] = undefined /*out*/;
-            inputs["cidrBlockAssociations"] = undefined /*out*/;
-            inputs["defaultNetworkAcl"] = undefined /*out*/;
-            inputs["defaultSecurityGroup"] = undefined /*out*/;
-            inputs["enableDnsHostnames"] = undefined /*out*/;
-            inputs["enableDnsSupport"] = undefined /*out*/;
-            inputs["instanceTenancy"] = undefined /*out*/;
-            inputs["ipv6CidrBlocks"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["cidrBlockAssociations"] = undefined /*out*/;
+            resourceInputs["defaultNetworkAcl"] = undefined /*out*/;
+            resourceInputs["defaultSecurityGroup"] = undefined /*out*/;
+            resourceInputs["enableDnsHostnames"] = undefined /*out*/;
+            resourceInputs["enableDnsSupport"] = undefined /*out*/;
+            resourceInputs["instanceTenancy"] = undefined /*out*/;
+            resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPC.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPC.__pulumiType, name, resourceInputs, opts);
     }
 }
 

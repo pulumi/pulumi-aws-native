@@ -78,7 +78,7 @@ export class Table extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.keyspaceName === undefined) && !opts.urn) {
@@ -87,32 +87,30 @@ export class Table extends pulumi.CustomResource {
             if ((!args || args.partitionKeyColumns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partitionKeyColumns'");
             }
-            inputs["billingMode"] = args ? args.billingMode : undefined;
-            inputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
-            inputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
-            inputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
-            inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            inputs["partitionKeyColumns"] = args ? args.partitionKeyColumns : undefined;
-            inputs["pointInTimeRecoveryEnabled"] = args ? args.pointInTimeRecoveryEnabled : undefined;
-            inputs["regularColumns"] = args ? args.regularColumns : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
+            resourceInputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
+            resourceInputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
+            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
+            resourceInputs["partitionKeyColumns"] = args ? args.partitionKeyColumns : undefined;
+            resourceInputs["pointInTimeRecoveryEnabled"] = args ? args.pointInTimeRecoveryEnabled : undefined;
+            resourceInputs["regularColumns"] = args ? args.regularColumns : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["billingMode"] = undefined /*out*/;
-            inputs["clusteringKeyColumns"] = undefined /*out*/;
-            inputs["defaultTimeToLive"] = undefined /*out*/;
-            inputs["encryptionSpecification"] = undefined /*out*/;
-            inputs["keyspaceName"] = undefined /*out*/;
-            inputs["partitionKeyColumns"] = undefined /*out*/;
-            inputs["pointInTimeRecoveryEnabled"] = undefined /*out*/;
-            inputs["regularColumns"] = undefined /*out*/;
-            inputs["tableName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["billingMode"] = undefined /*out*/;
+            resourceInputs["clusteringKeyColumns"] = undefined /*out*/;
+            resourceInputs["defaultTimeToLive"] = undefined /*out*/;
+            resourceInputs["encryptionSpecification"] = undefined /*out*/;
+            resourceInputs["keyspaceName"] = undefined /*out*/;
+            resourceInputs["partitionKeyColumns"] = undefined /*out*/;
+            resourceInputs["pointInTimeRecoveryEnabled"] = undefined /*out*/;
+            resourceInputs["regularColumns"] = undefined /*out*/;
+            resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Table.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -60,7 +60,7 @@ export class KeySigningKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KeySigningKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
@@ -72,20 +72,18 @@ export class KeySigningKey extends pulumi.CustomResource {
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            inputs["keyManagementServiceArn"] = args ? args.keyManagementServiceArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["keyManagementServiceArn"] = args ? args.keyManagementServiceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         } else {
-            inputs["hostedZoneId"] = undefined /*out*/;
-            inputs["keyManagementServiceArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["keyManagementServiceArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(KeySigningKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(KeySigningKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

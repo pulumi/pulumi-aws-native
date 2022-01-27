@@ -84,34 +84,32 @@ export class Framework extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FrameworkArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.frameworkControls === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frameworkControls'");
             }
-            inputs["frameworkControls"] = args ? args.frameworkControls : undefined;
-            inputs["frameworkDescription"] = args ? args.frameworkDescription : undefined;
-            inputs["frameworkName"] = args ? args.frameworkName : undefined;
-            inputs["frameworkTags"] = args ? args.frameworkTags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["frameworkArn"] = undefined /*out*/;
-            inputs["frameworkStatus"] = undefined /*out*/;
+            resourceInputs["frameworkControls"] = args ? args.frameworkControls : undefined;
+            resourceInputs["frameworkDescription"] = args ? args.frameworkDescription : undefined;
+            resourceInputs["frameworkName"] = args ? args.frameworkName : undefined;
+            resourceInputs["frameworkTags"] = args ? args.frameworkTags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["frameworkArn"] = undefined /*out*/;
+            resourceInputs["frameworkStatus"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["frameworkArn"] = undefined /*out*/;
-            inputs["frameworkControls"] = undefined /*out*/;
-            inputs["frameworkDescription"] = undefined /*out*/;
-            inputs["frameworkName"] = undefined /*out*/;
-            inputs["frameworkStatus"] = undefined /*out*/;
-            inputs["frameworkTags"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["frameworkArn"] = undefined /*out*/;
+            resourceInputs["frameworkControls"] = undefined /*out*/;
+            resourceInputs["frameworkDescription"] = undefined /*out*/;
+            resourceInputs["frameworkName"] = undefined /*out*/;
+            resourceInputs["frameworkStatus"] = undefined /*out*/;
+            resourceInputs["frameworkTags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Framework.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Framework.__pulumiType, name, resourceInputs, opts);
     }
 }
 

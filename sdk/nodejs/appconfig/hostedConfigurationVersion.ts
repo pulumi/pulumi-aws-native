@@ -54,7 +54,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
     /** @deprecated HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: HostedConfigurationVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("HostedConfigurationVersion is deprecated: HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -69,24 +69,22 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             if ((!args || args.contentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["latestVersionNumber"] = args ? args.latestVersionNumber : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["latestVersionNumber"] = args ? args.latestVersionNumber : undefined;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["configurationProfileId"] = undefined /*out*/;
-            inputs["content"] = undefined /*out*/;
-            inputs["contentType"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["latestVersionNumber"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["configurationProfileId"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["contentType"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["latestVersionNumber"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(HostedConfigurationVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(HostedConfigurationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

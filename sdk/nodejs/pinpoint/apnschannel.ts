@@ -57,36 +57,34 @@ export class APNSChannel extends pulumi.CustomResource {
     /** @deprecated APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: APNSChannelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("APNSChannel is deprecated: APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["tokenKey"] = args ? args.tokenKey : undefined;
-            inputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["tokenKey"] = args ? args.tokenKey : undefined;
+            resourceInputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["bundleId"] = undefined /*out*/;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["defaultAuthenticationMethod"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["privateKey"] = undefined /*out*/;
-            inputs["teamId"] = undefined /*out*/;
-            inputs["tokenKey"] = undefined /*out*/;
-            inputs["tokenKeyId"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["bundleId"] = undefined /*out*/;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["defaultAuthenticationMethod"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["privateKey"] = undefined /*out*/;
+            resourceInputs["teamId"] = undefined /*out*/;
+            resourceInputs["tokenKey"] = undefined /*out*/;
+            resourceInputs["tokenKeyId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(APNSChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(APNSChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

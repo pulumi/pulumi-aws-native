@@ -92,7 +92,7 @@ export class DBProxy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DBProxyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.auth === undefined) && !opts.urn) {
@@ -107,36 +107,34 @@ export class DBProxy extends pulumi.CustomResource {
             if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            inputs["auth"] = args ? args.auth : undefined;
-            inputs["dBProxyName"] = args ? args.dBProxyName : undefined;
-            inputs["debugLogging"] = args ? args.debugLogging : undefined;
-            inputs["engineFamily"] = args ? args.engineFamily : undefined;
-            inputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
-            inputs["requireTLS"] = args ? args.requireTLS : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
-            inputs["dBProxyArn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
+            resourceInputs["auth"] = args ? args.auth : undefined;
+            resourceInputs["dBProxyName"] = args ? args.dBProxyName : undefined;
+            resourceInputs["debugLogging"] = args ? args.debugLogging : undefined;
+            resourceInputs["engineFamily"] = args ? args.engineFamily : undefined;
+            resourceInputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
+            resourceInputs["requireTLS"] = args ? args.requireTLS : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["dBProxyArn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
         } else {
-            inputs["auth"] = undefined /*out*/;
-            inputs["dBProxyArn"] = undefined /*out*/;
-            inputs["dBProxyName"] = undefined /*out*/;
-            inputs["debugLogging"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["engineFamily"] = undefined /*out*/;
-            inputs["idleClientTimeout"] = undefined /*out*/;
-            inputs["requireTLS"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcSecurityGroupIds"] = undefined /*out*/;
-            inputs["vpcSubnetIds"] = undefined /*out*/;
+            resourceInputs["auth"] = undefined /*out*/;
+            resourceInputs["dBProxyArn"] = undefined /*out*/;
+            resourceInputs["dBProxyName"] = undefined /*out*/;
+            resourceInputs["debugLogging"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["engineFamily"] = undefined /*out*/;
+            resourceInputs["idleClientTimeout"] = undefined /*out*/;
+            resourceInputs["requireTLS"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DBProxy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DBProxy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

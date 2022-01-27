@@ -98,48 +98,46 @@ export class Disk extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.sizeInGb === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sizeInGb'");
             }
-            inputs["addOns"] = args ? args.addOns : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["diskName"] = args ? args.diskName : undefined;
-            inputs["sizeInGb"] = args ? args.sizeInGb : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["attachedTo"] = undefined /*out*/;
-            inputs["attachmentState"] = undefined /*out*/;
-            inputs["diskArn"] = undefined /*out*/;
-            inputs["iops"] = undefined /*out*/;
-            inputs["isAttached"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["supportCode"] = undefined /*out*/;
+            resourceInputs["addOns"] = args ? args.addOns : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["diskName"] = args ? args.diskName : undefined;
+            resourceInputs["sizeInGb"] = args ? args.sizeInGb : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attachedTo"] = undefined /*out*/;
+            resourceInputs["attachmentState"] = undefined /*out*/;
+            resourceInputs["diskArn"] = undefined /*out*/;
+            resourceInputs["iops"] = undefined /*out*/;
+            resourceInputs["isAttached"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["supportCode"] = undefined /*out*/;
         } else {
-            inputs["addOns"] = undefined /*out*/;
-            inputs["attachedTo"] = undefined /*out*/;
-            inputs["attachmentState"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["diskArn"] = undefined /*out*/;
-            inputs["diskName"] = undefined /*out*/;
-            inputs["iops"] = undefined /*out*/;
-            inputs["isAttached"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["sizeInGb"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["supportCode"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["addOns"] = undefined /*out*/;
+            resourceInputs["attachedTo"] = undefined /*out*/;
+            resourceInputs["attachmentState"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["diskArn"] = undefined /*out*/;
+            resourceInputs["diskName"] = undefined /*out*/;
+            resourceInputs["iops"] = undefined /*out*/;
+            resourceInputs["isAttached"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["sizeInGb"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["supportCode"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Disk.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Disk.__pulumiType, name, resourceInputs, opts);
     }
 }
 

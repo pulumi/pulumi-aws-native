@@ -72,32 +72,30 @@ export class FindingsFilter extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FindingsFilterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.findingCriteria === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'findingCriteria'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["findingCriteria"] = args ? args.findingCriteria : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["position"] = args ? args.position : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["findingsFilterListItems"] = undefined /*out*/;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["findingCriteria"] = args ? args.findingCriteria : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["position"] = args ? args.position : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["findingsFilterListItems"] = undefined /*out*/;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["findingCriteria"] = undefined /*out*/;
-            inputs["findingsFilterListItems"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["position"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["findingCriteria"] = undefined /*out*/;
+            resourceInputs["findingsFilterListItems"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["position"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FindingsFilter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FindingsFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

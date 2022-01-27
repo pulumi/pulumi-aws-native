@@ -67,7 +67,7 @@ export class Campaign extends pulumi.CustomResource {
     /** @deprecated Campaign is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CampaignArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Campaign is deprecated: Campaign is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -82,48 +82,46 @@ export class Campaign extends pulumi.CustomResource {
             if ((!args || args.segmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'segmentId'");
             }
-            inputs["additionalTreatments"] = args ? args.additionalTreatments : undefined;
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["campaignHook"] = args ? args.campaignHook : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["holdoutPercent"] = args ? args.holdoutPercent : undefined;
-            inputs["isPaused"] = args ? args.isPaused : undefined;
-            inputs["limits"] = args ? args.limits : undefined;
-            inputs["messageConfiguration"] = args ? args.messageConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["segmentId"] = args ? args.segmentId : undefined;
-            inputs["segmentVersion"] = args ? args.segmentVersion : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["treatmentDescription"] = args ? args.treatmentDescription : undefined;
-            inputs["treatmentName"] = args ? args.treatmentName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["campaignId"] = undefined /*out*/;
+            resourceInputs["additionalTreatments"] = args ? args.additionalTreatments : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["campaignHook"] = args ? args.campaignHook : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["holdoutPercent"] = args ? args.holdoutPercent : undefined;
+            resourceInputs["isPaused"] = args ? args.isPaused : undefined;
+            resourceInputs["limits"] = args ? args.limits : undefined;
+            resourceInputs["messageConfiguration"] = args ? args.messageConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["segmentId"] = args ? args.segmentId : undefined;
+            resourceInputs["segmentVersion"] = args ? args.segmentVersion : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["treatmentDescription"] = args ? args.treatmentDescription : undefined;
+            resourceInputs["treatmentName"] = args ? args.treatmentName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["campaignId"] = undefined /*out*/;
         } else {
-            inputs["additionalTreatments"] = undefined /*out*/;
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["campaignHook"] = undefined /*out*/;
-            inputs["campaignId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["holdoutPercent"] = undefined /*out*/;
-            inputs["isPaused"] = undefined /*out*/;
-            inputs["limits"] = undefined /*out*/;
-            inputs["messageConfiguration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["segmentId"] = undefined /*out*/;
-            inputs["segmentVersion"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["treatmentDescription"] = undefined /*out*/;
-            inputs["treatmentName"] = undefined /*out*/;
+            resourceInputs["additionalTreatments"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["campaignHook"] = undefined /*out*/;
+            resourceInputs["campaignId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["holdoutPercent"] = undefined /*out*/;
+            resourceInputs["isPaused"] = undefined /*out*/;
+            resourceInputs["limits"] = undefined /*out*/;
+            resourceInputs["messageConfiguration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["segmentId"] = undefined /*out*/;
+            resourceInputs["segmentVersion"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["treatmentDescription"] = undefined /*out*/;
+            resourceInputs["treatmentName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Campaign.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Campaign.__pulumiType, name, resourceInputs, opts);
     }
 }
 

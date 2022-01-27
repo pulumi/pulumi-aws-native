@@ -68,7 +68,7 @@ export class GatewayResponse extends pulumi.CustomResource {
     /** @deprecated GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: GatewayResponseArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GatewayResponse is deprecated: GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.responseType === undefined) && !opts.urn) {
@@ -77,22 +77,20 @@ export class GatewayResponse extends pulumi.CustomResource {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            inputs["responseType"] = args ? args.responseType : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["statusCode"] = args ? args.statusCode : undefined;
+            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
+            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
+            resourceInputs["responseType"] = args ? args.responseType : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["statusCode"] = args ? args.statusCode : undefined;
         } else {
-            inputs["responseParameters"] = undefined /*out*/;
-            inputs["responseTemplates"] = undefined /*out*/;
-            inputs["responseType"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
-            inputs["statusCode"] = undefined /*out*/;
+            resourceInputs["responseParameters"] = undefined /*out*/;
+            resourceInputs["responseTemplates"] = undefined /*out*/;
+            resourceInputs["responseType"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
+            resourceInputs["statusCode"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GatewayResponse.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GatewayResponse.__pulumiType, name, resourceInputs, opts);
     }
 }
 

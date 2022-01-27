@@ -60,40 +60,38 @@ export class ScalingPolicy extends pulumi.CustomResource {
     /** @deprecated ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ScalingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ScalingPolicy is deprecated: ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            inputs["adjustmentType"] = args ? args.adjustmentType : undefined;
-            inputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            inputs["cooldown"] = args ? args.cooldown : undefined;
-            inputs["estimatedInstanceWarmup"] = args ? args.estimatedInstanceWarmup : undefined;
-            inputs["metricAggregationType"] = args ? args.metricAggregationType : undefined;
-            inputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
-            inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["predictiveScalingConfiguration"] = args ? args.predictiveScalingConfiguration : undefined;
-            inputs["scalingAdjustment"] = args ? args.scalingAdjustment : undefined;
-            inputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
-            inputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
+            resourceInputs["adjustmentType"] = args ? args.adjustmentType : undefined;
+            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
+            resourceInputs["cooldown"] = args ? args.cooldown : undefined;
+            resourceInputs["estimatedInstanceWarmup"] = args ? args.estimatedInstanceWarmup : undefined;
+            resourceInputs["metricAggregationType"] = args ? args.metricAggregationType : undefined;
+            resourceInputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
+            resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["predictiveScalingConfiguration"] = args ? args.predictiveScalingConfiguration : undefined;
+            resourceInputs["scalingAdjustment"] = args ? args.scalingAdjustment : undefined;
+            resourceInputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
+            resourceInputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
         } else {
-            inputs["adjustmentType"] = undefined /*out*/;
-            inputs["autoScalingGroupName"] = undefined /*out*/;
-            inputs["cooldown"] = undefined /*out*/;
-            inputs["estimatedInstanceWarmup"] = undefined /*out*/;
-            inputs["metricAggregationType"] = undefined /*out*/;
-            inputs["minAdjustmentMagnitude"] = undefined /*out*/;
-            inputs["policyType"] = undefined /*out*/;
-            inputs["predictiveScalingConfiguration"] = undefined /*out*/;
-            inputs["scalingAdjustment"] = undefined /*out*/;
-            inputs["stepAdjustments"] = undefined /*out*/;
-            inputs["targetTrackingConfiguration"] = undefined /*out*/;
+            resourceInputs["adjustmentType"] = undefined /*out*/;
+            resourceInputs["autoScalingGroupName"] = undefined /*out*/;
+            resourceInputs["cooldown"] = undefined /*out*/;
+            resourceInputs["estimatedInstanceWarmup"] = undefined /*out*/;
+            resourceInputs["metricAggregationType"] = undefined /*out*/;
+            resourceInputs["minAdjustmentMagnitude"] = undefined /*out*/;
+            resourceInputs["policyType"] = undefined /*out*/;
+            resourceInputs["predictiveScalingConfiguration"] = undefined /*out*/;
+            resourceInputs["scalingAdjustment"] = undefined /*out*/;
+            resourceInputs["stepAdjustments"] = undefined /*out*/;
+            resourceInputs["targetTrackingConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScalingPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScalingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

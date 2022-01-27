@@ -92,39 +92,37 @@ export class ImagePipeline extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ImagePipelineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
-            inputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
-            inputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
-            inputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
-            inputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
+            resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
+            resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
+            resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["containerRecipeArn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["distributionConfigurationArn"] = undefined /*out*/;
-            inputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
-            inputs["imageRecipeArn"] = undefined /*out*/;
-            inputs["imageTestsConfiguration"] = undefined /*out*/;
-            inputs["infrastructureConfigurationArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["containerRecipeArn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["distributionConfigurationArn"] = undefined /*out*/;
+            resourceInputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
+            resourceInputs["imageRecipeArn"] = undefined /*out*/;
+            resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
+            resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ImagePipeline.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ImagePipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

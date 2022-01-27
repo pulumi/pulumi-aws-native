@@ -56,39 +56,37 @@ export class DomainName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DomainNameArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
-            inputs["ownershipVerificationCertificateArn"] = args ? args.ownershipVerificationCertificateArn : undefined;
-            inputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
-            inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["distributionDomainName"] = undefined /*out*/;
-            inputs["distributionHostedZoneId"] = undefined /*out*/;
-            inputs["regionalDomainName"] = undefined /*out*/;
-            inputs["regionalHostedZoneId"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            resourceInputs["ownershipVerificationCertificateArn"] = args ? args.ownershipVerificationCertificateArn : undefined;
+            resourceInputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
+            resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["distributionDomainName"] = undefined /*out*/;
+            resourceInputs["distributionHostedZoneId"] = undefined /*out*/;
+            resourceInputs["regionalDomainName"] = undefined /*out*/;
+            resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
         } else {
-            inputs["certificateArn"] = undefined /*out*/;
-            inputs["distributionDomainName"] = undefined /*out*/;
-            inputs["distributionHostedZoneId"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["endpointConfiguration"] = undefined /*out*/;
-            inputs["mutualTlsAuthentication"] = undefined /*out*/;
-            inputs["ownershipVerificationCertificateArn"] = undefined /*out*/;
-            inputs["regionalCertificateArn"] = undefined /*out*/;
-            inputs["regionalDomainName"] = undefined /*out*/;
-            inputs["regionalHostedZoneId"] = undefined /*out*/;
-            inputs["securityPolicy"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = undefined /*out*/;
+            resourceInputs["distributionDomainName"] = undefined /*out*/;
+            resourceInputs["distributionHostedZoneId"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["endpointConfiguration"] = undefined /*out*/;
+            resourceInputs["mutualTlsAuthentication"] = undefined /*out*/;
+            resourceInputs["ownershipVerificationCertificateArn"] = undefined /*out*/;
+            resourceInputs["regionalCertificateArn"] = undefined /*out*/;
+            resourceInputs["regionalDomainName"] = undefined /*out*/;
+            resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
+            resourceInputs["securityPolicy"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainName.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

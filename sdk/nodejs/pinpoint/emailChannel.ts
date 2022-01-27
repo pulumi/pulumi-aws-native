@@ -54,7 +54,7 @@ export class EmailChannel extends pulumi.CustomResource {
     /** @deprecated EmailChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EmailChannelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EmailChannel is deprecated: EmailChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -66,24 +66,22 @@ export class EmailChannel extends pulumi.CustomResource {
             if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["configurationSet"] = args ? args.configurationSet : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["fromAddress"] = args ? args.fromAddress : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["configurationSet"] = args ? args.configurationSet : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["fromAddress"] = args ? args.fromAddress : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["configurationSet"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["fromAddress"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["configurationSet"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["fromAddress"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EmailChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EmailChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

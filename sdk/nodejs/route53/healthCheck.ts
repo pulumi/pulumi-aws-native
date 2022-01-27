@@ -53,24 +53,22 @@ export class HealthCheck extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HealthCheckArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.healthCheckConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'healthCheckConfig'");
             }
-            inputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
-            inputs["healthCheckTags"] = args ? args.healthCheckTags : undefined;
-            inputs["healthCheckId"] = undefined /*out*/;
+            resourceInputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
+            resourceInputs["healthCheckTags"] = args ? args.healthCheckTags : undefined;
+            resourceInputs["healthCheckId"] = undefined /*out*/;
         } else {
-            inputs["healthCheckConfig"] = undefined /*out*/;
-            inputs["healthCheckId"] = undefined /*out*/;
-            inputs["healthCheckTags"] = undefined /*out*/;
+            resourceInputs["healthCheckConfig"] = undefined /*out*/;
+            resourceInputs["healthCheckId"] = undefined /*out*/;
+            resourceInputs["healthCheckTags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(HealthCheck.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(HealthCheck.__pulumiType, name, resourceInputs, opts);
     }
 }
 

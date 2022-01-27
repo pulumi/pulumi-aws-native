@@ -50,7 +50,7 @@ export class PolicyPrincipalAttachment extends pulumi.CustomResource {
     /** @deprecated PolicyPrincipalAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PolicyPrincipalAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PolicyPrincipalAttachment is deprecated: PolicyPrincipalAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.policyName === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class PolicyPrincipalAttachment extends pulumi.CustomResource {
             if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
         } else {
-            inputs["policyName"] = undefined /*out*/;
-            inputs["principal"] = undefined /*out*/;
+            resourceInputs["policyName"] = undefined /*out*/;
+            resourceInputs["principal"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PolicyPrincipalAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PolicyPrincipalAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

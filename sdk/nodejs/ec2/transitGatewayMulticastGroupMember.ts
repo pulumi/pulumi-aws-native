@@ -87,7 +87,7 @@ export class TransitGatewayMulticastGroupMember extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TransitGatewayMulticastGroupMemberArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupIpAddress === undefined) && !opts.urn) {
@@ -99,34 +99,32 @@ export class TransitGatewayMulticastGroupMember extends pulumi.CustomResource {
             if ((!args || args.transitGatewayMulticastDomainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayMulticastDomainId'");
             }
-            inputs["groupIpAddress"] = args ? args.groupIpAddress : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
-            inputs["groupMember"] = undefined /*out*/;
-            inputs["groupSource"] = undefined /*out*/;
-            inputs["memberType"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["groupIpAddress"] = args ? args.groupIpAddress : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
+            resourceInputs["groupMember"] = undefined /*out*/;
+            resourceInputs["groupSource"] = undefined /*out*/;
+            resourceInputs["memberType"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
         } else {
-            inputs["groupIpAddress"] = undefined /*out*/;
-            inputs["groupMember"] = undefined /*out*/;
-            inputs["groupSource"] = undefined /*out*/;
-            inputs["memberType"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
-            inputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
+            resourceInputs["groupIpAddress"] = undefined /*out*/;
+            resourceInputs["groupMember"] = undefined /*out*/;
+            resourceInputs["groupSource"] = undefined /*out*/;
+            resourceInputs["memberType"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayMulticastGroupMember.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayMulticastGroupMember.__pulumiType, name, resourceInputs, opts);
     }
 }
 

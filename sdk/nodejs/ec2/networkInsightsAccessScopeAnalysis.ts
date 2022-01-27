@@ -54,38 +54,36 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkInsightsAccessScopeAnalysisArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkInsightsAccessScopeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsAccessScopeId'");
             }
-            inputs["networkInsightsAccessScopeId"] = args ? args.networkInsightsAccessScopeId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["analyzedEniCount"] = undefined /*out*/;
-            inputs["endDate"] = undefined /*out*/;
-            inputs["findingsFound"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeAnalysisArn"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeAnalysisId"] = undefined /*out*/;
-            inputs["startDate"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeId"] = args ? args.networkInsightsAccessScopeId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["analyzedEniCount"] = undefined /*out*/;
+            resourceInputs["endDate"] = undefined /*out*/;
+            resourceInputs["findingsFound"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeAnalysisArn"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeAnalysisId"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
         } else {
-            inputs["analyzedEniCount"] = undefined /*out*/;
-            inputs["endDate"] = undefined /*out*/;
-            inputs["findingsFound"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeAnalysisArn"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeAnalysisId"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeId"] = undefined /*out*/;
-            inputs["startDate"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["analyzedEniCount"] = undefined /*out*/;
+            resourceInputs["endDate"] = undefined /*out*/;
+            resourceInputs["findingsFound"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeAnalysisArn"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeAnalysisId"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeId"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInsightsAccessScopeAnalysis.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInsightsAccessScopeAnalysis.__pulumiType, name, resourceInputs, opts);
     }
 }
 

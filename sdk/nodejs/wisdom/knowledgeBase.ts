@@ -53,36 +53,34 @@ export class KnowledgeBase extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KnowledgeBaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.knowledgeBaseType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseType'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["knowledgeBaseType"] = args ? args.knowledgeBaseType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["renderingConfiguration"] = args ? args.renderingConfiguration : undefined;
-            inputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            inputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["knowledgeBaseArn"] = undefined /*out*/;
-            inputs["knowledgeBaseId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["knowledgeBaseType"] = args ? args.knowledgeBaseType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["renderingConfiguration"] = args ? args.renderingConfiguration : undefined;
+            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
+            resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["knowledgeBaseArn"] = undefined /*out*/;
+            resourceInputs["knowledgeBaseId"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["knowledgeBaseArn"] = undefined /*out*/;
-            inputs["knowledgeBaseId"] = undefined /*out*/;
-            inputs["knowledgeBaseType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["renderingConfiguration"] = undefined /*out*/;
-            inputs["serverSideEncryptionConfiguration"] = undefined /*out*/;
-            inputs["sourceConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["knowledgeBaseArn"] = undefined /*out*/;
+            resourceInputs["knowledgeBaseId"] = undefined /*out*/;
+            resourceInputs["knowledgeBaseType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["renderingConfiguration"] = undefined /*out*/;
+            resourceInputs["serverSideEncryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["sourceConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(KnowledgeBase.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(KnowledgeBase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

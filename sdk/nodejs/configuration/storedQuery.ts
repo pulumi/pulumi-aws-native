@@ -53,7 +53,7 @@ export class StoredQuery extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StoredQueryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.queryExpression === undefined) && !opts.urn) {
@@ -62,24 +62,22 @@ export class StoredQuery extends pulumi.CustomResource {
             if ((!args || args.queryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryName'");
             }
-            inputs["queryDescription"] = args ? args.queryDescription : undefined;
-            inputs["queryExpression"] = args ? args.queryExpression : undefined;
-            inputs["queryName"] = args ? args.queryName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["queryArn"] = undefined /*out*/;
-            inputs["queryId"] = undefined /*out*/;
+            resourceInputs["queryDescription"] = args ? args.queryDescription : undefined;
+            resourceInputs["queryExpression"] = args ? args.queryExpression : undefined;
+            resourceInputs["queryName"] = args ? args.queryName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["queryArn"] = undefined /*out*/;
+            resourceInputs["queryId"] = undefined /*out*/;
         } else {
-            inputs["queryArn"] = undefined /*out*/;
-            inputs["queryDescription"] = undefined /*out*/;
-            inputs["queryExpression"] = undefined /*out*/;
-            inputs["queryId"] = undefined /*out*/;
-            inputs["queryName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["queryArn"] = undefined /*out*/;
+            resourceInputs["queryDescription"] = undefined /*out*/;
+            resourceInputs["queryExpression"] = undefined /*out*/;
+            resourceInputs["queryId"] = undefined /*out*/;
+            resourceInputs["queryName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StoredQuery.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StoredQuery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

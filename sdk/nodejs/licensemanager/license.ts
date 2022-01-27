@@ -78,7 +78,7 @@ export class License extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LicenseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.consumptionConfiguration === undefined) && !opts.urn) {
@@ -99,38 +99,36 @@ export class License extends pulumi.CustomResource {
             if ((!args || args.validity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
-            inputs["beneficiary"] = args ? args.beneficiary : undefined;
-            inputs["consumptionConfiguration"] = args ? args.consumptionConfiguration : undefined;
-            inputs["entitlements"] = args ? args.entitlements : undefined;
-            inputs["homeRegion"] = args ? args.homeRegion : undefined;
-            inputs["issuer"] = args ? args.issuer : undefined;
-            inputs["licenseMetadata"] = args ? args.licenseMetadata : undefined;
-            inputs["licenseName"] = args ? args.licenseName : undefined;
-            inputs["productName"] = args ? args.productName : undefined;
-            inputs["productSKU"] = args ? args.productSKU : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["validity"] = args ? args.validity : undefined;
-            inputs["licenseArn"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["beneficiary"] = args ? args.beneficiary : undefined;
+            resourceInputs["consumptionConfiguration"] = args ? args.consumptionConfiguration : undefined;
+            resourceInputs["entitlements"] = args ? args.entitlements : undefined;
+            resourceInputs["homeRegion"] = args ? args.homeRegion : undefined;
+            resourceInputs["issuer"] = args ? args.issuer : undefined;
+            resourceInputs["licenseMetadata"] = args ? args.licenseMetadata : undefined;
+            resourceInputs["licenseName"] = args ? args.licenseName : undefined;
+            resourceInputs["productName"] = args ? args.productName : undefined;
+            resourceInputs["productSKU"] = args ? args.productSKU : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["validity"] = args ? args.validity : undefined;
+            resourceInputs["licenseArn"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["beneficiary"] = undefined /*out*/;
-            inputs["consumptionConfiguration"] = undefined /*out*/;
-            inputs["entitlements"] = undefined /*out*/;
-            inputs["homeRegion"] = undefined /*out*/;
-            inputs["issuer"] = undefined /*out*/;
-            inputs["licenseArn"] = undefined /*out*/;
-            inputs["licenseMetadata"] = undefined /*out*/;
-            inputs["licenseName"] = undefined /*out*/;
-            inputs["productName"] = undefined /*out*/;
-            inputs["productSKU"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["validity"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["beneficiary"] = undefined /*out*/;
+            resourceInputs["consumptionConfiguration"] = undefined /*out*/;
+            resourceInputs["entitlements"] = undefined /*out*/;
+            resourceInputs["homeRegion"] = undefined /*out*/;
+            resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["licenseArn"] = undefined /*out*/;
+            resourceInputs["licenseMetadata"] = undefined /*out*/;
+            resourceInputs["licenseName"] = undefined /*out*/;
+            resourceInputs["productName"] = undefined /*out*/;
+            resourceInputs["productSKU"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["validity"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(License.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(License.__pulumiType, name, resourceInputs, opts);
     }
 }
 

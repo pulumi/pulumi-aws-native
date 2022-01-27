@@ -62,41 +62,39 @@ export class Channel extends pulumi.CustomResource {
     /** @deprecated Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Channel is deprecated: Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["cdiInputSpecification"] = args ? args.cdiInputSpecification : undefined;
-            inputs["channelClass"] = args ? args.channelClass : undefined;
-            inputs["destinations"] = args ? args.destinations : undefined;
-            inputs["encoderSettings"] = args ? args.encoderSettings : undefined;
-            inputs["inputAttachments"] = args ? args.inputAttachments : undefined;
-            inputs["inputSpecification"] = args ? args.inputSpecification : undefined;
-            inputs["logLevel"] = args ? args.logLevel : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpc"] = args ? args.vpc : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["inputs"] = undefined /*out*/;
+            resourceInputs["cdiInputSpecification"] = args ? args.cdiInputSpecification : undefined;
+            resourceInputs["channelClass"] = args ? args.channelClass : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["encoderSettings"] = args ? args.encoderSettings : undefined;
+            resourceInputs["inputAttachments"] = args ? args.inputAttachments : undefined;
+            resourceInputs["inputSpecification"] = args ? args.inputSpecification : undefined;
+            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpc"] = args ? args.vpc : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["inputs"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["cdiInputSpecification"] = undefined /*out*/;
-            inputs["channelClass"] = undefined /*out*/;
-            inputs["destinations"] = undefined /*out*/;
-            inputs["encoderSettings"] = undefined /*out*/;
-            inputs["inputAttachments"] = undefined /*out*/;
-            inputs["inputSpecification"] = undefined /*out*/;
-            inputs["inputs"] = undefined /*out*/;
-            inputs["logLevel"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpc"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cdiInputSpecification"] = undefined /*out*/;
+            resourceInputs["channelClass"] = undefined /*out*/;
+            resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["encoderSettings"] = undefined /*out*/;
+            resourceInputs["inputAttachments"] = undefined /*out*/;
+            resourceInputs["inputSpecification"] = undefined /*out*/;
+            resourceInputs["inputs"] = undefined /*out*/;
+            resourceInputs["logLevel"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpc"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Channel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

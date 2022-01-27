@@ -53,28 +53,26 @@ export class Policy extends pulumi.CustomResource {
     /** @deprecated Policy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Policy is deprecated: Policy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["users"] = args ? args.users : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
         } else {
-            inputs["groups"] = undefined /*out*/;
-            inputs["policyDocument"] = undefined /*out*/;
-            inputs["policyName"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["policyDocument"] = undefined /*out*/;
+            resourceInputs["policyName"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Policy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

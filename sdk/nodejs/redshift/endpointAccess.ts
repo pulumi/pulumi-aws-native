@@ -88,7 +88,7 @@ export class EndpointAccess extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EndpointAccessArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointName === undefined) && !opts.urn) {
@@ -97,34 +97,32 @@ export class EndpointAccess extends pulumi.CustomResource {
             if ((!args || args.vpcSecurityGroupIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSecurityGroupIds'");
             }
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["resourceOwner"] = args ? args.resourceOwner : undefined;
-            inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["address"] = undefined /*out*/;
-            inputs["endpointCreateTime"] = undefined /*out*/;
-            inputs["endpointStatus"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["vpcEndpoint"] = undefined /*out*/;
-            inputs["vpcSecurityGroups"] = undefined /*out*/;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["resourceOwner"] = args ? args.resourceOwner : undefined;
+            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["address"] = undefined /*out*/;
+            resourceInputs["endpointCreateTime"] = undefined /*out*/;
+            resourceInputs["endpointStatus"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["vpcEndpoint"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroups"] = undefined /*out*/;
         } else {
-            inputs["address"] = undefined /*out*/;
-            inputs["clusterIdentifier"] = undefined /*out*/;
-            inputs["endpointCreateTime"] = undefined /*out*/;
-            inputs["endpointName"] = undefined /*out*/;
-            inputs["endpointStatus"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["resourceOwner"] = undefined /*out*/;
-            inputs["subnetGroupName"] = undefined /*out*/;
-            inputs["vpcEndpoint"] = undefined /*out*/;
-            inputs["vpcSecurityGroupIds"] = undefined /*out*/;
-            inputs["vpcSecurityGroups"] = undefined /*out*/;
+            resourceInputs["address"] = undefined /*out*/;
+            resourceInputs["clusterIdentifier"] = undefined /*out*/;
+            resourceInputs["endpointCreateTime"] = undefined /*out*/;
+            resourceInputs["endpointName"] = undefined /*out*/;
+            resourceInputs["endpointStatus"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["subnetGroupName"] = undefined /*out*/;
+            resourceInputs["vpcEndpoint"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroups"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EndpointAccess.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EndpointAccess.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -52,34 +52,32 @@ export class Theme extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ThemeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.values === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'values'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["overrides"] = args ? args.overrides : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["values"] = args ? args.values : undefined;
-            inputs["appId"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["environmentName"] = undefined /*out*/;
-            inputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overrides"] = args ? args.overrides : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["environmentName"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
-            inputs["appId"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["environmentName"] = undefined /*out*/;
-            inputs["modifiedAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["overrides"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["values"] = undefined /*out*/;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["environmentName"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["overrides"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["values"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Theme.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Theme.__pulumiType, name, resourceInputs, opts);
     }
 }
 

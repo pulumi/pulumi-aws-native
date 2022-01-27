@@ -52,26 +52,24 @@ export class InstanceProfile extends pulumi.CustomResource {
     /** @deprecated InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("InstanceProfile is deprecated: InstanceProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.roles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            inputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["instanceProfileName"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["instanceProfileName"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InstanceProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InstanceProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

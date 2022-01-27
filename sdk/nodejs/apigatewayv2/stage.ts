@@ -61,42 +61,40 @@ export class Stage extends pulumi.CustomResource {
     /** @deprecated Stage is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Stage is deprecated: Stage is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
-            inputs["accessPolicyId"] = args ? args.accessPolicyId : undefined;
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["autoDeploy"] = args ? args.autoDeploy : undefined;
-            inputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
-            inputs["defaultRouteSettings"] = args ? args.defaultRouteSettings : undefined;
-            inputs["deploymentId"] = args ? args.deploymentId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["routeSettings"] = args ? args.routeSettings : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
-            inputs["stageVariables"] = args ? args.stageVariables : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
+            resourceInputs["accessPolicyId"] = args ? args.accessPolicyId : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["autoDeploy"] = args ? args.autoDeploy : undefined;
+            resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
+            resourceInputs["defaultRouteSettings"] = args ? args.defaultRouteSettings : undefined;
+            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["routeSettings"] = args ? args.routeSettings : undefined;
+            resourceInputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["stageVariables"] = args ? args.stageVariables : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["accessLogSettings"] = undefined /*out*/;
-            inputs["accessPolicyId"] = undefined /*out*/;
-            inputs["apiId"] = undefined /*out*/;
-            inputs["autoDeploy"] = undefined /*out*/;
-            inputs["clientCertificateId"] = undefined /*out*/;
-            inputs["defaultRouteSettings"] = undefined /*out*/;
-            inputs["deploymentId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["routeSettings"] = undefined /*out*/;
-            inputs["stageName"] = undefined /*out*/;
-            inputs["stageVariables"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["accessLogSettings"] = undefined /*out*/;
+            resourceInputs["accessPolicyId"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["autoDeploy"] = undefined /*out*/;
+            resourceInputs["clientCertificateId"] = undefined /*out*/;
+            resourceInputs["defaultRouteSettings"] = undefined /*out*/;
+            resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["routeSettings"] = undefined /*out*/;
+            resourceInputs["stageName"] = undefined /*out*/;
+            resourceInputs["stageVariables"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -57,44 +57,42 @@ export class NetworkProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.projectArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["downlinkBandwidthBits"] = args ? args.downlinkBandwidthBits : undefined;
-            inputs["downlinkDelayMs"] = args ? args.downlinkDelayMs : undefined;
-            inputs["downlinkJitterMs"] = args ? args.downlinkJitterMs : undefined;
-            inputs["downlinkLossPercent"] = args ? args.downlinkLossPercent : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["projectArn"] = args ? args.projectArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uplinkBandwidthBits"] = args ? args.uplinkBandwidthBits : undefined;
-            inputs["uplinkDelayMs"] = args ? args.uplinkDelayMs : undefined;
-            inputs["uplinkJitterMs"] = args ? args.uplinkJitterMs : undefined;
-            inputs["uplinkLossPercent"] = args ? args.uplinkLossPercent : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["downlinkBandwidthBits"] = args ? args.downlinkBandwidthBits : undefined;
+            resourceInputs["downlinkDelayMs"] = args ? args.downlinkDelayMs : undefined;
+            resourceInputs["downlinkJitterMs"] = args ? args.downlinkJitterMs : undefined;
+            resourceInputs["downlinkLossPercent"] = args ? args.downlinkLossPercent : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uplinkBandwidthBits"] = args ? args.uplinkBandwidthBits : undefined;
+            resourceInputs["uplinkDelayMs"] = args ? args.uplinkDelayMs : undefined;
+            resourceInputs["uplinkJitterMs"] = args ? args.uplinkJitterMs : undefined;
+            resourceInputs["uplinkLossPercent"] = args ? args.uplinkLossPercent : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["downlinkBandwidthBits"] = undefined /*out*/;
-            inputs["downlinkDelayMs"] = undefined /*out*/;
-            inputs["downlinkJitterMs"] = undefined /*out*/;
-            inputs["downlinkLossPercent"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["projectArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["uplinkBandwidthBits"] = undefined /*out*/;
-            inputs["uplinkDelayMs"] = undefined /*out*/;
-            inputs["uplinkJitterMs"] = undefined /*out*/;
-            inputs["uplinkLossPercent"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["downlinkBandwidthBits"] = undefined /*out*/;
+            resourceInputs["downlinkDelayMs"] = undefined /*out*/;
+            resourceInputs["downlinkJitterMs"] = undefined /*out*/;
+            resourceInputs["downlinkLossPercent"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["projectArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["uplinkBandwidthBits"] = undefined /*out*/;
+            resourceInputs["uplinkDelayMs"] = undefined /*out*/;
+            resourceInputs["uplinkJitterMs"] = undefined /*out*/;
+            resourceInputs["uplinkLossPercent"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

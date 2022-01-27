@@ -64,25 +64,23 @@ export class PackagingGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: PackagingGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["authorization"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["egressAccessLogs"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authorization"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["egressAccessLogs"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PackagingGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PackagingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -68,7 +68,7 @@ export class Assignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
@@ -89,24 +89,22 @@ export class Assignment extends pulumi.CustomResource {
             if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            inputs["instanceArn"] = args ? args.instanceArn : undefined;
-            inputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["principalType"] = args ? args.principalType : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
         } else {
-            inputs["instanceArn"] = undefined /*out*/;
-            inputs["permissionSetArn"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
-            inputs["principalType"] = undefined /*out*/;
-            inputs["targetId"] = undefined /*out*/;
-            inputs["targetType"] = undefined /*out*/;
+            resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["permissionSetArn"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["targetId"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Assignment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Assignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

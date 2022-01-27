@@ -53,23 +53,21 @@ export class RecordSetGroup extends pulumi.CustomResource {
     /** @deprecated RecordSetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: RecordSetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RecordSetGroup is deprecated: RecordSetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            inputs["hostedZoneName"] = args ? args.hostedZoneName : undefined;
-            inputs["recordSets"] = args ? args.recordSets : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["hostedZoneName"] = args ? args.hostedZoneName : undefined;
+            resourceInputs["recordSets"] = args ? args.recordSets : undefined;
         } else {
-            inputs["comment"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
-            inputs["hostedZoneName"] = undefined /*out*/;
-            inputs["recordSets"] = undefined /*out*/;
+            resourceInputs["comment"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["hostedZoneName"] = undefined /*out*/;
+            resourceInputs["recordSets"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RecordSetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RecordSetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

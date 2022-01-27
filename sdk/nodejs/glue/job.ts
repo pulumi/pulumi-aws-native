@@ -67,7 +67,7 @@ export class Job extends pulumi.CustomResource {
     /** @deprecated Job is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Job is deprecated: Job is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.command === undefined) && !opts.urn) {
@@ -76,48 +76,46 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["allocatedCapacity"] = args ? args.allocatedCapacity : undefined;
-            inputs["command"] = args ? args.command : undefined;
-            inputs["connections"] = args ? args.connections : undefined;
-            inputs["defaultArguments"] = args ? args.defaultArguments : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["executionProperty"] = args ? args.executionProperty : undefined;
-            inputs["glueVersion"] = args ? args.glueVersion : undefined;
-            inputs["logUri"] = args ? args.logUri : undefined;
-            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            inputs["maxRetries"] = args ? args.maxRetries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationProperty"] = args ? args.notificationProperty : undefined;
-            inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["allocatedCapacity"] = args ? args.allocatedCapacity : undefined;
+            resourceInputs["command"] = args ? args.command : undefined;
+            resourceInputs["connections"] = args ? args.connections : undefined;
+            resourceInputs["defaultArguments"] = args ? args.defaultArguments : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
+            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["logUri"] = args ? args.logUri : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationProperty"] = args ? args.notificationProperty : undefined;
+            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["workerType"] = args ? args.workerType : undefined;
         } else {
-            inputs["allocatedCapacity"] = undefined /*out*/;
-            inputs["command"] = undefined /*out*/;
-            inputs["connections"] = undefined /*out*/;
-            inputs["defaultArguments"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["executionProperty"] = undefined /*out*/;
-            inputs["glueVersion"] = undefined /*out*/;
-            inputs["logUri"] = undefined /*out*/;
-            inputs["maxCapacity"] = undefined /*out*/;
-            inputs["maxRetries"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationProperty"] = undefined /*out*/;
-            inputs["numberOfWorkers"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["securityConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["workerType"] = undefined /*out*/;
+            resourceInputs["allocatedCapacity"] = undefined /*out*/;
+            resourceInputs["command"] = undefined /*out*/;
+            resourceInputs["connections"] = undefined /*out*/;
+            resourceInputs["defaultArguments"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["executionProperty"] = undefined /*out*/;
+            resourceInputs["glueVersion"] = undefined /*out*/;
+            resourceInputs["logUri"] = undefined /*out*/;
+            resourceInputs["maxCapacity"] = undefined /*out*/;
+            resourceInputs["maxRetries"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationProperty"] = undefined /*out*/;
+            resourceInputs["numberOfWorkers"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["securityConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["workerType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Job.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }
 

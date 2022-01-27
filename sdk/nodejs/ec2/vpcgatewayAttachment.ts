@@ -51,24 +51,22 @@ export class VPCGatewayAttachment extends pulumi.CustomResource {
     /** @deprecated VPCGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCGatewayAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPCGatewayAttachment is deprecated: VPCGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["internetGatewayId"] = args ? args.internetGatewayId : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["internetGatewayId"] = args ? args.internetGatewayId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         } else {
-            inputs["internetGatewayId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
-            inputs["vpnGatewayId"] = undefined /*out*/;
+            resourceInputs["internetGatewayId"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
+            resourceInputs["vpnGatewayId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCGatewayAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCGatewayAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -88,40 +88,38 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GlobalReplicationGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.members === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            inputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
-            inputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
-            inputs["cacheParameterGroupName"] = args ? args.cacheParameterGroupName : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["globalNodeGroupCount"] = args ? args.globalNodeGroupCount : undefined;
-            inputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
-            inputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
-            inputs["members"] = args ? args.members : undefined;
-            inputs["regionalConfigurations"] = args ? args.regionalConfigurations : undefined;
-            inputs["globalReplicationGroupId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
+            resourceInputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
+            resourceInputs["cacheParameterGroupName"] = args ? args.cacheParameterGroupName : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["globalNodeGroupCount"] = args ? args.globalNodeGroupCount : undefined;
+            resourceInputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
+            resourceInputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["regionalConfigurations"] = args ? args.regionalConfigurations : undefined;
+            resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["automaticFailoverEnabled"] = undefined /*out*/;
-            inputs["cacheNodeType"] = undefined /*out*/;
-            inputs["cacheParameterGroupName"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["globalNodeGroupCount"] = undefined /*out*/;
-            inputs["globalReplicationGroupDescription"] = undefined /*out*/;
-            inputs["globalReplicationGroupId"] = undefined /*out*/;
-            inputs["globalReplicationGroupIdSuffix"] = undefined /*out*/;
-            inputs["members"] = undefined /*out*/;
-            inputs["regionalConfigurations"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["automaticFailoverEnabled"] = undefined /*out*/;
+            resourceInputs["cacheNodeType"] = undefined /*out*/;
+            resourceInputs["cacheParameterGroupName"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["globalNodeGroupCount"] = undefined /*out*/;
+            resourceInputs["globalReplicationGroupDescription"] = undefined /*out*/;
+            resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
+            resourceInputs["globalReplicationGroupIdSuffix"] = undefined /*out*/;
+            resourceInputs["members"] = undefined /*out*/;
+            resourceInputs["regionalConfigurations"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GlobalReplicationGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GlobalReplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

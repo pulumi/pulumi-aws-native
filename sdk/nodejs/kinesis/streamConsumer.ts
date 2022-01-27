@@ -53,7 +53,7 @@ export class StreamConsumer extends pulumi.CustomResource {
     /** @deprecated StreamConsumer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StreamConsumerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("StreamConsumer is deprecated: StreamConsumer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.consumerName === undefined) && !opts.urn) {
@@ -62,22 +62,20 @@ export class StreamConsumer extends pulumi.CustomResource {
             if ((!args || args.streamARN === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamARN'");
             }
-            inputs["consumerName"] = args ? args.consumerName : undefined;
-            inputs["streamARN"] = args ? args.streamARN : undefined;
-            inputs["consumerARN"] = undefined /*out*/;
-            inputs["consumerCreationTimestamp"] = undefined /*out*/;
-            inputs["consumerStatus"] = undefined /*out*/;
+            resourceInputs["consumerName"] = args ? args.consumerName : undefined;
+            resourceInputs["streamARN"] = args ? args.streamARN : undefined;
+            resourceInputs["consumerARN"] = undefined /*out*/;
+            resourceInputs["consumerCreationTimestamp"] = undefined /*out*/;
+            resourceInputs["consumerStatus"] = undefined /*out*/;
         } else {
-            inputs["consumerARN"] = undefined /*out*/;
-            inputs["consumerCreationTimestamp"] = undefined /*out*/;
-            inputs["consumerName"] = undefined /*out*/;
-            inputs["consumerStatus"] = undefined /*out*/;
-            inputs["streamARN"] = undefined /*out*/;
+            resourceInputs["consumerARN"] = undefined /*out*/;
+            resourceInputs["consumerCreationTimestamp"] = undefined /*out*/;
+            resourceInputs["consumerName"] = undefined /*out*/;
+            resourceInputs["consumerStatus"] = undefined /*out*/;
+            resourceInputs["streamARN"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamConsumer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamConsumer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

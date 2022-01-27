@@ -55,7 +55,7 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrimaryTaskSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cluster === undefined) && !opts.urn) {
@@ -67,18 +67,16 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
             if ((!args || args.taskSetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskSetId'");
             }
-            inputs["cluster"] = args ? args.cluster : undefined;
-            inputs["service"] = args ? args.service : undefined;
-            inputs["taskSetId"] = args ? args.taskSetId : undefined;
+            resourceInputs["cluster"] = args ? args.cluster : undefined;
+            resourceInputs["service"] = args ? args.service : undefined;
+            resourceInputs["taskSetId"] = args ? args.taskSetId : undefined;
         } else {
-            inputs["cluster"] = undefined /*out*/;
-            inputs["service"] = undefined /*out*/;
-            inputs["taskSetId"] = undefined /*out*/;
+            resourceInputs["cluster"] = undefined /*out*/;
+            resourceInputs["service"] = undefined /*out*/;
+            resourceInputs["taskSetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PrimaryTaskSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PrimaryTaskSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

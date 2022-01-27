@@ -46,7 +46,7 @@ export class ApplicationEntitlementAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationEntitlementAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
@@ -58,18 +58,16 @@ export class ApplicationEntitlementAssociation extends pulumi.CustomResource {
             if ((!args || args.stackName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            inputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            inputs["entitlementName"] = args ? args.entitlementName : undefined;
-            inputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
+            resourceInputs["entitlementName"] = args ? args.entitlementName : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
         } else {
-            inputs["applicationIdentifier"] = undefined /*out*/;
-            inputs["entitlementName"] = undefined /*out*/;
-            inputs["stackName"] = undefined /*out*/;
+            resourceInputs["applicationIdentifier"] = undefined /*out*/;
+            resourceInputs["entitlementName"] = undefined /*out*/;
+            resourceInputs["stackName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationEntitlementAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationEntitlementAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

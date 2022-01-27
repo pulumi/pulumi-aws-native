@@ -96,44 +96,42 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["groupSet"] = args ? args.groupSet : undefined;
-            inputs["interfaceType"] = args ? args.interfaceType : undefined;
-            inputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
-            inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
-            inputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            inputs["privateIpAddresses"] = args ? args.privateIpAddresses : undefined;
-            inputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
-            inputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["primaryPrivateIpAddress"] = undefined /*out*/;
-            inputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["groupSet"] = args ? args.groupSet : undefined;
+            resourceInputs["interfaceType"] = args ? args.interfaceType : undefined;
+            resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
+            resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
+            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            resourceInputs["privateIpAddresses"] = args ? args.privateIpAddresses : undefined;
+            resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
+            resourceInputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["primaryPrivateIpAddress"] = undefined /*out*/;
+            resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["groupSet"] = undefined /*out*/;
-            inputs["interfaceType"] = undefined /*out*/;
-            inputs["ipv6AddressCount"] = undefined /*out*/;
-            inputs["ipv6Addresses"] = undefined /*out*/;
-            inputs["primaryPrivateIpAddress"] = undefined /*out*/;
-            inputs["privateIpAddress"] = undefined /*out*/;
-            inputs["privateIpAddresses"] = undefined /*out*/;
-            inputs["secondaryPrivateIpAddressCount"] = undefined /*out*/;
-            inputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
-            inputs["sourceDestCheck"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["groupSet"] = undefined /*out*/;
+            resourceInputs["interfaceType"] = undefined /*out*/;
+            resourceInputs["ipv6AddressCount"] = undefined /*out*/;
+            resourceInputs["ipv6Addresses"] = undefined /*out*/;
+            resourceInputs["primaryPrivateIpAddress"] = undefined /*out*/;
+            resourceInputs["privateIpAddress"] = undefined /*out*/;
+            resourceInputs["privateIpAddresses"] = undefined /*out*/;
+            resourceInputs["secondaryPrivateIpAddressCount"] = undefined /*out*/;
+            resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
+            resourceInputs["sourceDestCheck"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInterface.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInterface.__pulumiType, name, resourceInputs, opts);
     }
 }
 

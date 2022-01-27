@@ -52,7 +52,7 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubnetNetworkAclAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkAclId === undefined) && !opts.urn) {
@@ -61,18 +61,16 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["networkAclId"] = args ? args.networkAclId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["associationId"] = undefined /*out*/;
+            resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["associationId"] = undefined /*out*/;
         } else {
-            inputs["associationId"] = undefined /*out*/;
-            inputs["networkAclId"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
+            resourceInputs["associationId"] = undefined /*out*/;
+            resourceInputs["networkAclId"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SubnetNetworkAclAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SubnetNetworkAclAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

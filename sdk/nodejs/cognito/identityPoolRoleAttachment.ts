@@ -51,24 +51,22 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /** @deprecated IdentityPoolRoleAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: IdentityPoolRoleAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IdentityPoolRoleAttachment is deprecated: IdentityPoolRoleAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.identityPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            inputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            inputs["roleMappings"] = args ? args.roleMappings : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
+            resourceInputs["roleMappings"] = args ? args.roleMappings : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
         } else {
-            inputs["identityPoolId"] = undefined /*out*/;
-            inputs["roleMappings"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
+            resourceInputs["identityPoolId"] = undefined /*out*/;
+            resourceInputs["roleMappings"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IdentityPoolRoleAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IdentityPoolRoleAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

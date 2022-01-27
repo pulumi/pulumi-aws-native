@@ -63,7 +63,7 @@ export class Pipeline extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.pipelineDefinition === undefined) && !opts.urn) {
@@ -72,26 +72,24 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["parallelismConfiguration"] = args ? args.parallelismConfiguration : undefined;
-            inputs["pipelineDefinition"] = args ? args.pipelineDefinition : undefined;
-            inputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
-            inputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
-            inputs["pipelineName"] = args ? args.pipelineName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["parallelismConfiguration"] = args ? args.parallelismConfiguration : undefined;
+            resourceInputs["pipelineDefinition"] = args ? args.pipelineDefinition : undefined;
+            resourceInputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
+            resourceInputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
+            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["parallelismConfiguration"] = undefined /*out*/;
-            inputs["pipelineDefinition"] = undefined /*out*/;
-            inputs["pipelineDescription"] = undefined /*out*/;
-            inputs["pipelineDisplayName"] = undefined /*out*/;
-            inputs["pipelineName"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["parallelismConfiguration"] = undefined /*out*/;
+            resourceInputs["pipelineDefinition"] = undefined /*out*/;
+            resourceInputs["pipelineDescription"] = undefined /*out*/;
+            resourceInputs["pipelineDisplayName"] = undefined /*out*/;
+            resourceInputs["pipelineName"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

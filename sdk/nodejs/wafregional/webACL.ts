@@ -53,7 +53,7 @@ export class WebACL extends pulumi.CustomResource {
     /** @deprecated WebACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: WebACLArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("WebACL is deprecated: WebACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.defaultAction === undefined) && !opts.urn) {
@@ -62,20 +62,18 @@ export class WebACL extends pulumi.CustomResource {
             if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            inputs["defaultAction"] = args ? args.defaultAction : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
         } else {
-            inputs["defaultAction"] = undefined /*out*/;
-            inputs["metricName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
+            resourceInputs["defaultAction"] = undefined /*out*/;
+            resourceInputs["metricName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WebACL.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WebACL.__pulumiType, name, resourceInputs, opts);
     }
 }
 

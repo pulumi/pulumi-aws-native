@@ -56,32 +56,30 @@ export class EventSubscription extends pulumi.CustomResource {
     /** @deprecated EventSubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventSubscription is deprecated: EventSubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["eventCategories"] = args ? args.eventCategories : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            inputs["sourceIds"] = args ? args.sourceIds : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["enabled"] = undefined /*out*/;
-            inputs["eventCategories"] = undefined /*out*/;
-            inputs["snsTopicArn"] = undefined /*out*/;
-            inputs["sourceIds"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["subscriptionName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["eventCategories"] = undefined /*out*/;
+            resourceInputs["snsTopicArn"] = undefined /*out*/;
+            resourceInputs["sourceIds"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["subscriptionName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventSubscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

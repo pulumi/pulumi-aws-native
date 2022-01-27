@@ -56,29 +56,27 @@ export class AnomalyDetector extends pulumi.CustomResource {
     /** @deprecated AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: AnomalyDetectorArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AnomalyDetector is deprecated: AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["dimensions"] = args ? args.dimensions : undefined;
-            inputs["metricMathAnomalyDetector"] = args ? args.metricMathAnomalyDetector : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["singleMetricAnomalyDetector"] = args ? args.singleMetricAnomalyDetector : undefined;
-            inputs["stat"] = args ? args.stat : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["dimensions"] = args ? args.dimensions : undefined;
+            resourceInputs["metricMathAnomalyDetector"] = args ? args.metricMathAnomalyDetector : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["singleMetricAnomalyDetector"] = args ? args.singleMetricAnomalyDetector : undefined;
+            resourceInputs["stat"] = args ? args.stat : undefined;
         } else {
-            inputs["configuration"] = undefined /*out*/;
-            inputs["dimensions"] = undefined /*out*/;
-            inputs["metricMathAnomalyDetector"] = undefined /*out*/;
-            inputs["metricName"] = undefined /*out*/;
-            inputs["namespace"] = undefined /*out*/;
-            inputs["singleMetricAnomalyDetector"] = undefined /*out*/;
-            inputs["stat"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["dimensions"] = undefined /*out*/;
+            resourceInputs["metricMathAnomalyDetector"] = undefined /*out*/;
+            resourceInputs["metricName"] = undefined /*out*/;
+            resourceInputs["namespace"] = undefined /*out*/;
+            resourceInputs["singleMetricAnomalyDetector"] = undefined /*out*/;
+            resourceInputs["stat"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AnomalyDetector.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AnomalyDetector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

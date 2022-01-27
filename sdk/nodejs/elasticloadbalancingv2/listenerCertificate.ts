@@ -51,7 +51,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
     /** @deprecated ListenerCertificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ListenerCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ListenerCertificate is deprecated: ListenerCertificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.certificates === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class ListenerCertificate extends pulumi.CustomResource {
             if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["certificates"] = args ? args.certificates : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["certificates"] = args ? args.certificates : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
         } else {
-            inputs["certificates"] = undefined /*out*/;
-            inputs["listenerArn"] = undefined /*out*/;
+            resourceInputs["certificates"] = undefined /*out*/;
+            resourceInputs["listenerArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ListenerCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ListenerCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

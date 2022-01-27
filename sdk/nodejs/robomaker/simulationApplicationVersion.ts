@@ -50,26 +50,24 @@ export class SimulationApplicationVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SimulationApplicationVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.application === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            inputs["application"] = args ? args.application : undefined;
-            inputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
-            inputs["applicationVersion"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["application"] = args ? args.application : undefined;
+            resourceInputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
+            resourceInputs["applicationVersion"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["application"] = undefined /*out*/;
-            inputs["applicationVersion"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["currentRevisionId"] = undefined /*out*/;
+            resourceInputs["application"] = undefined /*out*/;
+            resourceInputs["applicationVersion"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["currentRevisionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SimulationApplicationVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SimulationApplicationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

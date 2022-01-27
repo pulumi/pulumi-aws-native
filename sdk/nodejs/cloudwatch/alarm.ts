@@ -71,7 +71,7 @@ export class Alarm extends pulumi.CustomResource {
     /** @deprecated Alarm is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AlarmArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Alarm is deprecated: Alarm is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
@@ -80,56 +80,54 @@ export class Alarm extends pulumi.CustomResource {
             if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
-            inputs["alarmActions"] = args ? args.alarmActions : undefined;
-            inputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            inputs["alarmName"] = args ? args.alarmName : undefined;
-            inputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            inputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            inputs["dimensions"] = args ? args.dimensions : undefined;
-            inputs["evaluateLowSampleCountPercentile"] = args ? args.evaluateLowSampleCountPercentile : undefined;
-            inputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            inputs["extendedStatistic"] = args ? args.extendedStatistic : undefined;
-            inputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["metrics"] = args ? args.metrics : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["oKActions"] = args ? args.oKActions : undefined;
-            inputs["period"] = args ? args.period : undefined;
-            inputs["statistic"] = args ? args.statistic : undefined;
-            inputs["threshold"] = args ? args.threshold : undefined;
-            inputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
-            inputs["treatMissingData"] = args ? args.treatMissingData : undefined;
-            inputs["unit"] = args ? args.unit : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
+            resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
+            resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
+            resourceInputs["alarmName"] = args ? args.alarmName : undefined;
+            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
+            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
+            resourceInputs["dimensions"] = args ? args.dimensions : undefined;
+            resourceInputs["evaluateLowSampleCountPercentile"] = args ? args.evaluateLowSampleCountPercentile : undefined;
+            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
+            resourceInputs["extendedStatistic"] = args ? args.extendedStatistic : undefined;
+            resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["metrics"] = args ? args.metrics : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["oKActions"] = args ? args.oKActions : undefined;
+            resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["statistic"] = args ? args.statistic : undefined;
+            resourceInputs["threshold"] = args ? args.threshold : undefined;
+            resourceInputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
+            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
+            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["actionsEnabled"] = undefined /*out*/;
-            inputs["alarmActions"] = undefined /*out*/;
-            inputs["alarmDescription"] = undefined /*out*/;
-            inputs["alarmName"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["comparisonOperator"] = undefined /*out*/;
-            inputs["datapointsToAlarm"] = undefined /*out*/;
-            inputs["dimensions"] = undefined /*out*/;
-            inputs["evaluateLowSampleCountPercentile"] = undefined /*out*/;
-            inputs["evaluationPeriods"] = undefined /*out*/;
-            inputs["extendedStatistic"] = undefined /*out*/;
-            inputs["insufficientDataActions"] = undefined /*out*/;
-            inputs["metricName"] = undefined /*out*/;
-            inputs["metrics"] = undefined /*out*/;
-            inputs["namespace"] = undefined /*out*/;
-            inputs["oKActions"] = undefined /*out*/;
-            inputs["period"] = undefined /*out*/;
-            inputs["statistic"] = undefined /*out*/;
-            inputs["threshold"] = undefined /*out*/;
-            inputs["thresholdMetricId"] = undefined /*out*/;
-            inputs["treatMissingData"] = undefined /*out*/;
-            inputs["unit"] = undefined /*out*/;
+            resourceInputs["actionsEnabled"] = undefined /*out*/;
+            resourceInputs["alarmActions"] = undefined /*out*/;
+            resourceInputs["alarmDescription"] = undefined /*out*/;
+            resourceInputs["alarmName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["comparisonOperator"] = undefined /*out*/;
+            resourceInputs["datapointsToAlarm"] = undefined /*out*/;
+            resourceInputs["dimensions"] = undefined /*out*/;
+            resourceInputs["evaluateLowSampleCountPercentile"] = undefined /*out*/;
+            resourceInputs["evaluationPeriods"] = undefined /*out*/;
+            resourceInputs["extendedStatistic"] = undefined /*out*/;
+            resourceInputs["insufficientDataActions"] = undefined /*out*/;
+            resourceInputs["metricName"] = undefined /*out*/;
+            resourceInputs["metrics"] = undefined /*out*/;
+            resourceInputs["namespace"] = undefined /*out*/;
+            resourceInputs["oKActions"] = undefined /*out*/;
+            resourceInputs["period"] = undefined /*out*/;
+            resourceInputs["statistic"] = undefined /*out*/;
+            resourceInputs["threshold"] = undefined /*out*/;
+            resourceInputs["thresholdMetricId"] = undefined /*out*/;
+            resourceInputs["treatMissingData"] = undefined /*out*/;
+            resourceInputs["unit"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Alarm.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Alarm.__pulumiType, name, resourceInputs, opts);
     }
 }
 

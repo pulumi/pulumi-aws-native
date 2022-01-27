@@ -63,7 +63,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /** @deprecated MaintenanceWindowTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MaintenanceWindowTaskArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MaintenanceWindowTask is deprecated: MaintenanceWindowTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.priority === undefined) && !opts.urn) {
@@ -78,40 +78,38 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             if ((!args || args.windowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowId'");
             }
-            inputs["cutoffBehavior"] = args ? args.cutoffBehavior : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["loggingInfo"] = args ? args.loggingInfo : undefined;
-            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            inputs["maxErrors"] = args ? args.maxErrors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["taskArn"] = args ? args.taskArn : undefined;
-            inputs["taskInvocationParameters"] = args ? args.taskInvocationParameters : undefined;
-            inputs["taskParameters"] = args ? args.taskParameters : undefined;
-            inputs["taskType"] = args ? args.taskType : undefined;
-            inputs["windowId"] = args ? args.windowId : undefined;
+            resourceInputs["cutoffBehavior"] = args ? args.cutoffBehavior : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
+            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["taskArn"] = args ? args.taskArn : undefined;
+            resourceInputs["taskInvocationParameters"] = args ? args.taskInvocationParameters : undefined;
+            resourceInputs["taskParameters"] = args ? args.taskParameters : undefined;
+            resourceInputs["taskType"] = args ? args.taskType : undefined;
+            resourceInputs["windowId"] = args ? args.windowId : undefined;
         } else {
-            inputs["cutoffBehavior"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["loggingInfo"] = undefined /*out*/;
-            inputs["maxConcurrency"] = undefined /*out*/;
-            inputs["maxErrors"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["serviceRoleArn"] = undefined /*out*/;
-            inputs["targets"] = undefined /*out*/;
-            inputs["taskArn"] = undefined /*out*/;
-            inputs["taskInvocationParameters"] = undefined /*out*/;
-            inputs["taskParameters"] = undefined /*out*/;
-            inputs["taskType"] = undefined /*out*/;
-            inputs["windowId"] = undefined /*out*/;
+            resourceInputs["cutoffBehavior"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["loggingInfo"] = undefined /*out*/;
+            resourceInputs["maxConcurrency"] = undefined /*out*/;
+            resourceInputs["maxErrors"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["serviceRoleArn"] = undefined /*out*/;
+            resourceInputs["targets"] = undefined /*out*/;
+            resourceInputs["taskArn"] = undefined /*out*/;
+            resourceInputs["taskInvocationParameters"] = undefined /*out*/;
+            resourceInputs["taskParameters"] = undefined /*out*/;
+            resourceInputs["taskType"] = undefined /*out*/;
+            resourceInputs["windowId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MaintenanceWindowTask.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MaintenanceWindowTask.__pulumiType, name, resourceInputs, opts);
     }
 }
 

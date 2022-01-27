@@ -92,42 +92,40 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["applicationDescription"] = args ? args.applicationDescription : undefined;
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["applicationArn"] = undefined /*out*/;
-            inputs["applicationCreationDate"] = undefined /*out*/;
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["applicationLastUpdateDate"] = undefined /*out*/;
-            inputs["applicationState"] = undefined /*out*/;
-            inputs["applicationUrl"] = undefined /*out*/;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["ssoClientId"] = undefined /*out*/;
+            resourceInputs["applicationDescription"] = args ? args.applicationDescription : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["applicationCreationDate"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["applicationLastUpdateDate"] = undefined /*out*/;
+            resourceInputs["applicationState"] = undefined /*out*/;
+            resourceInputs["applicationUrl"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["ssoClientId"] = undefined /*out*/;
         } else {
-            inputs["applicationArn"] = undefined /*out*/;
-            inputs["applicationCreationDate"] = undefined /*out*/;
-            inputs["applicationDescription"] = undefined /*out*/;
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["applicationLastUpdateDate"] = undefined /*out*/;
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["applicationState"] = undefined /*out*/;
-            inputs["applicationUrl"] = undefined /*out*/;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["ssoClientId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["applicationCreationDate"] = undefined /*out*/;
+            resourceInputs["applicationDescription"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["applicationLastUpdateDate"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["applicationState"] = undefined /*out*/;
+            resourceInputs["applicationUrl"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["ssoClientId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

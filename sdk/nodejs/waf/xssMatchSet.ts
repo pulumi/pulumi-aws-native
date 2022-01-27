@@ -51,22 +51,20 @@ export class XssMatchSet extends pulumi.CustomResource {
     /** @deprecated XssMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: XssMatchSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("XssMatchSet is deprecated: XssMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.xssMatchTuples === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'xssMatchTuples'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["xssMatchTuples"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["xssMatchTuples"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(XssMatchSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(XssMatchSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

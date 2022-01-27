@@ -76,7 +76,7 @@ export class Broker extends pulumi.CustomResource {
     /** @deprecated Broker is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: BrokerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Broker is deprecated: Broker is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoMinorVersionUpgrade === undefined) && !opts.urn) {
@@ -100,66 +100,64 @@ export class Broker extends pulumi.CustomResource {
             if ((!args || args.users === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
-            inputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["brokerName"] = args ? args.brokerName : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            inputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
-            inputs["engineType"] = args ? args.engineType : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
-            inputs["ldapServerMetadata"] = args ? args.ldapServerMetadata : undefined;
-            inputs["logs"] = args ? args.logs : undefined;
-            inputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["users"] = args ? args.users : undefined;
-            inputs["amqpEndpoints"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["configurationId"] = undefined /*out*/;
-            inputs["configurationRevision"] = undefined /*out*/;
-            inputs["ipAddresses"] = undefined /*out*/;
-            inputs["mqttEndpoints"] = undefined /*out*/;
-            inputs["openWireEndpoints"] = undefined /*out*/;
-            inputs["stompEndpoints"] = undefined /*out*/;
-            inputs["wssEndpoints"] = undefined /*out*/;
+            resourceInputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["brokerName"] = args ? args.brokerName : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
+            resourceInputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
+            resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
+            resourceInputs["ldapServerMetadata"] = args ? args.ldapServerMetadata : undefined;
+            resourceInputs["logs"] = args ? args.logs : undefined;
+            resourceInputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["amqpEndpoints"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["configurationId"] = undefined /*out*/;
+            resourceInputs["configurationRevision"] = undefined /*out*/;
+            resourceInputs["ipAddresses"] = undefined /*out*/;
+            resourceInputs["mqttEndpoints"] = undefined /*out*/;
+            resourceInputs["openWireEndpoints"] = undefined /*out*/;
+            resourceInputs["stompEndpoints"] = undefined /*out*/;
+            resourceInputs["wssEndpoints"] = undefined /*out*/;
         } else {
-            inputs["amqpEndpoints"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["authenticationStrategy"] = undefined /*out*/;
-            inputs["autoMinorVersionUpgrade"] = undefined /*out*/;
-            inputs["brokerName"] = undefined /*out*/;
-            inputs["configuration"] = undefined /*out*/;
-            inputs["configurationId"] = undefined /*out*/;
-            inputs["configurationRevision"] = undefined /*out*/;
-            inputs["deploymentMode"] = undefined /*out*/;
-            inputs["encryptionOptions"] = undefined /*out*/;
-            inputs["engineType"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["hostInstanceType"] = undefined /*out*/;
-            inputs["ipAddresses"] = undefined /*out*/;
-            inputs["ldapServerMetadata"] = undefined /*out*/;
-            inputs["logs"] = undefined /*out*/;
-            inputs["maintenanceWindowStartTime"] = undefined /*out*/;
-            inputs["mqttEndpoints"] = undefined /*out*/;
-            inputs["openWireEndpoints"] = undefined /*out*/;
-            inputs["publiclyAccessible"] = undefined /*out*/;
-            inputs["securityGroups"] = undefined /*out*/;
-            inputs["stompEndpoints"] = undefined /*out*/;
-            inputs["storageType"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
-            inputs["wssEndpoints"] = undefined /*out*/;
+            resourceInputs["amqpEndpoints"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authenticationStrategy"] = undefined /*out*/;
+            resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["brokerName"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["configurationId"] = undefined /*out*/;
+            resourceInputs["configurationRevision"] = undefined /*out*/;
+            resourceInputs["deploymentMode"] = undefined /*out*/;
+            resourceInputs["encryptionOptions"] = undefined /*out*/;
+            resourceInputs["engineType"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["hostInstanceType"] = undefined /*out*/;
+            resourceInputs["ipAddresses"] = undefined /*out*/;
+            resourceInputs["ldapServerMetadata"] = undefined /*out*/;
+            resourceInputs["logs"] = undefined /*out*/;
+            resourceInputs["maintenanceWindowStartTime"] = undefined /*out*/;
+            resourceInputs["mqttEndpoints"] = undefined /*out*/;
+            resourceInputs["openWireEndpoints"] = undefined /*out*/;
+            resourceInputs["publiclyAccessible"] = undefined /*out*/;
+            resourceInputs["securityGroups"] = undefined /*out*/;
+            resourceInputs["stompEndpoints"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
+            resourceInputs["wssEndpoints"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Broker.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Broker.__pulumiType, name, resourceInputs, opts);
     }
 }
 

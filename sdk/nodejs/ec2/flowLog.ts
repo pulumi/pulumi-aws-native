@@ -85,7 +85,7 @@ export class FlowLog extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
@@ -97,34 +97,32 @@ export class FlowLog extends pulumi.CustomResource {
             if ((!args || args.trafficType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficType'");
             }
-            inputs["deliverLogsPermissionArn"] = args ? args.deliverLogsPermissionArn : undefined;
-            inputs["destinationOptions"] = args ? args.destinationOptions : undefined;
-            inputs["logDestination"] = args ? args.logDestination : undefined;
-            inputs["logDestinationType"] = args ? args.logDestinationType : undefined;
-            inputs["logFormat"] = args ? args.logFormat : undefined;
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
-            inputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trafficType"] = args ? args.trafficType : undefined;
+            resourceInputs["deliverLogsPermissionArn"] = args ? args.deliverLogsPermissionArn : undefined;
+            resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
+            resourceInputs["logDestination"] = args ? args.logDestination : undefined;
+            resourceInputs["logDestinationType"] = args ? args.logDestinationType : undefined;
+            resourceInputs["logFormat"] = args ? args.logFormat : undefined;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficType"] = args ? args.trafficType : undefined;
         } else {
-            inputs["deliverLogsPermissionArn"] = undefined /*out*/;
-            inputs["destinationOptions"] = undefined /*out*/;
-            inputs["logDestination"] = undefined /*out*/;
-            inputs["logDestinationType"] = undefined /*out*/;
-            inputs["logFormat"] = undefined /*out*/;
-            inputs["logGroupName"] = undefined /*out*/;
-            inputs["maxAggregationInterval"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trafficType"] = undefined /*out*/;
+            resourceInputs["deliverLogsPermissionArn"] = undefined /*out*/;
+            resourceInputs["destinationOptions"] = undefined /*out*/;
+            resourceInputs["logDestination"] = undefined /*out*/;
+            resourceInputs["logDestinationType"] = undefined /*out*/;
+            resourceInputs["logFormat"] = undefined /*out*/;
+            resourceInputs["logGroupName"] = undefined /*out*/;
+            resourceInputs["maxAggregationInterval"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trafficType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FlowLog.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FlowLog.__pulumiType, name, resourceInputs, opts);
     }
 }
 

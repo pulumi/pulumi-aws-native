@@ -69,7 +69,7 @@ export class LocationS3 extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocationS3Args, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.s3BucketArn === undefined) && !opts.urn) {
@@ -78,26 +78,24 @@ export class LocationS3 extends pulumi.CustomResource {
             if ((!args || args.s3Config === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Config'");
             }
-            inputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
-            inputs["s3Config"] = args ? args.s3Config : undefined;
-            inputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
+            resourceInputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
+            resourceInputs["s3Config"] = args ? args.s3Config : undefined;
+            resourceInputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
         } else {
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
-            inputs["s3BucketArn"] = undefined /*out*/;
-            inputs["s3Config"] = undefined /*out*/;
-            inputs["s3StorageClass"] = undefined /*out*/;
-            inputs["subdirectory"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["s3BucketArn"] = undefined /*out*/;
+            resourceInputs["s3Config"] = undefined /*out*/;
+            resourceInputs["s3StorageClass"] = undefined /*out*/;
+            resourceInputs["subdirectory"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationS3.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationS3.__pulumiType, name, resourceInputs, opts);
     }
 }
 

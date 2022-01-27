@@ -84,7 +84,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ImageRecipeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.components === undefined) && !opts.urn) {
@@ -96,32 +96,30 @@ export class ImageRecipe extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["additionalInstanceConfiguration"] = args ? args.additionalInstanceConfiguration : undefined;
-            inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            inputs["components"] = args ? args.components : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentImage"] = args ? args.parentImage : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["workingDirectory"] = args ? args.workingDirectory : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["additionalInstanceConfiguration"] = args ? args.additionalInstanceConfiguration : undefined;
+            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
+            resourceInputs["components"] = args ? args.components : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentImage"] = args ? args.parentImage : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["additionalInstanceConfiguration"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["blockDeviceMappings"] = undefined /*out*/;
-            inputs["components"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parentImage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["workingDirectory"] = undefined /*out*/;
+            resourceInputs["additionalInstanceConfiguration"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["blockDeviceMappings"] = undefined /*out*/;
+            resourceInputs["components"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parentImage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["workingDirectory"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ImageRecipe.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ImageRecipe.__pulumiType, name, resourceInputs, opts);
     }
 }
 

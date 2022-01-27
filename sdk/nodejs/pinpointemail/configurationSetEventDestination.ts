@@ -52,7 +52,7 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
     /** @deprecated ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationSetEventDestinationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigurationSetEventDestination is deprecated: ConfigurationSetEventDestination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configurationSetName === undefined) && !opts.urn) {
@@ -61,18 +61,16 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
             if ((!args || args.eventDestinationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventDestinationName'");
             }
-            inputs["configurationSetName"] = args ? args.configurationSetName : undefined;
-            inputs["eventDestination"] = args ? args.eventDestination : undefined;
-            inputs["eventDestinationName"] = args ? args.eventDestinationName : undefined;
+            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
+            resourceInputs["eventDestination"] = args ? args.eventDestination : undefined;
+            resourceInputs["eventDestinationName"] = args ? args.eventDestinationName : undefined;
         } else {
-            inputs["configurationSetName"] = undefined /*out*/;
-            inputs["eventDestination"] = undefined /*out*/;
-            inputs["eventDestinationName"] = undefined /*out*/;
+            resourceInputs["configurationSetName"] = undefined /*out*/;
+            resourceInputs["eventDestination"] = undefined /*out*/;
+            resourceInputs["eventDestinationName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationSetEventDestination.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationSetEventDestination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

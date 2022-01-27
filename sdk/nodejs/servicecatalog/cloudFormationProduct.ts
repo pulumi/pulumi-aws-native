@@ -63,7 +63,7 @@ export class CloudFormationProduct extends pulumi.CustomResource {
     /** @deprecated CloudFormationProduct is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CloudFormationProductArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CloudFormationProduct is deprecated: CloudFormationProduct is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.owner === undefined) && !opts.urn) {
@@ -72,40 +72,38 @@ export class CloudFormationProduct extends pulumi.CustomResource {
             if ((!args || args.provisioningArtifactParameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisioningArtifactParameters'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["distributor"] = args ? args.distributor : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["provisioningArtifactParameters"] = args ? args.provisioningArtifactParameters : undefined;
-            inputs["replaceProvisioningArtifacts"] = args ? args.replaceProvisioningArtifacts : undefined;
-            inputs["supportDescription"] = args ? args.supportDescription : undefined;
-            inputs["supportEmail"] = args ? args.supportEmail : undefined;
-            inputs["supportUrl"] = args ? args.supportUrl : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["productName"] = undefined /*out*/;
-            inputs["provisioningArtifactIds"] = undefined /*out*/;
-            inputs["provisioningArtifactNames"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["distributor"] = args ? args.distributor : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["provisioningArtifactParameters"] = args ? args.provisioningArtifactParameters : undefined;
+            resourceInputs["replaceProvisioningArtifacts"] = args ? args.replaceProvisioningArtifacts : undefined;
+            resourceInputs["supportDescription"] = args ? args.supportDescription : undefined;
+            resourceInputs["supportEmail"] = args ? args.supportEmail : undefined;
+            resourceInputs["supportUrl"] = args ? args.supportUrl : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["productName"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactIds"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactNames"] = undefined /*out*/;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["distributor"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["productName"] = undefined /*out*/;
-            inputs["provisioningArtifactIds"] = undefined /*out*/;
-            inputs["provisioningArtifactNames"] = undefined /*out*/;
-            inputs["provisioningArtifactParameters"] = undefined /*out*/;
-            inputs["replaceProvisioningArtifacts"] = undefined /*out*/;
-            inputs["supportDescription"] = undefined /*out*/;
-            inputs["supportEmail"] = undefined /*out*/;
-            inputs["supportUrl"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["distributor"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["productName"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactIds"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactNames"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactParameters"] = undefined /*out*/;
+            resourceInputs["replaceProvisioningArtifacts"] = undefined /*out*/;
+            resourceInputs["supportDescription"] = undefined /*out*/;
+            resourceInputs["supportEmail"] = undefined /*out*/;
+            resourceInputs["supportUrl"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CloudFormationProduct.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CloudFormationProduct.__pulumiType, name, resourceInputs, opts);
     }
 }
 

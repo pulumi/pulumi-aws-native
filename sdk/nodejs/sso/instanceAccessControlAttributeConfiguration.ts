@@ -53,24 +53,22 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InstanceAccessControlAttributeConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            inputs["accessControlAttributes"] = args ? args.accessControlAttributes : undefined;
-            inputs["instanceAccessControlAttributeConfiguration"] = args ? args.instanceAccessControlAttributeConfiguration : undefined;
-            inputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["accessControlAttributes"] = args ? args.accessControlAttributes : undefined;
+            resourceInputs["instanceAccessControlAttributeConfiguration"] = args ? args.instanceAccessControlAttributeConfiguration : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
         } else {
-            inputs["accessControlAttributes"] = undefined /*out*/;
-            inputs["instanceAccessControlAttributeConfiguration"] = undefined /*out*/;
-            inputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["accessControlAttributes"] = undefined /*out*/;
+            resourceInputs["instanceAccessControlAttributeConfiguration"] = undefined /*out*/;
+            resourceInputs["instanceArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InstanceAccessControlAttributeConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InstanceAccessControlAttributeConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

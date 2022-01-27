@@ -59,7 +59,7 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomerGatewayAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.customerGatewayArn === undefined) && !opts.urn) {
@@ -71,20 +71,18 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
             if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            inputs["customerGatewayArn"] = args ? args.customerGatewayArn : undefined;
-            inputs["deviceId"] = args ? args.deviceId : undefined;
-            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            inputs["linkId"] = args ? args.linkId : undefined;
+            resourceInputs["customerGatewayArn"] = args ? args.customerGatewayArn : undefined;
+            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
+            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            resourceInputs["linkId"] = args ? args.linkId : undefined;
         } else {
-            inputs["customerGatewayArn"] = undefined /*out*/;
-            inputs["deviceId"] = undefined /*out*/;
-            inputs["globalNetworkId"] = undefined /*out*/;
-            inputs["linkId"] = undefined /*out*/;
+            resourceInputs["customerGatewayArn"] = undefined /*out*/;
+            resourceInputs["deviceId"] = undefined /*out*/;
+            resourceInputs["globalNetworkId"] = undefined /*out*/;
+            resourceInputs["linkId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CustomerGatewayAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CustomerGatewayAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

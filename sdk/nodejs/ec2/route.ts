@@ -61,44 +61,42 @@ export class Route extends pulumi.CustomResource {
     /** @deprecated Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Route is deprecated: Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            inputs["carrierGatewayId"] = args ? args.carrierGatewayId : undefined;
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
-            inputs["egressOnlyInternetGatewayId"] = args ? args.egressOnlyInternetGatewayId : undefined;
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["localGatewayId"] = args ? args.localGatewayId : undefined;
-            inputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+            resourceInputs["carrierGatewayId"] = args ? args.carrierGatewayId : undefined;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
+            resourceInputs["egressOnlyInternetGatewayId"] = args ? args.egressOnlyInternetGatewayId : undefined;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
+            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
         } else {
-            inputs["carrierGatewayId"] = undefined /*out*/;
-            inputs["destinationCidrBlock"] = undefined /*out*/;
-            inputs["destinationIpv6CidrBlock"] = undefined /*out*/;
-            inputs["egressOnlyInternetGatewayId"] = undefined /*out*/;
-            inputs["gatewayId"] = undefined /*out*/;
-            inputs["instanceId"] = undefined /*out*/;
-            inputs["localGatewayId"] = undefined /*out*/;
-            inputs["natGatewayId"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
-            inputs["routeTableId"] = undefined /*out*/;
-            inputs["transitGatewayId"] = undefined /*out*/;
-            inputs["vpcEndpointId"] = undefined /*out*/;
-            inputs["vpcPeeringConnectionId"] = undefined /*out*/;
+            resourceInputs["carrierGatewayId"] = undefined /*out*/;
+            resourceInputs["destinationCidrBlock"] = undefined /*out*/;
+            resourceInputs["destinationIpv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["egressOnlyInternetGatewayId"] = undefined /*out*/;
+            resourceInputs["gatewayId"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["localGatewayId"] = undefined /*out*/;
+            resourceInputs["natGatewayId"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["routeTableId"] = undefined /*out*/;
+            resourceInputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["vpcEndpointId"] = undefined /*out*/;
+            resourceInputs["vpcPeeringConnectionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Route.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -50,7 +50,7 @@ export class TagOptionAssociation extends pulumi.CustomResource {
     /** @deprecated TagOptionAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TagOptionAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TagOptionAssociation is deprecated: TagOptionAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class TagOptionAssociation extends pulumi.CustomResource {
             if ((!args || args.tagOptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tagOptionId'");
             }
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["tagOptionId"] = args ? args.tagOptionId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["tagOptionId"] = args ? args.tagOptionId : undefined;
         } else {
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["tagOptionId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["tagOptionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TagOptionAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TagOptionAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

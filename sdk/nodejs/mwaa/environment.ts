@@ -80,59 +80,57 @@ export class Environment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["airflowConfigurationOptions"] = args ? args.airflowConfigurationOptions : undefined;
-            inputs["airflowVersion"] = args ? args.airflowVersion : undefined;
-            inputs["dagS3Path"] = args ? args.dagS3Path : undefined;
-            inputs["environmentClass"] = args ? args.environmentClass : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["kmsKey"] = args ? args.kmsKey : undefined;
-            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            inputs["maxWorkers"] = args ? args.maxWorkers : undefined;
-            inputs["minWorkers"] = args ? args.minWorkers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["pluginsS3ObjectVersion"] = args ? args.pluginsS3ObjectVersion : undefined;
-            inputs["pluginsS3Path"] = args ? args.pluginsS3Path : undefined;
-            inputs["requirementsS3ObjectVersion"] = args ? args.requirementsS3ObjectVersion : undefined;
-            inputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
-            inputs["schedulers"] = args ? args.schedulers : undefined;
-            inputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
-            inputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["webserverUrl"] = undefined /*out*/;
+            resourceInputs["airflowConfigurationOptions"] = args ? args.airflowConfigurationOptions : undefined;
+            resourceInputs["airflowVersion"] = args ? args.airflowVersion : undefined;
+            resourceInputs["dagS3Path"] = args ? args.dagS3Path : undefined;
+            resourceInputs["environmentClass"] = args ? args.environmentClass : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["maxWorkers"] = args ? args.maxWorkers : undefined;
+            resourceInputs["minWorkers"] = args ? args.minWorkers : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["pluginsS3ObjectVersion"] = args ? args.pluginsS3ObjectVersion : undefined;
+            resourceInputs["pluginsS3Path"] = args ? args.pluginsS3Path : undefined;
+            resourceInputs["requirementsS3ObjectVersion"] = args ? args.requirementsS3ObjectVersion : undefined;
+            resourceInputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
+            resourceInputs["schedulers"] = args ? args.schedulers : undefined;
+            resourceInputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
+            resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["webserverUrl"] = undefined /*out*/;
         } else {
-            inputs["airflowConfigurationOptions"] = undefined /*out*/;
-            inputs["airflowVersion"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dagS3Path"] = undefined /*out*/;
-            inputs["environmentClass"] = undefined /*out*/;
-            inputs["executionRoleArn"] = undefined /*out*/;
-            inputs["kmsKey"] = undefined /*out*/;
-            inputs["loggingConfiguration"] = undefined /*out*/;
-            inputs["maxWorkers"] = undefined /*out*/;
-            inputs["minWorkers"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkConfiguration"] = undefined /*out*/;
-            inputs["pluginsS3ObjectVersion"] = undefined /*out*/;
-            inputs["pluginsS3Path"] = undefined /*out*/;
-            inputs["requirementsS3ObjectVersion"] = undefined /*out*/;
-            inputs["requirementsS3Path"] = undefined /*out*/;
-            inputs["schedulers"] = undefined /*out*/;
-            inputs["sourceBucketArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["webserverAccessMode"] = undefined /*out*/;
-            inputs["webserverUrl"] = undefined /*out*/;
-            inputs["weeklyMaintenanceWindowStart"] = undefined /*out*/;
+            resourceInputs["airflowConfigurationOptions"] = undefined /*out*/;
+            resourceInputs["airflowVersion"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dagS3Path"] = undefined /*out*/;
+            resourceInputs["environmentClass"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["kmsKey"] = undefined /*out*/;
+            resourceInputs["loggingConfiguration"] = undefined /*out*/;
+            resourceInputs["maxWorkers"] = undefined /*out*/;
+            resourceInputs["minWorkers"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkConfiguration"] = undefined /*out*/;
+            resourceInputs["pluginsS3ObjectVersion"] = undefined /*out*/;
+            resourceInputs["pluginsS3Path"] = undefined /*out*/;
+            resourceInputs["requirementsS3ObjectVersion"] = undefined /*out*/;
+            resourceInputs["requirementsS3Path"] = undefined /*out*/;
+            resourceInputs["schedulers"] = undefined /*out*/;
+            resourceInputs["sourceBucketArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["webserverAccessMode"] = undefined /*out*/;
+            resourceInputs["webserverUrl"] = undefined /*out*/;
+            resourceInputs["weeklyMaintenanceWindowStart"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Environment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

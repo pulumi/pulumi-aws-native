@@ -53,23 +53,21 @@ export class Classifier extends pulumi.CustomResource {
     /** @deprecated Classifier is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ClassifierArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Classifier is deprecated: Classifier is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["csvClassifier"] = args ? args.csvClassifier : undefined;
-            inputs["grokClassifier"] = args ? args.grokClassifier : undefined;
-            inputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
-            inputs["xMLClassifier"] = args ? args.xMLClassifier : undefined;
+            resourceInputs["csvClassifier"] = args ? args.csvClassifier : undefined;
+            resourceInputs["grokClassifier"] = args ? args.grokClassifier : undefined;
+            resourceInputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
+            resourceInputs["xMLClassifier"] = args ? args.xMLClassifier : undefined;
         } else {
-            inputs["csvClassifier"] = undefined /*out*/;
-            inputs["grokClassifier"] = undefined /*out*/;
-            inputs["jsonClassifier"] = undefined /*out*/;
-            inputs["xMLClassifier"] = undefined /*out*/;
+            resourceInputs["csvClassifier"] = undefined /*out*/;
+            resourceInputs["grokClassifier"] = undefined /*out*/;
+            resourceInputs["jsonClassifier"] = undefined /*out*/;
+            resourceInputs["xMLClassifier"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Classifier.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Classifier.__pulumiType, name, resourceInputs, opts);
     }
 }
 

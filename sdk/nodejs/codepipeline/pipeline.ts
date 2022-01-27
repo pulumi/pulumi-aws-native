@@ -58,7 +58,7 @@ export class Pipeline extends pulumi.CustomResource {
     /** @deprecated Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Pipeline is deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
@@ -67,30 +67,28 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.stages === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            inputs["artifactStore"] = args ? args.artifactStore : undefined;
-            inputs["artifactStores"] = args ? args.artifactStores : undefined;
-            inputs["disableInboundStageTransitions"] = args ? args.disableInboundStageTransitions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["restartExecutionOnUpdate"] = args ? args.restartExecutionOnUpdate : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["stages"] = args ? args.stages : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["artifactStore"] = args ? args.artifactStore : undefined;
+            resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
+            resourceInputs["disableInboundStageTransitions"] = args ? args.disableInboundStageTransitions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["restartExecutionOnUpdate"] = args ? args.restartExecutionOnUpdate : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stages"] = args ? args.stages : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["artifactStore"] = undefined /*out*/;
-            inputs["artifactStores"] = undefined /*out*/;
-            inputs["disableInboundStageTransitions"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["restartExecutionOnUpdate"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["stages"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["artifactStore"] = undefined /*out*/;
+            resourceInputs["artifactStores"] = undefined /*out*/;
+            resourceInputs["disableInboundStageTransitions"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["restartExecutionOnUpdate"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["stages"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

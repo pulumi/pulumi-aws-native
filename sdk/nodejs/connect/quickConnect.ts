@@ -68,7 +68,7 @@ export class QuickConnect extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: QuickConnectArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
@@ -77,24 +77,22 @@ export class QuickConnect extends pulumi.CustomResource {
             if ((!args || args.quickConnectConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'quickConnectConfig'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["instanceArn"] = args ? args.instanceArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["quickConnectConfig"] = args ? args.quickConnectConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["quickConnectArn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["quickConnectConfig"] = args ? args.quickConnectConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["quickConnectArn"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["instanceArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["quickConnectArn"] = undefined /*out*/;
-            inputs["quickConnectConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["quickConnectArn"] = undefined /*out*/;
+            resourceInputs["quickConnectConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(QuickConnect.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(QuickConnect.__pulumiType, name, resourceInputs, opts);
     }
 }
 

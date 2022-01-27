@@ -50,30 +50,28 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            inputs["cACertificatePem"] = args ? args.cACertificatePem : undefined;
-            inputs["certificateMode"] = args ? args.certificateMode : undefined;
-            inputs["certificatePem"] = args ? args.certificatePem : undefined;
-            inputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["cACertificatePem"] = args ? args.cACertificatePem : undefined;
+            resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
+            resourceInputs["certificatePem"] = args ? args.certificatePem : undefined;
+            resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["cACertificatePem"] = undefined /*out*/;
-            inputs["certificateMode"] = undefined /*out*/;
-            inputs["certificatePem"] = undefined /*out*/;
-            inputs["certificateSigningRequest"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cACertificatePem"] = undefined /*out*/;
+            resourceInputs["certificateMode"] = undefined /*out*/;
+            resourceInputs["certificatePem"] = undefined /*out*/;
+            resourceInputs["certificateSigningRequest"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

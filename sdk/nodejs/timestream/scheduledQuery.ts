@@ -87,7 +87,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduledQueryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.errorReportConfiguration === undefined) && !opts.urn) {
@@ -105,50 +105,48 @@ export class ScheduledQuery extends pulumi.CustomResource {
             if ((!args || args.scheduledQueryExecutionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduledQueryExecutionRoleArn'");
             }
-            inputs["clientToken"] = args ? args.clientToken : undefined;
-            inputs["errorReportConfiguration"] = args ? args.errorReportConfiguration : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            inputs["queryString"] = args ? args.queryString : undefined;
-            inputs["scheduleConfiguration"] = args ? args.scheduleConfiguration : undefined;
-            inputs["scheduledQueryExecutionRoleArn"] = args ? args.scheduledQueryExecutionRoleArn : undefined;
-            inputs["scheduledQueryName"] = args ? args.scheduledQueryName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetConfiguration"] = args ? args.targetConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["sQErrorReportConfiguration"] = undefined /*out*/;
-            inputs["sQKmsKeyId"] = undefined /*out*/;
-            inputs["sQName"] = undefined /*out*/;
-            inputs["sQNotificationConfiguration"] = undefined /*out*/;
-            inputs["sQQueryString"] = undefined /*out*/;
-            inputs["sQScheduleConfiguration"] = undefined /*out*/;
-            inputs["sQScheduledQueryExecutionRoleArn"] = undefined /*out*/;
-            inputs["sQTargetConfiguration"] = undefined /*out*/;
+            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
+            resourceInputs["errorReportConfiguration"] = args ? args.errorReportConfiguration : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
+            resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["scheduleConfiguration"] = args ? args.scheduleConfiguration : undefined;
+            resourceInputs["scheduledQueryExecutionRoleArn"] = args ? args.scheduledQueryExecutionRoleArn : undefined;
+            resourceInputs["scheduledQueryName"] = args ? args.scheduledQueryName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetConfiguration"] = args ? args.targetConfiguration : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["sQErrorReportConfiguration"] = undefined /*out*/;
+            resourceInputs["sQKmsKeyId"] = undefined /*out*/;
+            resourceInputs["sQName"] = undefined /*out*/;
+            resourceInputs["sQNotificationConfiguration"] = undefined /*out*/;
+            resourceInputs["sQQueryString"] = undefined /*out*/;
+            resourceInputs["sQScheduleConfiguration"] = undefined /*out*/;
+            resourceInputs["sQScheduledQueryExecutionRoleArn"] = undefined /*out*/;
+            resourceInputs["sQTargetConfiguration"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["clientToken"] = undefined /*out*/;
-            inputs["errorReportConfiguration"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["notificationConfiguration"] = undefined /*out*/;
-            inputs["queryString"] = undefined /*out*/;
-            inputs["sQErrorReportConfiguration"] = undefined /*out*/;
-            inputs["sQKmsKeyId"] = undefined /*out*/;
-            inputs["sQName"] = undefined /*out*/;
-            inputs["sQNotificationConfiguration"] = undefined /*out*/;
-            inputs["sQQueryString"] = undefined /*out*/;
-            inputs["sQScheduleConfiguration"] = undefined /*out*/;
-            inputs["sQScheduledQueryExecutionRoleArn"] = undefined /*out*/;
-            inputs["sQTargetConfiguration"] = undefined /*out*/;
-            inputs["scheduleConfiguration"] = undefined /*out*/;
-            inputs["scheduledQueryExecutionRoleArn"] = undefined /*out*/;
-            inputs["scheduledQueryName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetConfiguration"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clientToken"] = undefined /*out*/;
+            resourceInputs["errorReportConfiguration"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["notificationConfiguration"] = undefined /*out*/;
+            resourceInputs["queryString"] = undefined /*out*/;
+            resourceInputs["sQErrorReportConfiguration"] = undefined /*out*/;
+            resourceInputs["sQKmsKeyId"] = undefined /*out*/;
+            resourceInputs["sQName"] = undefined /*out*/;
+            resourceInputs["sQNotificationConfiguration"] = undefined /*out*/;
+            resourceInputs["sQQueryString"] = undefined /*out*/;
+            resourceInputs["sQScheduleConfiguration"] = undefined /*out*/;
+            resourceInputs["sQScheduledQueryExecutionRoleArn"] = undefined /*out*/;
+            resourceInputs["sQTargetConfiguration"] = undefined /*out*/;
+            resourceInputs["scheduleConfiguration"] = undefined /*out*/;
+            resourceInputs["scheduledQueryExecutionRoleArn"] = undefined /*out*/;
+            resourceInputs["scheduledQueryName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScheduledQuery.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScheduledQuery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

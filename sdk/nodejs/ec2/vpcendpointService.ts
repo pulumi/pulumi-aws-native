@@ -52,23 +52,21 @@ export class VPCEndpointService extends pulumi.CustomResource {
     /** @deprecated VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: VPCEndpointServiceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPCEndpointService is deprecated: VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
-            inputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
-            inputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
-            inputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
+            resourceInputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
+            resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
+            resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
+            resourceInputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
         } else {
-            inputs["acceptanceRequired"] = undefined /*out*/;
-            inputs["gatewayLoadBalancerArns"] = undefined /*out*/;
-            inputs["networkLoadBalancerArns"] = undefined /*out*/;
-            inputs["payerResponsibility"] = undefined /*out*/;
+            resourceInputs["acceptanceRequired"] = undefined /*out*/;
+            resourceInputs["gatewayLoadBalancerArns"] = undefined /*out*/;
+            resourceInputs["networkLoadBalancerArns"] = undefined /*out*/;
+            resourceInputs["payerResponsibility"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCEndpointService.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCEndpointService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

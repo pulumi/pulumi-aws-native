@@ -51,19 +51,17 @@ export class Thing extends pulumi.CustomResource {
     /** @deprecated Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ThingArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Thing is deprecated: Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["attributePayload"] = args ? args.attributePayload : undefined;
-            inputs["thingName"] = args ? args.thingName : undefined;
+            resourceInputs["attributePayload"] = args ? args.attributePayload : undefined;
+            resourceInputs["thingName"] = args ? args.thingName : undefined;
         } else {
-            inputs["attributePayload"] = undefined /*out*/;
-            inputs["thingName"] = undefined /*out*/;
+            resourceInputs["attributePayload"] = undefined /*out*/;
+            resourceInputs["thingName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Thing.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Thing.__pulumiType, name, resourceInputs, opts);
     }
 }
 

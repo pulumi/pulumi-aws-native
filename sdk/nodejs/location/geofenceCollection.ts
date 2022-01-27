@@ -53,36 +53,34 @@ export class GeofenceCollection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GeofenceCollectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.collectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'collectionName'");
             }
-            inputs["collectionName"] = args ? args.collectionName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            inputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["collectionArn"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["collectionName"] = args ? args.collectionName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["collectionArn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["collectionArn"] = undefined /*out*/;
-            inputs["collectionName"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["pricingPlan"] = undefined /*out*/;
-            inputs["pricingPlanDataSource"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["collectionArn"] = undefined /*out*/;
+            resourceInputs["collectionName"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["pricingPlan"] = undefined /*out*/;
+            resourceInputs["pricingPlanDataSource"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GeofenceCollection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GeofenceCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

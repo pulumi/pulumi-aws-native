@@ -53,30 +53,28 @@ export class Image extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.imageRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageRoleArn'");
             }
-            inputs["imageDescription"] = args ? args.imageDescription : undefined;
-            inputs["imageDisplayName"] = args ? args.imageDisplayName : undefined;
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["imageRoleArn"] = args ? args.imageRoleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["imageArn"] = undefined /*out*/;
+            resourceInputs["imageDescription"] = args ? args.imageDescription : undefined;
+            resourceInputs["imageDisplayName"] = args ? args.imageDisplayName : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["imageRoleArn"] = args ? args.imageRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["imageArn"] = undefined /*out*/;
         } else {
-            inputs["imageArn"] = undefined /*out*/;
-            inputs["imageDescription"] = undefined /*out*/;
-            inputs["imageDisplayName"] = undefined /*out*/;
-            inputs["imageName"] = undefined /*out*/;
-            inputs["imageRoleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["imageArn"] = undefined /*out*/;
+            resourceInputs["imageDescription"] = undefined /*out*/;
+            resourceInputs["imageDisplayName"] = undefined /*out*/;
+            resourceInputs["imageName"] = undefined /*out*/;
+            resourceInputs["imageRoleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Image.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Image.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -53,7 +53,7 @@ export class DBSecurityGroup extends pulumi.CustomResource {
     /** @deprecated DBSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DBSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DBSecurityGroup is deprecated: DBSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dBSecurityGroupIngress === undefined) && !opts.urn) {
@@ -62,20 +62,18 @@ export class DBSecurityGroup extends pulumi.CustomResource {
             if ((!args || args.groupDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupDescription'");
             }
-            inputs["dBSecurityGroupIngress"] = args ? args.dBSecurityGroupIngress : undefined;
-            inputs["eC2VpcId"] = args ? args.eC2VpcId : undefined;
-            inputs["groupDescription"] = args ? args.groupDescription : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dBSecurityGroupIngress"] = args ? args.dBSecurityGroupIngress : undefined;
+            resourceInputs["eC2VpcId"] = args ? args.eC2VpcId : undefined;
+            resourceInputs["groupDescription"] = args ? args.groupDescription : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["dBSecurityGroupIngress"] = undefined /*out*/;
-            inputs["eC2VpcId"] = undefined /*out*/;
-            inputs["groupDescription"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["dBSecurityGroupIngress"] = undefined /*out*/;
+            resourceInputs["eC2VpcId"] = undefined /*out*/;
+            resourceInputs["groupDescription"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DBSecurityGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DBSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

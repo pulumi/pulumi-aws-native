@@ -56,42 +56,40 @@ export class StateMachine extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StateMachineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
-            inputs["definitionString"] = args ? args.definitionString : undefined;
-            inputs["definitionSubstitutions"] = args ? args.definitionSubstitutions : undefined;
-            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["stateMachineName"] = args ? args.stateMachineName : undefined;
-            inputs["stateMachineType"] = args ? args.stateMachineType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
+            resourceInputs["definitionString"] = args ? args.definitionString : undefined;
+            resourceInputs["definitionSubstitutions"] = args ? args.definitionSubstitutions : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stateMachineName"] = args ? args.stateMachineName : undefined;
+            resourceInputs["stateMachineType"] = args ? args.stateMachineType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["definition"] = undefined /*out*/;
-            inputs["definitionS3Location"] = undefined /*out*/;
-            inputs["definitionString"] = undefined /*out*/;
-            inputs["definitionSubstitutions"] = undefined /*out*/;
-            inputs["loggingConfiguration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["stateMachineName"] = undefined /*out*/;
-            inputs["stateMachineType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tracingConfiguration"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["definitionS3Location"] = undefined /*out*/;
+            resourceInputs["definitionString"] = undefined /*out*/;
+            resourceInputs["definitionSubstitutions"] = undefined /*out*/;
+            resourceInputs["loggingConfiguration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["stateMachineName"] = undefined /*out*/;
+            resourceInputs["stateMachineType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tracingConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StateMachine.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StateMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

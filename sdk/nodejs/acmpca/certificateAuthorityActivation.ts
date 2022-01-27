@@ -63,7 +63,7 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateAuthorityActivationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.certificate === undefined) && !opts.urn) {
@@ -72,22 +72,20 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
             if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["completeCertificateChain"] = undefined /*out*/;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["completeCertificateChain"] = undefined /*out*/;
         } else {
-            inputs["certificate"] = undefined /*out*/;
-            inputs["certificateAuthorityArn"] = undefined /*out*/;
-            inputs["certificateChain"] = undefined /*out*/;
-            inputs["completeCertificateChain"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["certificateAuthorityArn"] = undefined /*out*/;
+            resourceInputs["certificateChain"] = undefined /*out*/;
+            resourceInputs["completeCertificateChain"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CertificateAuthorityActivation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CertificateAuthorityActivation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

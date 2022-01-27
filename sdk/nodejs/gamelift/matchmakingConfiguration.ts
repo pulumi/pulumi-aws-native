@@ -65,7 +65,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     /** @deprecated MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MatchmakingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MatchmakingConfiguration is deprecated: MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.acceptanceRequired === undefined) && !opts.urn) {
@@ -77,44 +77,42 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             if ((!args || args.ruleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            inputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
-            inputs["acceptanceTimeoutSeconds"] = args ? args.acceptanceTimeoutSeconds : undefined;
-            inputs["additionalPlayerCount"] = args ? args.additionalPlayerCount : undefined;
-            inputs["backfillMode"] = args ? args.backfillMode : undefined;
-            inputs["customEventData"] = args ? args.customEventData : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["flexMatchMode"] = args ? args.flexMatchMode : undefined;
-            inputs["gameProperties"] = args ? args.gameProperties : undefined;
-            inputs["gameSessionData"] = args ? args.gameSessionData : undefined;
-            inputs["gameSessionQueueArns"] = args ? args.gameSessionQueueArns : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationTarget"] = args ? args.notificationTarget : undefined;
-            inputs["requestTimeoutSeconds"] = args ? args.requestTimeoutSeconds : undefined;
-            inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
+            resourceInputs["acceptanceTimeoutSeconds"] = args ? args.acceptanceTimeoutSeconds : undefined;
+            resourceInputs["additionalPlayerCount"] = args ? args.additionalPlayerCount : undefined;
+            resourceInputs["backfillMode"] = args ? args.backfillMode : undefined;
+            resourceInputs["customEventData"] = args ? args.customEventData : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["flexMatchMode"] = args ? args.flexMatchMode : undefined;
+            resourceInputs["gameProperties"] = args ? args.gameProperties : undefined;
+            resourceInputs["gameSessionData"] = args ? args.gameSessionData : undefined;
+            resourceInputs["gameSessionQueueArns"] = args ? args.gameSessionQueueArns : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
+            resourceInputs["requestTimeoutSeconds"] = args ? args.requestTimeoutSeconds : undefined;
+            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["acceptanceRequired"] = undefined /*out*/;
-            inputs["acceptanceTimeoutSeconds"] = undefined /*out*/;
-            inputs["additionalPlayerCount"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["backfillMode"] = undefined /*out*/;
-            inputs["customEventData"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["flexMatchMode"] = undefined /*out*/;
-            inputs["gameProperties"] = undefined /*out*/;
-            inputs["gameSessionData"] = undefined /*out*/;
-            inputs["gameSessionQueueArns"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationTarget"] = undefined /*out*/;
-            inputs["requestTimeoutSeconds"] = undefined /*out*/;
-            inputs["ruleSetName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["acceptanceRequired"] = undefined /*out*/;
+            resourceInputs["acceptanceTimeoutSeconds"] = undefined /*out*/;
+            resourceInputs["additionalPlayerCount"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["backfillMode"] = undefined /*out*/;
+            resourceInputs["customEventData"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["flexMatchMode"] = undefined /*out*/;
+            resourceInputs["gameProperties"] = undefined /*out*/;
+            resourceInputs["gameSessionData"] = undefined /*out*/;
+            resourceInputs["gameSessionQueueArns"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationTarget"] = undefined /*out*/;
+            resourceInputs["requestTimeoutSeconds"] = undefined /*out*/;
+            resourceInputs["ruleSetName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MatchmakingConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MatchmakingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

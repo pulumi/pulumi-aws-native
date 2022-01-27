@@ -52,7 +52,7 @@ export class PortfolioProductAssociation extends pulumi.CustomResource {
     /** @deprecated PortfolioProductAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PortfolioProductAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PortfolioProductAssociation is deprecated: PortfolioProductAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
@@ -61,20 +61,18 @@ export class PortfolioProductAssociation extends pulumi.CustomResource {
             if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["sourcePortfolioId"] = args ? args.sourcePortfolioId : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["sourcePortfolioId"] = args ? args.sourcePortfolioId : undefined;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["portfolioId"] = undefined /*out*/;
-            inputs["productId"] = undefined /*out*/;
-            inputs["sourcePortfolioId"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["portfolioId"] = undefined /*out*/;
+            resourceInputs["productId"] = undefined /*out*/;
+            resourceInputs["sourcePortfolioId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PortfolioProductAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PortfolioProductAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

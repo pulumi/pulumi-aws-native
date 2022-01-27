@@ -50,7 +50,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExperimentTemplateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -68,24 +68,22 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             if ((!args || args.targets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["stopConditions"] = args ? args.stopConditions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["stopConditions"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targets"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["stopConditions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targets"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExperimentTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

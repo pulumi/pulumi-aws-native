@@ -54,7 +54,7 @@ export class EventInvokeConfig extends pulumi.CustomResource {
     /** @deprecated EventInvokeConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EventInvokeConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventInvokeConfig is deprecated: EventInvokeConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.functionName === undefined) && !opts.urn) {
@@ -63,22 +63,20 @@ export class EventInvokeConfig extends pulumi.CustomResource {
             if ((!args || args.qualifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'qualifier'");
             }
-            inputs["destinationConfig"] = args ? args.destinationConfig : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["maximumEventAgeInSeconds"] = args ? args.maximumEventAgeInSeconds : undefined;
-            inputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
-            inputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["maximumEventAgeInSeconds"] = args ? args.maximumEventAgeInSeconds : undefined;
+            resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
+            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
         } else {
-            inputs["destinationConfig"] = undefined /*out*/;
-            inputs["functionName"] = undefined /*out*/;
-            inputs["maximumEventAgeInSeconds"] = undefined /*out*/;
-            inputs["maximumRetryAttempts"] = undefined /*out*/;
-            inputs["qualifier"] = undefined /*out*/;
+            resourceInputs["destinationConfig"] = undefined /*out*/;
+            resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["maximumEventAgeInSeconds"] = undefined /*out*/;
+            resourceInputs["maximumRetryAttempts"] = undefined /*out*/;
+            resourceInputs["qualifier"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventInvokeConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventInvokeConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

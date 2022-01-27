@@ -57,7 +57,7 @@ export class ScalingPolicy extends pulumi.CustomResource {
     /** @deprecated ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ScalingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ScalingPolicy is deprecated: ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.policyName === undefined) && !opts.urn) {
@@ -66,28 +66,26 @@ export class ScalingPolicy extends pulumi.CustomResource {
             if ((!args || args.policyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            inputs["scalingTargetId"] = args ? args.scalingTargetId : undefined;
-            inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            inputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
-            inputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
+            resourceInputs["scalingTargetId"] = args ? args.scalingTargetId : undefined;
+            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
+            resourceInputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
+            resourceInputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
         } else {
-            inputs["policyName"] = undefined /*out*/;
-            inputs["policyType"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["scalableDimension"] = undefined /*out*/;
-            inputs["scalingTargetId"] = undefined /*out*/;
-            inputs["serviceNamespace"] = undefined /*out*/;
-            inputs["stepScalingPolicyConfiguration"] = undefined /*out*/;
-            inputs["targetTrackingScalingPolicyConfiguration"] = undefined /*out*/;
+            resourceInputs["policyName"] = undefined /*out*/;
+            resourceInputs["policyType"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["scalableDimension"] = undefined /*out*/;
+            resourceInputs["scalingTargetId"] = undefined /*out*/;
+            resourceInputs["serviceNamespace"] = undefined /*out*/;
+            resourceInputs["stepScalingPolicyConfiguration"] = undefined /*out*/;
+            resourceInputs["targetTrackingScalingPolicyConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScalingPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScalingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

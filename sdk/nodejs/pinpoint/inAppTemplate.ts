@@ -51,32 +51,30 @@ export class InAppTemplate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InAppTemplateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.templateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["customConfig"] = args ? args.customConfig : undefined;
-            inputs["layout"] = args ? args.layout : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateDescription"] = args ? args.templateDescription : undefined;
-            inputs["templateName"] = args ? args.templateName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["customConfig"] = args ? args.customConfig : undefined;
+            resourceInputs["layout"] = args ? args.layout : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateDescription"] = args ? args.templateDescription : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["content"] = undefined /*out*/;
-            inputs["customConfig"] = undefined /*out*/;
-            inputs["layout"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateDescription"] = undefined /*out*/;
-            inputs["templateName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["customConfig"] = undefined /*out*/;
+            resourceInputs["layout"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateDescription"] = undefined /*out*/;
+            resourceInputs["templateName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InAppTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InAppTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

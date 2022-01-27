@@ -90,37 +90,35 @@ export class TypeActivation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: TypeActivationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["autoUpdate"] = args ? args.autoUpdate : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            inputs["majorVersion"] = args ? args.majorVersion : undefined;
-            inputs["publicTypeArn"] = args ? args.publicTypeArn : undefined;
-            inputs["publisherId"] = args ? args.publisherId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typeName"] = args ? args.typeName : undefined;
-            inputs["typeNameAlias"] = args ? args.typeNameAlias : undefined;
-            inputs["versionBump"] = args ? args.versionBump : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["autoUpdate"] = args ? args.autoUpdate : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["majorVersion"] = args ? args.majorVersion : undefined;
+            resourceInputs["publicTypeArn"] = args ? args.publicTypeArn : undefined;
+            resourceInputs["publisherId"] = args ? args.publisherId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["typeNameAlias"] = args ? args.typeNameAlias : undefined;
+            resourceInputs["versionBump"] = args ? args.versionBump : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoUpdate"] = undefined /*out*/;
-            inputs["executionRoleArn"] = undefined /*out*/;
-            inputs["loggingConfig"] = undefined /*out*/;
-            inputs["majorVersion"] = undefined /*out*/;
-            inputs["publicTypeArn"] = undefined /*out*/;
-            inputs["publisherId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["typeName"] = undefined /*out*/;
-            inputs["typeNameAlias"] = undefined /*out*/;
-            inputs["versionBump"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoUpdate"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["loggingConfig"] = undefined /*out*/;
+            resourceInputs["majorVersion"] = undefined /*out*/;
+            resourceInputs["publicTypeArn"] = undefined /*out*/;
+            resourceInputs["publisherId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["typeName"] = undefined /*out*/;
+            resourceInputs["typeNameAlias"] = undefined /*out*/;
+            resourceInputs["versionBump"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TypeActivation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TypeActivation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

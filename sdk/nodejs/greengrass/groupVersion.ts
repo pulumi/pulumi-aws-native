@@ -56,34 +56,32 @@ export class GroupVersion extends pulumi.CustomResource {
     /** @deprecated GroupVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: GroupVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GroupVersion is deprecated: GroupVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            inputs["connectorDefinitionVersionArn"] = args ? args.connectorDefinitionVersionArn : undefined;
-            inputs["coreDefinitionVersionArn"] = args ? args.coreDefinitionVersionArn : undefined;
-            inputs["deviceDefinitionVersionArn"] = args ? args.deviceDefinitionVersionArn : undefined;
-            inputs["functionDefinitionVersionArn"] = args ? args.functionDefinitionVersionArn : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["loggerDefinitionVersionArn"] = args ? args.loggerDefinitionVersionArn : undefined;
-            inputs["resourceDefinitionVersionArn"] = args ? args.resourceDefinitionVersionArn : undefined;
-            inputs["subscriptionDefinitionVersionArn"] = args ? args.subscriptionDefinitionVersionArn : undefined;
+            resourceInputs["connectorDefinitionVersionArn"] = args ? args.connectorDefinitionVersionArn : undefined;
+            resourceInputs["coreDefinitionVersionArn"] = args ? args.coreDefinitionVersionArn : undefined;
+            resourceInputs["deviceDefinitionVersionArn"] = args ? args.deviceDefinitionVersionArn : undefined;
+            resourceInputs["functionDefinitionVersionArn"] = args ? args.functionDefinitionVersionArn : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["loggerDefinitionVersionArn"] = args ? args.loggerDefinitionVersionArn : undefined;
+            resourceInputs["resourceDefinitionVersionArn"] = args ? args.resourceDefinitionVersionArn : undefined;
+            resourceInputs["subscriptionDefinitionVersionArn"] = args ? args.subscriptionDefinitionVersionArn : undefined;
         } else {
-            inputs["connectorDefinitionVersionArn"] = undefined /*out*/;
-            inputs["coreDefinitionVersionArn"] = undefined /*out*/;
-            inputs["deviceDefinitionVersionArn"] = undefined /*out*/;
-            inputs["functionDefinitionVersionArn"] = undefined /*out*/;
-            inputs["groupId"] = undefined /*out*/;
-            inputs["loggerDefinitionVersionArn"] = undefined /*out*/;
-            inputs["resourceDefinitionVersionArn"] = undefined /*out*/;
-            inputs["subscriptionDefinitionVersionArn"] = undefined /*out*/;
+            resourceInputs["connectorDefinitionVersionArn"] = undefined /*out*/;
+            resourceInputs["coreDefinitionVersionArn"] = undefined /*out*/;
+            resourceInputs["deviceDefinitionVersionArn"] = undefined /*out*/;
+            resourceInputs["functionDefinitionVersionArn"] = undefined /*out*/;
+            resourceInputs["groupId"] = undefined /*out*/;
+            resourceInputs["loggerDefinitionVersionArn"] = undefined /*out*/;
+            resourceInputs["resourceDefinitionVersionArn"] = undefined /*out*/;
+            resourceInputs["subscriptionDefinitionVersionArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GroupVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GroupVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

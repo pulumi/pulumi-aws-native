@@ -52,7 +52,7 @@ export class StreamingDistribution extends pulumi.CustomResource {
     /** @deprecated StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StreamingDistributionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("StreamingDistribution is deprecated: StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.streamingDistributionConfig === undefined) && !opts.urn) {
@@ -61,18 +61,16 @@ export class StreamingDistribution extends pulumi.CustomResource {
             if ((!args || args.tags === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            inputs["streamingDistributionConfig"] = args ? args.streamingDistributionConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["domainName"] = undefined /*out*/;
+            resourceInputs["streamingDistributionConfig"] = args ? args.streamingDistributionConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainName"] = undefined /*out*/;
         } else {
-            inputs["domainName"] = undefined /*out*/;
-            inputs["streamingDistributionConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["streamingDistributionConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamingDistribution.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamingDistribution.__pulumiType, name, resourceInputs, opts);
     }
 }
 

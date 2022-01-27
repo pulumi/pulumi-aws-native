@@ -50,27 +50,25 @@ export class Datastore extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DatastoreArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["datastoreName"] = args ? args.datastoreName : undefined;
-            inputs["datastorePartitions"] = args ? args.datastorePartitions : undefined;
-            inputs["datastoreStorage"] = args ? args.datastoreStorage : undefined;
-            inputs["fileFormatConfiguration"] = args ? args.fileFormatConfiguration : undefined;
-            inputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
+            resourceInputs["datastorePartitions"] = args ? args.datastorePartitions : undefined;
+            resourceInputs["datastoreStorage"] = args ? args.datastoreStorage : undefined;
+            resourceInputs["fileFormatConfiguration"] = args ? args.fileFormatConfiguration : undefined;
+            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["datastoreName"] = undefined /*out*/;
-            inputs["datastorePartitions"] = undefined /*out*/;
-            inputs["datastoreStorage"] = undefined /*out*/;
-            inputs["fileFormatConfiguration"] = undefined /*out*/;
-            inputs["retentionPeriod"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["datastoreName"] = undefined /*out*/;
+            resourceInputs["datastorePartitions"] = undefined /*out*/;
+            resourceInputs["datastoreStorage"] = undefined /*out*/;
+            resourceInputs["fileFormatConfiguration"] = undefined /*out*/;
+            resourceInputs["retentionPeriod"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Datastore.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Datastore.__pulumiType, name, resourceInputs, opts);
     }
 }
 

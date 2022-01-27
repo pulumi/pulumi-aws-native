@@ -65,7 +65,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.datasetName === undefined) && !opts.urn) {
@@ -77,24 +77,22 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["datasetName"] = args ? args.datasetName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recipeName"] = args ? args.recipeName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["sample"] = args ? args.sample : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recipeName"] = args ? args.recipeName : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["sample"] = args ? args.sample : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["datasetName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["recipeName"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["sample"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["datasetName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recipeName"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["sample"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Project.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }
 

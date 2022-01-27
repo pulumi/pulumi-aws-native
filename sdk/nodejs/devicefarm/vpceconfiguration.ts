@@ -50,7 +50,7 @@ export class VPCEConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VPCEConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.serviceDnsName === undefined) && !opts.urn) {
@@ -62,24 +62,22 @@ export class VPCEConfiguration extends pulumi.CustomResource {
             if ((!args || args.vpceServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpceServiceName'");
             }
-            inputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpceConfigurationDescription"] = args ? args.vpceConfigurationDescription : undefined;
-            inputs["vpceConfigurationName"] = args ? args.vpceConfigurationName : undefined;
-            inputs["vpceServiceName"] = args ? args.vpceServiceName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpceConfigurationDescription"] = args ? args.vpceConfigurationDescription : undefined;
+            resourceInputs["vpceConfigurationName"] = args ? args.vpceConfigurationName : undefined;
+            resourceInputs["vpceServiceName"] = args ? args.vpceServiceName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["serviceDnsName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpceConfigurationDescription"] = undefined /*out*/;
-            inputs["vpceConfigurationName"] = undefined /*out*/;
-            inputs["vpceServiceName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["serviceDnsName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpceConfigurationDescription"] = undefined /*out*/;
+            resourceInputs["vpceConfigurationName"] = undefined /*out*/;
+            resourceInputs["vpceServiceName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCEConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCEConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

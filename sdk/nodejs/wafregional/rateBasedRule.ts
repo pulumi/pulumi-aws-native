@@ -54,7 +54,7 @@ export class RateBasedRule extends pulumi.CustomResource {
     /** @deprecated RateBasedRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RateBasedRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RateBasedRule is deprecated: RateBasedRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.metricName === undefined) && !opts.urn) {
@@ -66,22 +66,20 @@ export class RateBasedRule extends pulumi.CustomResource {
             if ((!args || args.rateLimit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rateLimit'");
             }
-            inputs["matchPredicates"] = args ? args.matchPredicates : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rateKey"] = args ? args.rateKey : undefined;
-            inputs["rateLimit"] = args ? args.rateLimit : undefined;
+            resourceInputs["matchPredicates"] = args ? args.matchPredicates : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rateKey"] = args ? args.rateKey : undefined;
+            resourceInputs["rateLimit"] = args ? args.rateLimit : undefined;
         } else {
-            inputs["matchPredicates"] = undefined /*out*/;
-            inputs["metricName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rateKey"] = undefined /*out*/;
-            inputs["rateLimit"] = undefined /*out*/;
+            resourceInputs["matchPredicates"] = undefined /*out*/;
+            resourceInputs["metricName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rateKey"] = undefined /*out*/;
+            resourceInputs["rateLimit"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RateBasedRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RateBasedRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

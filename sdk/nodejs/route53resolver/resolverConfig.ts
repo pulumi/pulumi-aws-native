@@ -60,7 +60,7 @@ export class ResolverConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResolverConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autodefinedReverseFlag === undefined) && !opts.urn) {
@@ -69,20 +69,18 @@ export class ResolverConfig extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["autodefinedReverseFlag"] = args ? args.autodefinedReverseFlag : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["autodefinedReverse"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
+            resourceInputs["autodefinedReverseFlag"] = args ? args.autodefinedReverseFlag : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["autodefinedReverse"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
         } else {
-            inputs["autodefinedReverse"] = undefined /*out*/;
-            inputs["autodefinedReverseFlag"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
+            resourceInputs["autodefinedReverse"] = undefined /*out*/;
+            resourceInputs["autodefinedReverseFlag"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

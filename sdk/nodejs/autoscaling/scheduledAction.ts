@@ -56,34 +56,32 @@ export class ScheduledAction extends pulumi.CustomResource {
     /** @deprecated ScheduledAction is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ScheduledActionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ScheduledAction is deprecated: ScheduledAction is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            inputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            inputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["recurrence"] = args ? args.recurrence : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
+            resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
         } else {
-            inputs["autoScalingGroupName"] = undefined /*out*/;
-            inputs["desiredCapacity"] = undefined /*out*/;
-            inputs["endTime"] = undefined /*out*/;
-            inputs["maxSize"] = undefined /*out*/;
-            inputs["minSize"] = undefined /*out*/;
-            inputs["recurrence"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["timeZone"] = undefined /*out*/;
+            resourceInputs["autoScalingGroupName"] = undefined /*out*/;
+            resourceInputs["desiredCapacity"] = undefined /*out*/;
+            resourceInputs["endTime"] = undefined /*out*/;
+            resourceInputs["maxSize"] = undefined /*out*/;
+            resourceInputs["minSize"] = undefined /*out*/;
+            resourceInputs["recurrence"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScheduledAction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

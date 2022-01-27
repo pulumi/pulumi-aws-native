@@ -52,26 +52,24 @@ export class TransitGatewayRoute extends pulumi.CustomResource {
     /** @deprecated TransitGatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TransitGatewayRouteArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TransitGatewayRoute is deprecated: TransitGatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            inputs["blackhole"] = args ? args.blackhole : undefined;
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
+            resourceInputs["blackhole"] = args ? args.blackhole : undefined;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
         } else {
-            inputs["blackhole"] = undefined /*out*/;
-            inputs["destinationCidrBlock"] = undefined /*out*/;
-            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
-            inputs["transitGatewayRouteTableId"] = undefined /*out*/;
+            resourceInputs["blackhole"] = undefined /*out*/;
+            resourceInputs["destinationCidrBlock"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayRoute.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayRoute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

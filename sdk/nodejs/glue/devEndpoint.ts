@@ -63,48 +63,46 @@ export class DevEndpoint extends pulumi.CustomResource {
     /** @deprecated DevEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DevEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DevEndpoint is deprecated: DevEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["arguments"] = args ? args.arguments : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["extraJarsS3Path"] = args ? args.extraJarsS3Path : undefined;
-            inputs["extraPythonLibsS3Path"] = args ? args.extraPythonLibsS3Path : undefined;
-            inputs["glueVersion"] = args ? args.glueVersion : undefined;
-            inputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
-            inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["publicKeys"] = args ? args.publicKeys : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["arguments"] = args ? args.arguments : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["extraJarsS3Path"] = args ? args.extraJarsS3Path : undefined;
+            resourceInputs["extraPythonLibsS3Path"] = args ? args.extraPythonLibsS3Path : undefined;
+            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
+            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
+            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["publicKeys"] = args ? args.publicKeys : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workerType"] = args ? args.workerType : undefined;
         } else {
-            inputs["arguments"] = undefined /*out*/;
-            inputs["endpointName"] = undefined /*out*/;
-            inputs["extraJarsS3Path"] = undefined /*out*/;
-            inputs["extraPythonLibsS3Path"] = undefined /*out*/;
-            inputs["glueVersion"] = undefined /*out*/;
-            inputs["numberOfNodes"] = undefined /*out*/;
-            inputs["numberOfWorkers"] = undefined /*out*/;
-            inputs["publicKey"] = undefined /*out*/;
-            inputs["publicKeys"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["securityConfiguration"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["workerType"] = undefined /*out*/;
+            resourceInputs["arguments"] = undefined /*out*/;
+            resourceInputs["endpointName"] = undefined /*out*/;
+            resourceInputs["extraJarsS3Path"] = undefined /*out*/;
+            resourceInputs["extraPythonLibsS3Path"] = undefined /*out*/;
+            resourceInputs["glueVersion"] = undefined /*out*/;
+            resourceInputs["numberOfNodes"] = undefined /*out*/;
+            resourceInputs["numberOfWorkers"] = undefined /*out*/;
+            resourceInputs["publicKey"] = undefined /*out*/;
+            resourceInputs["publicKeys"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["securityConfiguration"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workerType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DevEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DevEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -45,7 +45,7 @@ export class ApplicationFleetAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationFleetAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationArn === undefined) && !opts.urn) {
@@ -54,16 +54,14 @@ export class ApplicationFleetAssociation extends pulumi.CustomResource {
             if ((!args || args.fleetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            inputs["applicationArn"] = args ? args.applicationArn : undefined;
-            inputs["fleetName"] = args ? args.fleetName : undefined;
+            resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
+            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
         } else {
-            inputs["applicationArn"] = undefined /*out*/;
-            inputs["fleetName"] = undefined /*out*/;
+            resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["fleetName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationFleetAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationFleetAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

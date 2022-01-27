@@ -81,7 +81,7 @@ export class Endpoint extends pulumi.CustomResource {
     /** @deprecated Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Endpoint is deprecated: Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointType === undefined) && !opts.urn) {
@@ -90,76 +90,74 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.engineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineName'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["docDbSettings"] = args ? args.docDbSettings : undefined;
-            inputs["dynamoDbSettings"] = args ? args.dynamoDbSettings : undefined;
-            inputs["elasticsearchSettings"] = args ? args.elasticsearchSettings : undefined;
-            inputs["endpointIdentifier"] = args ? args.endpointIdentifier : undefined;
-            inputs["endpointType"] = args ? args.endpointType : undefined;
-            inputs["engineName"] = args ? args.engineName : undefined;
-            inputs["extraConnectionAttributes"] = args ? args.extraConnectionAttributes : undefined;
-            inputs["gcpMySQLSettings"] = args ? args.gcpMySQLSettings : undefined;
-            inputs["ibmDb2Settings"] = args ? args.ibmDb2Settings : undefined;
-            inputs["kafkaSettings"] = args ? args.kafkaSettings : undefined;
-            inputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["microsoftSqlServerSettings"] = args ? args.microsoftSqlServerSettings : undefined;
-            inputs["mongoDbSettings"] = args ? args.mongoDbSettings : undefined;
-            inputs["mySqlSettings"] = args ? args.mySqlSettings : undefined;
-            inputs["neptuneSettings"] = args ? args.neptuneSettings : undefined;
-            inputs["oracleSettings"] = args ? args.oracleSettings : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["postgreSqlSettings"] = args ? args.postgreSqlSettings : undefined;
-            inputs["redisSettings"] = args ? args.redisSettings : undefined;
-            inputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
-            inputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            inputs["s3Settings"] = args ? args.s3Settings : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sslMode"] = args ? args.sslMode : undefined;
-            inputs["sybaseSettings"] = args ? args.sybaseSettings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["externalId"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["docDbSettings"] = args ? args.docDbSettings : undefined;
+            resourceInputs["dynamoDbSettings"] = args ? args.dynamoDbSettings : undefined;
+            resourceInputs["elasticsearchSettings"] = args ? args.elasticsearchSettings : undefined;
+            resourceInputs["endpointIdentifier"] = args ? args.endpointIdentifier : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["engineName"] = args ? args.engineName : undefined;
+            resourceInputs["extraConnectionAttributes"] = args ? args.extraConnectionAttributes : undefined;
+            resourceInputs["gcpMySQLSettings"] = args ? args.gcpMySQLSettings : undefined;
+            resourceInputs["ibmDb2Settings"] = args ? args.ibmDb2Settings : undefined;
+            resourceInputs["kafkaSettings"] = args ? args.kafkaSettings : undefined;
+            resourceInputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["microsoftSqlServerSettings"] = args ? args.microsoftSqlServerSettings : undefined;
+            resourceInputs["mongoDbSettings"] = args ? args.mongoDbSettings : undefined;
+            resourceInputs["mySqlSettings"] = args ? args.mySqlSettings : undefined;
+            resourceInputs["neptuneSettings"] = args ? args.neptuneSettings : undefined;
+            resourceInputs["oracleSettings"] = args ? args.oracleSettings : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["postgreSqlSettings"] = args ? args.postgreSqlSettings : undefined;
+            resourceInputs["redisSettings"] = args ? args.redisSettings : undefined;
+            resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
+            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["s3Settings"] = args ? args.s3Settings : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sslMode"] = args ? args.sslMode : undefined;
+            resourceInputs["sybaseSettings"] = args ? args.sybaseSettings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["externalId"] = undefined /*out*/;
         } else {
-            inputs["certificateArn"] = undefined /*out*/;
-            inputs["databaseName"] = undefined /*out*/;
-            inputs["docDbSettings"] = undefined /*out*/;
-            inputs["dynamoDbSettings"] = undefined /*out*/;
-            inputs["elasticsearchSettings"] = undefined /*out*/;
-            inputs["endpointIdentifier"] = undefined /*out*/;
-            inputs["endpointType"] = undefined /*out*/;
-            inputs["engineName"] = undefined /*out*/;
-            inputs["externalId"] = undefined /*out*/;
-            inputs["extraConnectionAttributes"] = undefined /*out*/;
-            inputs["gcpMySQLSettings"] = undefined /*out*/;
-            inputs["ibmDb2Settings"] = undefined /*out*/;
-            inputs["kafkaSettings"] = undefined /*out*/;
-            inputs["kinesisSettings"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["microsoftSqlServerSettings"] = undefined /*out*/;
-            inputs["mongoDbSettings"] = undefined /*out*/;
-            inputs["mySqlSettings"] = undefined /*out*/;
-            inputs["neptuneSettings"] = undefined /*out*/;
-            inputs["oracleSettings"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["postgreSqlSettings"] = undefined /*out*/;
-            inputs["redisSettings"] = undefined /*out*/;
-            inputs["redshiftSettings"] = undefined /*out*/;
-            inputs["resourceIdentifier"] = undefined /*out*/;
-            inputs["s3Settings"] = undefined /*out*/;
-            inputs["serverName"] = undefined /*out*/;
-            inputs["sslMode"] = undefined /*out*/;
-            inputs["sybaseSettings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["username"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = undefined /*out*/;
+            resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["docDbSettings"] = undefined /*out*/;
+            resourceInputs["dynamoDbSettings"] = undefined /*out*/;
+            resourceInputs["elasticsearchSettings"] = undefined /*out*/;
+            resourceInputs["endpointIdentifier"] = undefined /*out*/;
+            resourceInputs["endpointType"] = undefined /*out*/;
+            resourceInputs["engineName"] = undefined /*out*/;
+            resourceInputs["externalId"] = undefined /*out*/;
+            resourceInputs["extraConnectionAttributes"] = undefined /*out*/;
+            resourceInputs["gcpMySQLSettings"] = undefined /*out*/;
+            resourceInputs["ibmDb2Settings"] = undefined /*out*/;
+            resourceInputs["kafkaSettings"] = undefined /*out*/;
+            resourceInputs["kinesisSettings"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["microsoftSqlServerSettings"] = undefined /*out*/;
+            resourceInputs["mongoDbSettings"] = undefined /*out*/;
+            resourceInputs["mySqlSettings"] = undefined /*out*/;
+            resourceInputs["neptuneSettings"] = undefined /*out*/;
+            resourceInputs["oracleSettings"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["postgreSqlSettings"] = undefined /*out*/;
+            resourceInputs["redisSettings"] = undefined /*out*/;
+            resourceInputs["redshiftSettings"] = undefined /*out*/;
+            resourceInputs["resourceIdentifier"] = undefined /*out*/;
+            resourceInputs["s3Settings"] = undefined /*out*/;
+            resourceInputs["serverName"] = undefined /*out*/;
+            resourceInputs["sslMode"] = undefined /*out*/;
+            resourceInputs["sybaseSettings"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["username"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

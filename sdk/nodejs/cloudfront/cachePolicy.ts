@@ -46,22 +46,20 @@ export class CachePolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CachePolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cachePolicyConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cachePolicyConfig'");
             }
-            inputs["cachePolicyConfig"] = args ? args.cachePolicyConfig : undefined;
-            inputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["cachePolicyConfig"] = args ? args.cachePolicyConfig : undefined;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["cachePolicyConfig"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["cachePolicyConfig"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CachePolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CachePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

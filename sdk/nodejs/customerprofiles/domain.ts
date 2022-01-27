@@ -72,29 +72,27 @@ export class Domain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["deadLetterQueueUrl"] = args ? args.deadLetterQueueUrl : undefined;
-            inputs["defaultEncryptionKey"] = args ? args.defaultEncryptionKey : undefined;
-            inputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["deadLetterQueueUrl"] = args ? args.deadLetterQueueUrl : undefined;
+            resourceInputs["defaultEncryptionKey"] = args ? args.defaultEncryptionKey : undefined;
+            resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["deadLetterQueueUrl"] = undefined /*out*/;
-            inputs["defaultEncryptionKey"] = undefined /*out*/;
-            inputs["defaultExpirationDays"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["lastUpdatedAt"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["deadLetterQueueUrl"] = undefined /*out*/;
+            resourceInputs["defaultEncryptionKey"] = undefined /*out*/;
+            resourceInputs["defaultExpirationDays"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Domain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

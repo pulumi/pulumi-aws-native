@@ -9,9 +9,7 @@ export function getUrlSuffix(opts?: pulumi.InvokeOptions): Promise<GetUrlSuffixR
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:index:getUrlSuffix", {
     }, opts);
 }

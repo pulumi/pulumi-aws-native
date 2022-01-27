@@ -53,23 +53,21 @@ export class Build extends pulumi.CustomResource {
     /** @deprecated Build is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: BuildArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Build is deprecated: Build is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["name"] = args ? args.name : undefined;
-            inputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            inputs["storageLocation"] = args ? args.storageLocation : undefined;
-            inputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["operatingSystem"] = undefined /*out*/;
-            inputs["storageLocation"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operatingSystem"] = undefined /*out*/;
+            resourceInputs["storageLocation"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Build.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Build.__pulumiType, name, resourceInputs, opts);
     }
 }
 

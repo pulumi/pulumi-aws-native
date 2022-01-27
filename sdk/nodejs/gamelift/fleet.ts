@@ -137,61 +137,59 @@ export class Fleet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: FleetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["buildId"] = args ? args.buildId : undefined;
-            inputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["desiredEC2Instances"] = args ? args.desiredEC2Instances : undefined;
-            inputs["eC2InboundPermissions"] = args ? args.eC2InboundPermissions : undefined;
-            inputs["eC2InstanceType"] = args ? args.eC2InstanceType : undefined;
-            inputs["fleetType"] = args ? args.fleetType : undefined;
-            inputs["instanceRoleARN"] = args ? args.instanceRoleARN : undefined;
-            inputs["locations"] = args ? args.locations : undefined;
-            inputs["logPaths"] = args ? args.logPaths : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["metricGroups"] = args ? args.metricGroups : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
-            inputs["peerVpcAwsAccountId"] = args ? args.peerVpcAwsAccountId : undefined;
-            inputs["peerVpcId"] = args ? args.peerVpcId : undefined;
-            inputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
-            inputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
-            inputs["scriptId"] = args ? args.scriptId : undefined;
-            inputs["serverLaunchParameters"] = args ? args.serverLaunchParameters : undefined;
-            inputs["serverLaunchPath"] = args ? args.serverLaunchPath : undefined;
-            inputs["fleetId"] = undefined /*out*/;
+            resourceInputs["buildId"] = args ? args.buildId : undefined;
+            resourceInputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["desiredEC2Instances"] = args ? args.desiredEC2Instances : undefined;
+            resourceInputs["eC2InboundPermissions"] = args ? args.eC2InboundPermissions : undefined;
+            resourceInputs["eC2InstanceType"] = args ? args.eC2InstanceType : undefined;
+            resourceInputs["fleetType"] = args ? args.fleetType : undefined;
+            resourceInputs["instanceRoleARN"] = args ? args.instanceRoleARN : undefined;
+            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["logPaths"] = args ? args.logPaths : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["metricGroups"] = args ? args.metricGroups : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
+            resourceInputs["peerVpcAwsAccountId"] = args ? args.peerVpcAwsAccountId : undefined;
+            resourceInputs["peerVpcId"] = args ? args.peerVpcId : undefined;
+            resourceInputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
+            resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
+            resourceInputs["scriptId"] = args ? args.scriptId : undefined;
+            resourceInputs["serverLaunchParameters"] = args ? args.serverLaunchParameters : undefined;
+            resourceInputs["serverLaunchPath"] = args ? args.serverLaunchPath : undefined;
+            resourceInputs["fleetId"] = undefined /*out*/;
         } else {
-            inputs["buildId"] = undefined /*out*/;
-            inputs["certificateConfiguration"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["desiredEC2Instances"] = undefined /*out*/;
-            inputs["eC2InboundPermissions"] = undefined /*out*/;
-            inputs["eC2InstanceType"] = undefined /*out*/;
-            inputs["fleetId"] = undefined /*out*/;
-            inputs["fleetType"] = undefined /*out*/;
-            inputs["instanceRoleARN"] = undefined /*out*/;
-            inputs["locations"] = undefined /*out*/;
-            inputs["logPaths"] = undefined /*out*/;
-            inputs["maxSize"] = undefined /*out*/;
-            inputs["metricGroups"] = undefined /*out*/;
-            inputs["minSize"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["newGameSessionProtectionPolicy"] = undefined /*out*/;
-            inputs["peerVpcAwsAccountId"] = undefined /*out*/;
-            inputs["peerVpcId"] = undefined /*out*/;
-            inputs["resourceCreationLimitPolicy"] = undefined /*out*/;
-            inputs["runtimeConfiguration"] = undefined /*out*/;
-            inputs["scriptId"] = undefined /*out*/;
-            inputs["serverLaunchParameters"] = undefined /*out*/;
-            inputs["serverLaunchPath"] = undefined /*out*/;
+            resourceInputs["buildId"] = undefined /*out*/;
+            resourceInputs["certificateConfiguration"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["desiredEC2Instances"] = undefined /*out*/;
+            resourceInputs["eC2InboundPermissions"] = undefined /*out*/;
+            resourceInputs["eC2InstanceType"] = undefined /*out*/;
+            resourceInputs["fleetId"] = undefined /*out*/;
+            resourceInputs["fleetType"] = undefined /*out*/;
+            resourceInputs["instanceRoleARN"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
+            resourceInputs["logPaths"] = undefined /*out*/;
+            resourceInputs["maxSize"] = undefined /*out*/;
+            resourceInputs["metricGroups"] = undefined /*out*/;
+            resourceInputs["minSize"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["newGameSessionProtectionPolicy"] = undefined /*out*/;
+            resourceInputs["peerVpcAwsAccountId"] = undefined /*out*/;
+            resourceInputs["peerVpcId"] = undefined /*out*/;
+            resourceInputs["resourceCreationLimitPolicy"] = undefined /*out*/;
+            resourceInputs["runtimeConfiguration"] = undefined /*out*/;
+            resourceInputs["scriptId"] = undefined /*out*/;
+            resourceInputs["serverLaunchParameters"] = undefined /*out*/;
+            resourceInputs["serverLaunchPath"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Fleet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

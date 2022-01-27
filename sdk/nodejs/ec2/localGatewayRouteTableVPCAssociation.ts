@@ -68,7 +68,7 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocalGatewayRouteTableVPCAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
@@ -77,24 +77,22 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["localGatewayId"] = undefined /*out*/;
-            inputs["localGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["localGatewayId"] = undefined /*out*/;
+            resourceInputs["localGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
-            inputs["localGatewayId"] = undefined /*out*/;
-            inputs["localGatewayRouteTableId"] = undefined /*out*/;
-            inputs["localGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["localGatewayId"] = undefined /*out*/;
+            resourceInputs["localGatewayRouteTableId"] = undefined /*out*/;
+            resourceInputs["localGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocalGatewayRouteTableVPCAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocalGatewayRouteTableVPCAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

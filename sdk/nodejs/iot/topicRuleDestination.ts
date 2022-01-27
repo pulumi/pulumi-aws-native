@@ -64,25 +64,23 @@ export class TopicRuleDestination extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: TopicRuleDestinationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["httpUrlProperties"] = args ? args.httpUrlProperties : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["vpcProperties"] = args ? args.vpcProperties : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["statusReason"] = undefined /*out*/;
+            resourceInputs["httpUrlProperties"] = args ? args.httpUrlProperties : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["vpcProperties"] = args ? args.vpcProperties : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["httpUrlProperties"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusReason"] = undefined /*out*/;
-            inputs["vpcProperties"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["httpUrlProperties"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
+            resourceInputs["vpcProperties"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TopicRuleDestination.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TopicRuleDestination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

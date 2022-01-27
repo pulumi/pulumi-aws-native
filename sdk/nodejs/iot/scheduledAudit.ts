@@ -72,7 +72,7 @@ export class ScheduledAudit extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduledAuditArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.frequency === undefined) && !opts.urn) {
@@ -81,26 +81,24 @@ export class ScheduledAudit extends pulumi.CustomResource {
             if ((!args || args.targetCheckNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCheckNames'");
             }
-            inputs["dayOfMonth"] = args ? args.dayOfMonth : undefined;
-            inputs["dayOfWeek"] = args ? args.dayOfWeek : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["scheduledAuditName"] = args ? args.scheduledAuditName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetCheckNames"] = args ? args.targetCheckNames : undefined;
-            inputs["scheduledAuditArn"] = undefined /*out*/;
+            resourceInputs["dayOfMonth"] = args ? args.dayOfMonth : undefined;
+            resourceInputs["dayOfWeek"] = args ? args.dayOfWeek : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["scheduledAuditName"] = args ? args.scheduledAuditName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetCheckNames"] = args ? args.targetCheckNames : undefined;
+            resourceInputs["scheduledAuditArn"] = undefined /*out*/;
         } else {
-            inputs["dayOfMonth"] = undefined /*out*/;
-            inputs["dayOfWeek"] = undefined /*out*/;
-            inputs["frequency"] = undefined /*out*/;
-            inputs["scheduledAuditArn"] = undefined /*out*/;
-            inputs["scheduledAuditName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetCheckNames"] = undefined /*out*/;
+            resourceInputs["dayOfMonth"] = undefined /*out*/;
+            resourceInputs["dayOfWeek"] = undefined /*out*/;
+            resourceInputs["frequency"] = undefined /*out*/;
+            resourceInputs["scheduledAuditArn"] = undefined /*out*/;
+            resourceInputs["scheduledAuditName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetCheckNames"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScheduledAudit.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScheduledAudit.__pulumiType, name, resourceInputs, opts);
     }
 }
 

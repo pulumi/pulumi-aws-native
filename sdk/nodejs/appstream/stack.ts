@@ -62,41 +62,39 @@ export class Stack extends pulumi.CustomResource {
     /** @deprecated Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: StackArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Stack is deprecated: Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
-            inputs["applicationSettings"] = args ? args.applicationSettings : undefined;
-            inputs["attributesToDelete"] = args ? args.attributesToDelete : undefined;
-            inputs["deleteStorageConnectors"] = args ? args.deleteStorageConnectors : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["embedHostDomains"] = args ? args.embedHostDomains : undefined;
-            inputs["feedbackURL"] = args ? args.feedbackURL : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["redirectURL"] = args ? args.redirectURL : undefined;
-            inputs["storageConnectors"] = args ? args.storageConnectors : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userSettings"] = args ? args.userSettings : undefined;
+            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
+            resourceInputs["applicationSettings"] = args ? args.applicationSettings : undefined;
+            resourceInputs["attributesToDelete"] = args ? args.attributesToDelete : undefined;
+            resourceInputs["deleteStorageConnectors"] = args ? args.deleteStorageConnectors : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["embedHostDomains"] = args ? args.embedHostDomains : undefined;
+            resourceInputs["feedbackURL"] = args ? args.feedbackURL : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redirectURL"] = args ? args.redirectURL : undefined;
+            resourceInputs["storageConnectors"] = args ? args.storageConnectors : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userSettings"] = args ? args.userSettings : undefined;
         } else {
-            inputs["accessEndpoints"] = undefined /*out*/;
-            inputs["applicationSettings"] = undefined /*out*/;
-            inputs["attributesToDelete"] = undefined /*out*/;
-            inputs["deleteStorageConnectors"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["embedHostDomains"] = undefined /*out*/;
-            inputs["feedbackURL"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["redirectURL"] = undefined /*out*/;
-            inputs["storageConnectors"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userSettings"] = undefined /*out*/;
+            resourceInputs["accessEndpoints"] = undefined /*out*/;
+            resourceInputs["applicationSettings"] = undefined /*out*/;
+            resourceInputs["attributesToDelete"] = undefined /*out*/;
+            resourceInputs["deleteStorageConnectors"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["embedHostDomains"] = undefined /*out*/;
+            resourceInputs["feedbackURL"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["redirectURL"] = undefined /*out*/;
+            resourceInputs["storageConnectors"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userSettings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stack.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -46,22 +46,20 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResponseHeadersPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.responseHeadersPolicyConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'responseHeadersPolicyConfig'");
             }
-            inputs["responseHeadersPolicyConfig"] = args ? args.responseHeadersPolicyConfig : undefined;
-            inputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["responseHeadersPolicyConfig"] = args ? args.responseHeadersPolicyConfig : undefined;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["responseHeadersPolicyConfig"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["responseHeadersPolicyConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResponseHeadersPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResponseHeadersPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

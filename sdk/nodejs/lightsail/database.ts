@@ -105,7 +105,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.masterDatabaseName === undefined) && !opts.urn) {
@@ -123,44 +123,42 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.relationalDatabaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relationalDatabaseName'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["backupRetention"] = args ? args.backupRetention : undefined;
-            inputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
-            inputs["masterDatabaseName"] = args ? args.masterDatabaseName : undefined;
-            inputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
-            inputs["masterUsername"] = args ? args.masterUsername : undefined;
-            inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["relationalDatabaseBlueprintId"] = args ? args.relationalDatabaseBlueprintId : undefined;
-            inputs["relationalDatabaseBundleId"] = args ? args.relationalDatabaseBundleId : undefined;
-            inputs["relationalDatabaseName"] = args ? args.relationalDatabaseName : undefined;
-            inputs["relationalDatabaseParameters"] = args ? args.relationalDatabaseParameters : undefined;
-            inputs["rotateMasterUserPassword"] = args ? args.rotateMasterUserPassword : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["databaseArn"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["backupRetention"] = args ? args.backupRetention : undefined;
+            resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
+            resourceInputs["masterDatabaseName"] = args ? args.masterDatabaseName : undefined;
+            resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
+            resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
+            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["relationalDatabaseBlueprintId"] = args ? args.relationalDatabaseBlueprintId : undefined;
+            resourceInputs["relationalDatabaseBundleId"] = args ? args.relationalDatabaseBundleId : undefined;
+            resourceInputs["relationalDatabaseName"] = args ? args.relationalDatabaseName : undefined;
+            resourceInputs["relationalDatabaseParameters"] = args ? args.relationalDatabaseParameters : undefined;
+            resourceInputs["rotateMasterUserPassword"] = args ? args.rotateMasterUserPassword : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["databaseArn"] = undefined /*out*/;
         } else {
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["backupRetention"] = undefined /*out*/;
-            inputs["caCertificateIdentifier"] = undefined /*out*/;
-            inputs["databaseArn"] = undefined /*out*/;
-            inputs["masterDatabaseName"] = undefined /*out*/;
-            inputs["masterUserPassword"] = undefined /*out*/;
-            inputs["masterUsername"] = undefined /*out*/;
-            inputs["preferredBackupWindow"] = undefined /*out*/;
-            inputs["preferredMaintenanceWindow"] = undefined /*out*/;
-            inputs["publiclyAccessible"] = undefined /*out*/;
-            inputs["relationalDatabaseBlueprintId"] = undefined /*out*/;
-            inputs["relationalDatabaseBundleId"] = undefined /*out*/;
-            inputs["relationalDatabaseName"] = undefined /*out*/;
-            inputs["relationalDatabaseParameters"] = undefined /*out*/;
-            inputs["rotateMasterUserPassword"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["backupRetention"] = undefined /*out*/;
+            resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
+            resourceInputs["databaseArn"] = undefined /*out*/;
+            resourceInputs["masterDatabaseName"] = undefined /*out*/;
+            resourceInputs["masterUserPassword"] = undefined /*out*/;
+            resourceInputs["masterUsername"] = undefined /*out*/;
+            resourceInputs["preferredBackupWindow"] = undefined /*out*/;
+            resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
+            resourceInputs["publiclyAccessible"] = undefined /*out*/;
+            resourceInputs["relationalDatabaseBlueprintId"] = undefined /*out*/;
+            resourceInputs["relationalDatabaseBundleId"] = undefined /*out*/;
+            resourceInputs["relationalDatabaseName"] = undefined /*out*/;
+            resourceInputs["relationalDatabaseParameters"] = undefined /*out*/;
+            resourceInputs["rotateMasterUserPassword"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Database.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }
 

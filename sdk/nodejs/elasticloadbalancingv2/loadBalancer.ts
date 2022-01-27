@@ -62,41 +62,39 @@ export class LoadBalancer extends pulumi.CustomResource {
     /** @deprecated LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LoadBalancer is deprecated: LoadBalancer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["loadBalancerAttributes"] = args ? args.loadBalancerAttributes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scheme"] = args ? args.scheme : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["canonicalHostedZoneID"] = undefined /*out*/;
-            inputs["dNSName"] = undefined /*out*/;
-            inputs["loadBalancerFullName"] = undefined /*out*/;
-            inputs["loadBalancerName"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["loadBalancerAttributes"] = args ? args.loadBalancerAttributes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scheme"] = args ? args.scheme : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["canonicalHostedZoneID"] = undefined /*out*/;
+            resourceInputs["dNSName"] = undefined /*out*/;
+            resourceInputs["loadBalancerFullName"] = undefined /*out*/;
+            resourceInputs["loadBalancerName"] = undefined /*out*/;
         } else {
-            inputs["canonicalHostedZoneID"] = undefined /*out*/;
-            inputs["dNSName"] = undefined /*out*/;
-            inputs["ipAddressType"] = undefined /*out*/;
-            inputs["loadBalancerAttributes"] = undefined /*out*/;
-            inputs["loadBalancerFullName"] = undefined /*out*/;
-            inputs["loadBalancerName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scheme"] = undefined /*out*/;
-            inputs["securityGroups"] = undefined /*out*/;
-            inputs["subnetMappings"] = undefined /*out*/;
-            inputs["subnets"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["canonicalHostedZoneID"] = undefined /*out*/;
+            resourceInputs["dNSName"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["loadBalancerAttributes"] = undefined /*out*/;
+            resourceInputs["loadBalancerFullName"] = undefined /*out*/;
+            resourceInputs["loadBalancerName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scheme"] = undefined /*out*/;
+            resourceInputs["securityGroups"] = undefined /*out*/;
+            resourceInputs["subnetMappings"] = undefined /*out*/;
+            resourceInputs["subnets"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoadBalancer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

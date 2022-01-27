@@ -72,29 +72,27 @@ export class Domain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["encryptionKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["encryptionKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["encryptionKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["permissionsPolicyDocument"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["encryptionKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["permissionsPolicyDocument"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Domain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

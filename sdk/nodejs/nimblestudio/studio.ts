@@ -75,7 +75,7 @@ export class Studio extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StudioArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.adminRoleArn === undefined) && !opts.urn) {
@@ -87,32 +87,30 @@ export class Studio extends pulumi.CustomResource {
             if ((!args || args.userRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userRoleArn'");
             }
-            inputs["adminRoleArn"] = args ? args.adminRoleArn : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["studioEncryptionConfiguration"] = args ? args.studioEncryptionConfiguration : undefined;
-            inputs["studioName"] = args ? args.studioName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userRoleArn"] = args ? args.userRoleArn : undefined;
-            inputs["homeRegion"] = undefined /*out*/;
-            inputs["ssoClientId"] = undefined /*out*/;
-            inputs["studioId"] = undefined /*out*/;
-            inputs["studioUrl"] = undefined /*out*/;
+            resourceInputs["adminRoleArn"] = args ? args.adminRoleArn : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["studioEncryptionConfiguration"] = args ? args.studioEncryptionConfiguration : undefined;
+            resourceInputs["studioName"] = args ? args.studioName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userRoleArn"] = args ? args.userRoleArn : undefined;
+            resourceInputs["homeRegion"] = undefined /*out*/;
+            resourceInputs["ssoClientId"] = undefined /*out*/;
+            resourceInputs["studioId"] = undefined /*out*/;
+            resourceInputs["studioUrl"] = undefined /*out*/;
         } else {
-            inputs["adminRoleArn"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["homeRegion"] = undefined /*out*/;
-            inputs["ssoClientId"] = undefined /*out*/;
-            inputs["studioEncryptionConfiguration"] = undefined /*out*/;
-            inputs["studioId"] = undefined /*out*/;
-            inputs["studioName"] = undefined /*out*/;
-            inputs["studioUrl"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userRoleArn"] = undefined /*out*/;
+            resourceInputs["adminRoleArn"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["homeRegion"] = undefined /*out*/;
+            resourceInputs["ssoClientId"] = undefined /*out*/;
+            resourceInputs["studioEncryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["studioId"] = undefined /*out*/;
+            resourceInputs["studioName"] = undefined /*out*/;
+            resourceInputs["studioUrl"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userRoleArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Studio.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Studio.__pulumiType, name, resourceInputs, opts);
     }
 }
 

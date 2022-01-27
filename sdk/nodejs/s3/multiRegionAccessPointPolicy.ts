@@ -56,7 +56,7 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MultiRegionAccessPointPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.mrapName === undefined) && !opts.urn) {
@@ -65,18 +65,16 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["mrapName"] = args ? args.mrapName : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["policyStatus"] = undefined /*out*/;
+            resourceInputs["mrapName"] = args ? args.mrapName : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["policyStatus"] = undefined /*out*/;
         } else {
-            inputs["mrapName"] = undefined /*out*/;
-            inputs["policy"] = undefined /*out*/;
-            inputs["policyStatus"] = undefined /*out*/;
+            resourceInputs["mrapName"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["policyStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MultiRegionAccessPointPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MultiRegionAccessPointPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

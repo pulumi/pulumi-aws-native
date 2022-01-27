@@ -52,24 +52,22 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
     /** @deprecated ConfigurationRecorder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationRecorderArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigurationRecorder is deprecated: ConfigurationRecorder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.roleARN === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleARN'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recordingGroup"] = args ? args.recordingGroup : undefined;
-            inputs["roleARN"] = args ? args.roleARN : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recordingGroup"] = args ? args.recordingGroup : undefined;
+            resourceInputs["roleARN"] = args ? args.roleARN : undefined;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["recordingGroup"] = undefined /*out*/;
-            inputs["roleARN"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recordingGroup"] = undefined /*out*/;
+            resourceInputs["roleARN"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationRecorder.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationRecorder.__pulumiType, name, resourceInputs, opts);
     }
 }
 

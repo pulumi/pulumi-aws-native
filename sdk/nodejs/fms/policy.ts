@@ -57,7 +57,7 @@ export class Policy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.excludeResourceTags === undefined) && !opts.urn) {
@@ -72,38 +72,36 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.securityServicePolicyData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityServicePolicyData'");
             }
-            inputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
-            inputs["excludeMap"] = args ? args.excludeMap : undefined;
-            inputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
-            inputs["includeMap"] = args ? args.includeMap : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
-            inputs["resourceTags"] = args ? args.resourceTags : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
-            inputs["resourcesCleanUp"] = args ? args.resourcesCleanUp : undefined;
-            inputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
+            resourceInputs["excludeMap"] = args ? args.excludeMap : undefined;
+            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
+            resourceInputs["includeMap"] = args ? args.includeMap : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
+            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
+            resourceInputs["resourcesCleanUp"] = args ? args.resourcesCleanUp : undefined;
+            resourceInputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["deleteAllPolicyResources"] = undefined /*out*/;
-            inputs["excludeMap"] = undefined /*out*/;
-            inputs["excludeResourceTags"] = undefined /*out*/;
-            inputs["includeMap"] = undefined /*out*/;
-            inputs["policyName"] = undefined /*out*/;
-            inputs["remediationEnabled"] = undefined /*out*/;
-            inputs["resourceTags"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["resourceTypeList"] = undefined /*out*/;
-            inputs["resourcesCleanUp"] = undefined /*out*/;
-            inputs["securityServicePolicyData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deleteAllPolicyResources"] = undefined /*out*/;
+            resourceInputs["excludeMap"] = undefined /*out*/;
+            resourceInputs["excludeResourceTags"] = undefined /*out*/;
+            resourceInputs["includeMap"] = undefined /*out*/;
+            resourceInputs["policyName"] = undefined /*out*/;
+            resourceInputs["remediationEnabled"] = undefined /*out*/;
+            resourceInputs["resourceTags"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["resourceTypeList"] = undefined /*out*/;
+            resourceInputs["resourcesCleanUp"] = undefined /*out*/;
+            resourceInputs["securityServicePolicyData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Policy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -54,7 +54,7 @@ export class Domain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -63,32 +63,30 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.subDomainSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subDomainSettings'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["autoSubDomainCreationPatterns"] = args ? args.autoSubDomainCreationPatterns : undefined;
-            inputs["autoSubDomainIAMRole"] = args ? args.autoSubDomainIAMRole : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
-            inputs["subDomainSettings"] = args ? args.subDomainSettings : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateRecord"] = undefined /*out*/;
-            inputs["domainStatus"] = undefined /*out*/;
-            inputs["statusReason"] = undefined /*out*/;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["autoSubDomainCreationPatterns"] = args ? args.autoSubDomainCreationPatterns : undefined;
+            resourceInputs["autoSubDomainIAMRole"] = args ? args.autoSubDomainIAMRole : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
+            resourceInputs["subDomainSettings"] = args ? args.subDomainSettings : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateRecord"] = undefined /*out*/;
+            resourceInputs["domainStatus"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
         } else {
-            inputs["appId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoSubDomainCreationPatterns"] = undefined /*out*/;
-            inputs["autoSubDomainIAMRole"] = undefined /*out*/;
-            inputs["certificateRecord"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["domainStatus"] = undefined /*out*/;
-            inputs["enableAutoSubDomain"] = undefined /*out*/;
-            inputs["statusReason"] = undefined /*out*/;
-            inputs["subDomainSettings"] = undefined /*out*/;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoSubDomainCreationPatterns"] = undefined /*out*/;
+            resourceInputs["autoSubDomainIAMRole"] = undefined /*out*/;
+            resourceInputs["certificateRecord"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainStatus"] = undefined /*out*/;
+            resourceInputs["enableAutoSubDomain"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
+            resourceInputs["subDomainSettings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Domain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

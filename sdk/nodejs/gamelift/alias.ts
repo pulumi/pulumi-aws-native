@@ -60,26 +60,24 @@ export class Alias extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.routingStrategy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routingStrategy'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["routingStrategy"] = args ? args.routingStrategy : undefined;
-            inputs["aliasId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["routingStrategy"] = args ? args.routingStrategy : undefined;
+            resourceInputs["aliasId"] = undefined /*out*/;
         } else {
-            inputs["aliasId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["routingStrategy"] = undefined /*out*/;
+            resourceInputs["aliasId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["routingStrategy"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Alias.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Alias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

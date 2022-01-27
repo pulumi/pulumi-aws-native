@@ -59,26 +59,24 @@ export class BasePathMapping extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BasePathMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["basePath"] = args ? args.basePath : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["basePath"] = args ? args.basePath : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["stage"] = args ? args.stage : undefined;
         } else {
-            inputs["basePath"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
-            inputs["stage"] = undefined /*out*/;
+            resourceInputs["basePath"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
+            resourceInputs["stage"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BasePathMapping.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BasePathMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

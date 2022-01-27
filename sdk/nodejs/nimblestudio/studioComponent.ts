@@ -73,7 +73,7 @@ export class StudioComponent extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StudioComponentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.studioId === undefined) && !opts.urn) {
@@ -82,34 +82,32 @@ export class StudioComponent extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ec2SecurityGroupIds"] = args ? args.ec2SecurityGroupIds : undefined;
-            inputs["initializationScripts"] = args ? args.initializationScripts : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scriptParameters"] = args ? args.scriptParameters : undefined;
-            inputs["studioId"] = args ? args.studioId : undefined;
-            inputs["subtype"] = args ? args.subtype : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["studioComponentId"] = undefined /*out*/;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ec2SecurityGroupIds"] = args ? args.ec2SecurityGroupIds : undefined;
+            resourceInputs["initializationScripts"] = args ? args.initializationScripts : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
+            resourceInputs["studioId"] = args ? args.studioId : undefined;
+            resourceInputs["subtype"] = args ? args.subtype : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["studioComponentId"] = undefined /*out*/;
         } else {
-            inputs["configuration"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["ec2SecurityGroupIds"] = undefined /*out*/;
-            inputs["initializationScripts"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scriptParameters"] = undefined /*out*/;
-            inputs["studioComponentId"] = undefined /*out*/;
-            inputs["studioId"] = undefined /*out*/;
-            inputs["subtype"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ec2SecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["initializationScripts"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scriptParameters"] = undefined /*out*/;
+            resourceInputs["studioComponentId"] = undefined /*out*/;
+            resourceInputs["studioId"] = undefined /*out*/;
+            resourceInputs["subtype"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StudioComponent.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StudioComponent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

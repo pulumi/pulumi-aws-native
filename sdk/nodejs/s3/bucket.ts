@@ -132,65 +132,63 @@ export class Bucket extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: BucketArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accelerateConfiguration"] = args ? args.accelerateConfiguration : undefined;
-            inputs["accessControl"] = args ? args.accessControl : undefined;
-            inputs["analyticsConfigurations"] = args ? args.analyticsConfigurations : undefined;
-            inputs["bucketEncryption"] = args ? args.bucketEncryption : undefined;
-            inputs["bucketName"] = args ? args.bucketName : undefined;
-            inputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            inputs["intelligentTieringConfigurations"] = args ? args.intelligentTieringConfigurations : undefined;
-            inputs["inventoryConfigurations"] = args ? args.inventoryConfigurations : undefined;
-            inputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
-            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            inputs["metricsConfigurations"] = args ? args.metricsConfigurations : undefined;
-            inputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            inputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
-            inputs["objectLockEnabled"] = args ? args.objectLockEnabled : undefined;
-            inputs["ownershipControls"] = args ? args.ownershipControls : undefined;
-            inputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
-            inputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
-            inputs["websiteConfiguration"] = args ? args.websiteConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["dualStackDomainName"] = undefined /*out*/;
-            inputs["regionalDomainName"] = undefined /*out*/;
-            inputs["websiteURL"] = undefined /*out*/;
+            resourceInputs["accelerateConfiguration"] = args ? args.accelerateConfiguration : undefined;
+            resourceInputs["accessControl"] = args ? args.accessControl : undefined;
+            resourceInputs["analyticsConfigurations"] = args ? args.analyticsConfigurations : undefined;
+            resourceInputs["bucketEncryption"] = args ? args.bucketEncryption : undefined;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
+            resourceInputs["intelligentTieringConfigurations"] = args ? args.intelligentTieringConfigurations : undefined;
+            resourceInputs["inventoryConfigurations"] = args ? args.inventoryConfigurations : undefined;
+            resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["metricsConfigurations"] = args ? args.metricsConfigurations : undefined;
+            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
+            resourceInputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
+            resourceInputs["objectLockEnabled"] = args ? args.objectLockEnabled : undefined;
+            resourceInputs["ownershipControls"] = args ? args.ownershipControls : undefined;
+            resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
+            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
+            resourceInputs["websiteConfiguration"] = args ? args.websiteConfiguration : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["dualStackDomainName"] = undefined /*out*/;
+            resourceInputs["regionalDomainName"] = undefined /*out*/;
+            resourceInputs["websiteURL"] = undefined /*out*/;
         } else {
-            inputs["accelerateConfiguration"] = undefined /*out*/;
-            inputs["accessControl"] = undefined /*out*/;
-            inputs["analyticsConfigurations"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["bucketEncryption"] = undefined /*out*/;
-            inputs["bucketName"] = undefined /*out*/;
-            inputs["corsConfiguration"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["dualStackDomainName"] = undefined /*out*/;
-            inputs["intelligentTieringConfigurations"] = undefined /*out*/;
-            inputs["inventoryConfigurations"] = undefined /*out*/;
-            inputs["lifecycleConfiguration"] = undefined /*out*/;
-            inputs["loggingConfiguration"] = undefined /*out*/;
-            inputs["metricsConfigurations"] = undefined /*out*/;
-            inputs["notificationConfiguration"] = undefined /*out*/;
-            inputs["objectLockConfiguration"] = undefined /*out*/;
-            inputs["objectLockEnabled"] = undefined /*out*/;
-            inputs["ownershipControls"] = undefined /*out*/;
-            inputs["publicAccessBlockConfiguration"] = undefined /*out*/;
-            inputs["regionalDomainName"] = undefined /*out*/;
-            inputs["replicationConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["versioningConfiguration"] = undefined /*out*/;
-            inputs["websiteConfiguration"] = undefined /*out*/;
-            inputs["websiteURL"] = undefined /*out*/;
+            resourceInputs["accelerateConfiguration"] = undefined /*out*/;
+            resourceInputs["accessControl"] = undefined /*out*/;
+            resourceInputs["analyticsConfigurations"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bucketEncryption"] = undefined /*out*/;
+            resourceInputs["bucketName"] = undefined /*out*/;
+            resourceInputs["corsConfiguration"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["dualStackDomainName"] = undefined /*out*/;
+            resourceInputs["intelligentTieringConfigurations"] = undefined /*out*/;
+            resourceInputs["inventoryConfigurations"] = undefined /*out*/;
+            resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
+            resourceInputs["loggingConfiguration"] = undefined /*out*/;
+            resourceInputs["metricsConfigurations"] = undefined /*out*/;
+            resourceInputs["notificationConfiguration"] = undefined /*out*/;
+            resourceInputs["objectLockConfiguration"] = undefined /*out*/;
+            resourceInputs["objectLockEnabled"] = undefined /*out*/;
+            resourceInputs["ownershipControls"] = undefined /*out*/;
+            resourceInputs["publicAccessBlockConfiguration"] = undefined /*out*/;
+            resourceInputs["regionalDomainName"] = undefined /*out*/;
+            resourceInputs["replicationConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["versioningConfiguration"] = undefined /*out*/;
+            resourceInputs["websiteConfiguration"] = undefined /*out*/;
+            resourceInputs["websiteURL"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Bucket.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
 }
 

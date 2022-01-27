@@ -52,7 +52,7 @@ export class PortfolioPrincipalAssociation extends pulumi.CustomResource {
     /** @deprecated PortfolioPrincipalAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PortfolioPrincipalAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PortfolioPrincipalAssociation is deprecated: PortfolioPrincipalAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
@@ -64,20 +64,18 @@ export class PortfolioPrincipalAssociation extends pulumi.CustomResource {
             if ((!args || args.principalType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["principalARN"] = args ? args.principalARN : undefined;
-            inputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["principalARN"] = args ? args.principalARN : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["portfolioId"] = undefined /*out*/;
-            inputs["principalARN"] = undefined /*out*/;
-            inputs["principalType"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["portfolioId"] = undefined /*out*/;
+            resourceInputs["principalARN"] = undefined /*out*/;
+            resourceInputs["principalType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PortfolioPrincipalAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PortfolioPrincipalAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

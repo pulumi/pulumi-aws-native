@@ -67,7 +67,7 @@ export class TransitGatewayMulticastDomainAssociation extends pulumi.CustomResou
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TransitGatewayMulticastDomainAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
@@ -79,24 +79,22 @@ export class TransitGatewayMulticastDomainAssociation extends pulumi.CustomResou
             if ((!args || args.transitGatewayMulticastDomainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayMulticastDomainId'");
             }
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
-            inputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayMulticastDomainAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayMulticastDomainAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

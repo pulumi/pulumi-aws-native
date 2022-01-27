@@ -72,7 +72,7 @@ export class Cluster extends pulumi.CustomResource {
     /** @deprecated Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Cluster is deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instances === undefined) && !opts.urn) {
@@ -84,58 +84,56 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.serviceRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            inputs["additionalInfo"] = args ? args.additionalInfo : undefined;
-            inputs["applications"] = args ? args.applications : undefined;
-            inputs["autoScalingRole"] = args ? args.autoScalingRole : undefined;
-            inputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
-            inputs["configurations"] = args ? args.configurations : undefined;
-            inputs["customAmiId"] = args ? args.customAmiId : undefined;
-            inputs["ebsRootVolumeSize"] = args ? args.ebsRootVolumeSize : undefined;
-            inputs["instances"] = args ? args.instances : undefined;
-            inputs["jobFlowRole"] = args ? args.jobFlowRole : undefined;
-            inputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
-            inputs["logEncryptionKmsKeyId"] = args ? args.logEncryptionKmsKeyId : undefined;
-            inputs["logUri"] = args ? args.logUri : undefined;
-            inputs["managedScalingPolicy"] = args ? args.managedScalingPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["releaseLabel"] = args ? args.releaseLabel : undefined;
-            inputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
-            inputs["steps"] = args ? args.steps : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
-            inputs["masterPublicDNS"] = undefined /*out*/;
+            resourceInputs["additionalInfo"] = args ? args.additionalInfo : undefined;
+            resourceInputs["applications"] = args ? args.applications : undefined;
+            resourceInputs["autoScalingRole"] = args ? args.autoScalingRole : undefined;
+            resourceInputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
+            resourceInputs["configurations"] = args ? args.configurations : undefined;
+            resourceInputs["customAmiId"] = args ? args.customAmiId : undefined;
+            resourceInputs["ebsRootVolumeSize"] = args ? args.ebsRootVolumeSize : undefined;
+            resourceInputs["instances"] = args ? args.instances : undefined;
+            resourceInputs["jobFlowRole"] = args ? args.jobFlowRole : undefined;
+            resourceInputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
+            resourceInputs["logEncryptionKmsKeyId"] = args ? args.logEncryptionKmsKeyId : undefined;
+            resourceInputs["logUri"] = args ? args.logUri : undefined;
+            resourceInputs["managedScalingPolicy"] = args ? args.managedScalingPolicy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
+            resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
+            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
+            resourceInputs["steps"] = args ? args.steps : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
+            resourceInputs["masterPublicDNS"] = undefined /*out*/;
         } else {
-            inputs["additionalInfo"] = undefined /*out*/;
-            inputs["applications"] = undefined /*out*/;
-            inputs["autoScalingRole"] = undefined /*out*/;
-            inputs["bootstrapActions"] = undefined /*out*/;
-            inputs["configurations"] = undefined /*out*/;
-            inputs["customAmiId"] = undefined /*out*/;
-            inputs["ebsRootVolumeSize"] = undefined /*out*/;
-            inputs["instances"] = undefined /*out*/;
-            inputs["jobFlowRole"] = undefined /*out*/;
-            inputs["kerberosAttributes"] = undefined /*out*/;
-            inputs["logEncryptionKmsKeyId"] = undefined /*out*/;
-            inputs["logUri"] = undefined /*out*/;
-            inputs["managedScalingPolicy"] = undefined /*out*/;
-            inputs["masterPublicDNS"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["releaseLabel"] = undefined /*out*/;
-            inputs["scaleDownBehavior"] = undefined /*out*/;
-            inputs["securityConfiguration"] = undefined /*out*/;
-            inputs["serviceRole"] = undefined /*out*/;
-            inputs["stepConcurrencyLevel"] = undefined /*out*/;
-            inputs["steps"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["visibleToAllUsers"] = undefined /*out*/;
+            resourceInputs["additionalInfo"] = undefined /*out*/;
+            resourceInputs["applications"] = undefined /*out*/;
+            resourceInputs["autoScalingRole"] = undefined /*out*/;
+            resourceInputs["bootstrapActions"] = undefined /*out*/;
+            resourceInputs["configurations"] = undefined /*out*/;
+            resourceInputs["customAmiId"] = undefined /*out*/;
+            resourceInputs["ebsRootVolumeSize"] = undefined /*out*/;
+            resourceInputs["instances"] = undefined /*out*/;
+            resourceInputs["jobFlowRole"] = undefined /*out*/;
+            resourceInputs["kerberosAttributes"] = undefined /*out*/;
+            resourceInputs["logEncryptionKmsKeyId"] = undefined /*out*/;
+            resourceInputs["logUri"] = undefined /*out*/;
+            resourceInputs["managedScalingPolicy"] = undefined /*out*/;
+            resourceInputs["masterPublicDNS"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["releaseLabel"] = undefined /*out*/;
+            resourceInputs["scaleDownBehavior"] = undefined /*out*/;
+            resourceInputs["securityConfiguration"] = undefined /*out*/;
+            resourceInputs["serviceRole"] = undefined /*out*/;
+            resourceInputs["stepConcurrencyLevel"] = undefined /*out*/;
+            resourceInputs["steps"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["visibleToAllUsers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

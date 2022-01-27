@@ -49,22 +49,20 @@ export class ResourceCollection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResourceCollectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceCollectionFilter === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceCollectionFilter'");
             }
-            inputs["resourceCollectionFilter"] = args ? args.resourceCollectionFilter : undefined;
-            inputs["resourceCollectionType"] = undefined /*out*/;
+            resourceInputs["resourceCollectionFilter"] = args ? args.resourceCollectionFilter : undefined;
+            resourceInputs["resourceCollectionType"] = undefined /*out*/;
         } else {
-            inputs["resourceCollectionFilter"] = undefined /*out*/;
-            inputs["resourceCollectionType"] = undefined /*out*/;
+            resourceInputs["resourceCollectionFilter"] = undefined /*out*/;
+            resourceInputs["resourceCollectionType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceCollection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

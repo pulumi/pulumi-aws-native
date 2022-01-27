@@ -60,40 +60,38 @@ export class JobTemplate extends pulumi.CustomResource {
     /** @deprecated JobTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: JobTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("JobTemplate is deprecated: JobTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.settingsJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settingsJson'");
             }
-            inputs["accelerationSettings"] = args ? args.accelerationSettings : undefined;
-            inputs["category"] = args ? args.category : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["hopDestinations"] = args ? args.hopDestinations : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["queue"] = args ? args.queue : undefined;
-            inputs["settingsJson"] = args ? args.settingsJson : undefined;
-            inputs["statusUpdateInterval"] = args ? args.statusUpdateInterval : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["accelerationSettings"] = args ? args.accelerationSettings : undefined;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["hopDestinations"] = args ? args.hopDestinations : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["queue"] = args ? args.queue : undefined;
+            resourceInputs["settingsJson"] = args ? args.settingsJson : undefined;
+            resourceInputs["statusUpdateInterval"] = args ? args.statusUpdateInterval : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["accelerationSettings"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["category"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["hopDestinations"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["queue"] = undefined /*out*/;
-            inputs["settingsJson"] = undefined /*out*/;
-            inputs["statusUpdateInterval"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["accelerationSettings"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["hopDestinations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["queue"] = undefined /*out*/;
+            resourceInputs["settingsJson"] = undefined /*out*/;
+            resourceInputs["statusUpdateInterval"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(JobTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(JobTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -55,7 +55,7 @@ export class RobotApplication extends pulumi.CustomResource {
     /** @deprecated RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RobotApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RobotApplication is deprecated: RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.robotSoftwareSuite === undefined) && !opts.urn) {
@@ -64,24 +64,22 @@ export class RobotApplication extends pulumi.CustomResource {
             if ((!args || args.sources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            inputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["robotSoftwareSuite"] = args ? args.robotSoftwareSuite : undefined;
-            inputs["sources"] = args ? args.sources : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["robotSoftwareSuite"] = args ? args.robotSoftwareSuite : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["currentRevisionId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["robotSoftwareSuite"] = undefined /*out*/;
-            inputs["sources"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["currentRevisionId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["robotSoftwareSuite"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RobotApplication.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RobotApplication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

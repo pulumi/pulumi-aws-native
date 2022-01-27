@@ -46,22 +46,20 @@ export class PublicKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PublicKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.publicKeyConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicKeyConfig'");
             }
-            inputs["publicKeyConfig"] = args ? args.publicKeyConfig : undefined;
-            inputs["createdTime"] = undefined /*out*/;
+            resourceInputs["publicKeyConfig"] = args ? args.publicKeyConfig : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
         } else {
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["publicKeyConfig"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["publicKeyConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PublicKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PublicKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

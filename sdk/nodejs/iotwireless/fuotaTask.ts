@@ -92,7 +92,7 @@ export class FuotaTask extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FuotaTaskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.firmwareUpdateImage === undefined) && !opts.urn) {
@@ -104,36 +104,34 @@ export class FuotaTask extends pulumi.CustomResource {
             if ((!args || args.loRaWAN === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loRaWAN'");
             }
-            inputs["associateMulticastGroup"] = args ? args.associateMulticastGroup : undefined;
-            inputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disassociateMulticastGroup"] = args ? args.disassociateMulticastGroup : undefined;
-            inputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
-            inputs["firmwareUpdateImage"] = args ? args.firmwareUpdateImage : undefined;
-            inputs["firmwareUpdateRole"] = args ? args.firmwareUpdateRole : undefined;
-            inputs["loRaWAN"] = args ? args.loRaWAN : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fuotaTaskStatus"] = undefined /*out*/;
+            resourceInputs["associateMulticastGroup"] = args ? args.associateMulticastGroup : undefined;
+            resourceInputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disassociateMulticastGroup"] = args ? args.disassociateMulticastGroup : undefined;
+            resourceInputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
+            resourceInputs["firmwareUpdateImage"] = args ? args.firmwareUpdateImage : undefined;
+            resourceInputs["firmwareUpdateRole"] = args ? args.firmwareUpdateRole : undefined;
+            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fuotaTaskStatus"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["associateMulticastGroup"] = undefined /*out*/;
-            inputs["associateWirelessDevice"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["disassociateMulticastGroup"] = undefined /*out*/;
-            inputs["disassociateWirelessDevice"] = undefined /*out*/;
-            inputs["firmwareUpdateImage"] = undefined /*out*/;
-            inputs["firmwareUpdateRole"] = undefined /*out*/;
-            inputs["fuotaTaskStatus"] = undefined /*out*/;
-            inputs["loRaWAN"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associateMulticastGroup"] = undefined /*out*/;
+            resourceInputs["associateWirelessDevice"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["disassociateMulticastGroup"] = undefined /*out*/;
+            resourceInputs["disassociateWirelessDevice"] = undefined /*out*/;
+            resourceInputs["firmwareUpdateImage"] = undefined /*out*/;
+            resourceInputs["firmwareUpdateRole"] = undefined /*out*/;
+            resourceInputs["fuotaTaskStatus"] = undefined /*out*/;
+            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FuotaTask.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FuotaTask.__pulumiType, name, resourceInputs, opts);
     }
 }
 

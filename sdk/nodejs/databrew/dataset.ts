@@ -65,30 +65,28 @@ export class Dataset extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.input === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            inputs["format"] = args ? args.format : undefined;
-            inputs["formatOptions"] = args ? args.formatOptions : undefined;
-            inputs["input"] = args ? args.input : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pathOptions"] = args ? args.pathOptions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["formatOptions"] = args ? args.formatOptions : undefined;
+            resourceInputs["input"] = args ? args.input : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pathOptions"] = args ? args.pathOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["format"] = undefined /*out*/;
-            inputs["formatOptions"] = undefined /*out*/;
-            inputs["input"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pathOptions"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["formatOptions"] = undefined /*out*/;
+            resourceInputs["input"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pathOptions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dataset.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dataset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

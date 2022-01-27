@@ -59,38 +59,36 @@ export class PushTemplate extends pulumi.CustomResource {
     /** @deprecated PushTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PushTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PushTemplate is deprecated: PushTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.templateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            inputs["aDM"] = args ? args.aDM : undefined;
-            inputs["aPNS"] = args ? args.aPNS : undefined;
-            inputs["baidu"] = args ? args.baidu : undefined;
-            inputs["default"] = args ? args.default : undefined;
-            inputs["defaultSubstitutions"] = args ? args.defaultSubstitutions : undefined;
-            inputs["gCM"] = args ? args.gCM : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateDescription"] = args ? args.templateDescription : undefined;
-            inputs["templateName"] = args ? args.templateName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["aDM"] = args ? args.aDM : undefined;
+            resourceInputs["aPNS"] = args ? args.aPNS : undefined;
+            resourceInputs["baidu"] = args ? args.baidu : undefined;
+            resourceInputs["default"] = args ? args.default : undefined;
+            resourceInputs["defaultSubstitutions"] = args ? args.defaultSubstitutions : undefined;
+            resourceInputs["gCM"] = args ? args.gCM : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateDescription"] = args ? args.templateDescription : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["aDM"] = undefined /*out*/;
-            inputs["aPNS"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["baidu"] = undefined /*out*/;
-            inputs["default"] = undefined /*out*/;
-            inputs["defaultSubstitutions"] = undefined /*out*/;
-            inputs["gCM"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateDescription"] = undefined /*out*/;
-            inputs["templateName"] = undefined /*out*/;
+            resourceInputs["aDM"] = undefined /*out*/;
+            resourceInputs["aPNS"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["baidu"] = undefined /*out*/;
+            resourceInputs["default"] = undefined /*out*/;
+            resourceInputs["defaultSubstitutions"] = undefined /*out*/;
+            resourceInputs["gCM"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateDescription"] = undefined /*out*/;
+            resourceInputs["templateName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PushTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PushTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

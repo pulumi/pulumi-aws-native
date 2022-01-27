@@ -51,24 +51,22 @@ export class Master extends pulumi.CustomResource {
     /** @deprecated Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MasterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Master is deprecated: Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["invitationId"] = args ? args.invitationId : undefined;
-            inputs["masterId"] = undefined /*out*/;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["invitationId"] = args ? args.invitationId : undefined;
+            resourceInputs["masterId"] = undefined /*out*/;
         } else {
-            inputs["detectorId"] = undefined /*out*/;
-            inputs["invitationId"] = undefined /*out*/;
-            inputs["masterId"] = undefined /*out*/;
+            resourceInputs["detectorId"] = undefined /*out*/;
+            resourceInputs["invitationId"] = undefined /*out*/;
+            resourceInputs["masterId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Master.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Master.__pulumiType, name, resourceInputs, opts);
     }
 }
 

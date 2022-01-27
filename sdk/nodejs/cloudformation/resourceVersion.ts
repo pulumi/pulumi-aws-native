@@ -94,7 +94,7 @@ export class ResourceVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResourceVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.schemaHandlerPackage === undefined) && !opts.urn) {
@@ -103,32 +103,30 @@ export class ResourceVersion extends pulumi.CustomResource {
             if ((!args || args.typeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            inputs["schemaHandlerPackage"] = args ? args.schemaHandlerPackage : undefined;
-            inputs["typeName"] = args ? args.typeName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["isDefaultVersion"] = undefined /*out*/;
-            inputs["provisioningType"] = undefined /*out*/;
-            inputs["typeArn"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
-            inputs["visibility"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["schemaHandlerPackage"] = args ? args.schemaHandlerPackage : undefined;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["isDefaultVersion"] = undefined /*out*/;
+            resourceInputs["provisioningType"] = undefined /*out*/;
+            resourceInputs["typeArn"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
+            resourceInputs["visibility"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["executionRoleArn"] = undefined /*out*/;
-            inputs["isDefaultVersion"] = undefined /*out*/;
-            inputs["loggingConfig"] = undefined /*out*/;
-            inputs["provisioningType"] = undefined /*out*/;
-            inputs["schemaHandlerPackage"] = undefined /*out*/;
-            inputs["typeArn"] = undefined /*out*/;
-            inputs["typeName"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
-            inputs["visibility"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["isDefaultVersion"] = undefined /*out*/;
+            resourceInputs["loggingConfig"] = undefined /*out*/;
+            resourceInputs["provisioningType"] = undefined /*out*/;
+            resourceInputs["schemaHandlerPackage"] = undefined /*out*/;
+            resourceInputs["typeArn"] = undefined /*out*/;
+            resourceInputs["typeName"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
+            resourceInputs["visibility"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

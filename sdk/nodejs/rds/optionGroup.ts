@@ -54,7 +54,7 @@ export class OptionGroup extends pulumi.CustomResource {
     /** @deprecated OptionGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: OptionGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("OptionGroup is deprecated: OptionGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.engineName === undefined) && !opts.urn) {
@@ -69,22 +69,20 @@ export class OptionGroup extends pulumi.CustomResource {
             if ((!args || args.optionGroupDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'optionGroupDescription'");
             }
-            inputs["engineName"] = args ? args.engineName : undefined;
-            inputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
-            inputs["optionConfigurations"] = args ? args.optionConfigurations : undefined;
-            inputs["optionGroupDescription"] = args ? args.optionGroupDescription : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["engineName"] = args ? args.engineName : undefined;
+            resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
+            resourceInputs["optionConfigurations"] = args ? args.optionConfigurations : undefined;
+            resourceInputs["optionGroupDescription"] = args ? args.optionGroupDescription : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["engineName"] = undefined /*out*/;
-            inputs["majorEngineVersion"] = undefined /*out*/;
-            inputs["optionConfigurations"] = undefined /*out*/;
-            inputs["optionGroupDescription"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["engineName"] = undefined /*out*/;
+            resourceInputs["majorEngineVersion"] = undefined /*out*/;
+            resourceInputs["optionConfigurations"] = undefined /*out*/;
+            resourceInputs["optionGroupDescription"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OptionGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OptionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

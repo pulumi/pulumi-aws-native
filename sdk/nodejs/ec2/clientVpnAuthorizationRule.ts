@@ -53,7 +53,7 @@ export class ClientVpnAuthorizationRule extends pulumi.CustomResource {
     /** @deprecated ClientVpnAuthorizationRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ClientVpnAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ClientVpnAuthorizationRule is deprecated: ClientVpnAuthorizationRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
@@ -62,22 +62,20 @@ export class ClientVpnAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.targetNetworkCidr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetNetworkCidr'");
             }
-            inputs["accessGroupId"] = args ? args.accessGroupId : undefined;
-            inputs["authorizeAllGroups"] = args ? args.authorizeAllGroups : undefined;
-            inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["targetNetworkCidr"] = args ? args.targetNetworkCidr : undefined;
+            resourceInputs["accessGroupId"] = args ? args.accessGroupId : undefined;
+            resourceInputs["authorizeAllGroups"] = args ? args.authorizeAllGroups : undefined;
+            resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["targetNetworkCidr"] = args ? args.targetNetworkCidr : undefined;
         } else {
-            inputs["accessGroupId"] = undefined /*out*/;
-            inputs["authorizeAllGroups"] = undefined /*out*/;
-            inputs["clientVpnEndpointId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["targetNetworkCidr"] = undefined /*out*/;
+            resourceInputs["accessGroupId"] = undefined /*out*/;
+            resourceInputs["authorizeAllGroups"] = undefined /*out*/;
+            resourceInputs["clientVpnEndpointId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["targetNetworkCidr"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ClientVpnAuthorizationRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ClientVpnAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

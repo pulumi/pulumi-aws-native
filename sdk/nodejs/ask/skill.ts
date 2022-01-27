@@ -52,7 +52,7 @@ export class Skill extends pulumi.CustomResource {
     /** @deprecated Skill is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SkillArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Skill is deprecated: Skill is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authenticationConfiguration === undefined) && !opts.urn) {
@@ -64,18 +64,16 @@ export class Skill extends pulumi.CustomResource {
             if ((!args || args.vendorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vendorId'");
             }
-            inputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
-            inputs["skillPackage"] = args ? args.skillPackage : undefined;
-            inputs["vendorId"] = args ? args.vendorId : undefined;
+            resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
+            resourceInputs["skillPackage"] = args ? args.skillPackage : undefined;
+            resourceInputs["vendorId"] = args ? args.vendorId : undefined;
         } else {
-            inputs["authenticationConfiguration"] = undefined /*out*/;
-            inputs["skillPackage"] = undefined /*out*/;
-            inputs["vendorId"] = undefined /*out*/;
+            resourceInputs["authenticationConfiguration"] = undefined /*out*/;
+            resourceInputs["skillPackage"] = undefined /*out*/;
+            resourceInputs["vendorId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Skill.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Skill.__pulumiType, name, resourceInputs, opts);
     }
 }
 

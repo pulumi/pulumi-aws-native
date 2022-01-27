@@ -84,7 +84,7 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DBProxyEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dBProxyName === undefined) && !opts.urn) {
@@ -93,32 +93,30 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
             if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            inputs["dBProxyEndpointName"] = args ? args.dBProxyEndpointName : undefined;
-            inputs["dBProxyName"] = args ? args.dBProxyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetRole"] = args ? args.targetRole : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
-            inputs["dBProxyEndpointArn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["isDefault"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["dBProxyEndpointName"] = args ? args.dBProxyEndpointName : undefined;
+            resourceInputs["dBProxyName"] = args ? args.dBProxyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRole"] = args ? args.targetRole : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["dBProxyEndpointArn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["isDefault"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         } else {
-            inputs["dBProxyEndpointArn"] = undefined /*out*/;
-            inputs["dBProxyEndpointName"] = undefined /*out*/;
-            inputs["dBProxyName"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["isDefault"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetRole"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
-            inputs["vpcSecurityGroupIds"] = undefined /*out*/;
-            inputs["vpcSubnetIds"] = undefined /*out*/;
+            resourceInputs["dBProxyEndpointArn"] = undefined /*out*/;
+            resourceInputs["dBProxyEndpointName"] = undefined /*out*/;
+            resourceInputs["dBProxyName"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["isDefault"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetRole"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DBProxyEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DBProxyEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

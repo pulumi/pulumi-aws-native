@@ -52,7 +52,7 @@ export class ClientVpnRoute extends pulumi.CustomResource {
     /** @deprecated ClientVpnRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ClientVpnRouteArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ClientVpnRoute is deprecated: ClientVpnRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
@@ -64,20 +64,18 @@ export class ClientVpnRoute extends pulumi.CustomResource {
             if ((!args || args.targetVpcSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetVpcSubnetId'");
             }
-            inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["targetVpcSubnetId"] = args ? args.targetVpcSubnetId : undefined;
+            resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["targetVpcSubnetId"] = args ? args.targetVpcSubnetId : undefined;
         } else {
-            inputs["clientVpnEndpointId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["destinationCidrBlock"] = undefined /*out*/;
-            inputs["targetVpcSubnetId"] = undefined /*out*/;
+            resourceInputs["clientVpnEndpointId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationCidrBlock"] = undefined /*out*/;
+            resourceInputs["targetVpcSubnetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ClientVpnRoute.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ClientVpnRoute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

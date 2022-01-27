@@ -53,7 +53,7 @@ export class LaunchNotificationConstraint extends pulumi.CustomResource {
     /** @deprecated LaunchNotificationConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LaunchNotificationConstraintArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LaunchNotificationConstraint is deprecated: LaunchNotificationConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.notificationArns === undefined) && !opts.urn) {
@@ -65,22 +65,20 @@ export class LaunchNotificationConstraint extends pulumi.CustomResource {
             if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["notificationArns"] = args ? args.notificationArns : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["notificationArns"] = undefined /*out*/;
-            inputs["portfolioId"] = undefined /*out*/;
-            inputs["productId"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["notificationArns"] = undefined /*out*/;
+            resourceInputs["portfolioId"] = undefined /*out*/;
+            resourceInputs["productId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LaunchNotificationConstraint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LaunchNotificationConstraint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

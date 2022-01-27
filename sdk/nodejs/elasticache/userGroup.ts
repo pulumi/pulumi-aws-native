@@ -64,7 +64,7 @@ export class UserGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.engine === undefined) && !opts.urn) {
@@ -73,22 +73,20 @@ export class UserGroup extends pulumi.CustomResource {
             if ((!args || args.userGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["userGroupId"] = args ? args.userGroupId : undefined;
-            inputs["userIds"] = args ? args.userIds : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
+            resourceInputs["userIds"] = args ? args.userIds : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["engine"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["userGroupId"] = undefined /*out*/;
-            inputs["userIds"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["userGroupId"] = undefined /*out*/;
+            resourceInputs["userIds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

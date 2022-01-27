@@ -47,24 +47,22 @@ export class CapacityProvider extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoScalingGroupProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupProvider'");
             }
-            inputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["autoScalingGroupProvider"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["autoScalingGroupProvider"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CapacityProvider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CapacityProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

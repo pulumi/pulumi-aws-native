@@ -52,24 +52,22 @@ export class Detector extends pulumi.CustomResource {
     /** @deprecated Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DetectorArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Detector is deprecated: Detector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.enable === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enable'");
             }
-            inputs["dataSources"] = args ? args.dataSources : undefined;
-            inputs["enable"] = args ? args.enable : undefined;
-            inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
+            resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
         } else {
-            inputs["dataSources"] = undefined /*out*/;
-            inputs["enable"] = undefined /*out*/;
-            inputs["findingPublishingFrequency"] = undefined /*out*/;
+            resourceInputs["dataSources"] = undefined /*out*/;
+            resourceInputs["enable"] = undefined /*out*/;
+            resourceInputs["findingPublishingFrequency"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Detector.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Detector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

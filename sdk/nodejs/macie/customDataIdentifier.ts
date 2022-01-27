@@ -71,32 +71,30 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomDataIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.regex === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regex'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ignoreWords"] = args ? args.ignoreWords : undefined;
-            inputs["keywords"] = args ? args.keywords : undefined;
-            inputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["regex"] = args ? args.regex : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ignoreWords"] = args ? args.ignoreWords : undefined;
+            resourceInputs["keywords"] = args ? args.keywords : undefined;
+            resourceInputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["regex"] = args ? args.regex : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["ignoreWords"] = undefined /*out*/;
-            inputs["keywords"] = undefined /*out*/;
-            inputs["maximumMatchDistance"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["regex"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ignoreWords"] = undefined /*out*/;
+            resourceInputs["keywords"] = undefined /*out*/;
+            resourceInputs["maximumMatchDistance"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["regex"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CustomDataIdentifier.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CustomDataIdentifier.__pulumiType, name, resourceInputs, opts);
     }
 }
 

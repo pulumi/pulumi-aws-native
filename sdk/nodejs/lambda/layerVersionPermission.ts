@@ -52,7 +52,7 @@ export class LayerVersionPermission extends pulumi.CustomResource {
     /** @deprecated LayerVersionPermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LayerVersionPermissionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LayerVersionPermission is deprecated: LayerVersionPermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -64,20 +64,18 @@ export class LayerVersionPermission extends pulumi.CustomResource {
             if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["layerVersionArn"] = args ? args.layerVersionArn : undefined;
-            inputs["organizationId"] = args ? args.organizationId : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["layerVersionArn"] = args ? args.layerVersionArn : undefined;
+            resourceInputs["organizationId"] = args ? args.organizationId : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["layerVersionArn"] = undefined /*out*/;
-            inputs["organizationId"] = undefined /*out*/;
-            inputs["principal"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["layerVersionArn"] = undefined /*out*/;
+            resourceInputs["organizationId"] = undefined /*out*/;
+            resourceInputs["principal"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LayerVersionPermission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LayerVersionPermission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

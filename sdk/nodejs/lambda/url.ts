@@ -70,7 +70,7 @@ export class Url extends pulumi.CustomResource {
     /** @deprecated Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UrlArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Url is deprecated: Url is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authorizationType === undefined) && !opts.urn) {
@@ -79,24 +79,22 @@ export class Url extends pulumi.CustomResource {
             if ((!args || args.targetFunctionArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetFunctionArn'");
             }
-            inputs["authorizationType"] = args ? args.authorizationType : undefined;
-            inputs["cors"] = args ? args.cors : undefined;
-            inputs["qualifier"] = args ? args.qualifier : undefined;
-            inputs["targetFunctionArn"] = args ? args.targetFunctionArn : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["functionUrl"] = undefined /*out*/;
+            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["targetFunctionArn"] = args ? args.targetFunctionArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["functionUrl"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["authorizationType"] = undefined /*out*/;
-            inputs["cors"] = undefined /*out*/;
-            inputs["functionUrl"] = undefined /*out*/;
-            inputs["qualifier"] = undefined /*out*/;
-            inputs["targetFunctionArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authorizationType"] = undefined /*out*/;
+            resourceInputs["cors"] = undefined /*out*/;
+            resourceInputs["functionUrl"] = undefined /*out*/;
+            resourceInputs["qualifier"] = undefined /*out*/;
+            resourceInputs["targetFunctionArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Url.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Url.__pulumiType, name, resourceInputs, opts);
     }
 }
 

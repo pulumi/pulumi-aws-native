@@ -92,42 +92,40 @@ export class ObjectType extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ObjectTypeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["allowProfileCreation"] = args ? args.allowProfileCreation : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            inputs["expirationDays"] = args ? args.expirationDays : undefined;
-            inputs["fields"] = args ? args.fields : undefined;
-            inputs["keys"] = args ? args.keys : undefined;
-            inputs["objectTypeName"] = args ? args.objectTypeName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateId"] = args ? args.templateId : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["allowProfileCreation"] = args ? args.allowProfileCreation : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            resourceInputs["expirationDays"] = args ? args.expirationDays : undefined;
+            resourceInputs["fields"] = args ? args.fields : undefined;
+            resourceInputs["keys"] = args ? args.keys : undefined;
+            resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateId"] = args ? args.templateId : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {
-            inputs["allowProfileCreation"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["encryptionKey"] = undefined /*out*/;
-            inputs["expirationDays"] = undefined /*out*/;
-            inputs["fields"] = undefined /*out*/;
-            inputs["keys"] = undefined /*out*/;
-            inputs["lastUpdatedAt"] = undefined /*out*/;
-            inputs["objectTypeName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateId"] = undefined /*out*/;
+            resourceInputs["allowProfileCreation"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["encryptionKey"] = undefined /*out*/;
+            resourceInputs["expirationDays"] = undefined /*out*/;
+            resourceInputs["fields"] = undefined /*out*/;
+            resourceInputs["keys"] = undefined /*out*/;
+            resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["objectTypeName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ObjectType.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ObjectType.__pulumiType, name, resourceInputs, opts);
     }
 }
 

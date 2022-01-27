@@ -104,7 +104,7 @@ export class FlowOutput extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FlowOutputArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.flowArn === undefined) && !opts.urn) {
@@ -113,42 +113,40 @@ export class FlowOutput extends pulumi.CustomResource {
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            inputs["cidrAllowList"] = args ? args.cidrAllowList : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["flowArn"] = args ? args.flowArn : undefined;
-            inputs["maxLatency"] = args ? args.maxLatency : undefined;
-            inputs["minLatency"] = args ? args.minLatency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["remoteId"] = args ? args.remoteId : undefined;
-            inputs["smoothingLatency"] = args ? args.smoothingLatency : undefined;
-            inputs["streamId"] = args ? args.streamId : undefined;
-            inputs["vpcInterfaceAttachment"] = args ? args.vpcInterfaceAttachment : undefined;
-            inputs["outputArn"] = undefined /*out*/;
+            resourceInputs["cidrAllowList"] = args ? args.cidrAllowList : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
+            resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
+            resourceInputs["minLatency"] = args ? args.minLatency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["remoteId"] = args ? args.remoteId : undefined;
+            resourceInputs["smoothingLatency"] = args ? args.smoothingLatency : undefined;
+            resourceInputs["streamId"] = args ? args.streamId : undefined;
+            resourceInputs["vpcInterfaceAttachment"] = args ? args.vpcInterfaceAttachment : undefined;
+            resourceInputs["outputArn"] = undefined /*out*/;
         } else {
-            inputs["cidrAllowList"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["destination"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["flowArn"] = undefined /*out*/;
-            inputs["maxLatency"] = undefined /*out*/;
-            inputs["minLatency"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputArn"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["remoteId"] = undefined /*out*/;
-            inputs["smoothingLatency"] = undefined /*out*/;
-            inputs["streamId"] = undefined /*out*/;
-            inputs["vpcInterfaceAttachment"] = undefined /*out*/;
+            resourceInputs["cidrAllowList"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["flowArn"] = undefined /*out*/;
+            resourceInputs["maxLatency"] = undefined /*out*/;
+            resourceInputs["minLatency"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputArn"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["remoteId"] = undefined /*out*/;
+            resourceInputs["smoothingLatency"] = undefined /*out*/;
+            resourceInputs["streamId"] = undefined /*out*/;
+            resourceInputs["vpcInterfaceAttachment"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FlowOutput.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FlowOutput.__pulumiType, name, resourceInputs, opts);
     }
 }
 

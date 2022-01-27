@@ -61,42 +61,40 @@ export class Volume extends pulumi.CustomResource {
     /** @deprecated Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Volume is deprecated: Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            inputs["autoEnableIO"] = args ? args.autoEnableIO : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["iops"] = args ? args.iops : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["multiAttachEnabled"] = args ? args.multiAttachEnabled : undefined;
-            inputs["outpostArn"] = args ? args.outpostArn : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["snapshotId"] = args ? args.snapshotId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughput"] = args ? args.throughput : undefined;
-            inputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["autoEnableIO"] = args ? args.autoEnableIO : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["iops"] = args ? args.iops : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["multiAttachEnabled"] = args ? args.multiAttachEnabled : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
         } else {
-            inputs["autoEnableIO"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["encrypted"] = undefined /*out*/;
-            inputs["iops"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["multiAttachEnabled"] = undefined /*out*/;
-            inputs["outpostArn"] = undefined /*out*/;
-            inputs["size"] = undefined /*out*/;
-            inputs["snapshotId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["throughput"] = undefined /*out*/;
-            inputs["volumeType"] = undefined /*out*/;
+            resourceInputs["autoEnableIO"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["encrypted"] = undefined /*out*/;
+            resourceInputs["iops"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["multiAttachEnabled"] = undefined /*out*/;
+            resourceInputs["outpostArn"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["snapshotId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["throughput"] = undefined /*out*/;
+            resourceInputs["volumeType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Volume.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -80,7 +80,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
@@ -95,30 +95,28 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.validity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
-            inputs["apiPassthrough"] = args ? args.apiPassthrough : undefined;
-            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            inputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
-            inputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
-            inputs["templateArn"] = args ? args.templateArn : undefined;
-            inputs["validity"] = args ? args.validity : undefined;
-            inputs["validityNotBefore"] = args ? args.validityNotBefore : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificate"] = undefined /*out*/;
+            resourceInputs["apiPassthrough"] = args ? args.apiPassthrough : undefined;
+            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
+            resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
+            resourceInputs["templateArn"] = args ? args.templateArn : undefined;
+            resourceInputs["validity"] = args ? args.validity : undefined;
+            resourceInputs["validityNotBefore"] = args ? args.validityNotBefore : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificate"] = undefined /*out*/;
         } else {
-            inputs["apiPassthrough"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["certificateAuthorityArn"] = undefined /*out*/;
-            inputs["certificateSigningRequest"] = undefined /*out*/;
-            inputs["signingAlgorithm"] = undefined /*out*/;
-            inputs["templateArn"] = undefined /*out*/;
-            inputs["validity"] = undefined /*out*/;
-            inputs["validityNotBefore"] = undefined /*out*/;
+            resourceInputs["apiPassthrough"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["certificateAuthorityArn"] = undefined /*out*/;
+            resourceInputs["certificateSigningRequest"] = undefined /*out*/;
+            resourceInputs["signingAlgorithm"] = undefined /*out*/;
+            resourceInputs["templateArn"] = undefined /*out*/;
+            resourceInputs["validity"] = undefined /*out*/;
+            resourceInputs["validityNotBefore"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

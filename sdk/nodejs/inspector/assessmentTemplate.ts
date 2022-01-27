@@ -55,7 +55,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
     /** @deprecated AssessmentTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AssessmentTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AssessmentTemplate is deprecated: AssessmentTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.assessmentTargetArn === undefined) && !opts.urn) {
@@ -67,24 +67,22 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             if ((!args || args.rulesPackageArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rulesPackageArns'");
             }
-            inputs["assessmentTargetArn"] = args ? args.assessmentTargetArn : undefined;
-            inputs["assessmentTemplateName"] = args ? args.assessmentTemplateName : undefined;
-            inputs["durationInSeconds"] = args ? args.durationInSeconds : undefined;
-            inputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
-            inputs["userAttributesForFindings"] = args ? args.userAttributesForFindings : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["assessmentTargetArn"] = args ? args.assessmentTargetArn : undefined;
+            resourceInputs["assessmentTemplateName"] = args ? args.assessmentTemplateName : undefined;
+            resourceInputs["durationInSeconds"] = args ? args.durationInSeconds : undefined;
+            resourceInputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
+            resourceInputs["userAttributesForFindings"] = args ? args.userAttributesForFindings : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["assessmentTargetArn"] = undefined /*out*/;
-            inputs["assessmentTemplateName"] = undefined /*out*/;
-            inputs["durationInSeconds"] = undefined /*out*/;
-            inputs["rulesPackageArns"] = undefined /*out*/;
-            inputs["userAttributesForFindings"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["assessmentTargetArn"] = undefined /*out*/;
+            resourceInputs["assessmentTemplateName"] = undefined /*out*/;
+            resourceInputs["durationInSeconds"] = undefined /*out*/;
+            resourceInputs["rulesPackageArns"] = undefined /*out*/;
+            resourceInputs["userAttributesForFindings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AssessmentTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AssessmentTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

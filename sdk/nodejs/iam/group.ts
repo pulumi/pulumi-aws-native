@@ -54,25 +54,23 @@ export class Group extends pulumi.CustomResource {
     /** @deprecated Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Group is deprecated: Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["policies"] = args ? args.policies : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["groupName"] = undefined /*out*/;
-            inputs["managedPolicyArns"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["policies"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["managedPolicyArns"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Group.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

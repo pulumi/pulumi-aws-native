@@ -46,22 +46,20 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CloudFrontOriginAccessIdentityArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cloudFrontOriginAccessIdentityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cloudFrontOriginAccessIdentityConfig'");
             }
-            inputs["cloudFrontOriginAccessIdentityConfig"] = args ? args.cloudFrontOriginAccessIdentityConfig : undefined;
-            inputs["s3CanonicalUserId"] = undefined /*out*/;
+            resourceInputs["cloudFrontOriginAccessIdentityConfig"] = args ? args.cloudFrontOriginAccessIdentityConfig : undefined;
+            resourceInputs["s3CanonicalUserId"] = undefined /*out*/;
         } else {
-            inputs["cloudFrontOriginAccessIdentityConfig"] = undefined /*out*/;
-            inputs["s3CanonicalUserId"] = undefined /*out*/;
+            resourceInputs["cloudFrontOriginAccessIdentityConfig"] = undefined /*out*/;
+            resourceInputs["s3CanonicalUserId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CloudFrontOriginAccessIdentity.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CloudFrontOriginAccessIdentity.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -64,25 +64,23 @@ export class RoutingControl extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: RoutingControlArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["clusterArn"] = args ? args.clusterArn : undefined;
-            inputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["routingControlArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
+            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["routingControlArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["clusterArn"] = undefined /*out*/;
-            inputs["controlPanelArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["routingControlArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["clusterArn"] = undefined /*out*/;
+            resourceInputs["controlPanelArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["routingControlArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RoutingControl.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RoutingControl.__pulumiType, name, resourceInputs, opts);
     }
 }
 

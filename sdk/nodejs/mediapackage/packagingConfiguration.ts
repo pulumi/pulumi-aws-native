@@ -72,32 +72,30 @@ export class PackagingConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PackagingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
-            inputs["cmafPackage"] = args ? args.cmafPackage : undefined;
-            inputs["dashPackage"] = args ? args.dashPackage : undefined;
-            inputs["hlsPackage"] = args ? args.hlsPackage : undefined;
-            inputs["mssPackage"] = args ? args.mssPackage : undefined;
-            inputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["cmafPackage"] = args ? args.cmafPackage : undefined;
+            resourceInputs["dashPackage"] = args ? args.dashPackage : undefined;
+            resourceInputs["hlsPackage"] = args ? args.hlsPackage : undefined;
+            resourceInputs["mssPackage"] = args ? args.mssPackage : undefined;
+            resourceInputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["cmafPackage"] = undefined /*out*/;
-            inputs["dashPackage"] = undefined /*out*/;
-            inputs["hlsPackage"] = undefined /*out*/;
-            inputs["mssPackage"] = undefined /*out*/;
-            inputs["packagingGroupId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cmafPackage"] = undefined /*out*/;
+            resourceInputs["dashPackage"] = undefined /*out*/;
+            resourceInputs["hlsPackage"] = undefined /*out*/;
+            resourceInputs["mssPackage"] = undefined /*out*/;
+            resourceInputs["packagingGroupId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PackagingConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PackagingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

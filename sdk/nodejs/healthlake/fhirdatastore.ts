@@ -54,38 +54,36 @@ export class FHIRDatastore extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FHIRDatastoreArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.datastoreTypeVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'datastoreTypeVersion'");
             }
-            inputs["datastoreName"] = args ? args.datastoreName : undefined;
-            inputs["datastoreTypeVersion"] = args ? args.datastoreTypeVersion : undefined;
-            inputs["preloadDataConfig"] = args ? args.preloadDataConfig : undefined;
-            inputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["datastoreArn"] = undefined /*out*/;
-            inputs["datastoreEndpoint"] = undefined /*out*/;
-            inputs["datastoreId"] = undefined /*out*/;
-            inputs["datastoreStatus"] = undefined /*out*/;
+            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
+            resourceInputs["datastoreTypeVersion"] = args ? args.datastoreTypeVersion : undefined;
+            resourceInputs["preloadDataConfig"] = args ? args.preloadDataConfig : undefined;
+            resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["datastoreArn"] = undefined /*out*/;
+            resourceInputs["datastoreEndpoint"] = undefined /*out*/;
+            resourceInputs["datastoreId"] = undefined /*out*/;
+            resourceInputs["datastoreStatus"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["datastoreArn"] = undefined /*out*/;
-            inputs["datastoreEndpoint"] = undefined /*out*/;
-            inputs["datastoreId"] = undefined /*out*/;
-            inputs["datastoreName"] = undefined /*out*/;
-            inputs["datastoreStatus"] = undefined /*out*/;
-            inputs["datastoreTypeVersion"] = undefined /*out*/;
-            inputs["preloadDataConfig"] = undefined /*out*/;
-            inputs["sseConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["datastoreArn"] = undefined /*out*/;
+            resourceInputs["datastoreEndpoint"] = undefined /*out*/;
+            resourceInputs["datastoreId"] = undefined /*out*/;
+            resourceInputs["datastoreName"] = undefined /*out*/;
+            resourceInputs["datastoreStatus"] = undefined /*out*/;
+            resourceInputs["datastoreTypeVersion"] = undefined /*out*/;
+            resourceInputs["preloadDataConfig"] = undefined /*out*/;
+            resourceInputs["sseConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FHIRDatastore.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FHIRDatastore.__pulumiType, name, resourceInputs, opts);
     }
 }
 

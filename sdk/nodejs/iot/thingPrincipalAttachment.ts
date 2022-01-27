@@ -50,7 +50,7 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /** @deprecated ThingPrincipalAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ThingPrincipalAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ThingPrincipalAttachment is deprecated: ThingPrincipalAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.principal === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
             if ((!args || args.thingName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thingName'");
             }
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["thingName"] = args ? args.thingName : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["thingName"] = args ? args.thingName : undefined;
         } else {
-            inputs["principal"] = undefined /*out*/;
-            inputs["thingName"] = undefined /*out*/;
+            resourceInputs["principal"] = undefined /*out*/;
+            resourceInputs["thingName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ThingPrincipalAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ThingPrincipalAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

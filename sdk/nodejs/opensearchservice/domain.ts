@@ -67,55 +67,53 @@ export class Domain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            inputs["advancedOptions"] = args ? args.advancedOptions : undefined;
-            inputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
-            inputs["clusterConfig"] = args ? args.clusterConfig : undefined;
-            inputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
-            inputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["eBSOptions"] = args ? args.eBSOptions : undefined;
-            inputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
-            inputs["nodeToNodeEncryptionOptions"] = args ? args.nodeToNodeEncryptionOptions : undefined;
-            inputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vPCOptions"] = args ? args.vPCOptions : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainArn"] = undefined /*out*/;
-            inputs["domainEndpoint"] = undefined /*out*/;
-            inputs["domainEndpoints"] = undefined /*out*/;
-            inputs["serviceSoftwareOptions"] = undefined /*out*/;
+            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
+            resourceInputs["advancedOptions"] = args ? args.advancedOptions : undefined;
+            resourceInputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
+            resourceInputs["clusterConfig"] = args ? args.clusterConfig : undefined;
+            resourceInputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
+            resourceInputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["eBSOptions"] = args ? args.eBSOptions : undefined;
+            resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
+            resourceInputs["nodeToNodeEncryptionOptions"] = args ? args.nodeToNodeEncryptionOptions : undefined;
+            resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vPCOptions"] = args ? args.vPCOptions : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainArn"] = undefined /*out*/;
+            resourceInputs["domainEndpoint"] = undefined /*out*/;
+            resourceInputs["domainEndpoints"] = undefined /*out*/;
+            resourceInputs["serviceSoftwareOptions"] = undefined /*out*/;
         } else {
-            inputs["accessPolicies"] = undefined /*out*/;
-            inputs["advancedOptions"] = undefined /*out*/;
-            inputs["advancedSecurityOptions"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["clusterConfig"] = undefined /*out*/;
-            inputs["cognitoOptions"] = undefined /*out*/;
-            inputs["domainArn"] = undefined /*out*/;
-            inputs["domainEndpoint"] = undefined /*out*/;
-            inputs["domainEndpointOptions"] = undefined /*out*/;
-            inputs["domainEndpoints"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["eBSOptions"] = undefined /*out*/;
-            inputs["encryptionAtRestOptions"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["logPublishingOptions"] = undefined /*out*/;
-            inputs["nodeToNodeEncryptionOptions"] = undefined /*out*/;
-            inputs["serviceSoftwareOptions"] = undefined /*out*/;
-            inputs["snapshotOptions"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vPCOptions"] = undefined /*out*/;
+            resourceInputs["accessPolicies"] = undefined /*out*/;
+            resourceInputs["advancedOptions"] = undefined /*out*/;
+            resourceInputs["advancedSecurityOptions"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterConfig"] = undefined /*out*/;
+            resourceInputs["cognitoOptions"] = undefined /*out*/;
+            resourceInputs["domainArn"] = undefined /*out*/;
+            resourceInputs["domainEndpoint"] = undefined /*out*/;
+            resourceInputs["domainEndpointOptions"] = undefined /*out*/;
+            resourceInputs["domainEndpoints"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["eBSOptions"] = undefined /*out*/;
+            resourceInputs["encryptionAtRestOptions"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["logPublishingOptions"] = undefined /*out*/;
+            resourceInputs["nodeToNodeEncryptionOptions"] = undefined /*out*/;
+            resourceInputs["serviceSoftwareOptions"] = undefined /*out*/;
+            resourceInputs["snapshotOptions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vPCOptions"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Domain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

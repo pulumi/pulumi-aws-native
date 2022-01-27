@@ -55,30 +55,28 @@ export class LayerVersion extends pulumi.CustomResource {
     /** @deprecated LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LayerVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LayerVersion is deprecated: LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            inputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
-            inputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["layerName"] = args ? args.layerName : undefined;
-            inputs["licenseInfo"] = args ? args.licenseInfo : undefined;
+            resourceInputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
+            resourceInputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["layerName"] = args ? args.layerName : undefined;
+            resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
         } else {
-            inputs["compatibleArchitectures"] = undefined /*out*/;
-            inputs["compatibleRuntimes"] = undefined /*out*/;
-            inputs["content"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["layerName"] = undefined /*out*/;
-            inputs["licenseInfo"] = undefined /*out*/;
+            resourceInputs["compatibleArchitectures"] = undefined /*out*/;
+            resourceInputs["compatibleRuntimes"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["layerName"] = undefined /*out*/;
+            resourceInputs["licenseInfo"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LayerVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LayerVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -47,24 +47,22 @@ export class Distribution extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DistributionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.distributionConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'distributionConfig'");
             }
-            inputs["distributionConfig"] = args ? args.distributionConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["domainName"] = undefined /*out*/;
+            resourceInputs["distributionConfig"] = args ? args.distributionConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainName"] = undefined /*out*/;
         } else {
-            inputs["distributionConfig"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["distributionConfig"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Distribution.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Distribution.__pulumiType, name, resourceInputs, opts);
     }
 }
 

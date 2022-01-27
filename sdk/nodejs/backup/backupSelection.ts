@@ -47,7 +47,7 @@ export class BackupSelection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackupSelectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.backupPlanId === undefined) && !opts.urn) {
@@ -56,18 +56,16 @@ export class BackupSelection extends pulumi.CustomResource {
             if ((!args || args.backupSelection === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupSelection'");
             }
-            inputs["backupPlanId"] = args ? args.backupPlanId : undefined;
-            inputs["backupSelection"] = args ? args.backupSelection : undefined;
-            inputs["selectionId"] = undefined /*out*/;
+            resourceInputs["backupPlanId"] = args ? args.backupPlanId : undefined;
+            resourceInputs["backupSelection"] = args ? args.backupSelection : undefined;
+            resourceInputs["selectionId"] = undefined /*out*/;
         } else {
-            inputs["backupPlanId"] = undefined /*out*/;
-            inputs["backupSelection"] = undefined /*out*/;
-            inputs["selectionId"] = undefined /*out*/;
+            resourceInputs["backupPlanId"] = undefined /*out*/;
+            resourceInputs["backupSelection"] = undefined /*out*/;
+            resourceInputs["selectionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BackupSelection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BackupSelection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

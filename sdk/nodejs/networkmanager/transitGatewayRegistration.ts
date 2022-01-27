@@ -51,7 +51,7 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TransitGatewayRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
             if ((!args || args.transitGatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayArn'");
             }
-            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            inputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
+            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            resourceInputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
         } else {
-            inputs["globalNetworkId"] = undefined /*out*/;
-            inputs["transitGatewayArn"] = undefined /*out*/;
+            resourceInputs["globalNetworkId"] = undefined /*out*/;
+            resourceInputs["transitGatewayArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayRegistration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -50,22 +50,20 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /** @deprecated RegexPatternSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RegexPatternSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RegexPatternSet is deprecated: RegexPatternSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.regexPatternStrings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regexPatternStrings'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["regexPatternStrings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["regexPatternStrings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RegexPatternSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RegexPatternSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

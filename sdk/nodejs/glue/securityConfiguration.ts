@@ -51,22 +51,20 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     /** @deprecated SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecurityConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SecurityConfiguration is deprecated: SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.encryptionConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'encryptionConfiguration'");
             }
-            inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            inputs["encryptionConfiguration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecurityConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecurityConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

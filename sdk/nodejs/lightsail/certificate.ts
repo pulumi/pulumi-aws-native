@@ -65,30 +65,28 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["certificateArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["certificateArn"] = undefined /*out*/;
-            inputs["certificateName"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subjectAlternativeNames"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = undefined /*out*/;
+            resourceInputs["certificateName"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subjectAlternativeNames"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

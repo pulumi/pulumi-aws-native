@@ -56,7 +56,7 @@ export class DataSource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.indexId === undefined) && !opts.urn) {
@@ -65,30 +65,28 @@ export class DataSource extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["indexId"] = args ? args.indexId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["indexId"] = args ? args.indexId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["dataSourceConfiguration"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["indexId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dataSourceConfiguration"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["indexId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataSource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

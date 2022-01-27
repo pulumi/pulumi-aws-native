@@ -51,19 +51,17 @@ export class GeoMatchSet extends pulumi.CustomResource {
     /** @deprecated GeoMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: GeoMatchSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GeoMatchSet is deprecated: GeoMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            inputs["geoMatchConstraints"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["geoMatchConstraints"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GeoMatchSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GeoMatchSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

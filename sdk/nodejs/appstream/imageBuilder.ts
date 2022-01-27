@@ -63,46 +63,44 @@ export class ImageBuilder extends pulumi.CustomResource {
     /** @deprecated ImageBuilder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ImageBuilderArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ImageBuilder is deprecated: ImageBuilder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
-            inputs["appstreamAgentVersion"] = args ? args.appstreamAgentVersion : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
-            inputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["imageArn"] = args ? args.imageArn : undefined;
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["streamingUrl"] = undefined /*out*/;
+            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
+            resourceInputs["appstreamAgentVersion"] = args ? args.appstreamAgentVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
+            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["imageArn"] = args ? args.imageArn : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["streamingUrl"] = undefined /*out*/;
         } else {
-            inputs["accessEndpoints"] = undefined /*out*/;
-            inputs["appstreamAgentVersion"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["domainJoinInfo"] = undefined /*out*/;
-            inputs["enableDefaultInternetAccess"] = undefined /*out*/;
-            inputs["iamRoleArn"] = undefined /*out*/;
-            inputs["imageArn"] = undefined /*out*/;
-            inputs["imageName"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["streamingUrl"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcConfig"] = undefined /*out*/;
+            resourceInputs["accessEndpoints"] = undefined /*out*/;
+            resourceInputs["appstreamAgentVersion"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["domainJoinInfo"] = undefined /*out*/;
+            resourceInputs["enableDefaultInternetAccess"] = undefined /*out*/;
+            resourceInputs["iamRoleArn"] = undefined /*out*/;
+            resourceInputs["imageArn"] = undefined /*out*/;
+            resourceInputs["imageName"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["streamingUrl"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ImageBuilder.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ImageBuilder.__pulumiType, name, resourceInputs, opts);
     }
 }
 

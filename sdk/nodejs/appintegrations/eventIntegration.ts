@@ -72,7 +72,7 @@ export class EventIntegration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EventIntegrationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.eventBridgeBus === undefined) && !opts.urn) {
@@ -81,26 +81,24 @@ export class EventIntegration extends pulumi.CustomResource {
             if ((!args || args.eventFilter === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventFilter'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventBridgeBus"] = args ? args.eventBridgeBus : undefined;
-            inputs["eventFilter"] = args ? args.eventFilter : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["associations"] = undefined /*out*/;
-            inputs["eventIntegrationArn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventBridgeBus"] = args ? args.eventBridgeBus : undefined;
+            resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associations"] = undefined /*out*/;
+            resourceInputs["eventIntegrationArn"] = undefined /*out*/;
         } else {
-            inputs["associations"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["eventBridgeBus"] = undefined /*out*/;
-            inputs["eventFilter"] = undefined /*out*/;
-            inputs["eventIntegrationArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["associations"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["eventBridgeBus"] = undefined /*out*/;
+            resourceInputs["eventFilter"] = undefined /*out*/;
+            resourceInputs["eventIntegrationArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventIntegration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

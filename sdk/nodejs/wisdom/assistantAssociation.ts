@@ -51,7 +51,7 @@ export class AssistantAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssistantAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.assistantId === undefined) && !opts.urn) {
@@ -63,26 +63,24 @@ export class AssistantAssociation extends pulumi.CustomResource {
             if ((!args || args.associationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'associationType'");
             }
-            inputs["assistantId"] = args ? args.assistantId : undefined;
-            inputs["association"] = args ? args.association : undefined;
-            inputs["associationType"] = args ? args.associationType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["assistantArn"] = undefined /*out*/;
-            inputs["assistantAssociationArn"] = undefined /*out*/;
-            inputs["assistantAssociationId"] = undefined /*out*/;
+            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
+            resourceInputs["association"] = args ? args.association : undefined;
+            resourceInputs["associationType"] = args ? args.associationType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assistantArn"] = undefined /*out*/;
+            resourceInputs["assistantAssociationArn"] = undefined /*out*/;
+            resourceInputs["assistantAssociationId"] = undefined /*out*/;
         } else {
-            inputs["assistantArn"] = undefined /*out*/;
-            inputs["assistantAssociationArn"] = undefined /*out*/;
-            inputs["assistantAssociationId"] = undefined /*out*/;
-            inputs["assistantId"] = undefined /*out*/;
-            inputs["association"] = undefined /*out*/;
-            inputs["associationType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["assistantArn"] = undefined /*out*/;
+            resourceInputs["assistantAssociationArn"] = undefined /*out*/;
+            resourceInputs["assistantAssociationId"] = undefined /*out*/;
+            resourceInputs["assistantId"] = undefined /*out*/;
+            resourceInputs["association"] = undefined /*out*/;
+            resourceInputs["associationType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AssistantAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AssistantAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

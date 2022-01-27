@@ -64,7 +64,7 @@ export class Filter extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FilterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.filterAction === undefined) && !opts.urn) {
@@ -73,22 +73,20 @@ export class Filter extends pulumi.CustomResource {
             if ((!args || args.filterCriteria === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filterCriteria'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["filterAction"] = args ? args.filterAction : undefined;
-            inputs["filterCriteria"] = args ? args.filterCriteria : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["filterAction"] = args ? args.filterAction : undefined;
+            resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["filterAction"] = undefined /*out*/;
-            inputs["filterCriteria"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["filterAction"] = undefined /*out*/;
+            resourceInputs["filterCriteria"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Filter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Filter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

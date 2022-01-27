@@ -75,38 +75,36 @@ export class MonitoringSchedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MonitoringScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.monitoringScheduleConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringScheduleConfig'");
             }
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["failureReason"] = args ? args.failureReason : undefined;
-            inputs["lastMonitoringExecutionSummary"] = args ? args.lastMonitoringExecutionSummary : undefined;
-            inputs["monitoringScheduleConfig"] = args ? args.monitoringScheduleConfig : undefined;
-            inputs["monitoringScheduleName"] = args ? args.monitoringScheduleName : undefined;
-            inputs["monitoringScheduleStatus"] = args ? args.monitoringScheduleStatus : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["monitoringScheduleArn"] = undefined /*out*/;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["failureReason"] = args ? args.failureReason : undefined;
+            resourceInputs["lastMonitoringExecutionSummary"] = args ? args.lastMonitoringExecutionSummary : undefined;
+            resourceInputs["monitoringScheduleConfig"] = args ? args.monitoringScheduleConfig : undefined;
+            resourceInputs["monitoringScheduleName"] = args ? args.monitoringScheduleName : undefined;
+            resourceInputs["monitoringScheduleStatus"] = args ? args.monitoringScheduleStatus : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["monitoringScheduleArn"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["endpointName"] = undefined /*out*/;
-            inputs["failureReason"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["lastMonitoringExecutionSummary"] = undefined /*out*/;
-            inputs["monitoringScheduleArn"] = undefined /*out*/;
-            inputs["monitoringScheduleConfig"] = undefined /*out*/;
-            inputs["monitoringScheduleName"] = undefined /*out*/;
-            inputs["monitoringScheduleStatus"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["endpointName"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["lastMonitoringExecutionSummary"] = undefined /*out*/;
+            resourceInputs["monitoringScheduleArn"] = undefined /*out*/;
+            resourceInputs["monitoringScheduleConfig"] = undefined /*out*/;
+            resourceInputs["monitoringScheduleName"] = undefined /*out*/;
+            resourceInputs["monitoringScheduleStatus"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MonitoringSchedule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MonitoringSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

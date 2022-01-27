@@ -64,7 +64,7 @@ export class RuleGroupsNamespace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RuleGroupsNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.data === undefined) && !opts.urn) {
@@ -73,22 +73,20 @@ export class RuleGroupsNamespace extends pulumi.CustomResource {
             if ((!args || args.workspace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspace'");
             }
-            inputs["data"] = args ? args.data : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspace"] = args ? args.workspace : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspace"] = args ? args.workspace : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["data"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["workspace"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["data"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workspace"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RuleGroupsNamespace.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RuleGroupsNamespace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

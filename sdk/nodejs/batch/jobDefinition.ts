@@ -60,40 +60,38 @@ export class JobDefinition extends pulumi.CustomResource {
     /** @deprecated JobDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("JobDefinition is deprecated: JobDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["containerProperties"] = args ? args.containerProperties : undefined;
-            inputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            inputs["nodeProperties"] = args ? args.nodeProperties : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
-            inputs["propagateTags"] = args ? args.propagateTags : undefined;
-            inputs["retryStrategy"] = args ? args.retryStrategy : undefined;
-            inputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
+            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
+            resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
+            resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["retryStrategy"] = args ? args.retryStrategy : undefined;
+            resourceInputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["containerProperties"] = undefined /*out*/;
-            inputs["jobDefinitionName"] = undefined /*out*/;
-            inputs["nodeProperties"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["platformCapabilities"] = undefined /*out*/;
-            inputs["propagateTags"] = undefined /*out*/;
-            inputs["retryStrategy"] = undefined /*out*/;
-            inputs["schedulingPriority"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["containerProperties"] = undefined /*out*/;
+            resourceInputs["jobDefinitionName"] = undefined /*out*/;
+            resourceInputs["nodeProperties"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["platformCapabilities"] = undefined /*out*/;
+            resourceInputs["propagateTags"] = undefined /*out*/;
+            resourceInputs["retryStrategy"] = undefined /*out*/;
+            resourceInputs["schedulingPriority"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(JobDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(JobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

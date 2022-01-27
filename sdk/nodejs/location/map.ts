@@ -53,36 +53,34 @@ export class Map extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MapArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["mapName"] = args ? args.mapName : undefined;
-            inputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["dataSource"] = undefined /*out*/;
-            inputs["mapArn"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["mapName"] = args ? args.mapName : undefined;
+            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["dataSource"] = undefined /*out*/;
+            resourceInputs["mapArn"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["configuration"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["dataSource"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["mapArn"] = undefined /*out*/;
-            inputs["mapName"] = undefined /*out*/;
-            inputs["pricingPlan"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["dataSource"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["mapArn"] = undefined /*out*/;
+            resourceInputs["mapName"] = undefined /*out*/;
+            resourceInputs["pricingPlan"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Map.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Map.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -54,26 +54,24 @@ export class Schedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cronExpression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cronExpression'");
             }
-            inputs["cronExpression"] = args ? args.cronExpression : undefined;
-            inputs["jobNames"] = args ? args.jobNames : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cronExpression"] = args ? args.cronExpression : undefined;
+            resourceInputs["jobNames"] = args ? args.jobNames : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["cronExpression"] = undefined /*out*/;
-            inputs["jobNames"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["cronExpression"] = undefined /*out*/;
+            resourceInputs["jobNames"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Schedule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

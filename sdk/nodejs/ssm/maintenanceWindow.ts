@@ -60,7 +60,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     /** @deprecated MaintenanceWindow is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MaintenanceWindow is deprecated: MaintenanceWindow is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.allowUnassociatedTargets === undefined) && !opts.urn) {
@@ -75,34 +75,32 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            inputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;
-            inputs["cutoff"] = args ? args.cutoff : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["duration"] = args ? args.duration : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
-            inputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
-            inputs["startDate"] = args ? args.startDate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;
+            resourceInputs["cutoff"] = args ? args.cutoff : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["duration"] = args ? args.duration : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
+            resourceInputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
+            resourceInputs["startDate"] = args ? args.startDate : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["allowUnassociatedTargets"] = undefined /*out*/;
-            inputs["cutoff"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["duration"] = undefined /*out*/;
-            inputs["endDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["scheduleOffset"] = undefined /*out*/;
-            inputs["scheduleTimezone"] = undefined /*out*/;
-            inputs["startDate"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["allowUnassociatedTargets"] = undefined /*out*/;
+            resourceInputs["cutoff"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["duration"] = undefined /*out*/;
+            resourceInputs["endDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["scheduleOffset"] = undefined /*out*/;
+            resourceInputs["scheduleTimezone"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MaintenanceWindow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MaintenanceWindow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

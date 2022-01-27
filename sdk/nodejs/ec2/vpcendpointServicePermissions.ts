@@ -50,22 +50,20 @@ export class VPCEndpointServicePermissions extends pulumi.CustomResource {
     /** @deprecated VPCEndpointServicePermissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCEndpointServicePermissionsArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPCEndpointServicePermissions is deprecated: VPCEndpointServicePermissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.serviceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            inputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
-            inputs["serviceId"] = args ? args.serviceId : undefined;
+            resourceInputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
+            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
         } else {
-            inputs["allowedPrincipals"] = undefined /*out*/;
-            inputs["serviceId"] = undefined /*out*/;
+            resourceInputs["allowedPrincipals"] = undefined /*out*/;
+            resourceInputs["serviceId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCEndpointServicePermissions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCEndpointServicePermissions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -78,38 +78,36 @@ export class Bucket extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BucketArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            inputs["accessRules"] = args ? args.accessRules : undefined;
-            inputs["bucketName"] = args ? args.bucketName : undefined;
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["objectVersioning"] = args ? args.objectVersioning : undefined;
-            inputs["readOnlyAccessAccounts"] = args ? args.readOnlyAccessAccounts : undefined;
-            inputs["resourcesReceivingAccess"] = args ? args.resourcesReceivingAccess : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ableToUpdateBundle"] = undefined /*out*/;
-            inputs["bucketArn"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["accessRules"] = args ? args.accessRules : undefined;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["objectVersioning"] = args ? args.objectVersioning : undefined;
+            resourceInputs["readOnlyAccessAccounts"] = args ? args.readOnlyAccessAccounts : undefined;
+            resourceInputs["resourcesReceivingAccess"] = args ? args.resourcesReceivingAccess : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ableToUpdateBundle"] = undefined /*out*/;
+            resourceInputs["bucketArn"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         } else {
-            inputs["ableToUpdateBundle"] = undefined /*out*/;
-            inputs["accessRules"] = undefined /*out*/;
-            inputs["bucketArn"] = undefined /*out*/;
-            inputs["bucketName"] = undefined /*out*/;
-            inputs["bundleId"] = undefined /*out*/;
-            inputs["objectVersioning"] = undefined /*out*/;
-            inputs["readOnlyAccessAccounts"] = undefined /*out*/;
-            inputs["resourcesReceivingAccess"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["ableToUpdateBundle"] = undefined /*out*/;
+            resourceInputs["accessRules"] = undefined /*out*/;
+            resourceInputs["bucketArn"] = undefined /*out*/;
+            resourceInputs["bucketName"] = undefined /*out*/;
+            resourceInputs["bundleId"] = undefined /*out*/;
+            resourceInputs["objectVersioning"] = undefined /*out*/;
+            resourceInputs["readOnlyAccessAccounts"] = undefined /*out*/;
+            resourceInputs["resourcesReceivingAccess"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Bucket.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
 }
 
