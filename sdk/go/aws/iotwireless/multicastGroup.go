@@ -117,7 +117,7 @@ type MulticastGroupInput interface {
 }
 
 func (*MulticastGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*MulticastGroup)(nil))
+	return reflect.TypeOf((**MulticastGroup)(nil)).Elem()
 }
 
 func (i *MulticastGroup) ToMulticastGroupOutput() MulticastGroupOutput {
@@ -131,7 +131,7 @@ func (i *MulticastGroup) ToMulticastGroupOutputWithContext(ctx context.Context) 
 type MulticastGroupOutput struct{ *pulumi.OutputState }
 
 func (MulticastGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MulticastGroup)(nil))
+	return reflect.TypeOf((**MulticastGroup)(nil)).Elem()
 }
 
 func (o MulticastGroupOutput) ToMulticastGroupOutput() MulticastGroupOutput {

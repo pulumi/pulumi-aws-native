@@ -116,7 +116,7 @@ type RuleGroupInput interface {
 }
 
 func (*RuleGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroup)(nil))
+	return reflect.TypeOf((**RuleGroup)(nil)).Elem()
 }
 
 func (i *RuleGroup) ToRuleGroupOutput() RuleGroupOutput {
@@ -130,7 +130,7 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 type RuleGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroup)(nil))
+	return reflect.TypeOf((**RuleGroup)(nil)).Elem()
 }
 
 func (o RuleGroupOutput) ToRuleGroupOutput() RuleGroupOutput {

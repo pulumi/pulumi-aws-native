@@ -133,7 +133,7 @@ type FirewallRuleGroupAssociationInput interface {
 }
 
 func (*FirewallRuleGroupAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleGroupAssociation)(nil))
+	return reflect.TypeOf((**FirewallRuleGroupAssociation)(nil)).Elem()
 }
 
 func (i *FirewallRuleGroupAssociation) ToFirewallRuleGroupAssociationOutput() FirewallRuleGroupAssociationOutput {
@@ -147,7 +147,7 @@ func (i *FirewallRuleGroupAssociation) ToFirewallRuleGroupAssociationOutputWithC
 type FirewallRuleGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleGroupAssociation)(nil))
+	return reflect.TypeOf((**FirewallRuleGroupAssociation)(nil)).Elem()
 }
 
 func (o FirewallRuleGroupAssociationOutput) ToFirewallRuleGroupAssociationOutput() FirewallRuleGroupAssociationOutput {

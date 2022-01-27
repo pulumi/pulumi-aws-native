@@ -191,7 +191,7 @@ type EventSourceMappingInput interface {
 }
 
 func (*EventSourceMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSourceMapping)(nil))
+	return reflect.TypeOf((**EventSourceMapping)(nil)).Elem()
 }
 
 func (i *EventSourceMapping) ToEventSourceMappingOutput() EventSourceMappingOutput {
@@ -205,7 +205,7 @@ func (i *EventSourceMapping) ToEventSourceMappingOutputWithContext(ctx context.C
 type EventSourceMappingOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSourceMapping)(nil))
+	return reflect.TypeOf((**EventSourceMapping)(nil)).Elem()
 }
 
 func (o EventSourceMappingOutput) ToEventSourceMappingOutput() EventSourceMappingOutput {

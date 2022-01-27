@@ -97,7 +97,7 @@ type EventBusPolicyInput interface {
 }
 
 func (*EventBusPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventBusPolicy)(nil))
+	return reflect.TypeOf((**EventBusPolicy)(nil)).Elem()
 }
 
 func (i *EventBusPolicy) ToEventBusPolicyOutput() EventBusPolicyOutput {
@@ -111,7 +111,7 @@ func (i *EventBusPolicy) ToEventBusPolicyOutputWithContext(ctx context.Context) 
 type EventBusPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventBusPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventBusPolicy)(nil))
+	return reflect.TypeOf((**EventBusPolicy)(nil)).Elem()
 }
 
 func (o EventBusPolicyOutput) ToEventBusPolicyOutput() EventBusPolicyOutput {

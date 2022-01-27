@@ -98,7 +98,7 @@ type AssistantAssociationInput interface {
 }
 
 func (*AssistantAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssistantAssociation)(nil))
+	return reflect.TypeOf((**AssistantAssociation)(nil)).Elem()
 }
 
 func (i *AssistantAssociation) ToAssistantAssociationOutput() AssistantAssociationOutput {
@@ -112,7 +112,7 @@ func (i *AssistantAssociation) ToAssistantAssociationOutputWithContext(ctx conte
 type AssistantAssociationOutput struct{ *pulumi.OutputState }
 
 func (AssistantAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssistantAssociation)(nil))
+	return reflect.TypeOf((**AssistantAssociation)(nil)).Elem()
 }
 
 func (o AssistantAssociationOutput) ToAssistantAssociationOutput() AssistantAssociationOutput {

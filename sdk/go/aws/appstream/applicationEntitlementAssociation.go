@@ -92,7 +92,7 @@ type ApplicationEntitlementAssociationInput interface {
 }
 
 func (*ApplicationEntitlementAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationEntitlementAssociation)(nil))
+	return reflect.TypeOf((**ApplicationEntitlementAssociation)(nil)).Elem()
 }
 
 func (i *ApplicationEntitlementAssociation) ToApplicationEntitlementAssociationOutput() ApplicationEntitlementAssociationOutput {
@@ -106,7 +106,7 @@ func (i *ApplicationEntitlementAssociation) ToApplicationEntitlementAssociationO
 type ApplicationEntitlementAssociationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationEntitlementAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationEntitlementAssociation)(nil))
+	return reflect.TypeOf((**ApplicationEntitlementAssociation)(nil)).Elem()
 }
 
 func (o ApplicationEntitlementAssociationOutput) ToApplicationEntitlementAssociationOutput() ApplicationEntitlementAssociationOutput {

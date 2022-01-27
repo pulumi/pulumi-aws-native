@@ -88,7 +88,7 @@ type GraphQLSchemaInput interface {
 }
 
 func (*GraphQLSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLSchema)(nil))
+	return reflect.TypeOf((**GraphQLSchema)(nil)).Elem()
 }
 
 func (i *GraphQLSchema) ToGraphQLSchemaOutput() GraphQLSchemaOutput {
@@ -102,7 +102,7 @@ func (i *GraphQLSchema) ToGraphQLSchemaOutputWithContext(ctx context.Context) Gr
 type GraphQLSchemaOutput struct{ *pulumi.OutputState }
 
 func (GraphQLSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLSchema)(nil))
+	return reflect.TypeOf((**GraphQLSchema)(nil)).Elem()
 }
 
 func (o GraphQLSchemaOutput) ToGraphQLSchemaOutput() GraphQLSchemaOutput {

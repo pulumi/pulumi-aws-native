@@ -97,7 +97,7 @@ type OutcomeInput interface {
 }
 
 func (*Outcome) ElementType() reflect.Type {
-	return reflect.TypeOf((*Outcome)(nil))
+	return reflect.TypeOf((**Outcome)(nil)).Elem()
 }
 
 func (i *Outcome) ToOutcomeOutput() OutcomeOutput {
@@ -111,7 +111,7 @@ func (i *Outcome) ToOutcomeOutputWithContext(ctx context.Context) OutcomeOutput 
 type OutcomeOutput struct{ *pulumi.OutputState }
 
 func (OutcomeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Outcome)(nil))
+	return reflect.TypeOf((**Outcome)(nil)).Elem()
 }
 
 func (o OutcomeOutput) ToOutcomeOutput() OutcomeOutput {

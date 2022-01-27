@@ -78,7 +78,7 @@ type GraphInput interface {
 }
 
 func (*Graph) ElementType() reflect.Type {
-	return reflect.TypeOf((*Graph)(nil))
+	return reflect.TypeOf((**Graph)(nil)).Elem()
 }
 
 func (i *Graph) ToGraphOutput() GraphOutput {
@@ -92,7 +92,7 @@ func (i *Graph) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 type GraphOutput struct{ *pulumi.OutputState }
 
 func (GraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Graph)(nil))
+	return reflect.TypeOf((**Graph)(nil)).Elem()
 }
 
 func (o GraphOutput) ToGraphOutput() GraphOutput {

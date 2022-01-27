@@ -96,7 +96,7 @@ type SegmentInput interface {
 }
 
 func (*Segment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Segment)(nil))
+	return reflect.TypeOf((**Segment)(nil)).Elem()
 }
 
 func (i *Segment) ToSegmentOutput() SegmentOutput {
@@ -110,7 +110,7 @@ func (i *Segment) ToSegmentOutputWithContext(ctx context.Context) SegmentOutput 
 type SegmentOutput struct{ *pulumi.OutputState }
 
 func (SegmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Segment)(nil))
+	return reflect.TypeOf((**Segment)(nil)).Elem()
 }
 
 func (o SegmentOutput) ToSegmentOutput() SegmentOutput {

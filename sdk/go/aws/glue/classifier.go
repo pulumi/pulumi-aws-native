@@ -87,7 +87,7 @@ type ClassifierInput interface {
 }
 
 func (*Classifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*Classifier)(nil))
+	return reflect.TypeOf((**Classifier)(nil)).Elem()
 }
 
 func (i *Classifier) ToClassifierOutput() ClassifierOutput {
@@ -101,7 +101,7 @@ func (i *Classifier) ToClassifierOutputWithContext(ctx context.Context) Classifi
 type ClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Classifier)(nil))
+	return reflect.TypeOf((**Classifier)(nil)).Elem()
 }
 
 func (o ClassifierOutput) ToClassifierOutput() ClassifierOutput {

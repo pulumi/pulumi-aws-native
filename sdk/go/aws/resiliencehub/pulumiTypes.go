@@ -339,47 +339,6 @@ func (i ResiliencyPolicyPolicyMapArgs) ToResiliencyPolicyPolicyMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyPolicyMapOutput)
 }
 
-func (i ResiliencyPolicyPolicyMapArgs) ToResiliencyPolicyPolicyMapPtrOutput() ResiliencyPolicyPolicyMapPtrOutput {
-	return i.ToResiliencyPolicyPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (i ResiliencyPolicyPolicyMapArgs) ToResiliencyPolicyPolicyMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyPolicyMapOutput).ToResiliencyPolicyPolicyMapPtrOutputWithContext(ctx)
-}
-
-// ResiliencyPolicyPolicyMapPtrInput is an input type that accepts ResiliencyPolicyPolicyMapArgs, ResiliencyPolicyPolicyMapPtr and ResiliencyPolicyPolicyMapPtrOutput values.
-// You can construct a concrete instance of `ResiliencyPolicyPolicyMapPtrInput` via:
-//
-//          ResiliencyPolicyPolicyMapArgs{...}
-//
-//  or:
-//
-//          nil
-type ResiliencyPolicyPolicyMapPtrInput interface {
-	pulumi.Input
-
-	ToResiliencyPolicyPolicyMapPtrOutput() ResiliencyPolicyPolicyMapPtrOutput
-	ToResiliencyPolicyPolicyMapPtrOutputWithContext(context.Context) ResiliencyPolicyPolicyMapPtrOutput
-}
-
-type resiliencyPolicyPolicyMapPtrType ResiliencyPolicyPolicyMapArgs
-
-func ResiliencyPolicyPolicyMapPtr(v *ResiliencyPolicyPolicyMapArgs) ResiliencyPolicyPolicyMapPtrInput {
-	return (*resiliencyPolicyPolicyMapPtrType)(v)
-}
-
-func (*resiliencyPolicyPolicyMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResiliencyPolicyPolicyMap)(nil)).Elem()
-}
-
-func (i *resiliencyPolicyPolicyMapPtrType) ToResiliencyPolicyPolicyMapPtrOutput() ResiliencyPolicyPolicyMapPtrOutput {
-	return i.ToResiliencyPolicyPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (i *resiliencyPolicyPolicyMapPtrType) ToResiliencyPolicyPolicyMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyPolicyMapPtrOutput)
-}
-
 type ResiliencyPolicyPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ResiliencyPolicyPolicyMapOutput) ElementType() reflect.Type {
@@ -392,40 +351,6 @@ func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapOutput() Res
 
 func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapOutput {
 	return o
-}
-
-func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapPtrOutput() ResiliencyPolicyPolicyMapPtrOutput {
-	return o.ToResiliencyPolicyPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResiliencyPolicyPolicyMap) *ResiliencyPolicyPolicyMap {
-		return &v
-	}).(ResiliencyPolicyPolicyMapPtrOutput)
-}
-
-type ResiliencyPolicyPolicyMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ResiliencyPolicyPolicyMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResiliencyPolicyPolicyMap)(nil)).Elem()
-}
-
-func (o ResiliencyPolicyPolicyMapPtrOutput) ToResiliencyPolicyPolicyMapPtrOutput() ResiliencyPolicyPolicyMapPtrOutput {
-	return o
-}
-
-func (o ResiliencyPolicyPolicyMapPtrOutput) ToResiliencyPolicyPolicyMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapPtrOutput {
-	return o
-}
-
-func (o ResiliencyPolicyPolicyMapPtrOutput) Elem() ResiliencyPolicyPolicyMapOutput {
-	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) ResiliencyPolicyPolicyMap {
-		if v != nil {
-			return *v
-		}
-		var ret ResiliencyPolicyPolicyMap
-		return ret
-	}).(ResiliencyPolicyPolicyMapOutput)
 }
 
 type ResiliencyPolicyTagMap struct {
@@ -553,7 +478,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTagMapInput)(nil)).Elem(), AppTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTagMapPtrInput)(nil)).Elem(), AppTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicyMapInput)(nil)).Elem(), ResiliencyPolicyPolicyMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicyMapPtrInput)(nil)).Elem(), ResiliencyPolicyPolicyMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTagMapInput)(nil)).Elem(), ResiliencyPolicyTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTagMapPtrInput)(nil)).Elem(), ResiliencyPolicyTagMapArgs{})
 	pulumi.RegisterOutputType(AppPhysicalResourceIdOutput{})
@@ -562,7 +486,6 @@ func init() {
 	pulumi.RegisterOutputType(AppTagMapOutput{})
 	pulumi.RegisterOutputType(AppTagMapPtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicyMapOutput{})
-	pulumi.RegisterOutputType(ResiliencyPolicyPolicyMapPtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyTagMapOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyTagMapPtrOutput{})
 }

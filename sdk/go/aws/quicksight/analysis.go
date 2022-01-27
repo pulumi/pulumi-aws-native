@@ -154,7 +154,7 @@ type AnalysisInput interface {
 }
 
 func (*Analysis) ElementType() reflect.Type {
-	return reflect.TypeOf((*Analysis)(nil))
+	return reflect.TypeOf((**Analysis)(nil)).Elem()
 }
 
 func (i *Analysis) ToAnalysisOutput() AnalysisOutput {
@@ -168,7 +168,7 @@ func (i *Analysis) ToAnalysisOutputWithContext(ctx context.Context) AnalysisOutp
 type AnalysisOutput struct{ *pulumi.OutputState }
 
 func (AnalysisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Analysis)(nil))
+	return reflect.TypeOf((**Analysis)(nil)).Elem()
 }
 
 func (o AnalysisOutput) ToAnalysisOutput() AnalysisOutput {

@@ -159,7 +159,7 @@ type GameServerGroupInput interface {
 }
 
 func (*GameServerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroup)(nil))
+	return reflect.TypeOf((**GameServerGroup)(nil)).Elem()
 }
 
 func (i *GameServerGroup) ToGameServerGroupOutput() GameServerGroupOutput {
@@ -173,7 +173,7 @@ func (i *GameServerGroup) ToGameServerGroupOutputWithContext(ctx context.Context
 type GameServerGroupOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroup)(nil))
+	return reflect.TypeOf((**GameServerGroup)(nil)).Elem()
 }
 
 func (o GameServerGroupOutput) ToGameServerGroupOutput() GameServerGroupOutput {

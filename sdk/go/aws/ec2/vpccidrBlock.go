@@ -94,7 +94,7 @@ type VPCCidrBlockInput interface {
 }
 
 func (*VPCCidrBlock) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCCidrBlock)(nil))
+	return reflect.TypeOf((**VPCCidrBlock)(nil)).Elem()
 }
 
 func (i *VPCCidrBlock) ToVPCCidrBlockOutput() VPCCidrBlockOutput {
@@ -108,7 +108,7 @@ func (i *VPCCidrBlock) ToVPCCidrBlockOutputWithContext(ctx context.Context) VPCC
 type VPCCidrBlockOutput struct{ *pulumi.OutputState }
 
 func (VPCCidrBlockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCCidrBlock)(nil))
+	return reflect.TypeOf((**VPCCidrBlock)(nil)).Elem()
 }
 
 func (o VPCCidrBlockOutput) ToVPCCidrBlockOutput() VPCCidrBlockOutput {

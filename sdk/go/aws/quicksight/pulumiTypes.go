@@ -913,67 +913,6 @@ type AnalysisSheet struct {
 	SheetId *string `pulumi:"sheetId"`
 }
 
-// AnalysisSheetInput is an input type that accepts AnalysisSheetArgs and AnalysisSheetOutput values.
-// You can construct a concrete instance of `AnalysisSheetInput` via:
-//
-//          AnalysisSheetArgs{...}
-type AnalysisSheetInput interface {
-	pulumi.Input
-
-	ToAnalysisSheetOutput() AnalysisSheetOutput
-	ToAnalysisSheetOutputWithContext(context.Context) AnalysisSheetOutput
-}
-
-// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
-type AnalysisSheetArgs struct {
-	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-	//             console.</p>
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// <p>The unique identifier associated with a sheet.</p>
-	SheetId pulumi.StringPtrInput `pulumi:"sheetId"`
-}
-
-func (AnalysisSheetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisSheet)(nil)).Elem()
-}
-
-func (i AnalysisSheetArgs) ToAnalysisSheetOutput() AnalysisSheetOutput {
-	return i.ToAnalysisSheetOutputWithContext(context.Background())
-}
-
-func (i AnalysisSheetArgs) ToAnalysisSheetOutputWithContext(ctx context.Context) AnalysisSheetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSheetOutput)
-}
-
-// AnalysisSheetArrayInput is an input type that accepts AnalysisSheetArray and AnalysisSheetArrayOutput values.
-// You can construct a concrete instance of `AnalysisSheetArrayInput` via:
-//
-//          AnalysisSheetArray{ AnalysisSheetArgs{...} }
-type AnalysisSheetArrayInput interface {
-	pulumi.Input
-
-	ToAnalysisSheetArrayOutput() AnalysisSheetArrayOutput
-	ToAnalysisSheetArrayOutputWithContext(context.Context) AnalysisSheetArrayOutput
-}
-
-type AnalysisSheetArray []AnalysisSheetInput
-
-func (AnalysisSheetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisSheet)(nil)).Elem()
-}
-
-func (i AnalysisSheetArray) ToAnalysisSheetArrayOutput() AnalysisSheetArrayOutput {
-	return i.ToAnalysisSheetArrayOutputWithContext(context.Background())
-}
-
-func (i AnalysisSheetArray) ToAnalysisSheetArrayOutputWithContext(ctx context.Context) AnalysisSheetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSheetArrayOutput)
-}
-
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
 //             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
 //             contains at least one sheet. Each sheet contains at least one visualization widget, for
@@ -1057,47 +996,6 @@ func (i AnalysisSourceEntityArgs) ToAnalysisSourceEntityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceEntityOutput)
 }
 
-func (i AnalysisSourceEntityArgs) ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput {
-	return i.ToAnalysisSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisSourceEntityArgs) ToAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceEntityOutput).ToAnalysisSourceEntityPtrOutputWithContext(ctx)
-}
-
-// AnalysisSourceEntityPtrInput is an input type that accepts AnalysisSourceEntityArgs, AnalysisSourceEntityPtr and AnalysisSourceEntityPtrOutput values.
-// You can construct a concrete instance of `AnalysisSourceEntityPtrInput` via:
-//
-//          AnalysisSourceEntityArgs{...}
-//
-//  or:
-//
-//          nil
-type AnalysisSourceEntityPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput
-	ToAnalysisSourceEntityPtrOutputWithContext(context.Context) AnalysisSourceEntityPtrOutput
-}
-
-type analysisSourceEntityPtrType AnalysisSourceEntityArgs
-
-func AnalysisSourceEntityPtr(v *AnalysisSourceEntityArgs) AnalysisSourceEntityPtrInput {
-	return (*analysisSourceEntityPtrType)(v)
-}
-
-func (*analysisSourceEntityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisSourceEntity)(nil)).Elem()
-}
-
-func (i *analysisSourceEntityPtrType) ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput {
-	return i.ToAnalysisSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisSourceEntityPtrType) ToAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceEntityPtrOutput)
-}
-
 // <p>The source entity of an analysis.</p>
 type AnalysisSourceEntityOutput struct{ *pulumi.OutputState }
 
@@ -1113,51 +1011,8 @@ func (o AnalysisSourceEntityOutput) ToAnalysisSourceEntityOutputWithContext(ctx 
 	return o
 }
 
-func (o AnalysisSourceEntityOutput) ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput {
-	return o.ToAnalysisSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisSourceEntityOutput) ToAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisSourceEntityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSourceEntity) *AnalysisSourceEntity {
-		return &v
-	}).(AnalysisSourceEntityPtrOutput)
-}
-
 func (o AnalysisSourceEntityOutput) SourceTemplate() AnalysisSourceTemplatePtrOutput {
 	return o.ApplyT(func(v AnalysisSourceEntity) *AnalysisSourceTemplate { return v.SourceTemplate }).(AnalysisSourceTemplatePtrOutput)
-}
-
-type AnalysisSourceEntityPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisSourceEntityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisSourceEntity)(nil)).Elem()
-}
-
-func (o AnalysisSourceEntityPtrOutput) ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput {
-	return o
-}
-
-func (o AnalysisSourceEntityPtrOutput) ToAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisSourceEntityPtrOutput {
-	return o
-}
-
-func (o AnalysisSourceEntityPtrOutput) Elem() AnalysisSourceEntityOutput {
-	return o.ApplyT(func(v *AnalysisSourceEntity) AnalysisSourceEntity {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisSourceEntity
-		return ret
-	}).(AnalysisSourceEntityOutput)
-}
-
-func (o AnalysisSourceEntityPtrOutput) SourceTemplate() AnalysisSourceTemplatePtrOutput {
-	return o.ApplyT(func(v *AnalysisSourceEntity) *AnalysisSourceTemplate {
-		if v == nil {
-			return nil
-		}
-		return v.SourceTemplate
-	}).(AnalysisSourceTemplatePtrOutput)
 }
 
 // <p>The source template of an analysis.</p>
@@ -2010,61 +1865,6 @@ type DashboardError struct {
 	Type    *DashboardErrorType `pulumi:"type"`
 }
 
-// DashboardErrorInput is an input type that accepts DashboardErrorArgs and DashboardErrorOutput values.
-// You can construct a concrete instance of `DashboardErrorInput` via:
-//
-//          DashboardErrorArgs{...}
-type DashboardErrorInput interface {
-	pulumi.Input
-
-	ToDashboardErrorOutput() DashboardErrorOutput
-	ToDashboardErrorOutputWithContext(context.Context) DashboardErrorOutput
-}
-
-// <p>Dashboard error.</p>
-type DashboardErrorArgs struct {
-	// <p>Message.</p>
-	Message pulumi.StringPtrInput      `pulumi:"message"`
-	Type    DashboardErrorTypePtrInput `pulumi:"type"`
-}
-
-func (DashboardErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardError)(nil)).Elem()
-}
-
-func (i DashboardErrorArgs) ToDashboardErrorOutput() DashboardErrorOutput {
-	return i.ToDashboardErrorOutputWithContext(context.Background())
-}
-
-func (i DashboardErrorArgs) ToDashboardErrorOutputWithContext(ctx context.Context) DashboardErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardErrorOutput)
-}
-
-// DashboardErrorArrayInput is an input type that accepts DashboardErrorArray and DashboardErrorArrayOutput values.
-// You can construct a concrete instance of `DashboardErrorArrayInput` via:
-//
-//          DashboardErrorArray{ DashboardErrorArgs{...} }
-type DashboardErrorArrayInput interface {
-	pulumi.Input
-
-	ToDashboardErrorArrayOutput() DashboardErrorArrayOutput
-	ToDashboardErrorArrayOutputWithContext(context.Context) DashboardErrorArrayOutput
-}
-
-type DashboardErrorArray []DashboardErrorInput
-
-func (DashboardErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardError)(nil)).Elem()
-}
-
-func (i DashboardErrorArray) ToDashboardErrorArrayOutput() DashboardErrorArrayOutput {
-	return i.ToDashboardErrorArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardErrorArray) ToDashboardErrorArrayOutputWithContext(ctx context.Context) DashboardErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardErrorArrayOutput)
-}
-
 // <p>Dashboard error.</p>
 type DashboardErrorOutput struct{ *pulumi.OutputState }
 
@@ -2881,67 +2681,6 @@ type DashboardSheet struct {
 	SheetId *string `pulumi:"sheetId"`
 }
 
-// DashboardSheetInput is an input type that accepts DashboardSheetArgs and DashboardSheetOutput values.
-// You can construct a concrete instance of `DashboardSheetInput` via:
-//
-//          DashboardSheetArgs{...}
-type DashboardSheetInput interface {
-	pulumi.Input
-
-	ToDashboardSheetOutput() DashboardSheetOutput
-	ToDashboardSheetOutputWithContext(context.Context) DashboardSheetOutput
-}
-
-// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
-type DashboardSheetArgs struct {
-	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-	//             console.</p>
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// <p>The unique identifier associated with a sheet.</p>
-	SheetId pulumi.StringPtrInput `pulumi:"sheetId"`
-}
-
-func (DashboardSheetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardSheet)(nil)).Elem()
-}
-
-func (i DashboardSheetArgs) ToDashboardSheetOutput() DashboardSheetOutput {
-	return i.ToDashboardSheetOutputWithContext(context.Background())
-}
-
-func (i DashboardSheetArgs) ToDashboardSheetOutputWithContext(ctx context.Context) DashboardSheetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetOutput)
-}
-
-// DashboardSheetArrayInput is an input type that accepts DashboardSheetArray and DashboardSheetArrayOutput values.
-// You can construct a concrete instance of `DashboardSheetArrayInput` via:
-//
-//          DashboardSheetArray{ DashboardSheetArgs{...} }
-type DashboardSheetArrayInput interface {
-	pulumi.Input
-
-	ToDashboardSheetArrayOutput() DashboardSheetArrayOutput
-	ToDashboardSheetArrayOutputWithContext(context.Context) DashboardSheetArrayOutput
-}
-
-type DashboardSheetArray []DashboardSheetInput
-
-func (DashboardSheetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardSheet)(nil)).Elem()
-}
-
-func (i DashboardSheetArray) ToDashboardSheetArrayOutput() DashboardSheetArrayOutput {
-	return i.ToDashboardSheetArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardSheetArray) ToDashboardSheetArrayOutputWithContext(ctx context.Context) DashboardSheetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetArrayOutput)
-}
-
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
 //             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
 //             contains at least one sheet. Each sheet contains at least one visualization widget, for
@@ -3161,47 +2900,6 @@ func (i DashboardSourceEntityArgs) ToDashboardSourceEntityOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceEntityOutput)
 }
 
-func (i DashboardSourceEntityArgs) ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput {
-	return i.ToDashboardSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardSourceEntityArgs) ToDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceEntityOutput).ToDashboardSourceEntityPtrOutputWithContext(ctx)
-}
-
-// DashboardSourceEntityPtrInput is an input type that accepts DashboardSourceEntityArgs, DashboardSourceEntityPtr and DashboardSourceEntityPtrOutput values.
-// You can construct a concrete instance of `DashboardSourceEntityPtrInput` via:
-//
-//          DashboardSourceEntityArgs{...}
-//
-//  or:
-//
-//          nil
-type DashboardSourceEntityPtrInput interface {
-	pulumi.Input
-
-	ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput
-	ToDashboardSourceEntityPtrOutputWithContext(context.Context) DashboardSourceEntityPtrOutput
-}
-
-type dashboardSourceEntityPtrType DashboardSourceEntityArgs
-
-func DashboardSourceEntityPtr(v *DashboardSourceEntityArgs) DashboardSourceEntityPtrInput {
-	return (*dashboardSourceEntityPtrType)(v)
-}
-
-func (*dashboardSourceEntityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardSourceEntity)(nil)).Elem()
-}
-
-func (i *dashboardSourceEntityPtrType) ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput {
-	return i.ToDashboardSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardSourceEntityPtrType) ToDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceEntityPtrOutput)
-}
-
 // <p>Dashboard source entity.</p>
 type DashboardSourceEntityOutput struct{ *pulumi.OutputState }
 
@@ -3217,51 +2915,8 @@ func (o DashboardSourceEntityOutput) ToDashboardSourceEntityOutputWithContext(ct
 	return o
 }
 
-func (o DashboardSourceEntityOutput) ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput {
-	return o.ToDashboardSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardSourceEntityOutput) ToDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardSourceEntityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSourceEntity) *DashboardSourceEntity {
-		return &v
-	}).(DashboardSourceEntityPtrOutput)
-}
-
 func (o DashboardSourceEntityOutput) SourceTemplate() DashboardSourceTemplatePtrOutput {
 	return o.ApplyT(func(v DashboardSourceEntity) *DashboardSourceTemplate { return v.SourceTemplate }).(DashboardSourceTemplatePtrOutput)
-}
-
-type DashboardSourceEntityPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardSourceEntityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardSourceEntity)(nil)).Elem()
-}
-
-func (o DashboardSourceEntityPtrOutput) ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput {
-	return o
-}
-
-func (o DashboardSourceEntityPtrOutput) ToDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardSourceEntityPtrOutput {
-	return o
-}
-
-func (o DashboardSourceEntityPtrOutput) Elem() DashboardSourceEntityOutput {
-	return o.ApplyT(func(v *DashboardSourceEntity) DashboardSourceEntity {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardSourceEntity
-		return ret
-	}).(DashboardSourceEntityOutput)
-}
-
-func (o DashboardSourceEntityPtrOutput) SourceTemplate() DashboardSourceTemplatePtrOutput {
-	return o.ApplyT(func(v *DashboardSourceEntity) *DashboardSourceTemplate {
-		if v == nil {
-			return nil
-		}
-		return v.SourceTemplate
-	}).(DashboardSourceTemplatePtrOutput)
 }
 
 // <p>Dashboard source template.</p>
@@ -3668,94 +3323,6 @@ type DashboardVersion struct {
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
 
-// DashboardVersionInput is an input type that accepts DashboardVersionArgs and DashboardVersionOutput values.
-// You can construct a concrete instance of `DashboardVersionInput` via:
-//
-//          DashboardVersionArgs{...}
-type DashboardVersionInput interface {
-	pulumi.Input
-
-	ToDashboardVersionOutput() DashboardVersionOutput
-	ToDashboardVersionOutputWithContext(context.Context) DashboardVersionOutput
-}
-
-// <p>Dashboard version.</p>
-type DashboardVersionArgs struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// <p>The time that this dashboard version was created.</p>
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-	//             version of the dashboard.</p>
-	DataSetArns pulumi.StringArrayInput `pulumi:"dataSetArns"`
-	// <p>Description.</p>
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// <p>Errors associated with this dashboard version.</p>
-	Errors DashboardErrorArrayInput `pulumi:"errors"`
-	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-	Sheets DashboardSheetArrayInput `pulumi:"sheets"`
-	// <p>Source entity ARN.</p>
-	SourceEntityArn pulumi.StringPtrInput           `pulumi:"sourceEntityArn"`
-	Status          DashboardResourceStatusPtrInput `pulumi:"status"`
-	// <p>The ARN of the theme associated with a version of the dashboard.</p>
-	ThemeArn pulumi.StringPtrInput `pulumi:"themeArn"`
-	// <p>Version number for this version of the dashboard.</p>
-	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
-}
-
-func (DashboardVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardVersion)(nil)).Elem()
-}
-
-func (i DashboardVersionArgs) ToDashboardVersionOutput() DashboardVersionOutput {
-	return i.ToDashboardVersionOutputWithContext(context.Background())
-}
-
-func (i DashboardVersionArgs) ToDashboardVersionOutputWithContext(ctx context.Context) DashboardVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardVersionOutput)
-}
-
-func (i DashboardVersionArgs) ToDashboardVersionPtrOutput() DashboardVersionPtrOutput {
-	return i.ToDashboardVersionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardVersionArgs) ToDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardVersionOutput).ToDashboardVersionPtrOutputWithContext(ctx)
-}
-
-// DashboardVersionPtrInput is an input type that accepts DashboardVersionArgs, DashboardVersionPtr and DashboardVersionPtrOutput values.
-// You can construct a concrete instance of `DashboardVersionPtrInput` via:
-//
-//          DashboardVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type DashboardVersionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardVersionPtrOutput() DashboardVersionPtrOutput
-	ToDashboardVersionPtrOutputWithContext(context.Context) DashboardVersionPtrOutput
-}
-
-type dashboardVersionPtrType DashboardVersionArgs
-
-func DashboardVersionPtr(v *DashboardVersionArgs) DashboardVersionPtrInput {
-	return (*dashboardVersionPtrType)(v)
-}
-
-func (*dashboardVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardVersion)(nil)).Elem()
-}
-
-func (i *dashboardVersionPtrType) ToDashboardVersionPtrOutput() DashboardVersionPtrOutput {
-	return i.ToDashboardVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardVersionPtrType) ToDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardVersionPtrOutput)
-}
-
 // <p>Dashboard version.</p>
 type DashboardVersionOutput struct{ *pulumi.OutputState }
 
@@ -3769,16 +3336,6 @@ func (o DashboardVersionOutput) ToDashboardVersionOutput() DashboardVersionOutpu
 
 func (o DashboardVersionOutput) ToDashboardVersionOutputWithContext(ctx context.Context) DashboardVersionOutput {
 	return o
-}
-
-func (o DashboardVersionOutput) ToDashboardVersionPtrOutput() DashboardVersionPtrOutput {
-	return o.ToDashboardVersionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardVersionOutput) ToDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardVersion) *DashboardVersion {
-		return &v
-	}).(DashboardVersionPtrOutput)
 }
 
 // <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3829,130 +3386,6 @@ func (o DashboardVersionOutput) ThemeArn() pulumi.StringPtrOutput {
 // <p>Version number for this version of the dashboard.</p>
 func (o DashboardVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DashboardVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
-}
-
-type DashboardVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardVersion)(nil)).Elem()
-}
-
-func (o DashboardVersionPtrOutput) ToDashboardVersionPtrOutput() DashboardVersionPtrOutput {
-	return o
-}
-
-func (o DashboardVersionPtrOutput) ToDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardVersionPtrOutput {
-	return o
-}
-
-func (o DashboardVersionPtrOutput) Elem() DashboardVersionOutput {
-	return o.ApplyT(func(v *DashboardVersion) DashboardVersion {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardVersion
-		return ret
-	}).(DashboardVersionOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o DashboardVersionPtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The time that this dashboard version was created.</p>
-func (o DashboardVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-//             version of the dashboard.</p>
-func (o DashboardVersionPtrOutput) DataSetArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardVersion) []string {
-		if v == nil {
-			return nil
-		}
-		return v.DataSetArns
-	}).(pulumi.StringArrayOutput)
-}
-
-// <p>Description.</p>
-func (o DashboardVersionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Errors associated with this dashboard version.</p>
-func (o DashboardVersionPtrOutput) Errors() DashboardErrorArrayOutput {
-	return o.ApplyT(func(v *DashboardVersion) []DashboardError {
-		if v == nil {
-			return nil
-		}
-		return v.Errors
-	}).(DashboardErrorArrayOutput)
-}
-
-// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-func (o DashboardVersionPtrOutput) Sheets() DashboardSheetArrayOutput {
-	return o.ApplyT(func(v *DashboardVersion) []DashboardSheet {
-		if v == nil {
-			return nil
-		}
-		return v.Sheets
-	}).(DashboardSheetArrayOutput)
-}
-
-// <p>Source entity ARN.</p>
-func (o DashboardVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceEntityArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardVersionPtrOutput) Status() DashboardResourceStatusPtrOutput {
-	return o.ApplyT(func(v *DashboardVersion) *DashboardResourceStatus {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(DashboardResourceStatusPtrOutput)
-}
-
-// <p>The ARN of the theme associated with a version of the dashboard.</p>
-func (o DashboardVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ThemeArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Version number for this version of the dashboard.</p>
-func (o DashboardVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DashboardVersion) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.VersionNumber
-	}).(pulumi.Float64PtrOutput)
 }
 
 // <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
@@ -4742,63 +4175,6 @@ type DataSetOutputColumn struct {
 	// <p>A display name for the dataset.</p>
 	Name *string                `pulumi:"name"`
 	Type *DataSetColumnDataType `pulumi:"type"`
-}
-
-// DataSetOutputColumnInput is an input type that accepts DataSetOutputColumnArgs and DataSetOutputColumnOutput values.
-// You can construct a concrete instance of `DataSetOutputColumnInput` via:
-//
-//          DataSetOutputColumnArgs{...}
-type DataSetOutputColumnInput interface {
-	pulumi.Input
-
-	ToDataSetOutputColumnOutput() DataSetOutputColumnOutput
-	ToDataSetOutputColumnOutputWithContext(context.Context) DataSetOutputColumnOutput
-}
-
-// <p>Output column.</p>
-type DataSetOutputColumnArgs struct {
-	// <p>A description for a column.</p>
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// <p>A display name for the dataset.</p>
-	Name pulumi.StringPtrInput         `pulumi:"name"`
-	Type DataSetColumnDataTypePtrInput `pulumi:"type"`
-}
-
-func (DataSetOutputColumnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetOutputColumn)(nil)).Elem()
-}
-
-func (i DataSetOutputColumnArgs) ToDataSetOutputColumnOutput() DataSetOutputColumnOutput {
-	return i.ToDataSetOutputColumnOutputWithContext(context.Background())
-}
-
-func (i DataSetOutputColumnArgs) ToDataSetOutputColumnOutputWithContext(ctx context.Context) DataSetOutputColumnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetOutputColumnOutput)
-}
-
-// DataSetOutputColumnArrayInput is an input type that accepts DataSetOutputColumnArray and DataSetOutputColumnArrayOutput values.
-// You can construct a concrete instance of `DataSetOutputColumnArrayInput` via:
-//
-//          DataSetOutputColumnArray{ DataSetOutputColumnArgs{...} }
-type DataSetOutputColumnArrayInput interface {
-	pulumi.Input
-
-	ToDataSetOutputColumnArrayOutput() DataSetOutputColumnArrayOutput
-	ToDataSetOutputColumnArrayOutputWithContext(context.Context) DataSetOutputColumnArrayOutput
-}
-
-type DataSetOutputColumnArray []DataSetOutputColumnInput
-
-func (DataSetOutputColumnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetOutputColumn)(nil)).Elem()
-}
-
-func (i DataSetOutputColumnArray) ToDataSetOutputColumnArrayOutput() DataSetOutputColumnArrayOutput {
-	return i.ToDataSetOutputColumnArrayOutputWithContext(context.Background())
-}
-
-func (i DataSetOutputColumnArray) ToDataSetOutputColumnArrayOutputWithContext(ctx context.Context) DataSetOutputColumnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetOutputColumnArrayOutput)
 }
 
 // <p>Output column.</p>
@@ -9947,60 +9323,6 @@ type TemplateColumnGroupColumnSchema struct {
 	Name *string `pulumi:"name"`
 }
 
-// TemplateColumnGroupColumnSchemaInput is an input type that accepts TemplateColumnGroupColumnSchemaArgs and TemplateColumnGroupColumnSchemaOutput values.
-// You can construct a concrete instance of `TemplateColumnGroupColumnSchemaInput` via:
-//
-//          TemplateColumnGroupColumnSchemaArgs{...}
-type TemplateColumnGroupColumnSchemaInput interface {
-	pulumi.Input
-
-	ToTemplateColumnGroupColumnSchemaOutput() TemplateColumnGroupColumnSchemaOutput
-	ToTemplateColumnGroupColumnSchemaOutputWithContext(context.Context) TemplateColumnGroupColumnSchemaOutput
-}
-
-// <p>A structure describing the name, data type, and geographic role of the columns.</p>
-type TemplateColumnGroupColumnSchemaArgs struct {
-	// <p>The name of the column group's column schema.</p>
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (TemplateColumnGroupColumnSchemaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateColumnGroupColumnSchema)(nil)).Elem()
-}
-
-func (i TemplateColumnGroupColumnSchemaArgs) ToTemplateColumnGroupColumnSchemaOutput() TemplateColumnGroupColumnSchemaOutput {
-	return i.ToTemplateColumnGroupColumnSchemaOutputWithContext(context.Background())
-}
-
-func (i TemplateColumnGroupColumnSchemaArgs) ToTemplateColumnGroupColumnSchemaOutputWithContext(ctx context.Context) TemplateColumnGroupColumnSchemaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupColumnSchemaOutput)
-}
-
-// TemplateColumnGroupColumnSchemaArrayInput is an input type that accepts TemplateColumnGroupColumnSchemaArray and TemplateColumnGroupColumnSchemaArrayOutput values.
-// You can construct a concrete instance of `TemplateColumnGroupColumnSchemaArrayInput` via:
-//
-//          TemplateColumnGroupColumnSchemaArray{ TemplateColumnGroupColumnSchemaArgs{...} }
-type TemplateColumnGroupColumnSchemaArrayInput interface {
-	pulumi.Input
-
-	ToTemplateColumnGroupColumnSchemaArrayOutput() TemplateColumnGroupColumnSchemaArrayOutput
-	ToTemplateColumnGroupColumnSchemaArrayOutputWithContext(context.Context) TemplateColumnGroupColumnSchemaArrayOutput
-}
-
-type TemplateColumnGroupColumnSchemaArray []TemplateColumnGroupColumnSchemaInput
-
-func (TemplateColumnGroupColumnSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateColumnGroupColumnSchema)(nil)).Elem()
-}
-
-func (i TemplateColumnGroupColumnSchemaArray) ToTemplateColumnGroupColumnSchemaArrayOutput() TemplateColumnGroupColumnSchemaArrayOutput {
-	return i.ToTemplateColumnGroupColumnSchemaArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateColumnGroupColumnSchemaArray) ToTemplateColumnGroupColumnSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnGroupColumnSchemaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupColumnSchemaArrayOutput)
-}
-
 // <p>A structure describing the name, data type, and geographic role of the columns.</p>
 type TemplateColumnGroupColumnSchemaOutput struct{ *pulumi.OutputState }
 
@@ -10047,62 +9369,6 @@ type TemplateColumnGroupSchema struct {
 	ColumnGroupColumnSchemaList []TemplateColumnGroupColumnSchema `pulumi:"columnGroupColumnSchemaList"`
 	// <p>The name of the column group schema.</p>
 	Name *string `pulumi:"name"`
-}
-
-// TemplateColumnGroupSchemaInput is an input type that accepts TemplateColumnGroupSchemaArgs and TemplateColumnGroupSchemaOutput values.
-// You can construct a concrete instance of `TemplateColumnGroupSchemaInput` via:
-//
-//          TemplateColumnGroupSchemaArgs{...}
-type TemplateColumnGroupSchemaInput interface {
-	pulumi.Input
-
-	ToTemplateColumnGroupSchemaOutput() TemplateColumnGroupSchemaOutput
-	ToTemplateColumnGroupSchemaOutputWithContext(context.Context) TemplateColumnGroupSchemaOutput
-}
-
-// <p>The column group schema.</p>
-type TemplateColumnGroupSchemaArgs struct {
-	// <p>A structure containing the list of schemas for column group columns.</p>
-	ColumnGroupColumnSchemaList TemplateColumnGroupColumnSchemaArrayInput `pulumi:"columnGroupColumnSchemaList"`
-	// <p>The name of the column group schema.</p>
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (TemplateColumnGroupSchemaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateColumnGroupSchema)(nil)).Elem()
-}
-
-func (i TemplateColumnGroupSchemaArgs) ToTemplateColumnGroupSchemaOutput() TemplateColumnGroupSchemaOutput {
-	return i.ToTemplateColumnGroupSchemaOutputWithContext(context.Background())
-}
-
-func (i TemplateColumnGroupSchemaArgs) ToTemplateColumnGroupSchemaOutputWithContext(ctx context.Context) TemplateColumnGroupSchemaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupSchemaOutput)
-}
-
-// TemplateColumnGroupSchemaArrayInput is an input type that accepts TemplateColumnGroupSchemaArray and TemplateColumnGroupSchemaArrayOutput values.
-// You can construct a concrete instance of `TemplateColumnGroupSchemaArrayInput` via:
-//
-//          TemplateColumnGroupSchemaArray{ TemplateColumnGroupSchemaArgs{...} }
-type TemplateColumnGroupSchemaArrayInput interface {
-	pulumi.Input
-
-	ToTemplateColumnGroupSchemaArrayOutput() TemplateColumnGroupSchemaArrayOutput
-	ToTemplateColumnGroupSchemaArrayOutputWithContext(context.Context) TemplateColumnGroupSchemaArrayOutput
-}
-
-type TemplateColumnGroupSchemaArray []TemplateColumnGroupSchemaInput
-
-func (TemplateColumnGroupSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateColumnGroupSchema)(nil)).Elem()
-}
-
-func (i TemplateColumnGroupSchemaArray) ToTemplateColumnGroupSchemaArrayOutput() TemplateColumnGroupSchemaArrayOutput {
-	return i.ToTemplateColumnGroupSchemaArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateColumnGroupSchemaArray) ToTemplateColumnGroupSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnGroupSchemaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupSchemaArrayOutput)
 }
 
 // <p>The column group schema.</p>
@@ -10162,64 +9428,6 @@ type TemplateColumnSchema struct {
 	Name *string `pulumi:"name"`
 }
 
-// TemplateColumnSchemaInput is an input type that accepts TemplateColumnSchemaArgs and TemplateColumnSchemaOutput values.
-// You can construct a concrete instance of `TemplateColumnSchemaInput` via:
-//
-//          TemplateColumnSchemaArgs{...}
-type TemplateColumnSchemaInput interface {
-	pulumi.Input
-
-	ToTemplateColumnSchemaOutput() TemplateColumnSchemaOutput
-	ToTemplateColumnSchemaOutputWithContext(context.Context) TemplateColumnSchemaOutput
-}
-
-// <p>The column schema.</p>
-type TemplateColumnSchemaArgs struct {
-	// <p>The data type of the column schema.</p>
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// <p>The geographic role of the column schema.</p>
-	GeographicRole pulumi.StringPtrInput `pulumi:"geographicRole"`
-	// <p>The name of the column schema.</p>
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (TemplateColumnSchemaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateColumnSchema)(nil)).Elem()
-}
-
-func (i TemplateColumnSchemaArgs) ToTemplateColumnSchemaOutput() TemplateColumnSchemaOutput {
-	return i.ToTemplateColumnSchemaOutputWithContext(context.Background())
-}
-
-func (i TemplateColumnSchemaArgs) ToTemplateColumnSchemaOutputWithContext(ctx context.Context) TemplateColumnSchemaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnSchemaOutput)
-}
-
-// TemplateColumnSchemaArrayInput is an input type that accepts TemplateColumnSchemaArray and TemplateColumnSchemaArrayOutput values.
-// You can construct a concrete instance of `TemplateColumnSchemaArrayInput` via:
-//
-//          TemplateColumnSchemaArray{ TemplateColumnSchemaArgs{...} }
-type TemplateColumnSchemaArrayInput interface {
-	pulumi.Input
-
-	ToTemplateColumnSchemaArrayOutput() TemplateColumnSchemaArrayOutput
-	ToTemplateColumnSchemaArrayOutputWithContext(context.Context) TemplateColumnSchemaArrayOutput
-}
-
-type TemplateColumnSchemaArray []TemplateColumnSchemaInput
-
-func (TemplateColumnSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateColumnSchema)(nil)).Elem()
-}
-
-func (i TemplateColumnSchemaArray) ToTemplateColumnSchemaArrayOutput() TemplateColumnSchemaArrayOutput {
-	return i.ToTemplateColumnSchemaArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateColumnSchemaArray) ToTemplateColumnSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnSchemaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnSchemaArrayOutput)
-}
-
 // <p>The column schema.</p>
 type TemplateColumnSchemaOutput struct{ *pulumi.OutputState }
 
@@ -10277,63 +9485,6 @@ type TemplateDataSetConfiguration struct {
 	DataSetSchema         *TemplateDataSetSchema      `pulumi:"dataSetSchema"`
 	// <p>Placeholder.</p>
 	Placeholder *string `pulumi:"placeholder"`
-}
-
-// TemplateDataSetConfigurationInput is an input type that accepts TemplateDataSetConfigurationArgs and TemplateDataSetConfigurationOutput values.
-// You can construct a concrete instance of `TemplateDataSetConfigurationInput` via:
-//
-//          TemplateDataSetConfigurationArgs{...}
-type TemplateDataSetConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateDataSetConfigurationOutput() TemplateDataSetConfigurationOutput
-	ToTemplateDataSetConfigurationOutputWithContext(context.Context) TemplateDataSetConfigurationOutput
-}
-
-// <p>Dataset configuration.</p>
-type TemplateDataSetConfigurationArgs struct {
-	// <p>A structure containing the list of column group schemas.</p>
-	ColumnGroupSchemaList TemplateColumnGroupSchemaArrayInput `pulumi:"columnGroupSchemaList"`
-	DataSetSchema         TemplateDataSetSchemaPtrInput       `pulumi:"dataSetSchema"`
-	// <p>Placeholder.</p>
-	Placeholder pulumi.StringPtrInput `pulumi:"placeholder"`
-}
-
-func (TemplateDataSetConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateDataSetConfiguration)(nil)).Elem()
-}
-
-func (i TemplateDataSetConfigurationArgs) ToTemplateDataSetConfigurationOutput() TemplateDataSetConfigurationOutput {
-	return i.ToTemplateDataSetConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateDataSetConfigurationArgs) ToTemplateDataSetConfigurationOutputWithContext(ctx context.Context) TemplateDataSetConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetConfigurationOutput)
-}
-
-// TemplateDataSetConfigurationArrayInput is an input type that accepts TemplateDataSetConfigurationArray and TemplateDataSetConfigurationArrayOutput values.
-// You can construct a concrete instance of `TemplateDataSetConfigurationArrayInput` via:
-//
-//          TemplateDataSetConfigurationArray{ TemplateDataSetConfigurationArgs{...} }
-type TemplateDataSetConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToTemplateDataSetConfigurationArrayOutput() TemplateDataSetConfigurationArrayOutput
-	ToTemplateDataSetConfigurationArrayOutputWithContext(context.Context) TemplateDataSetConfigurationArrayOutput
-}
-
-type TemplateDataSetConfigurationArray []TemplateDataSetConfigurationInput
-
-func (TemplateDataSetConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateDataSetConfiguration)(nil)).Elem()
-}
-
-func (i TemplateDataSetConfigurationArray) ToTemplateDataSetConfigurationArrayOutput() TemplateDataSetConfigurationArrayOutput {
-	return i.ToTemplateDataSetConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateDataSetConfigurationArray) ToTemplateDataSetConfigurationArrayOutputWithContext(ctx context.Context) TemplateDataSetConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetConfigurationArrayOutput)
 }
 
 // <p>Dataset configuration.</p>
@@ -10500,76 +9651,6 @@ type TemplateDataSetSchema struct {
 	ColumnSchemaList []TemplateColumnSchema `pulumi:"columnSchemaList"`
 }
 
-// TemplateDataSetSchemaInput is an input type that accepts TemplateDataSetSchemaArgs and TemplateDataSetSchemaOutput values.
-// You can construct a concrete instance of `TemplateDataSetSchemaInput` via:
-//
-//          TemplateDataSetSchemaArgs{...}
-type TemplateDataSetSchemaInput interface {
-	pulumi.Input
-
-	ToTemplateDataSetSchemaOutput() TemplateDataSetSchemaOutput
-	ToTemplateDataSetSchemaOutputWithContext(context.Context) TemplateDataSetSchemaOutput
-}
-
-// <p>Dataset schema.</p>
-type TemplateDataSetSchemaArgs struct {
-	// <p>A structure containing the list of column schemas.</p>
-	ColumnSchemaList TemplateColumnSchemaArrayInput `pulumi:"columnSchemaList"`
-}
-
-func (TemplateDataSetSchemaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateDataSetSchema)(nil)).Elem()
-}
-
-func (i TemplateDataSetSchemaArgs) ToTemplateDataSetSchemaOutput() TemplateDataSetSchemaOutput {
-	return i.ToTemplateDataSetSchemaOutputWithContext(context.Background())
-}
-
-func (i TemplateDataSetSchemaArgs) ToTemplateDataSetSchemaOutputWithContext(ctx context.Context) TemplateDataSetSchemaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetSchemaOutput)
-}
-
-func (i TemplateDataSetSchemaArgs) ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput {
-	return i.ToTemplateDataSetSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateDataSetSchemaArgs) ToTemplateDataSetSchemaPtrOutputWithContext(ctx context.Context) TemplateDataSetSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetSchemaOutput).ToTemplateDataSetSchemaPtrOutputWithContext(ctx)
-}
-
-// TemplateDataSetSchemaPtrInput is an input type that accepts TemplateDataSetSchemaArgs, TemplateDataSetSchemaPtr and TemplateDataSetSchemaPtrOutput values.
-// You can construct a concrete instance of `TemplateDataSetSchemaPtrInput` via:
-//
-//          TemplateDataSetSchemaArgs{...}
-//
-//  or:
-//
-//          nil
-type TemplateDataSetSchemaPtrInput interface {
-	pulumi.Input
-
-	ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput
-	ToTemplateDataSetSchemaPtrOutputWithContext(context.Context) TemplateDataSetSchemaPtrOutput
-}
-
-type templateDataSetSchemaPtrType TemplateDataSetSchemaArgs
-
-func TemplateDataSetSchemaPtr(v *TemplateDataSetSchemaArgs) TemplateDataSetSchemaPtrInput {
-	return (*templateDataSetSchemaPtrType)(v)
-}
-
-func (*templateDataSetSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateDataSetSchema)(nil)).Elem()
-}
-
-func (i *templateDataSetSchemaPtrType) ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput {
-	return i.ToTemplateDataSetSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *templateDataSetSchemaPtrType) ToTemplateDataSetSchemaPtrOutputWithContext(ctx context.Context) TemplateDataSetSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetSchemaPtrOutput)
-}
-
 // <p>Dataset schema.</p>
 type TemplateDataSetSchemaOutput struct{ *pulumi.OutputState }
 
@@ -10583,16 +9664,6 @@ func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaOutput() TemplateDat
 
 func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaOutputWithContext(ctx context.Context) TemplateDataSetSchemaOutput {
 	return o
-}
-
-func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput {
-	return o.ToTemplateDataSetSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaPtrOutputWithContext(ctx context.Context) TemplateDataSetSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDataSetSchema) *TemplateDataSetSchema {
-		return &v
-	}).(TemplateDataSetSchemaPtrOutput)
 }
 
 // <p>A structure containing the list of column schemas.</p>
@@ -10639,61 +9710,6 @@ type TemplateError struct {
 	// <p>Description of the error type.</p>
 	Message *string            `pulumi:"message"`
 	Type    *TemplateErrorType `pulumi:"type"`
-}
-
-// TemplateErrorInput is an input type that accepts TemplateErrorArgs and TemplateErrorOutput values.
-// You can construct a concrete instance of `TemplateErrorInput` via:
-//
-//          TemplateErrorArgs{...}
-type TemplateErrorInput interface {
-	pulumi.Input
-
-	ToTemplateErrorOutput() TemplateErrorOutput
-	ToTemplateErrorOutputWithContext(context.Context) TemplateErrorOutput
-}
-
-// <p>List of errors that occurred when the template version creation failed.</p>
-type TemplateErrorArgs struct {
-	// <p>Description of the error type.</p>
-	Message pulumi.StringPtrInput     `pulumi:"message"`
-	Type    TemplateErrorTypePtrInput `pulumi:"type"`
-}
-
-func (TemplateErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateError)(nil)).Elem()
-}
-
-func (i TemplateErrorArgs) ToTemplateErrorOutput() TemplateErrorOutput {
-	return i.ToTemplateErrorOutputWithContext(context.Background())
-}
-
-func (i TemplateErrorArgs) ToTemplateErrorOutputWithContext(ctx context.Context) TemplateErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateErrorOutput)
-}
-
-// TemplateErrorArrayInput is an input type that accepts TemplateErrorArray and TemplateErrorArrayOutput values.
-// You can construct a concrete instance of `TemplateErrorArrayInput` via:
-//
-//          TemplateErrorArray{ TemplateErrorArgs{...} }
-type TemplateErrorArrayInput interface {
-	pulumi.Input
-
-	ToTemplateErrorArrayOutput() TemplateErrorArrayOutput
-	ToTemplateErrorArrayOutputWithContext(context.Context) TemplateErrorArrayOutput
-}
-
-type TemplateErrorArray []TemplateErrorInput
-
-func (TemplateErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateError)(nil)).Elem()
-}
-
-func (i TemplateErrorArray) ToTemplateErrorArrayOutput() TemplateErrorArrayOutput {
-	return i.ToTemplateErrorArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateErrorArray) ToTemplateErrorArrayOutputWithContext(ctx context.Context) TemplateErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateErrorArrayOutput)
 }
 
 // <p>List of errors that occurred when the template version creation failed.</p>
@@ -10902,67 +9918,6 @@ type TemplateSheet struct {
 	Name *string `pulumi:"name"`
 	// <p>The unique identifier associated with a sheet.</p>
 	SheetId *string `pulumi:"sheetId"`
-}
-
-// TemplateSheetInput is an input type that accepts TemplateSheetArgs and TemplateSheetOutput values.
-// You can construct a concrete instance of `TemplateSheetInput` via:
-//
-//          TemplateSheetArgs{...}
-type TemplateSheetInput interface {
-	pulumi.Input
-
-	ToTemplateSheetOutput() TemplateSheetOutput
-	ToTemplateSheetOutputWithContext(context.Context) TemplateSheetOutput
-}
-
-// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-//             contains at least one sheet. Each sheet contains at least one visualization widget, for
-//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-//             components, such as controls, filters, and so on.</p>
-type TemplateSheetArgs struct {
-	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-	//             console.</p>
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// <p>The unique identifier associated with a sheet.</p>
-	SheetId pulumi.StringPtrInput `pulumi:"sheetId"`
-}
-
-func (TemplateSheetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSheet)(nil)).Elem()
-}
-
-func (i TemplateSheetArgs) ToTemplateSheetOutput() TemplateSheetOutput {
-	return i.ToTemplateSheetOutputWithContext(context.Background())
-}
-
-func (i TemplateSheetArgs) ToTemplateSheetOutputWithContext(ctx context.Context) TemplateSheetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSheetOutput)
-}
-
-// TemplateSheetArrayInput is an input type that accepts TemplateSheetArray and TemplateSheetArrayOutput values.
-// You can construct a concrete instance of `TemplateSheetArrayInput` via:
-//
-//          TemplateSheetArray{ TemplateSheetArgs{...} }
-type TemplateSheetArrayInput interface {
-	pulumi.Input
-
-	ToTemplateSheetArrayOutput() TemplateSheetArrayOutput
-	ToTemplateSheetArrayOutputWithContext(context.Context) TemplateSheetArrayOutput
-}
-
-type TemplateSheetArray []TemplateSheetInput
-
-func (TemplateSheetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSheet)(nil)).Elem()
-}
-
-func (i TemplateSheetArray) ToTemplateSheetArrayOutput() TemplateSheetArrayOutput {
-	return i.ToTemplateSheetArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateSheetArray) ToTemplateSheetArrayOutputWithContext(ctx context.Context) TemplateSheetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSheetArrayOutput)
 }
 
 // <p>A <i>sheet</i>, which is an object that contains a set of visuals that
@@ -11213,47 +10168,6 @@ func (i TemplateSourceEntityArgs) ToTemplateSourceEntityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceEntityOutput)
 }
 
-func (i TemplateSourceEntityArgs) ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput {
-	return i.ToTemplateSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateSourceEntityArgs) ToTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceEntityOutput).ToTemplateSourceEntityPtrOutputWithContext(ctx)
-}
-
-// TemplateSourceEntityPtrInput is an input type that accepts TemplateSourceEntityArgs, TemplateSourceEntityPtr and TemplateSourceEntityPtrOutput values.
-// You can construct a concrete instance of `TemplateSourceEntityPtrInput` via:
-//
-//          TemplateSourceEntityArgs{...}
-//
-//  or:
-//
-//          nil
-type TemplateSourceEntityPtrInput interface {
-	pulumi.Input
-
-	ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput
-	ToTemplateSourceEntityPtrOutputWithContext(context.Context) TemplateSourceEntityPtrOutput
-}
-
-type templateSourceEntityPtrType TemplateSourceEntityArgs
-
-func TemplateSourceEntityPtr(v *TemplateSourceEntityArgs) TemplateSourceEntityPtrInput {
-	return (*templateSourceEntityPtrType)(v)
-}
-
-func (*templateSourceEntityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateSourceEntity)(nil)).Elem()
-}
-
-func (i *templateSourceEntityPtrType) ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput {
-	return i.ToTemplateSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i *templateSourceEntityPtrType) ToTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceEntityPtrOutput)
-}
-
 // <p>The source entity of the template.</p>
 type TemplateSourceEntityOutput struct{ *pulumi.OutputState }
 
@@ -11269,64 +10183,12 @@ func (o TemplateSourceEntityOutput) ToTemplateSourceEntityOutputWithContext(ctx 
 	return o
 }
 
-func (o TemplateSourceEntityOutput) ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput {
-	return o.ToTemplateSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateSourceEntityOutput) ToTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateSourceEntityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSourceEntity) *TemplateSourceEntity {
-		return &v
-	}).(TemplateSourceEntityPtrOutput)
-}
-
 func (o TemplateSourceEntityOutput) SourceAnalysis() TemplateSourceAnalysisPtrOutput {
 	return o.ApplyT(func(v TemplateSourceEntity) *TemplateSourceAnalysis { return v.SourceAnalysis }).(TemplateSourceAnalysisPtrOutput)
 }
 
 func (o TemplateSourceEntityOutput) SourceTemplate() TemplateSourceTemplatePtrOutput {
 	return o.ApplyT(func(v TemplateSourceEntity) *TemplateSourceTemplate { return v.SourceTemplate }).(TemplateSourceTemplatePtrOutput)
-}
-
-type TemplateSourceEntityPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateSourceEntityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateSourceEntity)(nil)).Elem()
-}
-
-func (o TemplateSourceEntityPtrOutput) ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput {
-	return o
-}
-
-func (o TemplateSourceEntityPtrOutput) ToTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateSourceEntityPtrOutput {
-	return o
-}
-
-func (o TemplateSourceEntityPtrOutput) Elem() TemplateSourceEntityOutput {
-	return o.ApplyT(func(v *TemplateSourceEntity) TemplateSourceEntity {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateSourceEntity
-		return ret
-	}).(TemplateSourceEntityOutput)
-}
-
-func (o TemplateSourceEntityPtrOutput) SourceAnalysis() TemplateSourceAnalysisPtrOutput {
-	return o.ApplyT(func(v *TemplateSourceEntity) *TemplateSourceAnalysis {
-		if v == nil {
-			return nil
-		}
-		return v.SourceAnalysis
-	}).(TemplateSourceAnalysisPtrOutput)
-}
-
-func (o TemplateSourceEntityPtrOutput) SourceTemplate() TemplateSourceTemplatePtrOutput {
-	return o.ApplyT(func(v *TemplateSourceEntity) *TemplateSourceTemplate {
-		if v == nil {
-			return nil
-		}
-		return v.SourceTemplate
-	}).(TemplateSourceTemplatePtrOutput)
 }
 
 // <p>The source template of the template.</p>
@@ -11605,94 +10467,6 @@ type TemplateVersion struct {
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
 
-// TemplateVersionInput is an input type that accepts TemplateVersionArgs and TemplateVersionOutput values.
-// You can construct a concrete instance of `TemplateVersionInput` via:
-//
-//          TemplateVersionArgs{...}
-type TemplateVersionInput interface {
-	pulumi.Input
-
-	ToTemplateVersionOutput() TemplateVersionOutput
-	ToTemplateVersionOutputWithContext(context.Context) TemplateVersionOutput
-}
-
-// <p>A version of a template.</p>
-type TemplateVersionArgs struct {
-	// <p>The time that this template version was created.</p>
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
-	//             template should be bound to new datasets matching the same schema described through this
-	//             API operation.</p>
-	DataSetConfigurations TemplateDataSetConfigurationArrayInput `pulumi:"dataSetConfigurations"`
-	// <p>The description of the template.</p>
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// <p>Errors associated with this template version.</p>
-	Errors TemplateErrorArrayInput `pulumi:"errors"`
-	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-	Sheets TemplateSheetArrayInput `pulumi:"sheets"`
-	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
-	//             template.</p>
-	SourceEntityArn pulumi.StringPtrInput          `pulumi:"sourceEntityArn"`
-	Status          TemplateResourceStatusPtrInput `pulumi:"status"`
-	// <p>The ARN of the theme associated with this version of the template.</p>
-	ThemeArn pulumi.StringPtrInput `pulumi:"themeArn"`
-	// <p>The version number of the template version.</p>
-	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
-}
-
-func (TemplateVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateVersion)(nil)).Elem()
-}
-
-func (i TemplateVersionArgs) ToTemplateVersionOutput() TemplateVersionOutput {
-	return i.ToTemplateVersionOutputWithContext(context.Background())
-}
-
-func (i TemplateVersionArgs) ToTemplateVersionOutputWithContext(ctx context.Context) TemplateVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateVersionOutput)
-}
-
-func (i TemplateVersionArgs) ToTemplateVersionPtrOutput() TemplateVersionPtrOutput {
-	return i.ToTemplateVersionPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateVersionArgs) ToTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateVersionOutput).ToTemplateVersionPtrOutputWithContext(ctx)
-}
-
-// TemplateVersionPtrInput is an input type that accepts TemplateVersionArgs, TemplateVersionPtr and TemplateVersionPtrOutput values.
-// You can construct a concrete instance of `TemplateVersionPtrInput` via:
-//
-//          TemplateVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type TemplateVersionPtrInput interface {
-	pulumi.Input
-
-	ToTemplateVersionPtrOutput() TemplateVersionPtrOutput
-	ToTemplateVersionPtrOutputWithContext(context.Context) TemplateVersionPtrOutput
-}
-
-type templateVersionPtrType TemplateVersionArgs
-
-func TemplateVersionPtr(v *TemplateVersionArgs) TemplateVersionPtrInput {
-	return (*templateVersionPtrType)(v)
-}
-
-func (*templateVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateVersion)(nil)).Elem()
-}
-
-func (i *templateVersionPtrType) ToTemplateVersionPtrOutput() TemplateVersionPtrOutput {
-	return i.ToTemplateVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *templateVersionPtrType) ToTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateVersionPtrOutput)
-}
-
 // <p>A version of a template.</p>
 type TemplateVersionOutput struct{ *pulumi.OutputState }
 
@@ -11706,16 +10480,6 @@ func (o TemplateVersionOutput) ToTemplateVersionOutput() TemplateVersionOutput {
 
 func (o TemplateVersionOutput) ToTemplateVersionOutputWithContext(ctx context.Context) TemplateVersionOutput {
 	return o
-}
-
-func (o TemplateVersionOutput) ToTemplateVersionPtrOutput() TemplateVersionPtrOutput {
-	return o.ToTemplateVersionPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateVersionOutput) ToTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVersion) *TemplateVersion {
-		return &v
-	}).(TemplateVersionPtrOutput)
 }
 
 // <p>The time that this template version was created.</p>
@@ -11763,122 +10527,6 @@ func (o TemplateVersionOutput) ThemeArn() pulumi.StringPtrOutput {
 // <p>The version number of the template version.</p>
 func (o TemplateVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
-}
-
-type TemplateVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateVersion)(nil)).Elem()
-}
-
-func (o TemplateVersionPtrOutput) ToTemplateVersionPtrOutput() TemplateVersionPtrOutput {
-	return o
-}
-
-func (o TemplateVersionPtrOutput) ToTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateVersionPtrOutput {
-	return o
-}
-
-func (o TemplateVersionPtrOutput) Elem() TemplateVersionOutput {
-	return o.ApplyT(func(v *TemplateVersion) TemplateVersion {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateVersion
-		return ret
-	}).(TemplateVersionOutput)
-}
-
-// <p>The time that this template version was created.</p>
-func (o TemplateVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
-//             template should be bound to new datasets matching the same schema described through this
-//             API operation.</p>
-func (o TemplateVersionPtrOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
-	return o.ApplyT(func(v *TemplateVersion) []TemplateDataSetConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.DataSetConfigurations
-	}).(TemplateDataSetConfigurationArrayOutput)
-}
-
-// <p>The description of the template.</p>
-func (o TemplateVersionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Errors associated with this template version.</p>
-func (o TemplateVersionPtrOutput) Errors() TemplateErrorArrayOutput {
-	return o.ApplyT(func(v *TemplateVersion) []TemplateError {
-		if v == nil {
-			return nil
-		}
-		return v.Errors
-	}).(TemplateErrorArrayOutput)
-}
-
-// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-func (o TemplateVersionPtrOutput) Sheets() TemplateSheetArrayOutput {
-	return o.ApplyT(func(v *TemplateVersion) []TemplateSheet {
-		if v == nil {
-			return nil
-		}
-		return v.Sheets
-	}).(TemplateSheetArrayOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
-//             template.</p>
-func (o TemplateVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceEntityArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TemplateVersionPtrOutput) Status() TemplateResourceStatusPtrOutput {
-	return o.ApplyT(func(v *TemplateVersion) *TemplateResourceStatus {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(TemplateResourceStatusPtrOutput)
-}
-
-// <p>The ARN of the theme associated with this version of the template.</p>
-func (o TemplateVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ThemeArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The version number of the template version.</p>
-func (o TemplateVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TemplateVersion) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.VersionNumber
-	}).(pulumi.Float64PtrOutput)
 }
 
 // <p>The display options for tile borders for visuals.</p>
@@ -12398,61 +11046,6 @@ type ThemeError struct {
 	// <p>The error message.</p>
 	Message *string         `pulumi:"message"`
 	Type    *ThemeErrorType `pulumi:"type"`
-}
-
-// ThemeErrorInput is an input type that accepts ThemeErrorArgs and ThemeErrorOutput values.
-// You can construct a concrete instance of `ThemeErrorInput` via:
-//
-//          ThemeErrorArgs{...}
-type ThemeErrorInput interface {
-	pulumi.Input
-
-	ToThemeErrorOutput() ThemeErrorOutput
-	ToThemeErrorOutputWithContext(context.Context) ThemeErrorOutput
-}
-
-// <p>Theme error.</p>
-type ThemeErrorArgs struct {
-	// <p>The error message.</p>
-	Message pulumi.StringPtrInput  `pulumi:"message"`
-	Type    ThemeErrorTypePtrInput `pulumi:"type"`
-}
-
-func (ThemeErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeError)(nil)).Elem()
-}
-
-func (i ThemeErrorArgs) ToThemeErrorOutput() ThemeErrorOutput {
-	return i.ToThemeErrorOutputWithContext(context.Background())
-}
-
-func (i ThemeErrorArgs) ToThemeErrorOutputWithContext(ctx context.Context) ThemeErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeErrorOutput)
-}
-
-// ThemeErrorArrayInput is an input type that accepts ThemeErrorArray and ThemeErrorArrayOutput values.
-// You can construct a concrete instance of `ThemeErrorArrayInput` via:
-//
-//          ThemeErrorArray{ ThemeErrorArgs{...} }
-type ThemeErrorArrayInput interface {
-	pulumi.Input
-
-	ToThemeErrorArrayOutput() ThemeErrorArrayOutput
-	ToThemeErrorArrayOutputWithContext(context.Context) ThemeErrorArrayOutput
-}
-
-type ThemeErrorArray []ThemeErrorInput
-
-func (ThemeErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThemeError)(nil)).Elem()
-}
-
-func (i ThemeErrorArray) ToThemeErrorArrayOutput() ThemeErrorArrayOutput {
-	return i.ToThemeErrorArrayOutputWithContext(context.Background())
-}
-
-func (i ThemeErrorArray) ToThemeErrorArrayOutputWithContext(ctx context.Context) ThemeErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeErrorArrayOutput)
 }
 
 // <p>Theme error.</p>
@@ -14210,89 +12803,6 @@ type ThemeVersion struct {
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
 
-// ThemeVersionInput is an input type that accepts ThemeVersionArgs and ThemeVersionOutput values.
-// You can construct a concrete instance of `ThemeVersionInput` via:
-//
-//          ThemeVersionArgs{...}
-type ThemeVersionInput interface {
-	pulumi.Input
-
-	ToThemeVersionOutput() ThemeVersionOutput
-	ToThemeVersionOutputWithContext(context.Context) ThemeVersionOutput
-}
-
-// <p>A version of a theme.</p>
-type ThemeVersionArgs struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-	//             themes initially inherit from a default QuickSight theme.</p>
-	BaseThemeId   pulumi.StringPtrInput      `pulumi:"baseThemeId"`
-	Configuration ThemeConfigurationPtrInput `pulumi:"configuration"`
-	// <p>The date and time that this theme version was created.</p>
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// <p>The description of the theme.</p>
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// <p>Errors associated with the theme.</p>
-	Errors ThemeErrorArrayInput        `pulumi:"errors"`
-	Status ThemeResourceStatusPtrInput `pulumi:"status"`
-	// <p>The version number of the theme.</p>
-	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
-}
-
-func (ThemeVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeVersion)(nil)).Elem()
-}
-
-func (i ThemeVersionArgs) ToThemeVersionOutput() ThemeVersionOutput {
-	return i.ToThemeVersionOutputWithContext(context.Background())
-}
-
-func (i ThemeVersionArgs) ToThemeVersionOutputWithContext(ctx context.Context) ThemeVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeVersionOutput)
-}
-
-func (i ThemeVersionArgs) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
-	return i.ToThemeVersionPtrOutputWithContext(context.Background())
-}
-
-func (i ThemeVersionArgs) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeVersionOutput).ToThemeVersionPtrOutputWithContext(ctx)
-}
-
-// ThemeVersionPtrInput is an input type that accepts ThemeVersionArgs, ThemeVersionPtr and ThemeVersionPtrOutput values.
-// You can construct a concrete instance of `ThemeVersionPtrInput` via:
-//
-//          ThemeVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type ThemeVersionPtrInput interface {
-	pulumi.Input
-
-	ToThemeVersionPtrOutput() ThemeVersionPtrOutput
-	ToThemeVersionPtrOutputWithContext(context.Context) ThemeVersionPtrOutput
-}
-
-type themeVersionPtrType ThemeVersionArgs
-
-func ThemeVersionPtr(v *ThemeVersionArgs) ThemeVersionPtrInput {
-	return (*themeVersionPtrType)(v)
-}
-
-func (*themeVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThemeVersion)(nil)).Elem()
-}
-
-func (i *themeVersionPtrType) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
-	return i.ToThemeVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *themeVersionPtrType) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeVersionPtrOutput)
-}
-
 // <p>A version of a theme.</p>
 type ThemeVersionOutput struct{ *pulumi.OutputState }
 
@@ -14306,16 +12816,6 @@ func (o ThemeVersionOutput) ToThemeVersionOutput() ThemeVersionOutput {
 
 func (o ThemeVersionOutput) ToThemeVersionOutputWithContext(ctx context.Context) ThemeVersionOutput {
 	return o
-}
-
-func (o ThemeVersionOutput) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
-	return o.ToThemeVersionPtrOutputWithContext(context.Background())
-}
-
-func (o ThemeVersionOutput) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeVersion) *ThemeVersion {
-		return &v
-	}).(ThemeVersionPtrOutput)
 }
 
 // <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -14357,109 +12857,6 @@ func (o ThemeVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ThemeVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
 }
 
-type ThemeVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (ThemeVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThemeVersion)(nil)).Elem()
-}
-
-func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
-	return o
-}
-
-func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
-	return o
-}
-
-func (o ThemeVersionPtrOutput) Elem() ThemeVersionOutput {
-	return o.ApplyT(func(v *ThemeVersion) ThemeVersion {
-		if v != nil {
-			return *v
-		}
-		var ret ThemeVersion
-		return ret
-	}).(ThemeVersionOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o ThemeVersionPtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-//             themes initially inherit from a default QuickSight theme.</p>
-func (o ThemeVersionPtrOutput) BaseThemeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BaseThemeId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ThemeVersionPtrOutput) Configuration() ThemeConfigurationPtrOutput {
-	return o.ApplyT(func(v *ThemeVersion) *ThemeConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.Configuration
-	}).(ThemeConfigurationPtrOutput)
-}
-
-// <p>The date and time that this theme version was created.</p>
-func (o ThemeVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The description of the theme.</p>
-func (o ThemeVersionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Errors associated with the theme.</p>
-func (o ThemeVersionPtrOutput) Errors() ThemeErrorArrayOutput {
-	return o.ApplyT(func(v *ThemeVersion) []ThemeError {
-		if v == nil {
-			return nil
-		}
-		return v.Errors
-	}).(ThemeErrorArrayOutput)
-}
-
-func (o ThemeVersionPtrOutput) Status() ThemeResourceStatusPtrOutput {
-	return o.ApplyT(func(v *ThemeVersion) *ThemeResourceStatus {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(ThemeResourceStatusPtrOutput)
-}
-
-// <p>The version number of the theme.</p>
-func (o ThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ThemeVersion) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.VersionNumber
-	}).(pulumi.Float64PtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDataSetReferenceInput)(nil)).Elem(), AnalysisDataSetReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDataSetReferenceArrayInput)(nil)).Elem(), AnalysisDataSetReferenceArray{})
@@ -14475,10 +12872,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisParametersPtrInput)(nil)).Elem(), AnalysisParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisResourcePermissionInput)(nil)).Elem(), AnalysisResourcePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisResourcePermissionArrayInput)(nil)).Elem(), AnalysisResourcePermissionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetInput)(nil)).Elem(), AnalysisSheetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetArrayInput)(nil)).Elem(), AnalysisSheetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSourceEntityInput)(nil)).Elem(), AnalysisSourceEntityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSourceEntityPtrInput)(nil)).Elem(), AnalysisSourceEntityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSourceTemplateInput)(nil)).Elem(), AnalysisSourceTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSourceTemplatePtrInput)(nil)).Elem(), AnalysisSourceTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringParameterInput)(nil)).Elem(), AnalysisStringParameterArgs{})
@@ -14493,8 +12887,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDateTimeParameterArrayInput)(nil)).Elem(), DashboardDateTimeParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecimalParameterInput)(nil)).Elem(), DashboardDecimalParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecimalParameterArrayInput)(nil)).Elem(), DashboardDecimalParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardErrorInput)(nil)).Elem(), DashboardErrorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardErrorArrayInput)(nil)).Elem(), DashboardErrorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportToCSVOptionInput)(nil)).Elem(), DashboardExportToCSVOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardExportToCSVOptionPtrInput)(nil)).Elem(), DashboardExportToCSVOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardIntegerParameterInput)(nil)).Elem(), DashboardIntegerParameterArgs{})
@@ -14505,20 +12897,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPublishOptionsPtrInput)(nil)).Elem(), DashboardPublishOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardResourcePermissionInput)(nil)).Elem(), DashboardResourcePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardResourcePermissionArrayInput)(nil)).Elem(), DashboardResourcePermissionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetInput)(nil)).Elem(), DashboardSheetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetArrayInput)(nil)).Elem(), DashboardSheetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetControlsOptionInput)(nil)).Elem(), DashboardSheetControlsOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetControlsOptionPtrInput)(nil)).Elem(), DashboardSheetControlsOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSourceEntityInput)(nil)).Elem(), DashboardSourceEntityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSourceEntityPtrInput)(nil)).Elem(), DashboardSourceEntityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSourceTemplateInput)(nil)).Elem(), DashboardSourceTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSourceTemplatePtrInput)(nil)).Elem(), DashboardSourceTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardStringParameterInput)(nil)).Elem(), DashboardStringParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardStringParameterArrayInput)(nil)).Elem(), DashboardStringParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTagInput)(nil)).Elem(), DashboardTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTagArrayInput)(nil)).Elem(), DashboardTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVersionInput)(nil)).Elem(), DashboardVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVersionPtrInput)(nil)).Elem(), DashboardVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnGroupInput)(nil)).Elem(), DataSetColumnGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnGroupArrayInput)(nil)).Elem(), DataSetColumnGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnLevelPermissionRuleInput)(nil)).Elem(), DataSetColumnLevelPermissionRuleArgs{})
@@ -14531,8 +12918,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetIngestionWaitPolicyPtrInput)(nil)).Elem(), DataSetIngestionWaitPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapInput)(nil)).Elem(), DataSetLogicalTableMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapPtrInput)(nil)).Elem(), DataSetLogicalTableMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetOutputColumnInput)(nil)).Elem(), DataSetOutputColumnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetOutputColumnArrayInput)(nil)).Elem(), DataSetOutputColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapInput)(nil)).Elem(), DataSetPhysicalTableMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapPtrInput)(nil)).Elem(), DataSetPhysicalTableMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetResourcePermissionInput)(nil)).Elem(), DataSetResourcePermissionArgs{})
@@ -14594,42 +12979,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTeradataParametersPtrInput)(nil)).Elem(), DataSourceTeradataParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesPtrInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnGroupColumnSchemaInput)(nil)).Elem(), TemplateColumnGroupColumnSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnGroupColumnSchemaArrayInput)(nil)).Elem(), TemplateColumnGroupColumnSchemaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnGroupSchemaInput)(nil)).Elem(), TemplateColumnGroupSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnGroupSchemaArrayInput)(nil)).Elem(), TemplateColumnGroupSchemaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnSchemaInput)(nil)).Elem(), TemplateColumnSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnSchemaArrayInput)(nil)).Elem(), TemplateColumnSchemaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataSetConfigurationInput)(nil)).Elem(), TemplateDataSetConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataSetConfigurationArrayInput)(nil)).Elem(), TemplateDataSetConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataSetReferenceInput)(nil)).Elem(), TemplateDataSetReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataSetReferenceArrayInput)(nil)).Elem(), TemplateDataSetReferenceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataSetSchemaInput)(nil)).Elem(), TemplateDataSetSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataSetSchemaPtrInput)(nil)).Elem(), TemplateDataSetSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateErrorInput)(nil)).Elem(), TemplateErrorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateErrorArrayInput)(nil)).Elem(), TemplateErrorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateResourcePermissionInput)(nil)).Elem(), TemplateResourcePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateResourcePermissionArrayInput)(nil)).Elem(), TemplateResourcePermissionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetInput)(nil)).Elem(), TemplateSheetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetArrayInput)(nil)).Elem(), TemplateSheetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceAnalysisInput)(nil)).Elem(), TemplateSourceAnalysisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceAnalysisPtrInput)(nil)).Elem(), TemplateSourceAnalysisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceEntityInput)(nil)).Elem(), TemplateSourceEntityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceEntityPtrInput)(nil)).Elem(), TemplateSourceEntityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceTemplateInput)(nil)).Elem(), TemplateSourceTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceTemplatePtrInput)(nil)).Elem(), TemplateSourceTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTagInput)(nil)).Elem(), TemplateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTagArrayInput)(nil)).Elem(), TemplateTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVersionInput)(nil)).Elem(), TemplateVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVersionPtrInput)(nil)).Elem(), TemplateVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeBorderStyleInput)(nil)).Elem(), ThemeBorderStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeBorderStylePtrInput)(nil)).Elem(), ThemeBorderStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationInput)(nil)).Elem(), ThemeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationPtrInput)(nil)).Elem(), ThemeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeDataColorPaletteInput)(nil)).Elem(), ThemeDataColorPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeDataColorPalettePtrInput)(nil)).Elem(), ThemeDataColorPaletteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeErrorInput)(nil)).Elem(), ThemeErrorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeErrorArrayInput)(nil)).Elem(), ThemeErrorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontInput)(nil)).Elem(), ThemeFontArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontArrayInput)(nil)).Elem(), ThemeFontArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeGutterStyleInput)(nil)).Elem(), ThemeGutterStyleArgs{})
@@ -14650,8 +13016,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTypographyPtrInput)(nil)).Elem(), ThemeTypographyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUIColorPaletteInput)(nil)).Elem(), ThemeUIColorPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUIColorPalettePtrInput)(nil)).Elem(), ThemeUIColorPaletteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeVersionInput)(nil)).Elem(), ThemeVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeVersionPtrInput)(nil)).Elem(), ThemeVersionArgs{})
 	pulumi.RegisterOutputType(AnalysisDataSetReferenceOutput{})
 	pulumi.RegisterOutputType(AnalysisDataSetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisDateTimeParameterOutput{})
@@ -14669,7 +13033,6 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSheetOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisSourceEntityOutput{})
-	pulumi.RegisterOutputType(AnalysisSourceEntityPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSourceTemplateOutput{})
 	pulumi.RegisterOutputType(AnalysisSourceTemplatePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisStringParameterOutput{})
@@ -14701,7 +13064,6 @@ func init() {
 	pulumi.RegisterOutputType(DashboardSheetControlsOptionOutput{})
 	pulumi.RegisterOutputType(DashboardSheetControlsOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSourceEntityOutput{})
-	pulumi.RegisterOutputType(DashboardSourceEntityPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSourceTemplateOutput{})
 	pulumi.RegisterOutputType(DashboardSourceTemplatePtrOutput{})
 	pulumi.RegisterOutputType(DashboardStringParameterOutput{})
@@ -14709,7 +13071,6 @@ func init() {
 	pulumi.RegisterOutputType(DashboardTagOutput{})
 	pulumi.RegisterOutputType(DashboardTagArrayOutput{})
 	pulumi.RegisterOutputType(DashboardVersionOutput{})
-	pulumi.RegisterOutputType(DashboardVersionPtrOutput{})
 	pulumi.RegisterOutputType(DataSetColumnGroupOutput{})
 	pulumi.RegisterOutputType(DataSetColumnGroupArrayOutput{})
 	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleOutput{})
@@ -14806,13 +13167,11 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSourceAnalysisOutput{})
 	pulumi.RegisterOutputType(TemplateSourceAnalysisPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSourceEntityOutput{})
-	pulumi.RegisterOutputType(TemplateSourceEntityPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSourceTemplateOutput{})
 	pulumi.RegisterOutputType(TemplateSourceTemplatePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTagOutput{})
 	pulumi.RegisterOutputType(TemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(TemplateVersionOutput{})
-	pulumi.RegisterOutputType(TemplateVersionPtrOutput{})
 	pulumi.RegisterOutputType(ThemeBorderStyleOutput{})
 	pulumi.RegisterOutputType(ThemeBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(ThemeConfigurationOutput{})
@@ -14842,5 +13201,4 @@ func init() {
 	pulumi.RegisterOutputType(ThemeUIColorPaletteOutput{})
 	pulumi.RegisterOutputType(ThemeUIColorPalettePtrOutput{})
 	pulumi.RegisterOutputType(ThemeVersionOutput{})
-	pulumi.RegisterOutputType(ThemeVersionPtrOutput{})
 }

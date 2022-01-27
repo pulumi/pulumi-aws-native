@@ -111,7 +111,7 @@ type StreamInput interface {
 }
 
 func (*Stream) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stream)(nil))
+	return reflect.TypeOf((**Stream)(nil)).Elem()
 }
 
 func (i *Stream) ToStreamOutput() StreamOutput {
@@ -125,7 +125,7 @@ func (i *Stream) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
 type StreamOutput struct{ *pulumi.OutputState }
 
 func (StreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stream)(nil))
+	return reflect.TypeOf((**Stream)(nil)).Elem()
 }
 
 func (o StreamOutput) ToStreamOutput() StreamOutput {

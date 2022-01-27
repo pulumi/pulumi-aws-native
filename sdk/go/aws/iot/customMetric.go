@@ -103,7 +103,7 @@ type CustomMetricInput interface {
 }
 
 func (*CustomMetric) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomMetric)(nil))
+	return reflect.TypeOf((**CustomMetric)(nil)).Elem()
 }
 
 func (i *CustomMetric) ToCustomMetricOutput() CustomMetricOutput {
@@ -117,7 +117,7 @@ func (i *CustomMetric) ToCustomMetricOutputWithContext(ctx context.Context) Cust
 type CustomMetricOutput struct{ *pulumi.OutputState }
 
 func (CustomMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomMetric)(nil))
+	return reflect.TypeOf((**CustomMetric)(nil)).Elem()
 }
 
 func (o CustomMetricOutput) ToCustomMetricOutput() CustomMetricOutput {

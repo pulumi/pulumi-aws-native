@@ -90,7 +90,7 @@ type ScalingPlanInput interface {
 }
 
 func (*ScalingPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalingPlan)(nil))
+	return reflect.TypeOf((**ScalingPlan)(nil)).Elem()
 }
 
 func (i *ScalingPlan) ToScalingPlanOutput() ScalingPlanOutput {
@@ -104,7 +104,7 @@ func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) Scalin
 type ScalingPlanOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalingPlan)(nil))
+	return reflect.TypeOf((**ScalingPlan)(nil)).Elem()
 }
 
 func (o ScalingPlanOutput) ToScalingPlanOutput() ScalingPlanOutput {

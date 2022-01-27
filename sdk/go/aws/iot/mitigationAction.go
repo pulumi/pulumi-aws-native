@@ -100,7 +100,7 @@ type MitigationActionInput interface {
 }
 
 func (*MitigationAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*MitigationAction)(nil))
+	return reflect.TypeOf((**MitigationAction)(nil)).Elem()
 }
 
 func (i *MitigationAction) ToMitigationActionOutput() MitigationActionOutput {
@@ -114,7 +114,7 @@ func (i *MitigationAction) ToMitigationActionOutputWithContext(ctx context.Conte
 type MitigationActionOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MitigationAction)(nil))
+	return reflect.TypeOf((**MitigationAction)(nil)).Elem()
 }
 
 func (o MitigationActionOutput) ToMitigationActionOutput() MitigationActionOutput {

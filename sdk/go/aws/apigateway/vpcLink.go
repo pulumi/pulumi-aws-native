@@ -91,7 +91,7 @@ type VpcLinkInput interface {
 }
 
 func (*VpcLink) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcLink)(nil))
+	return reflect.TypeOf((**VpcLink)(nil)).Elem()
 }
 
 func (i *VpcLink) ToVpcLinkOutput() VpcLinkOutput {
@@ -105,7 +105,7 @@ func (i *VpcLink) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput 
 type VpcLinkOutput struct{ *pulumi.OutputState }
 
 func (VpcLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcLink)(nil))
+	return reflect.TypeOf((**VpcLink)(nil)).Elem()
 }
 
 func (o VpcLinkOutput) ToVpcLinkOutput() VpcLinkOutput {

@@ -91,7 +91,7 @@ type UserPoolDomainInput interface {
 }
 
 func (*UserPoolDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolDomain)(nil))
+	return reflect.TypeOf((**UserPoolDomain)(nil)).Elem()
 }
 
 func (i *UserPoolDomain) ToUserPoolDomainOutput() UserPoolDomainOutput {
@@ -105,7 +105,7 @@ func (i *UserPoolDomain) ToUserPoolDomainOutputWithContext(ctx context.Context) 
 type UserPoolDomainOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolDomain)(nil))
+	return reflect.TypeOf((**UserPoolDomain)(nil)).Elem()
 }
 
 func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {

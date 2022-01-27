@@ -121,7 +121,7 @@ type HoursOfOperationInput interface {
 }
 
 func (*HoursOfOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*HoursOfOperation)(nil))
+	return reflect.TypeOf((**HoursOfOperation)(nil)).Elem()
 }
 
 func (i *HoursOfOperation) ToHoursOfOperationOutput() HoursOfOperationOutput {
@@ -135,7 +135,7 @@ func (i *HoursOfOperation) ToHoursOfOperationOutputWithContext(ctx context.Conte
 type HoursOfOperationOutput struct{ *pulumi.OutputState }
 
 func (HoursOfOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HoursOfOperation)(nil))
+	return reflect.TypeOf((**HoursOfOperation)(nil)).Elem()
 }
 
 func (o HoursOfOperationOutput) ToHoursOfOperationOutput() HoursOfOperationOutput {

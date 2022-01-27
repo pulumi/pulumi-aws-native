@@ -141,7 +141,7 @@ type UserPoolClientInput interface {
 }
 
 func (*UserPoolClient) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolClient)(nil))
+	return reflect.TypeOf((**UserPoolClient)(nil)).Elem()
 }
 
 func (i *UserPoolClient) ToUserPoolClientOutput() UserPoolClientOutput {
@@ -155,7 +155,7 @@ func (i *UserPoolClient) ToUserPoolClientOutputWithContext(ctx context.Context) 
 type UserPoolClientOutput struct{ *pulumi.OutputState }
 
 func (UserPoolClientOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolClient)(nil))
+	return reflect.TypeOf((**UserPoolClient)(nil)).Elem()
 }
 
 func (o UserPoolClientOutput) ToUserPoolClientOutput() UserPoolClientOutput {

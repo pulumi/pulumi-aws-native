@@ -121,7 +121,7 @@ type RestApiInput interface {
 }
 
 func (*RestApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestApi)(nil))
+	return reflect.TypeOf((**RestApi)(nil)).Elem()
 }
 
 func (i *RestApi) ToRestApiOutput() RestApiOutput {
@@ -135,7 +135,7 @@ func (i *RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput 
 type RestApiOutput struct{ *pulumi.OutputState }
 
 func (RestApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestApi)(nil))
+	return reflect.TypeOf((**RestApi)(nil)).Elem()
 }
 
 func (o RestApiOutput) ToRestApiOutput() RestApiOutput {

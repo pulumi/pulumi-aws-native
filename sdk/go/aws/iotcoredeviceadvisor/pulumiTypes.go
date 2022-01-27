@@ -49,47 +49,6 @@ func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionConfigurationPropertiesOutput)
 }
 
-func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
-	return i.ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionConfigurationPropertiesOutput).ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx)
-}
-
-// SuiteDefinitionConfigurationPropertiesPtrInput is an input type that accepts SuiteDefinitionConfigurationPropertiesArgs, SuiteDefinitionConfigurationPropertiesPtr and SuiteDefinitionConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `SuiteDefinitionConfigurationPropertiesPtrInput` via:
-//
-//          SuiteDefinitionConfigurationPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SuiteDefinitionConfigurationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput
-	ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput
-}
-
-type suiteDefinitionConfigurationPropertiesPtrType SuiteDefinitionConfigurationPropertiesArgs
-
-func SuiteDefinitionConfigurationPropertiesPtr(v *SuiteDefinitionConfigurationPropertiesArgs) SuiteDefinitionConfigurationPropertiesPtrInput {
-	return (*suiteDefinitionConfigurationPropertiesPtrType)(v)
-}
-
-func (*suiteDefinitionConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SuiteDefinitionConfigurationProperties)(nil)).Elem()
-}
-
-func (i *suiteDefinitionConfigurationPropertiesPtrType) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
-	return i.ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *suiteDefinitionConfigurationPropertiesPtrType) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionConfigurationPropertiesPtrOutput)
-}
-
 type SuiteDefinitionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SuiteDefinitionConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigura
 
 func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigurationPropertiesOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesOutput {
 	return o
-}
-
-func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
-	return o.ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuiteDefinitionConfigurationProperties) *SuiteDefinitionConfigurationProperties {
-		return &v
-	}).(SuiteDefinitionConfigurationPropertiesPtrOutput)
 }
 
 func (o SuiteDefinitionConfigurationPropertiesOutput) DevicePermissionRoleArn() pulumi.StringOutput {
@@ -132,75 +81,6 @@ func (o SuiteDefinitionConfigurationPropertiesOutput) RootGroup() pulumi.StringO
 
 func (o SuiteDefinitionConfigurationPropertiesOutput) SuiteDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) *string { return v.SuiteDefinitionName }).(pulumi.StringPtrOutput)
-}
-
-type SuiteDefinitionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SuiteDefinitionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SuiteDefinitionConfigurationProperties)(nil)).Elem()
-}
-
-func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Elem() SuiteDefinitionConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) SuiteDefinitionConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SuiteDefinitionConfigurationProperties
-		return ret
-	}).(SuiteDefinitionConfigurationPropertiesOutput)
-}
-
-func (o SuiteDefinitionConfigurationPropertiesPtrOutput) DevicePermissionRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DevicePermissionRoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Devices() SuiteDefinitionDeviceUnderTestArrayOutput {
-	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) []SuiteDefinitionDeviceUnderTest {
-		if v == nil {
-			return nil
-		}
-		return v.Devices
-	}).(SuiteDefinitionDeviceUnderTestArrayOutput)
-}
-
-func (o SuiteDefinitionConfigurationPropertiesPtrOutput) IntendedForQualification() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IntendedForQualification
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SuiteDefinitionConfigurationPropertiesPtrOutput) RootGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RootGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SuiteDefinitionConfigurationPropertiesPtrOutput) SuiteDefinitionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SuiteDefinitionName
-	}).(pulumi.StringPtrOutput)
 }
 
 type SuiteDefinitionDeviceUnderTest struct {
@@ -414,13 +294,11 @@ func (o SuiteDefinitionTagArrayOutput) Index(i pulumi.IntInput) SuiteDefinitionT
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionConfigurationPropertiesInput)(nil)).Elem(), SuiteDefinitionConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionConfigurationPropertiesPtrInput)(nil)).Elem(), SuiteDefinitionConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionDeviceUnderTestInput)(nil)).Elem(), SuiteDefinitionDeviceUnderTestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionDeviceUnderTestArrayInput)(nil)).Elem(), SuiteDefinitionDeviceUnderTestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionTagInput)(nil)).Elem(), SuiteDefinitionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionTagArrayInput)(nil)).Elem(), SuiteDefinitionTagArray{})
 	pulumi.RegisterOutputType(SuiteDefinitionConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(SuiteDefinitionConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionDeviceUnderTestOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionDeviceUnderTestArrayOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionTagOutput{})

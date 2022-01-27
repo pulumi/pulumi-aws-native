@@ -115,7 +115,7 @@ type PackagingConfigurationInput interface {
 }
 
 func (*PackagingConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackagingConfiguration)(nil))
+	return reflect.TypeOf((**PackagingConfiguration)(nil)).Elem()
 }
 
 func (i *PackagingConfiguration) ToPackagingConfigurationOutput() PackagingConfigurationOutput {
@@ -129,7 +129,7 @@ func (i *PackagingConfiguration) ToPackagingConfigurationOutputWithContext(ctx c
 type PackagingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackagingConfiguration)(nil))
+	return reflect.TypeOf((**PackagingConfiguration)(nil)).Elem()
 }
 
 func (o PackagingConfigurationOutput) ToPackagingConfigurationOutput() PackagingConfigurationOutput {

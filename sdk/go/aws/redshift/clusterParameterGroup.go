@@ -94,7 +94,7 @@ type ClusterParameterGroupInput interface {
 }
 
 func (*ClusterParameterGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterParameterGroup)(nil))
+	return reflect.TypeOf((**ClusterParameterGroup)(nil)).Elem()
 }
 
 func (i *ClusterParameterGroup) ToClusterParameterGroupOutput() ClusterParameterGroupOutput {
@@ -108,7 +108,7 @@ func (i *ClusterParameterGroup) ToClusterParameterGroupOutputWithContext(ctx con
 type ClusterParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterParameterGroup)(nil))
+	return reflect.TypeOf((**ClusterParameterGroup)(nil)).Elem()
 }
 
 func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutput() ClusterParameterGroupOutput {

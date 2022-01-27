@@ -114,7 +114,7 @@ type EventIntegrationInput interface {
 }
 
 func (*EventIntegration) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventIntegration)(nil))
+	return reflect.TypeOf((**EventIntegration)(nil)).Elem()
 }
 
 func (i *EventIntegration) ToEventIntegrationOutput() EventIntegrationOutput {
@@ -128,7 +128,7 @@ func (i *EventIntegration) ToEventIntegrationOutputWithContext(ctx context.Conte
 type EventIntegrationOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventIntegration)(nil))
+	return reflect.TypeOf((**EventIntegration)(nil)).Elem()
 }
 
 func (o EventIntegrationOutput) ToEventIntegrationOutput() EventIntegrationOutput {

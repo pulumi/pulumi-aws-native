@@ -47,47 +47,6 @@ func (i ConnectorApacheKafkaClusterArgs) ToConnectorApacheKafkaClusterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorApacheKafkaClusterOutput)
 }
 
-func (i ConnectorApacheKafkaClusterArgs) ToConnectorApacheKafkaClusterPtrOutput() ConnectorApacheKafkaClusterPtrOutput {
-	return i.ToConnectorApacheKafkaClusterPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorApacheKafkaClusterArgs) ToConnectorApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorApacheKafkaClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorApacheKafkaClusterOutput).ToConnectorApacheKafkaClusterPtrOutputWithContext(ctx)
-}
-
-// ConnectorApacheKafkaClusterPtrInput is an input type that accepts ConnectorApacheKafkaClusterArgs, ConnectorApacheKafkaClusterPtr and ConnectorApacheKafkaClusterPtrOutput values.
-// You can construct a concrete instance of `ConnectorApacheKafkaClusterPtrInput` via:
-//
-//          ConnectorApacheKafkaClusterArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorApacheKafkaClusterPtrInput interface {
-	pulumi.Input
-
-	ToConnectorApacheKafkaClusterPtrOutput() ConnectorApacheKafkaClusterPtrOutput
-	ToConnectorApacheKafkaClusterPtrOutputWithContext(context.Context) ConnectorApacheKafkaClusterPtrOutput
-}
-
-type connectorApacheKafkaClusterPtrType ConnectorApacheKafkaClusterArgs
-
-func ConnectorApacheKafkaClusterPtr(v *ConnectorApacheKafkaClusterArgs) ConnectorApacheKafkaClusterPtrInput {
-	return (*connectorApacheKafkaClusterPtrType)(v)
-}
-
-func (*connectorApacheKafkaClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorApacheKafkaCluster)(nil)).Elem()
-}
-
-func (i *connectorApacheKafkaClusterPtrType) ToConnectorApacheKafkaClusterPtrOutput() ConnectorApacheKafkaClusterPtrOutput {
-	return i.ToConnectorApacheKafkaClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorApacheKafkaClusterPtrType) ToConnectorApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorApacheKafkaClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorApacheKafkaClusterPtrOutput)
-}
-
 // Details of how to connect to an Apache Kafka cluster.
 type ConnectorApacheKafkaClusterOutput struct{ *pulumi.OutputState }
 
@@ -103,16 +62,6 @@ func (o ConnectorApacheKafkaClusterOutput) ToConnectorApacheKafkaClusterOutputWi
 	return o
 }
 
-func (o ConnectorApacheKafkaClusterOutput) ToConnectorApacheKafkaClusterPtrOutput() ConnectorApacheKafkaClusterPtrOutput {
-	return o.ToConnectorApacheKafkaClusterPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorApacheKafkaClusterOutput) ToConnectorApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorApacheKafkaClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorApacheKafkaCluster) *ConnectorApacheKafkaCluster {
-		return &v
-	}).(ConnectorApacheKafkaClusterPtrOutput)
-}
-
 // The bootstrap servers string of the Apache Kafka cluster.
 func (o ConnectorApacheKafkaClusterOutput) BootstrapServers() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorApacheKafkaCluster) string { return v.BootstrapServers }).(pulumi.StringOutput)
@@ -120,49 +69,6 @@ func (o ConnectorApacheKafkaClusterOutput) BootstrapServers() pulumi.StringOutpu
 
 func (o ConnectorApacheKafkaClusterOutput) Vpc() ConnectorVpcOutput {
 	return o.ApplyT(func(v ConnectorApacheKafkaCluster) ConnectorVpc { return v.Vpc }).(ConnectorVpcOutput)
-}
-
-type ConnectorApacheKafkaClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorApacheKafkaClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorApacheKafkaCluster)(nil)).Elem()
-}
-
-func (o ConnectorApacheKafkaClusterPtrOutput) ToConnectorApacheKafkaClusterPtrOutput() ConnectorApacheKafkaClusterPtrOutput {
-	return o
-}
-
-func (o ConnectorApacheKafkaClusterPtrOutput) ToConnectorApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorApacheKafkaClusterPtrOutput {
-	return o
-}
-
-func (o ConnectorApacheKafkaClusterPtrOutput) Elem() ConnectorApacheKafkaClusterOutput {
-	return o.ApplyT(func(v *ConnectorApacheKafkaCluster) ConnectorApacheKafkaCluster {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorApacheKafkaCluster
-		return ret
-	}).(ConnectorApacheKafkaClusterOutput)
-}
-
-// The bootstrap servers string of the Apache Kafka cluster.
-func (o ConnectorApacheKafkaClusterPtrOutput) BootstrapServers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorApacheKafkaCluster) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BootstrapServers
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorApacheKafkaClusterPtrOutput) Vpc() ConnectorVpcPtrOutput {
-	return o.ApplyT(func(v *ConnectorApacheKafkaCluster) *ConnectorVpc {
-		if v == nil {
-			return nil
-		}
-		return &v.Vpc
-	}).(ConnectorVpcPtrOutput)
 }
 
 // Details about auto scaling of a connector.
@@ -408,47 +314,6 @@ func (i ConnectorCapacityArgs) ToConnectorCapacityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityOutput)
 }
 
-func (i ConnectorCapacityArgs) ToConnectorCapacityPtrOutput() ConnectorCapacityPtrOutput {
-	return i.ToConnectorCapacityPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorCapacityArgs) ToConnectorCapacityPtrOutputWithContext(ctx context.Context) ConnectorCapacityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityOutput).ToConnectorCapacityPtrOutputWithContext(ctx)
-}
-
-// ConnectorCapacityPtrInput is an input type that accepts ConnectorCapacityArgs, ConnectorCapacityPtr and ConnectorCapacityPtrOutput values.
-// You can construct a concrete instance of `ConnectorCapacityPtrInput` via:
-//
-//          ConnectorCapacityArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorCapacityPtrInput interface {
-	pulumi.Input
-
-	ToConnectorCapacityPtrOutput() ConnectorCapacityPtrOutput
-	ToConnectorCapacityPtrOutputWithContext(context.Context) ConnectorCapacityPtrOutput
-}
-
-type connectorCapacityPtrType ConnectorCapacityArgs
-
-func ConnectorCapacityPtr(v *ConnectorCapacityArgs) ConnectorCapacityPtrInput {
-	return (*connectorCapacityPtrType)(v)
-}
-
-func (*connectorCapacityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorCapacity)(nil)).Elem()
-}
-
-func (i *connectorCapacityPtrType) ToConnectorCapacityPtrOutput() ConnectorCapacityPtrOutput {
-	return i.ToConnectorCapacityPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorCapacityPtrType) ToConnectorCapacityPtrOutputWithContext(ctx context.Context) ConnectorCapacityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityPtrOutput)
-}
-
 // Information about the capacity allocated to the connector.
 type ConnectorCapacityOutput struct{ *pulumi.OutputState }
 
@@ -464,64 +329,12 @@ func (o ConnectorCapacityOutput) ToConnectorCapacityOutputWithContext(ctx contex
 	return o
 }
 
-func (o ConnectorCapacityOutput) ToConnectorCapacityPtrOutput() ConnectorCapacityPtrOutput {
-	return o.ToConnectorCapacityPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorCapacityOutput) ToConnectorCapacityPtrOutputWithContext(ctx context.Context) ConnectorCapacityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCapacity) *ConnectorCapacity {
-		return &v
-	}).(ConnectorCapacityPtrOutput)
-}
-
 func (o ConnectorCapacityOutput) AutoScaling() ConnectorAutoScalingPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacity) *ConnectorAutoScaling { return v.AutoScaling }).(ConnectorAutoScalingPtrOutput)
 }
 
 func (o ConnectorCapacityOutput) ProvisionedCapacity() ConnectorProvisionedCapacityPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacity) *ConnectorProvisionedCapacity { return v.ProvisionedCapacity }).(ConnectorProvisionedCapacityPtrOutput)
-}
-
-type ConnectorCapacityPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorCapacityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorCapacity)(nil)).Elem()
-}
-
-func (o ConnectorCapacityPtrOutput) ToConnectorCapacityPtrOutput() ConnectorCapacityPtrOutput {
-	return o
-}
-
-func (o ConnectorCapacityPtrOutput) ToConnectorCapacityPtrOutputWithContext(ctx context.Context) ConnectorCapacityPtrOutput {
-	return o
-}
-
-func (o ConnectorCapacityPtrOutput) Elem() ConnectorCapacityOutput {
-	return o.ApplyT(func(v *ConnectorCapacity) ConnectorCapacity {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorCapacity
-		return ret
-	}).(ConnectorCapacityOutput)
-}
-
-func (o ConnectorCapacityPtrOutput) AutoScaling() ConnectorAutoScalingPtrOutput {
-	return o.ApplyT(func(v *ConnectorCapacity) *ConnectorAutoScaling {
-		if v == nil {
-			return nil
-		}
-		return v.AutoScaling
-	}).(ConnectorAutoScalingPtrOutput)
-}
-
-func (o ConnectorCapacityPtrOutput) ProvisionedCapacity() ConnectorProvisionedCapacityPtrOutput {
-	return o.ApplyT(func(v *ConnectorCapacity) *ConnectorProvisionedCapacity {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisionedCapacity
-	}).(ConnectorProvisionedCapacityPtrOutput)
 }
 
 // Details about delivering logs to Amazon CloudWatch Logs.
@@ -939,47 +752,6 @@ func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterOutput)
 }
 
-func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterPtrOutput() ConnectorKafkaClusterPtrOutput {
-	return i.ToConnectorKafkaClusterPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterOutput).ToConnectorKafkaClusterPtrOutputWithContext(ctx)
-}
-
-// ConnectorKafkaClusterPtrInput is an input type that accepts ConnectorKafkaClusterArgs, ConnectorKafkaClusterPtr and ConnectorKafkaClusterPtrOutput values.
-// You can construct a concrete instance of `ConnectorKafkaClusterPtrInput` via:
-//
-//          ConnectorKafkaClusterArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorKafkaClusterPtrInput interface {
-	pulumi.Input
-
-	ToConnectorKafkaClusterPtrOutput() ConnectorKafkaClusterPtrOutput
-	ToConnectorKafkaClusterPtrOutputWithContext(context.Context) ConnectorKafkaClusterPtrOutput
-}
-
-type connectorKafkaClusterPtrType ConnectorKafkaClusterArgs
-
-func ConnectorKafkaClusterPtr(v *ConnectorKafkaClusterArgs) ConnectorKafkaClusterPtrInput {
-	return (*connectorKafkaClusterPtrType)(v)
-}
-
-func (*connectorKafkaClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorKafkaCluster)(nil)).Elem()
-}
-
-func (i *connectorKafkaClusterPtrType) ToConnectorKafkaClusterPtrOutput() ConnectorKafkaClusterPtrOutput {
-	return i.ToConnectorKafkaClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorKafkaClusterPtrType) ToConnectorKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterPtrOutput)
-}
-
 // Details of how to connect to the Kafka cluster.
 type ConnectorKafkaClusterOutput struct{ *pulumi.OutputState }
 
@@ -995,51 +767,8 @@ func (o ConnectorKafkaClusterOutput) ToConnectorKafkaClusterOutputWithContext(ct
 	return o
 }
 
-func (o ConnectorKafkaClusterOutput) ToConnectorKafkaClusterPtrOutput() ConnectorKafkaClusterPtrOutput {
-	return o.ToConnectorKafkaClusterPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorKafkaClusterOutput) ToConnectorKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorKafkaCluster) *ConnectorKafkaCluster {
-		return &v
-	}).(ConnectorKafkaClusterPtrOutput)
-}
-
 func (o ConnectorKafkaClusterOutput) ApacheKafkaCluster() ConnectorApacheKafkaClusterOutput {
 	return o.ApplyT(func(v ConnectorKafkaCluster) ConnectorApacheKafkaCluster { return v.ApacheKafkaCluster }).(ConnectorApacheKafkaClusterOutput)
-}
-
-type ConnectorKafkaClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorKafkaClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorKafkaCluster)(nil)).Elem()
-}
-
-func (o ConnectorKafkaClusterPtrOutput) ToConnectorKafkaClusterPtrOutput() ConnectorKafkaClusterPtrOutput {
-	return o
-}
-
-func (o ConnectorKafkaClusterPtrOutput) ToConnectorKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterPtrOutput {
-	return o
-}
-
-func (o ConnectorKafkaClusterPtrOutput) Elem() ConnectorKafkaClusterOutput {
-	return o.ApplyT(func(v *ConnectorKafkaCluster) ConnectorKafkaCluster {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorKafkaCluster
-		return ret
-	}).(ConnectorKafkaClusterOutput)
-}
-
-func (o ConnectorKafkaClusterPtrOutput) ApacheKafkaCluster() ConnectorApacheKafkaClusterPtrOutput {
-	return o.ApplyT(func(v *ConnectorKafkaCluster) *ConnectorApacheKafkaCluster {
-		if v == nil {
-			return nil
-		}
-		return &v.ApacheKafkaCluster
-	}).(ConnectorApacheKafkaClusterPtrOutput)
 }
 
 // Details of the client authentication used by the Kafka cluster.
@@ -1075,47 +804,6 @@ func (i ConnectorKafkaClusterClientAuthenticationArgs) ToConnectorKafkaClusterCl
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterClientAuthenticationOutput)
 }
 
-func (i ConnectorKafkaClusterClientAuthenticationArgs) ToConnectorKafkaClusterClientAuthenticationPtrOutput() ConnectorKafkaClusterClientAuthenticationPtrOutput {
-	return i.ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorKafkaClusterClientAuthenticationArgs) ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterClientAuthenticationOutput).ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx)
-}
-
-// ConnectorKafkaClusterClientAuthenticationPtrInput is an input type that accepts ConnectorKafkaClusterClientAuthenticationArgs, ConnectorKafkaClusterClientAuthenticationPtr and ConnectorKafkaClusterClientAuthenticationPtrOutput values.
-// You can construct a concrete instance of `ConnectorKafkaClusterClientAuthenticationPtrInput` via:
-//
-//          ConnectorKafkaClusterClientAuthenticationArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorKafkaClusterClientAuthenticationPtrInput interface {
-	pulumi.Input
-
-	ToConnectorKafkaClusterClientAuthenticationPtrOutput() ConnectorKafkaClusterClientAuthenticationPtrOutput
-	ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Context) ConnectorKafkaClusterClientAuthenticationPtrOutput
-}
-
-type connectorKafkaClusterClientAuthenticationPtrType ConnectorKafkaClusterClientAuthenticationArgs
-
-func ConnectorKafkaClusterClientAuthenticationPtr(v *ConnectorKafkaClusterClientAuthenticationArgs) ConnectorKafkaClusterClientAuthenticationPtrInput {
-	return (*connectorKafkaClusterClientAuthenticationPtrType)(v)
-}
-
-func (*connectorKafkaClusterClientAuthenticationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorKafkaClusterClientAuthentication)(nil)).Elem()
-}
-
-func (i *connectorKafkaClusterClientAuthenticationPtrType) ToConnectorKafkaClusterClientAuthenticationPtrOutput() ConnectorKafkaClusterClientAuthenticationPtrOutput {
-	return i.ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorKafkaClusterClientAuthenticationPtrType) ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterClientAuthenticationPtrOutput)
-}
-
 // Details of the client authentication used by the Kafka cluster.
 type ConnectorKafkaClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
 
@@ -1131,53 +819,10 @@ func (o ConnectorKafkaClusterClientAuthenticationOutput) ToConnectorKafkaCluster
 	return o
 }
 
-func (o ConnectorKafkaClusterClientAuthenticationOutput) ToConnectorKafkaClusterClientAuthenticationPtrOutput() ConnectorKafkaClusterClientAuthenticationPtrOutput {
-	return o.ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorKafkaClusterClientAuthenticationOutput) ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorKafkaClusterClientAuthentication) *ConnectorKafkaClusterClientAuthentication {
-		return &v
-	}).(ConnectorKafkaClusterClientAuthenticationPtrOutput)
-}
-
 func (o ConnectorKafkaClusterClientAuthenticationOutput) AuthenticationType() ConnectorKafkaClusterClientAuthenticationTypeOutput {
 	return o.ApplyT(func(v ConnectorKafkaClusterClientAuthentication) ConnectorKafkaClusterClientAuthenticationType {
 		return v.AuthenticationType
 	}).(ConnectorKafkaClusterClientAuthenticationTypeOutput)
-}
-
-type ConnectorKafkaClusterClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorKafkaClusterClientAuthenticationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorKafkaClusterClientAuthentication)(nil)).Elem()
-}
-
-func (o ConnectorKafkaClusterClientAuthenticationPtrOutput) ToConnectorKafkaClusterClientAuthenticationPtrOutput() ConnectorKafkaClusterClientAuthenticationPtrOutput {
-	return o
-}
-
-func (o ConnectorKafkaClusterClientAuthenticationPtrOutput) ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationPtrOutput {
-	return o
-}
-
-func (o ConnectorKafkaClusterClientAuthenticationPtrOutput) Elem() ConnectorKafkaClusterClientAuthenticationOutput {
-	return o.ApplyT(func(v *ConnectorKafkaClusterClientAuthentication) ConnectorKafkaClusterClientAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorKafkaClusterClientAuthentication
-		return ret
-	}).(ConnectorKafkaClusterClientAuthenticationOutput)
-}
-
-func (o ConnectorKafkaClusterClientAuthenticationPtrOutput) AuthenticationType() ConnectorKafkaClusterClientAuthenticationTypePtrOutput {
-	return o.ApplyT(func(v *ConnectorKafkaClusterClientAuthentication) *ConnectorKafkaClusterClientAuthenticationType {
-		if v == nil {
-			return nil
-		}
-		return &v.AuthenticationType
-	}).(ConnectorKafkaClusterClientAuthenticationTypePtrOutput)
 }
 
 // Details of encryption in transit to the Kafka cluster.
@@ -1213,47 +858,6 @@ func (i ConnectorKafkaClusterEncryptionInTransitArgs) ToConnectorKafkaClusterEnc
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterEncryptionInTransitOutput)
 }
 
-func (i ConnectorKafkaClusterEncryptionInTransitArgs) ToConnectorKafkaClusterEncryptionInTransitPtrOutput() ConnectorKafkaClusterEncryptionInTransitPtrOutput {
-	return i.ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorKafkaClusterEncryptionInTransitArgs) ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterEncryptionInTransitOutput).ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx)
-}
-
-// ConnectorKafkaClusterEncryptionInTransitPtrInput is an input type that accepts ConnectorKafkaClusterEncryptionInTransitArgs, ConnectorKafkaClusterEncryptionInTransitPtr and ConnectorKafkaClusterEncryptionInTransitPtrOutput values.
-// You can construct a concrete instance of `ConnectorKafkaClusterEncryptionInTransitPtrInput` via:
-//
-//          ConnectorKafkaClusterEncryptionInTransitArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorKafkaClusterEncryptionInTransitPtrInput interface {
-	pulumi.Input
-
-	ToConnectorKafkaClusterEncryptionInTransitPtrOutput() ConnectorKafkaClusterEncryptionInTransitPtrOutput
-	ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Context) ConnectorKafkaClusterEncryptionInTransitPtrOutput
-}
-
-type connectorKafkaClusterEncryptionInTransitPtrType ConnectorKafkaClusterEncryptionInTransitArgs
-
-func ConnectorKafkaClusterEncryptionInTransitPtr(v *ConnectorKafkaClusterEncryptionInTransitArgs) ConnectorKafkaClusterEncryptionInTransitPtrInput {
-	return (*connectorKafkaClusterEncryptionInTransitPtrType)(v)
-}
-
-func (*connectorKafkaClusterEncryptionInTransitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorKafkaClusterEncryptionInTransit)(nil)).Elem()
-}
-
-func (i *connectorKafkaClusterEncryptionInTransitPtrType) ToConnectorKafkaClusterEncryptionInTransitPtrOutput() ConnectorKafkaClusterEncryptionInTransitPtrOutput {
-	return i.ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorKafkaClusterEncryptionInTransitPtrType) ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterEncryptionInTransitPtrOutput)
-}
-
 // Details of encryption in transit to the Kafka cluster.
 type ConnectorKafkaClusterEncryptionInTransitOutput struct{ *pulumi.OutputState }
 
@@ -1269,53 +873,10 @@ func (o ConnectorKafkaClusterEncryptionInTransitOutput) ToConnectorKafkaClusterE
 	return o
 }
 
-func (o ConnectorKafkaClusterEncryptionInTransitOutput) ToConnectorKafkaClusterEncryptionInTransitPtrOutput() ConnectorKafkaClusterEncryptionInTransitPtrOutput {
-	return o.ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorKafkaClusterEncryptionInTransitOutput) ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorKafkaClusterEncryptionInTransit) *ConnectorKafkaClusterEncryptionInTransit {
-		return &v
-	}).(ConnectorKafkaClusterEncryptionInTransitPtrOutput)
-}
-
 func (o ConnectorKafkaClusterEncryptionInTransitOutput) EncryptionType() ConnectorKafkaClusterEncryptionInTransitTypeOutput {
 	return o.ApplyT(func(v ConnectorKafkaClusterEncryptionInTransit) ConnectorKafkaClusterEncryptionInTransitType {
 		return v.EncryptionType
 	}).(ConnectorKafkaClusterEncryptionInTransitTypeOutput)
-}
-
-type ConnectorKafkaClusterEncryptionInTransitPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorKafkaClusterEncryptionInTransitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorKafkaClusterEncryptionInTransit)(nil)).Elem()
-}
-
-func (o ConnectorKafkaClusterEncryptionInTransitPtrOutput) ToConnectorKafkaClusterEncryptionInTransitPtrOutput() ConnectorKafkaClusterEncryptionInTransitPtrOutput {
-	return o
-}
-
-func (o ConnectorKafkaClusterEncryptionInTransitPtrOutput) ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitPtrOutput {
-	return o
-}
-
-func (o ConnectorKafkaClusterEncryptionInTransitPtrOutput) Elem() ConnectorKafkaClusterEncryptionInTransitOutput {
-	return o.ApplyT(func(v *ConnectorKafkaClusterEncryptionInTransit) ConnectorKafkaClusterEncryptionInTransit {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorKafkaClusterEncryptionInTransit
-		return ret
-	}).(ConnectorKafkaClusterEncryptionInTransitOutput)
-}
-
-func (o ConnectorKafkaClusterEncryptionInTransitPtrOutput) EncryptionType() ConnectorKafkaClusterEncryptionInTransitTypePtrOutput {
-	return o.ApplyT(func(v *ConnectorKafkaClusterEncryptionInTransit) *ConnectorKafkaClusterEncryptionInTransitType {
-		if v == nil {
-			return nil
-		}
-		return &v.EncryptionType
-	}).(ConnectorKafkaClusterEncryptionInTransitTypePtrOutput)
 }
 
 // Details of what logs are delivered and where they are delivered.
@@ -2207,47 +1768,6 @@ func (i ConnectorVpcArgs) ToConnectorVpcOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorVpcOutput)
 }
 
-func (i ConnectorVpcArgs) ToConnectorVpcPtrOutput() ConnectorVpcPtrOutput {
-	return i.ToConnectorVpcPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorVpcArgs) ToConnectorVpcPtrOutputWithContext(ctx context.Context) ConnectorVpcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorVpcOutput).ToConnectorVpcPtrOutputWithContext(ctx)
-}
-
-// ConnectorVpcPtrInput is an input type that accepts ConnectorVpcArgs, ConnectorVpcPtr and ConnectorVpcPtrOutput values.
-// You can construct a concrete instance of `ConnectorVpcPtrInput` via:
-//
-//          ConnectorVpcArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorVpcPtrInput interface {
-	pulumi.Input
-
-	ToConnectorVpcPtrOutput() ConnectorVpcPtrOutput
-	ToConnectorVpcPtrOutputWithContext(context.Context) ConnectorVpcPtrOutput
-}
-
-type connectorVpcPtrType ConnectorVpcArgs
-
-func ConnectorVpcPtr(v *ConnectorVpcArgs) ConnectorVpcPtrInput {
-	return (*connectorVpcPtrType)(v)
-}
-
-func (*connectorVpcPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorVpc)(nil)).Elem()
-}
-
-func (i *connectorVpcPtrType) ToConnectorVpcPtrOutput() ConnectorVpcPtrOutput {
-	return i.ToConnectorVpcPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorVpcPtrType) ToConnectorVpcPtrOutputWithContext(ctx context.Context) ConnectorVpcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorVpcPtrOutput)
-}
-
 // Information about a VPC used with the connector.
 type ConnectorVpcOutput struct{ *pulumi.OutputState }
 
@@ -2263,16 +1783,6 @@ func (o ConnectorVpcOutput) ToConnectorVpcOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ConnectorVpcOutput) ToConnectorVpcPtrOutput() ConnectorVpcPtrOutput {
-	return o.ToConnectorVpcPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorVpcOutput) ToConnectorVpcPtrOutputWithContext(ctx context.Context) ConnectorVpcPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorVpc) *ConnectorVpc {
-		return &v
-	}).(ConnectorVpcPtrOutput)
-}
-
 // The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to.
 func (o ConnectorVpcOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorVpc) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -2281,50 +1791,6 @@ func (o ConnectorVpcOutput) SecurityGroups() pulumi.StringArrayOutput {
 // The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
 func (o ConnectorVpcOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorVpc) []string { return v.Subnets }).(pulumi.StringArrayOutput)
-}
-
-type ConnectorVpcPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorVpcPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorVpc)(nil)).Elem()
-}
-
-func (o ConnectorVpcPtrOutput) ToConnectorVpcPtrOutput() ConnectorVpcPtrOutput {
-	return o
-}
-
-func (o ConnectorVpcPtrOutput) ToConnectorVpcPtrOutputWithContext(ctx context.Context) ConnectorVpcPtrOutput {
-	return o
-}
-
-func (o ConnectorVpcPtrOutput) Elem() ConnectorVpcOutput {
-	return o.ApplyT(func(v *ConnectorVpc) ConnectorVpc {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorVpc
-		return ret
-	}).(ConnectorVpcOutput)
-}
-
-// The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to.
-func (o ConnectorVpcPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ConnectorVpc) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
-func (o ConnectorVpcPtrOutput) Subnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ConnectorVpc) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Subnets
-	}).(pulumi.StringArrayOutput)
 }
 
 // Specifies the worker configuration to use with the connector.
@@ -2654,22 +2120,17 @@ func (o ConnectorWorkerLogDeliveryPtrOutput) S3() ConnectorS3LogDeliveryPtrOutpu
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorApacheKafkaClusterInput)(nil)).Elem(), ConnectorApacheKafkaClusterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorApacheKafkaClusterPtrInput)(nil)).Elem(), ConnectorApacheKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAutoScalingInput)(nil)).Elem(), ConnectorAutoScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAutoScalingPtrInput)(nil)).Elem(), ConnectorAutoScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCapacityInput)(nil)).Elem(), ConnectorCapacityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCapacityPtrInput)(nil)).Elem(), ConnectorCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCloudWatchLogsLogDeliveryInput)(nil)).Elem(), ConnectorCloudWatchLogsLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCloudWatchLogsLogDeliveryPtrInput)(nil)).Elem(), ConnectorCloudWatchLogsLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCustomPluginInput)(nil)).Elem(), ConnectorCustomPluginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorFirehoseLogDeliveryInput)(nil)).Elem(), ConnectorFirehoseLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorFirehoseLogDeliveryPtrInput)(nil)).Elem(), ConnectorFirehoseLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterPtrInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterClientAuthenticationInput)(nil)).Elem(), ConnectorKafkaClusterClientAuthenticationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterClientAuthenticationPtrInput)(nil)).Elem(), ConnectorKafkaClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterEncryptionInTransitInput)(nil)).Elem(), ConnectorKafkaClusterEncryptionInTransitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterEncryptionInTransitPtrInput)(nil)).Elem(), ConnectorKafkaClusterEncryptionInTransitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorLogDeliveryInput)(nil)).Elem(), ConnectorLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorLogDeliveryPtrInput)(nil)).Elem(), ConnectorLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorPluginInput)(nil)).Elem(), ConnectorPluginArgs{})
@@ -2683,28 +2144,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScaleOutPolicyInput)(nil)).Elem(), ConnectorScaleOutPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScaleOutPolicyPtrInput)(nil)).Elem(), ConnectorScaleOutPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorVpcInput)(nil)).Elem(), ConnectorVpcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorVpcPtrInput)(nil)).Elem(), ConnectorVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorWorkerConfigurationInput)(nil)).Elem(), ConnectorWorkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorWorkerConfigurationPtrInput)(nil)).Elem(), ConnectorWorkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorWorkerLogDeliveryInput)(nil)).Elem(), ConnectorWorkerLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorWorkerLogDeliveryPtrInput)(nil)).Elem(), ConnectorWorkerLogDeliveryArgs{})
 	pulumi.RegisterOutputType(ConnectorApacheKafkaClusterOutput{})
-	pulumi.RegisterOutputType(ConnectorApacheKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAutoScalingOutput{})
 	pulumi.RegisterOutputType(ConnectorAutoScalingPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCapacityOutput{})
-	pulumi.RegisterOutputType(ConnectorCapacityPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCloudWatchLogsLogDeliveryOutput{})
 	pulumi.RegisterOutputType(ConnectorCloudWatchLogsLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCustomPluginOutput{})
 	pulumi.RegisterOutputType(ConnectorFirehoseLogDeliveryOutput{})
 	pulumi.RegisterOutputType(ConnectorFirehoseLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterOutput{})
-	pulumi.RegisterOutputType(ConnectorKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterClientAuthenticationOutput{})
-	pulumi.RegisterOutputType(ConnectorKafkaClusterClientAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterEncryptionInTransitOutput{})
-	pulumi.RegisterOutputType(ConnectorKafkaClusterEncryptionInTransitPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorLogDeliveryOutput{})
 	pulumi.RegisterOutputType(ConnectorLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorPluginOutput{})
@@ -2718,7 +2173,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorScaleOutPolicyOutput{})
 	pulumi.RegisterOutputType(ConnectorScaleOutPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorVpcOutput{})
-	pulumi.RegisterOutputType(ConnectorVpcPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorWorkerConfigurationOutput{})
 	pulumi.RegisterOutputType(ConnectorWorkerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorWorkerLogDeliveryOutput{})

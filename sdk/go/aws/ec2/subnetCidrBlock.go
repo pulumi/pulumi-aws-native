@@ -88,7 +88,7 @@ type SubnetCidrBlockInput interface {
 }
 
 func (*SubnetCidrBlock) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetCidrBlock)(nil))
+	return reflect.TypeOf((**SubnetCidrBlock)(nil)).Elem()
 }
 
 func (i *SubnetCidrBlock) ToSubnetCidrBlockOutput() SubnetCidrBlockOutput {
@@ -102,7 +102,7 @@ func (i *SubnetCidrBlock) ToSubnetCidrBlockOutputWithContext(ctx context.Context
 type SubnetCidrBlockOutput struct{ *pulumi.OutputState }
 
 func (SubnetCidrBlockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetCidrBlock)(nil))
+	return reflect.TypeOf((**SubnetCidrBlock)(nil)).Elem()
 }
 
 func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutput() SubnetCidrBlockOutput {

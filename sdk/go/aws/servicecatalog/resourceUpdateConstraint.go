@@ -100,7 +100,7 @@ type ResourceUpdateConstraintInput interface {
 }
 
 func (*ResourceUpdateConstraint) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceUpdateConstraint)(nil))
+	return reflect.TypeOf((**ResourceUpdateConstraint)(nil)).Elem()
 }
 
 func (i *ResourceUpdateConstraint) ToResourceUpdateConstraintOutput() ResourceUpdateConstraintOutput {
@@ -114,7 +114,7 @@ func (i *ResourceUpdateConstraint) ToResourceUpdateConstraintOutputWithContext(c
 type ResourceUpdateConstraintOutput struct{ *pulumi.OutputState }
 
 func (ResourceUpdateConstraintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceUpdateConstraint)(nil))
+	return reflect.TypeOf((**ResourceUpdateConstraint)(nil)).Elem()
 }
 
 func (o ResourceUpdateConstraintOutput) ToResourceUpdateConstraintOutput() ResourceUpdateConstraintOutput {

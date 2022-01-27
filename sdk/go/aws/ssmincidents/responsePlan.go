@@ -115,7 +115,7 @@ type ResponsePlanInput interface {
 }
 
 func (*ResponsePlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponsePlan)(nil))
+	return reflect.TypeOf((**ResponsePlan)(nil)).Elem()
 }
 
 func (i *ResponsePlan) ToResponsePlanOutput() ResponsePlanOutput {
@@ -129,7 +129,7 @@ func (i *ResponsePlan) ToResponsePlanOutputWithContext(ctx context.Context) Resp
 type ResponsePlanOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponsePlan)(nil))
+	return reflect.TypeOf((**ResponsePlan)(nil)).Elem()
 }
 
 func (o ResponsePlanOutput) ToResponsePlanOutput() ResponsePlanOutput {

@@ -129,7 +129,7 @@ type ModelExplainabilityJobDefinitionInput interface {
 }
 
 func (*ModelExplainabilityJobDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelExplainabilityJobDefinition)(nil))
+	return reflect.TypeOf((**ModelExplainabilityJobDefinition)(nil)).Elem()
 }
 
 func (i *ModelExplainabilityJobDefinition) ToModelExplainabilityJobDefinitionOutput() ModelExplainabilityJobDefinitionOutput {
@@ -143,7 +143,7 @@ func (i *ModelExplainabilityJobDefinition) ToModelExplainabilityJobDefinitionOut
 type ModelExplainabilityJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelExplainabilityJobDefinition)(nil))
+	return reflect.TypeOf((**ModelExplainabilityJobDefinition)(nil)).Elem()
 }
 
 func (o ModelExplainabilityJobDefinitionOutput) ToModelExplainabilityJobDefinitionOutput() ModelExplainabilityJobDefinitionOutput {

@@ -117,7 +117,7 @@ type WirelessGatewayInput interface {
 }
 
 func (*WirelessGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessGateway)(nil))
+	return reflect.TypeOf((**WirelessGateway)(nil)).Elem()
 }
 
 func (i *WirelessGateway) ToWirelessGatewayOutput() WirelessGatewayOutput {
@@ -131,7 +131,7 @@ func (i *WirelessGateway) ToWirelessGatewayOutputWithContext(ctx context.Context
 type WirelessGatewayOutput struct{ *pulumi.OutputState }
 
 func (WirelessGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessGateway)(nil))
+	return reflect.TypeOf((**WirelessGateway)(nil)).Elem()
 }
 
 func (o WirelessGatewayOutput) ToWirelessGatewayOutput() WirelessGatewayOutput {

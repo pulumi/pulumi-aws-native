@@ -88,7 +88,7 @@ type TransitGatewayRouteTableAssociationInput interface {
 }
 
 func (*TransitGatewayRouteTableAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTableAssociation)(nil))
+	return reflect.TypeOf((**TransitGatewayRouteTableAssociation)(nil)).Elem()
 }
 
 func (i *TransitGatewayRouteTableAssociation) ToTransitGatewayRouteTableAssociationOutput() TransitGatewayRouteTableAssociationOutput {
@@ -102,7 +102,7 @@ func (i *TransitGatewayRouteTableAssociation) ToTransitGatewayRouteTableAssociat
 type TransitGatewayRouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteTableAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTableAssociation)(nil))
+	return reflect.TypeOf((**TransitGatewayRouteTableAssociation)(nil)).Elem()
 }
 
 func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAssociationOutput() TransitGatewayRouteTableAssociationOutput {

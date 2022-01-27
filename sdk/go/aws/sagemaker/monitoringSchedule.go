@@ -116,7 +116,7 @@ type MonitoringScheduleInput interface {
 }
 
 func (*MonitoringSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringSchedule)(nil))
+	return reflect.TypeOf((**MonitoringSchedule)(nil)).Elem()
 }
 
 func (i *MonitoringSchedule) ToMonitoringScheduleOutput() MonitoringScheduleOutput {
@@ -130,7 +130,7 @@ func (i *MonitoringSchedule) ToMonitoringScheduleOutputWithContext(ctx context.C
 type MonitoringScheduleOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringSchedule)(nil))
+	return reflect.TypeOf((**MonitoringSchedule)(nil)).Elem()
 }
 
 func (o MonitoringScheduleOutput) ToMonitoringScheduleOutput() MonitoringScheduleOutput {

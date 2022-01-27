@@ -85,7 +85,7 @@ type SizeConstraintSetInput interface {
 }
 
 func (*SizeConstraintSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*SizeConstraintSet)(nil))
+	return reflect.TypeOf((**SizeConstraintSet)(nil)).Elem()
 }
 
 func (i *SizeConstraintSet) ToSizeConstraintSetOutput() SizeConstraintSetOutput {
@@ -99,7 +99,7 @@ func (i *SizeConstraintSet) ToSizeConstraintSetOutputWithContext(ctx context.Con
 type SizeConstraintSetOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SizeConstraintSet)(nil))
+	return reflect.TypeOf((**SizeConstraintSet)(nil)).Elem()
 }
 
 func (o SizeConstraintSetOutput) ToSizeConstraintSetOutput() SizeConstraintSetOutput {

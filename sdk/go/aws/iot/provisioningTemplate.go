@@ -102,7 +102,7 @@ type ProvisioningTemplateInput interface {
 }
 
 func (*ProvisioningTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisioningTemplate)(nil))
+	return reflect.TypeOf((**ProvisioningTemplate)(nil)).Elem()
 }
 
 func (i *ProvisioningTemplate) ToProvisioningTemplateOutput() ProvisioningTemplateOutput {
@@ -116,7 +116,7 @@ func (i *ProvisioningTemplate) ToProvisioningTemplateOutputWithContext(ctx conte
 type ProvisioningTemplateOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisioningTemplate)(nil))
+	return reflect.TypeOf((**ProvisioningTemplate)(nil)).Elem()
 }
 
 func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutput() ProvisioningTemplateOutput {

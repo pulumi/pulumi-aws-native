@@ -85,7 +85,7 @@ type ComponentVersionInput interface {
 }
 
 func (*ComponentVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentVersion)(nil))
+	return reflect.TypeOf((**ComponentVersion)(nil)).Elem()
 }
 
 func (i *ComponentVersion) ToComponentVersionOutput() ComponentVersionOutput {
@@ -99,7 +99,7 @@ func (i *ComponentVersion) ToComponentVersionOutputWithContext(ctx context.Conte
 type ComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentVersion)(nil))
+	return reflect.TypeOf((**ComponentVersion)(nil)).Elem()
 }
 
 func (o ComponentVersionOutput) ToComponentVersionOutput() ComponentVersionOutput {

@@ -130,7 +130,7 @@ type ReplicationTaskInput interface {
 }
 
 func (*ReplicationTask) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationTask)(nil))
+	return reflect.TypeOf((**ReplicationTask)(nil)).Elem()
 }
 
 func (i *ReplicationTask) ToReplicationTaskOutput() ReplicationTaskOutput {
@@ -144,7 +144,7 @@ func (i *ReplicationTask) ToReplicationTaskOutputWithContext(ctx context.Context
 type ReplicationTaskOutput struct{ *pulumi.OutputState }
 
 func (ReplicationTaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationTask)(nil))
+	return reflect.TypeOf((**ReplicationTask)(nil)).Elem()
 }
 
 func (o ReplicationTaskOutput) ToReplicationTaskOutput() ReplicationTaskOutput {

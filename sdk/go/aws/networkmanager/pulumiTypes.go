@@ -433,47 +433,6 @@ func (i LinkBandwidthArgs) ToLinkBandwidthOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LinkBandwidthOutput)
 }
 
-func (i LinkBandwidthArgs) ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutput {
-	return i.ToLinkBandwidthPtrOutputWithContext(context.Background())
-}
-
-func (i LinkBandwidthArgs) ToLinkBandwidthPtrOutputWithContext(ctx context.Context) LinkBandwidthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkBandwidthOutput).ToLinkBandwidthPtrOutputWithContext(ctx)
-}
-
-// LinkBandwidthPtrInput is an input type that accepts LinkBandwidthArgs, LinkBandwidthPtr and LinkBandwidthPtrOutput values.
-// You can construct a concrete instance of `LinkBandwidthPtrInput` via:
-//
-//          LinkBandwidthArgs{...}
-//
-//  or:
-//
-//          nil
-type LinkBandwidthPtrInput interface {
-	pulumi.Input
-
-	ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutput
-	ToLinkBandwidthPtrOutputWithContext(context.Context) LinkBandwidthPtrOutput
-}
-
-type linkBandwidthPtrType LinkBandwidthArgs
-
-func LinkBandwidthPtr(v *LinkBandwidthArgs) LinkBandwidthPtrInput {
-	return (*linkBandwidthPtrType)(v)
-}
-
-func (*linkBandwidthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkBandwidth)(nil)).Elem()
-}
-
-func (i *linkBandwidthPtrType) ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutput {
-	return i.ToLinkBandwidthPtrOutputWithContext(context.Background())
-}
-
-func (i *linkBandwidthPtrType) ToLinkBandwidthPtrOutputWithContext(ctx context.Context) LinkBandwidthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkBandwidthPtrOutput)
-}
-
 // The bandwidth for the link.
 type LinkBandwidthOutput struct{ *pulumi.OutputState }
 
@@ -489,16 +448,6 @@ func (o LinkBandwidthOutput) ToLinkBandwidthOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o LinkBandwidthOutput) ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutput {
-	return o.ToLinkBandwidthPtrOutputWithContext(context.Background())
-}
-
-func (o LinkBandwidthOutput) ToLinkBandwidthPtrOutputWithContext(ctx context.Context) LinkBandwidthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkBandwidth) *LinkBandwidth {
-		return &v
-	}).(LinkBandwidthPtrOutput)
-}
-
 // Download speed in Mbps.
 func (o LinkBandwidthOutput) DownloadSpeed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkBandwidth) *int { return v.DownloadSpeed }).(pulumi.IntPtrOutput)
@@ -507,50 +456,6 @@ func (o LinkBandwidthOutput) DownloadSpeed() pulumi.IntPtrOutput {
 // Upload speed in Mbps.
 func (o LinkBandwidthOutput) UploadSpeed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkBandwidth) *int { return v.UploadSpeed }).(pulumi.IntPtrOutput)
-}
-
-type LinkBandwidthPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkBandwidthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkBandwidth)(nil)).Elem()
-}
-
-func (o LinkBandwidthPtrOutput) ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutput {
-	return o
-}
-
-func (o LinkBandwidthPtrOutput) ToLinkBandwidthPtrOutputWithContext(ctx context.Context) LinkBandwidthPtrOutput {
-	return o
-}
-
-func (o LinkBandwidthPtrOutput) Elem() LinkBandwidthOutput {
-	return o.ApplyT(func(v *LinkBandwidth) LinkBandwidth {
-		if v != nil {
-			return *v
-		}
-		var ret LinkBandwidth
-		return ret
-	}).(LinkBandwidthOutput)
-}
-
-// Download speed in Mbps.
-func (o LinkBandwidthPtrOutput) DownloadSpeed() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LinkBandwidth) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DownloadSpeed
-	}).(pulumi.IntPtrOutput)
-}
-
-// Upload speed in Mbps.
-func (o LinkBandwidthPtrOutput) UploadSpeed() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LinkBandwidth) *int {
-		if v == nil {
-			return nil
-		}
-		return v.UploadSpeed
-	}).(pulumi.IntPtrOutput)
 }
 
 // A key-value pair to associate with a link resource.
@@ -945,7 +850,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalNetworkTagInput)(nil)).Elem(), GlobalNetworkTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalNetworkTagArrayInput)(nil)).Elem(), GlobalNetworkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthInput)(nil)).Elem(), LinkBandwidthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthPtrInput)(nil)).Elem(), LinkBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkTagInput)(nil)).Elem(), LinkTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkTagArrayInput)(nil)).Elem(), LinkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
@@ -959,7 +863,6 @@ func init() {
 	pulumi.RegisterOutputType(GlobalNetworkTagOutput{})
 	pulumi.RegisterOutputType(GlobalNetworkTagArrayOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthOutput{})
-	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
 	pulumi.RegisterOutputType(LinkTagOutput{})
 	pulumi.RegisterOutputType(LinkTagArrayOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})

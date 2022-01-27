@@ -97,7 +97,7 @@ type ModelInput interface {
 }
 
 func (*Model) ElementType() reflect.Type {
-	return reflect.TypeOf((*Model)(nil))
+	return reflect.TypeOf((**Model)(nil)).Elem()
 }
 
 func (i *Model) ToModelOutput() ModelOutput {
@@ -111,7 +111,7 @@ func (i *Model) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 type ModelOutput struct{ *pulumi.OutputState }
 
 func (ModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Model)(nil))
+	return reflect.TypeOf((**Model)(nil)).Elem()
 }
 
 func (o ModelOutput) ToModelOutput() ModelOutput {

@@ -880,47 +880,6 @@ func (i DetectorModelDefinitionArgs) ToDetectorModelDefinitionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDefinitionOutput)
 }
 
-func (i DetectorModelDefinitionArgs) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
-	return i.ToDetectorModelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i DetectorModelDefinitionArgs) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDefinitionOutput).ToDetectorModelDefinitionPtrOutputWithContext(ctx)
-}
-
-// DetectorModelDefinitionPtrInput is an input type that accepts DetectorModelDefinitionArgs, DetectorModelDefinitionPtr and DetectorModelDefinitionPtrOutput values.
-// You can construct a concrete instance of `DetectorModelDefinitionPtrInput` via:
-//
-//          DetectorModelDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type DetectorModelDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput
-	ToDetectorModelDefinitionPtrOutputWithContext(context.Context) DetectorModelDefinitionPtrOutput
-}
-
-type detectorModelDefinitionPtrType DetectorModelDefinitionArgs
-
-func DetectorModelDefinitionPtr(v *DetectorModelDefinitionArgs) DetectorModelDefinitionPtrInput {
-	return (*detectorModelDefinitionPtrType)(v)
-}
-
-func (*detectorModelDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetectorModelDefinition)(nil)).Elem()
-}
-
-func (i *detectorModelDefinitionPtrType) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
-	return i.ToDetectorModelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *detectorModelDefinitionPtrType) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDefinitionPtrOutput)
-}
-
 // Information that defines how a detector operates.
 type DetectorModelDefinitionOutput struct{ *pulumi.OutputState }
 
@@ -936,16 +895,6 @@ func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionOutputWithContex
 	return o
 }
 
-func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
-	return o.ToDetectorModelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelDefinition) *DetectorModelDefinition {
-		return &v
-	}).(DetectorModelDefinitionPtrOutput)
-}
-
 // The state that is entered at the creation of each detector (instance).
 func (o DetectorModelDefinitionOutput) InitialStateName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelDefinition) string { return v.InitialStateName }).(pulumi.StringOutput)
@@ -954,50 +903,6 @@ func (o DetectorModelDefinitionOutput) InitialStateName() pulumi.StringOutput {
 // Information about the states of the detector.
 func (o DetectorModelDefinitionOutput) States() DetectorModelStateTypeArrayOutput {
 	return o.ApplyT(func(v DetectorModelDefinition) []DetectorModelStateType { return v.States }).(DetectorModelStateTypeArrayOutput)
-}
-
-type DetectorModelDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DetectorModelDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetectorModelDefinition)(nil)).Elem()
-}
-
-func (o DetectorModelDefinitionPtrOutput) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
-	return o
-}
-
-func (o DetectorModelDefinitionPtrOutput) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
-	return o
-}
-
-func (o DetectorModelDefinitionPtrOutput) Elem() DetectorModelDefinitionOutput {
-	return o.ApplyT(func(v *DetectorModelDefinition) DetectorModelDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret DetectorModelDefinition
-		return ret
-	}).(DetectorModelDefinitionOutput)
-}
-
-// The state that is entered at the creation of each detector (instance).
-func (o DetectorModelDefinitionPtrOutput) InitialStateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InitialStateName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information about the states of the detector.
-func (o DetectorModelDefinitionPtrOutput) States() DetectorModelStateTypeArrayOutput {
-	return o.ApplyT(func(v *DetectorModelDefinition) []DetectorModelStateType {
-		if v == nil {
-			return nil
-		}
-		return v.States
-	}).(DetectorModelStateTypeArrayOutput)
 }
 
 // Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
@@ -4424,47 +4329,6 @@ func (i InputDefinitionArgs) ToInputDefinitionOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InputDefinitionOutput)
 }
 
-func (i InputDefinitionArgs) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
-	return i.ToInputDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i InputDefinitionArgs) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputDefinitionOutput).ToInputDefinitionPtrOutputWithContext(ctx)
-}
-
-// InputDefinitionPtrInput is an input type that accepts InputDefinitionArgs, InputDefinitionPtr and InputDefinitionPtrOutput values.
-// You can construct a concrete instance of `InputDefinitionPtrInput` via:
-//
-//          InputDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type InputDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToInputDefinitionPtrOutput() InputDefinitionPtrOutput
-	ToInputDefinitionPtrOutputWithContext(context.Context) InputDefinitionPtrOutput
-}
-
-type inputDefinitionPtrType InputDefinitionArgs
-
-func InputDefinitionPtr(v *InputDefinitionArgs) InputDefinitionPtrInput {
-	return (*inputDefinitionPtrType)(v)
-}
-
-func (*inputDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputDefinition)(nil)).Elem()
-}
-
-func (i *inputDefinitionPtrType) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
-	return i.ToInputDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *inputDefinitionPtrType) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputDefinitionPtrOutput)
-}
-
 // The definition of the input.
 type InputDefinitionOutput struct{ *pulumi.OutputState }
 
@@ -4480,53 +4344,9 @@ func (o InputDefinitionOutput) ToInputDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o InputDefinitionOutput) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
-	return o.ToInputDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o InputDefinitionOutput) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputDefinition) *InputDefinition {
-		return &v
-	}).(InputDefinitionPtrOutput)
-}
-
 // The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 func (o InputDefinitionOutput) Attributes() InputAttributeArrayOutput {
 	return o.ApplyT(func(v InputDefinition) []InputAttribute { return v.Attributes }).(InputAttributeArrayOutput)
-}
-
-type InputDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (InputDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputDefinition)(nil)).Elem()
-}
-
-func (o InputDefinitionPtrOutput) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
-	return o
-}
-
-func (o InputDefinitionPtrOutput) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
-	return o
-}
-
-func (o InputDefinitionPtrOutput) Elem() InputDefinitionOutput {
-	return o.ApplyT(func(v *InputDefinition) InputDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret InputDefinition
-		return ret
-	}).(InputDefinitionOutput)
-}
-
-// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
-func (o InputDefinitionPtrOutput) Attributes() InputAttributeArrayOutput {
-	return o.ApplyT(func(v *InputDefinition) []InputAttribute {
-		if v == nil {
-			return nil
-		}
-		return v.Attributes
-	}).(InputAttributeArrayOutput)
 }
 
 // Tags to be applied to Input.
@@ -4650,7 +4470,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelClearTimerInput)(nil)).Elem(), DetectorModelClearTimerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelClearTimerPtrInput)(nil)).Elem(), DetectorModelClearTimerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDefinitionInput)(nil)).Elem(), DetectorModelDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDefinitionPtrInput)(nil)).Elem(), DetectorModelDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDBInput)(nil)).Elem(), DetectorModelDynamoDBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDBPtrInput)(nil)).Elem(), DetectorModelDynamoDBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelDynamoDBv2Input)(nil)).Elem(), DetectorModelDynamoDBv2Args{})
@@ -4694,7 +4513,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InputAttributeInput)(nil)).Elem(), InputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputAttributeArrayInput)(nil)).Elem(), InputAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputDefinitionInput)(nil)).Elem(), InputDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InputDefinitionPtrInput)(nil)).Elem(), InputDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputTagInput)(nil)).Elem(), InputTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputTagArrayInput)(nil)).Elem(), InputTagArray{})
 	pulumi.RegisterOutputType(DetectorModelActionOutput{})
@@ -4708,7 +4526,6 @@ func init() {
 	pulumi.RegisterOutputType(DetectorModelClearTimerOutput{})
 	pulumi.RegisterOutputType(DetectorModelClearTimerPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDefinitionOutput{})
-	pulumi.RegisterOutputType(DetectorModelDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBv2Output{})
@@ -4752,7 +4569,6 @@ func init() {
 	pulumi.RegisterOutputType(InputAttributeOutput{})
 	pulumi.RegisterOutputType(InputAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InputDefinitionOutput{})
-	pulumi.RegisterOutputType(InputDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(InputTagOutput{})
 	pulumi.RegisterOutputType(InputTagArrayOutput{})
 }

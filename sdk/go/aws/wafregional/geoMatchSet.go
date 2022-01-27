@@ -81,7 +81,7 @@ type GeoMatchSetInput interface {
 }
 
 func (*GeoMatchSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoMatchSet)(nil))
+	return reflect.TypeOf((**GeoMatchSet)(nil)).Elem()
 }
 
 func (i *GeoMatchSet) ToGeoMatchSetOutput() GeoMatchSetOutput {
@@ -95,7 +95,7 @@ func (i *GeoMatchSet) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMat
 type GeoMatchSetOutput struct{ *pulumi.OutputState }
 
 func (GeoMatchSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoMatchSet)(nil))
+	return reflect.TypeOf((**GeoMatchSet)(nil)).Elem()
 }
 
 func (o GeoMatchSetOutput) ToGeoMatchSetOutput() GeoMatchSetOutput {

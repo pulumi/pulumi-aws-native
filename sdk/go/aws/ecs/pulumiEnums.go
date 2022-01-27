@@ -345,163 +345,6 @@ const (
 	ClusterCapacityProviderAssociationsCapacityProviderFargateSpot = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE_SPOT")
 )
 
-func (ClusterCapacityProviderAssociationsCapacityProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProvider)(nil)).Elem()
-}
-
-func (e ClusterCapacityProviderAssociationsCapacityProvider) ToClusterCapacityProviderAssociationsCapacityProviderOutput() ClusterCapacityProviderAssociationsCapacityProviderOutput {
-	return pulumi.ToOutput(e).(ClusterCapacityProviderAssociationsCapacityProviderOutput)
-}
-
-func (e ClusterCapacityProviderAssociationsCapacityProvider) ToClusterCapacityProviderAssociationsCapacityProviderOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ClusterCapacityProviderAssociationsCapacityProviderOutput)
-}
-
-func (e ClusterCapacityProviderAssociationsCapacityProvider) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
-	return e.ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(context.Background())
-}
-
-func (e ClusterCapacityProviderAssociationsCapacityProvider) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
-	return ClusterCapacityProviderAssociationsCapacityProvider(e).ToClusterCapacityProviderAssociationsCapacityProviderOutputWithContext(ctx).ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx)
-}
-
-func (e ClusterCapacityProviderAssociationsCapacityProvider) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ClusterCapacityProviderAssociationsCapacityProvider) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ClusterCapacityProviderAssociationsCapacityProvider) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ClusterCapacityProviderAssociationsCapacityProvider) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ClusterCapacityProviderAssociationsCapacityProviderOutput struct{ *pulumi.OutputState }
-
-func (ClusterCapacityProviderAssociationsCapacityProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProvider)(nil)).Elem()
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToClusterCapacityProviderAssociationsCapacityProviderOutput() ClusterCapacityProviderAssociationsCapacityProviderOutput {
-	return o
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToClusterCapacityProviderAssociationsCapacityProviderOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderOutput {
-	return o
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
-	return o.ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCapacityProviderAssociationsCapacityProvider) *ClusterCapacityProviderAssociationsCapacityProvider {
-		return &v
-	}).(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput)
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCapacityProviderAssociationsCapacityProvider) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterCapacityProviderAssociationsCapacityProvider) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ClusterCapacityProviderAssociationsCapacityProviderPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterCapacityProviderAssociationsCapacityProvider)(nil)).Elem()
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
-	return o
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
-	return o
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) Elem() ClusterCapacityProviderAssociationsCapacityProviderOutput {
-	return o.ApplyT(func(v *ClusterCapacityProviderAssociationsCapacityProvider) ClusterCapacityProviderAssociationsCapacityProvider {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterCapacityProviderAssociationsCapacityProvider
-		return ret
-	}).(ClusterCapacityProviderAssociationsCapacityProviderOutput)
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterCapacityProviderAssociationsCapacityProviderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterCapacityProviderAssociationsCapacityProvider) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ClusterCapacityProviderAssociationsCapacityProviderInput is an input type that accepts ClusterCapacityProviderAssociationsCapacityProviderArgs and ClusterCapacityProviderAssociationsCapacityProviderOutput values.
-// You can construct a concrete instance of `ClusterCapacityProviderAssociationsCapacityProviderInput` via:
-//
-//          ClusterCapacityProviderAssociationsCapacityProviderArgs{...}
-type ClusterCapacityProviderAssociationsCapacityProviderInput interface {
-	pulumi.Input
-
-	ToClusterCapacityProviderAssociationsCapacityProviderOutput() ClusterCapacityProviderAssociationsCapacityProviderOutput
-	ToClusterCapacityProviderAssociationsCapacityProviderOutputWithContext(context.Context) ClusterCapacityProviderAssociationsCapacityProviderOutput
-}
-
-var clusterCapacityProviderAssociationsCapacityProviderPtrType = reflect.TypeOf((**ClusterCapacityProviderAssociationsCapacityProvider)(nil)).Elem()
-
-type ClusterCapacityProviderAssociationsCapacityProviderPtrInput interface {
-	pulumi.Input
-
-	ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput
-	ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput
-}
-
-type clusterCapacityProviderAssociationsCapacityProviderPtr string
-
-func ClusterCapacityProviderAssociationsCapacityProviderPtr(v string) ClusterCapacityProviderAssociationsCapacityProviderPtrInput {
-	return (*clusterCapacityProviderAssociationsCapacityProviderPtr)(&v)
-}
-
-func (*clusterCapacityProviderAssociationsCapacityProviderPtr) ElementType() reflect.Type {
-	return clusterCapacityProviderAssociationsCapacityProviderPtrType
-}
-
-func (in *clusterCapacityProviderAssociationsCapacityProviderPtr) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutput() ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
-	return pulumi.ToOutput(in).(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput)
-}
-
-func (in *clusterCapacityProviderAssociationsCapacityProviderPtr) ToClusterCapacityProviderAssociationsCapacityProviderPtrOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput)
-}
-
 type ServiceAwsVpcConfigurationAssignPublicIp string
 
 const (
@@ -2480,8 +2323,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingStatusInput)(nil)).Elem(), CapacityProviderManagedScalingStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingStatusPtrInput)(nil)).Elem(), CapacityProviderManagedScalingStatus("DISABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderPtrInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypeInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
@@ -2510,8 +2351,6 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingStatusOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingStatusPtrOutput{})
-	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderOutput{})
-	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypeOutput{})

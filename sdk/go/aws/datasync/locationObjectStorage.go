@@ -141,7 +141,7 @@ type LocationObjectStorageInput interface {
 }
 
 func (*LocationObjectStorage) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationObjectStorage)(nil))
+	return reflect.TypeOf((**LocationObjectStorage)(nil)).Elem()
 }
 
 func (i *LocationObjectStorage) ToLocationObjectStorageOutput() LocationObjectStorageOutput {
@@ -155,7 +155,7 @@ func (i *LocationObjectStorage) ToLocationObjectStorageOutputWithContext(ctx con
 type LocationObjectStorageOutput struct{ *pulumi.OutputState }
 
 func (LocationObjectStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationObjectStorage)(nil))
+	return reflect.TypeOf((**LocationObjectStorage)(nil)).Elem()
 }
 
 func (o LocationObjectStorageOutput) ToLocationObjectStorageOutput() LocationObjectStorageOutput {

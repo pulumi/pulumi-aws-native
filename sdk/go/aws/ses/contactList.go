@@ -97,7 +97,7 @@ type ContactListInput interface {
 }
 
 func (*ContactList) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactList)(nil))
+	return reflect.TypeOf((**ContactList)(nil)).Elem()
 }
 
 func (i *ContactList) ToContactListOutput() ContactListOutput {
@@ -111,7 +111,7 @@ func (i *ContactList) ToContactListOutputWithContext(ctx context.Context) Contac
 type ContactListOutput struct{ *pulumi.OutputState }
 
 func (ContactListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactList)(nil))
+	return reflect.TypeOf((**ContactList)(nil)).Elem()
 }
 
 func (o ContactListOutput) ToContactListOutput() ContactListOutput {

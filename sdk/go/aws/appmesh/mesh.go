@@ -88,7 +88,7 @@ type MeshInput interface {
 }
 
 func (*Mesh) ElementType() reflect.Type {
-	return reflect.TypeOf((*Mesh)(nil))
+	return reflect.TypeOf((**Mesh)(nil)).Elem()
 }
 
 func (i *Mesh) ToMeshOutput() MeshOutput {
@@ -102,7 +102,7 @@ func (i *Mesh) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 type MeshOutput struct{ *pulumi.OutputState }
 
 func (MeshOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Mesh)(nil))
+	return reflect.TypeOf((**Mesh)(nil)).Elem()
 }
 
 func (o MeshOutput) ToMeshOutput() MeshOutput {

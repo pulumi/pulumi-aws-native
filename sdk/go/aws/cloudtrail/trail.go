@@ -166,7 +166,7 @@ type TrailInput interface {
 }
 
 func (*Trail) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trail)(nil))
+	return reflect.TypeOf((**Trail)(nil)).Elem()
 }
 
 func (i *Trail) ToTrailOutput() TrailOutput {
@@ -180,7 +180,7 @@ func (i *Trail) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 type TrailOutput struct{ *pulumi.OutputState }
 
 func (TrailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trail)(nil))
+	return reflect.TypeOf((**Trail)(nil)).Elem()
 }
 
 func (o TrailOutput) ToTrailOutput() TrailOutput {

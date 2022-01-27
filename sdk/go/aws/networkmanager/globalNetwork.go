@@ -87,7 +87,7 @@ type GlobalNetworkInput interface {
 }
 
 func (*GlobalNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalNetwork)(nil))
+	return reflect.TypeOf((**GlobalNetwork)(nil)).Elem()
 }
 
 func (i *GlobalNetwork) ToGlobalNetworkOutput() GlobalNetworkOutput {
@@ -101,7 +101,7 @@ func (i *GlobalNetwork) ToGlobalNetworkOutputWithContext(ctx context.Context) Gl
 type GlobalNetworkOutput struct{ *pulumi.OutputState }
 
 func (GlobalNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalNetwork)(nil))
+	return reflect.TypeOf((**GlobalNetwork)(nil)).Elem()
 }
 
 func (o GlobalNetworkOutput) ToGlobalNetworkOutput() GlobalNetworkOutput {

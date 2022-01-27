@@ -10517,47 +10517,6 @@ func (i FlowSourceConnectorPropertiesArgs) ToFlowSourceConnectorPropertiesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceConnectorPropertiesOutput)
 }
 
-func (i FlowSourceConnectorPropertiesArgs) ToFlowSourceConnectorPropertiesPtrOutput() FlowSourceConnectorPropertiesPtrOutput {
-	return i.ToFlowSourceConnectorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i FlowSourceConnectorPropertiesArgs) ToFlowSourceConnectorPropertiesPtrOutputWithContext(ctx context.Context) FlowSourceConnectorPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceConnectorPropertiesOutput).ToFlowSourceConnectorPropertiesPtrOutputWithContext(ctx)
-}
-
-// FlowSourceConnectorPropertiesPtrInput is an input type that accepts FlowSourceConnectorPropertiesArgs, FlowSourceConnectorPropertiesPtr and FlowSourceConnectorPropertiesPtrOutput values.
-// You can construct a concrete instance of `FlowSourceConnectorPropertiesPtrInput` via:
-//
-//          FlowSourceConnectorPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type FlowSourceConnectorPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToFlowSourceConnectorPropertiesPtrOutput() FlowSourceConnectorPropertiesPtrOutput
-	ToFlowSourceConnectorPropertiesPtrOutputWithContext(context.Context) FlowSourceConnectorPropertiesPtrOutput
-}
-
-type flowSourceConnectorPropertiesPtrType FlowSourceConnectorPropertiesArgs
-
-func FlowSourceConnectorPropertiesPtr(v *FlowSourceConnectorPropertiesArgs) FlowSourceConnectorPropertiesPtrInput {
-	return (*flowSourceConnectorPropertiesPtrType)(v)
-}
-
-func (*flowSourceConnectorPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSourceConnectorProperties)(nil)).Elem()
-}
-
-func (i *flowSourceConnectorPropertiesPtrType) ToFlowSourceConnectorPropertiesPtrOutput() FlowSourceConnectorPropertiesPtrOutput {
-	return i.ToFlowSourceConnectorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *flowSourceConnectorPropertiesPtrType) ToFlowSourceConnectorPropertiesPtrOutputWithContext(ctx context.Context) FlowSourceConnectorPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceConnectorPropertiesPtrOutput)
-}
-
 // Source connector details required to query a connector
 type FlowSourceConnectorPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -10571,16 +10530,6 @@ func (o FlowSourceConnectorPropertiesOutput) ToFlowSourceConnectorPropertiesOutp
 
 func (o FlowSourceConnectorPropertiesOutput) ToFlowSourceConnectorPropertiesOutputWithContext(ctx context.Context) FlowSourceConnectorPropertiesOutput {
 	return o
-}
-
-func (o FlowSourceConnectorPropertiesOutput) ToFlowSourceConnectorPropertiesPtrOutput() FlowSourceConnectorPropertiesPtrOutput {
-	return o.ToFlowSourceConnectorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o FlowSourceConnectorPropertiesOutput) ToFlowSourceConnectorPropertiesPtrOutputWithContext(ctx context.Context) FlowSourceConnectorPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceConnectorProperties) *FlowSourceConnectorProperties {
-		return &v
-	}).(FlowSourceConnectorPropertiesPtrOutput)
 }
 
 func (o FlowSourceConnectorPropertiesOutput) Amplitude() FlowAmplitudeSourcePropertiesPtrOutput {
@@ -10643,165 +10592,6 @@ func (o FlowSourceConnectorPropertiesOutput) Zendesk() FlowZendeskSourceProperti
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowZendeskSourceProperties { return v.Zendesk }).(FlowZendeskSourcePropertiesPtrOutput)
 }
 
-type FlowSourceConnectorPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowSourceConnectorPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSourceConnectorProperties)(nil)).Elem()
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) ToFlowSourceConnectorPropertiesPtrOutput() FlowSourceConnectorPropertiesPtrOutput {
-	return o
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) ToFlowSourceConnectorPropertiesPtrOutputWithContext(ctx context.Context) FlowSourceConnectorPropertiesPtrOutput {
-	return o
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Elem() FlowSourceConnectorPropertiesOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) FlowSourceConnectorProperties {
-		if v != nil {
-			return *v
-		}
-		var ret FlowSourceConnectorProperties
-		return ret
-	}).(FlowSourceConnectorPropertiesOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Amplitude() FlowAmplitudeSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowAmplitudeSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Amplitude
-	}).(FlowAmplitudeSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Datadog() FlowDatadogSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowDatadogSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Datadog
-	}).(FlowDatadogSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Dynatrace() FlowDynatraceSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowDynatraceSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Dynatrace
-	}).(FlowDynatraceSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) GoogleAnalytics() FlowGoogleAnalyticsSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowGoogleAnalyticsSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.GoogleAnalytics
-	}).(FlowGoogleAnalyticsSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) InforNexus() FlowInforNexusSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowInforNexusSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.InforNexus
-	}).(FlowInforNexusSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Marketo() FlowMarketoSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowMarketoSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Marketo
-	}).(FlowMarketoSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) S3() FlowS3SourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowS3SourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.S3
-	}).(FlowS3SourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) SAPOData() FlowSAPODataSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSAPODataSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.SAPOData
-	}).(FlowSAPODataSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Salesforce() FlowSalesforceSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSalesforceSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Salesforce
-	}).(FlowSalesforceSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowServiceNowSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceNow
-	}).(FlowServiceNowSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Singular() FlowSingularSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSingularSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Singular
-	}).(FlowSingularSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Slack() FlowSlackSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSlackSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Slack
-	}).(FlowSlackSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Trendmicro() FlowTrendmicroSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowTrendmicroSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Trendmicro
-	}).(FlowTrendmicroSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Veeva() FlowVeevaSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowVeevaSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Veeva
-	}).(FlowVeevaSourcePropertiesPtrOutput)
-}
-
-func (o FlowSourceConnectorPropertiesPtrOutput) Zendesk() FlowZendeskSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowZendeskSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Zendesk
-	}).(FlowZendeskSourcePropertiesPtrOutput)
-}
-
 // Configurations of Source connector of the flow.
 type FlowSourceFlowConfig struct {
 	// Name of source connector profile
@@ -10849,47 +10639,6 @@ func (i FlowSourceFlowConfigArgs) ToFlowSourceFlowConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigOutput)
 }
 
-func (i FlowSourceFlowConfigArgs) ToFlowSourceFlowConfigPtrOutput() FlowSourceFlowConfigPtrOutput {
-	return i.ToFlowSourceFlowConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FlowSourceFlowConfigArgs) ToFlowSourceFlowConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigOutput).ToFlowSourceFlowConfigPtrOutputWithContext(ctx)
-}
-
-// FlowSourceFlowConfigPtrInput is an input type that accepts FlowSourceFlowConfigArgs, FlowSourceFlowConfigPtr and FlowSourceFlowConfigPtrOutput values.
-// You can construct a concrete instance of `FlowSourceFlowConfigPtrInput` via:
-//
-//          FlowSourceFlowConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type FlowSourceFlowConfigPtrInput interface {
-	pulumi.Input
-
-	ToFlowSourceFlowConfigPtrOutput() FlowSourceFlowConfigPtrOutput
-	ToFlowSourceFlowConfigPtrOutputWithContext(context.Context) FlowSourceFlowConfigPtrOutput
-}
-
-type flowSourceFlowConfigPtrType FlowSourceFlowConfigArgs
-
-func FlowSourceFlowConfigPtr(v *FlowSourceFlowConfigArgs) FlowSourceFlowConfigPtrInput {
-	return (*flowSourceFlowConfigPtrType)(v)
-}
-
-func (*flowSourceFlowConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSourceFlowConfig)(nil)).Elem()
-}
-
-func (i *flowSourceFlowConfigPtrType) ToFlowSourceFlowConfigPtrOutput() FlowSourceFlowConfigPtrOutput {
-	return i.ToFlowSourceFlowConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *flowSourceFlowConfigPtrType) ToFlowSourceFlowConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigPtrOutput)
-}
-
 // Configurations of Source connector of the flow.
 type FlowSourceFlowConfigOutput struct{ *pulumi.OutputState }
 
@@ -10903,16 +10652,6 @@ func (o FlowSourceFlowConfigOutput) ToFlowSourceFlowConfigOutput() FlowSourceFlo
 
 func (o FlowSourceFlowConfigOutput) ToFlowSourceFlowConfigOutputWithContext(ctx context.Context) FlowSourceFlowConfigOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigOutput) ToFlowSourceFlowConfigPtrOutput() FlowSourceFlowConfigPtrOutput {
-	return o.ToFlowSourceFlowConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FlowSourceFlowConfigOutput) ToFlowSourceFlowConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfig) *FlowSourceFlowConfig {
-		return &v
-	}).(FlowSourceFlowConfigPtrOutput)
 }
 
 // Name of source connector profile
@@ -10933,70 +10672,6 @@ func (o FlowSourceFlowConfigOutput) IncrementalPullConfig() FlowIncrementalPullC
 // Source connector details required to query a connector
 func (o FlowSourceFlowConfigOutput) SourceConnectorProperties() FlowSourceConnectorPropertiesOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) FlowSourceConnectorProperties { return v.SourceConnectorProperties }).(FlowSourceConnectorPropertiesOutput)
-}
-
-type FlowSourceFlowConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowSourceFlowConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowSourceFlowConfig)(nil)).Elem()
-}
-
-func (o FlowSourceFlowConfigPtrOutput) ToFlowSourceFlowConfigPtrOutput() FlowSourceFlowConfigPtrOutput {
-	return o
-}
-
-func (o FlowSourceFlowConfigPtrOutput) ToFlowSourceFlowConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigPtrOutput {
-	return o
-}
-
-func (o FlowSourceFlowConfigPtrOutput) Elem() FlowSourceFlowConfigOutput {
-	return o.ApplyT(func(v *FlowSourceFlowConfig) FlowSourceFlowConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FlowSourceFlowConfig
-		return ret
-	}).(FlowSourceFlowConfigOutput)
-}
-
-// Name of source connector profile
-func (o FlowSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSourceFlowConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectorProfileName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of source connector
-func (o FlowSourceFlowConfigPtrOutput) ConnectorType() FlowConnectorTypePtrOutput {
-	return o.ApplyT(func(v *FlowSourceFlowConfig) *FlowConnectorType {
-		if v == nil {
-			return nil
-		}
-		return &v.ConnectorType
-	}).(FlowConnectorTypePtrOutput)
-}
-
-// Configuration for scheduled incremental data pull
-func (o FlowSourceFlowConfigPtrOutput) IncrementalPullConfig() FlowIncrementalPullConfigPtrOutput {
-	return o.ApplyT(func(v *FlowSourceFlowConfig) *FlowIncrementalPullConfig {
-		if v == nil {
-			return nil
-		}
-		return v.IncrementalPullConfig
-	}).(FlowIncrementalPullConfigPtrOutput)
-}
-
-// Source connector details required to query a connector
-func (o FlowSourceFlowConfigPtrOutput) SourceConnectorProperties() FlowSourceConnectorPropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceFlowConfig) *FlowSourceConnectorProperties {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectorProperties
-	}).(FlowSourceConnectorPropertiesPtrOutput)
 }
 
 // A label for tagging AppFlow resources
@@ -11516,47 +11191,6 @@ func (i FlowTriggerConfigArgs) ToFlowTriggerConfigOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigOutput)
 }
 
-func (i FlowTriggerConfigArgs) ToFlowTriggerConfigPtrOutput() FlowTriggerConfigPtrOutput {
-	return i.ToFlowTriggerConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FlowTriggerConfigArgs) ToFlowTriggerConfigPtrOutputWithContext(ctx context.Context) FlowTriggerConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigOutput).ToFlowTriggerConfigPtrOutputWithContext(ctx)
-}
-
-// FlowTriggerConfigPtrInput is an input type that accepts FlowTriggerConfigArgs, FlowTriggerConfigPtr and FlowTriggerConfigPtrOutput values.
-// You can construct a concrete instance of `FlowTriggerConfigPtrInput` via:
-//
-//          FlowTriggerConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type FlowTriggerConfigPtrInput interface {
-	pulumi.Input
-
-	ToFlowTriggerConfigPtrOutput() FlowTriggerConfigPtrOutput
-	ToFlowTriggerConfigPtrOutputWithContext(context.Context) FlowTriggerConfigPtrOutput
-}
-
-type flowTriggerConfigPtrType FlowTriggerConfigArgs
-
-func FlowTriggerConfigPtr(v *FlowTriggerConfigArgs) FlowTriggerConfigPtrInput {
-	return (*flowTriggerConfigPtrType)(v)
-}
-
-func (*flowTriggerConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowTriggerConfig)(nil)).Elem()
-}
-
-func (i *flowTriggerConfigPtrType) ToFlowTriggerConfigPtrOutput() FlowTriggerConfigPtrOutput {
-	return i.ToFlowTriggerConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *flowTriggerConfigPtrType) ToFlowTriggerConfigPtrOutputWithContext(ctx context.Context) FlowTriggerConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigPtrOutput)
-}
-
 // Trigger settings of the flow.
 type FlowTriggerConfigOutput struct{ *pulumi.OutputState }
 
@@ -11572,16 +11206,6 @@ func (o FlowTriggerConfigOutput) ToFlowTriggerConfigOutputWithContext(ctx contex
 	return o
 }
 
-func (o FlowTriggerConfigOutput) ToFlowTriggerConfigPtrOutput() FlowTriggerConfigPtrOutput {
-	return o.ToFlowTriggerConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FlowTriggerConfigOutput) ToFlowTriggerConfigPtrOutputWithContext(ctx context.Context) FlowTriggerConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowTriggerConfig) *FlowTriggerConfig {
-		return &v
-	}).(FlowTriggerConfigPtrOutput)
-}
-
 // Details required based on the type of trigger
 func (o FlowTriggerConfigOutput) TriggerProperties() FlowScheduledTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfig) *FlowScheduledTriggerProperties { return v.TriggerProperties }).(FlowScheduledTriggerPropertiesPtrOutput)
@@ -11590,50 +11214,6 @@ func (o FlowTriggerConfigOutput) TriggerProperties() FlowScheduledTriggerPropert
 // Trigger type of the flow
 func (o FlowTriggerConfigOutput) TriggerType() FlowTriggerTypeOutput {
 	return o.ApplyT(func(v FlowTriggerConfig) FlowTriggerType { return v.TriggerType }).(FlowTriggerTypeOutput)
-}
-
-type FlowTriggerConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowTriggerConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowTriggerConfig)(nil)).Elem()
-}
-
-func (o FlowTriggerConfigPtrOutput) ToFlowTriggerConfigPtrOutput() FlowTriggerConfigPtrOutput {
-	return o
-}
-
-func (o FlowTriggerConfigPtrOutput) ToFlowTriggerConfigPtrOutputWithContext(ctx context.Context) FlowTriggerConfigPtrOutput {
-	return o
-}
-
-func (o FlowTriggerConfigPtrOutput) Elem() FlowTriggerConfigOutput {
-	return o.ApplyT(func(v *FlowTriggerConfig) FlowTriggerConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FlowTriggerConfig
-		return ret
-	}).(FlowTriggerConfigOutput)
-}
-
-// Details required based on the type of trigger
-func (o FlowTriggerConfigPtrOutput) TriggerProperties() FlowScheduledTriggerPropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowTriggerConfig) *FlowScheduledTriggerProperties {
-		if v == nil {
-			return nil
-		}
-		return v.TriggerProperties
-	}).(FlowScheduledTriggerPropertiesPtrOutput)
-}
-
-// Trigger type of the flow
-func (o FlowTriggerConfigPtrOutput) TriggerType() FlowTriggerTypePtrOutput {
-	return o.ApplyT(func(v *FlowTriggerConfig) *FlowTriggerType {
-		if v == nil {
-			return nil
-		}
-		return &v.TriggerType
-	}).(FlowTriggerTypePtrOutput)
 }
 
 type FlowUpsolverDestinationProperties struct {
@@ -12599,9 +12179,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSnowflakeDestinationPropertiesInput)(nil)).Elem(), FlowSnowflakeDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSnowflakeDestinationPropertiesPtrInput)(nil)).Elem(), FlowSnowflakeDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceConnectorPropertiesInput)(nil)).Elem(), FlowSourceConnectorPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceConnectorPropertiesPtrInput)(nil)).Elem(), FlowSourceConnectorPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigInput)(nil)).Elem(), FlowSourceFlowConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigPtrInput)(nil)).Elem(), FlowSourceFlowConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagInput)(nil)).Elem(), FlowTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagArrayInput)(nil)).Elem(), FlowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTaskInput)(nil)).Elem(), FlowTaskArgs{})
@@ -12611,7 +12189,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTrendmicroSourcePropertiesInput)(nil)).Elem(), FlowTrendmicroSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTrendmicroSourcePropertiesPtrInput)(nil)).Elem(), FlowTrendmicroSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTriggerConfigInput)(nil)).Elem(), FlowTriggerConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowTriggerConfigPtrInput)(nil)).Elem(), FlowTriggerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowUpsolverDestinationPropertiesInput)(nil)).Elem(), FlowUpsolverDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowUpsolverDestinationPropertiesPtrInput)(nil)).Elem(), FlowUpsolverDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowUpsolverS3OutputFormatConfigInput)(nil)).Elem(), FlowUpsolverS3OutputFormatConfigArgs{})
@@ -12748,9 +12325,7 @@ func init() {
 	pulumi.RegisterOutputType(FlowSnowflakeDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowSnowflakeDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceConnectorPropertiesOutput{})
-	pulumi.RegisterOutputType(FlowSourceConnectorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigOutput{})
-	pulumi.RegisterOutputType(FlowSourceFlowConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowTagOutput{})
 	pulumi.RegisterOutputType(FlowTagArrayOutput{})
 	pulumi.RegisterOutputType(FlowTaskOutput{})
@@ -12760,7 +12335,6 @@ func init() {
 	pulumi.RegisterOutputType(FlowTrendmicroSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowTrendmicroSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowTriggerConfigOutput{})
-	pulumi.RegisterOutputType(FlowTriggerConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowUpsolverDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowUpsolverDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowUpsolverS3OutputFormatConfigOutput{})

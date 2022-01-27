@@ -93,7 +93,7 @@ type ResolverQueryLoggingConfigAssociationInput interface {
 }
 
 func (*ResolverQueryLoggingConfigAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLoggingConfigAssociation)(nil))
+	return reflect.TypeOf((**ResolverQueryLoggingConfigAssociation)(nil)).Elem()
 }
 
 func (i *ResolverQueryLoggingConfigAssociation) ToResolverQueryLoggingConfigAssociationOutput() ResolverQueryLoggingConfigAssociationOutput {
@@ -107,7 +107,7 @@ func (i *ResolverQueryLoggingConfigAssociation) ToResolverQueryLoggingConfigAsso
 type ResolverQueryLoggingConfigAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverQueryLoggingConfigAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLoggingConfigAssociation)(nil))
+	return reflect.TypeOf((**ResolverQueryLoggingConfigAssociation)(nil)).Elem()
 }
 
 func (o ResolverQueryLoggingConfigAssociationOutput) ToResolverQueryLoggingConfigAssociationOutput() ResolverQueryLoggingConfigAssociationOutput {

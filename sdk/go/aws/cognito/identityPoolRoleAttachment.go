@@ -88,7 +88,7 @@ type IdentityPoolRoleAttachmentInput interface {
 }
 
 func (*IdentityPoolRoleAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolRoleAttachment)(nil))
+	return reflect.TypeOf((**IdentityPoolRoleAttachment)(nil)).Elem()
 }
 
 func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput {
@@ -102,7 +102,7 @@ func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutputWithConte
 type IdentityPoolRoleAttachmentOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolRoleAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolRoleAttachment)(nil))
+	return reflect.TypeOf((**IdentityPoolRoleAttachment)(nil)).Elem()
 }
 
 func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput {

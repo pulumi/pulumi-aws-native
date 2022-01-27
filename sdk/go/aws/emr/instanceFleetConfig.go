@@ -103,7 +103,7 @@ type InstanceFleetConfigInput interface {
 }
 
 func (*InstanceFleetConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceFleetConfig)(nil))
+	return reflect.TypeOf((**InstanceFleetConfig)(nil)).Elem()
 }
 
 func (i *InstanceFleetConfig) ToInstanceFleetConfigOutput() InstanceFleetConfigOutput {
@@ -117,7 +117,7 @@ func (i *InstanceFleetConfig) ToInstanceFleetConfigOutputWithContext(ctx context
 type InstanceFleetConfigOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceFleetConfig)(nil))
+	return reflect.TypeOf((**InstanceFleetConfig)(nil)).Elem()
 }
 
 func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutput() InstanceFleetConfigOutput {

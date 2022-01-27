@@ -110,7 +110,7 @@ type HostedZoneInput interface {
 }
 
 func (*HostedZone) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZone)(nil))
+	return reflect.TypeOf((**HostedZone)(nil)).Elem()
 }
 
 func (i *HostedZone) ToHostedZoneOutput() HostedZoneOutput {
@@ -124,7 +124,7 @@ func (i *HostedZone) ToHostedZoneOutputWithContext(ctx context.Context) HostedZo
 type HostedZoneOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZone)(nil))
+	return reflect.TypeOf((**HostedZone)(nil)).Elem()
 }
 
 func (o HostedZoneOutput) ToHostedZoneOutput() HostedZoneOutput {

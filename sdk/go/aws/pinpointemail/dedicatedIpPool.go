@@ -81,7 +81,7 @@ type DedicatedIpPoolInput interface {
 }
 
 func (*DedicatedIpPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedIpPool)(nil))
+	return reflect.TypeOf((**DedicatedIpPool)(nil)).Elem()
 }
 
 func (i *DedicatedIpPool) ToDedicatedIpPoolOutput() DedicatedIpPoolOutput {
@@ -95,7 +95,7 @@ func (i *DedicatedIpPool) ToDedicatedIpPoolOutputWithContext(ctx context.Context
 type DedicatedIpPoolOutput struct{ *pulumi.OutputState }
 
 func (DedicatedIpPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedIpPool)(nil))
+	return reflect.TypeOf((**DedicatedIpPool)(nil)).Elem()
 }
 
 func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutput() DedicatedIpPoolOutput {

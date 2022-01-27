@@ -101,7 +101,7 @@ type UsagePlanKeyInput interface {
 }
 
 func (*UsagePlanKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlanKey)(nil))
+	return reflect.TypeOf((**UsagePlanKey)(nil)).Elem()
 }
 
 func (i *UsagePlanKey) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
@@ -115,7 +115,7 @@ func (i *UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) Usag
 type UsagePlanKeyOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlanKey)(nil))
+	return reflect.TypeOf((**UsagePlanKey)(nil)).Elem()
 }
 
 func (o UsagePlanKeyOutput) ToUsagePlanKeyOutput() UsagePlanKeyOutput {

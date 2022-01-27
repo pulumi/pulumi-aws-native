@@ -127,7 +127,7 @@ type StackSetConstraintInput interface {
 }
 
 func (*StackSetConstraint) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSetConstraint)(nil))
+	return reflect.TypeOf((**StackSetConstraint)(nil)).Elem()
 }
 
 func (i *StackSetConstraint) ToStackSetConstraintOutput() StackSetConstraintOutput {
@@ -141,7 +141,7 @@ func (i *StackSetConstraint) ToStackSetConstraintOutputWithContext(ctx context.C
 type StackSetConstraintOutput struct{ *pulumi.OutputState }
 
 func (StackSetConstraintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSetConstraint)(nil))
+	return reflect.TypeOf((**StackSetConstraint)(nil)).Elem()
 }
 
 func (o StackSetConstraintOutput) ToStackSetConstraintOutput() StackSetConstraintOutput {

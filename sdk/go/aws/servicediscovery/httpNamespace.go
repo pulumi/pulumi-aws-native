@@ -85,7 +85,7 @@ type HttpNamespaceInput interface {
 }
 
 func (*HttpNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpNamespace)(nil))
+	return reflect.TypeOf((**HttpNamespace)(nil)).Elem()
 }
 
 func (i *HttpNamespace) ToHttpNamespaceOutput() HttpNamespaceOutput {
@@ -99,7 +99,7 @@ func (i *HttpNamespace) ToHttpNamespaceOutputWithContext(ctx context.Context) Ht
 type HttpNamespaceOutput struct{ *pulumi.OutputState }
 
 func (HttpNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpNamespace)(nil))
+	return reflect.TypeOf((**HttpNamespace)(nil)).Elem()
 }
 
 func (o HttpNamespaceOutput) ToHttpNamespaceOutput() HttpNamespaceOutput {

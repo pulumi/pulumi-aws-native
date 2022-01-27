@@ -93,7 +93,7 @@ type DeviceProfileInput interface {
 }
 
 func (*DeviceProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceProfile)(nil))
+	return reflect.TypeOf((**DeviceProfile)(nil)).Elem()
 }
 
 func (i *DeviceProfile) ToDeviceProfileOutput() DeviceProfileOutput {
@@ -107,7 +107,7 @@ func (i *DeviceProfile) ToDeviceProfileOutputWithContext(ctx context.Context) De
 type DeviceProfileOutput struct{ *pulumi.OutputState }
 
 func (DeviceProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceProfile)(nil))
+	return reflect.TypeOf((**DeviceProfile)(nil)).Elem()
 }
 
 func (o DeviceProfileOutput) ToDeviceProfileOutput() DeviceProfileOutput {

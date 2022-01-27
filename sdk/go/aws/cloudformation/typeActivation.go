@@ -141,7 +141,7 @@ type TypeActivationInput interface {
 }
 
 func (*TypeActivation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TypeActivation)(nil))
+	return reflect.TypeOf((**TypeActivation)(nil)).Elem()
 }
 
 func (i *TypeActivation) ToTypeActivationOutput() TypeActivationOutput {
@@ -155,7 +155,7 @@ func (i *TypeActivation) ToTypeActivationOutputWithContext(ctx context.Context) 
 type TypeActivationOutput struct{ *pulumi.OutputState }
 
 func (TypeActivationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TypeActivation)(nil))
+	return reflect.TypeOf((**TypeActivation)(nil)).Elem()
 }
 
 func (o TypeActivationOutput) ToTypeActivationOutput() TypeActivationOutput {

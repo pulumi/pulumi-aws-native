@@ -117,7 +117,7 @@ type SecurityProfileInput interface {
 }
 
 func (*SecurityProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityProfile)(nil))
+	return reflect.TypeOf((**SecurityProfile)(nil)).Elem()
 }
 
 func (i *SecurityProfile) ToSecurityProfileOutput() SecurityProfileOutput {
@@ -131,7 +131,7 @@ func (i *SecurityProfile) ToSecurityProfileOutputWithContext(ctx context.Context
 type SecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityProfile)(nil))
+	return reflect.TypeOf((**SecurityProfile)(nil)).Elem()
 }
 
 func (o SecurityProfileOutput) ToSecurityProfileOutput() SecurityProfileOutput {

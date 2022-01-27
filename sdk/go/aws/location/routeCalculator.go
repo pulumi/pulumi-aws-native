@@ -96,7 +96,7 @@ type RouteCalculatorInput interface {
 }
 
 func (*RouteCalculator) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteCalculator)(nil))
+	return reflect.TypeOf((**RouteCalculator)(nil)).Elem()
 }
 
 func (i *RouteCalculator) ToRouteCalculatorOutput() RouteCalculatorOutput {
@@ -110,7 +110,7 @@ func (i *RouteCalculator) ToRouteCalculatorOutputWithContext(ctx context.Context
 type RouteCalculatorOutput struct{ *pulumi.OutputState }
 
 func (RouteCalculatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteCalculator)(nil))
+	return reflect.TypeOf((**RouteCalculator)(nil)).Elem()
 }
 
 func (o RouteCalculatorOutput) ToRouteCalculatorOutput() RouteCalculatorOutput {

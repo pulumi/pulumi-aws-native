@@ -98,7 +98,7 @@ type InsightRuleInput interface {
 }
 
 func (*InsightRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*InsightRule)(nil))
+	return reflect.TypeOf((**InsightRule)(nil)).Elem()
 }
 
 func (i *InsightRule) ToInsightRuleOutput() InsightRuleOutput {
@@ -112,7 +112,7 @@ func (i *InsightRule) ToInsightRuleOutputWithContext(ctx context.Context) Insigh
 type InsightRuleOutput struct{ *pulumi.OutputState }
 
 func (InsightRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InsightRule)(nil))
+	return reflect.TypeOf((**InsightRule)(nil)).Elem()
 }
 
 func (o InsightRuleOutput) ToInsightRuleOutput() InsightRuleOutput {

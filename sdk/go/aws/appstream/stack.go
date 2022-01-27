@@ -114,7 +114,7 @@ type StackInput interface {
 }
 
 func (*Stack) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stack)(nil))
+	return reflect.TypeOf((**Stack)(nil)).Elem()
 }
 
 func (i *Stack) ToStackOutput() StackOutput {
@@ -128,7 +128,7 @@ func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
 type StackOutput struct{ *pulumi.OutputState }
 
 func (StackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stack)(nil))
+	return reflect.TypeOf((**Stack)(nil)).Elem()
 }
 
 func (o StackOutput) ToStackOutput() StackOutput {

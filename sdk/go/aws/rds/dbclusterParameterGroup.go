@@ -97,7 +97,7 @@ type DBClusterParameterGroupInput interface {
 }
 
 func (*DBClusterParameterGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterParameterGroup)(nil))
+	return reflect.TypeOf((**DBClusterParameterGroup)(nil)).Elem()
 }
 
 func (i *DBClusterParameterGroup) ToDBClusterParameterGroupOutput() DBClusterParameterGroupOutput {
@@ -111,7 +111,7 @@ func (i *DBClusterParameterGroup) ToDBClusterParameterGroupOutputWithContext(ctx
 type DBClusterParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (DBClusterParameterGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterParameterGroup)(nil))
+	return reflect.TypeOf((**DBClusterParameterGroup)(nil)).Elem()
 }
 
 func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutput() DBClusterParameterGroupOutput {

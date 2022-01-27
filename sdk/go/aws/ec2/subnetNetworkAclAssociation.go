@@ -93,7 +93,7 @@ type SubnetNetworkAclAssociationInput interface {
 }
 
 func (*SubnetNetworkAclAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetNetworkAclAssociation)(nil))
+	return reflect.TypeOf((**SubnetNetworkAclAssociation)(nil)).Elem()
 }
 
 func (i *SubnetNetworkAclAssociation) ToSubnetNetworkAclAssociationOutput() SubnetNetworkAclAssociationOutput {
@@ -107,7 +107,7 @@ func (i *SubnetNetworkAclAssociation) ToSubnetNetworkAclAssociationOutputWithCon
 type SubnetNetworkAclAssociationOutput struct{ *pulumi.OutputState }
 
 func (SubnetNetworkAclAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetNetworkAclAssociation)(nil))
+	return reflect.TypeOf((**SubnetNetworkAclAssociation)(nil)).Elem()
 }
 
 func (o SubnetNetworkAclAssociationOutput) ToSubnetNetworkAclAssociationOutput() SubnetNetworkAclAssociationOutput {

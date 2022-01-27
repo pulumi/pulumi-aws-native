@@ -144,7 +144,7 @@ type OriginEndpointInput interface {
 }
 
 func (*OriginEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginEndpoint)(nil))
+	return reflect.TypeOf((**OriginEndpoint)(nil)).Elem()
 }
 
 func (i *OriginEndpoint) ToOriginEndpointOutput() OriginEndpointOutput {
@@ -158,7 +158,7 @@ func (i *OriginEndpoint) ToOriginEndpointOutputWithContext(ctx context.Context) 
 type OriginEndpointOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginEndpoint)(nil))
+	return reflect.TypeOf((**OriginEndpoint)(nil)).Elem()
 }
 
 func (o OriginEndpointOutput) ToOriginEndpointOutput() OriginEndpointOutput {

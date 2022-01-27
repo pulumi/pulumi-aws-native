@@ -97,7 +97,7 @@ type LayerVersionInput interface {
 }
 
 func (*LayerVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerVersion)(nil))
+	return reflect.TypeOf((**LayerVersion)(nil)).Elem()
 }
 
 func (i *LayerVersion) ToLayerVersionOutput() LayerVersionOutput {
@@ -111,7 +111,7 @@ func (i *LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) Laye
 type LayerVersionOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerVersion)(nil))
+	return reflect.TypeOf((**LayerVersion)(nil)).Elem()
 }
 
 func (o LayerVersionOutput) ToLayerVersionOutput() LayerVersionOutput {

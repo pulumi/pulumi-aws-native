@@ -118,7 +118,7 @@ type CloudFormationProductInput interface {
 }
 
 func (*CloudFormationProduct) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProduct)(nil))
+	return reflect.TypeOf((**CloudFormationProduct)(nil)).Elem()
 }
 
 func (i *CloudFormationProduct) ToCloudFormationProductOutput() CloudFormationProductOutput {
@@ -132,7 +132,7 @@ func (i *CloudFormationProduct) ToCloudFormationProductOutputWithContext(ctx con
 type CloudFormationProductOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProductOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProduct)(nil))
+	return reflect.TypeOf((**CloudFormationProduct)(nil)).Elem()
 }
 
 func (o CloudFormationProductOutput) ToCloudFormationProductOutput() CloudFormationProductOutput {

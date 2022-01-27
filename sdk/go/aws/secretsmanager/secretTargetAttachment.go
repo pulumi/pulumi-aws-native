@@ -94,7 +94,7 @@ type SecretTargetAttachmentInput interface {
 }
 
 func (*SecretTargetAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretTargetAttachment)(nil))
+	return reflect.TypeOf((**SecretTargetAttachment)(nil)).Elem()
 }
 
 func (i *SecretTargetAttachment) ToSecretTargetAttachmentOutput() SecretTargetAttachmentOutput {
@@ -108,7 +108,7 @@ func (i *SecretTargetAttachment) ToSecretTargetAttachmentOutputWithContext(ctx c
 type SecretTargetAttachmentOutput struct{ *pulumi.OutputState }
 
 func (SecretTargetAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretTargetAttachment)(nil))
+	return reflect.TypeOf((**SecretTargetAttachment)(nil)).Elem()
 }
 
 func (o SecretTargetAttachmentOutput) ToSecretTargetAttachmentOutput() SecretTargetAttachmentOutput {

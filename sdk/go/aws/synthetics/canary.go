@@ -175,7 +175,7 @@ type CanaryInput interface {
 }
 
 func (*Canary) ElementType() reflect.Type {
-	return reflect.TypeOf((*Canary)(nil))
+	return reflect.TypeOf((**Canary)(nil)).Elem()
 }
 
 func (i *Canary) ToCanaryOutput() CanaryOutput {
@@ -189,7 +189,7 @@ func (i *Canary) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 type CanaryOutput struct{ *pulumi.OutputState }
 
 func (CanaryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Canary)(nil))
+	return reflect.TypeOf((**Canary)(nil)).Elem()
 }
 
 func (o CanaryOutput) ToCanaryOutput() CanaryOutput {

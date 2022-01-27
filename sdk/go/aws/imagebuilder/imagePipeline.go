@@ -141,7 +141,7 @@ type ImagePipelineInput interface {
 }
 
 func (*ImagePipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImagePipeline)(nil))
+	return reflect.TypeOf((**ImagePipeline)(nil)).Elem()
 }
 
 func (i *ImagePipeline) ToImagePipelineOutput() ImagePipelineOutput {
@@ -155,7 +155,7 @@ func (i *ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) Im
 type ImagePipelineOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImagePipeline)(nil))
+	return reflect.TypeOf((**ImagePipeline)(nil)).Elem()
 }
 
 func (o ImagePipelineOutput) ToImagePipelineOutput() ImagePipelineOutput {

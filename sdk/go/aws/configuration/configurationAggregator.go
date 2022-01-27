@@ -93,7 +93,7 @@ type ConfigurationAggregatorInput interface {
 }
 
 func (*ConfigurationAggregator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAggregator)(nil))
+	return reflect.TypeOf((**ConfigurationAggregator)(nil)).Elem()
 }
 
 func (i *ConfigurationAggregator) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {
@@ -107,7 +107,7 @@ func (i *ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx
 type ConfigurationAggregatorOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAggregator)(nil))
+	return reflect.TypeOf((**ConfigurationAggregator)(nil)).Elem()
 }
 
 func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutput() ConfigurationAggregatorOutput {

@@ -87,7 +87,7 @@ type DeploymentConfigInput interface {
 }
 
 func (*DeploymentConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentConfig)(nil))
+	return reflect.TypeOf((**DeploymentConfig)(nil)).Elem()
 }
 
 func (i *DeploymentConfig) ToDeploymentConfigOutput() DeploymentConfigOutput {
@@ -101,7 +101,7 @@ func (i *DeploymentConfig) ToDeploymentConfigOutputWithContext(ctx context.Conte
 type DeploymentConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentConfig)(nil))
+	return reflect.TypeOf((**DeploymentConfig)(nil)).Elem()
 }
 
 func (o DeploymentConfigOutput) ToDeploymentConfigOutput() DeploymentConfigOutput {

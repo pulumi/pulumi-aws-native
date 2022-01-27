@@ -43,47 +43,6 @@ func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput)
 }
 
-func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
-	return i.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput).ToAccessPointVpcConfigurationPtrOutputWithContext(ctx)
-}
-
-// AccessPointVpcConfigurationPtrInput is an input type that accepts AccessPointVpcConfigurationArgs, AccessPointVpcConfigurationPtr and AccessPointVpcConfigurationPtrOutput values.
-// You can construct a concrete instance of `AccessPointVpcConfigurationPtrInput` via:
-//
-//          AccessPointVpcConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type AccessPointVpcConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput
-	ToAccessPointVpcConfigurationPtrOutputWithContext(context.Context) AccessPointVpcConfigurationPtrOutput
-}
-
-type accessPointVpcConfigurationPtrType AccessPointVpcConfigurationArgs
-
-func AccessPointVpcConfigurationPtr(v *AccessPointVpcConfigurationArgs) AccessPointVpcConfigurationPtrInput {
-	return (*accessPointVpcConfigurationPtrType)(v)
-}
-
-func (*accessPointVpcConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPointVpcConfiguration)(nil)).Elem()
-}
-
-func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
-	return i.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationPtrOutput)
-}
-
 type AccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointVpcConfigurationOutput) ElementType() reflect.Type {
@@ -98,53 +57,9 @@ func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationOutputWi
 	return o
 }
 
-func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
-	return o.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointVpcConfiguration) *AccessPointVpcConfiguration {
-		return &v
-	}).(AccessPointVpcConfigurationPtrOutput)
-}
-
 // Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
 func (o AccessPointVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
-}
-
-type AccessPointVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (AccessPointVpcConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPointVpcConfiguration)(nil)).Elem()
-}
-
-func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
-	return o
-}
-
-func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
-	return o
-}
-
-func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfigurationOutput {
-	return o.ApplyT(func(v *AccessPointVpcConfiguration) AccessPointVpcConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AccessPointVpcConfiguration
-		return ret
-	}).(AccessPointVpcConfigurationOutput)
-}
-
-// Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
-func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPointVpcConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VpcId
-	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
@@ -1118,59 +1033,6 @@ type EndpointNetworkInterface struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
-// EndpointNetworkInterfaceInput is an input type that accepts EndpointNetworkInterfaceArgs and EndpointNetworkInterfaceOutput values.
-// You can construct a concrete instance of `EndpointNetworkInterfaceInput` via:
-//
-//          EndpointNetworkInterfaceArgs{...}
-type EndpointNetworkInterfaceInput interface {
-	pulumi.Input
-
-	ToEndpointNetworkInterfaceOutput() EndpointNetworkInterfaceOutput
-	ToEndpointNetworkInterfaceOutputWithContext(context.Context) EndpointNetworkInterfaceOutput
-}
-
-// The container for the network interface.
-type EndpointNetworkInterfaceArgs struct {
-	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
-}
-
-func (EndpointNetworkInterfaceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointNetworkInterface)(nil)).Elem()
-}
-
-func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutput() EndpointNetworkInterfaceOutput {
-	return i.ToEndpointNetworkInterfaceOutputWithContext(context.Background())
-}
-
-func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOutput)
-}
-
-// EndpointNetworkInterfaceArrayInput is an input type that accepts EndpointNetworkInterfaceArray and EndpointNetworkInterfaceArrayOutput values.
-// You can construct a concrete instance of `EndpointNetworkInterfaceArrayInput` via:
-//
-//          EndpointNetworkInterfaceArray{ EndpointNetworkInterfaceArgs{...} }
-type EndpointNetworkInterfaceArrayInput interface {
-	pulumi.Input
-
-	ToEndpointNetworkInterfaceArrayOutput() EndpointNetworkInterfaceArrayOutput
-	ToEndpointNetworkInterfaceArrayOutputWithContext(context.Context) EndpointNetworkInterfaceArrayOutput
-}
-
-type EndpointNetworkInterfaceArray []EndpointNetworkInterfaceInput
-
-func (EndpointNetworkInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointNetworkInterface)(nil)).Elem()
-}
-
-func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutput() EndpointNetworkInterfaceArrayOutput {
-	return i.ToEndpointNetworkInterfaceArrayOutputWithContext(context.Background())
-}
-
-func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointNetworkInterfaceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceArrayOutput)
-}
-
 // The container for the network interface.
 type EndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
@@ -1212,7 +1074,6 @@ func (o EndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointNe
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointVpcConfigurationInput)(nil)).Elem(), AccessPointVpcConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointVpcConfigurationPtrInput)(nil)).Elem(), AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAbortIncompleteMultipartUploadInput)(nil)).Elem(), BucketAbortIncompleteMultipartUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAbortIncompleteMultipartUploadPtrInput)(nil)).Elem(), BucketAbortIncompleteMultipartUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketFilterAndOperatorInput)(nil)).Elem(), BucketFilterAndOperatorArgs{})
@@ -1227,10 +1088,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleFilterPropertiesPtrInput)(nil)).Elem(), BucketRuleFilterPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceInput)(nil)).Elem(), EndpointNetworkInterfaceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceArrayInput)(nil)).Elem(), EndpointNetworkInterfaceArray{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
-	pulumi.RegisterOutputType(AccessPointVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadOutput{})
 	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadPtrOutput{})
 	pulumi.RegisterOutputType(BucketFilterAndOperatorOutput{})

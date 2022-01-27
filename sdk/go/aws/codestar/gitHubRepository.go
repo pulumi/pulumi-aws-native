@@ -106,7 +106,7 @@ type GitHubRepositoryInput interface {
 }
 
 func (*GitHubRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitHubRepository)(nil))
+	return reflect.TypeOf((**GitHubRepository)(nil)).Elem()
 }
 
 func (i *GitHubRepository) ToGitHubRepositoryOutput() GitHubRepositoryOutput {
@@ -120,7 +120,7 @@ func (i *GitHubRepository) ToGitHubRepositoryOutputWithContext(ctx context.Conte
 type GitHubRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GitHubRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitHubRepository)(nil))
+	return reflect.TypeOf((**GitHubRepository)(nil)).Elem()
 }
 
 func (o GitHubRepositoryOutput) ToGitHubRepositoryOutput() GitHubRepositoryOutput {

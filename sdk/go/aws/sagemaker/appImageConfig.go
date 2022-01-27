@@ -93,7 +93,7 @@ type AppImageConfigInput interface {
 }
 
 func (*AppImageConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppImageConfig)(nil))
+	return reflect.TypeOf((**AppImageConfig)(nil)).Elem()
 }
 
 func (i *AppImageConfig) ToAppImageConfigOutput() AppImageConfigOutput {
@@ -107,7 +107,7 @@ func (i *AppImageConfig) ToAppImageConfigOutputWithContext(ctx context.Context) 
 type AppImageConfigOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppImageConfig)(nil))
+	return reflect.TypeOf((**AppImageConfig)(nil)).Elem()
 }
 
 func (o AppImageConfigOutput) ToAppImageConfigOutput() AppImageConfigOutput {

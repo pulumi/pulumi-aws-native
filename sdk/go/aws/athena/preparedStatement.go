@@ -107,7 +107,7 @@ type PreparedStatementInput interface {
 }
 
 func (*PreparedStatement) ElementType() reflect.Type {
-	return reflect.TypeOf((*PreparedStatement)(nil))
+	return reflect.TypeOf((**PreparedStatement)(nil)).Elem()
 }
 
 func (i *PreparedStatement) ToPreparedStatementOutput() PreparedStatementOutput {
@@ -121,7 +121,7 @@ func (i *PreparedStatement) ToPreparedStatementOutputWithContext(ctx context.Con
 type PreparedStatementOutput struct{ *pulumi.OutputState }
 
 func (PreparedStatementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PreparedStatement)(nil))
+	return reflect.TypeOf((**PreparedStatement)(nil)).Elem()
 }
 
 func (o PreparedStatementOutput) ToPreparedStatementOutput() PreparedStatementOutput {

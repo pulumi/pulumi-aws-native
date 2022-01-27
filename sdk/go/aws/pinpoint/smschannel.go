@@ -91,7 +91,7 @@ type SMSChannelInput interface {
 }
 
 func (*SMSChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*SMSChannel)(nil))
+	return reflect.TypeOf((**SMSChannel)(nil)).Elem()
 }
 
 func (i *SMSChannel) ToSMSChannelOutput() SMSChannelOutput {
@@ -105,7 +105,7 @@ func (i *SMSChannel) ToSMSChannelOutputWithContext(ctx context.Context) SMSChann
 type SMSChannelOutput struct{ *pulumi.OutputState }
 
 func (SMSChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SMSChannel)(nil))
+	return reflect.TypeOf((**SMSChannel)(nil)).Elem()
 }
 
 func (o SMSChannelOutput) ToSMSChannelOutput() SMSChannelOutput {

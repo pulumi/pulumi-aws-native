@@ -88,7 +88,7 @@ type SAMLProviderInput interface {
 }
 
 func (*SAMLProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*SAMLProvider)(nil))
+	return reflect.TypeOf((**SAMLProvider)(nil)).Elem()
 }
 
 func (i *SAMLProvider) ToSAMLProviderOutput() SAMLProviderOutput {
@@ -102,7 +102,7 @@ func (i *SAMLProvider) ToSAMLProviderOutputWithContext(ctx context.Context) SAML
 type SAMLProviderOutput struct{ *pulumi.OutputState }
 
 func (SAMLProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SAMLProvider)(nil))
+	return reflect.TypeOf((**SAMLProvider)(nil)).Elem()
 }
 
 func (o SAMLProviderOutput) ToSAMLProviderOutput() SAMLProviderOutput {

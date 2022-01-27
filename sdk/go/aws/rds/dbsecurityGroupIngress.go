@@ -94,7 +94,7 @@ type DBSecurityGroupIngressInput interface {
 }
 
 func (*DBSecurityGroupIngress) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSecurityGroupIngress)(nil))
+	return reflect.TypeOf((**DBSecurityGroupIngress)(nil)).Elem()
 }
 
 func (i *DBSecurityGroupIngress) ToDBSecurityGroupIngressOutput() DBSecurityGroupIngressOutput {
@@ -108,7 +108,7 @@ func (i *DBSecurityGroupIngress) ToDBSecurityGroupIngressOutputWithContext(ctx c
 type DBSecurityGroupIngressOutput struct{ *pulumi.OutputState }
 
 func (DBSecurityGroupIngressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSecurityGroupIngress)(nil))
+	return reflect.TypeOf((**DBSecurityGroupIngress)(nil)).Elem()
 }
 
 func (o DBSecurityGroupIngressOutput) ToDBSecurityGroupIngressOutput() DBSecurityGroupIngressOutput {

@@ -81,7 +81,7 @@ type KeyGroupInput interface {
 }
 
 func (*KeyGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyGroup)(nil))
+	return reflect.TypeOf((**KeyGroup)(nil)).Elem()
 }
 
 func (i *KeyGroup) ToKeyGroupOutput() KeyGroupOutput {
@@ -95,7 +95,7 @@ func (i *KeyGroup) ToKeyGroupOutputWithContext(ctx context.Context) KeyGroupOutp
 type KeyGroupOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyGroup)(nil))
+	return reflect.TypeOf((**KeyGroup)(nil)).Elem()
 }
 
 func (o KeyGroupOutput) ToKeyGroupOutput() KeyGroupOutput {

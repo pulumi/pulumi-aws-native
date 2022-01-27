@@ -18,42 +18,6 @@ const (
 	ApplicationInstanceHealthStatusNotAvailable = ApplicationInstanceHealthStatus("NOT_AVAILABLE")
 )
 
-func (ApplicationInstanceHealthStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInstanceHealthStatus)(nil)).Elem()
-}
-
-func (e ApplicationInstanceHealthStatus) ToApplicationInstanceHealthStatusOutput() ApplicationInstanceHealthStatusOutput {
-	return pulumi.ToOutput(e).(ApplicationInstanceHealthStatusOutput)
-}
-
-func (e ApplicationInstanceHealthStatus) ToApplicationInstanceHealthStatusOutputWithContext(ctx context.Context) ApplicationInstanceHealthStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ApplicationInstanceHealthStatusOutput)
-}
-
-func (e ApplicationInstanceHealthStatus) ToApplicationInstanceHealthStatusPtrOutput() ApplicationInstanceHealthStatusPtrOutput {
-	return e.ToApplicationInstanceHealthStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationInstanceHealthStatus) ToApplicationInstanceHealthStatusPtrOutputWithContext(ctx context.Context) ApplicationInstanceHealthStatusPtrOutput {
-	return ApplicationInstanceHealthStatus(e).ToApplicationInstanceHealthStatusOutputWithContext(ctx).ToApplicationInstanceHealthStatusPtrOutputWithContext(ctx)
-}
-
-func (e ApplicationInstanceHealthStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplicationInstanceHealthStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplicationInstanceHealthStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationInstanceHealthStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type ApplicationInstanceHealthStatusOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInstanceHealthStatusOutput) ElementType() reflect.Type {
@@ -137,44 +101,6 @@ func (o ApplicationInstanceHealthStatusPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationInstanceHealthStatusInput is an input type that accepts ApplicationInstanceHealthStatusArgs and ApplicationInstanceHealthStatusOutput values.
-// You can construct a concrete instance of `ApplicationInstanceHealthStatusInput` via:
-//
-//          ApplicationInstanceHealthStatusArgs{...}
-type ApplicationInstanceHealthStatusInput interface {
-	pulumi.Input
-
-	ToApplicationInstanceHealthStatusOutput() ApplicationInstanceHealthStatusOutput
-	ToApplicationInstanceHealthStatusOutputWithContext(context.Context) ApplicationInstanceHealthStatusOutput
-}
-
-var applicationInstanceHealthStatusPtrType = reflect.TypeOf((**ApplicationInstanceHealthStatus)(nil)).Elem()
-
-type ApplicationInstanceHealthStatusPtrInput interface {
-	pulumi.Input
-
-	ToApplicationInstanceHealthStatusPtrOutput() ApplicationInstanceHealthStatusPtrOutput
-	ToApplicationInstanceHealthStatusPtrOutputWithContext(context.Context) ApplicationInstanceHealthStatusPtrOutput
-}
-
-type applicationInstanceHealthStatusPtr string
-
-func ApplicationInstanceHealthStatusPtr(v string) ApplicationInstanceHealthStatusPtrInput {
-	return (*applicationInstanceHealthStatusPtr)(&v)
-}
-
-func (*applicationInstanceHealthStatusPtr) ElementType() reflect.Type {
-	return applicationInstanceHealthStatusPtrType
-}
-
-func (in *applicationInstanceHealthStatusPtr) ToApplicationInstanceHealthStatusPtrOutput() ApplicationInstanceHealthStatusPtrOutput {
-	return pulumi.ToOutput(in).(ApplicationInstanceHealthStatusPtrOutput)
-}
-
-func (in *applicationInstanceHealthStatusPtr) ToApplicationInstanceHealthStatusPtrOutputWithContext(ctx context.Context) ApplicationInstanceHealthStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ApplicationInstanceHealthStatusPtrOutput)
-}
-
 type ApplicationInstanceStatus string
 
 const (
@@ -189,42 +115,6 @@ const (
 	ApplicationInstanceStatusRemovalFailed        = ApplicationInstanceStatus("REMOVAL_FAILED")
 	ApplicationInstanceStatusRemovalSucceeded     = ApplicationInstanceStatus("REMOVAL_SUCCEEDED")
 )
-
-func (ApplicationInstanceStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInstanceStatus)(nil)).Elem()
-}
-
-func (e ApplicationInstanceStatus) ToApplicationInstanceStatusOutput() ApplicationInstanceStatusOutput {
-	return pulumi.ToOutput(e).(ApplicationInstanceStatusOutput)
-}
-
-func (e ApplicationInstanceStatus) ToApplicationInstanceStatusOutputWithContext(ctx context.Context) ApplicationInstanceStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ApplicationInstanceStatusOutput)
-}
-
-func (e ApplicationInstanceStatus) ToApplicationInstanceStatusPtrOutput() ApplicationInstanceStatusPtrOutput {
-	return e.ToApplicationInstanceStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationInstanceStatus) ToApplicationInstanceStatusPtrOutputWithContext(ctx context.Context) ApplicationInstanceStatusPtrOutput {
-	return ApplicationInstanceStatus(e).ToApplicationInstanceStatusOutputWithContext(ctx).ToApplicationInstanceStatusPtrOutputWithContext(ctx)
-}
-
-func (e ApplicationInstanceStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplicationInstanceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplicationInstanceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationInstanceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ApplicationInstanceStatusOutput struct{ *pulumi.OutputState }
 
@@ -307,44 +197,6 @@ func (o ApplicationInstanceStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ApplicationInstanceStatusInput is an input type that accepts ApplicationInstanceStatusArgs and ApplicationInstanceStatusOutput values.
-// You can construct a concrete instance of `ApplicationInstanceStatusInput` via:
-//
-//          ApplicationInstanceStatusArgs{...}
-type ApplicationInstanceStatusInput interface {
-	pulumi.Input
-
-	ToApplicationInstanceStatusOutput() ApplicationInstanceStatusOutput
-	ToApplicationInstanceStatusOutputWithContext(context.Context) ApplicationInstanceStatusOutput
-}
-
-var applicationInstanceStatusPtrType = reflect.TypeOf((**ApplicationInstanceStatus)(nil)).Elem()
-
-type ApplicationInstanceStatusPtrInput interface {
-	pulumi.Input
-
-	ToApplicationInstanceStatusPtrOutput() ApplicationInstanceStatusPtrOutput
-	ToApplicationInstanceStatusPtrOutputWithContext(context.Context) ApplicationInstanceStatusPtrOutput
-}
-
-type applicationInstanceStatusPtr string
-
-func ApplicationInstanceStatusPtr(v string) ApplicationInstanceStatusPtrInput {
-	return (*applicationInstanceStatusPtr)(&v)
-}
-
-func (*applicationInstanceStatusPtr) ElementType() reflect.Type {
-	return applicationInstanceStatusPtrType
-}
-
-func (in *applicationInstanceStatusPtr) ToApplicationInstanceStatusPtrOutput() ApplicationInstanceStatusPtrOutput {
-	return pulumi.ToOutput(in).(ApplicationInstanceStatusPtrOutput)
-}
-
-func (in *applicationInstanceStatusPtr) ToApplicationInstanceStatusPtrOutputWithContext(ctx context.Context) ApplicationInstanceStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ApplicationInstanceStatusPtrOutput)
 }
 
 type ApplicationInstanceStatusFilter string
@@ -524,42 +376,6 @@ const (
 	PackageVersionStatusDeleting          = PackageVersionStatus("DELETING")
 )
 
-func (PackageVersionStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackageVersionStatus)(nil)).Elem()
-}
-
-func (e PackageVersionStatus) ToPackageVersionStatusOutput() PackageVersionStatusOutput {
-	return pulumi.ToOutput(e).(PackageVersionStatusOutput)
-}
-
-func (e PackageVersionStatus) ToPackageVersionStatusOutputWithContext(ctx context.Context) PackageVersionStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PackageVersionStatusOutput)
-}
-
-func (e PackageVersionStatus) ToPackageVersionStatusPtrOutput() PackageVersionStatusPtrOutput {
-	return e.ToPackageVersionStatusPtrOutputWithContext(context.Background())
-}
-
-func (e PackageVersionStatus) ToPackageVersionStatusPtrOutputWithContext(ctx context.Context) PackageVersionStatusPtrOutput {
-	return PackageVersionStatus(e).ToPackageVersionStatusOutputWithContext(ctx).ToPackageVersionStatusPtrOutputWithContext(ctx)
-}
-
-func (e PackageVersionStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PackageVersionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PackageVersionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PackageVersionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type PackageVersionStatusOutput struct{ *pulumi.OutputState }
 
 func (PackageVersionStatusOutput) ElementType() reflect.Type {
@@ -643,53 +459,9 @@ func (o PackageVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackageVersionStatusInput is an input type that accepts PackageVersionStatusArgs and PackageVersionStatusOutput values.
-// You can construct a concrete instance of `PackageVersionStatusInput` via:
-//
-//          PackageVersionStatusArgs{...}
-type PackageVersionStatusInput interface {
-	pulumi.Input
-
-	ToPackageVersionStatusOutput() PackageVersionStatusOutput
-	ToPackageVersionStatusOutputWithContext(context.Context) PackageVersionStatusOutput
-}
-
-var packageVersionStatusPtrType = reflect.TypeOf((**PackageVersionStatus)(nil)).Elem()
-
-type PackageVersionStatusPtrInput interface {
-	pulumi.Input
-
-	ToPackageVersionStatusPtrOutput() PackageVersionStatusPtrOutput
-	ToPackageVersionStatusPtrOutputWithContext(context.Context) PackageVersionStatusPtrOutput
-}
-
-type packageVersionStatusPtr string
-
-func PackageVersionStatusPtr(v string) PackageVersionStatusPtrInput {
-	return (*packageVersionStatusPtr)(&v)
-}
-
-func (*packageVersionStatusPtr) ElementType() reflect.Type {
-	return packageVersionStatusPtrType
-}
-
-func (in *packageVersionStatusPtr) ToPackageVersionStatusPtrOutput() PackageVersionStatusPtrOutput {
-	return pulumi.ToOutput(in).(PackageVersionStatusPtrOutput)
-}
-
-func (in *packageVersionStatusPtr) ToPackageVersionStatusPtrOutputWithContext(ctx context.Context) PackageVersionStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PackageVersionStatusPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceHealthStatusInput)(nil)).Elem(), ApplicationInstanceHealthStatus("RUNNING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceHealthStatusPtrInput)(nil)).Elem(), ApplicationInstanceHealthStatus("RUNNING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceStatusInput)(nil)).Elem(), ApplicationInstanceStatus("DEPLOYMENT_PENDING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceStatusPtrInput)(nil)).Elem(), ApplicationInstanceStatus("DEPLOYMENT_PENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceStatusFilterInput)(nil)).Elem(), ApplicationInstanceStatusFilter("DEPLOYMENT_SUCCEEDED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceStatusFilterPtrInput)(nil)).Elem(), ApplicationInstanceStatusFilter("DEPLOYMENT_SUCCEEDED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PackageVersionStatusInput)(nil)).Elem(), PackageVersionStatus("REGISTER_PENDING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PackageVersionStatusPtrInput)(nil)).Elem(), PackageVersionStatus("REGISTER_PENDING"))
 	pulumi.RegisterOutputType(ApplicationInstanceHealthStatusOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceHealthStatusPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceStatusOutput{})

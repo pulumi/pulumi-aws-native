@@ -90,7 +90,7 @@ type EIPAssociationInput interface {
 }
 
 func (*EIPAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*EIPAssociation)(nil))
+	return reflect.TypeOf((**EIPAssociation)(nil)).Elem()
 }
 
 func (i *EIPAssociation) ToEIPAssociationOutput() EIPAssociationOutput {
@@ -104,7 +104,7 @@ func (i *EIPAssociation) ToEIPAssociationOutputWithContext(ctx context.Context) 
 type EIPAssociationOutput struct{ *pulumi.OutputState }
 
 func (EIPAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EIPAssociation)(nil))
+	return reflect.TypeOf((**EIPAssociation)(nil)).Elem()
 }
 
 func (o EIPAssociationOutput) ToEIPAssociationOutput() EIPAssociationOutput {

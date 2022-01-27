@@ -129,7 +129,7 @@ type LinkInput interface {
 }
 
 func (*Link) ElementType() reflect.Type {
-	return reflect.TypeOf((*Link)(nil))
+	return reflect.TypeOf((**Link)(nil)).Elem()
 }
 
 func (i *Link) ToLinkOutput() LinkOutput {
@@ -143,7 +143,7 @@ func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 type LinkOutput struct{ *pulumi.OutputState }
 
 func (LinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Link)(nil))
+	return reflect.TypeOf((**Link)(nil)).Elem()
 }
 
 func (o LinkOutput) ToLinkOutput() LinkOutput {

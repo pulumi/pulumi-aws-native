@@ -106,7 +106,7 @@ type LoggingConfigurationInput interface {
 }
 
 func (*LoggingConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfiguration)(nil))
+	return reflect.TypeOf((**LoggingConfiguration)(nil)).Elem()
 }
 
 func (i *LoggingConfiguration) ToLoggingConfigurationOutput() LoggingConfigurationOutput {
@@ -120,7 +120,7 @@ func (i *LoggingConfiguration) ToLoggingConfigurationOutputWithContext(ctx conte
 type LoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfiguration)(nil))
+	return reflect.TypeOf((**LoggingConfiguration)(nil)).Elem()
 }
 
 func (o LoggingConfigurationOutput) ToLoggingConfigurationOutput() LoggingConfigurationOutput {

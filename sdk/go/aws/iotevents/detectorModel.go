@@ -131,7 +131,7 @@ type DetectorModelInput interface {
 }
 
 func (*DetectorModel) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorModel)(nil))
+	return reflect.TypeOf((**DetectorModel)(nil)).Elem()
 }
 
 func (i *DetectorModel) ToDetectorModelOutput() DetectorModelOutput {
@@ -145,7 +145,7 @@ func (i *DetectorModel) ToDetectorModelOutputWithContext(ctx context.Context) De
 type DetectorModelOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorModel)(nil))
+	return reflect.TypeOf((**DetectorModel)(nil)).Elem()
 }
 
 func (o DetectorModelOutput) ToDetectorModelOutput() DetectorModelOutput {

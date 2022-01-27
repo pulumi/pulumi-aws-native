@@ -91,7 +91,7 @@ type TransitGatewayRouteInput interface {
 }
 
 func (*TransitGatewayRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRoute)(nil))
+	return reflect.TypeOf((**TransitGatewayRoute)(nil)).Elem()
 }
 
 func (i *TransitGatewayRoute) ToTransitGatewayRouteOutput() TransitGatewayRouteOutput {
@@ -105,7 +105,7 @@ func (i *TransitGatewayRoute) ToTransitGatewayRouteOutputWithContext(ctx context
 type TransitGatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRoute)(nil))
+	return reflect.TypeOf((**TransitGatewayRoute)(nil)).Elem()
 }
 
 func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutput() TransitGatewayRouteOutput {

@@ -155,7 +155,7 @@ type FlowSourceInput interface {
 }
 
 func (*FlowSource) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowSource)(nil))
+	return reflect.TypeOf((**FlowSource)(nil)).Elem()
 }
 
 func (i *FlowSource) ToFlowSourceOutput() FlowSourceOutput {
@@ -169,7 +169,7 @@ func (i *FlowSource) ToFlowSourceOutputWithContext(ctx context.Context) FlowSour
 type FlowSourceOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowSource)(nil))
+	return reflect.TypeOf((**FlowSource)(nil)).Elem()
 }
 
 func (o FlowSourceOutput) ToFlowSourceOutput() FlowSourceOutput {

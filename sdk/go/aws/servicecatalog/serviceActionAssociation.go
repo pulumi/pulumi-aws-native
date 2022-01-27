@@ -92,7 +92,7 @@ type ServiceActionAssociationInput interface {
 }
 
 func (*ServiceActionAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceActionAssociation)(nil))
+	return reflect.TypeOf((**ServiceActionAssociation)(nil)).Elem()
 }
 
 func (i *ServiceActionAssociation) ToServiceActionAssociationOutput() ServiceActionAssociationOutput {
@@ -106,7 +106,7 @@ func (i *ServiceActionAssociation) ToServiceActionAssociationOutputWithContext(c
 type ServiceActionAssociationOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceActionAssociation)(nil))
+	return reflect.TypeOf((**ServiceActionAssociation)(nil)).Elem()
 }
 
 func (o ServiceActionAssociationOutput) ToServiceActionAssociationOutput() ServiceActionAssociationOutput {

@@ -97,7 +97,7 @@ type NetworkInterfaceAttachmentInput interface {
 }
 
 func (*NetworkInterfaceAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceAttachment)(nil))
+	return reflect.TypeOf((**NetworkInterfaceAttachment)(nil)).Elem()
 }
 
 func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput {
@@ -111,7 +111,7 @@ func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutputWithConte
 type NetworkInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceAttachment)(nil))
+	return reflect.TypeOf((**NetworkInterfaceAttachment)(nil)).Elem()
 }
 
 func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput {

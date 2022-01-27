@@ -107,7 +107,7 @@ type RulesetInput interface {
 }
 
 func (*Ruleset) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ruleset)(nil))
+	return reflect.TypeOf((**Ruleset)(nil)).Elem()
 }
 
 func (i *Ruleset) ToRulesetOutput() RulesetOutput {
@@ -121,7 +121,7 @@ func (i *Ruleset) ToRulesetOutputWithContext(ctx context.Context) RulesetOutput 
 type RulesetOutput struct{ *pulumi.OutputState }
 
 func (RulesetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ruleset)(nil))
+	return reflect.TypeOf((**Ruleset)(nil)).Elem()
 }
 
 func (o RulesetOutput) ToRulesetOutput() RulesetOutput {

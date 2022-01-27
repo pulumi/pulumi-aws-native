@@ -87,7 +87,7 @@ type DomainNameApiAssociationInput interface {
 }
 
 func (*DomainNameApiAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainNameApiAssociation)(nil))
+	return reflect.TypeOf((**DomainNameApiAssociation)(nil)).Elem()
 }
 
 func (i *DomainNameApiAssociation) ToDomainNameApiAssociationOutput() DomainNameApiAssociationOutput {
@@ -101,7 +101,7 @@ func (i *DomainNameApiAssociation) ToDomainNameApiAssociationOutputWithContext(c
 type DomainNameApiAssociationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameApiAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainNameApiAssociation)(nil))
+	return reflect.TypeOf((**DomainNameApiAssociation)(nil)).Elem()
 }
 
 func (o DomainNameApiAssociationOutput) ToDomainNameApiAssociationOutput() DomainNameApiAssociationOutput {

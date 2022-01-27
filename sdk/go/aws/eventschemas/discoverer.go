@@ -93,7 +93,7 @@ type DiscovererInput interface {
 }
 
 func (*Discoverer) ElementType() reflect.Type {
-	return reflect.TypeOf((*Discoverer)(nil))
+	return reflect.TypeOf((**Discoverer)(nil)).Elem()
 }
 
 func (i *Discoverer) ToDiscovererOutput() DiscovererOutput {
@@ -107,7 +107,7 @@ func (i *Discoverer) ToDiscovererOutputWithContext(ctx context.Context) Discover
 type DiscovererOutput struct{ *pulumi.OutputState }
 
 func (DiscovererOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Discoverer)(nil))
+	return reflect.TypeOf((**Discoverer)(nil)).Elem()
 }
 
 func (o DiscovererOutput) ToDiscovererOutput() DiscovererOutput {

@@ -121,7 +121,7 @@ type PermissionSetInput interface {
 }
 
 func (*PermissionSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionSet)(nil))
+	return reflect.TypeOf((**PermissionSet)(nil)).Elem()
 }
 
 func (i *PermissionSet) ToPermissionSetOutput() PermissionSetOutput {
@@ -135,7 +135,7 @@ func (i *PermissionSet) ToPermissionSetOutputWithContext(ctx context.Context) Pe
 type PermissionSetOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionSet)(nil))
+	return reflect.TypeOf((**PermissionSet)(nil)).Elem()
 }
 
 func (o PermissionSetOutput) ToPermissionSetOutput() PermissionSetOutput {

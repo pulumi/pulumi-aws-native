@@ -2045,78 +2045,6 @@ type DiskLocation struct {
 	RegionName *string `pulumi:"regionName"`
 }
 
-// DiskLocationInput is an input type that accepts DiskLocationArgs and DiskLocationOutput values.
-// You can construct a concrete instance of `DiskLocationInput` via:
-//
-//          DiskLocationArgs{...}
-type DiskLocationInput interface {
-	pulumi.Input
-
-	ToDiskLocationOutput() DiskLocationOutput
-	ToDiskLocationOutputWithContext(context.Context) DiskLocationOutput
-}
-
-// Location of a resource.
-type DiskLocationArgs struct {
-	// The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The Region Name in which to create your disk.
-	RegionName pulumi.StringPtrInput `pulumi:"regionName"`
-}
-
-func (DiskLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskLocation)(nil)).Elem()
-}
-
-func (i DiskLocationArgs) ToDiskLocationOutput() DiskLocationOutput {
-	return i.ToDiskLocationOutputWithContext(context.Background())
-}
-
-func (i DiskLocationArgs) ToDiskLocationOutputWithContext(ctx context.Context) DiskLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskLocationOutput)
-}
-
-func (i DiskLocationArgs) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
-	return i.ToDiskLocationPtrOutputWithContext(context.Background())
-}
-
-func (i DiskLocationArgs) ToDiskLocationPtrOutputWithContext(ctx context.Context) DiskLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskLocationOutput).ToDiskLocationPtrOutputWithContext(ctx)
-}
-
-// DiskLocationPtrInput is an input type that accepts DiskLocationArgs, DiskLocationPtr and DiskLocationPtrOutput values.
-// You can construct a concrete instance of `DiskLocationPtrInput` via:
-//
-//          DiskLocationArgs{...}
-//
-//  or:
-//
-//          nil
-type DiskLocationPtrInput interface {
-	pulumi.Input
-
-	ToDiskLocationPtrOutput() DiskLocationPtrOutput
-	ToDiskLocationPtrOutputWithContext(context.Context) DiskLocationPtrOutput
-}
-
-type diskLocationPtrType DiskLocationArgs
-
-func DiskLocationPtr(v *DiskLocationArgs) DiskLocationPtrInput {
-	return (*diskLocationPtrType)(v)
-}
-
-func (*diskLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskLocation)(nil)).Elem()
-}
-
-func (i *diskLocationPtrType) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
-	return i.ToDiskLocationPtrOutputWithContext(context.Background())
-}
-
-func (i *diskLocationPtrType) ToDiskLocationPtrOutputWithContext(ctx context.Context) DiskLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskLocationPtrOutput)
-}
-
 // Location of a resource.
 type DiskLocationOutput struct{ *pulumi.OutputState }
 
@@ -2132,16 +2060,6 @@ func (o DiskLocationOutput) ToDiskLocationOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o DiskLocationOutput) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
-	return o.ToDiskLocationPtrOutputWithContext(context.Background())
-}
-
-func (o DiskLocationOutput) ToDiskLocationPtrOutputWithContext(ctx context.Context) DiskLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskLocation) *DiskLocation {
-		return &v
-	}).(DiskLocationPtrOutput)
-}
-
 // The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 func (o DiskLocationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskLocation) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
@@ -2150,50 +2068,6 @@ func (o DiskLocationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 // The Region Name in which to create your disk.
 func (o DiskLocationOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskLocation) *string { return v.RegionName }).(pulumi.StringPtrOutput)
-}
-
-type DiskLocationPtrOutput struct{ *pulumi.OutputState }
-
-func (DiskLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskLocation)(nil)).Elem()
-}
-
-func (o DiskLocationPtrOutput) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
-	return o
-}
-
-func (o DiskLocationPtrOutput) ToDiskLocationPtrOutputWithContext(ctx context.Context) DiskLocationPtrOutput {
-	return o
-}
-
-func (o DiskLocationPtrOutput) Elem() DiskLocationOutput {
-	return o.ApplyT(func(v *DiskLocation) DiskLocation {
-		if v != nil {
-			return *v
-		}
-		var ret DiskLocation
-		return ret
-	}).(DiskLocationOutput)
-}
-
-// The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
-func (o DiskLocationPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AvailabilityZone
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Region Name in which to create your disk.
-func (o DiskLocationPtrOutput) RegionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RegionName
-	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2340,47 +2214,6 @@ func (i DistributionCacheBehaviorArgs) ToDistributionCacheBehaviorOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorOutput)
 }
 
-func (i DistributionCacheBehaviorArgs) ToDistributionCacheBehaviorPtrOutput() DistributionCacheBehaviorPtrOutput {
-	return i.ToDistributionCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionCacheBehaviorArgs) ToDistributionCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorOutput).ToDistributionCacheBehaviorPtrOutputWithContext(ctx)
-}
-
-// DistributionCacheBehaviorPtrInput is an input type that accepts DistributionCacheBehaviorArgs, DistributionCacheBehaviorPtr and DistributionCacheBehaviorPtrOutput values.
-// You can construct a concrete instance of `DistributionCacheBehaviorPtrInput` via:
-//
-//          DistributionCacheBehaviorArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionCacheBehaviorPtrInput interface {
-	pulumi.Input
-
-	ToDistributionCacheBehaviorPtrOutput() DistributionCacheBehaviorPtrOutput
-	ToDistributionCacheBehaviorPtrOutputWithContext(context.Context) DistributionCacheBehaviorPtrOutput
-}
-
-type distributionCacheBehaviorPtrType DistributionCacheBehaviorArgs
-
-func DistributionCacheBehaviorPtr(v *DistributionCacheBehaviorArgs) DistributionCacheBehaviorPtrInput {
-	return (*distributionCacheBehaviorPtrType)(v)
-}
-
-func (*distributionCacheBehaviorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionCacheBehavior)(nil)).Elem()
-}
-
-func (i *distributionCacheBehaviorPtrType) ToDistributionCacheBehaviorPtrOutput() DistributionCacheBehaviorPtrOutput {
-	return i.ToDistributionCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionCacheBehaviorPtrType) ToDistributionCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorPtrOutput)
-}
-
 // Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
 type DistributionCacheBehaviorOutput struct{ *pulumi.OutputState }
 
@@ -2396,53 +2229,9 @@ func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutputWithCo
 	return o
 }
 
-func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorPtrOutput() DistributionCacheBehaviorPtrOutput {
-	return o.ToDistributionCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheBehavior) *DistributionCacheBehavior {
-		return &v
-	}).(DistributionCacheBehaviorPtrOutput)
-}
-
 // The cache behavior of the distribution.
 func (o DistributionCacheBehaviorOutput) Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.Behavior }).(pulumi.StringPtrOutput)
-}
-
-type DistributionCacheBehaviorPtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionCacheBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionCacheBehavior)(nil)).Elem()
-}
-
-func (o DistributionCacheBehaviorPtrOutput) ToDistributionCacheBehaviorPtrOutput() DistributionCacheBehaviorPtrOutput {
-	return o
-}
-
-func (o DistributionCacheBehaviorPtrOutput) ToDistributionCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorPtrOutput {
-	return o
-}
-
-func (o DistributionCacheBehaviorPtrOutput) Elem() DistributionCacheBehaviorOutput {
-	return o.ApplyT(func(v *DistributionCacheBehavior) DistributionCacheBehavior {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionCacheBehavior
-		return ret
-	}).(DistributionCacheBehaviorOutput)
-}
-
-// The cache behavior of the distribution.
-func (o DistributionCacheBehaviorPtrOutput) Behavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionCacheBehavior) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Behavior
-	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
@@ -3188,47 +2977,6 @@ func (i DistributionInputOriginArgs) ToDistributionInputOriginOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionInputOriginOutput)
 }
 
-func (i DistributionInputOriginArgs) ToDistributionInputOriginPtrOutput() DistributionInputOriginPtrOutput {
-	return i.ToDistributionInputOriginPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionInputOriginArgs) ToDistributionInputOriginPtrOutputWithContext(ctx context.Context) DistributionInputOriginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionInputOriginOutput).ToDistributionInputOriginPtrOutputWithContext(ctx)
-}
-
-// DistributionInputOriginPtrInput is an input type that accepts DistributionInputOriginArgs, DistributionInputOriginPtr and DistributionInputOriginPtrOutput values.
-// You can construct a concrete instance of `DistributionInputOriginPtrInput` via:
-//
-//          DistributionInputOriginArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionInputOriginPtrInput interface {
-	pulumi.Input
-
-	ToDistributionInputOriginPtrOutput() DistributionInputOriginPtrOutput
-	ToDistributionInputOriginPtrOutputWithContext(context.Context) DistributionInputOriginPtrOutput
-}
-
-type distributionInputOriginPtrType DistributionInputOriginArgs
-
-func DistributionInputOriginPtr(v *DistributionInputOriginArgs) DistributionInputOriginPtrInput {
-	return (*distributionInputOriginPtrType)(v)
-}
-
-func (*distributionInputOriginPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionInputOrigin)(nil)).Elem()
-}
-
-func (i *distributionInputOriginPtrType) ToDistributionInputOriginPtrOutput() DistributionInputOriginPtrOutput {
-	return i.ToDistributionInputOriginPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionInputOriginPtrType) ToDistributionInputOriginPtrOutputWithContext(ctx context.Context) DistributionInputOriginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionInputOriginPtrOutput)
-}
-
 // Describes the origin resource of an Amazon Lightsail content delivery network (CDN) distribution.
 type DistributionInputOriginOutput struct{ *pulumi.OutputState }
 
@@ -3244,16 +2992,6 @@ func (o DistributionInputOriginOutput) ToDistributionInputOriginOutputWithContex
 	return o
 }
 
-func (o DistributionInputOriginOutput) ToDistributionInputOriginPtrOutput() DistributionInputOriginPtrOutput {
-	return o.ToDistributionInputOriginPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionInputOriginOutput) ToDistributionInputOriginPtrOutputWithContext(ctx context.Context) DistributionInputOriginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionInputOrigin) *DistributionInputOrigin {
-		return &v
-	}).(DistributionInputOriginPtrOutput)
-}
-
 // The name of the origin resource.
 func (o DistributionInputOriginOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionInputOrigin) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -3267,60 +3005,6 @@ func (o DistributionInputOriginOutput) ProtocolPolicy() pulumi.StringPtrOutput {
 // The AWS Region name of the origin resource.
 func (o DistributionInputOriginOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionInputOrigin) *string { return v.RegionName }).(pulumi.StringPtrOutput)
-}
-
-type DistributionInputOriginPtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionInputOriginPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionInputOrigin)(nil)).Elem()
-}
-
-func (o DistributionInputOriginPtrOutput) ToDistributionInputOriginPtrOutput() DistributionInputOriginPtrOutput {
-	return o
-}
-
-func (o DistributionInputOriginPtrOutput) ToDistributionInputOriginPtrOutputWithContext(ctx context.Context) DistributionInputOriginPtrOutput {
-	return o
-}
-
-func (o DistributionInputOriginPtrOutput) Elem() DistributionInputOriginOutput {
-	return o.ApplyT(func(v *DistributionInputOrigin) DistributionInputOrigin {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionInputOrigin
-		return ret
-	}).(DistributionInputOriginOutput)
-}
-
-// The name of the origin resource.
-func (o DistributionInputOriginPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionInputOrigin) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
-func (o DistributionInputOriginPtrOutput) ProtocolPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionInputOrigin) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProtocolPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The AWS Region name of the origin resource.
-func (o DistributionInputOriginPtrOutput) RegionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionInputOrigin) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RegionName
-	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the query string parameters that an Amazon Lightsail content delivery network (CDN) distribution to bases caching on.
@@ -5212,12 +4896,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnArrayInput)(nil)).Elem(), DiskAddOnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAutoSnapshotAddOnInput)(nil)).Elem(), DiskAutoSnapshotAddOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAutoSnapshotAddOnPtrInput)(nil)).Elem(), DiskAutoSnapshotAddOnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskLocationInput)(nil)).Elem(), DiskLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskLocationPtrInput)(nil)).Elem(), DiskLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskTagInput)(nil)).Elem(), DiskTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskTagArrayInput)(nil)).Elem(), DiskTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorInput)(nil)).Elem(), DistributionCacheBehaviorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorPtrInput)(nil)).Elem(), DistributionCacheBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorPerPathInput)(nil)).Elem(), DistributionCacheBehaviorPerPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorPerPathArrayInput)(nil)).Elem(), DistributionCacheBehaviorPerPathArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheSettingsInput)(nil)).Elem(), DistributionCacheSettingsArgs{})
@@ -5227,7 +4908,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionHeaderObjectInput)(nil)).Elem(), DistributionHeaderObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionHeaderObjectPtrInput)(nil)).Elem(), DistributionHeaderObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionInputOriginInput)(nil)).Elem(), DistributionInputOriginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionInputOriginPtrInput)(nil)).Elem(), DistributionInputOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionQueryStringObjectInput)(nil)).Elem(), DistributionQueryStringObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionQueryStringObjectPtrInput)(nil)).Elem(), DistributionQueryStringObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTagInput)(nil)).Elem(), DistributionTagArgs{})
@@ -5285,11 +4965,9 @@ func init() {
 	pulumi.RegisterOutputType(DiskAutoSnapshotAddOnOutput{})
 	pulumi.RegisterOutputType(DiskAutoSnapshotAddOnPtrOutput{})
 	pulumi.RegisterOutputType(DiskLocationOutput{})
-	pulumi.RegisterOutputType(DiskLocationPtrOutput{})
 	pulumi.RegisterOutputType(DiskTagOutput{})
 	pulumi.RegisterOutputType(DiskTagArrayOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorOutput{})
-	pulumi.RegisterOutputType(DistributionCacheBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorPerPathOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorPerPathArrayOutput{})
 	pulumi.RegisterOutputType(DistributionCacheSettingsOutput{})
@@ -5299,7 +4977,6 @@ func init() {
 	pulumi.RegisterOutputType(DistributionHeaderObjectOutput{})
 	pulumi.RegisterOutputType(DistributionHeaderObjectPtrOutput{})
 	pulumi.RegisterOutputType(DistributionInputOriginOutput{})
-	pulumi.RegisterOutputType(DistributionInputOriginPtrOutput{})
 	pulumi.RegisterOutputType(DistributionQueryStringObjectOutput{})
 	pulumi.RegisterOutputType(DistributionQueryStringObjectPtrOutput{})
 	pulumi.RegisterOutputType(DistributionTagOutput{})

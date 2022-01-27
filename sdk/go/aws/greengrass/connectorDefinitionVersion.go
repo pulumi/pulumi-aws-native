@@ -88,7 +88,7 @@ type ConnectorDefinitionVersionInput interface {
 }
 
 func (*ConnectorDefinitionVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorDefinitionVersion)(nil))
+	return reflect.TypeOf((**ConnectorDefinitionVersion)(nil)).Elem()
 }
 
 func (i *ConnectorDefinitionVersion) ToConnectorDefinitionVersionOutput() ConnectorDefinitionVersionOutput {
@@ -102,7 +102,7 @@ func (i *ConnectorDefinitionVersion) ToConnectorDefinitionVersionOutputWithConte
 type ConnectorDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (ConnectorDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorDefinitionVersion)(nil))
+	return reflect.TypeOf((**ConnectorDefinitionVersion)(nil)).Elem()
 }
 
 func (o ConnectorDefinitionVersionOutput) ToConnectorDefinitionVersionOutput() ConnectorDefinitionVersionOutput {

@@ -113,7 +113,7 @@ type IdentityPoolInput interface {
 }
 
 func (*IdentityPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPool)(nil))
+	return reflect.TypeOf((**IdentityPool)(nil)).Elem()
 }
 
 func (i *IdentityPool) ToIdentityPoolOutput() IdentityPoolOutput {
@@ -127,7 +127,7 @@ func (i *IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) Iden
 type IdentityPoolOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPool)(nil))
+	return reflect.TypeOf((**IdentityPool)(nil)).Elem()
 }
 
 func (o IdentityPoolOutput) ToIdentityPoolOutput() IdentityPoolOutput {

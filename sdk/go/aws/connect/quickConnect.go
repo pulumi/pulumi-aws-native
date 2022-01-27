@@ -112,7 +112,7 @@ type QuickConnectInput interface {
 }
 
 func (*QuickConnect) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickConnect)(nil))
+	return reflect.TypeOf((**QuickConnect)(nil)).Elem()
 }
 
 func (i *QuickConnect) ToQuickConnectOutput() QuickConnectOutput {
@@ -126,7 +126,7 @@ func (i *QuickConnect) ToQuickConnectOutputWithContext(ctx context.Context) Quic
 type QuickConnectOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickConnect)(nil))
+	return reflect.TypeOf((**QuickConnect)(nil)).Elem()
 }
 
 func (o QuickConnectOutput) ToQuickConnectOutput() QuickConnectOutput {

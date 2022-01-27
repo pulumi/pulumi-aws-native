@@ -88,7 +88,7 @@ type ElasticLoadBalancerAttachmentInput interface {
 }
 
 func (*ElasticLoadBalancerAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticLoadBalancerAttachment)(nil))
+	return reflect.TypeOf((**ElasticLoadBalancerAttachment)(nil)).Elem()
 }
 
 func (i *ElasticLoadBalancerAttachment) ToElasticLoadBalancerAttachmentOutput() ElasticLoadBalancerAttachmentOutput {
@@ -102,7 +102,7 @@ func (i *ElasticLoadBalancerAttachment) ToElasticLoadBalancerAttachmentOutputWit
 type ElasticLoadBalancerAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ElasticLoadBalancerAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticLoadBalancerAttachment)(nil))
+	return reflect.TypeOf((**ElasticLoadBalancerAttachment)(nil)).Elem()
 }
 
 func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutput() ElasticLoadBalancerAttachmentOutput {

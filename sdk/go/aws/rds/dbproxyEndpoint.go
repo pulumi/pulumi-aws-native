@@ -124,7 +124,7 @@ type DBProxyEndpointInput interface {
 }
 
 func (*DBProxyEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEndpoint)(nil))
+	return reflect.TypeOf((**DBProxyEndpoint)(nil)).Elem()
 }
 
 func (i *DBProxyEndpoint) ToDBProxyEndpointOutput() DBProxyEndpointOutput {
@@ -138,7 +138,7 @@ func (i *DBProxyEndpoint) ToDBProxyEndpointOutputWithContext(ctx context.Context
 type DBProxyEndpointOutput struct{ *pulumi.OutputState }
 
 func (DBProxyEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEndpoint)(nil))
+	return reflect.TypeOf((**DBProxyEndpoint)(nil)).Elem()
 }
 
 func (o DBProxyEndpointOutput) ToDBProxyEndpointOutput() DBProxyEndpointOutput {

@@ -94,7 +94,7 @@ type DBParameterGroupInput interface {
 }
 
 func (*DBParameterGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBParameterGroup)(nil))
+	return reflect.TypeOf((**DBParameterGroup)(nil)).Elem()
 }
 
 func (i *DBParameterGroup) ToDBParameterGroupOutput() DBParameterGroupOutput {
@@ -108,7 +108,7 @@ func (i *DBParameterGroup) ToDBParameterGroupOutputWithContext(ctx context.Conte
 type DBParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (DBParameterGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBParameterGroup)(nil))
+	return reflect.TypeOf((**DBParameterGroup)(nil)).Elem()
 }
 
 func (o DBParameterGroupOutput) ToDBParameterGroupOutput() DBParameterGroupOutput {

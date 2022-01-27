@@ -110,7 +110,7 @@ type StudioSessionMappingInput interface {
 }
 
 func (*StudioSessionMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioSessionMapping)(nil))
+	return reflect.TypeOf((**StudioSessionMapping)(nil)).Elem()
 }
 
 func (i *StudioSessionMapping) ToStudioSessionMappingOutput() StudioSessionMappingOutput {
@@ -124,7 +124,7 @@ func (i *StudioSessionMapping) ToStudioSessionMappingOutputWithContext(ctx conte
 type StudioSessionMappingOutput struct{ *pulumi.OutputState }
 
 func (StudioSessionMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioSessionMapping)(nil))
+	return reflect.TypeOf((**StudioSessionMapping)(nil)).Elem()
 }
 
 func (o StudioSessionMappingOutput) ToStudioSessionMappingOutput() StudioSessionMappingOutput {

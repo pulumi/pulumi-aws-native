@@ -91,7 +91,7 @@ type ReceiptRuleInput interface {
 }
 
 func (*ReceiptRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptRule)(nil))
+	return reflect.TypeOf((**ReceiptRule)(nil)).Elem()
 }
 
 func (i *ReceiptRule) ToReceiptRuleOutput() ReceiptRuleOutput {
@@ -105,7 +105,7 @@ func (i *ReceiptRule) ToReceiptRuleOutputWithContext(ctx context.Context) Receip
 type ReceiptRuleOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptRule)(nil))
+	return reflect.TypeOf((**ReceiptRule)(nil)).Elem()
 }
 
 func (o ReceiptRuleOutput) ToReceiptRuleOutput() ReceiptRuleOutput {

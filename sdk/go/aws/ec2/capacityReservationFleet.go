@@ -101,7 +101,7 @@ type CapacityReservationFleetInput interface {
 }
 
 func (*CapacityReservationFleet) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationFleet)(nil))
+	return reflect.TypeOf((**CapacityReservationFleet)(nil)).Elem()
 }
 
 func (i *CapacityReservationFleet) ToCapacityReservationFleetOutput() CapacityReservationFleetOutput {
@@ -115,7 +115,7 @@ func (i *CapacityReservationFleet) ToCapacityReservationFleetOutputWithContext(c
 type CapacityReservationFleetOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationFleetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationFleet)(nil))
+	return reflect.TypeOf((**CapacityReservationFleet)(nil)).Elem()
 }
 
 func (o CapacityReservationFleetOutput) ToCapacityReservationFleetOutput() CapacityReservationFleetOutput {

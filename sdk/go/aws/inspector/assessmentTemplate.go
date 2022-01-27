@@ -101,7 +101,7 @@ type AssessmentTemplateInput interface {
 }
 
 func (*AssessmentTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTemplate)(nil))
+	return reflect.TypeOf((**AssessmentTemplate)(nil)).Elem()
 }
 
 func (i *AssessmentTemplate) ToAssessmentTemplateOutput() AssessmentTemplateOutput {
@@ -115,7 +115,7 @@ func (i *AssessmentTemplate) ToAssessmentTemplateOutputWithContext(ctx context.C
 type AssessmentTemplateOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTemplate)(nil))
+	return reflect.TypeOf((**AssessmentTemplate)(nil)).Elem()
 }
 
 func (o AssessmentTemplateOutput) ToAssessmentTemplateOutput() AssessmentTemplateOutput {

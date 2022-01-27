@@ -95,7 +95,7 @@ type ACLInput interface {
 }
 
 func (*ACL) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACL)(nil))
+	return reflect.TypeOf((**ACL)(nil)).Elem()
 }
 
 func (i *ACL) ToACLOutput() ACLOutput {
@@ -109,7 +109,7 @@ func (i *ACL) ToACLOutputWithContext(ctx context.Context) ACLOutput {
 type ACLOutput struct{ *pulumi.OutputState }
 
 func (ACLOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ACL)(nil))
+	return reflect.TypeOf((**ACL)(nil)).Elem()
 }
 
 func (o ACLOutput) ToACLOutput() ACLOutput {

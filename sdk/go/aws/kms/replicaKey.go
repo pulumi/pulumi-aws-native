@@ -118,7 +118,7 @@ type ReplicaKeyInput interface {
 }
 
 func (*ReplicaKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicaKey)(nil))
+	return reflect.TypeOf((**ReplicaKey)(nil)).Elem()
 }
 
 func (i *ReplicaKey) ToReplicaKeyOutput() ReplicaKeyOutput {
@@ -132,7 +132,7 @@ func (i *ReplicaKey) ToReplicaKeyOutputWithContext(ctx context.Context) ReplicaK
 type ReplicaKeyOutput struct{ *pulumi.OutputState }
 
 func (ReplicaKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicaKey)(nil))
+	return reflect.TypeOf((**ReplicaKey)(nil)).Elem()
 }
 
 func (o ReplicaKeyOutput) ToReplicaKeyOutput() ReplicaKeyOutput {

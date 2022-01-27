@@ -57,47 +57,6 @@ func (i ProjectArtifactsArgs) ToProjectArtifactsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectArtifactsOutput)
 }
 
-func (i ProjectArtifactsArgs) ToProjectArtifactsPtrOutput() ProjectArtifactsPtrOutput {
-	return i.ToProjectArtifactsPtrOutputWithContext(context.Background())
-}
-
-func (i ProjectArtifactsArgs) ToProjectArtifactsPtrOutputWithContext(ctx context.Context) ProjectArtifactsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectArtifactsOutput).ToProjectArtifactsPtrOutputWithContext(ctx)
-}
-
-// ProjectArtifactsPtrInput is an input type that accepts ProjectArtifactsArgs, ProjectArtifactsPtr and ProjectArtifactsPtrOutput values.
-// You can construct a concrete instance of `ProjectArtifactsPtrInput` via:
-//
-//          ProjectArtifactsArgs{...}
-//
-//  or:
-//
-//          nil
-type ProjectArtifactsPtrInput interface {
-	pulumi.Input
-
-	ToProjectArtifactsPtrOutput() ProjectArtifactsPtrOutput
-	ToProjectArtifactsPtrOutputWithContext(context.Context) ProjectArtifactsPtrOutput
-}
-
-type projectArtifactsPtrType ProjectArtifactsArgs
-
-func ProjectArtifactsPtr(v *ProjectArtifactsArgs) ProjectArtifactsPtrInput {
-	return (*projectArtifactsPtrType)(v)
-}
-
-func (*projectArtifactsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectArtifacts)(nil)).Elem()
-}
-
-func (i *projectArtifactsPtrType) ToProjectArtifactsPtrOutput() ProjectArtifactsPtrOutput {
-	return i.ToProjectArtifactsPtrOutputWithContext(context.Background())
-}
-
-func (i *projectArtifactsPtrType) ToProjectArtifactsPtrOutputWithContext(ctx context.Context) ProjectArtifactsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectArtifactsPtrOutput)
-}
-
 // ProjectArtifactsArrayInput is an input type that accepts ProjectArtifactsArray and ProjectArtifactsArrayOutput values.
 // You can construct a concrete instance of `ProjectArtifactsArrayInput` via:
 //
@@ -137,16 +96,6 @@ func (o ProjectArtifactsOutput) ToProjectArtifactsOutputWithContext(ctx context.
 	return o
 }
 
-func (o ProjectArtifactsOutput) ToProjectArtifactsPtrOutput() ProjectArtifactsPtrOutput {
-	return o.ToProjectArtifactsPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectArtifactsOutput) ToProjectArtifactsPtrOutputWithContext(ctx context.Context) ProjectArtifactsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectArtifacts) *ProjectArtifacts {
-		return &v
-	}).(ProjectArtifactsPtrOutput)
-}
-
 func (o ProjectArtifactsOutput) ArtifactIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *string { return v.ArtifactIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -181,111 +130,6 @@ func (o ProjectArtifactsOutput) Path() pulumi.StringPtrOutput {
 
 func (o ProjectArtifactsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectArtifacts) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProjectArtifactsPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectArtifactsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectArtifacts)(nil)).Elem()
-}
-
-func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutput() ProjectArtifactsPtrOutput {
-	return o
-}
-
-func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutputWithContext(ctx context.Context) ProjectArtifactsPtrOutput {
-	return o
-}
-
-func (o ProjectArtifactsPtrOutput) Elem() ProjectArtifactsOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) ProjectArtifacts {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectArtifacts
-		return ret
-	}).(ProjectArtifactsOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) ArtifactIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArtifactIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionDisabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) NamespaceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NamespaceType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) OverrideArtifactName() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.OverrideArtifactName
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) Packaging() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Packaging
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectArtifactsPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ProjectArtifactsArrayOutput struct{ *pulumi.OutputState }
@@ -1168,47 +1012,6 @@ func (i ProjectEnvironmentArgs) ToProjectEnvironmentOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentOutput)
 }
 
-func (i ProjectEnvironmentArgs) ToProjectEnvironmentPtrOutput() ProjectEnvironmentPtrOutput {
-	return i.ToProjectEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i ProjectEnvironmentArgs) ToProjectEnvironmentPtrOutputWithContext(ctx context.Context) ProjectEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentOutput).ToProjectEnvironmentPtrOutputWithContext(ctx)
-}
-
-// ProjectEnvironmentPtrInput is an input type that accepts ProjectEnvironmentArgs, ProjectEnvironmentPtr and ProjectEnvironmentPtrOutput values.
-// You can construct a concrete instance of `ProjectEnvironmentPtrInput` via:
-//
-//          ProjectEnvironmentArgs{...}
-//
-//  or:
-//
-//          nil
-type ProjectEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToProjectEnvironmentPtrOutput() ProjectEnvironmentPtrOutput
-	ToProjectEnvironmentPtrOutputWithContext(context.Context) ProjectEnvironmentPtrOutput
-}
-
-type projectEnvironmentPtrType ProjectEnvironmentArgs
-
-func ProjectEnvironmentPtr(v *ProjectEnvironmentArgs) ProjectEnvironmentPtrInput {
-	return (*projectEnvironmentPtrType)(v)
-}
-
-func (*projectEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectEnvironment)(nil)).Elem()
-}
-
-func (i *projectEnvironmentPtrType) ToProjectEnvironmentPtrOutput() ProjectEnvironmentPtrOutput {
-	return i.ToProjectEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *projectEnvironmentPtrType) ToProjectEnvironmentPtrOutputWithContext(ctx context.Context) ProjectEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentPtrOutput)
-}
-
 type ProjectEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ProjectEnvironmentOutput) ElementType() reflect.Type {
@@ -1221,16 +1024,6 @@ func (o ProjectEnvironmentOutput) ToProjectEnvironmentOutput() ProjectEnvironmen
 
 func (o ProjectEnvironmentOutput) ToProjectEnvironmentOutputWithContext(ctx context.Context) ProjectEnvironmentOutput {
 	return o
-}
-
-func (o ProjectEnvironmentOutput) ToProjectEnvironmentPtrOutput() ProjectEnvironmentPtrOutput {
-	return o.ToProjectEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectEnvironmentOutput) ToProjectEnvironmentPtrOutputWithContext(ctx context.Context) ProjectEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectEnvironment) *ProjectEnvironment {
-		return &v
-	}).(ProjectEnvironmentPtrOutput)
 }
 
 func (o ProjectEnvironmentOutput) Certificate() pulumi.StringPtrOutput {
@@ -1263,102 +1056,6 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectRegistryCredential
 
 func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProjectEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectEnvironment)(nil)).Elem()
-}
-
-func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutput() ProjectEnvironmentPtrOutput {
-	return o
-}
-
-func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutputWithContext(ctx context.Context) ProjectEnvironmentPtrOutput {
-	return o
-}
-
-func (o ProjectEnvironmentPtrOutput) Elem() ProjectEnvironmentOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) ProjectEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectEnvironment
-		return ret
-	}).(ProjectEnvironmentOutput)
-}
-
-func (o ProjectEnvironmentPtrOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Certificate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ComputeType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectEnvironmentPtrOutput) EnvironmentVariables() ProjectEnvironmentVariableArrayOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) []ProjectEnvironmentVariable {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentVariables
-	}).(ProjectEnvironmentVariableArrayOutput)
-}
-
-func (o ProjectEnvironmentPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Image
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectEnvironmentPtrOutput) ImagePullCredentialsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ImagePullCredentialsType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectEnvironmentPtrOutput) PrivilegedMode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PrivilegedMode
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ProjectEnvironmentPtrOutput) RegistryCredential() ProjectRegistryCredentialPtrOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) *ProjectRegistryCredential {
-		if v == nil {
-			return nil
-		}
-		return v.RegistryCredential
-	}).(ProjectRegistryCredentialPtrOutput)
-}
-
-func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ProjectEnvironmentVariable struct {
@@ -2314,47 +2011,6 @@ func (i ProjectSourceArgs) ToProjectSourceOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceOutput)
 }
 
-func (i ProjectSourceArgs) ToProjectSourcePtrOutput() ProjectSourcePtrOutput {
-	return i.ToProjectSourcePtrOutputWithContext(context.Background())
-}
-
-func (i ProjectSourceArgs) ToProjectSourcePtrOutputWithContext(ctx context.Context) ProjectSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceOutput).ToProjectSourcePtrOutputWithContext(ctx)
-}
-
-// ProjectSourcePtrInput is an input type that accepts ProjectSourceArgs, ProjectSourcePtr and ProjectSourcePtrOutput values.
-// You can construct a concrete instance of `ProjectSourcePtrInput` via:
-//
-//          ProjectSourceArgs{...}
-//
-//  or:
-//
-//          nil
-type ProjectSourcePtrInput interface {
-	pulumi.Input
-
-	ToProjectSourcePtrOutput() ProjectSourcePtrOutput
-	ToProjectSourcePtrOutputWithContext(context.Context) ProjectSourcePtrOutput
-}
-
-type projectSourcePtrType ProjectSourceArgs
-
-func ProjectSourcePtr(v *ProjectSourceArgs) ProjectSourcePtrInput {
-	return (*projectSourcePtrType)(v)
-}
-
-func (*projectSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectSource)(nil)).Elem()
-}
-
-func (i *projectSourcePtrType) ToProjectSourcePtrOutput() ProjectSourcePtrOutput {
-	return i.ToProjectSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *projectSourcePtrType) ToProjectSourcePtrOutputWithContext(ctx context.Context) ProjectSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourcePtrOutput)
-}
-
 // ProjectSourceArrayInput is an input type that accepts ProjectSourceArray and ProjectSourceArrayOutput values.
 // You can construct a concrete instance of `ProjectSourceArrayInput` via:
 //
@@ -2392,16 +2048,6 @@ func (o ProjectSourceOutput) ToProjectSourceOutput() ProjectSourceOutput {
 
 func (o ProjectSourceOutput) ToProjectSourceOutputWithContext(ctx context.Context) ProjectSourceOutput {
 	return o
-}
-
-func (o ProjectSourceOutput) ToProjectSourcePtrOutput() ProjectSourcePtrOutput {
-	return o.ToProjectSourcePtrOutputWithContext(context.Background())
-}
-
-func (o ProjectSourceOutput) ToProjectSourcePtrOutputWithContext(ctx context.Context) ProjectSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSource) *ProjectSource {
-		return &v
-	}).(ProjectSourcePtrOutput)
 }
 
 func (o ProjectSourceOutput) Auth() ProjectSourceAuthPtrOutput {
@@ -2442,120 +2088,6 @@ func (o ProjectSourceOutput) SourceIdentifier() pulumi.StringPtrOutput {
 
 func (o ProjectSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSource) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProjectSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectSource)(nil)).Elem()
-}
-
-func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutput() ProjectSourcePtrOutput {
-	return o
-}
-
-func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutputWithContext(ctx context.Context) ProjectSourcePtrOutput {
-	return o
-}
-
-func (o ProjectSourcePtrOutput) Elem() ProjectSourceOutput {
-	return o.ApplyT(func(v *ProjectSource) ProjectSource {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectSource
-		return ret
-	}).(ProjectSourceOutput)
-}
-
-func (o ProjectSourcePtrOutput) Auth() ProjectSourceAuthPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *ProjectSourceAuth {
-		if v == nil {
-			return nil
-		}
-		return v.Auth
-	}).(ProjectSourceAuthPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) BuildSpec() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BuildSpec
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) BuildStatusConfig() ProjectBuildStatusConfigPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *ProjectBuildStatusConfig {
-		if v == nil {
-			return nil
-		}
-		return v.BuildStatusConfig
-	}).(ProjectBuildStatusConfigPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) GitCloneDepth() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *int {
-		if v == nil {
-			return nil
-		}
-		return v.GitCloneDepth
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) GitSubmodulesConfig() ProjectGitSubmodulesConfigPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *ProjectGitSubmodulesConfig {
-		if v == nil {
-			return nil
-		}
-		return v.GitSubmodulesConfig
-	}).(ProjectGitSubmodulesConfigPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) InsecureSsl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.InsecureSsl
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ReportBuildStatus
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectSourcePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ProjectSourceArrayOutput struct{ *pulumi.OutputState }
@@ -3285,47 +2817,6 @@ func (i ReportGroupReportExportConfigArgs) ToReportGroupReportExportConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupReportExportConfigOutput)
 }
 
-func (i ReportGroupReportExportConfigArgs) ToReportGroupReportExportConfigPtrOutput() ReportGroupReportExportConfigPtrOutput {
-	return i.ToReportGroupReportExportConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ReportGroupReportExportConfigArgs) ToReportGroupReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupReportExportConfigOutput).ToReportGroupReportExportConfigPtrOutputWithContext(ctx)
-}
-
-// ReportGroupReportExportConfigPtrInput is an input type that accepts ReportGroupReportExportConfigArgs, ReportGroupReportExportConfigPtr and ReportGroupReportExportConfigPtrOutput values.
-// You can construct a concrete instance of `ReportGroupReportExportConfigPtrInput` via:
-//
-//          ReportGroupReportExportConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ReportGroupReportExportConfigPtrInput interface {
-	pulumi.Input
-
-	ToReportGroupReportExportConfigPtrOutput() ReportGroupReportExportConfigPtrOutput
-	ToReportGroupReportExportConfigPtrOutputWithContext(context.Context) ReportGroupReportExportConfigPtrOutput
-}
-
-type reportGroupReportExportConfigPtrType ReportGroupReportExportConfigArgs
-
-func ReportGroupReportExportConfigPtr(v *ReportGroupReportExportConfigArgs) ReportGroupReportExportConfigPtrInput {
-	return (*reportGroupReportExportConfigPtrType)(v)
-}
-
-func (*reportGroupReportExportConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportGroupReportExportConfig)(nil)).Elem()
-}
-
-func (i *reportGroupReportExportConfigPtrType) ToReportGroupReportExportConfigPtrOutput() ReportGroupReportExportConfigPtrOutput {
-	return i.ToReportGroupReportExportConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *reportGroupReportExportConfigPtrType) ToReportGroupReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupReportExportConfigPtrOutput)
-}
-
 type ReportGroupReportExportConfigOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupReportExportConfigOutput) ElementType() reflect.Type {
@@ -3340,64 +2831,12 @@ func (o ReportGroupReportExportConfigOutput) ToReportGroupReportExportConfigOutp
 	return o
 }
 
-func (o ReportGroupReportExportConfigOutput) ToReportGroupReportExportConfigPtrOutput() ReportGroupReportExportConfigPtrOutput {
-	return o.ToReportGroupReportExportConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ReportGroupReportExportConfigOutput) ToReportGroupReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroupReportExportConfig) *ReportGroupReportExportConfig {
-		return &v
-	}).(ReportGroupReportExportConfigPtrOutput)
-}
-
 func (o ReportGroupReportExportConfigOutput) ExportConfigType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportGroupReportExportConfig) string { return v.ExportConfigType }).(pulumi.StringOutput)
 }
 
 func (o ReportGroupReportExportConfigOutput) S3Destination() ReportGroupS3ReportExportConfigPtrOutput {
 	return o.ApplyT(func(v ReportGroupReportExportConfig) *ReportGroupS3ReportExportConfig { return v.S3Destination }).(ReportGroupS3ReportExportConfigPtrOutput)
-}
-
-type ReportGroupReportExportConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportGroupReportExportConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportGroupReportExportConfig)(nil)).Elem()
-}
-
-func (o ReportGroupReportExportConfigPtrOutput) ToReportGroupReportExportConfigPtrOutput() ReportGroupReportExportConfigPtrOutput {
-	return o
-}
-
-func (o ReportGroupReportExportConfigPtrOutput) ToReportGroupReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigPtrOutput {
-	return o
-}
-
-func (o ReportGroupReportExportConfigPtrOutput) Elem() ReportGroupReportExportConfigOutput {
-	return o.ApplyT(func(v *ReportGroupReportExportConfig) ReportGroupReportExportConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ReportGroupReportExportConfig
-		return ret
-	}).(ReportGroupReportExportConfigOutput)
-}
-
-func (o ReportGroupReportExportConfigPtrOutput) ExportConfigType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportGroupReportExportConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ExportConfigType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReportGroupReportExportConfigPtrOutput) S3Destination() ReportGroupS3ReportExportConfigPtrOutput {
-	return o.ApplyT(func(v *ReportGroupReportExportConfig) *ReportGroupS3ReportExportConfig {
-		if v == nil {
-			return nil
-		}
-		return v.S3Destination
-	}).(ReportGroupS3ReportExportConfigPtrOutput)
 }
 
 type ReportGroupS3ReportExportConfig struct {
@@ -3710,7 +3149,6 @@ func (o ReportGroupTagArrayOutput) Index(i pulumi.IntInput) ReportGroupTagOutput
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsInput)(nil)).Elem(), ProjectArtifactsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsPtrInput)(nil)).Elem(), ProjectArtifactsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsArrayInput)(nil)).Elem(), ProjectArtifactsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBatchRestrictionsInput)(nil)).Elem(), ProjectBatchRestrictionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBatchRestrictionsPtrInput)(nil)).Elem(), ProjectBatchRestrictionsArgs{})
@@ -3723,7 +3161,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCloudWatchLogsConfigInput)(nil)).Elem(), ProjectCloudWatchLogsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCloudWatchLogsConfigPtrInput)(nil)).Elem(), ProjectCloudWatchLogsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentInput)(nil)).Elem(), ProjectEnvironmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentPtrInput)(nil)).Elem(), ProjectEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentVariableInput)(nil)).Elem(), ProjectEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentVariableArrayInput)(nil)).Elem(), ProjectEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFileSystemLocationInput)(nil)).Elem(), ProjectFileSystemLocationArgs{})
@@ -3739,7 +3176,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectS3LogsConfigInput)(nil)).Elem(), ProjectS3LogsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectS3LogsConfigPtrInput)(nil)).Elem(), ProjectS3LogsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceInput)(nil)).Elem(), ProjectSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourcePtrInput)(nil)).Elem(), ProjectSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceArrayInput)(nil)).Elem(), ProjectSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceAuthInput)(nil)).Elem(), ProjectSourceAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceAuthPtrInput)(nil)).Elem(), ProjectSourceAuthArgs{})
@@ -3752,13 +3188,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectVpcConfigInput)(nil)).Elem(), ProjectVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectVpcConfigPtrInput)(nil)).Elem(), ProjectVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupReportExportConfigInput)(nil)).Elem(), ReportGroupReportExportConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupReportExportConfigPtrInput)(nil)).Elem(), ReportGroupReportExportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigPtrInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTagInput)(nil)).Elem(), ReportGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTagArrayInput)(nil)).Elem(), ReportGroupTagArray{})
 	pulumi.RegisterOutputType(ProjectArtifactsOutput{})
-	pulumi.RegisterOutputType(ProjectArtifactsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsArrayOutput{})
 	pulumi.RegisterOutputType(ProjectBatchRestrictionsOutput{})
 	pulumi.RegisterOutputType(ProjectBatchRestrictionsPtrOutput{})
@@ -3771,7 +3205,6 @@ func init() {
 	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentOutput{})
-	pulumi.RegisterOutputType(ProjectEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(ProjectFileSystemLocationOutput{})
@@ -3787,7 +3220,6 @@ func init() {
 	pulumi.RegisterOutputType(ProjectS3LogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectS3LogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceOutput{})
-	pulumi.RegisterOutputType(ProjectSourcePtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthPtrOutput{})
@@ -3800,7 +3232,6 @@ func init() {
 	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupReportExportConfigOutput{})
-	pulumi.RegisterOutputType(ReportGroupReportExportConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigOutput{})
 	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupTagOutput{})

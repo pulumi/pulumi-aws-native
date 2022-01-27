@@ -91,7 +91,7 @@ type GCMChannelInput interface {
 }
 
 func (*GCMChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*GCMChannel)(nil))
+	return reflect.TypeOf((**GCMChannel)(nil)).Elem()
 }
 
 func (i *GCMChannel) ToGCMChannelOutput() GCMChannelOutput {
@@ -105,7 +105,7 @@ func (i *GCMChannel) ToGCMChannelOutputWithContext(ctx context.Context) GCMChann
 type GCMChannelOutput struct{ *pulumi.OutputState }
 
 func (GCMChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GCMChannel)(nil))
+	return reflect.TypeOf((**GCMChannel)(nil)).Elem()
 }
 
 func (o GCMChannelOutput) ToGCMChannelOutput() GCMChannelOutput {

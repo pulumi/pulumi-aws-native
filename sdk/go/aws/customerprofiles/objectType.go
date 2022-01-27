@@ -141,7 +141,7 @@ type ObjectTypeInput interface {
 }
 
 func (*ObjectType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectType)(nil))
+	return reflect.TypeOf((**ObjectType)(nil)).Elem()
 }
 
 func (i *ObjectType) ToObjectTypeOutput() ObjectTypeOutput {
@@ -155,7 +155,7 @@ func (i *ObjectType) ToObjectTypeOutputWithContext(ctx context.Context) ObjectTy
 type ObjectTypeOutput struct{ *pulumi.OutputState }
 
 func (ObjectTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectType)(nil))
+	return reflect.TypeOf((**ObjectType)(nil)).Elem()
 }
 
 func (o ObjectTypeOutput) ToObjectTypeOutput() ObjectTypeOutput {

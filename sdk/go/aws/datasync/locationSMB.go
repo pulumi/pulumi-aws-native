@@ -138,7 +138,7 @@ type LocationSMBInput interface {
 }
 
 func (*LocationSMB) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationSMB)(nil))
+	return reflect.TypeOf((**LocationSMB)(nil)).Elem()
 }
 
 func (i *LocationSMB) ToLocationSMBOutput() LocationSMBOutput {
@@ -152,7 +152,7 @@ func (i *LocationSMB) ToLocationSMBOutputWithContext(ctx context.Context) Locati
 type LocationSMBOutput struct{ *pulumi.OutputState }
 
 func (LocationSMBOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationSMB)(nil))
+	return reflect.TypeOf((**LocationSMB)(nil)).Elem()
 }
 
 func (o LocationSMBOutput) ToLocationSMBOutput() LocationSMBOutput {

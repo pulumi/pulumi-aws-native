@@ -174,47 +174,6 @@ func (i ApplicationInstanceManifestPayloadArgs) ToApplicationInstanceManifestPay
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceManifestPayloadOutput)
 }
 
-func (i ApplicationInstanceManifestPayloadArgs) ToApplicationInstanceManifestPayloadPtrOutput() ApplicationInstanceManifestPayloadPtrOutput {
-	return i.ToApplicationInstanceManifestPayloadPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationInstanceManifestPayloadArgs) ToApplicationInstanceManifestPayloadPtrOutputWithContext(ctx context.Context) ApplicationInstanceManifestPayloadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceManifestPayloadOutput).ToApplicationInstanceManifestPayloadPtrOutputWithContext(ctx)
-}
-
-// ApplicationInstanceManifestPayloadPtrInput is an input type that accepts ApplicationInstanceManifestPayloadArgs, ApplicationInstanceManifestPayloadPtr and ApplicationInstanceManifestPayloadPtrOutput values.
-// You can construct a concrete instance of `ApplicationInstanceManifestPayloadPtrInput` via:
-//
-//          ApplicationInstanceManifestPayloadArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationInstanceManifestPayloadPtrInput interface {
-	pulumi.Input
-
-	ToApplicationInstanceManifestPayloadPtrOutput() ApplicationInstanceManifestPayloadPtrOutput
-	ToApplicationInstanceManifestPayloadPtrOutputWithContext(context.Context) ApplicationInstanceManifestPayloadPtrOutput
-}
-
-type applicationInstanceManifestPayloadPtrType ApplicationInstanceManifestPayloadArgs
-
-func ApplicationInstanceManifestPayloadPtr(v *ApplicationInstanceManifestPayloadArgs) ApplicationInstanceManifestPayloadPtrInput {
-	return (*applicationInstanceManifestPayloadPtrType)(v)
-}
-
-func (*applicationInstanceManifestPayloadPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInstanceManifestPayload)(nil)).Elem()
-}
-
-func (i *applicationInstanceManifestPayloadPtrType) ToApplicationInstanceManifestPayloadPtrOutput() ApplicationInstanceManifestPayloadPtrOutput {
-	return i.ToApplicationInstanceManifestPayloadPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationInstanceManifestPayloadPtrType) ToApplicationInstanceManifestPayloadPtrOutputWithContext(ctx context.Context) ApplicationInstanceManifestPayloadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceManifestPayloadPtrOutput)
-}
-
 type ApplicationInstanceManifestPayloadOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInstanceManifestPayloadOutput) ElementType() reflect.Type {
@@ -229,51 +188,8 @@ func (o ApplicationInstanceManifestPayloadOutput) ToApplicationInstanceManifestP
 	return o
 }
 
-func (o ApplicationInstanceManifestPayloadOutput) ToApplicationInstanceManifestPayloadPtrOutput() ApplicationInstanceManifestPayloadPtrOutput {
-	return o.ToApplicationInstanceManifestPayloadPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInstanceManifestPayloadOutput) ToApplicationInstanceManifestPayloadPtrOutputWithContext(ctx context.Context) ApplicationInstanceManifestPayloadPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInstanceManifestPayload) *ApplicationInstanceManifestPayload {
-		return &v
-	}).(ApplicationInstanceManifestPayloadPtrOutput)
-}
-
 func (o ApplicationInstanceManifestPayloadOutput) PayloadData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInstanceManifestPayload) *string { return v.PayloadData }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationInstanceManifestPayloadPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInstanceManifestPayloadPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInstanceManifestPayload)(nil)).Elem()
-}
-
-func (o ApplicationInstanceManifestPayloadPtrOutput) ToApplicationInstanceManifestPayloadPtrOutput() ApplicationInstanceManifestPayloadPtrOutput {
-	return o
-}
-
-func (o ApplicationInstanceManifestPayloadPtrOutput) ToApplicationInstanceManifestPayloadPtrOutputWithContext(ctx context.Context) ApplicationInstanceManifestPayloadPtrOutput {
-	return o
-}
-
-func (o ApplicationInstanceManifestPayloadPtrOutput) Elem() ApplicationInstanceManifestPayloadOutput {
-	return o.ApplyT(func(v *ApplicationInstanceManifestPayload) ApplicationInstanceManifestPayload {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationInstanceManifestPayload
-		return ret
-	}).(ApplicationInstanceManifestPayloadOutput)
-}
-
-func (o ApplicationInstanceManifestPayloadPtrOutput) PayloadData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationInstanceManifestPayload) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadData
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationInstanceTag struct {
@@ -390,78 +306,6 @@ type PackageStorageLocation struct {
 	RepoPrefixLocation      *string `pulumi:"repoPrefixLocation"`
 }
 
-// PackageStorageLocationInput is an input type that accepts PackageStorageLocationArgs and PackageStorageLocationOutput values.
-// You can construct a concrete instance of `PackageStorageLocationInput` via:
-//
-//          PackageStorageLocationArgs{...}
-type PackageStorageLocationInput interface {
-	pulumi.Input
-
-	ToPackageStorageLocationOutput() PackageStorageLocationOutput
-	ToPackageStorageLocationOutputWithContext(context.Context) PackageStorageLocationOutput
-}
-
-type PackageStorageLocationArgs struct {
-	BinaryPrefixLocation    pulumi.StringPtrInput `pulumi:"binaryPrefixLocation"`
-	Bucket                  pulumi.StringPtrInput `pulumi:"bucket"`
-	GeneratedPrefixLocation pulumi.StringPtrInput `pulumi:"generatedPrefixLocation"`
-	ManifestPrefixLocation  pulumi.StringPtrInput `pulumi:"manifestPrefixLocation"`
-	RepoPrefixLocation      pulumi.StringPtrInput `pulumi:"repoPrefixLocation"`
-}
-
-func (PackageStorageLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackageStorageLocation)(nil)).Elem()
-}
-
-func (i PackageStorageLocationArgs) ToPackageStorageLocationOutput() PackageStorageLocationOutput {
-	return i.ToPackageStorageLocationOutputWithContext(context.Background())
-}
-
-func (i PackageStorageLocationArgs) ToPackageStorageLocationOutputWithContext(ctx context.Context) PackageStorageLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationOutput)
-}
-
-func (i PackageStorageLocationArgs) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
-	return i.ToPackageStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (i PackageStorageLocationArgs) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationOutput).ToPackageStorageLocationPtrOutputWithContext(ctx)
-}
-
-// PackageStorageLocationPtrInput is an input type that accepts PackageStorageLocationArgs, PackageStorageLocationPtr and PackageStorageLocationPtrOutput values.
-// You can construct a concrete instance of `PackageStorageLocationPtrInput` via:
-//
-//          PackageStorageLocationArgs{...}
-//
-//  or:
-//
-//          nil
-type PackageStorageLocationPtrInput interface {
-	pulumi.Input
-
-	ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput
-	ToPackageStorageLocationPtrOutputWithContext(context.Context) PackageStorageLocationPtrOutput
-}
-
-type packageStorageLocationPtrType PackageStorageLocationArgs
-
-func PackageStorageLocationPtr(v *PackageStorageLocationArgs) PackageStorageLocationPtrInput {
-	return (*packageStorageLocationPtrType)(v)
-}
-
-func (*packageStorageLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PackageStorageLocation)(nil)).Elem()
-}
-
-func (i *packageStorageLocationPtrType) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
-	return i.ToPackageStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (i *packageStorageLocationPtrType) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationPtrOutput)
-}
-
 type PackageStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (PackageStorageLocationOutput) ElementType() reflect.Type {
@@ -474,16 +318,6 @@ func (o PackageStorageLocationOutput) ToPackageStorageLocationOutput() PackageSt
 
 func (o PackageStorageLocationOutput) ToPackageStorageLocationOutputWithContext(ctx context.Context) PackageStorageLocationOutput {
 	return o
-}
-
-func (o PackageStorageLocationOutput) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
-	return o.ToPackageStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (o PackageStorageLocationOutput) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackageStorageLocation) *PackageStorageLocation {
-		return &v
-	}).(PackageStorageLocationPtrOutput)
 }
 
 func (o PackageStorageLocationOutput) BinaryPrefixLocation() pulumi.StringPtrOutput {
@@ -504,75 +338,6 @@ func (o PackageStorageLocationOutput) ManifestPrefixLocation() pulumi.StringPtrO
 
 func (o PackageStorageLocationOutput) RepoPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackageStorageLocation) *string { return v.RepoPrefixLocation }).(pulumi.StringPtrOutput)
-}
-
-type PackageStorageLocationPtrOutput struct{ *pulumi.OutputState }
-
-func (PackageStorageLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PackageStorageLocation)(nil)).Elem()
-}
-
-func (o PackageStorageLocationPtrOutput) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
-	return o
-}
-
-func (o PackageStorageLocationPtrOutput) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
-	return o
-}
-
-func (o PackageStorageLocationPtrOutput) Elem() PackageStorageLocationOutput {
-	return o.ApplyT(func(v *PackageStorageLocation) PackageStorageLocation {
-		if v != nil {
-			return *v
-		}
-		var ret PackageStorageLocation
-		return ret
-	}).(PackageStorageLocationOutput)
-}
-
-func (o PackageStorageLocationPtrOutput) BinaryPrefixLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PackageStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BinaryPrefixLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PackageStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PackageStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PackageStorageLocationPtrOutput) GeneratedPrefixLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PackageStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GeneratedPrefixLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PackageStorageLocationPtrOutput) ManifestPrefixLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PackageStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManifestPrefixLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PackageStorageLocationPtrOutput) RepoPrefixLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PackageStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RepoPrefixLocation
-	}).(pulumi.StringPtrOutput)
 }
 
 type PackageTag struct {
@@ -679,21 +444,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestOverridesPayloadInput)(nil)).Elem(), ApplicationInstanceManifestOverridesPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestOverridesPayloadPtrInput)(nil)).Elem(), ApplicationInstanceManifestOverridesPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestPayloadInput)(nil)).Elem(), ApplicationInstanceManifestPayloadArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestPayloadPtrInput)(nil)).Elem(), ApplicationInstanceManifestPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceTagInput)(nil)).Elem(), ApplicationInstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceTagArrayInput)(nil)).Elem(), ApplicationInstanceTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PackageStorageLocationInput)(nil)).Elem(), PackageStorageLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PackageStorageLocationPtrInput)(nil)).Elem(), PackageStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackageTagInput)(nil)).Elem(), PackageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackageTagArrayInput)(nil)).Elem(), PackageTagArray{})
 	pulumi.RegisterOutputType(ApplicationInstanceManifestOverridesPayloadOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceManifestOverridesPayloadPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceManifestPayloadOutput{})
-	pulumi.RegisterOutputType(ApplicationInstanceManifestPayloadPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceTagOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceTagArrayOutput{})
 	pulumi.RegisterOutputType(PackageStorageLocationOutput{})
-	pulumi.RegisterOutputType(PackageStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(PackageTagOutput{})
 	pulumi.RegisterOutputType(PackageTagArrayOutput{})
 }

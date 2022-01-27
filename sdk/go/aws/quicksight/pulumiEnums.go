@@ -194,42 +194,6 @@ const (
 	AnalysisResourceStatusDeleted            = AnalysisResourceStatus("DELETED")
 )
 
-func (AnalysisResourceStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisResourceStatus)(nil)).Elem()
-}
-
-func (e AnalysisResourceStatus) ToAnalysisResourceStatusOutput() AnalysisResourceStatusOutput {
-	return pulumi.ToOutput(e).(AnalysisResourceStatusOutput)
-}
-
-func (e AnalysisResourceStatus) ToAnalysisResourceStatusOutputWithContext(ctx context.Context) AnalysisResourceStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AnalysisResourceStatusOutput)
-}
-
-func (e AnalysisResourceStatus) ToAnalysisResourceStatusPtrOutput() AnalysisResourceStatusPtrOutput {
-	return e.ToAnalysisResourceStatusPtrOutputWithContext(context.Background())
-}
-
-func (e AnalysisResourceStatus) ToAnalysisResourceStatusPtrOutputWithContext(ctx context.Context) AnalysisResourceStatusPtrOutput {
-	return AnalysisResourceStatus(e).ToAnalysisResourceStatusOutputWithContext(ctx).ToAnalysisResourceStatusPtrOutputWithContext(ctx)
-}
-
-func (e AnalysisResourceStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AnalysisResourceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AnalysisResourceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AnalysisResourceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type AnalysisResourceStatusOutput struct{ *pulumi.OutputState }
 
 func (AnalysisResourceStatusOutput) ElementType() reflect.Type {
@@ -311,44 +275,6 @@ func (o AnalysisResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// AnalysisResourceStatusInput is an input type that accepts AnalysisResourceStatusArgs and AnalysisResourceStatusOutput values.
-// You can construct a concrete instance of `AnalysisResourceStatusInput` via:
-//
-//          AnalysisResourceStatusArgs{...}
-type AnalysisResourceStatusInput interface {
-	pulumi.Input
-
-	ToAnalysisResourceStatusOutput() AnalysisResourceStatusOutput
-	ToAnalysisResourceStatusOutputWithContext(context.Context) AnalysisResourceStatusOutput
-}
-
-var analysisResourceStatusPtrType = reflect.TypeOf((**AnalysisResourceStatus)(nil)).Elem()
-
-type AnalysisResourceStatusPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisResourceStatusPtrOutput() AnalysisResourceStatusPtrOutput
-	ToAnalysisResourceStatusPtrOutputWithContext(context.Context) AnalysisResourceStatusPtrOutput
-}
-
-type analysisResourceStatusPtr string
-
-func AnalysisResourceStatusPtr(v string) AnalysisResourceStatusPtrInput {
-	return (*analysisResourceStatusPtr)(&v)
-}
-
-func (*analysisResourceStatusPtr) ElementType() reflect.Type {
-	return analysisResourceStatusPtrType
-}
-
-func (in *analysisResourceStatusPtr) ToAnalysisResourceStatusPtrOutput() AnalysisResourceStatusPtrOutput {
-	return pulumi.ToOutput(in).(AnalysisResourceStatusPtrOutput)
-}
-
-func (in *analysisResourceStatusPtr) ToAnalysisResourceStatusPtrOutputWithContext(ctx context.Context) AnalysisResourceStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AnalysisResourceStatusPtrOutput)
 }
 
 type DashboardBehavior string
@@ -530,42 +456,6 @@ const (
 	DashboardErrorTypeColumnReplacementMissing     = DashboardErrorType("COLUMN_REPLACEMENT_MISSING")
 )
 
-func (DashboardErrorType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardErrorType)(nil)).Elem()
-}
-
-func (e DashboardErrorType) ToDashboardErrorTypeOutput() DashboardErrorTypeOutput {
-	return pulumi.ToOutput(e).(DashboardErrorTypeOutput)
-}
-
-func (e DashboardErrorType) ToDashboardErrorTypeOutputWithContext(ctx context.Context) DashboardErrorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DashboardErrorTypeOutput)
-}
-
-func (e DashboardErrorType) ToDashboardErrorTypePtrOutput() DashboardErrorTypePtrOutput {
-	return e.ToDashboardErrorTypePtrOutputWithContext(context.Background())
-}
-
-func (e DashboardErrorType) ToDashboardErrorTypePtrOutputWithContext(ctx context.Context) DashboardErrorTypePtrOutput {
-	return DashboardErrorType(e).ToDashboardErrorTypeOutputWithContext(ctx).ToDashboardErrorTypePtrOutputWithContext(ctx)
-}
-
-func (e DashboardErrorType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DashboardErrorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DashboardErrorType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DashboardErrorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type DashboardErrorTypeOutput struct{ *pulumi.OutputState }
 
 func (DashboardErrorTypeOutput) ElementType() reflect.Type {
@@ -649,44 +539,6 @@ func (o DashboardErrorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashboardErrorTypeInput is an input type that accepts DashboardErrorTypeArgs and DashboardErrorTypeOutput values.
-// You can construct a concrete instance of `DashboardErrorTypeInput` via:
-//
-//          DashboardErrorTypeArgs{...}
-type DashboardErrorTypeInput interface {
-	pulumi.Input
-
-	ToDashboardErrorTypeOutput() DashboardErrorTypeOutput
-	ToDashboardErrorTypeOutputWithContext(context.Context) DashboardErrorTypeOutput
-}
-
-var dashboardErrorTypePtrType = reflect.TypeOf((**DashboardErrorType)(nil)).Elem()
-
-type DashboardErrorTypePtrInput interface {
-	pulumi.Input
-
-	ToDashboardErrorTypePtrOutput() DashboardErrorTypePtrOutput
-	ToDashboardErrorTypePtrOutputWithContext(context.Context) DashboardErrorTypePtrOutput
-}
-
-type dashboardErrorTypePtr string
-
-func DashboardErrorTypePtr(v string) DashboardErrorTypePtrInput {
-	return (*dashboardErrorTypePtr)(&v)
-}
-
-func (*dashboardErrorTypePtr) ElementType() reflect.Type {
-	return dashboardErrorTypePtrType
-}
-
-func (in *dashboardErrorTypePtr) ToDashboardErrorTypePtrOutput() DashboardErrorTypePtrOutput {
-	return pulumi.ToOutput(in).(DashboardErrorTypePtrOutput)
-}
-
-func (in *dashboardErrorTypePtr) ToDashboardErrorTypePtrOutputWithContext(ctx context.Context) DashboardErrorTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DashboardErrorTypePtrOutput)
-}
-
 type DashboardResourceStatus string
 
 const (
@@ -698,42 +550,6 @@ const (
 	DashboardResourceStatusUpdateFailed       = DashboardResourceStatus("UPDATE_FAILED")
 	DashboardResourceStatusDeleted            = DashboardResourceStatus("DELETED")
 )
-
-func (DashboardResourceStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardResourceStatus)(nil)).Elem()
-}
-
-func (e DashboardResourceStatus) ToDashboardResourceStatusOutput() DashboardResourceStatusOutput {
-	return pulumi.ToOutput(e).(DashboardResourceStatusOutput)
-}
-
-func (e DashboardResourceStatus) ToDashboardResourceStatusOutputWithContext(ctx context.Context) DashboardResourceStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DashboardResourceStatusOutput)
-}
-
-func (e DashboardResourceStatus) ToDashboardResourceStatusPtrOutput() DashboardResourceStatusPtrOutput {
-	return e.ToDashboardResourceStatusPtrOutputWithContext(context.Background())
-}
-
-func (e DashboardResourceStatus) ToDashboardResourceStatusPtrOutputWithContext(ctx context.Context) DashboardResourceStatusPtrOutput {
-	return DashboardResourceStatus(e).ToDashboardResourceStatusOutputWithContext(ctx).ToDashboardResourceStatusPtrOutputWithContext(ctx)
-}
-
-func (e DashboardResourceStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DashboardResourceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DashboardResourceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DashboardResourceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type DashboardResourceStatusOutput struct{ *pulumi.OutputState }
 
@@ -816,44 +632,6 @@ func (o DashboardResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// DashboardResourceStatusInput is an input type that accepts DashboardResourceStatusArgs and DashboardResourceStatusOutput values.
-// You can construct a concrete instance of `DashboardResourceStatusInput` via:
-//
-//          DashboardResourceStatusArgs{...}
-type DashboardResourceStatusInput interface {
-	pulumi.Input
-
-	ToDashboardResourceStatusOutput() DashboardResourceStatusOutput
-	ToDashboardResourceStatusOutputWithContext(context.Context) DashboardResourceStatusOutput
-}
-
-var dashboardResourceStatusPtrType = reflect.TypeOf((**DashboardResourceStatus)(nil)).Elem()
-
-type DashboardResourceStatusPtrInput interface {
-	pulumi.Input
-
-	ToDashboardResourceStatusPtrOutput() DashboardResourceStatusPtrOutput
-	ToDashboardResourceStatusPtrOutputWithContext(context.Context) DashboardResourceStatusPtrOutput
-}
-
-type dashboardResourceStatusPtr string
-
-func DashboardResourceStatusPtr(v string) DashboardResourceStatusPtrInput {
-	return (*dashboardResourceStatusPtr)(&v)
-}
-
-func (*dashboardResourceStatusPtr) ElementType() reflect.Type {
-	return dashboardResourceStatusPtrType
-}
-
-func (in *dashboardResourceStatusPtr) ToDashboardResourceStatusPtrOutput() DashboardResourceStatusPtrOutput {
-	return pulumi.ToOutput(in).(DashboardResourceStatusPtrOutput)
-}
-
-func (in *dashboardResourceStatusPtr) ToDashboardResourceStatusPtrOutputWithContext(ctx context.Context) DashboardResourceStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DashboardResourceStatusPtrOutput)
 }
 
 type DashboardUIState string
@@ -1029,42 +807,6 @@ const (
 	DataSetColumnDataTypeDatetime = DataSetColumnDataType("DATETIME")
 )
 
-func (DataSetColumnDataType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetColumnDataType)(nil)).Elem()
-}
-
-func (e DataSetColumnDataType) ToDataSetColumnDataTypeOutput() DataSetColumnDataTypeOutput {
-	return pulumi.ToOutput(e).(DataSetColumnDataTypeOutput)
-}
-
-func (e DataSetColumnDataType) ToDataSetColumnDataTypeOutputWithContext(ctx context.Context) DataSetColumnDataTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DataSetColumnDataTypeOutput)
-}
-
-func (e DataSetColumnDataType) ToDataSetColumnDataTypePtrOutput() DataSetColumnDataTypePtrOutput {
-	return e.ToDataSetColumnDataTypePtrOutputWithContext(context.Background())
-}
-
-func (e DataSetColumnDataType) ToDataSetColumnDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnDataTypePtrOutput {
-	return DataSetColumnDataType(e).ToDataSetColumnDataTypeOutputWithContext(ctx).ToDataSetColumnDataTypePtrOutputWithContext(ctx)
-}
-
-func (e DataSetColumnDataType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSetColumnDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSetColumnDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataSetColumnDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type DataSetColumnDataTypeOutput struct{ *pulumi.OutputState }
 
 func (DataSetColumnDataTypeOutput) ElementType() reflect.Type {
@@ -1146,44 +888,6 @@ func (o DataSetColumnDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// DataSetColumnDataTypeInput is an input type that accepts DataSetColumnDataTypeArgs and DataSetColumnDataTypeOutput values.
-// You can construct a concrete instance of `DataSetColumnDataTypeInput` via:
-//
-//          DataSetColumnDataTypeArgs{...}
-type DataSetColumnDataTypeInput interface {
-	pulumi.Input
-
-	ToDataSetColumnDataTypeOutput() DataSetColumnDataTypeOutput
-	ToDataSetColumnDataTypeOutputWithContext(context.Context) DataSetColumnDataTypeOutput
-}
-
-var dataSetColumnDataTypePtrType = reflect.TypeOf((**DataSetColumnDataType)(nil)).Elem()
-
-type DataSetColumnDataTypePtrInput interface {
-	pulumi.Input
-
-	ToDataSetColumnDataTypePtrOutput() DataSetColumnDataTypePtrOutput
-	ToDataSetColumnDataTypePtrOutputWithContext(context.Context) DataSetColumnDataTypePtrOutput
-}
-
-type dataSetColumnDataTypePtr string
-
-func DataSetColumnDataTypePtr(v string) DataSetColumnDataTypePtrInput {
-	return (*dataSetColumnDataTypePtr)(&v)
-}
-
-func (*dataSetColumnDataTypePtr) ElementType() reflect.Type {
-	return dataSetColumnDataTypePtrType
-}
-
-func (in *dataSetColumnDataTypePtr) ToDataSetColumnDataTypePtrOutput() DataSetColumnDataTypePtrOutput {
-	return pulumi.ToOutput(in).(DataSetColumnDataTypePtrOutput)
-}
-
-func (in *dataSetColumnDataTypePtr) ToDataSetColumnDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnDataTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DataSetColumnDataTypePtrOutput)
 }
 
 type DataSetGeoSpatialCountryCode string
@@ -2023,42 +1727,6 @@ const (
 	DataSourceResourceStatusDeleted            = DataSourceResourceStatus("DELETED")
 )
 
-func (DataSourceResourceStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceResourceStatus)(nil)).Elem()
-}
-
-func (e DataSourceResourceStatus) ToDataSourceResourceStatusOutput() DataSourceResourceStatusOutput {
-	return pulumi.ToOutput(e).(DataSourceResourceStatusOutput)
-}
-
-func (e DataSourceResourceStatus) ToDataSourceResourceStatusOutputWithContext(ctx context.Context) DataSourceResourceStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DataSourceResourceStatusOutput)
-}
-
-func (e DataSourceResourceStatus) ToDataSourceResourceStatusPtrOutput() DataSourceResourceStatusPtrOutput {
-	return e.ToDataSourceResourceStatusPtrOutputWithContext(context.Background())
-}
-
-func (e DataSourceResourceStatus) ToDataSourceResourceStatusPtrOutputWithContext(ctx context.Context) DataSourceResourceStatusPtrOutput {
-	return DataSourceResourceStatus(e).ToDataSourceResourceStatusOutputWithContext(ctx).ToDataSourceResourceStatusPtrOutputWithContext(ctx)
-}
-
-func (e DataSourceResourceStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSourceResourceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSourceResourceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataSourceResourceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type DataSourceResourceStatusOutput struct{ *pulumi.OutputState }
 
 func (DataSourceResourceStatusOutput) ElementType() reflect.Type {
@@ -2140,44 +1808,6 @@ func (o DataSourceResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// DataSourceResourceStatusInput is an input type that accepts DataSourceResourceStatusArgs and DataSourceResourceStatusOutput values.
-// You can construct a concrete instance of `DataSourceResourceStatusInput` via:
-//
-//          DataSourceResourceStatusArgs{...}
-type DataSourceResourceStatusInput interface {
-	pulumi.Input
-
-	ToDataSourceResourceStatusOutput() DataSourceResourceStatusOutput
-	ToDataSourceResourceStatusOutputWithContext(context.Context) DataSourceResourceStatusOutput
-}
-
-var dataSourceResourceStatusPtrType = reflect.TypeOf((**DataSourceResourceStatus)(nil)).Elem()
-
-type DataSourceResourceStatusPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceResourceStatusPtrOutput() DataSourceResourceStatusPtrOutput
-	ToDataSourceResourceStatusPtrOutputWithContext(context.Context) DataSourceResourceStatusPtrOutput
-}
-
-type dataSourceResourceStatusPtr string
-
-func DataSourceResourceStatusPtr(v string) DataSourceResourceStatusPtrInput {
-	return (*dataSourceResourceStatusPtr)(&v)
-}
-
-func (*dataSourceResourceStatusPtr) ElementType() reflect.Type {
-	return dataSourceResourceStatusPtrType
-}
-
-func (in *dataSourceResourceStatusPtr) ToDataSourceResourceStatusPtrOutput() DataSourceResourceStatusPtrOutput {
-	return pulumi.ToOutput(in).(DataSourceResourceStatusPtrOutput)
-}
-
-func (in *dataSourceResourceStatusPtr) ToDataSourceResourceStatusPtrOutputWithContext(ctx context.Context) DataSourceResourceStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DataSourceResourceStatusPtrOutput)
 }
 
 type DataSourceType string
@@ -2375,42 +2005,6 @@ const (
 	TemplateErrorTypeAccessDenied    = TemplateErrorType("ACCESS_DENIED")
 )
 
-func (TemplateErrorType) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateErrorType)(nil)).Elem()
-}
-
-func (e TemplateErrorType) ToTemplateErrorTypeOutput() TemplateErrorTypeOutput {
-	return pulumi.ToOutput(e).(TemplateErrorTypeOutput)
-}
-
-func (e TemplateErrorType) ToTemplateErrorTypeOutputWithContext(ctx context.Context) TemplateErrorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TemplateErrorTypeOutput)
-}
-
-func (e TemplateErrorType) ToTemplateErrorTypePtrOutput() TemplateErrorTypePtrOutput {
-	return e.ToTemplateErrorTypePtrOutputWithContext(context.Background())
-}
-
-func (e TemplateErrorType) ToTemplateErrorTypePtrOutputWithContext(ctx context.Context) TemplateErrorTypePtrOutput {
-	return TemplateErrorType(e).ToTemplateErrorTypeOutputWithContext(ctx).ToTemplateErrorTypePtrOutputWithContext(ctx)
-}
-
-func (e TemplateErrorType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TemplateErrorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TemplateErrorType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e TemplateErrorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type TemplateErrorTypeOutput struct{ *pulumi.OutputState }
 
 func (TemplateErrorTypeOutput) ElementType() reflect.Type {
@@ -2494,44 +2088,6 @@ func (o TemplateErrorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateErrorTypeInput is an input type that accepts TemplateErrorTypeArgs and TemplateErrorTypeOutput values.
-// You can construct a concrete instance of `TemplateErrorTypeInput` via:
-//
-//          TemplateErrorTypeArgs{...}
-type TemplateErrorTypeInput interface {
-	pulumi.Input
-
-	ToTemplateErrorTypeOutput() TemplateErrorTypeOutput
-	ToTemplateErrorTypeOutputWithContext(context.Context) TemplateErrorTypeOutput
-}
-
-var templateErrorTypePtrType = reflect.TypeOf((**TemplateErrorType)(nil)).Elem()
-
-type TemplateErrorTypePtrInput interface {
-	pulumi.Input
-
-	ToTemplateErrorTypePtrOutput() TemplateErrorTypePtrOutput
-	ToTemplateErrorTypePtrOutputWithContext(context.Context) TemplateErrorTypePtrOutput
-}
-
-type templateErrorTypePtr string
-
-func TemplateErrorTypePtr(v string) TemplateErrorTypePtrInput {
-	return (*templateErrorTypePtr)(&v)
-}
-
-func (*templateErrorTypePtr) ElementType() reflect.Type {
-	return templateErrorTypePtrType
-}
-
-func (in *templateErrorTypePtr) ToTemplateErrorTypePtrOutput() TemplateErrorTypePtrOutput {
-	return pulumi.ToOutput(in).(TemplateErrorTypePtrOutput)
-}
-
-func (in *templateErrorTypePtr) ToTemplateErrorTypePtrOutputWithContext(ctx context.Context) TemplateErrorTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TemplateErrorTypePtrOutput)
-}
-
 type TemplateResourceStatus string
 
 const (
@@ -2543,42 +2099,6 @@ const (
 	TemplateResourceStatusUpdateFailed       = TemplateResourceStatus("UPDATE_FAILED")
 	TemplateResourceStatusDeleted            = TemplateResourceStatus("DELETED")
 )
-
-func (TemplateResourceStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateResourceStatus)(nil)).Elem()
-}
-
-func (e TemplateResourceStatus) ToTemplateResourceStatusOutput() TemplateResourceStatusOutput {
-	return pulumi.ToOutput(e).(TemplateResourceStatusOutput)
-}
-
-func (e TemplateResourceStatus) ToTemplateResourceStatusOutputWithContext(ctx context.Context) TemplateResourceStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TemplateResourceStatusOutput)
-}
-
-func (e TemplateResourceStatus) ToTemplateResourceStatusPtrOutput() TemplateResourceStatusPtrOutput {
-	return e.ToTemplateResourceStatusPtrOutputWithContext(context.Background())
-}
-
-func (e TemplateResourceStatus) ToTemplateResourceStatusPtrOutputWithContext(ctx context.Context) TemplateResourceStatusPtrOutput {
-	return TemplateResourceStatus(e).ToTemplateResourceStatusOutputWithContext(ctx).ToTemplateResourceStatusPtrOutputWithContext(ctx)
-}
-
-func (e TemplateResourceStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TemplateResourceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TemplateResourceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e TemplateResourceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type TemplateResourceStatusOutput struct{ *pulumi.OutputState }
 
@@ -2663,85 +2183,11 @@ func (o TemplateResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateResourceStatusInput is an input type that accepts TemplateResourceStatusArgs and TemplateResourceStatusOutput values.
-// You can construct a concrete instance of `TemplateResourceStatusInput` via:
-//
-//          TemplateResourceStatusArgs{...}
-type TemplateResourceStatusInput interface {
-	pulumi.Input
-
-	ToTemplateResourceStatusOutput() TemplateResourceStatusOutput
-	ToTemplateResourceStatusOutputWithContext(context.Context) TemplateResourceStatusOutput
-}
-
-var templateResourceStatusPtrType = reflect.TypeOf((**TemplateResourceStatus)(nil)).Elem()
-
-type TemplateResourceStatusPtrInput interface {
-	pulumi.Input
-
-	ToTemplateResourceStatusPtrOutput() TemplateResourceStatusPtrOutput
-	ToTemplateResourceStatusPtrOutputWithContext(context.Context) TemplateResourceStatusPtrOutput
-}
-
-type templateResourceStatusPtr string
-
-func TemplateResourceStatusPtr(v string) TemplateResourceStatusPtrInput {
-	return (*templateResourceStatusPtr)(&v)
-}
-
-func (*templateResourceStatusPtr) ElementType() reflect.Type {
-	return templateResourceStatusPtrType
-}
-
-func (in *templateResourceStatusPtr) ToTemplateResourceStatusPtrOutput() TemplateResourceStatusPtrOutput {
-	return pulumi.ToOutput(in).(TemplateResourceStatusPtrOutput)
-}
-
-func (in *templateResourceStatusPtr) ToTemplateResourceStatusPtrOutputWithContext(ctx context.Context) TemplateResourceStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TemplateResourceStatusPtrOutput)
-}
-
 type ThemeErrorType string
 
 const (
 	ThemeErrorTypeInternalFailure = ThemeErrorType("INTERNAL_FAILURE")
 )
-
-func (ThemeErrorType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeErrorType)(nil)).Elem()
-}
-
-func (e ThemeErrorType) ToThemeErrorTypeOutput() ThemeErrorTypeOutput {
-	return pulumi.ToOutput(e).(ThemeErrorTypeOutput)
-}
-
-func (e ThemeErrorType) ToThemeErrorTypeOutputWithContext(ctx context.Context) ThemeErrorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ThemeErrorTypeOutput)
-}
-
-func (e ThemeErrorType) ToThemeErrorTypePtrOutput() ThemeErrorTypePtrOutput {
-	return e.ToThemeErrorTypePtrOutputWithContext(context.Background())
-}
-
-func (e ThemeErrorType) ToThemeErrorTypePtrOutputWithContext(ctx context.Context) ThemeErrorTypePtrOutput {
-	return ThemeErrorType(e).ToThemeErrorTypeOutputWithContext(ctx).ToThemeErrorTypePtrOutputWithContext(ctx)
-}
-
-func (e ThemeErrorType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ThemeErrorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ThemeErrorType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ThemeErrorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ThemeErrorTypeOutput struct{ *pulumi.OutputState }
 
@@ -2826,44 +2272,6 @@ func (o ThemeErrorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ThemeErrorTypeInput is an input type that accepts ThemeErrorTypeArgs and ThemeErrorTypeOutput values.
-// You can construct a concrete instance of `ThemeErrorTypeInput` via:
-//
-//          ThemeErrorTypeArgs{...}
-type ThemeErrorTypeInput interface {
-	pulumi.Input
-
-	ToThemeErrorTypeOutput() ThemeErrorTypeOutput
-	ToThemeErrorTypeOutputWithContext(context.Context) ThemeErrorTypeOutput
-}
-
-var themeErrorTypePtrType = reflect.TypeOf((**ThemeErrorType)(nil)).Elem()
-
-type ThemeErrorTypePtrInput interface {
-	pulumi.Input
-
-	ToThemeErrorTypePtrOutput() ThemeErrorTypePtrOutput
-	ToThemeErrorTypePtrOutputWithContext(context.Context) ThemeErrorTypePtrOutput
-}
-
-type themeErrorTypePtr string
-
-func ThemeErrorTypePtr(v string) ThemeErrorTypePtrInput {
-	return (*themeErrorTypePtr)(&v)
-}
-
-func (*themeErrorTypePtr) ElementType() reflect.Type {
-	return themeErrorTypePtrType
-}
-
-func (in *themeErrorTypePtr) ToThemeErrorTypePtrOutput() ThemeErrorTypePtrOutput {
-	return pulumi.ToOutput(in).(ThemeErrorTypePtrOutput)
-}
-
-func (in *themeErrorTypePtr) ToThemeErrorTypePtrOutputWithContext(ctx context.Context) ThemeErrorTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ThemeErrorTypePtrOutput)
-}
-
 type ThemeResourceStatus string
 
 const (
@@ -2875,42 +2283,6 @@ const (
 	ThemeResourceStatusUpdateFailed       = ThemeResourceStatus("UPDATE_FAILED")
 	ThemeResourceStatusDeleted            = ThemeResourceStatus("DELETED")
 )
-
-func (ThemeResourceStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeResourceStatus)(nil)).Elem()
-}
-
-func (e ThemeResourceStatus) ToThemeResourceStatusOutput() ThemeResourceStatusOutput {
-	return pulumi.ToOutput(e).(ThemeResourceStatusOutput)
-}
-
-func (e ThemeResourceStatus) ToThemeResourceStatusOutputWithContext(ctx context.Context) ThemeResourceStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ThemeResourceStatusOutput)
-}
-
-func (e ThemeResourceStatus) ToThemeResourceStatusPtrOutput() ThemeResourceStatusPtrOutput {
-	return e.ToThemeResourceStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ThemeResourceStatus) ToThemeResourceStatusPtrOutputWithContext(ctx context.Context) ThemeResourceStatusPtrOutput {
-	return ThemeResourceStatus(e).ToThemeResourceStatusOutputWithContext(ctx).ToThemeResourceStatusPtrOutputWithContext(ctx)
-}
-
-func (e ThemeResourceStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ThemeResourceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ThemeResourceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ThemeResourceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ThemeResourceStatusOutput struct{ *pulumi.OutputState }
 
@@ -2995,44 +2367,6 @@ func (o ThemeResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ThemeResourceStatusInput is an input type that accepts ThemeResourceStatusArgs and ThemeResourceStatusOutput values.
-// You can construct a concrete instance of `ThemeResourceStatusInput` via:
-//
-//          ThemeResourceStatusArgs{...}
-type ThemeResourceStatusInput interface {
-	pulumi.Input
-
-	ToThemeResourceStatusOutput() ThemeResourceStatusOutput
-	ToThemeResourceStatusOutputWithContext(context.Context) ThemeResourceStatusOutput
-}
-
-var themeResourceStatusPtrType = reflect.TypeOf((**ThemeResourceStatus)(nil)).Elem()
-
-type ThemeResourceStatusPtrInput interface {
-	pulumi.Input
-
-	ToThemeResourceStatusPtrOutput() ThemeResourceStatusPtrOutput
-	ToThemeResourceStatusPtrOutputWithContext(context.Context) ThemeResourceStatusPtrOutput
-}
-
-type themeResourceStatusPtr string
-
-func ThemeResourceStatusPtr(v string) ThemeResourceStatusPtrInput {
-	return (*themeResourceStatusPtr)(&v)
-}
-
-func (*themeResourceStatusPtr) ElementType() reflect.Type {
-	return themeResourceStatusPtrType
-}
-
-func (in *themeResourceStatusPtr) ToThemeResourceStatusPtrOutput() ThemeResourceStatusPtrOutput {
-	return pulumi.ToOutput(in).(ThemeResourceStatusPtrOutput)
-}
-
-func (in *themeResourceStatusPtr) ToThemeResourceStatusPtrOutputWithContext(ctx context.Context) ThemeResourceStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ThemeResourceStatusPtrOutput)
-}
-
 type ThemeType string
 
 const (
@@ -3040,42 +2374,6 @@ const (
 	ThemeTypeCustom     = ThemeType("CUSTOM")
 	ThemeTypeAll        = ThemeType("ALL")
 )
-
-func (ThemeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeType)(nil)).Elem()
-}
-
-func (e ThemeType) ToThemeTypeOutput() ThemeTypeOutput {
-	return pulumi.ToOutput(e).(ThemeTypeOutput)
-}
-
-func (e ThemeType) ToThemeTypeOutputWithContext(ctx context.Context) ThemeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ThemeTypeOutput)
-}
-
-func (e ThemeType) ToThemeTypePtrOutput() ThemeTypePtrOutput {
-	return e.ToThemeTypePtrOutputWithContext(context.Background())
-}
-
-func (e ThemeType) ToThemeTypePtrOutputWithContext(ctx context.Context) ThemeTypePtrOutput {
-	return ThemeType(e).ToThemeTypeOutputWithContext(ctx).ToThemeTypePtrOutputWithContext(ctx)
-}
-
-func (e ThemeType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ThemeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ThemeType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ThemeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ThemeTypeOutput struct{ *pulumi.OutputState }
 
@@ -3160,59 +2458,13 @@ func (o ThemeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ThemeTypeInput is an input type that accepts ThemeTypeArgs and ThemeTypeOutput values.
-// You can construct a concrete instance of `ThemeTypeInput` via:
-//
-//          ThemeTypeArgs{...}
-type ThemeTypeInput interface {
-	pulumi.Input
-
-	ToThemeTypeOutput() ThemeTypeOutput
-	ToThemeTypeOutputWithContext(context.Context) ThemeTypeOutput
-}
-
-var themeTypePtrType = reflect.TypeOf((**ThemeType)(nil)).Elem()
-
-type ThemeTypePtrInput interface {
-	pulumi.Input
-
-	ToThemeTypePtrOutput() ThemeTypePtrOutput
-	ToThemeTypePtrOutputWithContext(context.Context) ThemeTypePtrOutput
-}
-
-type themeTypePtr string
-
-func ThemeTypePtr(v string) ThemeTypePtrInput {
-	return (*themeTypePtr)(&v)
-}
-
-func (*themeTypePtr) ElementType() reflect.Type {
-	return themeTypePtrType
-}
-
-func (in *themeTypePtr) ToThemeTypePtrOutput() ThemeTypePtrOutput {
-	return pulumi.ToOutput(in).(ThemeTypePtrOutput)
-}
-
-func (in *themeTypePtr) ToThemeTypePtrOutputWithContext(ctx context.Context) ThemeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ThemeTypePtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisErrorTypeInput)(nil)).Elem(), AnalysisErrorType("ACCESS_DENIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisErrorTypePtrInput)(nil)).Elem(), AnalysisErrorType("ACCESS_DENIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisResourceStatusInput)(nil)).Elem(), AnalysisResourceStatus("CREATION_IN_PROGRESS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisResourceStatusPtrInput)(nil)).Elem(), AnalysisResourceStatus("CREATION_IN_PROGRESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBehaviorInput)(nil)).Elem(), DashboardBehavior("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBehaviorPtrInput)(nil)).Elem(), DashboardBehavior("ENABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardErrorTypeInput)(nil)).Elem(), DashboardErrorType("ACCESS_DENIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardErrorTypePtrInput)(nil)).Elem(), DashboardErrorType("ACCESS_DENIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardResourceStatusInput)(nil)).Elem(), DashboardResourceStatus("CREATION_IN_PROGRESS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardResourceStatusPtrInput)(nil)).Elem(), DashboardResourceStatus("CREATION_IN_PROGRESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUIStateInput)(nil)).Elem(), DashboardUIState("EXPANDED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUIStatePtrInput)(nil)).Elem(), DashboardUIState("EXPANDED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDataTypeInput)(nil)).Elem(), DataSetColumnDataType("STRING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDataTypePtrInput)(nil)).Elem(), DataSetColumnDataType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetGeoSpatialCountryCodeInput)(nil)).Elem(), DataSetGeoSpatialCountryCode("US"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetGeoSpatialCountryCodePtrInput)(nil)).Elem(), DataSetGeoSpatialCountryCode("US"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetImportModeInput)(nil)).Elem(), DataSetImportMode("SPICE"))
@@ -3223,20 +2475,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionPolicyPtrInput)(nil)).Elem(), DataSetRowLevelPermissionPolicy("GRANT_ACCESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoTypeInput)(nil)).Elem(), DataSourceErrorInfoType("ACCESS_DENIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoTypePtrInput)(nil)).Elem(), DataSourceErrorInfoType("ACCESS_DENIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceResourceStatusInput)(nil)).Elem(), DataSourceResourceStatus("CREATION_IN_PROGRESS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceResourceStatusPtrInput)(nil)).Elem(), DataSourceResourceStatus("CREATION_IN_PROGRESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateErrorTypeInput)(nil)).Elem(), TemplateErrorType("SOURCE_NOT_FOUND"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateErrorTypePtrInput)(nil)).Elem(), TemplateErrorType("SOURCE_NOT_FOUND"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateResourceStatusInput)(nil)).Elem(), TemplateResourceStatus("CREATION_IN_PROGRESS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateResourceStatusPtrInput)(nil)).Elem(), TemplateResourceStatus("CREATION_IN_PROGRESS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeErrorTypeInput)(nil)).Elem(), ThemeErrorType("INTERNAL_FAILURE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeErrorTypePtrInput)(nil)).Elem(), ThemeErrorType("INTERNAL_FAILURE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeResourceStatusInput)(nil)).Elem(), ThemeResourceStatus("CREATION_IN_PROGRESS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeResourceStatusPtrInput)(nil)).Elem(), ThemeResourceStatus("CREATION_IN_PROGRESS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTypeInput)(nil)).Elem(), ThemeType("QUICKSIGHT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTypePtrInput)(nil)).Elem(), ThemeType("QUICKSIGHT"))
 	pulumi.RegisterOutputType(AnalysisErrorTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisErrorTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisResourceStatusOutput{})

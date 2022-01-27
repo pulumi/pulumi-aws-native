@@ -90,7 +90,7 @@ type BotVersionInput interface {
 }
 
 func (*BotVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotVersion)(nil))
+	return reflect.TypeOf((**BotVersion)(nil)).Elem()
 }
 
 func (i *BotVersion) ToBotVersionOutput() BotVersionOutput {
@@ -104,7 +104,7 @@ func (i *BotVersion) ToBotVersionOutputWithContext(ctx context.Context) BotVersi
 type BotVersionOutput struct{ *pulumi.OutputState }
 
 func (BotVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotVersion)(nil))
+	return reflect.TypeOf((**BotVersion)(nil)).Elem()
 }
 
 func (o BotVersionOutput) ToBotVersionOutput() BotVersionOutput {

@@ -91,7 +91,7 @@ type FunctionDefinitionVersionInput interface {
 }
 
 func (*FunctionDefinitionVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionDefinitionVersion)(nil))
+	return reflect.TypeOf((**FunctionDefinitionVersion)(nil)).Elem()
 }
 
 func (i *FunctionDefinitionVersion) ToFunctionDefinitionVersionOutput() FunctionDefinitionVersionOutput {
@@ -105,7 +105,7 @@ func (i *FunctionDefinitionVersion) ToFunctionDefinitionVersionOutputWithContext
 type FunctionDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionDefinitionVersion)(nil))
+	return reflect.TypeOf((**FunctionDefinitionVersion)(nil)).Elem()
 }
 
 func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutput() FunctionDefinitionVersionOutput {

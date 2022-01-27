@@ -118,7 +118,7 @@ type ScalableTargetInput interface {
 }
 
 func (*ScalableTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalableTarget)(nil))
+	return reflect.TypeOf((**ScalableTarget)(nil)).Elem()
 }
 
 func (i *ScalableTarget) ToScalableTargetOutput() ScalableTargetOutput {
@@ -132,7 +132,7 @@ func (i *ScalableTarget) ToScalableTargetOutputWithContext(ctx context.Context) 
 type ScalableTargetOutput struct{ *pulumi.OutputState }
 
 func (ScalableTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalableTarget)(nil))
+	return reflect.TypeOf((**ScalableTarget)(nil)).Elem()
 }
 
 func (o ScalableTargetOutput) ToScalableTargetOutput() ScalableTargetOutput {

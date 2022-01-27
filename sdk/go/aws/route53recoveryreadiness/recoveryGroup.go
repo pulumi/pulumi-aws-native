@@ -93,7 +93,7 @@ type RecoveryGroupInput interface {
 }
 
 func (*RecoveryGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryGroup)(nil))
+	return reflect.TypeOf((**RecoveryGroup)(nil)).Elem()
 }
 
 func (i *RecoveryGroup) ToRecoveryGroupOutput() RecoveryGroupOutput {
@@ -107,7 +107,7 @@ func (i *RecoveryGroup) ToRecoveryGroupOutputWithContext(ctx context.Context) Re
 type RecoveryGroupOutput struct{ *pulumi.OutputState }
 
 func (RecoveryGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryGroup)(nil))
+	return reflect.TypeOf((**RecoveryGroup)(nil)).Elem()
 }
 
 func (o RecoveryGroupOutput) ToRecoveryGroupOutput() RecoveryGroupOutput {

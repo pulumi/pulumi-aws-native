@@ -18,42 +18,6 @@ const (
 	AccessPointNetworkOriginVpc      = AccessPointNetworkOrigin("VPC")
 )
 
-func (AccessPointNetworkOrigin) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointNetworkOrigin)(nil)).Elem()
-}
-
-func (e AccessPointNetworkOrigin) ToAccessPointNetworkOriginOutput() AccessPointNetworkOriginOutput {
-	return pulumi.ToOutput(e).(AccessPointNetworkOriginOutput)
-}
-
-func (e AccessPointNetworkOrigin) ToAccessPointNetworkOriginOutputWithContext(ctx context.Context) AccessPointNetworkOriginOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AccessPointNetworkOriginOutput)
-}
-
-func (e AccessPointNetworkOrigin) ToAccessPointNetworkOriginPtrOutput() AccessPointNetworkOriginPtrOutput {
-	return e.ToAccessPointNetworkOriginPtrOutputWithContext(context.Background())
-}
-
-func (e AccessPointNetworkOrigin) ToAccessPointNetworkOriginPtrOutputWithContext(ctx context.Context) AccessPointNetworkOriginPtrOutput {
-	return AccessPointNetworkOrigin(e).ToAccessPointNetworkOriginOutputWithContext(ctx).ToAccessPointNetworkOriginPtrOutputWithContext(ctx)
-}
-
-func (e AccessPointNetworkOrigin) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AccessPointNetworkOrigin) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AccessPointNetworkOrigin) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AccessPointNetworkOrigin) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type AccessPointNetworkOriginOutput struct{ *pulumi.OutputState }
 
 func (AccessPointNetworkOriginOutput) ElementType() reflect.Type {
@@ -137,44 +101,6 @@ func (o AccessPointNetworkOriginPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccessPointNetworkOriginInput is an input type that accepts AccessPointNetworkOriginArgs and AccessPointNetworkOriginOutput values.
-// You can construct a concrete instance of `AccessPointNetworkOriginInput` via:
-//
-//          AccessPointNetworkOriginArgs{...}
-type AccessPointNetworkOriginInput interface {
-	pulumi.Input
-
-	ToAccessPointNetworkOriginOutput() AccessPointNetworkOriginOutput
-	ToAccessPointNetworkOriginOutputWithContext(context.Context) AccessPointNetworkOriginOutput
-}
-
-var accessPointNetworkOriginPtrType = reflect.TypeOf((**AccessPointNetworkOrigin)(nil)).Elem()
-
-type AccessPointNetworkOriginPtrInput interface {
-	pulumi.Input
-
-	ToAccessPointNetworkOriginPtrOutput() AccessPointNetworkOriginPtrOutput
-	ToAccessPointNetworkOriginPtrOutputWithContext(context.Context) AccessPointNetworkOriginPtrOutput
-}
-
-type accessPointNetworkOriginPtr string
-
-func AccessPointNetworkOriginPtr(v string) AccessPointNetworkOriginPtrInput {
-	return (*accessPointNetworkOriginPtr)(&v)
-}
-
-func (*accessPointNetworkOriginPtr) ElementType() reflect.Type {
-	return accessPointNetworkOriginPtrType
-}
-
-func (in *accessPointNetworkOriginPtr) ToAccessPointNetworkOriginPtrOutput() AccessPointNetworkOriginPtrOutput {
-	return pulumi.ToOutput(in).(AccessPointNetworkOriginPtrOutput)
-}
-
-func (in *accessPointNetworkOriginPtr) ToAccessPointNetworkOriginPtrOutputWithContext(ctx context.Context) AccessPointNetworkOriginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AccessPointNetworkOriginPtrOutput)
-}
-
 // Specifies whether the policy is public or not.
 type AccessPointPolicyStatusPropertiesIsPublic string
 
@@ -182,163 +108,6 @@ const (
 	AccessPointPolicyStatusPropertiesIsPublicTrue  = AccessPointPolicyStatusPropertiesIsPublic("true")
 	AccessPointPolicyStatusPropertiesIsPublicFalse = AccessPointPolicyStatusPropertiesIsPublic("false")
 )
-
-func (AccessPointPolicyStatusPropertiesIsPublic) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointPolicyStatusPropertiesIsPublic)(nil)).Elem()
-}
-
-func (e AccessPointPolicyStatusPropertiesIsPublic) ToAccessPointPolicyStatusPropertiesIsPublicOutput() AccessPointPolicyStatusPropertiesIsPublicOutput {
-	return pulumi.ToOutput(e).(AccessPointPolicyStatusPropertiesIsPublicOutput)
-}
-
-func (e AccessPointPolicyStatusPropertiesIsPublic) ToAccessPointPolicyStatusPropertiesIsPublicOutputWithContext(ctx context.Context) AccessPointPolicyStatusPropertiesIsPublicOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AccessPointPolicyStatusPropertiesIsPublicOutput)
-}
-
-func (e AccessPointPolicyStatusPropertiesIsPublic) ToAccessPointPolicyStatusPropertiesIsPublicPtrOutput() AccessPointPolicyStatusPropertiesIsPublicPtrOutput {
-	return e.ToAccessPointPolicyStatusPropertiesIsPublicPtrOutputWithContext(context.Background())
-}
-
-func (e AccessPointPolicyStatusPropertiesIsPublic) ToAccessPointPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx context.Context) AccessPointPolicyStatusPropertiesIsPublicPtrOutput {
-	return AccessPointPolicyStatusPropertiesIsPublic(e).ToAccessPointPolicyStatusPropertiesIsPublicOutputWithContext(ctx).ToAccessPointPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx)
-}
-
-func (e AccessPointPolicyStatusPropertiesIsPublic) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AccessPointPolicyStatusPropertiesIsPublic) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AccessPointPolicyStatusPropertiesIsPublic) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AccessPointPolicyStatusPropertiesIsPublic) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AccessPointPolicyStatusPropertiesIsPublicOutput struct{ *pulumi.OutputState }
-
-func (AccessPointPolicyStatusPropertiesIsPublicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointPolicyStatusPropertiesIsPublic)(nil)).Elem()
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicOutput) ToAccessPointPolicyStatusPropertiesIsPublicOutput() AccessPointPolicyStatusPropertiesIsPublicOutput {
-	return o
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicOutput) ToAccessPointPolicyStatusPropertiesIsPublicOutputWithContext(ctx context.Context) AccessPointPolicyStatusPropertiesIsPublicOutput {
-	return o
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicOutput) ToAccessPointPolicyStatusPropertiesIsPublicPtrOutput() AccessPointPolicyStatusPropertiesIsPublicPtrOutput {
-	return o.ToAccessPointPolicyStatusPropertiesIsPublicPtrOutputWithContext(context.Background())
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicOutput) ToAccessPointPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx context.Context) AccessPointPolicyStatusPropertiesIsPublicPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPolicyStatusPropertiesIsPublic) *AccessPointPolicyStatusPropertiesIsPublic {
-		return &v
-	}).(AccessPointPolicyStatusPropertiesIsPublicPtrOutput)
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPointPolicyStatusPropertiesIsPublic) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPointPolicyStatusPropertiesIsPublic) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AccessPointPolicyStatusPropertiesIsPublicPtrOutput struct{ *pulumi.OutputState }
-
-func (AccessPointPolicyStatusPropertiesIsPublicPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPointPolicyStatusPropertiesIsPublic)(nil)).Elem()
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicPtrOutput) ToAccessPointPolicyStatusPropertiesIsPublicPtrOutput() AccessPointPolicyStatusPropertiesIsPublicPtrOutput {
-	return o
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicPtrOutput) ToAccessPointPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx context.Context) AccessPointPolicyStatusPropertiesIsPublicPtrOutput {
-	return o
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicPtrOutput) Elem() AccessPointPolicyStatusPropertiesIsPublicOutput {
-	return o.ApplyT(func(v *AccessPointPolicyStatusPropertiesIsPublic) AccessPointPolicyStatusPropertiesIsPublic {
-		if v != nil {
-			return *v
-		}
-		var ret AccessPointPolicyStatusPropertiesIsPublic
-		return ret
-	}).(AccessPointPolicyStatusPropertiesIsPublicOutput)
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AccessPointPolicyStatusPropertiesIsPublicPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessPointPolicyStatusPropertiesIsPublic) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AccessPointPolicyStatusPropertiesIsPublicInput is an input type that accepts AccessPointPolicyStatusPropertiesIsPublicArgs and AccessPointPolicyStatusPropertiesIsPublicOutput values.
-// You can construct a concrete instance of `AccessPointPolicyStatusPropertiesIsPublicInput` via:
-//
-//          AccessPointPolicyStatusPropertiesIsPublicArgs{...}
-type AccessPointPolicyStatusPropertiesIsPublicInput interface {
-	pulumi.Input
-
-	ToAccessPointPolicyStatusPropertiesIsPublicOutput() AccessPointPolicyStatusPropertiesIsPublicOutput
-	ToAccessPointPolicyStatusPropertiesIsPublicOutputWithContext(context.Context) AccessPointPolicyStatusPropertiesIsPublicOutput
-}
-
-var accessPointPolicyStatusPropertiesIsPublicPtrType = reflect.TypeOf((**AccessPointPolicyStatusPropertiesIsPublic)(nil)).Elem()
-
-type AccessPointPolicyStatusPropertiesIsPublicPtrInput interface {
-	pulumi.Input
-
-	ToAccessPointPolicyStatusPropertiesIsPublicPtrOutput() AccessPointPolicyStatusPropertiesIsPublicPtrOutput
-	ToAccessPointPolicyStatusPropertiesIsPublicPtrOutputWithContext(context.Context) AccessPointPolicyStatusPropertiesIsPublicPtrOutput
-}
-
-type accessPointPolicyStatusPropertiesIsPublicPtr string
-
-func AccessPointPolicyStatusPropertiesIsPublicPtr(v string) AccessPointPolicyStatusPropertiesIsPublicPtrInput {
-	return (*accessPointPolicyStatusPropertiesIsPublicPtr)(&v)
-}
-
-func (*accessPointPolicyStatusPropertiesIsPublicPtr) ElementType() reflect.Type {
-	return accessPointPolicyStatusPropertiesIsPublicPtrType
-}
-
-func (in *accessPointPolicyStatusPropertiesIsPublicPtr) ToAccessPointPolicyStatusPropertiesIsPublicPtrOutput() AccessPointPolicyStatusPropertiesIsPublicPtrOutput {
-	return pulumi.ToOutput(in).(AccessPointPolicyStatusPropertiesIsPublicPtrOutput)
-}
-
-func (in *accessPointPolicyStatusPropertiesIsPublicPtr) ToAccessPointPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx context.Context) AccessPointPolicyStatusPropertiesIsPublicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AccessPointPolicyStatusPropertiesIsPublicPtrOutput)
-}
 
 // Configures the transfer acceleration state for an Amazon S3 bucket.
 type BucketAccelerateConfigurationAccelerationStatus string
@@ -5075,10 +4844,6 @@ func (in *storageLensS3BucketDestinationOutputSchemaVersionPtr) ToStorageLensS3B
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointNetworkOriginInput)(nil)).Elem(), AccessPointNetworkOrigin("Internet"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointNetworkOriginPtrInput)(nil)).Elem(), AccessPointNetworkOrigin("Internet"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPolicyStatusPropertiesIsPublicInput)(nil)).Elem(), AccessPointPolicyStatusPropertiesIsPublic("true"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPolicyStatusPropertiesIsPublicPtrInput)(nil)).Elem(), AccessPointPolicyStatusPropertiesIsPublic("true"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccelerateConfigurationAccelerationStatusInput)(nil)).Elem(), BucketAccelerateConfigurationAccelerationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccelerateConfigurationAccelerationStatusPtrInput)(nil)).Elem(), BucketAccelerateConfigurationAccelerationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessControlInput)(nil)).Elem(), BucketAccessControl("AuthenticatedRead"))
@@ -5139,8 +4904,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationOutputSchemaVersionPtrInput)(nil)).Elem(), StorageLensS3BucketDestinationOutputSchemaVersion("V_1"))
 	pulumi.RegisterOutputType(AccessPointNetworkOriginOutput{})
 	pulumi.RegisterOutputType(AccessPointNetworkOriginPtrOutput{})
-	pulumi.RegisterOutputType(AccessPointPolicyStatusPropertiesIsPublicOutput{})
-	pulumi.RegisterOutputType(AccessPointPolicyStatusPropertiesIsPublicPtrOutput{})
 	pulumi.RegisterOutputType(BucketAccelerateConfigurationAccelerationStatusOutput{})
 	pulumi.RegisterOutputType(BucketAccelerateConfigurationAccelerationStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketAccessControlOutput{})

@@ -98,7 +98,7 @@ type DocumentationVersionInput interface {
 }
 
 func (*DocumentationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationVersion)(nil))
+	return reflect.TypeOf((**DocumentationVersion)(nil)).Elem()
 }
 
 func (i *DocumentationVersion) ToDocumentationVersionOutput() DocumentationVersionOutput {
@@ -112,7 +112,7 @@ func (i *DocumentationVersion) ToDocumentationVersionOutputWithContext(ctx conte
 type DocumentationVersionOutput struct{ *pulumi.OutputState }
 
 func (DocumentationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationVersion)(nil))
+	return reflect.TypeOf((**DocumentationVersion)(nil)).Elem()
 }
 
 func (o DocumentationVersionOutput) ToDocumentationVersionOutput() DocumentationVersionOutput {

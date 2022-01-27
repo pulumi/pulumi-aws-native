@@ -112,7 +112,7 @@ type ReportPlanInput interface {
 }
 
 func (*ReportPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportPlan)(nil))
+	return reflect.TypeOf((**ReportPlan)(nil)).Elem()
 }
 
 func (i *ReportPlan) ToReportPlanOutput() ReportPlanOutput {
@@ -126,7 +126,7 @@ func (i *ReportPlan) ToReportPlanOutputWithContext(ctx context.Context) ReportPl
 type ReportPlanOutput struct{ *pulumi.OutputState }
 
 func (ReportPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportPlan)(nil))
+	return reflect.TypeOf((**ReportPlan)(nil)).Elem()
 }
 
 func (o ReportPlanOutput) ToReportPlanOutput() ReportPlanOutput {

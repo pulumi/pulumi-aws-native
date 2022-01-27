@@ -135,7 +135,7 @@ type GlobalReplicationGroupInput interface {
 }
 
 func (*GlobalReplicationGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReplicationGroup)(nil))
+	return reflect.TypeOf((**GlobalReplicationGroup)(nil)).Elem()
 }
 
 func (i *GlobalReplicationGroup) ToGlobalReplicationGroupOutput() GlobalReplicationGroupOutput {
@@ -149,7 +149,7 @@ func (i *GlobalReplicationGroup) ToGlobalReplicationGroupOutputWithContext(ctx c
 type GlobalReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReplicationGroup)(nil))
+	return reflect.TypeOf((**GlobalReplicationGroup)(nil)).Elem()
 }
 
 func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutput() GlobalReplicationGroupOutput {

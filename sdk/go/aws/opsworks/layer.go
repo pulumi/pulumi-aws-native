@@ -151,7 +151,7 @@ type LayerInput interface {
 }
 
 func (*Layer) ElementType() reflect.Type {
-	return reflect.TypeOf((*Layer)(nil))
+	return reflect.TypeOf((**Layer)(nil)).Elem()
 }
 
 func (i *Layer) ToLayerOutput() LayerOutput {
@@ -165,7 +165,7 @@ func (i *Layer) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
 type LayerOutput struct{ *pulumi.OutputState }
 
 func (LayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Layer)(nil))
+	return reflect.TypeOf((**Layer)(nil)).Elem()
 }
 
 func (o LayerOutput) ToLayerOutput() LayerOutput {

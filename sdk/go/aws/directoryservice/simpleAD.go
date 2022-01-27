@@ -111,7 +111,7 @@ type SimpleADInput interface {
 }
 
 func (*SimpleAD) ElementType() reflect.Type {
-	return reflect.TypeOf((*SimpleAD)(nil))
+	return reflect.TypeOf((**SimpleAD)(nil)).Elem()
 }
 
 func (i *SimpleAD) ToSimpleADOutput() SimpleADOutput {
@@ -125,7 +125,7 @@ func (i *SimpleAD) ToSimpleADOutputWithContext(ctx context.Context) SimpleADOutp
 type SimpleADOutput struct{ *pulumi.OutputState }
 
 func (SimpleADOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SimpleAD)(nil))
+	return reflect.TypeOf((**SimpleAD)(nil)).Elem()
 }
 
 func (o SimpleADOutput) ToSimpleADOutput() SimpleADOutput {

@@ -332,47 +332,6 @@ func (i ConfigRuleSourceArgs) ToConfigRuleSourceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceOutput)
 }
 
-func (i ConfigRuleSourceArgs) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
-	return i.ToConfigRuleSourcePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigRuleSourceArgs) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceOutput).ToConfigRuleSourcePtrOutputWithContext(ctx)
-}
-
-// ConfigRuleSourcePtrInput is an input type that accepts ConfigRuleSourceArgs, ConfigRuleSourcePtr and ConfigRuleSourcePtrOutput values.
-// You can construct a concrete instance of `ConfigRuleSourcePtrInput` via:
-//
-//          ConfigRuleSourceArgs{...}
-//
-//  or:
-//
-//          nil
-type ConfigRuleSourcePtrInput interface {
-	pulumi.Input
-
-	ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput
-	ToConfigRuleSourcePtrOutputWithContext(context.Context) ConfigRuleSourcePtrOutput
-}
-
-type configRuleSourcePtrType ConfigRuleSourceArgs
-
-func ConfigRuleSourcePtr(v *ConfigRuleSourceArgs) ConfigRuleSourcePtrInput {
-	return (*configRuleSourcePtrType)(v)
-}
-
-func (*configRuleSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigRuleSource)(nil)).Elem()
-}
-
-func (i *configRuleSourcePtrType) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
-	return i.ToConfigRuleSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *configRuleSourcePtrType) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourcePtrOutput)
-}
-
 type ConfigRuleSourceOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleSourceOutput) ElementType() reflect.Type {
@@ -387,16 +346,6 @@ func (o ConfigRuleSourceOutput) ToConfigRuleSourceOutputWithContext(ctx context.
 	return o
 }
 
-func (o ConfigRuleSourceOutput) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
-	return o.ToConfigRuleSourcePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigRuleSourceOutput) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigRuleSource) *ConfigRuleSource {
-		return &v
-	}).(ConfigRuleSourcePtrOutput)
-}
-
 func (o ConfigRuleSourceOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSource) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -407,57 +356,6 @@ func (o ConfigRuleSourceOutput) SourceDetails() ConfigRuleSourceDetailArrayOutpu
 
 func (o ConfigRuleSourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
-}
-
-type ConfigRuleSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigRuleSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigRuleSource)(nil)).Elem()
-}
-
-func (o ConfigRuleSourcePtrOutput) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
-	return o
-}
-
-func (o ConfigRuleSourcePtrOutput) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
-	return o
-}
-
-func (o ConfigRuleSourcePtrOutput) Elem() ConfigRuleSourceOutput {
-	return o.ApplyT(func(v *ConfigRuleSource) ConfigRuleSource {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigRuleSource
-		return ret
-	}).(ConfigRuleSourceOutput)
-}
-
-func (o ConfigRuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigRuleSource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Owner
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigRuleSourcePtrOutput) SourceDetails() ConfigRuleSourceDetailArrayOutput {
-	return o.ApplyT(func(v *ConfigRuleSource) []ConfigRuleSourceDetail {
-		if v == nil {
-			return nil
-		}
-		return v.SourceDetails
-	}).(ConfigRuleSourceDetailArrayOutput)
-}
-
-func (o ConfigRuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigRuleSource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceIdentifier
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigRuleSourceDetail struct {
@@ -2341,7 +2239,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleScopeInput)(nil)).Elem(), ConfigRuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleScopePtrInput)(nil)).Elem(), ConfigRuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleSourceInput)(nil)).Elem(), ConfigRuleSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleSourcePtrInput)(nil)).Elem(), ConfigRuleSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleSourceDetailInput)(nil)).Elem(), ConfigRuleSourceDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleSourceDetailArrayInput)(nil)).Elem(), ConfigRuleSourceDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorAccountAggregationSourceInput)(nil)).Elem(), ConfigurationAggregatorAccountAggregationSourceArgs{})
@@ -2373,7 +2270,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigRuleScopeOutput{})
 	pulumi.RegisterOutputType(ConfigRuleScopePtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleSourceOutput{})
-	pulumi.RegisterOutputType(ConfigRuleSourcePtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleSourceDetailOutput{})
 	pulumi.RegisterOutputType(ConfigRuleSourceDetailArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceOutput{})

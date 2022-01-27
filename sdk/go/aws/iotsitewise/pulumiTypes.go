@@ -327,47 +327,6 @@ func (i AccessPolicyIdentityArgs) ToAccessPolicyIdentityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIdentityOutput)
 }
 
-func (i AccessPolicyIdentityArgs) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
-	return i.ToAccessPolicyIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyIdentityArgs) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIdentityOutput).ToAccessPolicyIdentityPtrOutputWithContext(ctx)
-}
-
-// AccessPolicyIdentityPtrInput is an input type that accepts AccessPolicyIdentityArgs, AccessPolicyIdentityPtr and AccessPolicyIdentityPtrOutput values.
-// You can construct a concrete instance of `AccessPolicyIdentityPtrInput` via:
-//
-//          AccessPolicyIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type AccessPolicyIdentityPtrInput interface {
-	pulumi.Input
-
-	ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput
-	ToAccessPolicyIdentityPtrOutputWithContext(context.Context) AccessPolicyIdentityPtrOutput
-}
-
-type accessPolicyIdentityPtrType AccessPolicyIdentityArgs
-
-func AccessPolicyIdentityPtr(v *AccessPolicyIdentityArgs) AccessPolicyIdentityPtrInput {
-	return (*accessPolicyIdentityPtrType)(v)
-}
-
-func (*accessPolicyIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyIdentity)(nil)).Elem()
-}
-
-func (i *accessPolicyIdentityPtrType) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
-	return i.ToAccessPolicyIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *accessPolicyIdentityPtrType) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIdentityPtrOutput)
-}
-
 // The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyIdentityOutput struct{ *pulumi.OutputState }
 
@@ -383,16 +342,6 @@ func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityOutputWithContext(ctx 
 	return o
 }
 
-func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
-	return o.ToAccessPolicyIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyIdentity) *AccessPolicyIdentity {
-		return &v
-	}).(AccessPolicyIdentityPtrOutput)
-}
-
 func (o AccessPolicyIdentityOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyIamRole { return v.IamRole }).(AccessPolicyIamRolePtrOutput)
 }
@@ -403,57 +352,6 @@ func (o AccessPolicyIdentityOutput) IamUser() AccessPolicyIamUserPtrOutput {
 
 func (o AccessPolicyIdentityOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyUser { return v.User }).(AccessPolicyUserPtrOutput)
-}
-
-type AccessPolicyIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyIdentity)(nil)).Elem()
-}
-
-func (o AccessPolicyIdentityPtrOutput) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
-	return o
-}
-
-func (o AccessPolicyIdentityPtrOutput) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
-	return o
-}
-
-func (o AccessPolicyIdentityPtrOutput) Elem() AccessPolicyIdentityOutput {
-	return o.ApplyT(func(v *AccessPolicyIdentity) AccessPolicyIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret AccessPolicyIdentity
-		return ret
-	}).(AccessPolicyIdentityOutput)
-}
-
-func (o AccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
-	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamRole {
-		if v == nil {
-			return nil
-		}
-		return v.IamRole
-	}).(AccessPolicyIamRolePtrOutput)
-}
-
-func (o AccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamUser {
-		if v == nil {
-			return nil
-		}
-		return v.IamUser
-	}).(AccessPolicyIamUserPtrOutput)
-}
-
-func (o AccessPolicyIdentityPtrOutput) User() AccessPolicyUserPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyUser {
-		if v == nil {
-			return nil
-		}
-		return v.User
-	}).(AccessPolicyUserPtrOutput)
 }
 
 // A portal resource.
@@ -771,47 +669,6 @@ func (i AccessPolicyResourceArgs) ToAccessPolicyResourceOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResourceOutput)
 }
 
-func (i AccessPolicyResourceArgs) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
-	return i.ToAccessPolicyResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyResourceArgs) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResourceOutput).ToAccessPolicyResourcePtrOutputWithContext(ctx)
-}
-
-// AccessPolicyResourcePtrInput is an input type that accepts AccessPolicyResourceArgs, AccessPolicyResourcePtr and AccessPolicyResourcePtrOutput values.
-// You can construct a concrete instance of `AccessPolicyResourcePtrInput` via:
-//
-//          AccessPolicyResourceArgs{...}
-//
-//  or:
-//
-//          nil
-type AccessPolicyResourcePtrInput interface {
-	pulumi.Input
-
-	ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput
-	ToAccessPolicyResourcePtrOutputWithContext(context.Context) AccessPolicyResourcePtrOutput
-}
-
-type accessPolicyResourcePtrType AccessPolicyResourceArgs
-
-func AccessPolicyResourcePtr(v *AccessPolicyResourceArgs) AccessPolicyResourcePtrInput {
-	return (*accessPolicyResourcePtrType)(v)
-}
-
-func (*accessPolicyResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyResource)(nil)).Elem()
-}
-
-func (i *accessPolicyResourcePtrType) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
-	return i.ToAccessPolicyResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *accessPolicyResourcePtrType) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResourcePtrOutput)
-}
-
 // The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
 type AccessPolicyResourceOutput struct{ *pulumi.OutputState }
 
@@ -827,64 +684,12 @@ func (o AccessPolicyResourceOutput) ToAccessPolicyResourceOutputWithContext(ctx 
 	return o
 }
 
-func (o AccessPolicyResourceOutput) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
-	return o.ToAccessPolicyResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AccessPolicyResourceOutput) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyResource) *AccessPolicyResource {
-		return &v
-	}).(AccessPolicyResourcePtrOutput)
-}
-
 func (o AccessPolicyResourceOutput) Portal() AccessPolicyPortalPtrOutput {
 	return o.ApplyT(func(v AccessPolicyResource) *AccessPolicyPortal { return v.Portal }).(AccessPolicyPortalPtrOutput)
 }
 
 func (o AccessPolicyResourceOutput) Project() AccessPolicyProjectPtrOutput {
 	return o.ApplyT(func(v AccessPolicyResource) *AccessPolicyProject { return v.Project }).(AccessPolicyProjectPtrOutput)
-}
-
-type AccessPolicyResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyResource)(nil)).Elem()
-}
-
-func (o AccessPolicyResourcePtrOutput) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
-	return o
-}
-
-func (o AccessPolicyResourcePtrOutput) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
-	return o
-}
-
-func (o AccessPolicyResourcePtrOutput) Elem() AccessPolicyResourceOutput {
-	return o.ApplyT(func(v *AccessPolicyResource) AccessPolicyResource {
-		if v != nil {
-			return *v
-		}
-		var ret AccessPolicyResource
-		return ret
-	}).(AccessPolicyResourceOutput)
-}
-
-func (o AccessPolicyResourcePtrOutput) Portal() AccessPolicyPortalPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyResource) *AccessPolicyPortal {
-		if v == nil {
-			return nil
-		}
-		return v.Portal
-	}).(AccessPolicyPortalPtrOutput)
-}
-
-func (o AccessPolicyResourcePtrOutput) Project() AccessPolicyProjectPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyResource) *AccessPolicyProject {
-		if v == nil {
-			return nil
-		}
-		return v.Project
-	}).(AccessPolicyProjectPtrOutput)
 }
 
 // Contains information for a user identity in an access policy.
@@ -3510,47 +3315,6 @@ func (i GatewayPlatformArgs) ToGatewayPlatformOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayPlatformOutput)
 }
 
-func (i GatewayPlatformArgs) ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput {
-	return i.ToGatewayPlatformPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayPlatformArgs) ToGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayPlatformPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayPlatformOutput).ToGatewayPlatformPtrOutputWithContext(ctx)
-}
-
-// GatewayPlatformPtrInput is an input type that accepts GatewayPlatformArgs, GatewayPlatformPtr and GatewayPlatformPtrOutput values.
-// You can construct a concrete instance of `GatewayPlatformPtrInput` via:
-//
-//          GatewayPlatformArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayPlatformPtrInput interface {
-	pulumi.Input
-
-	ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput
-	ToGatewayPlatformPtrOutputWithContext(context.Context) GatewayPlatformPtrOutput
-}
-
-type gatewayPlatformPtrType GatewayPlatformArgs
-
-func GatewayPlatformPtr(v *GatewayPlatformArgs) GatewayPlatformPtrInput {
-	return (*gatewayPlatformPtrType)(v)
-}
-
-func (*gatewayPlatformPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayPlatform)(nil)).Elem()
-}
-
-func (i *gatewayPlatformPtrType) ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput {
-	return i.ToGatewayPlatformPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayPlatformPtrType) ToGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayPlatformPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayPlatformPtrOutput)
-}
-
 // Contains a gateway's platform information.
 type GatewayPlatformOutput struct{ *pulumi.OutputState }
 
@@ -3566,16 +3330,6 @@ func (o GatewayPlatformOutput) ToGatewayPlatformOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GatewayPlatformOutput) ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput {
-	return o.ToGatewayPlatformPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayPlatformOutput) ToGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayPlatformPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayPlatform) *GatewayPlatform {
-		return &v
-	}).(GatewayPlatformPtrOutput)
-}
-
 // A gateway that runs on AWS IoT Greengrass V1.
 func (o GatewayPlatformOutput) Greengrass() GatewayGreengrassPtrOutput {
 	return o.ApplyT(func(v GatewayPlatform) *GatewayGreengrass { return v.Greengrass }).(GatewayGreengrassPtrOutput)
@@ -3584,50 +3338,6 @@ func (o GatewayPlatformOutput) Greengrass() GatewayGreengrassPtrOutput {
 // A gateway that runs on AWS IoT Greengrass V2.
 func (o GatewayPlatformOutput) GreengrassV2() GatewayGreengrassV2PtrOutput {
 	return o.ApplyT(func(v GatewayPlatform) *GatewayGreengrassV2 { return v.GreengrassV2 }).(GatewayGreengrassV2PtrOutput)
-}
-
-type GatewayPlatformPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayPlatformPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayPlatform)(nil)).Elem()
-}
-
-func (o GatewayPlatformPtrOutput) ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput {
-	return o
-}
-
-func (o GatewayPlatformPtrOutput) ToGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayPlatformPtrOutput {
-	return o
-}
-
-func (o GatewayPlatformPtrOutput) Elem() GatewayPlatformOutput {
-	return o.ApplyT(func(v *GatewayPlatform) GatewayPlatform {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayPlatform
-		return ret
-	}).(GatewayPlatformOutput)
-}
-
-// A gateway that runs on AWS IoT Greengrass V1.
-func (o GatewayPlatformPtrOutput) Greengrass() GatewayGreengrassPtrOutput {
-	return o.ApplyT(func(v *GatewayPlatform) *GatewayGreengrass {
-		if v == nil {
-			return nil
-		}
-		return v.Greengrass
-	}).(GatewayGreengrassPtrOutput)
-}
-
-// A gateway that runs on AWS IoT Greengrass V2.
-func (o GatewayPlatformPtrOutput) GreengrassV2() GatewayGreengrassV2PtrOutput {
-	return o.ApplyT(func(v *GatewayPlatform) *GatewayGreengrassV2 {
-		if v == nil {
-			return nil
-		}
-		return v.GreengrassV2
-	}).(GatewayGreengrassV2PtrOutput)
 }
 
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
@@ -3945,13 +3655,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyIamUserInput)(nil)).Elem(), AccessPolicyIamUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyIamUserPtrInput)(nil)).Elem(), AccessPolicyIamUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyIdentityInput)(nil)).Elem(), AccessPolicyIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyIdentityPtrInput)(nil)).Elem(), AccessPolicyIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyPortalInput)(nil)).Elem(), AccessPolicyPortalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyPortalPtrInput)(nil)).Elem(), AccessPolicyPortalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyProjectInput)(nil)).Elem(), AccessPolicyProjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyProjectPtrInput)(nil)).Elem(), AccessPolicyProjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyResourceInput)(nil)).Elem(), AccessPolicyResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyResourcePtrInput)(nil)).Elem(), AccessPolicyResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyUserInput)(nil)).Elem(), AccessPolicyUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyUserPtrInput)(nil)).Elem(), AccessPolicyUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmsPropertiesInput)(nil)).Elem(), AlarmsPropertiesArgs{})
@@ -3993,7 +3701,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2Input)(nil)).Elem(), GatewayGreengrassV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2PtrInput)(nil)).Elem(), GatewayGreengrassV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPlatformInput)(nil)).Elem(), GatewayPlatformArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPlatformPtrInput)(nil)).Elem(), GatewayPlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTagInput)(nil)).Elem(), GatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTagArrayInput)(nil)).Elem(), GatewayTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalTagInput)(nil)).Elem(), PortalTagArgs{})
@@ -4005,13 +3712,11 @@ func init() {
 	pulumi.RegisterOutputType(AccessPolicyIamUserOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamUserPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIdentityOutput{})
-	pulumi.RegisterOutputType(AccessPolicyIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPortalOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPortalPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyProjectOutput{})
 	pulumi.RegisterOutputType(AccessPolicyProjectPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyResourceOutput{})
-	pulumi.RegisterOutputType(AccessPolicyResourcePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyUserOutput{})
 	pulumi.RegisterOutputType(AccessPolicyUserPtrOutput{})
 	pulumi.RegisterOutputType(AlarmsPropertiesOutput{})
@@ -4053,7 +3758,6 @@ func init() {
 	pulumi.RegisterOutputType(GatewayGreengrassV2Output{})
 	pulumi.RegisterOutputType(GatewayGreengrassV2PtrOutput{})
 	pulumi.RegisterOutputType(GatewayPlatformOutput{})
-	pulumi.RegisterOutputType(GatewayPlatformPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTagOutput{})
 	pulumi.RegisterOutputType(GatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(PortalTagOutput{})

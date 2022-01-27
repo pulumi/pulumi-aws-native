@@ -106,7 +106,7 @@ type HostedConfigurationVersionInput interface {
 }
 
 func (*HostedConfigurationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedConfigurationVersion)(nil))
+	return reflect.TypeOf((**HostedConfigurationVersion)(nil)).Elem()
 }
 
 func (i *HostedConfigurationVersion) ToHostedConfigurationVersionOutput() HostedConfigurationVersionOutput {
@@ -120,7 +120,7 @@ func (i *HostedConfigurationVersion) ToHostedConfigurationVersionOutputWithConte
 type HostedConfigurationVersionOutput struct{ *pulumi.OutputState }
 
 func (HostedConfigurationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedConfigurationVersion)(nil))
+	return reflect.TypeOf((**HostedConfigurationVersion)(nil)).Elem()
 }
 
 func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutput() HostedConfigurationVersionOutput {

@@ -106,7 +106,7 @@ type DimensionInput interface {
 }
 
 func (*Dimension) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dimension)(nil))
+	return reflect.TypeOf((**Dimension)(nil)).Elem()
 }
 
 func (i *Dimension) ToDimensionOutput() DimensionOutput {
@@ -120,7 +120,7 @@ func (i *Dimension) ToDimensionOutputWithContext(ctx context.Context) DimensionO
 type DimensionOutput struct{ *pulumi.OutputState }
 
 func (DimensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dimension)(nil))
+	return reflect.TypeOf((**Dimension)(nil)).Elem()
 }
 
 func (o DimensionOutput) ToDimensionOutput() DimensionOutput {

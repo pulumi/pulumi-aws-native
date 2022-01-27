@@ -94,7 +94,7 @@ type DirectoryConfigInput interface {
 }
 
 func (*DirectoryConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectoryConfig)(nil))
+	return reflect.TypeOf((**DirectoryConfig)(nil)).Elem()
 }
 
 func (i *DirectoryConfig) ToDirectoryConfigOutput() DirectoryConfigOutput {
@@ -108,7 +108,7 @@ func (i *DirectoryConfig) ToDirectoryConfigOutputWithContext(ctx context.Context
 type DirectoryConfigOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectoryConfig)(nil))
+	return reflect.TypeOf((**DirectoryConfig)(nil)).Elem()
 }
 
 func (o DirectoryConfigOutput) ToDirectoryConfigOutput() DirectoryConfigOutput {

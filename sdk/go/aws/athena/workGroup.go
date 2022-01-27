@@ -117,7 +117,7 @@ type WorkGroupInput interface {
 }
 
 func (*WorkGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroup)(nil))
+	return reflect.TypeOf((**WorkGroup)(nil)).Elem()
 }
 
 func (i *WorkGroup) ToWorkGroupOutput() WorkGroupOutput {
@@ -131,7 +131,7 @@ func (i *WorkGroup) ToWorkGroupOutputWithContext(ctx context.Context) WorkGroupO
 type WorkGroupOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroup)(nil))
+	return reflect.TypeOf((**WorkGroup)(nil)).Elem()
 }
 
 func (o WorkGroupOutput) ToWorkGroupOutput() WorkGroupOutput {

@@ -91,7 +91,7 @@ type UserPoolUICustomizationAttachmentInput interface {
 }
 
 func (*UserPoolUICustomizationAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolUICustomizationAttachment)(nil))
+	return reflect.TypeOf((**UserPoolUICustomizationAttachment)(nil)).Elem()
 }
 
 func (i *UserPoolUICustomizationAttachment) ToUserPoolUICustomizationAttachmentOutput() UserPoolUICustomizationAttachmentOutput {
@@ -105,7 +105,7 @@ func (i *UserPoolUICustomizationAttachment) ToUserPoolUICustomizationAttachmentO
 type UserPoolUICustomizationAttachmentOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUICustomizationAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolUICustomizationAttachment)(nil))
+	return reflect.TypeOf((**UserPoolUICustomizationAttachment)(nil)).Elem()
 }
 
 func (o UserPoolUICustomizationAttachmentOutput) ToUserPoolUICustomizationAttachmentOutput() UserPoolUICustomizationAttachmentOutput {

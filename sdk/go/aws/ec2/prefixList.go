@@ -118,7 +118,7 @@ type PrefixListInput interface {
 }
 
 func (*PrefixList) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrefixList)(nil))
+	return reflect.TypeOf((**PrefixList)(nil)).Elem()
 }
 
 func (i *PrefixList) ToPrefixListOutput() PrefixListOutput {
@@ -132,7 +132,7 @@ func (i *PrefixList) ToPrefixListOutputWithContext(ctx context.Context) PrefixLi
 type PrefixListOutput struct{ *pulumi.OutputState }
 
 func (PrefixListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrefixList)(nil))
+	return reflect.TypeOf((**PrefixList)(nil)).Elem()
 }
 
 func (o PrefixListOutput) ToPrefixListOutput() PrefixListOutput {

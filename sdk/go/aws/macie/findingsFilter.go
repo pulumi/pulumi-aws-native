@@ -111,7 +111,7 @@ type FindingsFilterInput interface {
 }
 
 func (*FindingsFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingsFilter)(nil))
+	return reflect.TypeOf((**FindingsFilter)(nil)).Elem()
 }
 
 func (i *FindingsFilter) ToFindingsFilterOutput() FindingsFilterOutput {
@@ -125,7 +125,7 @@ func (i *FindingsFilter) ToFindingsFilterOutputWithContext(ctx context.Context) 
 type FindingsFilterOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingsFilter)(nil))
+	return reflect.TypeOf((**FindingsFilter)(nil)).Elem()
 }
 
 func (o FindingsFilterOutput) ToFindingsFilterOutput() FindingsFilterOutput {

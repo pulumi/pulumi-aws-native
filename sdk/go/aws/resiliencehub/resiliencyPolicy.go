@@ -115,7 +115,7 @@ type ResiliencyPolicyInput interface {
 }
 
 func (*ResiliencyPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResiliencyPolicy)(nil))
+	return reflect.TypeOf((**ResiliencyPolicy)(nil)).Elem()
 }
 
 func (i *ResiliencyPolicy) ToResiliencyPolicyOutput() ResiliencyPolicyOutput {
@@ -129,7 +129,7 @@ func (i *ResiliencyPolicy) ToResiliencyPolicyOutputWithContext(ctx context.Conte
 type ResiliencyPolicyOutput struct{ *pulumi.OutputState }
 
 func (ResiliencyPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResiliencyPolicy)(nil))
+	return reflect.TypeOf((**ResiliencyPolicy)(nil)).Elem()
 }
 
 func (o ResiliencyPolicyOutput) ToResiliencyPolicyOutput() ResiliencyPolicyOutput {

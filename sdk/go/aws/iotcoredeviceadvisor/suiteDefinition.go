@@ -92,7 +92,7 @@ type SuiteDefinitionInput interface {
 }
 
 func (*SuiteDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuiteDefinition)(nil))
+	return reflect.TypeOf((**SuiteDefinition)(nil)).Elem()
 }
 
 func (i *SuiteDefinition) ToSuiteDefinitionOutput() SuiteDefinitionOutput {
@@ -106,7 +106,7 @@ func (i *SuiteDefinition) ToSuiteDefinitionOutputWithContext(ctx context.Context
 type SuiteDefinitionOutput struct{ *pulumi.OutputState }
 
 func (SuiteDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuiteDefinition)(nil))
+	return reflect.TypeOf((**SuiteDefinition)(nil)).Elem()
 }
 
 func (o SuiteDefinitionOutput) ToSuiteDefinitionOutput() SuiteDefinitionOutput {

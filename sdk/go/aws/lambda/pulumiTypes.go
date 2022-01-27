@@ -411,47 +411,6 @@ func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublis
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput)
 }
 
-func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
-	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
-}
-
-func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput).ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx)
-}
-
-// CodeSigningConfigAllowedPublishersPtrInput is an input type that accepts CodeSigningConfigAllowedPublishersArgs, CodeSigningConfigAllowedPublishersPtr and CodeSigningConfigAllowedPublishersPtrOutput values.
-// You can construct a concrete instance of `CodeSigningConfigAllowedPublishersPtrInput` via:
-//
-//          CodeSigningConfigAllowedPublishersArgs{...}
-//
-//  or:
-//
-//          nil
-type CodeSigningConfigAllowedPublishersPtrInput interface {
-	pulumi.Input
-
-	ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput
-	ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Context) CodeSigningConfigAllowedPublishersPtrOutput
-}
-
-type codeSigningConfigAllowedPublishersPtrType CodeSigningConfigAllowedPublishersArgs
-
-func CodeSigningConfigAllowedPublishersPtr(v *CodeSigningConfigAllowedPublishersArgs) CodeSigningConfigAllowedPublishersPtrInput {
-	return (*codeSigningConfigAllowedPublishersPtrType)(v)
-}
-
-func (*codeSigningConfigAllowedPublishersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
-}
-
-func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
-	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
-}
-
-func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersPtrOutput)
-}
-
 // When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
 type CodeSigningConfigAllowedPublishersOutput struct{ *pulumi.OutputState }
 
@@ -467,53 +426,9 @@ func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPubl
 	return o
 }
 
-func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
-	return o.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
-}
-
-func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSigningConfigAllowedPublishers) *CodeSigningConfigAllowedPublishers {
-		return &v
-	}).(CodeSigningConfigAllowedPublishersPtrOutput)
-}
-
 // List of Signing profile version Arns
 func (o CodeSigningConfigAllowedPublishersOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
-}
-
-type CodeSigningConfigAllowedPublishersPtrOutput struct{ *pulumi.OutputState }
-
-func (CodeSigningConfigAllowedPublishersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
-}
-
-func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
-	return o
-}
-
-func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return o
-}
-
-func (o CodeSigningConfigAllowedPublishersPtrOutput) Elem() CodeSigningConfigAllowedPublishersOutput {
-	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) CodeSigningConfigAllowedPublishers {
-		if v != nil {
-			return *v
-		}
-		var ret CodeSigningConfigAllowedPublishers
-		return ret
-	}).(CodeSigningConfigAllowedPublishersOutput)
-}
-
-// List of Signing profile version Arns
-func (o CodeSigningConfigAllowedPublishersPtrOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SigningProfileVersionArns
-	}).(pulumi.StringArrayOutput)
 }
 
 // Policies to control how to act if a signature is invalid
@@ -2032,47 +1947,6 @@ func (i FunctionCodeArgs) ToFunctionCodeOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionCodeOutput)
 }
 
-func (i FunctionCodeArgs) ToFunctionCodePtrOutput() FunctionCodePtrOutput {
-	return i.ToFunctionCodePtrOutputWithContext(context.Background())
-}
-
-func (i FunctionCodeArgs) ToFunctionCodePtrOutputWithContext(ctx context.Context) FunctionCodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionCodeOutput).ToFunctionCodePtrOutputWithContext(ctx)
-}
-
-// FunctionCodePtrInput is an input type that accepts FunctionCodeArgs, FunctionCodePtr and FunctionCodePtrOutput values.
-// You can construct a concrete instance of `FunctionCodePtrInput` via:
-//
-//          FunctionCodeArgs{...}
-//
-//  or:
-//
-//          nil
-type FunctionCodePtrInput interface {
-	pulumi.Input
-
-	ToFunctionCodePtrOutput() FunctionCodePtrOutput
-	ToFunctionCodePtrOutputWithContext(context.Context) FunctionCodePtrOutput
-}
-
-type functionCodePtrType FunctionCodeArgs
-
-func FunctionCodePtr(v *FunctionCodeArgs) FunctionCodePtrInput {
-	return (*functionCodePtrType)(v)
-}
-
-func (*functionCodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionCode)(nil)).Elem()
-}
-
-func (i *functionCodePtrType) ToFunctionCodePtrOutput() FunctionCodePtrOutput {
-	return i.ToFunctionCodePtrOutputWithContext(context.Background())
-}
-
-func (i *functionCodePtrType) ToFunctionCodePtrOutputWithContext(ctx context.Context) FunctionCodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionCodePtrOutput)
-}
-
 type FunctionCodeOutput struct{ *pulumi.OutputState }
 
 func (FunctionCodeOutput) ElementType() reflect.Type {
@@ -2085,16 +1959,6 @@ func (o FunctionCodeOutput) ToFunctionCodeOutput() FunctionCodeOutput {
 
 func (o FunctionCodeOutput) ToFunctionCodeOutputWithContext(ctx context.Context) FunctionCodeOutput {
 	return o
-}
-
-func (o FunctionCodeOutput) ToFunctionCodePtrOutput() FunctionCodePtrOutput {
-	return o.ToFunctionCodePtrOutputWithContext(context.Background())
-}
-
-func (o FunctionCodeOutput) ToFunctionCodePtrOutputWithContext(ctx context.Context) FunctionCodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionCode) *FunctionCode {
-		return &v
-	}).(FunctionCodePtrOutput)
 }
 
 // ImageUri.
@@ -2120,80 +1984,6 @@ func (o FunctionCodeOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 // The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
 func (o FunctionCodeOutput) ZipFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.ZipFile }).(pulumi.StringPtrOutput)
-}
-
-type FunctionCodePtrOutput struct{ *pulumi.OutputState }
-
-func (FunctionCodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionCode)(nil)).Elem()
-}
-
-func (o FunctionCodePtrOutput) ToFunctionCodePtrOutput() FunctionCodePtrOutput {
-	return o
-}
-
-func (o FunctionCodePtrOutput) ToFunctionCodePtrOutputWithContext(ctx context.Context) FunctionCodePtrOutput {
-	return o
-}
-
-func (o FunctionCodePtrOutput) Elem() FunctionCodeOutput {
-	return o.ApplyT(func(v *FunctionCode) FunctionCode {
-		if v != nil {
-			return *v
-		}
-		var ret FunctionCode
-		return ret
-	}).(FunctionCodeOutput)
-}
-
-// ImageUri.
-func (o FunctionCodePtrOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ImageUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
-func (o FunctionCodePtrOutput) S3Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon S3 key of the deployment package.
-func (o FunctionCodePtrOutput) S3Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3Key
-	}).(pulumi.StringPtrOutput)
-}
-
-// For versioned objects, the version of the deployment package object to use.
-func (o FunctionCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3ObjectVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
-func (o FunctionCodePtrOutput) ZipFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ZipFile
-	}).(pulumi.StringPtrOutput)
 }
 
 // The dead-letter queue for failed asynchronous invocations.
@@ -3197,47 +2987,6 @@ func (i LayerVersionContentArgs) ToLayerVersionContentOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionContentOutput)
 }
 
-func (i LayerVersionContentArgs) ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput {
-	return i.ToLayerVersionContentPtrOutputWithContext(context.Background())
-}
-
-func (i LayerVersionContentArgs) ToLayerVersionContentPtrOutputWithContext(ctx context.Context) LayerVersionContentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionContentOutput).ToLayerVersionContentPtrOutputWithContext(ctx)
-}
-
-// LayerVersionContentPtrInput is an input type that accepts LayerVersionContentArgs, LayerVersionContentPtr and LayerVersionContentPtrOutput values.
-// You can construct a concrete instance of `LayerVersionContentPtrInput` via:
-//
-//          LayerVersionContentArgs{...}
-//
-//  or:
-//
-//          nil
-type LayerVersionContentPtrInput interface {
-	pulumi.Input
-
-	ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput
-	ToLayerVersionContentPtrOutputWithContext(context.Context) LayerVersionContentPtrOutput
-}
-
-type layerVersionContentPtrType LayerVersionContentArgs
-
-func LayerVersionContentPtr(v *LayerVersionContentArgs) LayerVersionContentPtrInput {
-	return (*layerVersionContentPtrType)(v)
-}
-
-func (*layerVersionContentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LayerVersionContent)(nil)).Elem()
-}
-
-func (i *layerVersionContentPtrType) ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput {
-	return i.ToLayerVersionContentPtrOutputWithContext(context.Background())
-}
-
-func (i *layerVersionContentPtrType) ToLayerVersionContentPtrOutputWithContext(ctx context.Context) LayerVersionContentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionContentPtrOutput)
-}
-
 type LayerVersionContentOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionContentOutput) ElementType() reflect.Type {
@@ -3252,16 +3001,6 @@ func (o LayerVersionContentOutput) ToLayerVersionContentOutputWithContext(ctx co
 	return o
 }
 
-func (o LayerVersionContentOutput) ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput {
-	return o.ToLayerVersionContentPtrOutputWithContext(context.Background())
-}
-
-func (o LayerVersionContentOutput) ToLayerVersionContentPtrOutputWithContext(ctx context.Context) LayerVersionContentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LayerVersionContent) *LayerVersionContent {
-		return &v
-	}).(LayerVersionContentPtrOutput)
-}
-
 func (o LayerVersionContentOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LayerVersionContent) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
@@ -3272,57 +3011,6 @@ func (o LayerVersionContentOutput) S3Key() pulumi.StringOutput {
 
 func (o LayerVersionContentOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LayerVersionContent) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
-}
-
-type LayerVersionContentPtrOutput struct{ *pulumi.OutputState }
-
-func (LayerVersionContentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LayerVersionContent)(nil)).Elem()
-}
-
-func (o LayerVersionContentPtrOutput) ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput {
-	return o
-}
-
-func (o LayerVersionContentPtrOutput) ToLayerVersionContentPtrOutputWithContext(ctx context.Context) LayerVersionContentPtrOutput {
-	return o
-}
-
-func (o LayerVersionContentPtrOutput) Elem() LayerVersionContentOutput {
-	return o.ApplyT(func(v *LayerVersionContent) LayerVersionContent {
-		if v != nil {
-			return *v
-		}
-		var ret LayerVersionContent
-		return ret
-	}).(LayerVersionContentOutput)
-}
-
-func (o LayerVersionContentPtrOutput) S3Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LayerVersionContent) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LayerVersionContentPtrOutput) S3Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LayerVersionContent) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Key
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LayerVersionContentPtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LayerVersionContent) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3ObjectVersion
-	}).(pulumi.StringPtrOutput)
 }
 
 type UrlCors struct {
@@ -3694,7 +3382,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightInput)(nil)).Elem(), AliasVersionWeightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightArrayInput)(nil)).Elem(), AliasVersionWeightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersPtrInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventInvokeConfigDestinationConfigInput)(nil)).Elem(), EventInvokeConfigDestinationConfigArgs{})
@@ -3718,7 +3405,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterCriteriaPropertiesInput)(nil)).Elem(), FilterCriteriaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterCriteriaPropertiesPtrInput)(nil)).Elem(), FilterCriteriaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCodeInput)(nil)).Elem(), FunctionCodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCodePtrInput)(nil)).Elem(), FunctionCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigPtrInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentInput)(nil)).Elem(), FunctionEnvironmentArgs{})
@@ -3734,7 +3420,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigInput)(nil)).Elem(), FunctionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigPtrInput)(nil)).Elem(), FunctionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionContentInput)(nil)).Elem(), LayerVersionContentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionContentPtrInput)(nil)).Elem(), LayerVersionContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsPtrInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
@@ -3746,7 +3431,6 @@ func init() {
 	pulumi.RegisterOutputType(AliasVersionWeightOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
-	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(EventInvokeConfigDestinationConfigOutput{})
@@ -3770,7 +3454,6 @@ func init() {
 	pulumi.RegisterOutputType(FilterCriteriaPropertiesOutput{})
 	pulumi.RegisterOutputType(FilterCriteriaPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCodeOutput{})
-	pulumi.RegisterOutputType(FunctionCodePtrOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentOutput{})
@@ -3786,7 +3469,6 @@ func init() {
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(LayerVersionContentOutput{})
-	pulumi.RegisterOutputType(LayerVersionContentPtrOutput{})
 	pulumi.RegisterOutputType(UrlCorsOutput{})
 	pulumi.RegisterOutputType(UrlCorsPtrOutput{})
 	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationOutput{})

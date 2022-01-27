@@ -86,7 +86,7 @@ type CapacityProviderInput interface {
 }
 
 func (*CapacityProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityProvider)(nil))
+	return reflect.TypeOf((**CapacityProvider)(nil)).Elem()
 }
 
 func (i *CapacityProvider) ToCapacityProviderOutput() CapacityProviderOutput {
@@ -100,7 +100,7 @@ func (i *CapacityProvider) ToCapacityProviderOutputWithContext(ctx context.Conte
 type CapacityProviderOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityProvider)(nil))
+	return reflect.TypeOf((**CapacityProvider)(nil)).Elem()
 }
 
 func (o CapacityProviderOutput) ToCapacityProviderOutput() CapacityProviderOutput {

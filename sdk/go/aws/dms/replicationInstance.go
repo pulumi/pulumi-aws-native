@@ -126,7 +126,7 @@ type ReplicationInstanceInput interface {
 }
 
 func (*ReplicationInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationInstance)(nil))
+	return reflect.TypeOf((**ReplicationInstance)(nil)).Elem()
 }
 
 func (i *ReplicationInstance) ToReplicationInstanceOutput() ReplicationInstanceOutput {
@@ -140,7 +140,7 @@ func (i *ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context
 type ReplicationInstanceOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationInstance)(nil))
+	return reflect.TypeOf((**ReplicationInstance)(nil)).Elem()
 }
 
 func (o ReplicationInstanceOutput) ToReplicationInstanceOutput() ReplicationInstanceOutput {

@@ -109,7 +109,7 @@ type TriggerInput interface {
 }
 
 func (*Trigger) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trigger)(nil))
+	return reflect.TypeOf((**Trigger)(nil)).Elem()
 }
 
 func (i *Trigger) ToTriggerOutput() TriggerOutput {
@@ -123,7 +123,7 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 type TriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trigger)(nil))
+	return reflect.TypeOf((**Trigger)(nil)).Elem()
 }
 
 func (o TriggerOutput) ToTriggerOutput() TriggerOutput {

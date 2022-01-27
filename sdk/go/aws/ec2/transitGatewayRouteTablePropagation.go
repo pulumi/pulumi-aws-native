@@ -88,7 +88,7 @@ type TransitGatewayRouteTablePropagationInput interface {
 }
 
 func (*TransitGatewayRouteTablePropagation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTablePropagation)(nil))
+	return reflect.TypeOf((**TransitGatewayRouteTablePropagation)(nil)).Elem()
 }
 
 func (i *TransitGatewayRouteTablePropagation) ToTransitGatewayRouteTablePropagationOutput() TransitGatewayRouteTablePropagationOutput {
@@ -102,7 +102,7 @@ func (i *TransitGatewayRouteTablePropagation) ToTransitGatewayRouteTablePropagat
 type TransitGatewayRouteTablePropagationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteTablePropagationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTablePropagation)(nil))
+	return reflect.TypeOf((**TransitGatewayRouteTablePropagation)(nil)).Elem()
 }
 
 func (o TransitGatewayRouteTablePropagationOutput) ToTransitGatewayRouteTablePropagationOutput() TransitGatewayRouteTablePropagationOutput {

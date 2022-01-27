@@ -88,7 +88,7 @@ type ThingPrincipalAttachmentInput interface {
 }
 
 func (*ThingPrincipalAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingPrincipalAttachment)(nil))
+	return reflect.TypeOf((**ThingPrincipalAttachment)(nil)).Elem()
 }
 
 func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {
@@ -102,7 +102,7 @@ func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutputWithContext(c
 type ThingPrincipalAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ThingPrincipalAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingPrincipalAttachment)(nil))
+	return reflect.TypeOf((**ThingPrincipalAttachment)(nil)).Elem()
 }
 
 func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {

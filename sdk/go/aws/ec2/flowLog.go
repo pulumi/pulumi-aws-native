@@ -146,7 +146,7 @@ type FlowLogInput interface {
 }
 
 func (*FlowLog) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowLog)(nil))
+	return reflect.TypeOf((**FlowLog)(nil)).Elem()
 }
 
 func (i *FlowLog) ToFlowLogOutput() FlowLogOutput {
@@ -160,7 +160,7 @@ func (i *FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput 
 type FlowLogOutput struct{ *pulumi.OutputState }
 
 func (FlowLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowLog)(nil))
+	return reflect.TypeOf((**FlowLog)(nil)).Elem()
 }
 
 func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {

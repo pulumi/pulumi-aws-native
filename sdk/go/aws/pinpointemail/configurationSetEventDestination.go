@@ -91,7 +91,7 @@ type ConfigurationSetEventDestinationInput interface {
 }
 
 func (*ConfigurationSetEventDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSetEventDestination)(nil))
+	return reflect.TypeOf((**ConfigurationSetEventDestination)(nil)).Elem()
 }
 
 func (i *ConfigurationSetEventDestination) ToConfigurationSetEventDestinationOutput() ConfigurationSetEventDestinationOutput {
@@ -105,7 +105,7 @@ func (i *ConfigurationSetEventDestination) ToConfigurationSetEventDestinationOut
 type ConfigurationSetEventDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSetEventDestination)(nil))
+	return reflect.TypeOf((**ConfigurationSetEventDestination)(nil)).Elem()
 }
 
 func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinationOutput() ConfigurationSetEventDestinationOutput {

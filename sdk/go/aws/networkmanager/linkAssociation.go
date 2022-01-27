@@ -101,7 +101,7 @@ type LinkAssociationInput interface {
 }
 
 func (*LinkAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkAssociation)(nil))
+	return reflect.TypeOf((**LinkAssociation)(nil)).Elem()
 }
 
 func (i *LinkAssociation) ToLinkAssociationOutput() LinkAssociationOutput {
@@ -115,7 +115,7 @@ func (i *LinkAssociation) ToLinkAssociationOutputWithContext(ctx context.Context
 type LinkAssociationOutput struct{ *pulumi.OutputState }
 
 func (LinkAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkAssociation)(nil))
+	return reflect.TypeOf((**LinkAssociation)(nil)).Elem()
 }
 
 func (o LinkAssociationOutput) ToLinkAssociationOutput() LinkAssociationOutput {

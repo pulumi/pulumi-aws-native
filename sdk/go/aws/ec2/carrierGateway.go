@@ -95,7 +95,7 @@ type CarrierGatewayInput interface {
 }
 
 func (*CarrierGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*CarrierGateway)(nil))
+	return reflect.TypeOf((**CarrierGateway)(nil)).Elem()
 }
 
 func (i *CarrierGateway) ToCarrierGatewayOutput() CarrierGatewayOutput {
@@ -109,7 +109,7 @@ func (i *CarrierGateway) ToCarrierGatewayOutputWithContext(ctx context.Context) 
 type CarrierGatewayOutput struct{ *pulumi.OutputState }
 
 func (CarrierGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CarrierGateway)(nil))
+	return reflect.TypeOf((**CarrierGateway)(nil)).Elem()
 }
 
 func (o CarrierGatewayOutput) ToCarrierGatewayOutput() CarrierGatewayOutput {

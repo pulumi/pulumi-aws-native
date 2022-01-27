@@ -2722,42 +2722,6 @@ const (
 	ModelPackageGroupStatusDeleteFailed = ModelPackageGroupStatus("DeleteFailed")
 )
 
-func (ModelPackageGroupStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroupStatus)(nil)).Elem()
-}
-
-func (e ModelPackageGroupStatus) ToModelPackageGroupStatusOutput() ModelPackageGroupStatusOutput {
-	return pulumi.ToOutput(e).(ModelPackageGroupStatusOutput)
-}
-
-func (e ModelPackageGroupStatus) ToModelPackageGroupStatusOutputWithContext(ctx context.Context) ModelPackageGroupStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageGroupStatusOutput)
-}
-
-func (e ModelPackageGroupStatus) ToModelPackageGroupStatusPtrOutput() ModelPackageGroupStatusPtrOutput {
-	return e.ToModelPackageGroupStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ModelPackageGroupStatus) ToModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupStatusPtrOutput {
-	return ModelPackageGroupStatus(e).ToModelPackageGroupStatusOutputWithContext(ctx).ToModelPackageGroupStatusPtrOutputWithContext(ctx)
-}
-
-func (e ModelPackageGroupStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ModelPackageGroupStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ModelPackageGroupStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ModelPackageGroupStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type ModelPackageGroupStatusOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupStatusOutput) ElementType() reflect.Type {
@@ -2839,44 +2803,6 @@ func (o ModelPackageGroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ModelPackageGroupStatusInput is an input type that accepts ModelPackageGroupStatusArgs and ModelPackageGroupStatusOutput values.
-// You can construct a concrete instance of `ModelPackageGroupStatusInput` via:
-//
-//          ModelPackageGroupStatusArgs{...}
-type ModelPackageGroupStatusInput interface {
-	pulumi.Input
-
-	ToModelPackageGroupStatusOutput() ModelPackageGroupStatusOutput
-	ToModelPackageGroupStatusOutputWithContext(context.Context) ModelPackageGroupStatusOutput
-}
-
-var modelPackageGroupStatusPtrType = reflect.TypeOf((**ModelPackageGroupStatus)(nil)).Elem()
-
-type ModelPackageGroupStatusPtrInput interface {
-	pulumi.Input
-
-	ToModelPackageGroupStatusPtrOutput() ModelPackageGroupStatusPtrOutput
-	ToModelPackageGroupStatusPtrOutputWithContext(context.Context) ModelPackageGroupStatusPtrOutput
-}
-
-type modelPackageGroupStatusPtr string
-
-func ModelPackageGroupStatusPtr(v string) ModelPackageGroupStatusPtrInput {
-	return (*modelPackageGroupStatusPtr)(&v)
-}
-
-func (*modelPackageGroupStatusPtr) ElementType() reflect.Type {
-	return modelPackageGroupStatusPtrType
-}
-
-func (in *modelPackageGroupStatusPtr) ToModelPackageGroupStatusPtrOutput() ModelPackageGroupStatusPtrOutput {
-	return pulumi.ToOutput(in).(ModelPackageGroupStatusPtrOutput)
-}
-
-func (in *modelPackageGroupStatusPtr) ToModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageGroupStatusPtrOutput)
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -4552,42 +4478,6 @@ const (
 	ProjectStatusDeleteCompleted  = ProjectStatus("DeleteCompleted")
 )
 
-func (ProjectStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectStatus)(nil)).Elem()
-}
-
-func (e ProjectStatus) ToProjectStatusOutput() ProjectStatusOutput {
-	return pulumi.ToOutput(e).(ProjectStatusOutput)
-}
-
-func (e ProjectStatus) ToProjectStatusOutputWithContext(ctx context.Context) ProjectStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ProjectStatusOutput)
-}
-
-func (e ProjectStatus) ToProjectStatusPtrOutput() ProjectStatusPtrOutput {
-	return e.ToProjectStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ProjectStatus) ToProjectStatusPtrOutputWithContext(ctx context.Context) ProjectStatusPtrOutput {
-	return ProjectStatus(e).ToProjectStatusOutputWithContext(ctx).ToProjectStatusPtrOutputWithContext(ctx)
-}
-
-func (e ProjectStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ProjectStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ProjectStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ProjectStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type ProjectStatusOutput struct{ *pulumi.OutputState }
 
 func (ProjectStatusOutput) ElementType() reflect.Type {
@@ -4669,44 +4559,6 @@ func (o ProjectStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ProjectStatusInput is an input type that accepts ProjectStatusArgs and ProjectStatusOutput values.
-// You can construct a concrete instance of `ProjectStatusInput` via:
-//
-//          ProjectStatusArgs{...}
-type ProjectStatusInput interface {
-	pulumi.Input
-
-	ToProjectStatusOutput() ProjectStatusOutput
-	ToProjectStatusOutputWithContext(context.Context) ProjectStatusOutput
-}
-
-var projectStatusPtrType = reflect.TypeOf((**ProjectStatus)(nil)).Elem()
-
-type ProjectStatusPtrInput interface {
-	pulumi.Input
-
-	ToProjectStatusPtrOutput() ProjectStatusPtrOutput
-	ToProjectStatusPtrOutputWithContext(context.Context) ProjectStatusPtrOutput
-}
-
-type projectStatusPtr string
-
-func ProjectStatusPtr(v string) ProjectStatusPtrInput {
-	return (*projectStatusPtr)(&v)
-}
-
-func (*projectStatusPtr) ElementType() reflect.Type {
-	return projectStatusPtrType
-}
-
-func (in *projectStatusPtr) ToProjectStatusPtrOutput() ProjectStatusPtrOutput {
-	return pulumi.ToOutput(in).(ProjectStatusPtrOutput)
-}
-
-func (in *projectStatusPtr) ToProjectStatusPtrOutputWithContext(ctx context.Context) ProjectStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ProjectStatusPtrOutput)
 }
 
 // The instance type that the image version runs on.
@@ -5102,8 +4954,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionS3OutputS3UploadMode("Continuous"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupStatusInput)(nil)).Elem(), ModelPackageGroupStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupStatusPtrInput)(nil)).Elem(), ModelPackageGroupStatus("Pending"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3InputModeInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3InputMode("Pipe"))
@@ -5124,8 +4974,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleS3OutputS3UploadModePtrInput)(nil)).Elem(), MonitoringScheduleS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusPtrInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectStatusInput)(nil)).Elem(), ProjectStatus("Pending"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectStatusPtrInput)(nil)).Elem(), ProjectStatus("Pending"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecInstanceTypeInput)(nil)).Elem(), UserProfileResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecInstanceTypePtrInput)(nil)).Elem(), UserProfileResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsNotebookOutputOptionInput)(nil)).Elem(), UserProfileSharingSettingsNotebookOutputOption("Allowed"))

@@ -87,7 +87,7 @@ type BackupSelectionInput interface {
 }
 
 func (*BackupSelection) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupSelection)(nil))
+	return reflect.TypeOf((**BackupSelection)(nil)).Elem()
 }
 
 func (i *BackupSelection) ToBackupSelectionOutput() BackupSelectionOutput {
@@ -101,7 +101,7 @@ func (i *BackupSelection) ToBackupSelectionOutputWithContext(ctx context.Context
 type BackupSelectionOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupSelection)(nil))
+	return reflect.TypeOf((**BackupSelection)(nil)).Elem()
 }
 
 func (o BackupSelectionOutput) ToBackupSelectionOutput() BackupSelectionOutput {

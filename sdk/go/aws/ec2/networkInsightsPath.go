@@ -107,7 +107,7 @@ type NetworkInsightsPathInput interface {
 }
 
 func (*NetworkInsightsPath) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsPath)(nil))
+	return reflect.TypeOf((**NetworkInsightsPath)(nil)).Elem()
 }
 
 func (i *NetworkInsightsPath) ToNetworkInsightsPathOutput() NetworkInsightsPathOutput {
@@ -121,7 +121,7 @@ func (i *NetworkInsightsPath) ToNetworkInsightsPathOutputWithContext(ctx context
 type NetworkInsightsPathOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsPath)(nil))
+	return reflect.TypeOf((**NetworkInsightsPath)(nil)).Elem()
 }
 
 func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutput() NetworkInsightsPathOutput {

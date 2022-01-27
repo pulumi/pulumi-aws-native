@@ -99,7 +99,7 @@ type VPCEConfigurationInput interface {
 }
 
 func (*VPCEConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEConfiguration)(nil))
+	return reflect.TypeOf((**VPCEConfiguration)(nil)).Elem()
 }
 
 func (i *VPCEConfiguration) ToVPCEConfigurationOutput() VPCEConfigurationOutput {
@@ -113,7 +113,7 @@ func (i *VPCEConfiguration) ToVPCEConfigurationOutputWithContext(ctx context.Con
 type VPCEConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VPCEConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEConfiguration)(nil))
+	return reflect.TypeOf((**VPCEConfiguration)(nil)).Elem()
 }
 
 func (o VPCEConfigurationOutput) ToVPCEConfigurationOutput() VPCEConfigurationOutput {

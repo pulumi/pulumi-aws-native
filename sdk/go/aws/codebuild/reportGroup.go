@@ -98,7 +98,7 @@ type ReportGroupInput interface {
 }
 
 func (*ReportGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportGroup)(nil))
+	return reflect.TypeOf((**ReportGroup)(nil)).Elem()
 }
 
 func (i *ReportGroup) ToReportGroupOutput() ReportGroupOutput {
@@ -112,7 +112,7 @@ func (i *ReportGroup) ToReportGroupOutputWithContext(ctx context.Context) Report
 type ReportGroupOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportGroup)(nil))
+	return reflect.TypeOf((**ReportGroup)(nil)).Elem()
 }
 
 func (o ReportGroupOutput) ToReportGroupOutput() ReportGroupOutput {

@@ -17,61 +17,6 @@ type ConnectionAliasAssociation struct {
 	ResourceId           *string                                      `pulumi:"resourceId"`
 }
 
-// ConnectionAliasAssociationInput is an input type that accepts ConnectionAliasAssociationArgs and ConnectionAliasAssociationOutput values.
-// You can construct a concrete instance of `ConnectionAliasAssociationInput` via:
-//
-//          ConnectionAliasAssociationArgs{...}
-type ConnectionAliasAssociationInput interface {
-	pulumi.Input
-
-	ToConnectionAliasAssociationOutput() ConnectionAliasAssociationOutput
-	ToConnectionAliasAssociationOutputWithContext(context.Context) ConnectionAliasAssociationOutput
-}
-
-type ConnectionAliasAssociationArgs struct {
-	AssociatedAccountId  pulumi.StringPtrInput                               `pulumi:"associatedAccountId"`
-	AssociationStatus    ConnectionAliasAssociationAssociationStatusPtrInput `pulumi:"associationStatus"`
-	ConnectionIdentifier pulumi.StringPtrInput                               `pulumi:"connectionIdentifier"`
-	ResourceId           pulumi.StringPtrInput                               `pulumi:"resourceId"`
-}
-
-func (ConnectionAliasAssociationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasAssociation)(nil)).Elem()
-}
-
-func (i ConnectionAliasAssociationArgs) ToConnectionAliasAssociationOutput() ConnectionAliasAssociationOutput {
-	return i.ToConnectionAliasAssociationOutputWithContext(context.Background())
-}
-
-func (i ConnectionAliasAssociationArgs) ToConnectionAliasAssociationOutputWithContext(ctx context.Context) ConnectionAliasAssociationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasAssociationOutput)
-}
-
-// ConnectionAliasAssociationArrayInput is an input type that accepts ConnectionAliasAssociationArray and ConnectionAliasAssociationArrayOutput values.
-// You can construct a concrete instance of `ConnectionAliasAssociationArrayInput` via:
-//
-//          ConnectionAliasAssociationArray{ ConnectionAliasAssociationArgs{...} }
-type ConnectionAliasAssociationArrayInput interface {
-	pulumi.Input
-
-	ToConnectionAliasAssociationArrayOutput() ConnectionAliasAssociationArrayOutput
-	ToConnectionAliasAssociationArrayOutputWithContext(context.Context) ConnectionAliasAssociationArrayOutput
-}
-
-type ConnectionAliasAssociationArray []ConnectionAliasAssociationInput
-
-func (ConnectionAliasAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionAliasAssociation)(nil)).Elem()
-}
-
-func (i ConnectionAliasAssociationArray) ToConnectionAliasAssociationArrayOutput() ConnectionAliasAssociationArrayOutput {
-	return i.ToConnectionAliasAssociationArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectionAliasAssociationArray) ToConnectionAliasAssociationArrayOutputWithContext(ctx context.Context) ConnectionAliasAssociationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasAssociationArrayOutput)
-}
-
 type ConnectionAliasAssociationOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAliasAssociationOutput) ElementType() reflect.Type {
@@ -518,8 +463,6 @@ func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasAssociationInput)(nil)).Elem(), ConnectionAliasAssociationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasAssociationArrayInput)(nil)).Elem(), ConnectionAliasAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTagInput)(nil)).Elem(), ConnectionAliasTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTagArrayInput)(nil)).Elem(), ConnectionAliasTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesInput)(nil)).Elem(), WorkspacePropertiesArgs{})

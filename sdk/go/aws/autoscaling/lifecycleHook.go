@@ -128,7 +128,7 @@ type LifecycleHookInput interface {
 }
 
 func (*LifecycleHook) ElementType() reflect.Type {
-	return reflect.TypeOf((*LifecycleHook)(nil))
+	return reflect.TypeOf((**LifecycleHook)(nil)).Elem()
 }
 
 func (i *LifecycleHook) ToLifecycleHookOutput() LifecycleHookOutput {
@@ -142,7 +142,7 @@ func (i *LifecycleHook) ToLifecycleHookOutputWithContext(ctx context.Context) Li
 type LifecycleHookOutput struct{ *pulumi.OutputState }
 
 func (LifecycleHookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LifecycleHook)(nil))
+	return reflect.TypeOf((**LifecycleHook)(nil)).Elem()
 }
 
 func (o LifecycleHookOutput) ToLifecycleHookOutput() LifecycleHookOutput {

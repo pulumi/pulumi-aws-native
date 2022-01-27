@@ -85,7 +85,7 @@ type LogStreamInput interface {
 }
 
 func (*LogStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogStream)(nil))
+	return reflect.TypeOf((**LogStream)(nil)).Elem()
 }
 
 func (i *LogStream) ToLogStreamOutput() LogStreamOutput {
@@ -99,7 +99,7 @@ func (i *LogStream) ToLogStreamOutputWithContext(ctx context.Context) LogStreamO
 type LogStreamOutput struct{ *pulumi.OutputState }
 
 func (LogStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogStream)(nil))
+	return reflect.TypeOf((**LogStream)(nil)).Elem()
 }
 
 func (o LogStreamOutput) ToLogStreamOutput() LogStreamOutput {

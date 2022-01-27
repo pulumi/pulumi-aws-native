@@ -115,7 +115,7 @@ type StageInput interface {
 }
 
 func (*Stage) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stage)(nil))
+	return reflect.TypeOf((**Stage)(nil)).Elem()
 }
 
 func (i *Stage) ToStageOutput() StageOutput {
@@ -129,7 +129,7 @@ func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 type StageOutput struct{ *pulumi.OutputState }
 
 func (StageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stage)(nil))
+	return reflect.TypeOf((**Stage)(nil)).Elem()
 }
 
 func (o StageOutput) ToStageOutput() StageOutput {

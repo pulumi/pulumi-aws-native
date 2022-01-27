@@ -104,7 +104,7 @@ type AcceleratorInput interface {
 }
 
 func (*Accelerator) ElementType() reflect.Type {
-	return reflect.TypeOf((*Accelerator)(nil))
+	return reflect.TypeOf((**Accelerator)(nil)).Elem()
 }
 
 func (i *Accelerator) ToAcceleratorOutput() AcceleratorOutput {
@@ -118,7 +118,7 @@ func (i *Accelerator) ToAcceleratorOutputWithContext(ctx context.Context) Accele
 type AcceleratorOutput struct{ *pulumi.OutputState }
 
 func (AcceleratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Accelerator)(nil))
+	return reflect.TypeOf((**Accelerator)(nil)).Elem()
 }
 
 func (o AcceleratorOutput) ToAcceleratorOutput() AcceleratorOutput {

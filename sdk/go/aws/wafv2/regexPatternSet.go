@@ -106,7 +106,7 @@ type RegexPatternSetInput interface {
 }
 
 func (*RegexPatternSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexPatternSet)(nil))
+	return reflect.TypeOf((**RegexPatternSet)(nil)).Elem()
 }
 
 func (i *RegexPatternSet) ToRegexPatternSetOutput() RegexPatternSetOutput {
@@ -120,7 +120,7 @@ func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context
 type RegexPatternSetOutput struct{ *pulumi.OutputState }
 
 func (RegexPatternSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegexPatternSet)(nil))
+	return reflect.TypeOf((**RegexPatternSet)(nil)).Elem()
 }
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {

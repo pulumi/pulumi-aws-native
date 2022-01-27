@@ -94,7 +94,7 @@ type MacroInput interface {
 }
 
 func (*Macro) ElementType() reflect.Type {
-	return reflect.TypeOf((*Macro)(nil))
+	return reflect.TypeOf((**Macro)(nil)).Elem()
 }
 
 func (i *Macro) ToMacroOutput() MacroOutput {
@@ -108,7 +108,7 @@ func (i *Macro) ToMacroOutputWithContext(ctx context.Context) MacroOutput {
 type MacroOutput struct{ *pulumi.OutputState }
 
 func (MacroOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Macro)(nil))
+	return reflect.TypeOf((**Macro)(nil)).Elem()
 }
 
 func (o MacroOutput) ToMacroOutput() MacroOutput {

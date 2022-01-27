@@ -212,7 +212,7 @@ type ReplicationGroupInput interface {
 }
 
 func (*ReplicationGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationGroup)(nil))
+	return reflect.TypeOf((**ReplicationGroup)(nil)).Elem()
 }
 
 func (i *ReplicationGroup) ToReplicationGroupOutput() ReplicationGroupOutput {
@@ -226,7 +226,7 @@ func (i *ReplicationGroup) ToReplicationGroupOutputWithContext(ctx context.Conte
 type ReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationGroup)(nil))
+	return reflect.TypeOf((**ReplicationGroup)(nil)).Elem()
 }
 
 func (o ReplicationGroupOutput) ToReplicationGroupOutput() ReplicationGroupOutput {

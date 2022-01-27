@@ -84,7 +84,7 @@ type DataflowEndpointGroupInput interface {
 }
 
 func (*DataflowEndpointGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataflowEndpointGroup)(nil))
+	return reflect.TypeOf((**DataflowEndpointGroup)(nil)).Elem()
 }
 
 func (i *DataflowEndpointGroup) ToDataflowEndpointGroupOutput() DataflowEndpointGroupOutput {
@@ -98,7 +98,7 @@ func (i *DataflowEndpointGroup) ToDataflowEndpointGroupOutputWithContext(ctx con
 type DataflowEndpointGroupOutput struct{ *pulumi.OutputState }
 
 func (DataflowEndpointGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataflowEndpointGroup)(nil))
+	return reflect.TypeOf((**DataflowEndpointGroup)(nil)).Elem()
 }
 
 func (o DataflowEndpointGroupOutput) ToDataflowEndpointGroupOutput() DataflowEndpointGroupOutput {

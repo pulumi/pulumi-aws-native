@@ -102,7 +102,7 @@ type ListenerInput interface {
 }
 
 func (*Listener) ElementType() reflect.Type {
-	return reflect.TypeOf((*Listener)(nil))
+	return reflect.TypeOf((**Listener)(nil)).Elem()
 }
 
 func (i *Listener) ToListenerOutput() ListenerOutput {
@@ -116,7 +116,7 @@ func (i *Listener) ToListenerOutputWithContext(ctx context.Context) ListenerOutp
 type ListenerOutput struct{ *pulumi.OutputState }
 
 func (ListenerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Listener)(nil))
+	return reflect.TypeOf((**Listener)(nil)).Elem()
 }
 
 func (o ListenerOutput) ToListenerOutput() ListenerOutput {

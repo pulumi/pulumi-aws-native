@@ -118,7 +118,7 @@ type MissionProfileInput interface {
 }
 
 func (*MissionProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*MissionProfile)(nil))
+	return reflect.TypeOf((**MissionProfile)(nil)).Elem()
 }
 
 func (i *MissionProfile) ToMissionProfileOutput() MissionProfileOutput {
@@ -132,7 +132,7 @@ func (i *MissionProfile) ToMissionProfileOutputWithContext(ctx context.Context) 
 type MissionProfileOutput struct{ *pulumi.OutputState }
 
 func (MissionProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MissionProfile)(nil))
+	return reflect.TypeOf((**MissionProfile)(nil)).Elem()
 }
 
 func (o MissionProfileOutput) ToMissionProfileOutput() MissionProfileOutput {

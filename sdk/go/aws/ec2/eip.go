@@ -88,7 +88,7 @@ type EIPInput interface {
 }
 
 func (*EIP) ElementType() reflect.Type {
-	return reflect.TypeOf((*EIP)(nil))
+	return reflect.TypeOf((**EIP)(nil)).Elem()
 }
 
 func (i *EIP) ToEIPOutput() EIPOutput {
@@ -102,7 +102,7 @@ func (i *EIP) ToEIPOutputWithContext(ctx context.Context) EIPOutput {
 type EIPOutput struct{ *pulumi.OutputState }
 
 func (EIPOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EIP)(nil))
+	return reflect.TypeOf((**EIP)(nil)).Elem()
 }
 
 func (o EIPOutput) ToEIPOutput() EIPOutput {

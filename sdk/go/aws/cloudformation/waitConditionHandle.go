@@ -74,7 +74,7 @@ type WaitConditionHandleInput interface {
 }
 
 func (*WaitConditionHandle) ElementType() reflect.Type {
-	return reflect.TypeOf((*WaitConditionHandle)(nil))
+	return reflect.TypeOf((**WaitConditionHandle)(nil)).Elem()
 }
 
 func (i *WaitConditionHandle) ToWaitConditionHandleOutput() WaitConditionHandleOutput {
@@ -88,7 +88,7 @@ func (i *WaitConditionHandle) ToWaitConditionHandleOutputWithContext(ctx context
 type WaitConditionHandleOutput struct{ *pulumi.OutputState }
 
 func (WaitConditionHandleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WaitConditionHandle)(nil))
+	return reflect.TypeOf((**WaitConditionHandle)(nil)).Elem()
 }
 
 func (o WaitConditionHandleOutput) ToWaitConditionHandleOutput() WaitConditionHandleOutput {

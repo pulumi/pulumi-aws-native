@@ -97,7 +97,7 @@ type QueryDefinitionInput interface {
 }
 
 func (*QueryDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryDefinition)(nil))
+	return reflect.TypeOf((**QueryDefinition)(nil)).Elem()
 }
 
 func (i *QueryDefinition) ToQueryDefinitionOutput() QueryDefinitionOutput {
@@ -111,7 +111,7 @@ func (i *QueryDefinition) ToQueryDefinitionOutputWithContext(ctx context.Context
 type QueryDefinitionOutput struct{ *pulumi.OutputState }
 
 func (QueryDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryDefinition)(nil))
+	return reflect.TypeOf((**QueryDefinition)(nil)).Elem()
 }
 
 func (o QueryDefinitionOutput) ToQueryDefinitionOutput() QueryDefinitionOutput {

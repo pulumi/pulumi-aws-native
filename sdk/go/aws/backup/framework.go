@@ -117,7 +117,7 @@ type FrameworkInput interface {
 }
 
 func (*Framework) ElementType() reflect.Type {
-	return reflect.TypeOf((*Framework)(nil))
+	return reflect.TypeOf((**Framework)(nil)).Elem()
 }
 
 func (i *Framework) ToFrameworkOutput() FrameworkOutput {
@@ -131,7 +131,7 @@ func (i *Framework) ToFrameworkOutputWithContext(ctx context.Context) FrameworkO
 type FrameworkOutput struct{ *pulumi.OutputState }
 
 func (FrameworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Framework)(nil))
+	return reflect.TypeOf((**Framework)(nil)).Elem()
 }
 
 func (o FrameworkOutput) ToFrameworkOutput() FrameworkOutput {

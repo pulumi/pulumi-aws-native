@@ -88,7 +88,7 @@ type ListenerCertificateInput interface {
 }
 
 func (*ListenerCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerCertificate)(nil))
+	return reflect.TypeOf((**ListenerCertificate)(nil)).Elem()
 }
 
 func (i *ListenerCertificate) ToListenerCertificateOutput() ListenerCertificateOutput {
@@ -102,7 +102,7 @@ func (i *ListenerCertificate) ToListenerCertificateOutputWithContext(ctx context
 type ListenerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerCertificate)(nil))
+	return reflect.TypeOf((**ListenerCertificate)(nil)).Elem()
 }
 
 func (o ListenerCertificateOutput) ToListenerCertificateOutput() ListenerCertificateOutput {

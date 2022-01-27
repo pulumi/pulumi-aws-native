@@ -103,7 +103,7 @@ type GameSessionQueueInput interface {
 }
 
 func (*GameSessionQueue) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameSessionQueue)(nil))
+	return reflect.TypeOf((**GameSessionQueue)(nil)).Elem()
 }
 
 func (i *GameSessionQueue) ToGameSessionQueueOutput() GameSessionQueueOutput {
@@ -117,7 +117,7 @@ func (i *GameSessionQueue) ToGameSessionQueueOutputWithContext(ctx context.Conte
 type GameSessionQueueOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameSessionQueue)(nil))
+	return reflect.TypeOf((**GameSessionQueue)(nil)).Elem()
 }
 
 func (o GameSessionQueueOutput) ToGameSessionQueueOutput() GameSessionQueueOutput {

@@ -347,42 +347,6 @@ const (
 	EndpointStatusDeleting  = EndpointStatus("Deleting")
 )
 
-func (EndpointStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointStatus)(nil)).Elem()
-}
-
-func (e EndpointStatus) ToEndpointStatusOutput() EndpointStatusOutput {
-	return pulumi.ToOutput(e).(EndpointStatusOutput)
-}
-
-func (e EndpointStatus) ToEndpointStatusOutputWithContext(ctx context.Context) EndpointStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EndpointStatusOutput)
-}
-
-func (e EndpointStatus) ToEndpointStatusPtrOutput() EndpointStatusPtrOutput {
-	return e.ToEndpointStatusPtrOutputWithContext(context.Background())
-}
-
-func (e EndpointStatus) ToEndpointStatusPtrOutputWithContext(ctx context.Context) EndpointStatusPtrOutput {
-	return EndpointStatus(e).ToEndpointStatusOutputWithContext(ctx).ToEndpointStatusPtrOutputWithContext(ctx)
-}
-
-func (e EndpointStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EndpointStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EndpointStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e EndpointStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type EndpointStatusOutput struct{ *pulumi.OutputState }
 
 func (EndpointStatusOutput) ElementType() reflect.Type {
@@ -466,51 +430,11 @@ func (o EndpointStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EndpointStatusInput is an input type that accepts EndpointStatusArgs and EndpointStatusOutput values.
-// You can construct a concrete instance of `EndpointStatusInput` via:
-//
-//          EndpointStatusArgs{...}
-type EndpointStatusInput interface {
-	pulumi.Input
-
-	ToEndpointStatusOutput() EndpointStatusOutput
-	ToEndpointStatusOutputWithContext(context.Context) EndpointStatusOutput
-}
-
-var endpointStatusPtrType = reflect.TypeOf((**EndpointStatus)(nil)).Elem()
-
-type EndpointStatusPtrInput interface {
-	pulumi.Input
-
-	ToEndpointStatusPtrOutput() EndpointStatusPtrOutput
-	ToEndpointStatusPtrOutputWithContext(context.Context) EndpointStatusPtrOutput
-}
-
-type endpointStatusPtr string
-
-func EndpointStatusPtr(v string) EndpointStatusPtrInput {
-	return (*endpointStatusPtr)(&v)
-}
-
-func (*endpointStatusPtr) ElementType() reflect.Type {
-	return endpointStatusPtrType
-}
-
-func (in *endpointStatusPtr) ToEndpointStatusPtrOutput() EndpointStatusPtrOutput {
-	return pulumi.ToOutput(in).(EndpointStatusPtrOutput)
-}
-
-func (in *endpointStatusPtr) ToEndpointStatusPtrOutputWithContext(ctx context.Context) EndpointStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EndpointStatusPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleStatusInput)(nil)).Elem(), BucketRuleStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleStatusPtrInput)(nil)).Elem(), BucketRuleStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessTypeInput)(nil)).Elem(), EndpointAccessType("CustomerOwnedIp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessTypePtrInput)(nil)).Elem(), EndpointAccessType("CustomerOwnedIp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStatusInput)(nil)).Elem(), EndpointStatus("Available"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStatusPtrInput)(nil)).Elem(), EndpointStatus("Available"))
 	pulumi.RegisterOutputType(BucketRuleStatusOutput{})
 	pulumi.RegisterOutputType(BucketRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(EndpointAccessTypeOutput{})

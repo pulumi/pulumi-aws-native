@@ -142,7 +142,7 @@ type FleetMetricInput interface {
 }
 
 func (*FleetMetric) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetMetric)(nil))
+	return reflect.TypeOf((**FleetMetric)(nil)).Elem()
 }
 
 func (i *FleetMetric) ToFleetMetricOutput() FleetMetricOutput {
@@ -156,7 +156,7 @@ func (i *FleetMetric) ToFleetMetricOutputWithContext(ctx context.Context) FleetM
 type FleetMetricOutput struct{ *pulumi.OutputState }
 
 func (FleetMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetMetric)(nil))
+	return reflect.TypeOf((**FleetMetric)(nil)).Elem()
 }
 
 func (o FleetMetricOutput) ToFleetMetricOutput() FleetMetricOutput {

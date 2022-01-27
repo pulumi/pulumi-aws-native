@@ -102,7 +102,7 @@ type UserGroupInput interface {
 }
 
 func (*UserGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroup)(nil))
+	return reflect.TypeOf((**UserGroup)(nil)).Elem()
 }
 
 func (i *UserGroup) ToUserGroupOutput() UserGroupOutput {
@@ -116,7 +116,7 @@ func (i *UserGroup) ToUserGroupOutputWithContext(ctx context.Context) UserGroupO
 type UserGroupOutput struct{ *pulumi.OutputState }
 
 func (UserGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroup)(nil))
+	return reflect.TypeOf((**UserGroup)(nil)).Elem()
 }
 
 func (o UserGroupOutput) ToUserGroupOutput() UserGroupOutput {

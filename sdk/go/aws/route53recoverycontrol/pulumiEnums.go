@@ -19,42 +19,6 @@ const (
 	ClusterStatusPendingDeletion = ClusterStatus("PENDING_DELETION")
 )
 
-func (ClusterStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterStatus)(nil)).Elem()
-}
-
-func (e ClusterStatus) ToClusterStatusOutput() ClusterStatusOutput {
-	return pulumi.ToOutput(e).(ClusterStatusOutput)
-}
-
-func (e ClusterStatus) ToClusterStatusOutputWithContext(ctx context.Context) ClusterStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ClusterStatusOutput)
-}
-
-func (e ClusterStatus) ToClusterStatusPtrOutput() ClusterStatusPtrOutput {
-	return e.ToClusterStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ClusterStatus) ToClusterStatusPtrOutputWithContext(ctx context.Context) ClusterStatusPtrOutput {
-	return ClusterStatus(e).ToClusterStatusOutputWithContext(ctx).ToClusterStatusPtrOutputWithContext(ctx)
-}
-
-func (e ClusterStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ClusterStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ClusterStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ClusterStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type ClusterStatusOutput struct{ *pulumi.OutputState }
 
 func (ClusterStatusOutput) ElementType() reflect.Type {
@@ -138,44 +102,6 @@ func (o ClusterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterStatusInput is an input type that accepts ClusterStatusArgs and ClusterStatusOutput values.
-// You can construct a concrete instance of `ClusterStatusInput` via:
-//
-//          ClusterStatusArgs{...}
-type ClusterStatusInput interface {
-	pulumi.Input
-
-	ToClusterStatusOutput() ClusterStatusOutput
-	ToClusterStatusOutputWithContext(context.Context) ClusterStatusOutput
-}
-
-var clusterStatusPtrType = reflect.TypeOf((**ClusterStatus)(nil)).Elem()
-
-type ClusterStatusPtrInput interface {
-	pulumi.Input
-
-	ToClusterStatusPtrOutput() ClusterStatusPtrOutput
-	ToClusterStatusPtrOutputWithContext(context.Context) ClusterStatusPtrOutput
-}
-
-type clusterStatusPtr string
-
-func ClusterStatusPtr(v string) ClusterStatusPtrInput {
-	return (*clusterStatusPtr)(&v)
-}
-
-func (*clusterStatusPtr) ElementType() reflect.Type {
-	return clusterStatusPtrType
-}
-
-func (in *clusterStatusPtr) ToClusterStatusPtrOutput() ClusterStatusPtrOutput {
-	return pulumi.ToOutput(in).(ClusterStatusPtrOutput)
-}
-
-func (in *clusterStatusPtr) ToClusterStatusPtrOutputWithContext(ctx context.Context) ClusterStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ClusterStatusPtrOutput)
-}
-
 // The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 type ControlPanelStatus string
 
@@ -184,42 +110,6 @@ const (
 	ControlPanelStatusDeployed        = ControlPanelStatus("DEPLOYED")
 	ControlPanelStatusPendingDeletion = ControlPanelStatus("PENDING_DELETION")
 )
-
-func (ControlPanelStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControlPanelStatus)(nil)).Elem()
-}
-
-func (e ControlPanelStatus) ToControlPanelStatusOutput() ControlPanelStatusOutput {
-	return pulumi.ToOutput(e).(ControlPanelStatusOutput)
-}
-
-func (e ControlPanelStatus) ToControlPanelStatusOutputWithContext(ctx context.Context) ControlPanelStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ControlPanelStatusOutput)
-}
-
-func (e ControlPanelStatus) ToControlPanelStatusPtrOutput() ControlPanelStatusPtrOutput {
-	return e.ToControlPanelStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ControlPanelStatus) ToControlPanelStatusPtrOutputWithContext(ctx context.Context) ControlPanelStatusPtrOutput {
-	return ControlPanelStatus(e).ToControlPanelStatusOutputWithContext(ctx).ToControlPanelStatusPtrOutputWithContext(ctx)
-}
-
-func (e ControlPanelStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ControlPanelStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ControlPanelStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ControlPanelStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ControlPanelStatusOutput struct{ *pulumi.OutputState }
 
@@ -304,44 +194,6 @@ func (o ControlPanelStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ControlPanelStatusInput is an input type that accepts ControlPanelStatusArgs and ControlPanelStatusOutput values.
-// You can construct a concrete instance of `ControlPanelStatusInput` via:
-//
-//          ControlPanelStatusArgs{...}
-type ControlPanelStatusInput interface {
-	pulumi.Input
-
-	ToControlPanelStatusOutput() ControlPanelStatusOutput
-	ToControlPanelStatusOutputWithContext(context.Context) ControlPanelStatusOutput
-}
-
-var controlPanelStatusPtrType = reflect.TypeOf((**ControlPanelStatus)(nil)).Elem()
-
-type ControlPanelStatusPtrInput interface {
-	pulumi.Input
-
-	ToControlPanelStatusPtrOutput() ControlPanelStatusPtrOutput
-	ToControlPanelStatusPtrOutputWithContext(context.Context) ControlPanelStatusPtrOutput
-}
-
-type controlPanelStatusPtr string
-
-func ControlPanelStatusPtr(v string) ControlPanelStatusPtrInput {
-	return (*controlPanelStatusPtr)(&v)
-}
-
-func (*controlPanelStatusPtr) ElementType() reflect.Type {
-	return controlPanelStatusPtrType
-}
-
-func (in *controlPanelStatusPtr) ToControlPanelStatusPtrOutput() ControlPanelStatusPtrOutput {
-	return pulumi.ToOutput(in).(ControlPanelStatusPtrOutput)
-}
-
-func (in *controlPanelStatusPtr) ToControlPanelStatusPtrOutputWithContext(ctx context.Context) ControlPanelStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ControlPanelStatusPtrOutput)
-}
-
 // The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 type RoutingControlStatus string
 
@@ -350,42 +202,6 @@ const (
 	RoutingControlStatusDeployed        = RoutingControlStatus("DEPLOYED")
 	RoutingControlStatusPendingDeletion = RoutingControlStatus("PENDING_DELETION")
 )
-
-func (RoutingControlStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingControlStatus)(nil)).Elem()
-}
-
-func (e RoutingControlStatus) ToRoutingControlStatusOutput() RoutingControlStatusOutput {
-	return pulumi.ToOutput(e).(RoutingControlStatusOutput)
-}
-
-func (e RoutingControlStatus) ToRoutingControlStatusOutputWithContext(ctx context.Context) RoutingControlStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RoutingControlStatusOutput)
-}
-
-func (e RoutingControlStatus) ToRoutingControlStatusPtrOutput() RoutingControlStatusPtrOutput {
-	return e.ToRoutingControlStatusPtrOutputWithContext(context.Background())
-}
-
-func (e RoutingControlStatus) ToRoutingControlStatusPtrOutputWithContext(ctx context.Context) RoutingControlStatusPtrOutput {
-	return RoutingControlStatus(e).ToRoutingControlStatusOutputWithContext(ctx).ToRoutingControlStatusPtrOutputWithContext(ctx)
-}
-
-func (e RoutingControlStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RoutingControlStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RoutingControlStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RoutingControlStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type RoutingControlStatusOutput struct{ *pulumi.OutputState }
 
@@ -468,44 +284,6 @@ func (o RoutingControlStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// RoutingControlStatusInput is an input type that accepts RoutingControlStatusArgs and RoutingControlStatusOutput values.
-// You can construct a concrete instance of `RoutingControlStatusInput` via:
-//
-//          RoutingControlStatusArgs{...}
-type RoutingControlStatusInput interface {
-	pulumi.Input
-
-	ToRoutingControlStatusOutput() RoutingControlStatusOutput
-	ToRoutingControlStatusOutputWithContext(context.Context) RoutingControlStatusOutput
-}
-
-var routingControlStatusPtrType = reflect.TypeOf((**RoutingControlStatus)(nil)).Elem()
-
-type RoutingControlStatusPtrInput interface {
-	pulumi.Input
-
-	ToRoutingControlStatusPtrOutput() RoutingControlStatusPtrOutput
-	ToRoutingControlStatusPtrOutputWithContext(context.Context) RoutingControlStatusPtrOutput
-}
-
-type routingControlStatusPtr string
-
-func RoutingControlStatusPtr(v string) RoutingControlStatusPtrInput {
-	return (*routingControlStatusPtr)(&v)
-}
-
-func (*routingControlStatusPtr) ElementType() reflect.Type {
-	return routingControlStatusPtrType
-}
-
-func (in *routingControlStatusPtr) ToRoutingControlStatusPtrOutput() RoutingControlStatusPtrOutput {
-	return pulumi.ToOutput(in).(RoutingControlStatusPtrOutput)
-}
-
-func (in *routingControlStatusPtr) ToRoutingControlStatusPtrOutputWithContext(ctx context.Context) RoutingControlStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RoutingControlStatusPtrOutput)
 }
 
 // A rule can be one of the following: ATLEAST, AND, or OR.
@@ -683,42 +461,6 @@ const (
 	SafetyRuleStatusPendingDeletion = SafetyRuleStatus("PENDING_DELETION")
 )
 
-func (SafetyRuleStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*SafetyRuleStatus)(nil)).Elem()
-}
-
-func (e SafetyRuleStatus) ToSafetyRuleStatusOutput() SafetyRuleStatusOutput {
-	return pulumi.ToOutput(e).(SafetyRuleStatusOutput)
-}
-
-func (e SafetyRuleStatus) ToSafetyRuleStatusOutputWithContext(ctx context.Context) SafetyRuleStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SafetyRuleStatusOutput)
-}
-
-func (e SafetyRuleStatus) ToSafetyRuleStatusPtrOutput() SafetyRuleStatusPtrOutput {
-	return e.ToSafetyRuleStatusPtrOutputWithContext(context.Background())
-}
-
-func (e SafetyRuleStatus) ToSafetyRuleStatusPtrOutputWithContext(ctx context.Context) SafetyRuleStatusPtrOutput {
-	return SafetyRuleStatus(e).ToSafetyRuleStatusOutputWithContext(ctx).ToSafetyRuleStatusPtrOutputWithContext(ctx)
-}
-
-func (e SafetyRuleStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SafetyRuleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SafetyRuleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SafetyRuleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type SafetyRuleStatusOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleStatusOutput) ElementType() reflect.Type {
@@ -802,55 +544,9 @@ func (o SafetyRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SafetyRuleStatusInput is an input type that accepts SafetyRuleStatusArgs and SafetyRuleStatusOutput values.
-// You can construct a concrete instance of `SafetyRuleStatusInput` via:
-//
-//          SafetyRuleStatusArgs{...}
-type SafetyRuleStatusInput interface {
-	pulumi.Input
-
-	ToSafetyRuleStatusOutput() SafetyRuleStatusOutput
-	ToSafetyRuleStatusOutputWithContext(context.Context) SafetyRuleStatusOutput
-}
-
-var safetyRuleStatusPtrType = reflect.TypeOf((**SafetyRuleStatus)(nil)).Elem()
-
-type SafetyRuleStatusPtrInput interface {
-	pulumi.Input
-
-	ToSafetyRuleStatusPtrOutput() SafetyRuleStatusPtrOutput
-	ToSafetyRuleStatusPtrOutputWithContext(context.Context) SafetyRuleStatusPtrOutput
-}
-
-type safetyRuleStatusPtr string
-
-func SafetyRuleStatusPtr(v string) SafetyRuleStatusPtrInput {
-	return (*safetyRuleStatusPtr)(&v)
-}
-
-func (*safetyRuleStatusPtr) ElementType() reflect.Type {
-	return safetyRuleStatusPtrType
-}
-
-func (in *safetyRuleStatusPtr) ToSafetyRuleStatusPtrOutput() SafetyRuleStatusPtrOutput {
-	return pulumi.ToOutput(in).(SafetyRuleStatusPtrOutput)
-}
-
-func (in *safetyRuleStatusPtr) ToSafetyRuleStatusPtrOutputWithContext(ctx context.Context) SafetyRuleStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SafetyRuleStatusPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStatusInput)(nil)).Elem(), ClusterStatus("PENDING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStatusPtrInput)(nil)).Elem(), ClusterStatus("PENDING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelStatusInput)(nil)).Elem(), ControlPanelStatus("PENDING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelStatusPtrInput)(nil)).Elem(), ControlPanelStatus("PENDING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlStatusInput)(nil)).Elem(), RoutingControlStatus("PENDING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlStatusPtrInput)(nil)).Elem(), RoutingControlStatus("PENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleRuleTypeInput)(nil)).Elem(), SafetyRuleRuleType("AND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleRuleTypePtrInput)(nil)).Elem(), SafetyRuleRuleType("AND"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleStatusInput)(nil)).Elem(), SafetyRuleStatus("PENDING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleStatusPtrInput)(nil)).Elem(), SafetyRuleStatus("PENDING"))
 	pulumi.RegisterOutputType(ClusterStatusOutput{})
 	pulumi.RegisterOutputType(ClusterStatusPtrOutput{})
 	pulumi.RegisterOutputType(ControlPanelStatusOutput{})

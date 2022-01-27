@@ -114,7 +114,7 @@ type FargateProfileInput interface {
 }
 
 func (*FargateProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*FargateProfile)(nil))
+	return reflect.TypeOf((**FargateProfile)(nil)).Elem()
 }
 
 func (i *FargateProfile) ToFargateProfileOutput() FargateProfileOutput {
@@ -128,7 +128,7 @@ func (i *FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) 
 type FargateProfileOutput struct{ *pulumi.OutputState }
 
 func (FargateProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FargateProfile)(nil))
+	return reflect.TypeOf((**FargateProfile)(nil)).Elem()
 }
 
 func (o FargateProfileOutput) ToFargateProfileOutput() FargateProfileOutput {

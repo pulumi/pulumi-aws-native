@@ -115,7 +115,7 @@ type UserProfileInput interface {
 }
 
 func (*UserProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserProfile)(nil))
+	return reflect.TypeOf((**UserProfile)(nil)).Elem()
 }
 
 func (i *UserProfile) ToUserProfileOutput() UserProfileOutput {
@@ -129,7 +129,7 @@ func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserPr
 type UserProfileOutput struct{ *pulumi.OutputState }
 
 func (UserProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserProfile)(nil))
+	return reflect.TypeOf((**UserProfile)(nil)).Elem()
 }
 
 func (o UserProfileOutput) ToUserProfileOutput() UserProfileOutput {

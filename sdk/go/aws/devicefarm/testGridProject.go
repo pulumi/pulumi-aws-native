@@ -86,7 +86,7 @@ type TestGridProjectInput interface {
 }
 
 func (*TestGridProject) ElementType() reflect.Type {
-	return reflect.TypeOf((*TestGridProject)(nil))
+	return reflect.TypeOf((**TestGridProject)(nil)).Elem()
 }
 
 func (i *TestGridProject) ToTestGridProjectOutput() TestGridProjectOutput {
@@ -100,7 +100,7 @@ func (i *TestGridProject) ToTestGridProjectOutputWithContext(ctx context.Context
 type TestGridProjectOutput struct{ *pulumi.OutputState }
 
 func (TestGridProjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TestGridProject)(nil))
+	return reflect.TypeOf((**TestGridProject)(nil)).Elem()
 }
 
 func (o TestGridProjectOutput) ToTestGridProjectOutput() TestGridProjectOutput {

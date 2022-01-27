@@ -82,7 +82,7 @@ type ReceiptFilterInput interface {
 }
 
 func (*ReceiptFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptFilter)(nil))
+	return reflect.TypeOf((**ReceiptFilter)(nil)).Elem()
 }
 
 func (i *ReceiptFilter) ToReceiptFilterOutput() ReceiptFilterOutput {
@@ -96,7 +96,7 @@ func (i *ReceiptFilter) ToReceiptFilterOutputWithContext(ctx context.Context) Re
 type ReceiptFilterOutput struct{ *pulumi.OutputState }
 
 func (ReceiptFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptFilter)(nil))
+	return reflect.TypeOf((**ReceiptFilter)(nil)).Elem()
 }
 
 func (o ReceiptFilterOutput) ToReceiptFilterOutput() ReceiptFilterOutput {

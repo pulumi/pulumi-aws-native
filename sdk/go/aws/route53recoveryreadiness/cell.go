@@ -95,7 +95,7 @@ type CellInput interface {
 }
 
 func (*Cell) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cell)(nil))
+	return reflect.TypeOf((**Cell)(nil)).Elem()
 }
 
 func (i *Cell) ToCellOutput() CellOutput {
@@ -109,7 +109,7 @@ func (i *Cell) ToCellOutputWithContext(ctx context.Context) CellOutput {
 type CellOutput struct{ *pulumi.OutputState }
 
 func (CellOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cell)(nil))
+	return reflect.TypeOf((**Cell)(nil)).Elem()
 }
 
 func (o CellOutput) ToCellOutput() CellOutput {

@@ -81,7 +81,7 @@ type DataLakeSettingsInput interface {
 }
 
 func (*DataLakeSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeSettings)(nil))
+	return reflect.TypeOf((**DataLakeSettings)(nil)).Elem()
 }
 
 func (i *DataLakeSettings) ToDataLakeSettingsOutput() DataLakeSettingsOutput {
@@ -95,7 +95,7 @@ func (i *DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Conte
 type DataLakeSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeSettings)(nil))
+	return reflect.TypeOf((**DataLakeSettings)(nil)).Elem()
 }
 
 func (o DataLakeSettingsOutput) ToDataLakeSettingsOutput() DataLakeSettingsOutput {

@@ -160,7 +160,7 @@ type BrokerInput interface {
 }
 
 func (*Broker) ElementType() reflect.Type {
-	return reflect.TypeOf((*Broker)(nil))
+	return reflect.TypeOf((**Broker)(nil)).Elem()
 }
 
 func (i *Broker) ToBrokerOutput() BrokerOutput {
@@ -174,7 +174,7 @@ func (i *Broker) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
 type BrokerOutput struct{ *pulumi.OutputState }
 
 func (BrokerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Broker)(nil))
+	return reflect.TypeOf((**Broker)(nil)).Elem()
 }
 
 func (o BrokerOutput) ToBrokerOutput() BrokerOutput {

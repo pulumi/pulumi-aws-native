@@ -97,7 +97,7 @@ type FHIRDatastoreInput interface {
 }
 
 func (*FHIRDatastore) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastore)(nil))
+	return reflect.TypeOf((**FHIRDatastore)(nil)).Elem()
 }
 
 func (i *FHIRDatastore) ToFHIRDatastoreOutput() FHIRDatastoreOutput {
@@ -111,7 +111,7 @@ func (i *FHIRDatastore) ToFHIRDatastoreOutputWithContext(ctx context.Context) FH
 type FHIRDatastoreOutput struct{ *pulumi.OutputState }
 
 func (FHIRDatastoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastore)(nil))
+	return reflect.TypeOf((**FHIRDatastore)(nil)).Elem()
 }
 
 func (o FHIRDatastoreOutput) ToFHIRDatastoreOutput() FHIRDatastoreOutput {

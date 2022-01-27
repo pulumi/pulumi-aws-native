@@ -111,7 +111,7 @@ type LaunchInput interface {
 }
 
 func (*Launch) ElementType() reflect.Type {
-	return reflect.TypeOf((*Launch)(nil))
+	return reflect.TypeOf((**Launch)(nil)).Elem()
 }
 
 func (i *Launch) ToLaunchOutput() LaunchOutput {
@@ -125,7 +125,7 @@ func (i *Launch) ToLaunchOutputWithContext(ctx context.Context) LaunchOutput {
 type LaunchOutput struct{ *pulumi.OutputState }
 
 func (LaunchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Launch)(nil))
+	return reflect.TypeOf((**Launch)(nil)).Elem()
 }
 
 func (o LaunchOutput) ToLaunchOutput() LaunchOutput {

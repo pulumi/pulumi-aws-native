@@ -150,7 +150,7 @@ type DBProxyInput interface {
 }
 
 func (*DBProxy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxy)(nil))
+	return reflect.TypeOf((**DBProxy)(nil)).Elem()
 }
 
 func (i *DBProxy) ToDBProxyOutput() DBProxyOutput {
@@ -164,7 +164,7 @@ func (i *DBProxy) ToDBProxyOutputWithContext(ctx context.Context) DBProxyOutput 
 type DBProxyOutput struct{ *pulumi.OutputState }
 
 func (DBProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxy)(nil))
+	return reflect.TypeOf((**DBProxy)(nil)).Elem()
 }
 
 func (o DBProxyOutput) ToDBProxyOutput() DBProxyOutput {

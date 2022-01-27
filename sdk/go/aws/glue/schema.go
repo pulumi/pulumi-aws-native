@@ -129,7 +129,7 @@ type SchemaInput interface {
 }
 
 func (*Schema) ElementType() reflect.Type {
-	return reflect.TypeOf((*Schema)(nil))
+	return reflect.TypeOf((**Schema)(nil)).Elem()
 }
 
 func (i *Schema) ToSchemaOutput() SchemaOutput {
@@ -143,7 +143,7 @@ func (i *Schema) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
 type SchemaOutput struct{ *pulumi.OutputState }
 
 func (SchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Schema)(nil))
+	return reflect.TypeOf((**Schema)(nil)).Elem()
 }
 
 func (o SchemaOutput) ToSchemaOutput() SchemaOutput {

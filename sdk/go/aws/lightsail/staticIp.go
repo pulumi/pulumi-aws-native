@@ -90,7 +90,7 @@ type StaticIpInput interface {
 }
 
 func (*StaticIp) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticIp)(nil))
+	return reflect.TypeOf((**StaticIp)(nil)).Elem()
 }
 
 func (i *StaticIp) ToStaticIpOutput() StaticIpOutput {
@@ -104,7 +104,7 @@ func (i *StaticIp) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutp
 type StaticIpOutput struct{ *pulumi.OutputState }
 
 func (StaticIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticIp)(nil))
+	return reflect.TypeOf((**StaticIp)(nil)).Elem()
 }
 
 func (o StaticIpOutput) ToStaticIpOutput() StaticIpOutput {

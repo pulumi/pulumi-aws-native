@@ -157,7 +157,7 @@ type InfrastructureConfigurationInput interface {
 }
 
 func (*InfrastructureConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*InfrastructureConfiguration)(nil))
+	return reflect.TypeOf((**InfrastructureConfiguration)(nil)).Elem()
 }
 
 func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutput() InfrastructureConfigurationOutput {
@@ -171,7 +171,7 @@ func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutputWithCon
 type InfrastructureConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InfrastructureConfiguration)(nil))
+	return reflect.TypeOf((**InfrastructureConfiguration)(nil)).Elem()
 }
 
 func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutput() InfrastructureConfigurationOutput {

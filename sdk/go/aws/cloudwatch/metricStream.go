@@ -133,7 +133,7 @@ type MetricStreamInput interface {
 }
 
 func (*MetricStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStream)(nil))
+	return reflect.TypeOf((**MetricStream)(nil)).Elem()
 }
 
 func (i *MetricStream) ToMetricStreamOutput() MetricStreamOutput {
@@ -147,7 +147,7 @@ func (i *MetricStream) ToMetricStreamOutputWithContext(ctx context.Context) Metr
 type MetricStreamOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStream)(nil))
+	return reflect.TypeOf((**MetricStream)(nil)).Elem()
 }
 
 func (o MetricStreamOutput) ToMetricStreamOutput() MetricStreamOutput {

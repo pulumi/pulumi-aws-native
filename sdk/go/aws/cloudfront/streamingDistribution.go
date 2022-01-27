@@ -89,7 +89,7 @@ type StreamingDistributionInput interface {
 }
 
 func (*StreamingDistribution) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingDistribution)(nil))
+	return reflect.TypeOf((**StreamingDistribution)(nil)).Elem()
 }
 
 func (i *StreamingDistribution) ToStreamingDistributionOutput() StreamingDistributionOutput {
@@ -103,7 +103,7 @@ func (i *StreamingDistribution) ToStreamingDistributionOutputWithContext(ctx con
 type StreamingDistributionOutput struct{ *pulumi.OutputState }
 
 func (StreamingDistributionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingDistribution)(nil))
+	return reflect.TypeOf((**StreamingDistribution)(nil)).Elem()
 }
 
 func (o StreamingDistributionOutput) ToStreamingDistributionOutput() StreamingDistributionOutput {

@@ -78,7 +78,7 @@ type PlacementGroupInput interface {
 }
 
 func (*PlacementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementGroup)(nil))
+	return reflect.TypeOf((**PlacementGroup)(nil)).Elem()
 }
 
 func (i *PlacementGroup) ToPlacementGroupOutput() PlacementGroupOutput {
@@ -92,7 +92,7 @@ func (i *PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) 
 type PlacementGroupOutput struct{ *pulumi.OutputState }
 
 func (PlacementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementGroup)(nil))
+	return reflect.TypeOf((**PlacementGroup)(nil)).Elem()
 }
 
 func (o PlacementGroupOutput) ToPlacementGroupOutput() PlacementGroupOutput {

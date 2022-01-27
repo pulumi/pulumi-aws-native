@@ -165,7 +165,7 @@ type ContainerRecipeInput interface {
 }
 
 func (*ContainerRecipe) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerRecipe)(nil))
+	return reflect.TypeOf((**ContainerRecipe)(nil)).Elem()
 }
 
 func (i *ContainerRecipe) ToContainerRecipeOutput() ContainerRecipeOutput {
@@ -179,7 +179,7 @@ func (i *ContainerRecipe) ToContainerRecipeOutputWithContext(ctx context.Context
 type ContainerRecipeOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerRecipe)(nil))
+	return reflect.TypeOf((**ContainerRecipe)(nil)).Elem()
 }
 
 func (o ContainerRecipeOutput) ToContainerRecipeOutput() ContainerRecipeOutput {

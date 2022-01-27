@@ -83,7 +83,7 @@ type ResolverDNSSECConfigInput interface {
 }
 
 func (*ResolverDNSSECConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverDNSSECConfig)(nil))
+	return reflect.TypeOf((**ResolverDNSSECConfig)(nil)).Elem()
 }
 
 func (i *ResolverDNSSECConfig) ToResolverDNSSECConfigOutput() ResolverDNSSECConfigOutput {
@@ -97,7 +97,7 @@ func (i *ResolverDNSSECConfig) ToResolverDNSSECConfigOutputWithContext(ctx conte
 type ResolverDNSSECConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverDNSSECConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverDNSSECConfig)(nil))
+	return reflect.TypeOf((**ResolverDNSSECConfig)(nil)).Elem()
 }
 
 func (o ResolverDNSSECConfigOutput) ToResolverDNSSECConfigOutput() ResolverDNSSECConfigOutput {

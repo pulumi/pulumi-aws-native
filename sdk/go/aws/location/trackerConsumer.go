@@ -86,7 +86,7 @@ type TrackerConsumerInput interface {
 }
 
 func (*TrackerConsumer) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrackerConsumer)(nil))
+	return reflect.TypeOf((**TrackerConsumer)(nil)).Elem()
 }
 
 func (i *TrackerConsumer) ToTrackerConsumerOutput() TrackerConsumerOutput {
@@ -100,7 +100,7 @@ func (i *TrackerConsumer) ToTrackerConsumerOutputWithContext(ctx context.Context
 type TrackerConsumerOutput struct{ *pulumi.OutputState }
 
 func (TrackerConsumerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrackerConsumer)(nil))
+	return reflect.TypeOf((**TrackerConsumer)(nil)).Elem()
 }
 
 func (o TrackerConsumerOutput) ToTrackerConsumerOutput() TrackerConsumerOutput {

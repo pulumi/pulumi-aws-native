@@ -114,7 +114,7 @@ type CloudFormationProvisionedProductInput interface {
 }
 
 func (*CloudFormationProvisionedProduct) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProvisionedProduct)(nil))
+	return reflect.TypeOf((**CloudFormationProvisionedProduct)(nil)).Elem()
 }
 
 func (i *CloudFormationProvisionedProduct) ToCloudFormationProvisionedProductOutput() CloudFormationProvisionedProductOutput {
@@ -128,7 +128,7 @@ func (i *CloudFormationProvisionedProduct) ToCloudFormationProvisionedProductOut
 type CloudFormationProvisionedProductOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProvisionedProductOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProvisionedProduct)(nil))
+	return reflect.TypeOf((**CloudFormationProvisionedProduct)(nil)).Elem()
 }
 
 func (o CloudFormationProvisionedProductOutput) ToCloudFormationProvisionedProductOutput() CloudFormationProvisionedProductOutput {

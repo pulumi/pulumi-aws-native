@@ -106,7 +106,7 @@ type APNSVoipSandboxChannelInput interface {
 }
 
 func (*APNSVoipSandboxChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*APNSVoipSandboxChannel)(nil))
+	return reflect.TypeOf((**APNSVoipSandboxChannel)(nil)).Elem()
 }
 
 func (i *APNSVoipSandboxChannel) ToAPNSVoipSandboxChannelOutput() APNSVoipSandboxChannelOutput {
@@ -120,7 +120,7 @@ func (i *APNSVoipSandboxChannel) ToAPNSVoipSandboxChannelOutputWithContext(ctx c
 type APNSVoipSandboxChannelOutput struct{ *pulumi.OutputState }
 
 func (APNSVoipSandboxChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*APNSVoipSandboxChannel)(nil))
+	return reflect.TypeOf((**APNSVoipSandboxChannel)(nil)).Elem()
 }
 
 func (o APNSVoipSandboxChannelOutput) ToAPNSVoipSandboxChannelOutput() APNSVoipSandboxChannelOutput {

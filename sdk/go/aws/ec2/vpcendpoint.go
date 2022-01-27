@@ -109,7 +109,7 @@ type VPCEndpointInput interface {
 }
 
 func (*VPCEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEndpoint)(nil))
+	return reflect.TypeOf((**VPCEndpoint)(nil)).Elem()
 }
 
 func (i *VPCEndpoint) ToVPCEndpointOutput() VPCEndpointOutput {
@@ -123,7 +123,7 @@ func (i *VPCEndpoint) ToVPCEndpointOutputWithContext(ctx context.Context) VPCEnd
 type VPCEndpointOutput struct{ *pulumi.OutputState }
 
 func (VPCEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEndpoint)(nil))
+	return reflect.TypeOf((**VPCEndpoint)(nil)).Elem()
 }
 
 func (o VPCEndpointOutput) ToVPCEndpointOutput() VPCEndpointOutput {

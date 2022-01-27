@@ -94,7 +94,7 @@ type PortfolioProductAssociationInput interface {
 }
 
 func (*PortfolioProductAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioProductAssociation)(nil))
+	return reflect.TypeOf((**PortfolioProductAssociation)(nil)).Elem()
 }
 
 func (i *PortfolioProductAssociation) ToPortfolioProductAssociationOutput() PortfolioProductAssociationOutput {
@@ -108,7 +108,7 @@ func (i *PortfolioProductAssociation) ToPortfolioProductAssociationOutputWithCon
 type PortfolioProductAssociationOutput struct{ *pulumi.OutputState }
 
 func (PortfolioProductAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioProductAssociation)(nil))
+	return reflect.TypeOf((**PortfolioProductAssociation)(nil)).Elem()
 }
 
 func (o PortfolioProductAssociationOutput) ToPortfolioProductAssociationOutput() PortfolioProductAssociationOutput {

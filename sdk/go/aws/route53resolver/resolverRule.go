@@ -120,7 +120,7 @@ type ResolverRuleInput interface {
 }
 
 func (*ResolverRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRule)(nil))
+	return reflect.TypeOf((**ResolverRule)(nil)).Elem()
 }
 
 func (i *ResolverRule) ToResolverRuleOutput() ResolverRuleOutput {
@@ -134,7 +134,7 @@ func (i *ResolverRule) ToResolverRuleOutputWithContext(ctx context.Context) Reso
 type ResolverRuleOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRule)(nil))
+	return reflect.TypeOf((**ResolverRule)(nil)).Elem()
 }
 
 func (o ResolverRuleOutput) ToResolverRuleOutput() ResolverRuleOutput {

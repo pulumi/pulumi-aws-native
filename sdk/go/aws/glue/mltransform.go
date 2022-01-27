@@ -124,7 +124,7 @@ type MLTransformInput interface {
 }
 
 func (*MLTransform) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransform)(nil))
+	return reflect.TypeOf((**MLTransform)(nil)).Elem()
 }
 
 func (i *MLTransform) ToMLTransformOutput() MLTransformOutput {
@@ -138,7 +138,7 @@ func (i *MLTransform) ToMLTransformOutputWithContext(ctx context.Context) MLTran
 type MLTransformOutput struct{ *pulumi.OutputState }
 
 func (MLTransformOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransform)(nil))
+	return reflect.TypeOf((**MLTransform)(nil)).Elem()
 }
 
 func (o MLTransformOutput) ToMLTransformOutput() MLTransformOutput {

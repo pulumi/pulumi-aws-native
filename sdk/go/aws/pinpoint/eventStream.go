@@ -94,7 +94,7 @@ type EventStreamInput interface {
 }
 
 func (*EventStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventStream)(nil))
+	return reflect.TypeOf((**EventStream)(nil)).Elem()
 }
 
 func (i *EventStream) ToEventStreamOutput() EventStreamOutput {
@@ -108,7 +108,7 @@ func (i *EventStream) ToEventStreamOutputWithContext(ctx context.Context) EventS
 type EventStreamOutput struct{ *pulumi.OutputState }
 
 func (EventStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventStream)(nil))
+	return reflect.TypeOf((**EventStream)(nil)).Elem()
 }
 
 func (o EventStreamOutput) ToEventStreamOutput() EventStreamOutput {

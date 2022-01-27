@@ -86,7 +86,7 @@ type BackupPlanInput interface {
 }
 
 func (*BackupPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPlan)(nil))
+	return reflect.TypeOf((**BackupPlan)(nil)).Elem()
 }
 
 func (i *BackupPlan) ToBackupPlanOutput() BackupPlanOutput {
@@ -100,7 +100,7 @@ func (i *BackupPlan) ToBackupPlanOutputWithContext(ctx context.Context) BackupPl
 type BackupPlanOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPlan)(nil))
+	return reflect.TypeOf((**BackupPlan)(nil)).Elem()
 }
 
 func (o BackupPlanOutput) ToBackupPlanOutput() BackupPlanOutput {

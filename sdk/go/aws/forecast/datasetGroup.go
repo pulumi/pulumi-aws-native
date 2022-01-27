@@ -103,7 +103,7 @@ type DatasetGroupInput interface {
 }
 
 func (*DatasetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetGroup)(nil))
+	return reflect.TypeOf((**DatasetGroup)(nil)).Elem()
 }
 
 func (i *DatasetGroup) ToDatasetGroupOutput() DatasetGroupOutput {
@@ -117,7 +117,7 @@ func (i *DatasetGroup) ToDatasetGroupOutputWithContext(ctx context.Context) Data
 type DatasetGroupOutput struct{ *pulumi.OutputState }
 
 func (DatasetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetGroup)(nil))
+	return reflect.TypeOf((**DatasetGroup)(nil)).Elem()
 }
 
 func (o DatasetGroupOutput) ToDatasetGroupOutput() DatasetGroupOutput {

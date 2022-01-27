@@ -21,42 +21,6 @@ const (
 	ModuleVersionVisibilityPrivate = ModuleVersionVisibility("PRIVATE")
 )
 
-func (ModuleVersionVisibility) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModuleVersionVisibility)(nil)).Elem()
-}
-
-func (e ModuleVersionVisibility) ToModuleVersionVisibilityOutput() ModuleVersionVisibilityOutput {
-	return pulumi.ToOutput(e).(ModuleVersionVisibilityOutput)
-}
-
-func (e ModuleVersionVisibility) ToModuleVersionVisibilityOutputWithContext(ctx context.Context) ModuleVersionVisibilityOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ModuleVersionVisibilityOutput)
-}
-
-func (e ModuleVersionVisibility) ToModuleVersionVisibilityPtrOutput() ModuleVersionVisibilityPtrOutput {
-	return e.ToModuleVersionVisibilityPtrOutputWithContext(context.Background())
-}
-
-func (e ModuleVersionVisibility) ToModuleVersionVisibilityPtrOutputWithContext(ctx context.Context) ModuleVersionVisibilityPtrOutput {
-	return ModuleVersionVisibility(e).ToModuleVersionVisibilityOutputWithContext(ctx).ToModuleVersionVisibilityPtrOutputWithContext(ctx)
-}
-
-func (e ModuleVersionVisibility) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ModuleVersionVisibility) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ModuleVersionVisibility) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ModuleVersionVisibility) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type ModuleVersionVisibilityOutput struct{ *pulumi.OutputState }
 
 func (ModuleVersionVisibilityOutput) ElementType() reflect.Type {
@@ -138,44 +102,6 @@ func (o ModuleVersionVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx conte
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ModuleVersionVisibilityInput is an input type that accepts ModuleVersionVisibilityArgs and ModuleVersionVisibilityOutput values.
-// You can construct a concrete instance of `ModuleVersionVisibilityInput` via:
-//
-//          ModuleVersionVisibilityArgs{...}
-type ModuleVersionVisibilityInput interface {
-	pulumi.Input
-
-	ToModuleVersionVisibilityOutput() ModuleVersionVisibilityOutput
-	ToModuleVersionVisibilityOutputWithContext(context.Context) ModuleVersionVisibilityOutput
-}
-
-var moduleVersionVisibilityPtrType = reflect.TypeOf((**ModuleVersionVisibility)(nil)).Elem()
-
-type ModuleVersionVisibilityPtrInput interface {
-	pulumi.Input
-
-	ToModuleVersionVisibilityPtrOutput() ModuleVersionVisibilityPtrOutput
-	ToModuleVersionVisibilityPtrOutputWithContext(context.Context) ModuleVersionVisibilityPtrOutput
-}
-
-type moduleVersionVisibilityPtr string
-
-func ModuleVersionVisibilityPtr(v string) ModuleVersionVisibilityPtrInput {
-	return (*moduleVersionVisibilityPtr)(&v)
-}
-
-func (*moduleVersionVisibilityPtr) ElementType() reflect.Type {
-	return moduleVersionVisibilityPtrType
-}
-
-func (in *moduleVersionVisibilityPtr) ToModuleVersionVisibilityPtrOutput() ModuleVersionVisibilityPtrOutput {
-	return pulumi.ToOutput(in).(ModuleVersionVisibilityPtrOutput)
-}
-
-func (in *moduleVersionVisibilityPtr) ToModuleVersionVisibilityPtrOutputWithContext(ctx context.Context) ModuleVersionVisibilityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ModuleVersionVisibilityPtrOutput)
 }
 
 // The kind of extension
@@ -352,42 +278,6 @@ const (
 	PublisherIdentityProviderBitbucket      = PublisherIdentityProvider("Bitbucket")
 )
 
-func (PublisherIdentityProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublisherIdentityProvider)(nil)).Elem()
-}
-
-func (e PublisherIdentityProvider) ToPublisherIdentityProviderOutput() PublisherIdentityProviderOutput {
-	return pulumi.ToOutput(e).(PublisherIdentityProviderOutput)
-}
-
-func (e PublisherIdentityProvider) ToPublisherIdentityProviderOutputWithContext(ctx context.Context) PublisherIdentityProviderOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PublisherIdentityProviderOutput)
-}
-
-func (e PublisherIdentityProvider) ToPublisherIdentityProviderPtrOutput() PublisherIdentityProviderPtrOutput {
-	return e.ToPublisherIdentityProviderPtrOutputWithContext(context.Background())
-}
-
-func (e PublisherIdentityProvider) ToPublisherIdentityProviderPtrOutputWithContext(ctx context.Context) PublisherIdentityProviderPtrOutput {
-	return PublisherIdentityProvider(e).ToPublisherIdentityProviderOutputWithContext(ctx).ToPublisherIdentityProviderPtrOutputWithContext(ctx)
-}
-
-func (e PublisherIdentityProvider) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PublisherIdentityProvider) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PublisherIdentityProvider) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PublisherIdentityProvider) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type PublisherIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (PublisherIdentityProviderOutput) ElementType() reflect.Type {
@@ -471,44 +361,6 @@ func (o PublisherIdentityProviderPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublisherIdentityProviderInput is an input type that accepts PublisherIdentityProviderArgs and PublisherIdentityProviderOutput values.
-// You can construct a concrete instance of `PublisherIdentityProviderInput` via:
-//
-//          PublisherIdentityProviderArgs{...}
-type PublisherIdentityProviderInput interface {
-	pulumi.Input
-
-	ToPublisherIdentityProviderOutput() PublisherIdentityProviderOutput
-	ToPublisherIdentityProviderOutputWithContext(context.Context) PublisherIdentityProviderOutput
-}
-
-var publisherIdentityProviderPtrType = reflect.TypeOf((**PublisherIdentityProvider)(nil)).Elem()
-
-type PublisherIdentityProviderPtrInput interface {
-	pulumi.Input
-
-	ToPublisherIdentityProviderPtrOutput() PublisherIdentityProviderPtrOutput
-	ToPublisherIdentityProviderPtrOutputWithContext(context.Context) PublisherIdentityProviderPtrOutput
-}
-
-type publisherIdentityProviderPtr string
-
-func PublisherIdentityProviderPtr(v string) PublisherIdentityProviderPtrInput {
-	return (*publisherIdentityProviderPtr)(&v)
-}
-
-func (*publisherIdentityProviderPtr) ElementType() reflect.Type {
-	return publisherIdentityProviderPtrType
-}
-
-func (in *publisherIdentityProviderPtr) ToPublisherIdentityProviderPtrOutput() PublisherIdentityProviderPtrOutput {
-	return pulumi.ToOutput(in).(PublisherIdentityProviderPtrOutput)
-}
-
-func (in *publisherIdentityProviderPtr) ToPublisherIdentityProviderPtrOutputWithContext(ctx context.Context) PublisherIdentityProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PublisherIdentityProviderPtrOutput)
-}
-
 // Whether the publisher is verified.
 type PublisherStatus string
 
@@ -516,42 +368,6 @@ const (
 	PublisherStatusVerified   = PublisherStatus("VERIFIED")
 	PublisherStatusUnverified = PublisherStatus("UNVERIFIED")
 )
-
-func (PublisherStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublisherStatus)(nil)).Elem()
-}
-
-func (e PublisherStatus) ToPublisherStatusOutput() PublisherStatusOutput {
-	return pulumi.ToOutput(e).(PublisherStatusOutput)
-}
-
-func (e PublisherStatus) ToPublisherStatusOutputWithContext(ctx context.Context) PublisherStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PublisherStatusOutput)
-}
-
-func (e PublisherStatus) ToPublisherStatusPtrOutput() PublisherStatusPtrOutput {
-	return e.ToPublisherStatusPtrOutputWithContext(context.Background())
-}
-
-func (e PublisherStatus) ToPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherStatusPtrOutput {
-	return PublisherStatus(e).ToPublisherStatusOutputWithContext(ctx).ToPublisherStatusPtrOutputWithContext(ctx)
-}
-
-func (e PublisherStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PublisherStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PublisherStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PublisherStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type PublisherStatusOutput struct{ *pulumi.OutputState }
 
@@ -636,44 +452,6 @@ func (o PublisherStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublisherStatusInput is an input type that accepts PublisherStatusArgs and PublisherStatusOutput values.
-// You can construct a concrete instance of `PublisherStatusInput` via:
-//
-//          PublisherStatusArgs{...}
-type PublisherStatusInput interface {
-	pulumi.Input
-
-	ToPublisherStatusOutput() PublisherStatusOutput
-	ToPublisherStatusOutputWithContext(context.Context) PublisherStatusOutput
-}
-
-var publisherStatusPtrType = reflect.TypeOf((**PublisherStatus)(nil)).Elem()
-
-type PublisherStatusPtrInput interface {
-	pulumi.Input
-
-	ToPublisherStatusPtrOutput() PublisherStatusPtrOutput
-	ToPublisherStatusPtrOutputWithContext(context.Context) PublisherStatusPtrOutput
-}
-
-type publisherStatusPtr string
-
-func PublisherStatusPtr(v string) PublisherStatusPtrInput {
-	return (*publisherStatusPtr)(&v)
-}
-
-func (*publisherStatusPtr) ElementType() reflect.Type {
-	return publisherStatusPtrType
-}
-
-func (in *publisherStatusPtr) ToPublisherStatusPtrOutput() PublisherStatusPtrOutput {
-	return pulumi.ToOutput(in).(PublisherStatusPtrOutput)
-}
-
-func (in *publisherStatusPtr) ToPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PublisherStatusPtrOutput)
-}
-
 // The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
 type ResourceVersionProvisioningType string
 
@@ -682,42 +460,6 @@ const (
 	ResourceVersionProvisioningTypeImmutable        = ResourceVersionProvisioningType("IMMUTABLE")
 	ResourceVersionProvisioningTypeFullyMutable     = ResourceVersionProvisioningType("FULLY_MUTABLE")
 )
-
-func (ResourceVersionProvisioningType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceVersionProvisioningType)(nil)).Elem()
-}
-
-func (e ResourceVersionProvisioningType) ToResourceVersionProvisioningTypeOutput() ResourceVersionProvisioningTypeOutput {
-	return pulumi.ToOutput(e).(ResourceVersionProvisioningTypeOutput)
-}
-
-func (e ResourceVersionProvisioningType) ToResourceVersionProvisioningTypeOutputWithContext(ctx context.Context) ResourceVersionProvisioningTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResourceVersionProvisioningTypeOutput)
-}
-
-func (e ResourceVersionProvisioningType) ToResourceVersionProvisioningTypePtrOutput() ResourceVersionProvisioningTypePtrOutput {
-	return e.ToResourceVersionProvisioningTypePtrOutputWithContext(context.Background())
-}
-
-func (e ResourceVersionProvisioningType) ToResourceVersionProvisioningTypePtrOutputWithContext(ctx context.Context) ResourceVersionProvisioningTypePtrOutput {
-	return ResourceVersionProvisioningType(e).ToResourceVersionProvisioningTypeOutputWithContext(ctx).ToResourceVersionProvisioningTypePtrOutputWithContext(ctx)
-}
-
-func (e ResourceVersionProvisioningType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResourceVersionProvisioningType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResourceVersionProvisioningType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResourceVersionProvisioningType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ResourceVersionProvisioningTypeOutput struct{ *pulumi.OutputState }
 
@@ -802,44 +544,6 @@ func (o ResourceVersionProvisioningTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResourceVersionProvisioningTypeInput is an input type that accepts ResourceVersionProvisioningTypeArgs and ResourceVersionProvisioningTypeOutput values.
-// You can construct a concrete instance of `ResourceVersionProvisioningTypeInput` via:
-//
-//          ResourceVersionProvisioningTypeArgs{...}
-type ResourceVersionProvisioningTypeInput interface {
-	pulumi.Input
-
-	ToResourceVersionProvisioningTypeOutput() ResourceVersionProvisioningTypeOutput
-	ToResourceVersionProvisioningTypeOutputWithContext(context.Context) ResourceVersionProvisioningTypeOutput
-}
-
-var resourceVersionProvisioningTypePtrType = reflect.TypeOf((**ResourceVersionProvisioningType)(nil)).Elem()
-
-type ResourceVersionProvisioningTypePtrInput interface {
-	pulumi.Input
-
-	ToResourceVersionProvisioningTypePtrOutput() ResourceVersionProvisioningTypePtrOutput
-	ToResourceVersionProvisioningTypePtrOutputWithContext(context.Context) ResourceVersionProvisioningTypePtrOutput
-}
-
-type resourceVersionProvisioningTypePtr string
-
-func ResourceVersionProvisioningTypePtr(v string) ResourceVersionProvisioningTypePtrInput {
-	return (*resourceVersionProvisioningTypePtr)(&v)
-}
-
-func (*resourceVersionProvisioningTypePtr) ElementType() reflect.Type {
-	return resourceVersionProvisioningTypePtrType
-}
-
-func (in *resourceVersionProvisioningTypePtr) ToResourceVersionProvisioningTypePtrOutput() ResourceVersionProvisioningTypePtrOutput {
-	return pulumi.ToOutput(in).(ResourceVersionProvisioningTypePtrOutput)
-}
-
-func (in *resourceVersionProvisioningTypePtr) ToResourceVersionProvisioningTypePtrOutputWithContext(ctx context.Context) ResourceVersionProvisioningTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResourceVersionProvisioningTypePtrOutput)
-}
-
 // The scope at which the type is visible and usable in CloudFormation operations.
 //
 // Valid values include:
@@ -853,42 +557,6 @@ const (
 	ResourceVersionVisibilityPublic  = ResourceVersionVisibility("PUBLIC")
 	ResourceVersionVisibilityPrivate = ResourceVersionVisibility("PRIVATE")
 )
-
-func (ResourceVersionVisibility) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceVersionVisibility)(nil)).Elem()
-}
-
-func (e ResourceVersionVisibility) ToResourceVersionVisibilityOutput() ResourceVersionVisibilityOutput {
-	return pulumi.ToOutput(e).(ResourceVersionVisibilityOutput)
-}
-
-func (e ResourceVersionVisibility) ToResourceVersionVisibilityOutputWithContext(ctx context.Context) ResourceVersionVisibilityOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResourceVersionVisibilityOutput)
-}
-
-func (e ResourceVersionVisibility) ToResourceVersionVisibilityPtrOutput() ResourceVersionVisibilityPtrOutput {
-	return e.ToResourceVersionVisibilityPtrOutputWithContext(context.Background())
-}
-
-func (e ResourceVersionVisibility) ToResourceVersionVisibilityPtrOutputWithContext(ctx context.Context) ResourceVersionVisibilityPtrOutput {
-	return ResourceVersionVisibility(e).ToResourceVersionVisibilityOutputWithContext(ctx).ToResourceVersionVisibilityPtrOutputWithContext(ctx)
-}
-
-func (e ResourceVersionVisibility) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResourceVersionVisibility) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResourceVersionVisibility) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResourceVersionVisibility) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ResourceVersionVisibilityOutput struct{ *pulumi.OutputState }
 
@@ -971,44 +639,6 @@ func (o ResourceVersionVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ResourceVersionVisibilityInput is an input type that accepts ResourceVersionVisibilityArgs and ResourceVersionVisibilityOutput values.
-// You can construct a concrete instance of `ResourceVersionVisibilityInput` via:
-//
-//          ResourceVersionVisibilityArgs{...}
-type ResourceVersionVisibilityInput interface {
-	pulumi.Input
-
-	ToResourceVersionVisibilityOutput() ResourceVersionVisibilityOutput
-	ToResourceVersionVisibilityOutputWithContext(context.Context) ResourceVersionVisibilityOutput
-}
-
-var resourceVersionVisibilityPtrType = reflect.TypeOf((**ResourceVersionVisibility)(nil)).Elem()
-
-type ResourceVersionVisibilityPtrInput interface {
-	pulumi.Input
-
-	ToResourceVersionVisibilityPtrOutput() ResourceVersionVisibilityPtrOutput
-	ToResourceVersionVisibilityPtrOutputWithContext(context.Context) ResourceVersionVisibilityPtrOutput
-}
-
-type resourceVersionVisibilityPtr string
-
-func ResourceVersionVisibilityPtr(v string) ResourceVersionVisibilityPtrInput {
-	return (*resourceVersionVisibilityPtr)(&v)
-}
-
-func (*resourceVersionVisibilityPtr) ElementType() reflect.Type {
-	return resourceVersionVisibilityPtrType
-}
-
-func (in *resourceVersionVisibilityPtr) ToResourceVersionVisibilityPtrOutput() ResourceVersionVisibilityPtrOutput {
-	return pulumi.ToOutput(in).(ResourceVersionVisibilityPtrOutput)
-}
-
-func (in *resourceVersionVisibilityPtr) ToResourceVersionVisibilityPtrOutputWithContext(ctx context.Context) ResourceVersionVisibilityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResourceVersionVisibilityPtrOutput)
 }
 
 // Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
@@ -2047,18 +1677,8 @@ func (in *typeActivationVersionBumpPtr) ToTypeActivationVersionBumpPtrOutputWith
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ModuleVersionVisibilityInput)(nil)).Elem(), ModuleVersionVisibility("PRIVATE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ModuleVersionVisibilityPtrInput)(nil)).Elem(), ModuleVersionVisibility("PRIVATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionTypeInput)(nil)).Elem(), PublicTypeVersionType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionTypePtrInput)(nil)).Elem(), PublicTypeVersionType("RESOURCE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublisherIdentityProviderInput)(nil)).Elem(), PublisherIdentityProvider("AWS_Marketplace"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublisherIdentityProviderPtrInput)(nil)).Elem(), PublisherIdentityProvider("AWS_Marketplace"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublisherStatusInput)(nil)).Elem(), PublisherStatus("VERIFIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PublisherStatusPtrInput)(nil)).Elem(), PublisherStatus("VERIFIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionProvisioningTypeInput)(nil)).Elem(), ResourceVersionProvisioningType("NON_PROVISIONABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionProvisioningTypePtrInput)(nil)).Elem(), ResourceVersionProvisioningType("NON_PROVISIONABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionVisibilityInput)(nil)).Elem(), ResourceVersionVisibility("PUBLIC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionVisibilityPtrInput)(nil)).Elem(), ResourceVersionVisibility("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCallAsInput)(nil)).Elem(), StackSetCallAs("SELF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCallAsPtrInput)(nil)).Elem(), StackSetCallAs("SELF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetCapabilityInput)(nil)).Elem(), StackSetCapability("CAPABILITY_IAM"))

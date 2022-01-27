@@ -92,7 +92,7 @@ type ClusterCapacityProviderAssociationsInput interface {
 }
 
 func (*ClusterCapacityProviderAssociations) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterCapacityProviderAssociations)(nil))
+	return reflect.TypeOf((**ClusterCapacityProviderAssociations)(nil)).Elem()
 }
 
 func (i *ClusterCapacityProviderAssociations) ToClusterCapacityProviderAssociationsOutput() ClusterCapacityProviderAssociationsOutput {
@@ -106,7 +106,7 @@ func (i *ClusterCapacityProviderAssociations) ToClusterCapacityProviderAssociati
 type ClusterCapacityProviderAssociationsOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProviderAssociationsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterCapacityProviderAssociations)(nil))
+	return reflect.TypeOf((**ClusterCapacityProviderAssociations)(nil)).Elem()
 }
 
 func (o ClusterCapacityProviderAssociationsOutput) ToClusterCapacityProviderAssociationsOutput() ClusterCapacityProviderAssociationsOutput {

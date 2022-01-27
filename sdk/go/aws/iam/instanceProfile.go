@@ -89,7 +89,7 @@ type InstanceProfileInput interface {
 }
 
 func (*InstanceProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceProfile)(nil))
+	return reflect.TypeOf((**InstanceProfile)(nil)).Elem()
 }
 
 func (i *InstanceProfile) ToInstanceProfileOutput() InstanceProfileOutput {
@@ -103,7 +103,7 @@ func (i *InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context
 type InstanceProfileOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceProfile)(nil))
+	return reflect.TypeOf((**InstanceProfile)(nil)).Elem()
 }
 
 func (o InstanceProfileOutput) ToInstanceProfileOutput() InstanceProfileOutput {

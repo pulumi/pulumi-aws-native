@@ -81,7 +81,7 @@ type OriginRequestPolicyInput interface {
 }
 
 func (*OriginRequestPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginRequestPolicy)(nil))
+	return reflect.TypeOf((**OriginRequestPolicy)(nil)).Elem()
 }
 
 func (i *OriginRequestPolicy) ToOriginRequestPolicyOutput() OriginRequestPolicyOutput {
@@ -95,7 +95,7 @@ func (i *OriginRequestPolicy) ToOriginRequestPolicyOutputWithContext(ctx context
 type OriginRequestPolicyOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginRequestPolicy)(nil))
+	return reflect.TypeOf((**OriginRequestPolicy)(nil)).Elem()
 }
 
 func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutput() OriginRequestPolicyOutput {

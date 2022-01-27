@@ -7515,47 +7515,6 @@ func (i FaqS3PathArgs) ToFaqS3PathOutputWithContext(ctx context.Context) FaqS3Pa
 	return pulumi.ToOutputWithContext(ctx, i).(FaqS3PathOutput)
 }
 
-func (i FaqS3PathArgs) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
-	return i.ToFaqS3PathPtrOutputWithContext(context.Background())
-}
-
-func (i FaqS3PathArgs) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FaqS3PathOutput).ToFaqS3PathPtrOutputWithContext(ctx)
-}
-
-// FaqS3PathPtrInput is an input type that accepts FaqS3PathArgs, FaqS3PathPtr and FaqS3PathPtrOutput values.
-// You can construct a concrete instance of `FaqS3PathPtrInput` via:
-//
-//          FaqS3PathArgs{...}
-//
-//  or:
-//
-//          nil
-type FaqS3PathPtrInput interface {
-	pulumi.Input
-
-	ToFaqS3PathPtrOutput() FaqS3PathPtrOutput
-	ToFaqS3PathPtrOutputWithContext(context.Context) FaqS3PathPtrOutput
-}
-
-type faqS3PathPtrType FaqS3PathArgs
-
-func FaqS3PathPtr(v *FaqS3PathArgs) FaqS3PathPtrInput {
-	return (*faqS3PathPtrType)(v)
-}
-
-func (*faqS3PathPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FaqS3Path)(nil)).Elem()
-}
-
-func (i *faqS3PathPtrType) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
-	return i.ToFaqS3PathPtrOutputWithContext(context.Background())
-}
-
-func (i *faqS3PathPtrType) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FaqS3PathPtrOutput)
-}
-
 type FaqS3PathOutput struct{ *pulumi.OutputState }
 
 func (FaqS3PathOutput) ElementType() reflect.Type {
@@ -7570,64 +7529,12 @@ func (o FaqS3PathOutput) ToFaqS3PathOutputWithContext(ctx context.Context) FaqS3
 	return o
 }
 
-func (o FaqS3PathOutput) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
-	return o.ToFaqS3PathPtrOutputWithContext(context.Background())
-}
-
-func (o FaqS3PathOutput) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FaqS3Path) *FaqS3Path {
-		return &v
-	}).(FaqS3PathPtrOutput)
-}
-
 func (o FaqS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
 func (o FaqS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Key }).(pulumi.StringOutput)
-}
-
-type FaqS3PathPtrOutput struct{ *pulumi.OutputState }
-
-func (FaqS3PathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FaqS3Path)(nil)).Elem()
-}
-
-func (o FaqS3PathPtrOutput) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
-	return o
-}
-
-func (o FaqS3PathPtrOutput) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
-	return o
-}
-
-func (o FaqS3PathPtrOutput) Elem() FaqS3PathOutput {
-	return o.ApplyT(func(v *FaqS3Path) FaqS3Path {
-		if v != nil {
-			return *v
-		}
-		var ret FaqS3Path
-		return ret
-	}).(FaqS3PathOutput)
-}
-
-func (o FaqS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FaqS3Path) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o FaqS3PathPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FaqS3Path) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
 }
 
 // A label for tagging Kendra resources
@@ -9277,7 +9184,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWorkDocsConfigurationInput)(nil)).Elem(), DataSourceWorkDocsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWorkDocsConfigurationPtrInput)(nil)).Elem(), DataSourceWorkDocsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FaqS3PathInput)(nil)).Elem(), FaqS3PathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FaqS3PathPtrInput)(nil)).Elem(), FaqS3PathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FaqTagInput)(nil)).Elem(), FaqTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FaqTagArrayInput)(nil)).Elem(), FaqTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityUnitsConfigurationInput)(nil)).Elem(), IndexCapacityUnitsConfigurationArgs{})
@@ -9389,7 +9295,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceWorkDocsConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceWorkDocsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FaqS3PathOutput{})
-	pulumi.RegisterOutputType(FaqS3PathPtrOutput{})
 	pulumi.RegisterOutputType(FaqTagOutput{})
 	pulumi.RegisterOutputType(FaqTagArrayOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsConfigurationOutput{})

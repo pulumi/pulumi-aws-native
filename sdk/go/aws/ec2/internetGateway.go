@@ -81,7 +81,7 @@ type InternetGatewayInput interface {
 }
 
 func (*InternetGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*InternetGateway)(nil))
+	return reflect.TypeOf((**InternetGateway)(nil)).Elem()
 }
 
 func (i *InternetGateway) ToInternetGatewayOutput() InternetGatewayOutput {
@@ -95,7 +95,7 @@ func (i *InternetGateway) ToInternetGatewayOutputWithContext(ctx context.Context
 type InternetGatewayOutput struct{ *pulumi.OutputState }
 
 func (InternetGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InternetGateway)(nil))
+	return reflect.TypeOf((**InternetGateway)(nil)).Elem()
 }
 
 func (o InternetGatewayOutput) ToInternetGatewayOutput() InternetGatewayOutput {

@@ -1874,47 +1874,6 @@ func (i ClusterJobFlowInstancesConfigArgs) ToClusterJobFlowInstancesConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobFlowInstancesConfigOutput)
 }
 
-func (i ClusterJobFlowInstancesConfigArgs) ToClusterJobFlowInstancesConfigPtrOutput() ClusterJobFlowInstancesConfigPtrOutput {
-	return i.ToClusterJobFlowInstancesConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterJobFlowInstancesConfigArgs) ToClusterJobFlowInstancesConfigPtrOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobFlowInstancesConfigOutput).ToClusterJobFlowInstancesConfigPtrOutputWithContext(ctx)
-}
-
-// ClusterJobFlowInstancesConfigPtrInput is an input type that accepts ClusterJobFlowInstancesConfigArgs, ClusterJobFlowInstancesConfigPtr and ClusterJobFlowInstancesConfigPtrOutput values.
-// You can construct a concrete instance of `ClusterJobFlowInstancesConfigPtrInput` via:
-//
-//          ClusterJobFlowInstancesConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterJobFlowInstancesConfigPtrInput interface {
-	pulumi.Input
-
-	ToClusterJobFlowInstancesConfigPtrOutput() ClusterJobFlowInstancesConfigPtrOutput
-	ToClusterJobFlowInstancesConfigPtrOutputWithContext(context.Context) ClusterJobFlowInstancesConfigPtrOutput
-}
-
-type clusterJobFlowInstancesConfigPtrType ClusterJobFlowInstancesConfigArgs
-
-func ClusterJobFlowInstancesConfigPtr(v *ClusterJobFlowInstancesConfigArgs) ClusterJobFlowInstancesConfigPtrInput {
-	return (*clusterJobFlowInstancesConfigPtrType)(v)
-}
-
-func (*clusterJobFlowInstancesConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterJobFlowInstancesConfig)(nil)).Elem()
-}
-
-func (i *clusterJobFlowInstancesConfigPtrType) ToClusterJobFlowInstancesConfigPtrOutput() ClusterJobFlowInstancesConfigPtrOutput {
-	return i.ToClusterJobFlowInstancesConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterJobFlowInstancesConfigPtrType) ToClusterJobFlowInstancesConfigPtrOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobFlowInstancesConfigPtrOutput)
-}
-
 type ClusterJobFlowInstancesConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterJobFlowInstancesConfigOutput) ElementType() reflect.Type {
@@ -1927,16 +1886,6 @@ func (o ClusterJobFlowInstancesConfigOutput) ToClusterJobFlowInstancesConfigOutp
 
 func (o ClusterJobFlowInstancesConfigOutput) ToClusterJobFlowInstancesConfigOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigOutput {
 	return o
-}
-
-func (o ClusterJobFlowInstancesConfigOutput) ToClusterJobFlowInstancesConfigPtrOutput() ClusterJobFlowInstancesConfigPtrOutput {
-	return o.ToClusterJobFlowInstancesConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterJobFlowInstancesConfigOutput) ToClusterJobFlowInstancesConfigPtrOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterJobFlowInstancesConfig) *ClusterJobFlowInstancesConfig {
-		return &v
-	}).(ClusterJobFlowInstancesConfigPtrOutput)
 }
 
 func (o ClusterJobFlowInstancesConfigOutput) AdditionalMasterSecurityGroups() pulumi.StringArrayOutput {
@@ -2001,174 +1950,6 @@ func (o ClusterJobFlowInstancesConfigOutput) ServiceAccessSecurityGroup() pulumi
 
 func (o ClusterJobFlowInstancesConfigOutput) TerminationProtected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *bool { return v.TerminationProtected }).(pulumi.BoolPtrOutput)
-}
-
-type ClusterJobFlowInstancesConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterJobFlowInstancesConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterJobFlowInstancesConfig)(nil)).Elem()
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) ToClusterJobFlowInstancesConfigPtrOutput() ClusterJobFlowInstancesConfigPtrOutput {
-	return o
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) ToClusterJobFlowInstancesConfigPtrOutputWithContext(ctx context.Context) ClusterJobFlowInstancesConfigPtrOutput {
-	return o
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) Elem() ClusterJobFlowInstancesConfigOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) ClusterJobFlowInstancesConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterJobFlowInstancesConfig
-		return ret
-	}).(ClusterJobFlowInstancesConfigOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) AdditionalMasterSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalMasterSecurityGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) AdditionalSlaveSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalSlaveSecurityGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) CoreInstanceFleet() ClusterInstanceFleetConfigPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceFleetConfig {
-		if v == nil {
-			return nil
-		}
-		return v.CoreInstanceFleet
-	}).(ClusterInstanceFleetConfigPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) CoreInstanceGroup() ClusterInstanceGroupConfigPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceGroupConfig {
-		if v == nil {
-			return nil
-		}
-		return v.CoreInstanceGroup
-	}).(ClusterInstanceGroupConfigPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Ec2KeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Ec2SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) Ec2SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Ec2SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) EmrManagedMasterSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EmrManagedMasterSecurityGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) EmrManagedSlaveSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EmrManagedSlaveSecurityGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) HadoopVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HadoopVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) KeepJobFlowAliveWhenNoSteps() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.KeepJobFlowAliveWhenNoSteps
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) MasterInstanceFleet() ClusterInstanceFleetConfigPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceFleetConfig {
-		if v == nil {
-			return nil
-		}
-		return v.MasterInstanceFleet
-	}).(ClusterInstanceFleetConfigPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) MasterInstanceGroup() ClusterInstanceGroupConfigPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterInstanceGroupConfig {
-		if v == nil {
-			return nil
-		}
-		return v.MasterInstanceGroup
-	}).(ClusterInstanceGroupConfigPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) Placement() ClusterPlacementTypePtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *ClusterPlacementType {
-		if v == nil {
-			return nil
-		}
-		return v.Placement
-	}).(ClusterPlacementTypePtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) ServiceAccessSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceAccessSecurityGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterJobFlowInstancesConfigPtrOutput) TerminationProtected() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.TerminationProtected
-	}).(pulumi.BoolPtrOutput)
 }
 
 type ClusterKerberosAttributes struct {
@@ -6140,47 +5921,6 @@ func (i StepHadoopJarStepConfigArgs) ToStepHadoopJarStepConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(StepHadoopJarStepConfigOutput)
 }
 
-func (i StepHadoopJarStepConfigArgs) ToStepHadoopJarStepConfigPtrOutput() StepHadoopJarStepConfigPtrOutput {
-	return i.ToStepHadoopJarStepConfigPtrOutputWithContext(context.Background())
-}
-
-func (i StepHadoopJarStepConfigArgs) ToStepHadoopJarStepConfigPtrOutputWithContext(ctx context.Context) StepHadoopJarStepConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepHadoopJarStepConfigOutput).ToStepHadoopJarStepConfigPtrOutputWithContext(ctx)
-}
-
-// StepHadoopJarStepConfigPtrInput is an input type that accepts StepHadoopJarStepConfigArgs, StepHadoopJarStepConfigPtr and StepHadoopJarStepConfigPtrOutput values.
-// You can construct a concrete instance of `StepHadoopJarStepConfigPtrInput` via:
-//
-//          StepHadoopJarStepConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type StepHadoopJarStepConfigPtrInput interface {
-	pulumi.Input
-
-	ToStepHadoopJarStepConfigPtrOutput() StepHadoopJarStepConfigPtrOutput
-	ToStepHadoopJarStepConfigPtrOutputWithContext(context.Context) StepHadoopJarStepConfigPtrOutput
-}
-
-type stepHadoopJarStepConfigPtrType StepHadoopJarStepConfigArgs
-
-func StepHadoopJarStepConfigPtr(v *StepHadoopJarStepConfigArgs) StepHadoopJarStepConfigPtrInput {
-	return (*stepHadoopJarStepConfigPtrType)(v)
-}
-
-func (*stepHadoopJarStepConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepHadoopJarStepConfig)(nil)).Elem()
-}
-
-func (i *stepHadoopJarStepConfigPtrType) ToStepHadoopJarStepConfigPtrOutput() StepHadoopJarStepConfigPtrOutput {
-	return i.ToStepHadoopJarStepConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *stepHadoopJarStepConfigPtrType) ToStepHadoopJarStepConfigPtrOutputWithContext(ctx context.Context) StepHadoopJarStepConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepHadoopJarStepConfigPtrOutput)
-}
-
 type StepHadoopJarStepConfigOutput struct{ *pulumi.OutputState }
 
 func (StepHadoopJarStepConfigOutput) ElementType() reflect.Type {
@@ -6193,16 +5933,6 @@ func (o StepHadoopJarStepConfigOutput) ToStepHadoopJarStepConfigOutput() StepHad
 
 func (o StepHadoopJarStepConfigOutput) ToStepHadoopJarStepConfigOutputWithContext(ctx context.Context) StepHadoopJarStepConfigOutput {
 	return o
-}
-
-func (o StepHadoopJarStepConfigOutput) ToStepHadoopJarStepConfigPtrOutput() StepHadoopJarStepConfigPtrOutput {
-	return o.ToStepHadoopJarStepConfigPtrOutputWithContext(context.Background())
-}
-
-func (o StepHadoopJarStepConfigOutput) ToStepHadoopJarStepConfigPtrOutputWithContext(ctx context.Context) StepHadoopJarStepConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StepHadoopJarStepConfig) *StepHadoopJarStepConfig {
-		return &v
-	}).(StepHadoopJarStepConfigPtrOutput)
 }
 
 func (o StepHadoopJarStepConfigOutput) Args() pulumi.StringArrayOutput {
@@ -6219,66 +5949,6 @@ func (o StepHadoopJarStepConfigOutput) MainClass() pulumi.StringPtrOutput {
 
 func (o StepHadoopJarStepConfigOutput) StepProperties() StepKeyValueArrayOutput {
 	return o.ApplyT(func(v StepHadoopJarStepConfig) []StepKeyValue { return v.StepProperties }).(StepKeyValueArrayOutput)
-}
-
-type StepHadoopJarStepConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (StepHadoopJarStepConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepHadoopJarStepConfig)(nil)).Elem()
-}
-
-func (o StepHadoopJarStepConfigPtrOutput) ToStepHadoopJarStepConfigPtrOutput() StepHadoopJarStepConfigPtrOutput {
-	return o
-}
-
-func (o StepHadoopJarStepConfigPtrOutput) ToStepHadoopJarStepConfigPtrOutputWithContext(ctx context.Context) StepHadoopJarStepConfigPtrOutput {
-	return o
-}
-
-func (o StepHadoopJarStepConfigPtrOutput) Elem() StepHadoopJarStepConfigOutput {
-	return o.ApplyT(func(v *StepHadoopJarStepConfig) StepHadoopJarStepConfig {
-		if v != nil {
-			return *v
-		}
-		var ret StepHadoopJarStepConfig
-		return ret
-	}).(StepHadoopJarStepConfigOutput)
-}
-
-func (o StepHadoopJarStepConfigPtrOutput) Args() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StepHadoopJarStepConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Args
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o StepHadoopJarStepConfigPtrOutput) Jar() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StepHadoopJarStepConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Jar
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StepHadoopJarStepConfigPtrOutput) MainClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StepHadoopJarStepConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MainClass
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StepHadoopJarStepConfigPtrOutput) StepProperties() StepKeyValueArrayOutput {
-	return o.ApplyT(func(v *StepHadoopJarStepConfig) []StepKeyValue {
-		if v == nil {
-			return nil
-		}
-		return v.StepProperties
-	}).(StepKeyValueArrayOutput)
 }
 
 type StepKeyValue struct {
@@ -6516,7 +6186,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceTypeConfigInput)(nil)).Elem(), ClusterInstanceTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceTypeConfigArrayInput)(nil)).Elem(), ClusterInstanceTypeConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterJobFlowInstancesConfigInput)(nil)).Elem(), ClusterJobFlowInstancesConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterJobFlowInstancesConfigPtrInput)(nil)).Elem(), ClusterJobFlowInstancesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKerberosAttributesInput)(nil)).Elem(), ClusterKerberosAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKerberosAttributesPtrInput)(nil)).Elem(), ClusterKerberosAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKeyValueInput)(nil)).Elem(), ClusterKeyValueArgs{})
@@ -6579,7 +6248,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigSimpleScalingPolicyConfigurationInput)(nil)).Elem(), InstanceGroupConfigSimpleScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigVolumeSpecificationInput)(nil)).Elem(), InstanceGroupConfigVolumeSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepHadoopJarStepConfigInput)(nil)).Elem(), StepHadoopJarStepConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StepHadoopJarStepConfigPtrInput)(nil)).Elem(), StepHadoopJarStepConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueInput)(nil)).Elem(), StepKeyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueArrayInput)(nil)).Elem(), StepKeyValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagInput)(nil)).Elem(), StudioTagArgs{})
@@ -6609,7 +6277,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterInstanceTypeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceTypeConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterJobFlowInstancesConfigOutput{})
-	pulumi.RegisterOutputType(ClusterJobFlowInstancesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKeyValueOutput{})
@@ -6672,7 +6339,6 @@ func init() {
 	pulumi.RegisterOutputType(InstanceGroupConfigSimpleScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(InstanceGroupConfigVolumeSpecificationOutput{})
 	pulumi.RegisterOutputType(StepHadoopJarStepConfigOutput{})
-	pulumi.RegisterOutputType(StepHadoopJarStepConfigPtrOutput{})
 	pulumi.RegisterOutputType(StepKeyValueOutput{})
 	pulumi.RegisterOutputType(StepKeyValueArrayOutput{})
 	pulumi.RegisterOutputType(StudioTagOutput{})

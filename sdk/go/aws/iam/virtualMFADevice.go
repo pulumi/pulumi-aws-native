@@ -90,7 +90,7 @@ type VirtualMFADeviceInput interface {
 }
 
 func (*VirtualMFADevice) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMFADevice)(nil))
+	return reflect.TypeOf((**VirtualMFADevice)(nil)).Elem()
 }
 
 func (i *VirtualMFADevice) ToVirtualMFADeviceOutput() VirtualMFADeviceOutput {
@@ -104,7 +104,7 @@ func (i *VirtualMFADevice) ToVirtualMFADeviceOutputWithContext(ctx context.Conte
 type VirtualMFADeviceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMFADeviceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMFADevice)(nil))
+	return reflect.TypeOf((**VirtualMFADevice)(nil)).Elem()
 }
 
 func (o VirtualMFADeviceOutput) ToVirtualMFADeviceOutput() VirtualMFADeviceOutput {

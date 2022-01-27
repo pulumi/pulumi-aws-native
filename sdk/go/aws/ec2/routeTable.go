@@ -91,7 +91,7 @@ type RouteTableInput interface {
 }
 
 func (*RouteTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTable)(nil))
+	return reflect.TypeOf((**RouteTable)(nil)).Elem()
 }
 
 func (i *RouteTable) ToRouteTableOutput() RouteTableOutput {
@@ -105,7 +105,7 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 type RouteTableOutput struct{ *pulumi.OutputState }
 
 func (RouteTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteTable)(nil))
+	return reflect.TypeOf((**RouteTable)(nil)).Elem()
 }
 
 func (o RouteTableOutput) ToRouteTableOutput() RouteTableOutput {

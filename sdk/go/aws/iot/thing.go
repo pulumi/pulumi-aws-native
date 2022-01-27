@@ -81,7 +81,7 @@ type ThingInput interface {
 }
 
 func (*Thing) ElementType() reflect.Type {
-	return reflect.TypeOf((*Thing)(nil))
+	return reflect.TypeOf((**Thing)(nil)).Elem()
 }
 
 func (i *Thing) ToThingOutput() ThingOutput {
@@ -95,7 +95,7 @@ func (i *Thing) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 type ThingOutput struct{ *pulumi.OutputState }
 
 func (ThingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Thing)(nil))
+	return reflect.TypeOf((**Thing)(nil)).Elem()
 }
 
 func (o ThingOutput) ToThingOutput() ThingOutput {

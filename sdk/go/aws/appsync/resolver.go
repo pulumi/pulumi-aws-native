@@ -125,7 +125,7 @@ type ResolverInput interface {
 }
 
 func (*Resolver) ElementType() reflect.Type {
-	return reflect.TypeOf((*Resolver)(nil))
+	return reflect.TypeOf((**Resolver)(nil)).Elem()
 }
 
 func (i *Resolver) ToResolverOutput() ResolverOutput {
@@ -139,7 +139,7 @@ func (i *Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutp
 type ResolverOutput struct{ *pulumi.OutputState }
 
 func (ResolverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Resolver)(nil))
+	return reflect.TypeOf((**Resolver)(nil)).Elem()
 }
 
 func (o ResolverOutput) ToResolverOutput() ResolverOutput {

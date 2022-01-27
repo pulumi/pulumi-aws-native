@@ -107,7 +107,7 @@ type PackageVersionInput interface {
 }
 
 func (*PackageVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackageVersion)(nil))
+	return reflect.TypeOf((**PackageVersion)(nil)).Elem()
 }
 
 func (i *PackageVersion) ToPackageVersionOutput() PackageVersionOutput {
@@ -121,7 +121,7 @@ func (i *PackageVersion) ToPackageVersionOutputWithContext(ctx context.Context) 
 type PackageVersionOutput struct{ *pulumi.OutputState }
 
 func (PackageVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackageVersion)(nil))
+	return reflect.TypeOf((**PackageVersion)(nil)).Elem()
 }
 
 func (o PackageVersionOutput) ToPackageVersionOutput() PackageVersionOutput {

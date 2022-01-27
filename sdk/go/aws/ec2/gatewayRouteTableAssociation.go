@@ -94,7 +94,7 @@ type GatewayRouteTableAssociationInput interface {
 }
 
 func (*GatewayRouteTableAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteTableAssociation)(nil))
+	return reflect.TypeOf((**GatewayRouteTableAssociation)(nil)).Elem()
 }
 
 func (i *GatewayRouteTableAssociation) ToGatewayRouteTableAssociationOutput() GatewayRouteTableAssociationOutput {
@@ -108,7 +108,7 @@ func (i *GatewayRouteTableAssociation) ToGatewayRouteTableAssociationOutputWithC
 type GatewayRouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteTableAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteTableAssociation)(nil))
+	return reflect.TypeOf((**GatewayRouteTableAssociation)(nil)).Elem()
 }
 
 func (o GatewayRouteTableAssociationOutput) ToGatewayRouteTableAssociationOutput() GatewayRouteTableAssociationOutput {

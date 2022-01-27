@@ -83,7 +83,7 @@ type DNSSECInput interface {
 }
 
 func (*DNSSEC) ElementType() reflect.Type {
-	return reflect.TypeOf((*DNSSEC)(nil))
+	return reflect.TypeOf((**DNSSEC)(nil)).Elem()
 }
 
 func (i *DNSSEC) ToDNSSECOutput() DNSSECOutput {
@@ -97,7 +97,7 @@ func (i *DNSSEC) ToDNSSECOutputWithContext(ctx context.Context) DNSSECOutput {
 type DNSSECOutput struct{ *pulumi.OutputState }
 
 func (DNSSECOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DNSSEC)(nil))
+	return reflect.TypeOf((**DNSSEC)(nil)).Elem()
 }
 
 func (o DNSSECOutput) ToDNSSECOutput() DNSSECOutput {

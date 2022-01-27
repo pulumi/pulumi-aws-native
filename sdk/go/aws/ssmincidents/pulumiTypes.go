@@ -535,47 +535,6 @@ func (i ResponsePlanIncidentTemplateArgs) ToResponsePlanIncidentTemplateOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIncidentTemplateOutput)
 }
 
-func (i ResponsePlanIncidentTemplateArgs) ToResponsePlanIncidentTemplatePtrOutput() ResponsePlanIncidentTemplatePtrOutput {
-	return i.ToResponsePlanIncidentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i ResponsePlanIncidentTemplateArgs) ToResponsePlanIncidentTemplatePtrOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIncidentTemplateOutput).ToResponsePlanIncidentTemplatePtrOutputWithContext(ctx)
-}
-
-// ResponsePlanIncidentTemplatePtrInput is an input type that accepts ResponsePlanIncidentTemplateArgs, ResponsePlanIncidentTemplatePtr and ResponsePlanIncidentTemplatePtrOutput values.
-// You can construct a concrete instance of `ResponsePlanIncidentTemplatePtrInput` via:
-//
-//          ResponsePlanIncidentTemplateArgs{...}
-//
-//  or:
-//
-//          nil
-type ResponsePlanIncidentTemplatePtrInput interface {
-	pulumi.Input
-
-	ToResponsePlanIncidentTemplatePtrOutput() ResponsePlanIncidentTemplatePtrOutput
-	ToResponsePlanIncidentTemplatePtrOutputWithContext(context.Context) ResponsePlanIncidentTemplatePtrOutput
-}
-
-type responsePlanIncidentTemplatePtrType ResponsePlanIncidentTemplateArgs
-
-func ResponsePlanIncidentTemplatePtr(v *ResponsePlanIncidentTemplateArgs) ResponsePlanIncidentTemplatePtrInput {
-	return (*responsePlanIncidentTemplatePtrType)(v)
-}
-
-func (*responsePlanIncidentTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponsePlanIncidentTemplate)(nil)).Elem()
-}
-
-func (i *responsePlanIncidentTemplatePtrType) ToResponsePlanIncidentTemplatePtrOutput() ResponsePlanIncidentTemplatePtrOutput {
-	return i.ToResponsePlanIncidentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *responsePlanIncidentTemplatePtrType) ToResponsePlanIncidentTemplatePtrOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIncidentTemplatePtrOutput)
-}
-
 // The incident template configuration.
 type ResponsePlanIncidentTemplateOutput struct{ *pulumi.OutputState }
 
@@ -589,16 +548,6 @@ func (o ResponsePlanIncidentTemplateOutput) ToResponsePlanIncidentTemplateOutput
 
 func (o ResponsePlanIncidentTemplateOutput) ToResponsePlanIncidentTemplateOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplateOutput {
 	return o
-}
-
-func (o ResponsePlanIncidentTemplateOutput) ToResponsePlanIncidentTemplatePtrOutput() ResponsePlanIncidentTemplatePtrOutput {
-	return o.ToResponsePlanIncidentTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o ResponsePlanIncidentTemplateOutput) ToResponsePlanIncidentTemplatePtrOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponsePlanIncidentTemplate) *ResponsePlanIncidentTemplate {
-		return &v
-	}).(ResponsePlanIncidentTemplatePtrOutput)
 }
 
 // The deduplication string.
@@ -626,80 +575,6 @@ func (o ResponsePlanIncidentTemplateOutput) Summary() pulumi.StringPtrOutput {
 // The title string.
 func (o ResponsePlanIncidentTemplateOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplate) string { return v.Title }).(pulumi.StringOutput)
-}
-
-type ResponsePlanIncidentTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (ResponsePlanIncidentTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponsePlanIncidentTemplate)(nil)).Elem()
-}
-
-func (o ResponsePlanIncidentTemplatePtrOutput) ToResponsePlanIncidentTemplatePtrOutput() ResponsePlanIncidentTemplatePtrOutput {
-	return o
-}
-
-func (o ResponsePlanIncidentTemplatePtrOutput) ToResponsePlanIncidentTemplatePtrOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplatePtrOutput {
-	return o
-}
-
-func (o ResponsePlanIncidentTemplatePtrOutput) Elem() ResponsePlanIncidentTemplateOutput {
-	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) ResponsePlanIncidentTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret ResponsePlanIncidentTemplate
-		return ret
-	}).(ResponsePlanIncidentTemplateOutput)
-}
-
-// The deduplication string.
-func (o ResponsePlanIncidentTemplatePtrOutput) DedupeString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DedupeString
-	}).(pulumi.StringPtrOutput)
-}
-
-// The impact value.
-func (o ResponsePlanIncidentTemplatePtrOutput) Impact() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Impact
-	}).(pulumi.IntPtrOutput)
-}
-
-// The list of notification targets.
-func (o ResponsePlanIncidentTemplatePtrOutput) NotificationTargets() ResponsePlanNotificationTargetItemArrayOutput {
-	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) []ResponsePlanNotificationTargetItem {
-		if v == nil {
-			return nil
-		}
-		return v.NotificationTargets
-	}).(ResponsePlanNotificationTargetItemArrayOutput)
-}
-
-// The summary string.
-func (o ResponsePlanIncidentTemplatePtrOutput) Summary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Summary
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title string.
-func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
 }
 
 // A notification target.
@@ -1231,7 +1106,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanChatChannelInput)(nil)).Elem(), ResponsePlanChatChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanChatChannelPtrInput)(nil)).Elem(), ResponsePlanChatChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanIncidentTemplateInput)(nil)).Elem(), ResponsePlanIncidentTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanIncidentTemplatePtrInput)(nil)).Elem(), ResponsePlanIncidentTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanNotificationTargetItemInput)(nil)).Elem(), ResponsePlanNotificationTargetItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanNotificationTargetItemArrayInput)(nil)).Elem(), ResponsePlanNotificationTargetItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanSsmAutomationInput)(nil)).Elem(), ResponsePlanSsmAutomationArgs{})
@@ -1249,7 +1123,6 @@ func init() {
 	pulumi.RegisterOutputType(ResponsePlanChatChannelOutput{})
 	pulumi.RegisterOutputType(ResponsePlanChatChannelPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlanIncidentTemplateOutput{})
-	pulumi.RegisterOutputType(ResponsePlanIncidentTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlanNotificationTargetItemOutput{})
 	pulumi.RegisterOutputType(ResponsePlanNotificationTargetItemArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationOutput{})

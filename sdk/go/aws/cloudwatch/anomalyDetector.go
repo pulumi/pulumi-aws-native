@@ -96,7 +96,7 @@ type AnomalyDetectorInput interface {
 }
 
 func (*AnomalyDetector) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalyDetector)(nil))
+	return reflect.TypeOf((**AnomalyDetector)(nil)).Elem()
 }
 
 func (i *AnomalyDetector) ToAnomalyDetectorOutput() AnomalyDetectorOutput {
@@ -110,7 +110,7 @@ func (i *AnomalyDetector) ToAnomalyDetectorOutputWithContext(ctx context.Context
 type AnomalyDetectorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalyDetector)(nil))
+	return reflect.TypeOf((**AnomalyDetector)(nil)).Elem()
 }
 
 func (o AnomalyDetectorOutput) ToAnomalyDetectorOutput() AnomalyDetectorOutput {

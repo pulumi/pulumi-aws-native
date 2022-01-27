@@ -88,7 +88,7 @@ type ConfigurationAssociationInput interface {
 }
 
 func (*ConfigurationAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAssociation)(nil))
+	return reflect.TypeOf((**ConfigurationAssociation)(nil)).Elem()
 }
 
 func (i *ConfigurationAssociation) ToConfigurationAssociationOutput() ConfigurationAssociationOutput {
@@ -102,7 +102,7 @@ func (i *ConfigurationAssociation) ToConfigurationAssociationOutputWithContext(c
 type ConfigurationAssociationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationAssociation)(nil))
+	return reflect.TypeOf((**ConfigurationAssociation)(nil)).Elem()
 }
 
 func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutput() ConfigurationAssociationOutput {

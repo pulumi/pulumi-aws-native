@@ -91,7 +91,7 @@ type TagOptionInput interface {
 }
 
 func (*TagOption) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagOption)(nil))
+	return reflect.TypeOf((**TagOption)(nil)).Elem()
 }
 
 func (i *TagOption) ToTagOptionOutput() TagOptionOutput {
@@ -105,7 +105,7 @@ func (i *TagOption) ToTagOptionOutputWithContext(ctx context.Context) TagOptionO
 type TagOptionOutput struct{ *pulumi.OutputState }
 
 func (TagOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagOption)(nil))
+	return reflect.TypeOf((**TagOption)(nil)).Elem()
 }
 
 func (o TagOptionOutput) ToTagOptionOutput() TagOptionOutput {

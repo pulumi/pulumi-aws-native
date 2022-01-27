@@ -136,7 +136,7 @@ type ClientVpnEndpointInput interface {
 }
 
 func (*ClientVpnEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnEndpoint)(nil))
+	return reflect.TypeOf((**ClientVpnEndpoint)(nil)).Elem()
 }
 
 func (i *ClientVpnEndpoint) ToClientVpnEndpointOutput() ClientVpnEndpointOutput {
@@ -150,7 +150,7 @@ func (i *ClientVpnEndpoint) ToClientVpnEndpointOutputWithContext(ctx context.Con
 type ClientVpnEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnEndpoint)(nil))
+	return reflect.TypeOf((**ClientVpnEndpoint)(nil)).Elem()
 }
 
 func (o ClientVpnEndpointOutput) ToClientVpnEndpointOutput() ClientVpnEndpointOutput {

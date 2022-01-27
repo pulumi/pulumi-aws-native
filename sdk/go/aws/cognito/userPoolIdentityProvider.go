@@ -103,7 +103,7 @@ type UserPoolIdentityProviderInput interface {
 }
 
 func (*UserPoolIdentityProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolIdentityProvider)(nil))
+	return reflect.TypeOf((**UserPoolIdentityProvider)(nil)).Elem()
 }
 
 func (i *UserPoolIdentityProvider) ToUserPoolIdentityProviderOutput() UserPoolIdentityProviderOutput {
@@ -117,7 +117,7 @@ func (i *UserPoolIdentityProvider) ToUserPoolIdentityProviderOutputWithContext(c
 type UserPoolIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (UserPoolIdentityProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolIdentityProvider)(nil))
+	return reflect.TypeOf((**UserPoolIdentityProvider)(nil)).Elem()
 }
 
 func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutput() UserPoolIdentityProviderOutput {

@@ -97,7 +97,7 @@ type EntityTypeInput interface {
 }
 
 func (*EntityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityType)(nil))
+	return reflect.TypeOf((**EntityType)(nil)).Elem()
 }
 
 func (i *EntityType) ToEntityTypeOutput() EntityTypeOutput {
@@ -111,7 +111,7 @@ func (i *EntityType) ToEntityTypeOutputWithContext(ctx context.Context) EntityTy
 type EntityTypeOutput struct{ *pulumi.OutputState }
 
 func (EntityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityType)(nil))
+	return reflect.TypeOf((**EntityType)(nil)).Elem()
 }
 
 func (o EntityTypeOutput) ToEntityTypeOutput() EntityTypeOutput {

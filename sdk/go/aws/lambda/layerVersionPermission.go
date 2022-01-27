@@ -97,7 +97,7 @@ type LayerVersionPermissionInput interface {
 }
 
 func (*LayerVersionPermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerVersionPermission)(nil))
+	return reflect.TypeOf((**LayerVersionPermission)(nil)).Elem()
 }
 
 func (i *LayerVersionPermission) ToLayerVersionPermissionOutput() LayerVersionPermissionOutput {
@@ -111,7 +111,7 @@ func (i *LayerVersionPermission) ToLayerVersionPermissionOutputWithContext(ctx c
 type LayerVersionPermissionOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionPermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LayerVersionPermission)(nil))
+	return reflect.TypeOf((**LayerVersionPermission)(nil)).Elem()
 }
 
 func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutput() LayerVersionPermissionOutput {

@@ -94,7 +94,7 @@ type UserPoolUserToGroupAttachmentInput interface {
 }
 
 func (*UserPoolUserToGroupAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolUserToGroupAttachment)(nil))
+	return reflect.TypeOf((**UserPoolUserToGroupAttachment)(nil)).Elem()
 }
 
 func (i *UserPoolUserToGroupAttachment) ToUserPoolUserToGroupAttachmentOutput() UserPoolUserToGroupAttachmentOutput {
@@ -108,7 +108,7 @@ func (i *UserPoolUserToGroupAttachment) ToUserPoolUserToGroupAttachmentOutputWit
 type UserPoolUserToGroupAttachmentOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUserToGroupAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolUserToGroupAttachment)(nil))
+	return reflect.TypeOf((**UserPoolUserToGroupAttachment)(nil)).Elem()
 }
 
 func (o UserPoolUserToGroupAttachmentOutput) ToUserPoolUserToGroupAttachmentOutput() UserPoolUserToGroupAttachmentOutput {

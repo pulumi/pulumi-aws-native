@@ -92,7 +92,7 @@ type VPCDHCPOptionsAssociationInput interface {
 }
 
 func (*VPCDHCPOptionsAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCDHCPOptionsAssociation)(nil))
+	return reflect.TypeOf((**VPCDHCPOptionsAssociation)(nil)).Elem()
 }
 
 func (i *VPCDHCPOptionsAssociation) ToVPCDHCPOptionsAssociationOutput() VPCDHCPOptionsAssociationOutput {
@@ -106,7 +106,7 @@ func (i *VPCDHCPOptionsAssociation) ToVPCDHCPOptionsAssociationOutputWithContext
 type VPCDHCPOptionsAssociationOutput struct{ *pulumi.OutputState }
 
 func (VPCDHCPOptionsAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCDHCPOptionsAssociation)(nil))
+	return reflect.TypeOf((**VPCDHCPOptionsAssociation)(nil)).Elem()
 }
 
 func (o VPCDHCPOptionsAssociationOutput) ToVPCDHCPOptionsAssociationOutput() VPCDHCPOptionsAssociationOutput {

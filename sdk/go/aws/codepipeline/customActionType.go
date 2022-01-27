@@ -115,7 +115,7 @@ type CustomActionTypeInput interface {
 }
 
 func (*CustomActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomActionType)(nil))
+	return reflect.TypeOf((**CustomActionType)(nil)).Elem()
 }
 
 func (i *CustomActionType) ToCustomActionTypeOutput() CustomActionTypeOutput {
@@ -129,7 +129,7 @@ func (i *CustomActionType) ToCustomActionTypeOutputWithContext(ctx context.Conte
 type CustomActionTypeOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomActionType)(nil))
+	return reflect.TypeOf((**CustomActionType)(nil)).Elem()
 }
 
 func (o CustomActionTypeOutput) ToCustomActionTypeOutput() CustomActionTypeOutput {

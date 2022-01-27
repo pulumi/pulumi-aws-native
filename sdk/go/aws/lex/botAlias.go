@@ -110,7 +110,7 @@ type BotAliasInput interface {
 }
 
 func (*BotAlias) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAlias)(nil))
+	return reflect.TypeOf((**BotAlias)(nil)).Elem()
 }
 
 func (i *BotAlias) ToBotAliasOutput() BotAliasOutput {
@@ -124,7 +124,7 @@ func (i *BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutp
 type BotAliasOutput struct{ *pulumi.OutputState }
 
 func (BotAliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAlias)(nil))
+	return reflect.TypeOf((**BotAlias)(nil)).Elem()
 }
 
 func (o BotAliasOutput) ToBotAliasOutput() BotAliasOutput {

@@ -844,42 +844,6 @@ const (
 	DomainConfigurationDomainTypeCustomerManaged = DomainConfigurationDomainType("CUSTOMER_MANAGED")
 )
 
-func (DomainConfigurationDomainType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationDomainType)(nil)).Elem()
-}
-
-func (e DomainConfigurationDomainType) ToDomainConfigurationDomainTypeOutput() DomainConfigurationDomainTypeOutput {
-	return pulumi.ToOutput(e).(DomainConfigurationDomainTypeOutput)
-}
-
-func (e DomainConfigurationDomainType) ToDomainConfigurationDomainTypeOutputWithContext(ctx context.Context) DomainConfigurationDomainTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DomainConfigurationDomainTypeOutput)
-}
-
-func (e DomainConfigurationDomainType) ToDomainConfigurationDomainTypePtrOutput() DomainConfigurationDomainTypePtrOutput {
-	return e.ToDomainConfigurationDomainTypePtrOutputWithContext(context.Background())
-}
-
-func (e DomainConfigurationDomainType) ToDomainConfigurationDomainTypePtrOutputWithContext(ctx context.Context) DomainConfigurationDomainTypePtrOutput {
-	return DomainConfigurationDomainType(e).ToDomainConfigurationDomainTypeOutputWithContext(ctx).ToDomainConfigurationDomainTypePtrOutputWithContext(ctx)
-}
-
-func (e DomainConfigurationDomainType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainConfigurationDomainType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainConfigurationDomainType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DomainConfigurationDomainType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type DomainConfigurationDomainTypeOutput struct{ *pulumi.OutputState }
 
 func (DomainConfigurationDomainTypeOutput) ElementType() reflect.Type {
@@ -963,86 +927,12 @@ func (o DomainConfigurationDomainTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DomainConfigurationDomainTypeInput is an input type that accepts DomainConfigurationDomainTypeArgs and DomainConfigurationDomainTypeOutput values.
-// You can construct a concrete instance of `DomainConfigurationDomainTypeInput` via:
-//
-//          DomainConfigurationDomainTypeArgs{...}
-type DomainConfigurationDomainTypeInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationDomainTypeOutput() DomainConfigurationDomainTypeOutput
-	ToDomainConfigurationDomainTypeOutputWithContext(context.Context) DomainConfigurationDomainTypeOutput
-}
-
-var domainConfigurationDomainTypePtrType = reflect.TypeOf((**DomainConfigurationDomainType)(nil)).Elem()
-
-type DomainConfigurationDomainTypePtrInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationDomainTypePtrOutput() DomainConfigurationDomainTypePtrOutput
-	ToDomainConfigurationDomainTypePtrOutputWithContext(context.Context) DomainConfigurationDomainTypePtrOutput
-}
-
-type domainConfigurationDomainTypePtr string
-
-func DomainConfigurationDomainTypePtr(v string) DomainConfigurationDomainTypePtrInput {
-	return (*domainConfigurationDomainTypePtr)(&v)
-}
-
-func (*domainConfigurationDomainTypePtr) ElementType() reflect.Type {
-	return domainConfigurationDomainTypePtrType
-}
-
-func (in *domainConfigurationDomainTypePtr) ToDomainConfigurationDomainTypePtrOutput() DomainConfigurationDomainTypePtrOutput {
-	return pulumi.ToOutput(in).(DomainConfigurationDomainTypePtrOutput)
-}
-
-func (in *domainConfigurationDomainTypePtr) ToDomainConfigurationDomainTypePtrOutputWithContext(ctx context.Context) DomainConfigurationDomainTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationDomainTypePtrOutput)
-}
-
 type DomainConfigurationServerCertificateSummaryServerCertificateStatus string
 
 const (
 	DomainConfigurationServerCertificateSummaryServerCertificateStatusInvalid = DomainConfigurationServerCertificateSummaryServerCertificateStatus("INVALID")
 	DomainConfigurationServerCertificateSummaryServerCertificateStatusValid   = DomainConfigurationServerCertificateSummaryServerCertificateStatus("VALID")
 )
-
-func (DomainConfigurationServerCertificateSummaryServerCertificateStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationServerCertificateSummaryServerCertificateStatus)(nil)).Elem()
-}
-
-func (e DomainConfigurationServerCertificateSummaryServerCertificateStatus) ToDomainConfigurationServerCertificateSummaryServerCertificateStatusOutput() DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput {
-	return pulumi.ToOutput(e).(DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput)
-}
-
-func (e DomainConfigurationServerCertificateSummaryServerCertificateStatus) ToDomainConfigurationServerCertificateSummaryServerCertificateStatusOutputWithContext(ctx context.Context) DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput)
-}
-
-func (e DomainConfigurationServerCertificateSummaryServerCertificateStatus) ToDomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput() DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput {
-	return e.ToDomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutputWithContext(context.Background())
-}
-
-func (e DomainConfigurationServerCertificateSummaryServerCertificateStatus) ToDomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput {
-	return DomainConfigurationServerCertificateSummaryServerCertificateStatus(e).ToDomainConfigurationServerCertificateSummaryServerCertificateStatusOutputWithContext(ctx).ToDomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutputWithContext(ctx)
-}
-
-func (e DomainConfigurationServerCertificateSummaryServerCertificateStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainConfigurationServerCertificateSummaryServerCertificateStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainConfigurationServerCertificateSummaryServerCertificateStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DomainConfigurationServerCertificateSummaryServerCertificateStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput struct{ *pulumi.OutputState }
 
@@ -1125,44 +1015,6 @@ func (o DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOut
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// DomainConfigurationServerCertificateSummaryServerCertificateStatusInput is an input type that accepts DomainConfigurationServerCertificateSummaryServerCertificateStatusArgs and DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput values.
-// You can construct a concrete instance of `DomainConfigurationServerCertificateSummaryServerCertificateStatusInput` via:
-//
-//          DomainConfigurationServerCertificateSummaryServerCertificateStatusArgs{...}
-type DomainConfigurationServerCertificateSummaryServerCertificateStatusInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationServerCertificateSummaryServerCertificateStatusOutput() DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput
-	ToDomainConfigurationServerCertificateSummaryServerCertificateStatusOutputWithContext(context.Context) DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput
-}
-
-var domainConfigurationServerCertificateSummaryServerCertificateStatusPtrType = reflect.TypeOf((**DomainConfigurationServerCertificateSummaryServerCertificateStatus)(nil)).Elem()
-
-type DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput() DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput
-	ToDomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutputWithContext(context.Context) DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput
-}
-
-type domainConfigurationServerCertificateSummaryServerCertificateStatusPtr string
-
-func DomainConfigurationServerCertificateSummaryServerCertificateStatusPtr(v string) DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrInput {
-	return (*domainConfigurationServerCertificateSummaryServerCertificateStatusPtr)(&v)
-}
-
-func (*domainConfigurationServerCertificateSummaryServerCertificateStatusPtr) ElementType() reflect.Type {
-	return domainConfigurationServerCertificateSummaryServerCertificateStatusPtrType
-}
-
-func (in *domainConfigurationServerCertificateSummaryServerCertificateStatusPtr) ToDomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput() DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput {
-	return pulumi.ToOutput(in).(DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput)
-}
-
-func (in *domainConfigurationServerCertificateSummaryServerCertificateStatusPtr) ToDomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput)
 }
 
 type DomainConfigurationServiceType string
@@ -4506,10 +4358,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricMetricTypePtrInput)(nil)).Elem(), CustomMetricMetricType("string-list"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTypeInput)(nil)).Elem(), DimensionType("TOPIC_FILTER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTypePtrInput)(nil)).Elem(), DimensionType("TOPIC_FILTER"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationDomainTypeInput)(nil)).Elem(), DomainConfigurationDomainType("ENDPOINT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationDomainTypePtrInput)(nil)).Elem(), DomainConfigurationDomainType("ENDPOINT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServerCertificateSummaryServerCertificateStatusInput)(nil)).Elem(), DomainConfigurationServerCertificateSummaryServerCertificateStatus("INVALID"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrInput)(nil)).Elem(), DomainConfigurationServerCertificateSummaryServerCertificateStatus("INVALID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServiceTypeInput)(nil)).Elem(), DomainConfigurationServiceType("DATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServiceTypePtrInput)(nil)).Elem(), DomainConfigurationServiceType("DATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationStatusInput)(nil)).Elem(), DomainConfigurationStatus("ENABLED"))

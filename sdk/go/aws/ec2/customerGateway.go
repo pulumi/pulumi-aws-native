@@ -97,7 +97,7 @@ type CustomerGatewayInput interface {
 }
 
 func (*CustomerGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerGateway)(nil))
+	return reflect.TypeOf((**CustomerGateway)(nil)).Elem()
 }
 
 func (i *CustomerGateway) ToCustomerGatewayOutput() CustomerGatewayOutput {
@@ -111,7 +111,7 @@ func (i *CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context
 type CustomerGatewayOutput struct{ *pulumi.OutputState }
 
 func (CustomerGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerGateway)(nil))
+	return reflect.TypeOf((**CustomerGateway)(nil)).Elem()
 }
 
 func (o CustomerGatewayOutput) ToCustomerGatewayOutput() CustomerGatewayOutput {

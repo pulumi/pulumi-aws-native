@@ -88,7 +88,7 @@ type TopicPolicyInput interface {
 }
 
 func (*TopicPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicPolicy)(nil))
+	return reflect.TypeOf((**TopicPolicy)(nil)).Elem()
 }
 
 func (i *TopicPolicy) ToTopicPolicyOutput() TopicPolicyOutput {
@@ -102,7 +102,7 @@ func (i *TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicP
 type TopicPolicyOutput struct{ *pulumi.OutputState }
 
 func (TopicPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicPolicy)(nil))
+	return reflect.TypeOf((**TopicPolicy)(nil)).Elem()
 }
 
 func (o TopicPolicyOutput) ToTopicPolicyOutput() TopicPolicyOutput {

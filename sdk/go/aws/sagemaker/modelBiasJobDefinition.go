@@ -129,7 +129,7 @@ type ModelBiasJobDefinitionInput interface {
 }
 
 func (*ModelBiasJobDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelBiasJobDefinition)(nil))
+	return reflect.TypeOf((**ModelBiasJobDefinition)(nil)).Elem()
 }
 
 func (i *ModelBiasJobDefinition) ToModelBiasJobDefinitionOutput() ModelBiasJobDefinitionOutput {
@@ -143,7 +143,7 @@ func (i *ModelBiasJobDefinition) ToModelBiasJobDefinitionOutputWithContext(ctx c
 type ModelBiasJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelBiasJobDefinition)(nil))
+	return reflect.TypeOf((**ModelBiasJobDefinition)(nil)).Elem()
 }
 
 func (o ModelBiasJobDefinitionOutput) ToModelBiasJobDefinitionOutput() ModelBiasJobDefinitionOutput {

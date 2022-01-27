@@ -97,7 +97,7 @@ type ApiMappingInput interface {
 }
 
 func (*ApiMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiMapping)(nil))
+	return reflect.TypeOf((**ApiMapping)(nil)).Elem()
 }
 
 func (i *ApiMapping) ToApiMappingOutput() ApiMappingOutput {
@@ -111,7 +111,7 @@ func (i *ApiMapping) ToApiMappingOutputWithContext(ctx context.Context) ApiMappi
 type ApiMappingOutput struct{ *pulumi.OutputState }
 
 func (ApiMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiMapping)(nil))
+	return reflect.TypeOf((**ApiMapping)(nil)).Elem()
 }
 
 func (o ApiMappingOutput) ToApiMappingOutput() ApiMappingOutput {

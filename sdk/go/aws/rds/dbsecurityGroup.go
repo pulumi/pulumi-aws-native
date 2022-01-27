@@ -94,7 +94,7 @@ type DBSecurityGroupInput interface {
 }
 
 func (*DBSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSecurityGroup)(nil))
+	return reflect.TypeOf((**DBSecurityGroup)(nil)).Elem()
 }
 
 func (i *DBSecurityGroup) ToDBSecurityGroupOutput() DBSecurityGroupOutput {
@@ -108,7 +108,7 @@ func (i *DBSecurityGroup) ToDBSecurityGroupOutputWithContext(ctx context.Context
 type DBSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (DBSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBSecurityGroup)(nil))
+	return reflect.TypeOf((**DBSecurityGroup)(nil)).Elem()
 }
 
 func (o DBSecurityGroupOutput) ToDBSecurityGroupOutput() DBSecurityGroupOutput {

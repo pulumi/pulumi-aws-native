@@ -143,47 +143,6 @@ func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationOutput)
 }
 
-func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
-	return i.ToStreamKinesisConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationOutput).ToStreamKinesisConfigurationPtrOutputWithContext(ctx)
-}
-
-// StreamKinesisConfigurationPtrInput is an input type that accepts StreamKinesisConfigurationArgs, StreamKinesisConfigurationPtr and StreamKinesisConfigurationPtrOutput values.
-// You can construct a concrete instance of `StreamKinesisConfigurationPtrInput` via:
-//
-//          StreamKinesisConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type StreamKinesisConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput
-	ToStreamKinesisConfigurationPtrOutputWithContext(context.Context) StreamKinesisConfigurationPtrOutput
-}
-
-type streamKinesisConfigurationPtrType StreamKinesisConfigurationArgs
-
-func StreamKinesisConfigurationPtr(v *StreamKinesisConfigurationArgs) StreamKinesisConfigurationPtrInput {
-	return (*streamKinesisConfigurationPtrType)(v)
-}
-
-func (*streamKinesisConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamKinesisConfiguration)(nil)).Elem()
-}
-
-func (i *streamKinesisConfigurationPtrType) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
-	return i.ToStreamKinesisConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *streamKinesisConfigurationPtrType) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationPtrOutput)
-}
-
 type StreamKinesisConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StreamKinesisConfigurationOutput) ElementType() reflect.Type {
@@ -198,64 +157,12 @@ func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationOutputWith
 	return o
 }
 
-func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
-	return o.ToStreamKinesisConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamKinesisConfiguration) *StreamKinesisConfiguration {
-		return &v
-	}).(StreamKinesisConfigurationPtrOutput)
-}
-
 func (o StreamKinesisConfigurationOutput) AggregationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StreamKinesisConfiguration) *bool { return v.AggregationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o StreamKinesisConfigurationOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamKinesisConfiguration) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
-}
-
-type StreamKinesisConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamKinesisConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamKinesisConfiguration)(nil)).Elem()
-}
-
-func (o StreamKinesisConfigurationPtrOutput) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
-	return o
-}
-
-func (o StreamKinesisConfigurationPtrOutput) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
-	return o
-}
-
-func (o StreamKinesisConfigurationPtrOutput) Elem() StreamKinesisConfigurationOutput {
-	return o.ApplyT(func(v *StreamKinesisConfiguration) StreamKinesisConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret StreamKinesisConfiguration
-		return ret
-	}).(StreamKinesisConfigurationOutput)
-}
-
-func (o StreamKinesisConfigurationPtrOutput) AggregationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StreamKinesisConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AggregationEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o StreamKinesisConfigurationPtrOutput) StreamArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamKinesisConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StreamArn
-	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -371,13 +278,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LedgerTagInput)(nil)).Elem(), LedgerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LedgerTagArrayInput)(nil)).Elem(), LedgerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamKinesisConfigurationInput)(nil)).Elem(), StreamKinesisConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamKinesisConfigurationPtrInput)(nil)).Elem(), StreamKinesisConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamTagInput)(nil)).Elem(), StreamTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamTagArrayInput)(nil)).Elem(), StreamTagArray{})
 	pulumi.RegisterOutputType(LedgerTagOutput{})
 	pulumi.RegisterOutputType(LedgerTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamKinesisConfigurationOutput{})
-	pulumi.RegisterOutputType(StreamKinesisConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamTagOutput{})
 	pulumi.RegisterOutputType(StreamTagArrayOutput{})
 }

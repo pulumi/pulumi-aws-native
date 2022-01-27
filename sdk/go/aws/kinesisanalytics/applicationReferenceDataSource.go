@@ -88,7 +88,7 @@ type ApplicationReferenceDataSourceInput interface {
 }
 
 func (*ApplicationReferenceDataSource) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationReferenceDataSource)(nil))
+	return reflect.TypeOf((**ApplicationReferenceDataSource)(nil)).Elem()
 }
 
 func (i *ApplicationReferenceDataSource) ToApplicationReferenceDataSourceOutput() ApplicationReferenceDataSourceOutput {
@@ -102,7 +102,7 @@ func (i *ApplicationReferenceDataSource) ToApplicationReferenceDataSourceOutputW
 type ApplicationReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationReferenceDataSource)(nil))
+	return reflect.TypeOf((**ApplicationReferenceDataSource)(nil)).Elem()
 }
 
 func (o ApplicationReferenceDataSourceOutput) ToApplicationReferenceDataSourceOutput() ApplicationReferenceDataSourceOutput {

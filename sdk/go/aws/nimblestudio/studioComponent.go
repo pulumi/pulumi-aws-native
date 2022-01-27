@@ -129,7 +129,7 @@ type StudioComponentInput interface {
 }
 
 func (*StudioComponent) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponent)(nil))
+	return reflect.TypeOf((**StudioComponent)(nil)).Elem()
 }
 
 func (i *StudioComponent) ToStudioComponentOutput() StudioComponentOutput {
@@ -143,7 +143,7 @@ func (i *StudioComponent) ToStudioComponentOutputWithContext(ctx context.Context
 type StudioComponentOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponent)(nil))
+	return reflect.TypeOf((**StudioComponent)(nil)).Elem()
 }
 
 func (o StudioComponentOutput) ToStudioComponentOutput() StudioComponentOutput {

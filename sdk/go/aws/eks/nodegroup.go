@@ -140,7 +140,7 @@ type NodegroupInput interface {
 }
 
 func (*Nodegroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*Nodegroup)(nil))
+	return reflect.TypeOf((**Nodegroup)(nil)).Elem()
 }
 
 func (i *Nodegroup) ToNodegroupOutput() NodegroupOutput {
@@ -154,7 +154,7 @@ func (i *Nodegroup) ToNodegroupOutputWithContext(ctx context.Context) NodegroupO
 type NodegroupOutput struct{ *pulumi.OutputState }
 
 func (NodegroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Nodegroup)(nil))
+	return reflect.TypeOf((**Nodegroup)(nil)).Elem()
 }
 
 func (o NodegroupOutput) ToNodegroupOutput() NodegroupOutput {

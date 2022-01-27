@@ -98,7 +98,7 @@ type DestinationInput interface {
 }
 
 func (*Destination) ElementType() reflect.Type {
-	return reflect.TypeOf((*Destination)(nil))
+	return reflect.TypeOf((**Destination)(nil)).Elem()
 }
 
 func (i *Destination) ToDestinationOutput() DestinationOutput {
@@ -112,7 +112,7 @@ func (i *Destination) ToDestinationOutputWithContext(ctx context.Context) Destin
 type DestinationOutput struct{ *pulumi.OutputState }
 
 func (DestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Destination)(nil))
+	return reflect.TypeOf((**Destination)(nil)).Elem()
 }
 
 func (o DestinationOutput) ToDestinationOutput() DestinationOutput {

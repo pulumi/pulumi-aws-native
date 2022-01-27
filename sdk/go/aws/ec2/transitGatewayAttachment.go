@@ -97,7 +97,7 @@ type TransitGatewayAttachmentInput interface {
 }
 
 func (*TransitGatewayAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayAttachment)(nil))
+	return reflect.TypeOf((**TransitGatewayAttachment)(nil)).Elem()
 }
 
 func (i *TransitGatewayAttachment) ToTransitGatewayAttachmentOutput() TransitGatewayAttachmentOutput {
@@ -111,7 +111,7 @@ func (i *TransitGatewayAttachment) ToTransitGatewayAttachmentOutputWithContext(c
 type TransitGatewayAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayAttachment)(nil))
+	return reflect.TypeOf((**TransitGatewayAttachment)(nil)).Elem()
 }
 
 func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutput() TransitGatewayAttachmentOutput {

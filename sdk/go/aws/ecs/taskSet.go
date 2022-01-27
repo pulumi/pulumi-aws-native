@@ -137,7 +137,7 @@ type TaskSetInput interface {
 }
 
 func (*TaskSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskSet)(nil))
+	return reflect.TypeOf((**TaskSet)(nil)).Elem()
 }
 
 func (i *TaskSet) ToTaskSetOutput() TaskSetOutput {
@@ -151,7 +151,7 @@ func (i *TaskSet) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput 
 type TaskSetOutput struct{ *pulumi.OutputState }
 
 func (TaskSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskSet)(nil))
+	return reflect.TypeOf((**TaskSet)(nil)).Elem()
 }
 
 func (o TaskSetOutput) ToTaskSetOutput() TaskSetOutput {

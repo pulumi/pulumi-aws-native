@@ -115,7 +115,7 @@ type OrganizationConformancePackInput interface {
 }
 
 func (*OrganizationConformancePack) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationConformancePack)(nil))
+	return reflect.TypeOf((**OrganizationConformancePack)(nil)).Elem()
 }
 
 func (i *OrganizationConformancePack) ToOrganizationConformancePackOutput() OrganizationConformancePackOutput {
@@ -129,7 +129,7 @@ func (i *OrganizationConformancePack) ToOrganizationConformancePackOutputWithCon
 type OrganizationConformancePackOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConformancePackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationConformancePack)(nil))
+	return reflect.TypeOf((**OrganizationConformancePack)(nil)).Elem()
 }
 
 func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutput() OrganizationConformancePackOutput {

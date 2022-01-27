@@ -109,7 +109,7 @@ type FirewallRuleGroupInput interface {
 }
 
 func (*FirewallRuleGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleGroup)(nil))
+	return reflect.TypeOf((**FirewallRuleGroup)(nil)).Elem()
 }
 
 func (i *FirewallRuleGroup) ToFirewallRuleGroupOutput() FirewallRuleGroupOutput {
@@ -123,7 +123,7 @@ func (i *FirewallRuleGroup) ToFirewallRuleGroupOutputWithContext(ctx context.Con
 type FirewallRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleGroup)(nil))
+	return reflect.TypeOf((**FirewallRuleGroup)(nil)).Elem()
 }
 
 func (o FirewallRuleGroupOutput) ToFirewallRuleGroupOutput() FirewallRuleGroupOutput {

@@ -94,7 +94,7 @@ type ReplicationSubnetGroupInput interface {
 }
 
 func (*ReplicationSubnetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationSubnetGroup)(nil))
+	return reflect.TypeOf((**ReplicationSubnetGroup)(nil)).Elem()
 }
 
 func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupOutput() ReplicationSubnetGroupOutput {
@@ -108,7 +108,7 @@ func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupOutputWithContext(ctx c
 type ReplicationSubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSubnetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationSubnetGroup)(nil))
+	return reflect.TypeOf((**ReplicationSubnetGroup)(nil)).Elem()
 }
 
 func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutput() ReplicationSubnetGroupOutput {

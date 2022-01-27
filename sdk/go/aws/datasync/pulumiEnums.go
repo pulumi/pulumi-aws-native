@@ -19,42 +19,6 @@ const (
 	AgentEndpointTypePrivateLink = AgentEndpointType("PRIVATE_LINK")
 )
 
-func (AgentEndpointType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentEndpointType)(nil)).Elem()
-}
-
-func (e AgentEndpointType) ToAgentEndpointTypeOutput() AgentEndpointTypeOutput {
-	return pulumi.ToOutput(e).(AgentEndpointTypeOutput)
-}
-
-func (e AgentEndpointType) ToAgentEndpointTypeOutputWithContext(ctx context.Context) AgentEndpointTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AgentEndpointTypeOutput)
-}
-
-func (e AgentEndpointType) ToAgentEndpointTypePtrOutput() AgentEndpointTypePtrOutput {
-	return e.ToAgentEndpointTypePtrOutputWithContext(context.Background())
-}
-
-func (e AgentEndpointType) ToAgentEndpointTypePtrOutputWithContext(ctx context.Context) AgentEndpointTypePtrOutput {
-	return AgentEndpointType(e).ToAgentEndpointTypeOutputWithContext(ctx).ToAgentEndpointTypePtrOutputWithContext(ctx)
-}
-
-func (e AgentEndpointType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AgentEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AgentEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AgentEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type AgentEndpointTypeOutput struct{ *pulumi.OutputState }
 
 func (AgentEndpointTypeOutput) ElementType() reflect.Type {
@@ -136,44 +100,6 @@ func (o AgentEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// AgentEndpointTypeInput is an input type that accepts AgentEndpointTypeArgs and AgentEndpointTypeOutput values.
-// You can construct a concrete instance of `AgentEndpointTypeInput` via:
-//
-//          AgentEndpointTypeArgs{...}
-type AgentEndpointTypeInput interface {
-	pulumi.Input
-
-	ToAgentEndpointTypeOutput() AgentEndpointTypeOutput
-	ToAgentEndpointTypeOutputWithContext(context.Context) AgentEndpointTypeOutput
-}
-
-var agentEndpointTypePtrType = reflect.TypeOf((**AgentEndpointType)(nil)).Elem()
-
-type AgentEndpointTypePtrInput interface {
-	pulumi.Input
-
-	ToAgentEndpointTypePtrOutput() AgentEndpointTypePtrOutput
-	ToAgentEndpointTypePtrOutputWithContext(context.Context) AgentEndpointTypePtrOutput
-}
-
-type agentEndpointTypePtr string
-
-func AgentEndpointTypePtr(v string) AgentEndpointTypePtrInput {
-	return (*agentEndpointTypePtr)(&v)
-}
-
-func (*agentEndpointTypePtr) ElementType() reflect.Type {
-	return agentEndpointTypePtrType
-}
-
-func (in *agentEndpointTypePtr) ToAgentEndpointTypePtrOutput() AgentEndpointTypePtrOutput {
-	return pulumi.ToOutput(in).(AgentEndpointTypePtrOutput)
-}
-
-func (in *agentEndpointTypePtr) ToAgentEndpointTypePtrOutputWithContext(ctx context.Context) AgentEndpointTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AgentEndpointTypePtrOutput)
 }
 
 // The authentication mode used to determine identity of user.
@@ -3669,42 +3595,6 @@ const (
 	TaskStatusUnavailable = TaskStatus("UNAVAILABLE")
 )
 
-func (TaskStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskStatus)(nil)).Elem()
-}
-
-func (e TaskStatus) ToTaskStatusOutput() TaskStatusOutput {
-	return pulumi.ToOutput(e).(TaskStatusOutput)
-}
-
-func (e TaskStatus) ToTaskStatusOutputWithContext(ctx context.Context) TaskStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TaskStatusOutput)
-}
-
-func (e TaskStatus) ToTaskStatusPtrOutput() TaskStatusPtrOutput {
-	return e.ToTaskStatusPtrOutputWithContext(context.Background())
-}
-
-func (e TaskStatus) ToTaskStatusPtrOutputWithContext(ctx context.Context) TaskStatusPtrOutput {
-	return TaskStatus(e).ToTaskStatusOutputWithContext(ctx).ToTaskStatusPtrOutputWithContext(ctx)
-}
-
-func (e TaskStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TaskStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TaskStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e TaskStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type TaskStatusOutput struct{ *pulumi.OutputState }
 
 func (TaskStatusOutput) ElementType() reflect.Type {
@@ -3788,47 +3678,7 @@ func (o TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskStatusInput is an input type that accepts TaskStatusArgs and TaskStatusOutput values.
-// You can construct a concrete instance of `TaskStatusInput` via:
-//
-//          TaskStatusArgs{...}
-type TaskStatusInput interface {
-	pulumi.Input
-
-	ToTaskStatusOutput() TaskStatusOutput
-	ToTaskStatusOutputWithContext(context.Context) TaskStatusOutput
-}
-
-var taskStatusPtrType = reflect.TypeOf((**TaskStatus)(nil)).Elem()
-
-type TaskStatusPtrInput interface {
-	pulumi.Input
-
-	ToTaskStatusPtrOutput() TaskStatusPtrOutput
-	ToTaskStatusPtrOutputWithContext(context.Context) TaskStatusPtrOutput
-}
-
-type taskStatusPtr string
-
-func TaskStatusPtr(v string) TaskStatusPtrInput {
-	return (*taskStatusPtr)(&v)
-}
-
-func (*taskStatusPtr) ElementType() reflect.Type {
-	return taskStatusPtrType
-}
-
-func (in *taskStatusPtr) ToTaskStatusPtrOutput() TaskStatusPtrOutput {
-	return pulumi.ToOutput(in).(TaskStatusPtrOutput)
-}
-
-func (in *taskStatusPtr) ToTaskStatusPtrOutputWithContext(ctx context.Context) TaskStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TaskStatusPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentEndpointTypeInput)(nil)).Elem(), AgentEndpointType("FIPS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentEndpointTypePtrInput)(nil)).Elem(), AgentEndpointType("FIPS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypeInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypePtrInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtectionInput)(nil)).Elem(), LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION"))
@@ -3871,8 +3721,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsUidPtrInput)(nil)).Elem(), TaskOptionsUid("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsVerifyModeInput)(nil)).Elem(), TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsVerifyModePtrInput)(nil)).Elem(), TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskStatusInput)(nil)).Elem(), TaskStatus("AVAILABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskStatusPtrInput)(nil)).Elem(), TaskStatus("AVAILABLE"))
 	pulumi.RegisterOutputType(AgentEndpointTypeOutput{})
 	pulumi.RegisterOutputType(AgentEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(LocationHDFSAuthenticationTypeOutput{})

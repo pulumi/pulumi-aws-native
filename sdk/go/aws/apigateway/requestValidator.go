@@ -103,7 +103,7 @@ type RequestValidatorInput interface {
 }
 
 func (*RequestValidator) ElementType() reflect.Type {
-	return reflect.TypeOf((*RequestValidator)(nil))
+	return reflect.TypeOf((**RequestValidator)(nil)).Elem()
 }
 
 func (i *RequestValidator) ToRequestValidatorOutput() RequestValidatorOutput {
@@ -117,7 +117,7 @@ func (i *RequestValidator) ToRequestValidatorOutputWithContext(ctx context.Conte
 type RequestValidatorOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RequestValidator)(nil))
+	return reflect.TypeOf((**RequestValidator)(nil)).Elem()
 }
 
 func (o RequestValidatorOutput) ToRequestValidatorOutput() RequestValidatorOutput {

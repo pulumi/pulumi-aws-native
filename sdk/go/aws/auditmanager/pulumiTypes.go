@@ -333,69 +333,6 @@ type AssessmentDelegation struct {
 	Status         *AssessmentDelegationStatus `pulumi:"status"`
 }
 
-// AssessmentDelegationInput is an input type that accepts AssessmentDelegationArgs and AssessmentDelegationOutput values.
-// You can construct a concrete instance of `AssessmentDelegationInput` via:
-//
-//          AssessmentDelegationArgs{...}
-type AssessmentDelegationInput interface {
-	pulumi.Input
-
-	ToAssessmentDelegationOutput() AssessmentDelegationOutput
-	ToAssessmentDelegationOutputWithContext(context.Context) AssessmentDelegationOutput
-}
-
-// The assignment of a control set to a delegate for review.
-type AssessmentDelegationArgs struct {
-	AssessmentId   pulumi.StringPtrInput              `pulumi:"assessmentId"`
-	AssessmentName pulumi.StringPtrInput              `pulumi:"assessmentName"`
-	Comment        pulumi.StringPtrInput              `pulumi:"comment"`
-	ControlSetId   pulumi.StringPtrInput              `pulumi:"controlSetId"`
-	CreatedBy      pulumi.StringPtrInput              `pulumi:"createdBy"`
-	CreationTime   pulumi.Float64PtrInput             `pulumi:"creationTime"`
-	Id             pulumi.StringPtrInput              `pulumi:"id"`
-	LastUpdated    pulumi.Float64PtrInput             `pulumi:"lastUpdated"`
-	RoleArn        pulumi.StringPtrInput              `pulumi:"roleArn"`
-	RoleType       AssessmentRoleTypePtrInput         `pulumi:"roleType"`
-	Status         AssessmentDelegationStatusPtrInput `pulumi:"status"`
-}
-
-func (AssessmentDelegationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentDelegation)(nil)).Elem()
-}
-
-func (i AssessmentDelegationArgs) ToAssessmentDelegationOutput() AssessmentDelegationOutput {
-	return i.ToAssessmentDelegationOutputWithContext(context.Background())
-}
-
-func (i AssessmentDelegationArgs) ToAssessmentDelegationOutputWithContext(ctx context.Context) AssessmentDelegationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationOutput)
-}
-
-// AssessmentDelegationArrayInput is an input type that accepts AssessmentDelegationArray and AssessmentDelegationArrayOutput values.
-// You can construct a concrete instance of `AssessmentDelegationArrayInput` via:
-//
-//          AssessmentDelegationArray{ AssessmentDelegationArgs{...} }
-type AssessmentDelegationArrayInput interface {
-	pulumi.Input
-
-	ToAssessmentDelegationArrayOutput() AssessmentDelegationArrayOutput
-	ToAssessmentDelegationArrayOutputWithContext(context.Context) AssessmentDelegationArrayOutput
-}
-
-type AssessmentDelegationArray []AssessmentDelegationInput
-
-func (AssessmentDelegationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentDelegation)(nil)).Elem()
-}
-
-func (i AssessmentDelegationArray) ToAssessmentDelegationArrayOutput() AssessmentDelegationArrayOutput {
-	return i.ToAssessmentDelegationArrayOutputWithContext(context.Background())
-}
-
-func (i AssessmentDelegationArray) ToAssessmentDelegationArrayOutputWithContext(ctx context.Context) AssessmentDelegationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationArrayOutput)
-}
-
 // The assignment of a control set to a delegate for review.
 type AssessmentDelegationOutput struct{ *pulumi.OutputState }
 
@@ -1003,8 +940,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSAccountArrayInput)(nil)).Elem(), AssessmentAWSAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSServiceInput)(nil)).Elem(), AssessmentAWSServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSServiceArrayInput)(nil)).Elem(), AssessmentAWSServiceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationInput)(nil)).Elem(), AssessmentDelegationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationArrayInput)(nil)).Elem(), AssessmentDelegationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportsDestinationInput)(nil)).Elem(), AssessmentReportsDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportsDestinationPtrInput)(nil)).Elem(), AssessmentReportsDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentRoleInput)(nil)).Elem(), AssessmentRoleArgs{})

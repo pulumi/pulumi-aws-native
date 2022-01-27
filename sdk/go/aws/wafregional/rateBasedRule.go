@@ -100,7 +100,7 @@ type RateBasedRuleInput interface {
 }
 
 func (*RateBasedRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*RateBasedRule)(nil))
+	return reflect.TypeOf((**RateBasedRule)(nil)).Elem()
 }
 
 func (i *RateBasedRule) ToRateBasedRuleOutput() RateBasedRuleOutput {
@@ -114,7 +114,7 @@ func (i *RateBasedRule) ToRateBasedRuleOutputWithContext(ctx context.Context) Ra
 type RateBasedRuleOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RateBasedRule)(nil))
+	return reflect.TypeOf((**RateBasedRule)(nil)).Elem()
 }
 
 func (o RateBasedRuleOutput) ToRateBasedRuleOutput() RateBasedRuleOutput {

@@ -81,7 +81,7 @@ type IPSetInput interface {
 }
 
 func (*IPSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSet)(nil))
+	return reflect.TypeOf((**IPSet)(nil)).Elem()
 }
 
 func (i *IPSet) ToIPSetOutput() IPSetOutput {
@@ -95,7 +95,7 @@ func (i *IPSet) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 type IPSetOutput struct{ *pulumi.OutputState }
 
 func (IPSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSet)(nil))
+	return reflect.TypeOf((**IPSet)(nil)).Elem()
 }
 
 func (o IPSetOutput) ToIPSetOutput() IPSetOutput {

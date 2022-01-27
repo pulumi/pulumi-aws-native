@@ -83,7 +83,7 @@ type ResourceGroupInput interface {
 }
 
 func (*ResourceGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroup)(nil))
+	return reflect.TypeOf((**ResourceGroup)(nil)).Elem()
 }
 
 func (i *ResourceGroup) ToResourceGroupOutput() ResourceGroupOutput {
@@ -97,7 +97,7 @@ func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) Re
 type ResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroup)(nil))
+	return reflect.TypeOf((**ResourceGroup)(nil)).Elem()
 }
 
 func (o ResourceGroupOutput) ToResourceGroupOutput() ResourceGroupOutput {

@@ -88,7 +88,7 @@ type TagOptionAssociationInput interface {
 }
 
 func (*TagOptionAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagOptionAssociation)(nil))
+	return reflect.TypeOf((**TagOptionAssociation)(nil)).Elem()
 }
 
 func (i *TagOptionAssociation) ToTagOptionAssociationOutput() TagOptionAssociationOutput {
@@ -102,7 +102,7 @@ func (i *TagOptionAssociation) ToTagOptionAssociationOutputWithContext(ctx conte
 type TagOptionAssociationOutput struct{ *pulumi.OutputState }
 
 func (TagOptionAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagOptionAssociation)(nil))
+	return reflect.TypeOf((**TagOptionAssociation)(nil)).Elem()
 }
 
 func (o TagOptionAssociationOutput) ToTagOptionAssociationOutput() TagOptionAssociationOutput {

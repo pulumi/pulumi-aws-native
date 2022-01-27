@@ -93,7 +93,7 @@ type ServiceProfileInput interface {
 }
 
 func (*ServiceProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProfile)(nil))
+	return reflect.TypeOf((**ServiceProfile)(nil)).Elem()
 }
 
 func (i *ServiceProfile) ToServiceProfileOutput() ServiceProfileOutput {
@@ -107,7 +107,7 @@ func (i *ServiceProfile) ToServiceProfileOutputWithContext(ctx context.Context) 
 type ServiceProfileOutput struct{ *pulumi.OutputState }
 
 func (ServiceProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProfile)(nil))
+	return reflect.TypeOf((**ServiceProfile)(nil)).Elem()
 }
 
 func (o ServiceProfileOutput) ToServiceProfileOutput() ServiceProfileOutput {

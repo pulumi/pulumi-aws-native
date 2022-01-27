@@ -104,7 +104,7 @@ type LocalGatewayRouteTableVPCAssociationInput interface {
 }
 
 func (*LocalGatewayRouteTableVPCAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGatewayRouteTableVPCAssociation)(nil))
+	return reflect.TypeOf((**LocalGatewayRouteTableVPCAssociation)(nil)).Elem()
 }
 
 func (i *LocalGatewayRouteTableVPCAssociation) ToLocalGatewayRouteTableVPCAssociationOutput() LocalGatewayRouteTableVPCAssociationOutput {
@@ -118,7 +118,7 @@ func (i *LocalGatewayRouteTableVPCAssociation) ToLocalGatewayRouteTableVPCAssoci
 type LocalGatewayRouteTableVPCAssociationOutput struct{ *pulumi.OutputState }
 
 func (LocalGatewayRouteTableVPCAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGatewayRouteTableVPCAssociation)(nil))
+	return reflect.TypeOf((**LocalGatewayRouteTableVPCAssociation)(nil)).Elem()
 }
 
 func (o LocalGatewayRouteTableVPCAssociationOutput) ToLocalGatewayRouteTableVPCAssociationOutput() LocalGatewayRouteTableVPCAssociationOutput {

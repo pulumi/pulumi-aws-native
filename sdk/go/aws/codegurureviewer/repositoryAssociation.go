@@ -115,7 +115,7 @@ type RepositoryAssociationInput interface {
 }
 
 func (*RepositoryAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryAssociation)(nil))
+	return reflect.TypeOf((**RepositoryAssociation)(nil)).Elem()
 }
 
 func (i *RepositoryAssociation) ToRepositoryAssociationOutput() RepositoryAssociationOutput {
@@ -129,7 +129,7 @@ func (i *RepositoryAssociation) ToRepositoryAssociationOutputWithContext(ctx con
 type RepositoryAssociationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryAssociation)(nil))
+	return reflect.TypeOf((**RepositoryAssociation)(nil)).Elem()
 }
 
 func (o RepositoryAssociationOutput) ToRepositoryAssociationOutput() RepositoryAssociationOutput {

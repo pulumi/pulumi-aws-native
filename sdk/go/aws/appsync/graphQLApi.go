@@ -109,7 +109,7 @@ type GraphQLApiInput interface {
 }
 
 func (*GraphQLApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApi)(nil))
+	return reflect.TypeOf((**GraphQLApi)(nil)).Elem()
 }
 
 func (i *GraphQLApi) ToGraphQLApiOutput() GraphQLApiOutput {
@@ -123,7 +123,7 @@ func (i *GraphQLApi) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLA
 type GraphQLApiOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphQLApi)(nil))
+	return reflect.TypeOf((**GraphQLApi)(nil)).Elem()
 }
 
 func (o GraphQLApiOutput) ToGraphQLApiOutput() GraphQLApiOutput {

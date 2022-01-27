@@ -79,7 +79,7 @@ type ConfigurationSetInput interface {
 }
 
 func (*ConfigurationSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSet)(nil))
+	return reflect.TypeOf((**ConfigurationSet)(nil)).Elem()
 }
 
 func (i *ConfigurationSet) ToConfigurationSetOutput() ConfigurationSetOutput {
@@ -93,7 +93,7 @@ func (i *ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Conte
 type ConfigurationSetOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationSet)(nil))
+	return reflect.TypeOf((**ConfigurationSet)(nil)).Elem()
 }
 
 func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutput {

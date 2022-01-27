@@ -88,7 +88,7 @@ type SimulationApplicationVersionInput interface {
 }
 
 func (*SimulationApplicationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*SimulationApplicationVersion)(nil))
+	return reflect.TypeOf((**SimulationApplicationVersion)(nil)).Elem()
 }
 
 func (i *SimulationApplicationVersion) ToSimulationApplicationVersionOutput() SimulationApplicationVersionOutput {
@@ -102,7 +102,7 @@ func (i *SimulationApplicationVersion) ToSimulationApplicationVersionOutputWithC
 type SimulationApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SimulationApplicationVersion)(nil))
+	return reflect.TypeOf((**SimulationApplicationVersion)(nil)).Elem()
 }
 
 func (o SimulationApplicationVersionOutput) ToSimulationApplicationVersionOutput() SimulationApplicationVersionOutput {

@@ -96,7 +96,7 @@ type NetworkInsightsAnalysisInput interface {
 }
 
 func (*NetworkInsightsAnalysis) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysis)(nil))
+	return reflect.TypeOf((**NetworkInsightsAnalysis)(nil)).Elem()
 }
 
 func (i *NetworkInsightsAnalysis) ToNetworkInsightsAnalysisOutput() NetworkInsightsAnalysisOutput {
@@ -110,7 +110,7 @@ func (i *NetworkInsightsAnalysis) ToNetworkInsightsAnalysisOutputWithContext(ctx
 type NetworkInsightsAnalysisOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysis)(nil))
+	return reflect.TypeOf((**NetworkInsightsAnalysis)(nil)).Elem()
 }
 
 func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutput() NetworkInsightsAnalysisOutput {

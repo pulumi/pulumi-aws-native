@@ -96,7 +96,7 @@ type IdentityInput interface {
 }
 
 func (*Identity) ElementType() reflect.Type {
-	return reflect.TypeOf((*Identity)(nil))
+	return reflect.TypeOf((**Identity)(nil)).Elem()
 }
 
 func (i *Identity) ToIdentityOutput() IdentityOutput {
@@ -110,7 +110,7 @@ func (i *Identity) ToIdentityOutputWithContext(ctx context.Context) IdentityOutp
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Identity)(nil))
+	return reflect.TypeOf((**Identity)(nil)).Elem()
 }
 
 func (o IdentityOutput) ToIdentityOutput() IdentityOutput {

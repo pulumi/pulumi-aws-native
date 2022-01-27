@@ -126,7 +126,7 @@ type SimulationApplicationInput interface {
 }
 
 func (*SimulationApplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*SimulationApplication)(nil))
+	return reflect.TypeOf((**SimulationApplication)(nil)).Elem()
 }
 
 func (i *SimulationApplication) ToSimulationApplicationOutput() SimulationApplicationOutput {
@@ -140,7 +140,7 @@ func (i *SimulationApplication) ToSimulationApplicationOutputWithContext(ctx con
 type SimulationApplicationOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SimulationApplication)(nil))
+	return reflect.TypeOf((**SimulationApplication)(nil)).Elem()
 }
 
 func (o SimulationApplicationOutput) ToSimulationApplicationOutput() SimulationApplicationOutput {

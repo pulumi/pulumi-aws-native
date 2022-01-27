@@ -163,7 +163,7 @@ type CacheClusterInput interface {
 }
 
 func (*CacheCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheCluster)(nil))
+	return reflect.TypeOf((**CacheCluster)(nil)).Elem()
 }
 
 func (i *CacheCluster) ToCacheClusterOutput() CacheClusterOutput {
@@ -177,7 +177,7 @@ func (i *CacheCluster) ToCacheClusterOutputWithContext(ctx context.Context) Cach
 type CacheClusterOutput struct{ *pulumi.OutputState }
 
 func (CacheClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheCluster)(nil))
+	return reflect.TypeOf((**CacheCluster)(nil)).Elem()
 }
 
 func (o CacheClusterOutput) ToCacheClusterOutput() CacheClusterOutput {

@@ -107,7 +107,7 @@ type TransitGatewayMulticastDomainAssociationInput interface {
 }
 
 func (*TransitGatewayMulticastDomainAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayMulticastDomainAssociation)(nil))
+	return reflect.TypeOf((**TransitGatewayMulticastDomainAssociation)(nil)).Elem()
 }
 
 func (i *TransitGatewayMulticastDomainAssociation) ToTransitGatewayMulticastDomainAssociationOutput() TransitGatewayMulticastDomainAssociationOutput {
@@ -121,7 +121,7 @@ func (i *TransitGatewayMulticastDomainAssociation) ToTransitGatewayMulticastDoma
 type TransitGatewayMulticastDomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayMulticastDomainAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayMulticastDomainAssociation)(nil))
+	return reflect.TypeOf((**TransitGatewayMulticastDomainAssociation)(nil)).Elem()
 }
 
 func (o TransitGatewayMulticastDomainAssociationOutput) ToTransitGatewayMulticastDomainAssociationOutput() TransitGatewayMulticastDomainAssociationOutput {

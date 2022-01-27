@@ -86,7 +86,7 @@ type ApplicationFleetAssociationInput interface {
 }
 
 func (*ApplicationFleetAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationFleetAssociation)(nil))
+	return reflect.TypeOf((**ApplicationFleetAssociation)(nil)).Elem()
 }
 
 func (i *ApplicationFleetAssociation) ToApplicationFleetAssociationOutput() ApplicationFleetAssociationOutput {
@@ -100,7 +100,7 @@ func (i *ApplicationFleetAssociation) ToApplicationFleetAssociationOutputWithCon
 type ApplicationFleetAssociationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationFleetAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationFleetAssociation)(nil))
+	return reflect.TypeOf((**ApplicationFleetAssociation)(nil)).Elem()
 }
 
 func (o ApplicationFleetAssociationOutput) ToApplicationFleetAssociationOutput() ApplicationFleetAssociationOutput {

@@ -18,78 +18,6 @@ type FHIRDatastoreCreatedAt struct {
 	Seconds string `pulumi:"seconds"`
 }
 
-// FHIRDatastoreCreatedAtInput is an input type that accepts FHIRDatastoreCreatedAtArgs and FHIRDatastoreCreatedAtOutput values.
-// You can construct a concrete instance of `FHIRDatastoreCreatedAtInput` via:
-//
-//          FHIRDatastoreCreatedAtArgs{...}
-type FHIRDatastoreCreatedAtInput interface {
-	pulumi.Input
-
-	ToFHIRDatastoreCreatedAtOutput() FHIRDatastoreCreatedAtOutput
-	ToFHIRDatastoreCreatedAtOutputWithContext(context.Context) FHIRDatastoreCreatedAtOutput
-}
-
-// The time that a Data Store was created.
-type FHIRDatastoreCreatedAtArgs struct {
-	// Nanoseconds.
-	Nanos pulumi.IntInput `pulumi:"nanos"`
-	// Seconds since epoch.
-	Seconds pulumi.StringInput `pulumi:"seconds"`
-}
-
-func (FHIRDatastoreCreatedAtArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreCreatedAt)(nil)).Elem()
-}
-
-func (i FHIRDatastoreCreatedAtArgs) ToFHIRDatastoreCreatedAtOutput() FHIRDatastoreCreatedAtOutput {
-	return i.ToFHIRDatastoreCreatedAtOutputWithContext(context.Background())
-}
-
-func (i FHIRDatastoreCreatedAtArgs) ToFHIRDatastoreCreatedAtOutputWithContext(ctx context.Context) FHIRDatastoreCreatedAtOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreCreatedAtOutput)
-}
-
-func (i FHIRDatastoreCreatedAtArgs) ToFHIRDatastoreCreatedAtPtrOutput() FHIRDatastoreCreatedAtPtrOutput {
-	return i.ToFHIRDatastoreCreatedAtPtrOutputWithContext(context.Background())
-}
-
-func (i FHIRDatastoreCreatedAtArgs) ToFHIRDatastoreCreatedAtPtrOutputWithContext(ctx context.Context) FHIRDatastoreCreatedAtPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreCreatedAtOutput).ToFHIRDatastoreCreatedAtPtrOutputWithContext(ctx)
-}
-
-// FHIRDatastoreCreatedAtPtrInput is an input type that accepts FHIRDatastoreCreatedAtArgs, FHIRDatastoreCreatedAtPtr and FHIRDatastoreCreatedAtPtrOutput values.
-// You can construct a concrete instance of `FHIRDatastoreCreatedAtPtrInput` via:
-//
-//          FHIRDatastoreCreatedAtArgs{...}
-//
-//  or:
-//
-//          nil
-type FHIRDatastoreCreatedAtPtrInput interface {
-	pulumi.Input
-
-	ToFHIRDatastoreCreatedAtPtrOutput() FHIRDatastoreCreatedAtPtrOutput
-	ToFHIRDatastoreCreatedAtPtrOutputWithContext(context.Context) FHIRDatastoreCreatedAtPtrOutput
-}
-
-type fhirdatastoreCreatedAtPtrType FHIRDatastoreCreatedAtArgs
-
-func FHIRDatastoreCreatedAtPtr(v *FHIRDatastoreCreatedAtArgs) FHIRDatastoreCreatedAtPtrInput {
-	return (*fhirdatastoreCreatedAtPtrType)(v)
-}
-
-func (*fhirdatastoreCreatedAtPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreCreatedAt)(nil)).Elem()
-}
-
-func (i *fhirdatastoreCreatedAtPtrType) ToFHIRDatastoreCreatedAtPtrOutput() FHIRDatastoreCreatedAtPtrOutput {
-	return i.ToFHIRDatastoreCreatedAtPtrOutputWithContext(context.Background())
-}
-
-func (i *fhirdatastoreCreatedAtPtrType) ToFHIRDatastoreCreatedAtPtrOutputWithContext(ctx context.Context) FHIRDatastoreCreatedAtPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreCreatedAtPtrOutput)
-}
-
 // The time that a Data Store was created.
 type FHIRDatastoreCreatedAtOutput struct{ *pulumi.OutputState }
 
@@ -105,16 +33,6 @@ func (o FHIRDatastoreCreatedAtOutput) ToFHIRDatastoreCreatedAtOutputWithContext(
 	return o
 }
 
-func (o FHIRDatastoreCreatedAtOutput) ToFHIRDatastoreCreatedAtPtrOutput() FHIRDatastoreCreatedAtPtrOutput {
-	return o.ToFHIRDatastoreCreatedAtPtrOutputWithContext(context.Background())
-}
-
-func (o FHIRDatastoreCreatedAtOutput) ToFHIRDatastoreCreatedAtPtrOutputWithContext(ctx context.Context) FHIRDatastoreCreatedAtPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FHIRDatastoreCreatedAt) *FHIRDatastoreCreatedAt {
-		return &v
-	}).(FHIRDatastoreCreatedAtPtrOutput)
-}
-
 // Nanoseconds.
 func (o FHIRDatastoreCreatedAtOutput) Nanos() pulumi.IntOutput {
 	return o.ApplyT(func(v FHIRDatastoreCreatedAt) int { return v.Nanos }).(pulumi.IntOutput)
@@ -123,50 +41,6 @@ func (o FHIRDatastoreCreatedAtOutput) Nanos() pulumi.IntOutput {
 // Seconds since epoch.
 func (o FHIRDatastoreCreatedAtOutput) Seconds() pulumi.StringOutput {
 	return o.ApplyT(func(v FHIRDatastoreCreatedAt) string { return v.Seconds }).(pulumi.StringOutput)
-}
-
-type FHIRDatastoreCreatedAtPtrOutput struct{ *pulumi.OutputState }
-
-func (FHIRDatastoreCreatedAtPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FHIRDatastoreCreatedAt)(nil)).Elem()
-}
-
-func (o FHIRDatastoreCreatedAtPtrOutput) ToFHIRDatastoreCreatedAtPtrOutput() FHIRDatastoreCreatedAtPtrOutput {
-	return o
-}
-
-func (o FHIRDatastoreCreatedAtPtrOutput) ToFHIRDatastoreCreatedAtPtrOutputWithContext(ctx context.Context) FHIRDatastoreCreatedAtPtrOutput {
-	return o
-}
-
-func (o FHIRDatastoreCreatedAtPtrOutput) Elem() FHIRDatastoreCreatedAtOutput {
-	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) FHIRDatastoreCreatedAt {
-		if v != nil {
-			return *v
-		}
-		var ret FHIRDatastoreCreatedAt
-		return ret
-	}).(FHIRDatastoreCreatedAtOutput)
-}
-
-// Nanoseconds.
-func (o FHIRDatastoreCreatedAtPtrOutput) Nanos() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Nanos
-	}).(pulumi.IntPtrOutput)
-}
-
-// Seconds since epoch.
-func (o FHIRDatastoreCreatedAtPtrOutput) Seconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Seconds
-	}).(pulumi.StringPtrOutput)
 }
 
 // The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
@@ -716,8 +590,6 @@ func (o FHIRDatastoreTagArrayOutput) Index(i pulumi.IntInput) FHIRDatastoreTagOu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreCreatedAtInput)(nil)).Elem(), FHIRDatastoreCreatedAtArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreCreatedAtPtrInput)(nil)).Elem(), FHIRDatastoreCreatedAtArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigPtrInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigArgs{})
@@ -727,7 +599,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagInput)(nil)).Elem(), FHIRDatastoreTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagArrayInput)(nil)).Elem(), FHIRDatastoreTagArray{})
 	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtOutput{})
-	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastorePreloadDataConfigOutput{})

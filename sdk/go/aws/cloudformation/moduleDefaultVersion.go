@@ -91,7 +91,7 @@ type ModuleDefaultVersionInput interface {
 }
 
 func (*ModuleDefaultVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModuleDefaultVersion)(nil))
+	return reflect.TypeOf((**ModuleDefaultVersion)(nil)).Elem()
 }
 
 func (i *ModuleDefaultVersion) ToModuleDefaultVersionOutput() ModuleDefaultVersionOutput {
@@ -105,7 +105,7 @@ func (i *ModuleDefaultVersion) ToModuleDefaultVersionOutputWithContext(ctx conte
 type ModuleDefaultVersionOutput struct{ *pulumi.OutputState }
 
 func (ModuleDefaultVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModuleDefaultVersion)(nil))
+	return reflect.TypeOf((**ModuleDefaultVersion)(nil)).Elem()
 }
 
 func (o ModuleDefaultVersionOutput) ToModuleDefaultVersionOutput() ModuleDefaultVersionOutput {

@@ -126,7 +126,7 @@ type TaskDefinitionInput interface {
 }
 
 func (*TaskDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinition)(nil))
+	return reflect.TypeOf((**TaskDefinition)(nil)).Elem()
 }
 
 func (i *TaskDefinition) ToTaskDefinitionOutput() TaskDefinitionOutput {
@@ -140,7 +140,7 @@ func (i *TaskDefinition) ToTaskDefinitionOutputWithContext(ctx context.Context) 
 type TaskDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinition)(nil))
+	return reflect.TypeOf((**TaskDefinition)(nil)).Elem()
 }
 
 func (o TaskDefinitionOutput) ToTaskDefinitionOutput() TaskDefinitionOutput {

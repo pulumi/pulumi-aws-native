@@ -124,7 +124,7 @@ type TrafficMirrorFilterRuleInput interface {
 }
 
 func (*TrafficMirrorFilterRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorFilterRule)(nil))
+	return reflect.TypeOf((**TrafficMirrorFilterRule)(nil)).Elem()
 }
 
 func (i *TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutput() TrafficMirrorFilterRuleOutput {
@@ -138,7 +138,7 @@ func (i *TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutputWithContext(ctx
 type TrafficMirrorFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorFilterRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorFilterRule)(nil))
+	return reflect.TypeOf((**TrafficMirrorFilterRule)(nil)).Elem()
 }
 
 func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutput() TrafficMirrorFilterRuleOutput {

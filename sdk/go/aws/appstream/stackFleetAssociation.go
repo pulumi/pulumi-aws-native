@@ -88,7 +88,7 @@ type StackFleetAssociationInput interface {
 }
 
 func (*StackFleetAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackFleetAssociation)(nil))
+	return reflect.TypeOf((**StackFleetAssociation)(nil)).Elem()
 }
 
 func (i *StackFleetAssociation) ToStackFleetAssociationOutput() StackFleetAssociationOutput {
@@ -102,7 +102,7 @@ func (i *StackFleetAssociation) ToStackFleetAssociationOutputWithContext(ctx con
 type StackFleetAssociationOutput struct{ *pulumi.OutputState }
 
 func (StackFleetAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackFleetAssociation)(nil))
+	return reflect.TypeOf((**StackFleetAssociation)(nil)).Elem()
 }
 
 func (o StackFleetAssociationOutput) ToStackFleetAssociationOutput() StackFleetAssociationOutput {

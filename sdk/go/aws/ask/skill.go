@@ -94,7 +94,7 @@ type SkillInput interface {
 }
 
 func (*Skill) ElementType() reflect.Type {
-	return reflect.TypeOf((*Skill)(nil))
+	return reflect.TypeOf((**Skill)(nil)).Elem()
 }
 
 func (i *Skill) ToSkillOutput() SkillOutput {
@@ -108,7 +108,7 @@ func (i *Skill) ToSkillOutputWithContext(ctx context.Context) SkillOutput {
 type SkillOutput struct{ *pulumi.OutputState }
 
 func (SkillOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Skill)(nil))
+	return reflect.TypeOf((**Skill)(nil)).Elem()
 }
 
 func (o SkillOutput) ToSkillOutput() SkillOutput {

@@ -290,47 +290,6 @@ func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSet
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
-	return i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationOutput).ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx)
-}
-
-// ConfigurationSetEventDestinationEventDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs, ConfigurationSetEventDestinationEventDestinationPtr and ConfigurationSetEventDestinationEventDestinationPtrOutput values.
-// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationPtrInput` via:
-//
-//          ConfigurationSetEventDestinationEventDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type ConfigurationSetEventDestinationEventDestinationPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput
-	ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput
-}
-
-type configurationSetEventDestinationEventDestinationPtrType ConfigurationSetEventDestinationEventDestinationArgs
-
-func ConfigurationSetEventDestinationEventDestinationPtr(v *ConfigurationSetEventDestinationEventDestinationArgs) ConfigurationSetEventDestinationEventDestinationPtrInput {
-	return (*configurationSetEventDestinationEventDestinationPtrType)(v)
-}
-
-func (*configurationSetEventDestinationEventDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
-}
-
-func (i *configurationSetEventDestinationEventDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
-	return i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationSetEventDestinationEventDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
-}
-
 type ConfigurationSetEventDestinationEventDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationEventDestinationOutput) ElementType() reflect.Type {
@@ -343,16 +302,6 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationS
 
 func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
-	return o.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestination {
-		return &v
-	}).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationOutput) CloudWatchDestination() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
@@ -377,75 +326,6 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTyp
 
 func (o ConfigurationSetEventDestinationEventDestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationSetEventDestinationEventDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationSetEventDestinationEventDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
-	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
-	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationOutput {
-	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) ConfigurationSetEventDestinationEventDestination {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationSetEventDestinationEventDestination
-		return ret
-	}).(ConfigurationSetEventDestinationEventDestinationOutput)
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) CloudWatchDestination() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationCloudWatchDestination {
-		if v == nil {
-			return nil
-		}
-		return v.CloudWatchDestination
-	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationKinesisFirehoseDestination {
-		if v == nil {
-			return nil
-		}
-		return v.KinesisFirehoseDestination
-	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEventTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) []string {
-		if v == nil {
-			return nil
-		}
-		return v.MatchingEventTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationSetEventDestinationKinesisFirehoseDestination struct {
@@ -850,47 +730,6 @@ func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterFilterOutput)
 }
 
-func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput {
-	return i.ToReceiptFilterFilterPtrOutputWithContext(context.Background())
-}
-
-func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterFilterOutput).ToReceiptFilterFilterPtrOutputWithContext(ctx)
-}
-
-// ReceiptFilterFilterPtrInput is an input type that accepts ReceiptFilterFilterArgs, ReceiptFilterFilterPtr and ReceiptFilterFilterPtrOutput values.
-// You can construct a concrete instance of `ReceiptFilterFilterPtrInput` via:
-//
-//          ReceiptFilterFilterArgs{...}
-//
-//  or:
-//
-//          nil
-type ReceiptFilterFilterPtrInput interface {
-	pulumi.Input
-
-	ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput
-	ToReceiptFilterFilterPtrOutputWithContext(context.Context) ReceiptFilterFilterPtrOutput
-}
-
-type receiptFilterFilterPtrType ReceiptFilterFilterArgs
-
-func ReceiptFilterFilterPtr(v *ReceiptFilterFilterArgs) ReceiptFilterFilterPtrInput {
-	return (*receiptFilterFilterPtrType)(v)
-}
-
-func (*receiptFilterFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptFilterFilter)(nil)).Elem()
-}
-
-func (i *receiptFilterFilterPtrType) ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput {
-	return i.ToReceiptFilterFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *receiptFilterFilterPtrType) ToReceiptFilterFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterFilterPtrOutput)
-}
-
 type ReceiptFilterFilterOutput struct{ *pulumi.OutputState }
 
 func (ReceiptFilterFilterOutput) ElementType() reflect.Type {
@@ -905,64 +744,12 @@ func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterOutputWithContext(ctx co
 	return o
 }
 
-func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput {
-	return o.ToReceiptFilterFilterPtrOutputWithContext(context.Background())
-}
-
-func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptFilterFilter) *ReceiptFilterFilter {
-		return &v
-	}).(ReceiptFilterFilterPtrOutput)
-}
-
 func (o ReceiptFilterFilterOutput) IpFilter() ReceiptFilterIpFilterOutput {
 	return o.ApplyT(func(v ReceiptFilterFilter) ReceiptFilterIpFilter { return v.IpFilter }).(ReceiptFilterIpFilterOutput)
 }
 
 func (o ReceiptFilterFilterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptFilterFilter) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type ReceiptFilterFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (ReceiptFilterFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptFilterFilter)(nil)).Elem()
-}
-
-func (o ReceiptFilterFilterPtrOutput) ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput {
-	return o
-}
-
-func (o ReceiptFilterFilterPtrOutput) ToReceiptFilterFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterFilterPtrOutput {
-	return o
-}
-
-func (o ReceiptFilterFilterPtrOutput) Elem() ReceiptFilterFilterOutput {
-	return o.ApplyT(func(v *ReceiptFilterFilter) ReceiptFilterFilter {
-		if v != nil {
-			return *v
-		}
-		var ret ReceiptFilterFilter
-		return ret
-	}).(ReceiptFilterFilterOutput)
-}
-
-func (o ReceiptFilterFilterPtrOutput) IpFilter() ReceiptFilterIpFilterPtrOutput {
-	return o.ApplyT(func(v *ReceiptFilterFilter) *ReceiptFilterIpFilter {
-		if v == nil {
-			return nil
-		}
-		return &v.IpFilter
-	}).(ReceiptFilterIpFilterPtrOutput)
-}
-
-func (o ReceiptFilterFilterPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReceiptFilterFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type ReceiptFilterIpFilter struct {
@@ -998,47 +785,6 @@ func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterIpFilterOutput)
 }
 
-func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput {
-	return i.ToReceiptFilterIpFilterPtrOutputWithContext(context.Background())
-}
-
-func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterIpFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterIpFilterOutput).ToReceiptFilterIpFilterPtrOutputWithContext(ctx)
-}
-
-// ReceiptFilterIpFilterPtrInput is an input type that accepts ReceiptFilterIpFilterArgs, ReceiptFilterIpFilterPtr and ReceiptFilterIpFilterPtrOutput values.
-// You can construct a concrete instance of `ReceiptFilterIpFilterPtrInput` via:
-//
-//          ReceiptFilterIpFilterArgs{...}
-//
-//  or:
-//
-//          nil
-type ReceiptFilterIpFilterPtrInput interface {
-	pulumi.Input
-
-	ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput
-	ToReceiptFilterIpFilterPtrOutputWithContext(context.Context) ReceiptFilterIpFilterPtrOutput
-}
-
-type receiptFilterIpFilterPtrType ReceiptFilterIpFilterArgs
-
-func ReceiptFilterIpFilterPtr(v *ReceiptFilterIpFilterArgs) ReceiptFilterIpFilterPtrInput {
-	return (*receiptFilterIpFilterPtrType)(v)
-}
-
-func (*receiptFilterIpFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptFilterIpFilter)(nil)).Elem()
-}
-
-func (i *receiptFilterIpFilterPtrType) ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput {
-	return i.ToReceiptFilterIpFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *receiptFilterIpFilterPtrType) ToReceiptFilterIpFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterIpFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterIpFilterPtrOutput)
-}
-
 type ReceiptFilterIpFilterOutput struct{ *pulumi.OutputState }
 
 func (ReceiptFilterIpFilterOutput) ElementType() reflect.Type {
@@ -1053,64 +799,12 @@ func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterOutputWithContext(ct
 	return o
 }
 
-func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput {
-	return o.ToReceiptFilterIpFilterPtrOutputWithContext(context.Background())
-}
-
-func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterIpFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptFilterIpFilter) *ReceiptFilterIpFilter {
-		return &v
-	}).(ReceiptFilterIpFilterPtrOutput)
-}
-
 func (o ReceiptFilterIpFilterOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptFilterIpFilter) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
 func (o ReceiptFilterIpFilterOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptFilterIpFilter) string { return v.Policy }).(pulumi.StringOutput)
-}
-
-type ReceiptFilterIpFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (ReceiptFilterIpFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptFilterIpFilter)(nil)).Elem()
-}
-
-func (o ReceiptFilterIpFilterPtrOutput) ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput {
-	return o
-}
-
-func (o ReceiptFilterIpFilterPtrOutput) ToReceiptFilterIpFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterIpFilterPtrOutput {
-	return o
-}
-
-func (o ReceiptFilterIpFilterPtrOutput) Elem() ReceiptFilterIpFilterOutput {
-	return o.ApplyT(func(v *ReceiptFilterIpFilter) ReceiptFilterIpFilter {
-		if v != nil {
-			return *v
-		}
-		var ret ReceiptFilterIpFilter
-		return ret
-	}).(ReceiptFilterIpFilterOutput)
-}
-
-func (o ReceiptFilterIpFilterPtrOutput) Cidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReceiptFilterIpFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Cidr
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReceiptFilterIpFilterPtrOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReceiptFilterIpFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Policy
-	}).(pulumi.StringPtrOutput)
 }
 
 type ReceiptRuleAction struct {
@@ -1788,47 +1482,6 @@ func (i ReceiptRuleRuleArgs) ToReceiptRuleRuleOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleRuleOutput)
 }
 
-func (i ReceiptRuleRuleArgs) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
-	return i.ToReceiptRuleRulePtrOutputWithContext(context.Background())
-}
-
-func (i ReceiptRuleRuleArgs) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleRuleOutput).ToReceiptRuleRulePtrOutputWithContext(ctx)
-}
-
-// ReceiptRuleRulePtrInput is an input type that accepts ReceiptRuleRuleArgs, ReceiptRuleRulePtr and ReceiptRuleRulePtrOutput values.
-// You can construct a concrete instance of `ReceiptRuleRulePtrInput` via:
-//
-//          ReceiptRuleRuleArgs{...}
-//
-//  or:
-//
-//          nil
-type ReceiptRuleRulePtrInput interface {
-	pulumi.Input
-
-	ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput
-	ToReceiptRuleRulePtrOutputWithContext(context.Context) ReceiptRuleRulePtrOutput
-}
-
-type receiptRuleRulePtrType ReceiptRuleRuleArgs
-
-func ReceiptRuleRulePtr(v *ReceiptRuleRuleArgs) ReceiptRuleRulePtrInput {
-	return (*receiptRuleRulePtrType)(v)
-}
-
-func (*receiptRuleRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptRuleRule)(nil)).Elem()
-}
-
-func (i *receiptRuleRulePtrType) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
-	return i.ToReceiptRuleRulePtrOutputWithContext(context.Background())
-}
-
-func (i *receiptRuleRulePtrType) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleRulePtrOutput)
-}
-
 type ReceiptRuleRuleOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleRuleOutput) ElementType() reflect.Type {
@@ -1841,16 +1494,6 @@ func (o ReceiptRuleRuleOutput) ToReceiptRuleRuleOutput() ReceiptRuleRuleOutput {
 
 func (o ReceiptRuleRuleOutput) ToReceiptRuleRuleOutputWithContext(ctx context.Context) ReceiptRuleRuleOutput {
 	return o
-}
-
-func (o ReceiptRuleRuleOutput) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
-	return o.ToReceiptRuleRulePtrOutputWithContext(context.Background())
-}
-
-func (o ReceiptRuleRuleOutput) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleRule) *ReceiptRuleRule {
-		return &v
-	}).(ReceiptRuleRulePtrOutput)
 }
 
 func (o ReceiptRuleRuleOutput) Actions() ReceiptRuleActionArrayOutput {
@@ -1875,84 +1518,6 @@ func (o ReceiptRuleRuleOutput) ScanEnabled() pulumi.BoolPtrOutput {
 
 func (o ReceiptRuleRuleOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleRule) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
-}
-
-type ReceiptRuleRulePtrOutput struct{ *pulumi.OutputState }
-
-func (ReceiptRuleRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptRuleRule)(nil)).Elem()
-}
-
-func (o ReceiptRuleRulePtrOutput) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
-	return o
-}
-
-func (o ReceiptRuleRulePtrOutput) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
-	return o
-}
-
-func (o ReceiptRuleRulePtrOutput) Elem() ReceiptRuleRuleOutput {
-	return o.ApplyT(func(v *ReceiptRuleRule) ReceiptRuleRule {
-		if v != nil {
-			return *v
-		}
-		var ret ReceiptRuleRule
-		return ret
-	}).(ReceiptRuleRuleOutput)
-}
-
-func (o ReceiptRuleRulePtrOutput) Actions() ReceiptRuleActionArrayOutput {
-	return o.ApplyT(func(v *ReceiptRuleRule) []ReceiptRuleAction {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(ReceiptRuleActionArrayOutput)
-}
-
-func (o ReceiptRuleRulePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReceiptRuleRule) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ReceiptRuleRulePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReceiptRuleRule) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReceiptRuleRulePtrOutput) Recipients() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ReceiptRuleRule) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Recipients
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o ReceiptRuleRulePtrOutput) ScanEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReceiptRuleRule) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ScanEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ReceiptRuleRulePtrOutput) TlsPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReceiptRuleRule) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TlsPolicy
-	}).(pulumi.StringPtrOutput)
 }
 
 type ReceiptRuleS3Action struct {
@@ -2761,7 +2326,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationDimensionConfigurationInput)(nil)).Elem(), ConfigurationSetEventDestinationDimensionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationDimensionConfigurationArrayInput)(nil)).Elem(), ConfigurationSetEventDestinationDimensionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagInput)(nil)).Elem(), ContactListTagArgs{})
@@ -2769,9 +2333,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicInput)(nil)).Elem(), ContactListTopicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicArrayInput)(nil)).Elem(), ContactListTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterFilterInput)(nil)).Elem(), ReceiptFilterFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterFilterPtrInput)(nil)).Elem(), ReceiptFilterFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterIpFilterInput)(nil)).Elem(), ReceiptFilterIpFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterIpFilterPtrInput)(nil)).Elem(), ReceiptFilterIpFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleActionInput)(nil)).Elem(), ReceiptRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleActionArrayInput)(nil)).Elem(), ReceiptRuleActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleAddHeaderActionInput)(nil)).Elem(), ReceiptRuleAddHeaderActionArgs{})
@@ -2781,7 +2343,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleLambdaActionInput)(nil)).Elem(), ReceiptRuleLambdaActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleLambdaActionPtrInput)(nil)).Elem(), ReceiptRuleLambdaActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleRuleInput)(nil)).Elem(), ReceiptRuleRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleRulePtrInput)(nil)).Elem(), ReceiptRuleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleS3ActionInput)(nil)).Elem(), ReceiptRuleS3ActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleS3ActionPtrInput)(nil)).Elem(), ReceiptRuleS3ActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSNSActionInput)(nil)).Elem(), ReceiptRuleSNSActionArgs{})
@@ -2797,7 +2358,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationOutput{})
-	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ContactListTagOutput{})
@@ -2805,9 +2365,7 @@ func init() {
 	pulumi.RegisterOutputType(ContactListTopicOutput{})
 	pulumi.RegisterOutputType(ContactListTopicArrayOutput{})
 	pulumi.RegisterOutputType(ReceiptFilterFilterOutput{})
-	pulumi.RegisterOutputType(ReceiptFilterFilterPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptFilterIpFilterOutput{})
-	pulumi.RegisterOutputType(ReceiptFilterIpFilterPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleAddHeaderActionOutput{})
@@ -2817,7 +2375,6 @@ func init() {
 	pulumi.RegisterOutputType(ReceiptRuleLambdaActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleLambdaActionPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleRuleOutput{})
-	pulumi.RegisterOutputType(ReceiptRuleRulePtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleS3ActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleS3ActionPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleSNSActionOutput{})

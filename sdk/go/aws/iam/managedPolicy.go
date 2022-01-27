@@ -100,7 +100,7 @@ type ManagedPolicyInput interface {
 }
 
 func (*ManagedPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPolicy)(nil))
+	return reflect.TypeOf((**ManagedPolicy)(nil)).Elem()
 }
 
 func (i *ManagedPolicy) ToManagedPolicyOutput() ManagedPolicyOutput {
@@ -114,7 +114,7 @@ func (i *ManagedPolicy) ToManagedPolicyOutputWithContext(ctx context.Context) Ma
 type ManagedPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPolicy)(nil))
+	return reflect.TypeOf((**ManagedPolicy)(nil)).Elem()
 }
 
 func (o ManagedPolicyOutput) ToManagedPolicyOutput() ManagedPolicyOutput {

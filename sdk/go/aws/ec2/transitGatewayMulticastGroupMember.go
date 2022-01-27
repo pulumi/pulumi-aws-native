@@ -117,7 +117,7 @@ type TransitGatewayMulticastGroupMemberInput interface {
 }
 
 func (*TransitGatewayMulticastGroupMember) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayMulticastGroupMember)(nil))
+	return reflect.TypeOf((**TransitGatewayMulticastGroupMember)(nil)).Elem()
 }
 
 func (i *TransitGatewayMulticastGroupMember) ToTransitGatewayMulticastGroupMemberOutput() TransitGatewayMulticastGroupMemberOutput {
@@ -131,7 +131,7 @@ func (i *TransitGatewayMulticastGroupMember) ToTransitGatewayMulticastGroupMembe
 type TransitGatewayMulticastGroupMemberOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayMulticastGroupMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayMulticastGroupMember)(nil))
+	return reflect.TypeOf((**TransitGatewayMulticastGroupMember)(nil)).Elem()
 }
 
 func (o TransitGatewayMulticastGroupMemberOutput) ToTransitGatewayMulticastGroupMemberOutput() TransitGatewayMulticastGroupMemberOutput {

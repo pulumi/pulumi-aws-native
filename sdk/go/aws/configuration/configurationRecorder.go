@@ -88,7 +88,7 @@ type ConfigurationRecorderInput interface {
 }
 
 func (*ConfigurationRecorder) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationRecorder)(nil))
+	return reflect.TypeOf((**ConfigurationRecorder)(nil)).Elem()
 }
 
 func (i *ConfigurationRecorder) ToConfigurationRecorderOutput() ConfigurationRecorderOutput {
@@ -102,7 +102,7 @@ func (i *ConfigurationRecorder) ToConfigurationRecorderOutputWithContext(ctx con
 type ConfigurationRecorderOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationRecorderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationRecorder)(nil))
+	return reflect.TypeOf((**ConfigurationRecorder)(nil)).Elem()
 }
 
 func (o ConfigurationRecorderOutput) ToConfigurationRecorderOutput() ConfigurationRecorderOutput {

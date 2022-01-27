@@ -91,7 +91,7 @@ type LifecyclePolicyInput interface {
 }
 
 func (*LifecyclePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LifecyclePolicy)(nil))
+	return reflect.TypeOf((**LifecyclePolicy)(nil)).Elem()
 }
 
 func (i *LifecyclePolicy) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
@@ -105,7 +105,7 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context
 type LifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LifecyclePolicy)(nil))
+	return reflect.TypeOf((**LifecyclePolicy)(nil)).Elem()
 }
 
 func (o LifecyclePolicyOutput) ToLifecyclePolicyOutput() LifecyclePolicyOutput {

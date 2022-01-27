@@ -99,7 +99,7 @@ type SignalingChannelInput interface {
 }
 
 func (*SignalingChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalingChannel)(nil))
+	return reflect.TypeOf((**SignalingChannel)(nil)).Elem()
 }
 
 func (i *SignalingChannel) ToSignalingChannelOutput() SignalingChannelOutput {
@@ -113,7 +113,7 @@ func (i *SignalingChannel) ToSignalingChannelOutputWithContext(ctx context.Conte
 type SignalingChannelOutput struct{ *pulumi.OutputState }
 
 func (SignalingChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalingChannel)(nil))
+	return reflect.TypeOf((**SignalingChannel)(nil)).Elem()
 }
 
 func (o SignalingChannelOutput) ToSignalingChannelOutput() SignalingChannelOutput {

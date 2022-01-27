@@ -1630,47 +1630,6 @@ func (i DocumentationPartLocationArgs) ToDocumentationPartLocationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationOutput)
 }
 
-func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
-	return i.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
-}
-
-func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationOutput).ToDocumentationPartLocationPtrOutputWithContext(ctx)
-}
-
-// DocumentationPartLocationPtrInput is an input type that accepts DocumentationPartLocationArgs, DocumentationPartLocationPtr and DocumentationPartLocationPtrOutput values.
-// You can construct a concrete instance of `DocumentationPartLocationPtrInput` via:
-//
-//          DocumentationPartLocationArgs{...}
-//
-//  or:
-//
-//          nil
-type DocumentationPartLocationPtrInput interface {
-	pulumi.Input
-
-	ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput
-	ToDocumentationPartLocationPtrOutputWithContext(context.Context) DocumentationPartLocationPtrOutput
-}
-
-type documentationPartLocationPtrType DocumentationPartLocationArgs
-
-func DocumentationPartLocationPtr(v *DocumentationPartLocationArgs) DocumentationPartLocationPtrInput {
-	return (*documentationPartLocationPtrType)(v)
-}
-
-func (*documentationPartLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
-}
-
-func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
-	return i.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
-}
-
-func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationPtrOutput)
-}
-
 type DocumentationPartLocationOutput struct{ *pulumi.OutputState }
 
 func (DocumentationPartLocationOutput) ElementType() reflect.Type {
@@ -1683,16 +1642,6 @@ func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutput() Doc
 
 func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput {
 	return o
-}
-
-func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
-	return o.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
-}
-
-func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentationPartLocation) *DocumentationPartLocation {
-		return &v
-	}).(DocumentationPartLocationPtrOutput)
 }
 
 func (o DocumentationPartLocationOutput) Method() pulumi.StringPtrOutput {
@@ -1713,75 +1662,6 @@ func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringPtrOutput {
 
 func (o DocumentationPartLocationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type DocumentationPartLocationPtrOutput struct{ *pulumi.OutputState }
-
-func (DocumentationPartLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
-}
-
-func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
-	return o
-}
-
-func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return o
-}
-
-func (o DocumentationPartLocationPtrOutput) Elem() DocumentationPartLocationOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) DocumentationPartLocation {
-		if v != nil {
-			return *v
-		}
-		var ret DocumentationPartLocation
-		return ret
-	}).(DocumentationPartLocationOutput)
-}
-
-func (o DocumentationPartLocationPtrOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Method
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DocumentationPartLocationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DocumentationPartLocationPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DocumentationPartLocationPtrOutput) StatusCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StatusCode
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type DomainNameEndpointConfiguration struct {
@@ -4541,7 +4421,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagInput)(nil)).Elem(), DeploymentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagArrayInput)(nil)).Elem(), DeploymentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationInput)(nil)).Elem(), DocumentationPartLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationPtrInput)(nil)).Elem(), DocumentationPartLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationPtrInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
@@ -4597,7 +4476,6 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentTagOutput{})
 	pulumi.RegisterOutputType(DeploymentTagArrayOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationOutput{})
-	pulumi.RegisterOutputType(DocumentationPartLocationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})

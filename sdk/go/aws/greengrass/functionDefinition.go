@@ -86,7 +86,7 @@ type FunctionDefinitionInput interface {
 }
 
 func (*FunctionDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionDefinition)(nil))
+	return reflect.TypeOf((**FunctionDefinition)(nil)).Elem()
 }
 
 func (i *FunctionDefinition) ToFunctionDefinitionOutput() FunctionDefinitionOutput {
@@ -100,7 +100,7 @@ func (i *FunctionDefinition) ToFunctionDefinitionOutputWithContext(ctx context.C
 type FunctionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionDefinition)(nil))
+	return reflect.TypeOf((**FunctionDefinition)(nil)).Elem()
 }
 
 func (o FunctionDefinitionOutput) ToFunctionDefinitionOutput() FunctionDefinitionOutput {

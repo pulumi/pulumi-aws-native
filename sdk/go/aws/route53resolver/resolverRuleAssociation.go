@@ -100,7 +100,7 @@ type ResolverRuleAssociationInput interface {
 }
 
 func (*ResolverRuleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRuleAssociation)(nil))
+	return reflect.TypeOf((**ResolverRuleAssociation)(nil)).Elem()
 }
 
 func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
@@ -114,7 +114,7 @@ func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx
 type ResolverRuleAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRuleAssociation)(nil))
+	return reflect.TypeOf((**ResolverRuleAssociation)(nil)).Elem()
 }
 
 func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {

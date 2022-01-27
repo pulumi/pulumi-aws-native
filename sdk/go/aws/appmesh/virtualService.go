@@ -100,7 +100,7 @@ type VirtualServiceInput interface {
 }
 
 func (*VirtualService) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualService)(nil))
+	return reflect.TypeOf((**VirtualService)(nil)).Elem()
 }
 
 func (i *VirtualService) ToVirtualServiceOutput() VirtualServiceOutput {
@@ -114,7 +114,7 @@ func (i *VirtualService) ToVirtualServiceOutputWithContext(ctx context.Context) 
 type VirtualServiceOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualService)(nil))
+	return reflect.TypeOf((**VirtualService)(nil)).Elem()
 }
 
 func (o VirtualServiceOutput) ToVirtualServiceOutput() VirtualServiceOutput {

@@ -107,7 +107,7 @@ type CostCategoryInput interface {
 }
 
 func (*CostCategory) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostCategory)(nil))
+	return reflect.TypeOf((**CostCategory)(nil)).Elem()
 }
 
 func (i *CostCategory) ToCostCategoryOutput() CostCategoryOutput {
@@ -121,7 +121,7 @@ func (i *CostCategory) ToCostCategoryOutputWithContext(ctx context.Context) Cost
 type CostCategoryOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostCategory)(nil))
+	return reflect.TypeOf((**CostCategory)(nil)).Elem()
 }
 
 func (o CostCategoryOutput) ToCostCategoryOutput() CostCategoryOutput {

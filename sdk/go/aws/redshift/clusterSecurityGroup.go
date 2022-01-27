@@ -85,7 +85,7 @@ type ClusterSecurityGroupInput interface {
 }
 
 func (*ClusterSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSecurityGroup)(nil))
+	return reflect.TypeOf((**ClusterSecurityGroup)(nil)).Elem()
 }
 
 func (i *ClusterSecurityGroup) ToClusterSecurityGroupOutput() ClusterSecurityGroupOutput {
@@ -99,7 +99,7 @@ func (i *ClusterSecurityGroup) ToClusterSecurityGroupOutputWithContext(ctx conte
 type ClusterSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSecurityGroup)(nil))
+	return reflect.TypeOf((**ClusterSecurityGroup)(nil)).Elem()
 }
 
 func (o ClusterSecurityGroupOutput) ToClusterSecurityGroupOutput() ClusterSecurityGroupOutput {

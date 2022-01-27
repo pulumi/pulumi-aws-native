@@ -100,7 +100,7 @@ type AppBlockInput interface {
 }
 
 func (*AppBlock) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppBlock)(nil))
+	return reflect.TypeOf((**AppBlock)(nil)).Elem()
 }
 
 func (i *AppBlock) ToAppBlockOutput() AppBlockOutput {
@@ -114,7 +114,7 @@ func (i *AppBlock) ToAppBlockOutputWithContext(ctx context.Context) AppBlockOutp
 type AppBlockOutput struct{ *pulumi.OutputState }
 
 func (AppBlockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppBlock)(nil))
+	return reflect.TypeOf((**AppBlock)(nil)).Elem()
 }
 
 func (o AppBlockOutput) ToAppBlockOutput() AppBlockOutput {

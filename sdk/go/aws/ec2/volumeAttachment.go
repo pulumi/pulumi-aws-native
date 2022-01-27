@@ -94,7 +94,7 @@ type VolumeAttachmentInput interface {
 }
 
 func (*VolumeAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeAttachment)(nil))
+	return reflect.TypeOf((**VolumeAttachment)(nil)).Elem()
 }
 
 func (i *VolumeAttachment) ToVolumeAttachmentOutput() VolumeAttachmentOutput {
@@ -108,7 +108,7 @@ func (i *VolumeAttachment) ToVolumeAttachmentOutputWithContext(ctx context.Conte
 type VolumeAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VolumeAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeAttachment)(nil))
+	return reflect.TypeOf((**VolumeAttachment)(nil)).Elem()
 }
 
 func (o VolumeAttachmentOutput) ToVolumeAttachmentOutput() VolumeAttachmentOutput {
