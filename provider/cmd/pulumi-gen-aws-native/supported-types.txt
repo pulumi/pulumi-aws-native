@@ -27,6 +27,7 @@ AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
+AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::Service
 AWS::AppStream::AppBlock
