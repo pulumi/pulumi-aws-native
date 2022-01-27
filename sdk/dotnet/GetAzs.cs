@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AwsNative
 {
     public static class GetAzs
     {
         public static Task<GetAzsResult> InvokeAsync(GetAzsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsArgs(), options.WithDefaults());
 
         public static Output<GetAzsResult> Invoke(GetAzsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsInvokeArgs(), options.WithDefaults());
     }
 
 
