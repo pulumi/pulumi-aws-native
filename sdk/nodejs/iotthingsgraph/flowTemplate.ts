@@ -51,22 +51,20 @@ export class FlowTemplate extends pulumi.CustomResource {
     /** @deprecated FlowTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: FlowTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("FlowTemplate is deprecated: FlowTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            inputs["compatibleNamespaceVersion"] = args ? args.compatibleNamespaceVersion : undefined;
-            inputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["compatibleNamespaceVersion"] = args ? args.compatibleNamespaceVersion : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
         } else {
-            inputs["compatibleNamespaceVersion"] = undefined /*out*/;
-            inputs["definition"] = undefined /*out*/;
+            resourceInputs["compatibleNamespaceVersion"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FlowTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FlowTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

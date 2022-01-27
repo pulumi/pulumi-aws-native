@@ -56,32 +56,30 @@ export class Certificate extends pulumi.CustomResource {
     /** @deprecated Certificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Certificate is deprecated: Certificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            inputs["certificateTransparencyLoggingPreference"] = args ? args.certificateTransparencyLoggingPreference : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["domainValidationOptions"] = args ? args.domainValidationOptions : undefined;
-            inputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validationMethod"] = args ? args.validationMethod : undefined;
+            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            resourceInputs["certificateTransparencyLoggingPreference"] = args ? args.certificateTransparencyLoggingPreference : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainValidationOptions"] = args ? args.domainValidationOptions : undefined;
+            resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
         } else {
-            inputs["certificateAuthorityArn"] = undefined /*out*/;
-            inputs["certificateTransparencyLoggingPreference"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["domainValidationOptions"] = undefined /*out*/;
-            inputs["subjectAlternativeNames"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["validationMethod"] = undefined /*out*/;
+            resourceInputs["certificateAuthorityArn"] = undefined /*out*/;
+            resourceInputs["certificateTransparencyLoggingPreference"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainValidationOptions"] = undefined /*out*/;
+            resourceInputs["subjectAlternativeNames"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["validationMethod"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

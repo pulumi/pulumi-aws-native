@@ -512,47 +512,6 @@ func (i ConfigDataArgs) ToConfigDataOutputWithContext(ctx context.Context) Confi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataOutput)
 }
 
-func (i ConfigDataArgs) ToConfigDataPtrOutput() ConfigDataPtrOutput {
-	return i.ToConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (i ConfigDataArgs) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataOutput).ToConfigDataPtrOutputWithContext(ctx)
-}
-
-// ConfigDataPtrInput is an input type that accepts ConfigDataArgs, ConfigDataPtr and ConfigDataPtrOutput values.
-// You can construct a concrete instance of `ConfigDataPtrInput` via:
-//
-//          ConfigDataArgs{...}
-//
-//  or:
-//
-//          nil
-type ConfigDataPtrInput interface {
-	pulumi.Input
-
-	ToConfigDataPtrOutput() ConfigDataPtrOutput
-	ToConfigDataPtrOutputWithContext(context.Context) ConfigDataPtrOutput
-}
-
-type configDataPtrType ConfigDataArgs
-
-func ConfigDataPtr(v *ConfigDataArgs) ConfigDataPtrInput {
-	return (*configDataPtrType)(v)
-}
-
-func (*configDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigData)(nil)).Elem()
-}
-
-func (i *configDataPtrType) ToConfigDataPtrOutput() ConfigDataPtrOutput {
-	return i.ToConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (i *configDataPtrType) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataPtrOutput)
-}
-
 type ConfigDataOutput struct{ *pulumi.OutputState }
 
 func (ConfigDataOutput) ElementType() reflect.Type {
@@ -565,16 +524,6 @@ func (o ConfigDataOutput) ToConfigDataOutput() ConfigDataOutput {
 
 func (o ConfigDataOutput) ToConfigDataOutputWithContext(ctx context.Context) ConfigDataOutput {
 	return o
-}
-
-func (o ConfigDataOutput) ToConfigDataPtrOutput() ConfigDataPtrOutput {
-	return o.ToConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigDataOutput) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigData) *ConfigData {
-		return &v
-	}).(ConfigDataPtrOutput)
 }
 
 func (o ConfigDataOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
@@ -603,93 +552,6 @@ func (o ConfigDataOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
 
 func (o ConfigDataOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigUplinkEchoConfig { return v.UplinkEchoConfig }).(ConfigUplinkEchoConfigPtrOutput)
-}
-
-type ConfigDataPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigData)(nil)).Elem()
-}
-
-func (o ConfigDataPtrOutput) ToConfigDataPtrOutput() ConfigDataPtrOutput {
-	return o
-}
-
-func (o ConfigDataPtrOutput) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
-	return o
-}
-
-func (o ConfigDataPtrOutput) Elem() ConfigDataOutput {
-	return o.ApplyT(func(v *ConfigData) ConfigData {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigData
-		return ret
-	}).(ConfigDataOutput)
-}
-
-func (o ConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigData) *ConfigAntennaDownlinkConfig {
-		if v == nil {
-			return nil
-		}
-		return v.AntennaDownlinkConfig
-	}).(ConfigAntennaDownlinkConfigPtrOutput)
-}
-
-func (o ConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigData) *ConfigAntennaDownlinkDemodDecodeConfig {
-		if v == nil {
-			return nil
-		}
-		return v.AntennaDownlinkDemodDecodeConfig
-	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
-}
-
-func (o ConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigData) *ConfigAntennaUplinkConfig {
-		if v == nil {
-			return nil
-		}
-		return v.AntennaUplinkConfig
-	}).(ConfigAntennaUplinkConfigPtrOutput)
-}
-
-func (o ConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigData) *ConfigDataflowEndpointConfig {
-		if v == nil {
-			return nil
-		}
-		return v.DataflowEndpointConfig
-	}).(ConfigDataflowEndpointConfigPtrOutput)
-}
-
-func (o ConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigData) *ConfigS3RecordingConfig {
-		if v == nil {
-			return nil
-		}
-		return v.S3RecordingConfig
-	}).(ConfigS3RecordingConfigPtrOutput)
-}
-
-func (o ConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigData) *ConfigTrackingConfig {
-		if v == nil {
-			return nil
-		}
-		return v.TrackingConfig
-	}).(ConfigTrackingConfigPtrOutput)
-}
-
-func (o ConfigDataPtrOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigData) *ConfigUplinkEchoConfig {
-		if v == nil {
-			return nil
-		}
-		return v.UplinkEchoConfig
-	}).(ConfigUplinkEchoConfigPtrOutput)
 }
 
 type ConfigDataflowEndpointConfig struct {
@@ -3289,7 +3151,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigAntennaUplinkConfigInput)(nil)).Elem(), ConfigAntennaUplinkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigAntennaUplinkConfigPtrInput)(nil)).Elem(), ConfigAntennaUplinkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigDataInput)(nil)).Elem(), ConfigDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigDataPtrInput)(nil)).Elem(), ConfigDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigDataflowEndpointConfigInput)(nil)).Elem(), ConfigDataflowEndpointConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigDataflowEndpointConfigPtrInput)(nil)).Elem(), ConfigDataflowEndpointConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigDecodeConfigInput)(nil)).Elem(), ConfigDecodeConfigArgs{})
@@ -3335,7 +3196,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigAntennaUplinkConfigOutput{})
 	pulumi.RegisterOutputType(ConfigAntennaUplinkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigDataOutput{})
-	pulumi.RegisterOutputType(ConfigDataPtrOutput{})
 	pulumi.RegisterOutputType(ConfigDataflowEndpointConfigOutput{})
 	pulumi.RegisterOutputType(ConfigDataflowEndpointConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigDecodeConfigOutput{})

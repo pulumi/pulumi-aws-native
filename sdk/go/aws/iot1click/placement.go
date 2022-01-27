@@ -91,7 +91,7 @@ type PlacementInput interface {
 }
 
 func (*Placement) ElementType() reflect.Type {
-	return reflect.TypeOf((*Placement)(nil))
+	return reflect.TypeOf((**Placement)(nil)).Elem()
 }
 
 func (i *Placement) ToPlacementOutput() PlacementOutput {
@@ -105,7 +105,7 @@ func (i *Placement) ToPlacementOutputWithContext(ctx context.Context) PlacementO
 type PlacementOutput struct{ *pulumi.OutputState }
 
 func (PlacementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Placement)(nil))
+	return reflect.TypeOf((**Placement)(nil)).Elem()
 }
 
 func (o PlacementOutput) ToPlacementOutput() PlacementOutput {

@@ -64,7 +64,7 @@ export class Contact extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContactArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.alias === undefined) && !opts.urn) {
@@ -79,22 +79,20 @@ export class Contact extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["alias"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["plan"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Contact.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Contact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

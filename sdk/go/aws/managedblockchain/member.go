@@ -92,7 +92,7 @@ type MemberInput interface {
 }
 
 func (*Member) ElementType() reflect.Type {
-	return reflect.TypeOf((*Member)(nil))
+	return reflect.TypeOf((**Member)(nil)).Elem()
 }
 
 func (i *Member) ToMemberOutput() MemberOutput {
@@ -106,7 +106,7 @@ func (i *Member) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 type MemberOutput struct{ *pulumi.OutputState }
 
 func (MemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Member)(nil))
+	return reflect.TypeOf((**Member)(nil)).Elem()
 }
 
 func (o MemberOutput) ToMemberOutput() MemberOutput {

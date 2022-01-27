@@ -124,7 +124,7 @@ type DevEndpointInput interface {
 }
 
 func (*DevEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevEndpoint)(nil))
+	return reflect.TypeOf((**DevEndpoint)(nil)).Elem()
 }
 
 func (i *DevEndpoint) ToDevEndpointOutput() DevEndpointOutput {
@@ -138,7 +138,7 @@ func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEnd
 type DevEndpointOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevEndpoint)(nil))
+	return reflect.TypeOf((**DevEndpoint)(nil)).Elem()
 }
 
 func (o DevEndpointOutput) ToDevEndpointOutput() DevEndpointOutput {

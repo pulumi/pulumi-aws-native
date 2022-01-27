@@ -113,7 +113,7 @@ type AssetModelInput interface {
 }
 
 func (*AssetModel) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModel)(nil))
+	return reflect.TypeOf((**AssetModel)(nil)).Elem()
 }
 
 func (i *AssetModel) ToAssetModelOutput() AssetModelOutput {
@@ -127,7 +127,7 @@ func (i *AssetModel) ToAssetModelOutputWithContext(ctx context.Context) AssetMod
 type AssetModelOutput struct{ *pulumi.OutputState }
 
 func (AssetModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModel)(nil))
+	return reflect.TypeOf((**AssetModel)(nil)).Elem()
 }
 
 func (o AssetModelOutput) ToAssetModelOutput() AssetModelOutput {

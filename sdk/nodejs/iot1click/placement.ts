@@ -52,26 +52,24 @@ export class Placement extends pulumi.CustomResource {
     /** @deprecated Placement is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PlacementArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Placement is deprecated: Placement is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            inputs["associatedDevices"] = args ? args.associatedDevices : undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["placementName"] = args ? args.placementName : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["associatedDevices"] = args ? args.associatedDevices : undefined;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["placementName"] = args ? args.placementName : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
         } else {
-            inputs["associatedDevices"] = undefined /*out*/;
-            inputs["attributes"] = undefined /*out*/;
-            inputs["placementName"] = undefined /*out*/;
-            inputs["projectName"] = undefined /*out*/;
+            resourceInputs["associatedDevices"] = undefined /*out*/;
+            resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["placementName"] = undefined /*out*/;
+            resourceInputs["projectName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Placement.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Placement.__pulumiType, name, resourceInputs, opts);
     }
 }
 

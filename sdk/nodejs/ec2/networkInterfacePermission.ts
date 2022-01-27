@@ -51,7 +51,7 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
     /** @deprecated NetworkInterfacePermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NetworkInterfacePermissionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NetworkInterfacePermission is deprecated: NetworkInterfacePermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.awsAccountId === undefined) && !opts.urn) {
@@ -63,18 +63,16 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
             if ((!args || args.permission === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permission'");
             }
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["permission"] = args ? args.permission : undefined;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["permission"] = args ? args.permission : undefined;
         } else {
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
-            inputs["permission"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["permission"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInterfacePermission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInterfacePermission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

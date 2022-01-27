@@ -112,7 +112,7 @@ type TrafficMirrorSessionInput interface {
 }
 
 func (*TrafficMirrorSession) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorSession)(nil))
+	return reflect.TypeOf((**TrafficMirrorSession)(nil)).Elem()
 }
 
 func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {
@@ -126,7 +126,7 @@ func (i *TrafficMirrorSession) ToTrafficMirrorSessionOutputWithContext(ctx conte
 type TrafficMirrorSessionOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorSessionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficMirrorSession)(nil))
+	return reflect.TypeOf((**TrafficMirrorSession)(nil)).Elem()
 }
 
 func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutput() TrafficMirrorSessionOutput {

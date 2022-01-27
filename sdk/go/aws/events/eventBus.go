@@ -86,7 +86,7 @@ type EventBusInput interface {
 }
 
 func (*EventBus) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventBus)(nil))
+	return reflect.TypeOf((**EventBus)(nil)).Elem()
 }
 
 func (i *EventBus) ToEventBusOutput() EventBusOutput {
@@ -100,7 +100,7 @@ func (i *EventBus) ToEventBusOutputWithContext(ctx context.Context) EventBusOutp
 type EventBusOutput struct{ *pulumi.OutputState }
 
 func (EventBusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventBus)(nil))
+	return reflect.TypeOf((**EventBus)(nil)).Elem()
 }
 
 func (o EventBusOutput) ToEventBusOutput() EventBusOutput {

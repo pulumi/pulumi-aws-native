@@ -602,42 +602,6 @@ const (
 	StreamingImageEncryptionConfigurationKeyTypeCustomerManagedKey = StreamingImageEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY")
 )
 
-func (StreamingImageEncryptionConfigurationKeyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingImageEncryptionConfigurationKeyType)(nil)).Elem()
-}
-
-func (e StreamingImageEncryptionConfigurationKeyType) ToStreamingImageEncryptionConfigurationKeyTypeOutput() StreamingImageEncryptionConfigurationKeyTypeOutput {
-	return pulumi.ToOutput(e).(StreamingImageEncryptionConfigurationKeyTypeOutput)
-}
-
-func (e StreamingImageEncryptionConfigurationKeyType) ToStreamingImageEncryptionConfigurationKeyTypeOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationKeyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StreamingImageEncryptionConfigurationKeyTypeOutput)
-}
-
-func (e StreamingImageEncryptionConfigurationKeyType) ToStreamingImageEncryptionConfigurationKeyTypePtrOutput() StreamingImageEncryptionConfigurationKeyTypePtrOutput {
-	return e.ToStreamingImageEncryptionConfigurationKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (e StreamingImageEncryptionConfigurationKeyType) ToStreamingImageEncryptionConfigurationKeyTypePtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationKeyTypePtrOutput {
-	return StreamingImageEncryptionConfigurationKeyType(e).ToStreamingImageEncryptionConfigurationKeyTypeOutputWithContext(ctx).ToStreamingImageEncryptionConfigurationKeyTypePtrOutputWithContext(ctx)
-}
-
-func (e StreamingImageEncryptionConfigurationKeyType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e StreamingImageEncryptionConfigurationKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e StreamingImageEncryptionConfigurationKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e StreamingImageEncryptionConfigurationKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type StreamingImageEncryptionConfigurationKeyTypeOutput struct{ *pulumi.OutputState }
 
 func (StreamingImageEncryptionConfigurationKeyTypeOutput) ElementType() reflect.Type {
@@ -719,44 +683,6 @@ func (o StreamingImageEncryptionConfigurationKeyTypePtrOutput) ToStringPtrOutput
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// StreamingImageEncryptionConfigurationKeyTypeInput is an input type that accepts StreamingImageEncryptionConfigurationKeyTypeArgs and StreamingImageEncryptionConfigurationKeyTypeOutput values.
-// You can construct a concrete instance of `StreamingImageEncryptionConfigurationKeyTypeInput` via:
-//
-//          StreamingImageEncryptionConfigurationKeyTypeArgs{...}
-type StreamingImageEncryptionConfigurationKeyTypeInput interface {
-	pulumi.Input
-
-	ToStreamingImageEncryptionConfigurationKeyTypeOutput() StreamingImageEncryptionConfigurationKeyTypeOutput
-	ToStreamingImageEncryptionConfigurationKeyTypeOutputWithContext(context.Context) StreamingImageEncryptionConfigurationKeyTypeOutput
-}
-
-var streamingImageEncryptionConfigurationKeyTypePtrType = reflect.TypeOf((**StreamingImageEncryptionConfigurationKeyType)(nil)).Elem()
-
-type StreamingImageEncryptionConfigurationKeyTypePtrInput interface {
-	pulumi.Input
-
-	ToStreamingImageEncryptionConfigurationKeyTypePtrOutput() StreamingImageEncryptionConfigurationKeyTypePtrOutput
-	ToStreamingImageEncryptionConfigurationKeyTypePtrOutputWithContext(context.Context) StreamingImageEncryptionConfigurationKeyTypePtrOutput
-}
-
-type streamingImageEncryptionConfigurationKeyTypePtr string
-
-func StreamingImageEncryptionConfigurationKeyTypePtr(v string) StreamingImageEncryptionConfigurationKeyTypePtrInput {
-	return (*streamingImageEncryptionConfigurationKeyTypePtr)(&v)
-}
-
-func (*streamingImageEncryptionConfigurationKeyTypePtr) ElementType() reflect.Type {
-	return streamingImageEncryptionConfigurationKeyTypePtrType
-}
-
-func (in *streamingImageEncryptionConfigurationKeyTypePtr) ToStreamingImageEncryptionConfigurationKeyTypePtrOutput() StreamingImageEncryptionConfigurationKeyTypePtrOutput {
-	return pulumi.ToOutput(in).(StreamingImageEncryptionConfigurationKeyTypePtrOutput)
-}
-
-func (in *streamingImageEncryptionConfigurationKeyTypePtr) ToStreamingImageEncryptionConfigurationKeyTypePtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationKeyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StreamingImageEncryptionConfigurationKeyTypePtrOutput)
 }
 
 type StudioComponentInitializationScriptRunContext string
@@ -1594,8 +1520,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageModeInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageMode("UPLOAD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageModePtrInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageMode("UPLOAD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageModeArrayInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageModeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageEncryptionConfigurationKeyTypeInput)(nil)).Elem(), StreamingImageEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageEncryptionConfigurationKeyTypePtrInput)(nil)).Elem(), StreamingImageEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptRunContextInput)(nil)).Elem(), StudioComponentInitializationScriptRunContext("SYSTEM_INITIALIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptRunContextPtrInput)(nil)).Elem(), StudioComponentInitializationScriptRunContext("SYSTEM_INITIALIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentLaunchProfilePlatformInput)(nil)).Elem(), StudioComponentLaunchProfilePlatform("LINUX"))

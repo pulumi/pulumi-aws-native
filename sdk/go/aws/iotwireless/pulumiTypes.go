@@ -575,47 +575,6 @@ func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWANOutput)
 }
 
-func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
-	return i.ToFuotaTaskLoRaWANPtrOutputWithContext(context.Background())
-}
-
-func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWANOutput).ToFuotaTaskLoRaWANPtrOutputWithContext(ctx)
-}
-
-// FuotaTaskLoRaWANPtrInput is an input type that accepts FuotaTaskLoRaWANArgs, FuotaTaskLoRaWANPtr and FuotaTaskLoRaWANPtrOutput values.
-// You can construct a concrete instance of `FuotaTaskLoRaWANPtrInput` via:
-//
-//          FuotaTaskLoRaWANArgs{...}
-//
-//  or:
-//
-//          nil
-type FuotaTaskLoRaWANPtrInput interface {
-	pulumi.Input
-
-	ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput
-	ToFuotaTaskLoRaWANPtrOutputWithContext(context.Context) FuotaTaskLoRaWANPtrOutput
-}
-
-type fuotaTaskLoRaWANPtrType FuotaTaskLoRaWANArgs
-
-func FuotaTaskLoRaWANPtr(v *FuotaTaskLoRaWANArgs) FuotaTaskLoRaWANPtrInput {
-	return (*fuotaTaskLoRaWANPtrType)(v)
-}
-
-func (*fuotaTaskLoRaWANPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FuotaTaskLoRaWAN)(nil)).Elem()
-}
-
-func (i *fuotaTaskLoRaWANPtrType) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
-	return i.ToFuotaTaskLoRaWANPtrOutputWithContext(context.Background())
-}
-
-func (i *fuotaTaskLoRaWANPtrType) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWANPtrOutput)
-}
-
 type FuotaTaskLoRaWANOutput struct{ *pulumi.OutputState }
 
 func (FuotaTaskLoRaWANOutput) ElementType() reflect.Type {
@@ -630,16 +589,6 @@ func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANOutputWithContext(ctx context.
 	return o
 }
 
-func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
-	return o.ToFuotaTaskLoRaWANPtrOutputWithContext(context.Background())
-}
-
-func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FuotaTaskLoRaWAN) *FuotaTaskLoRaWAN {
-		return &v
-	}).(FuotaTaskLoRaWANPtrOutput)
-}
-
 // FUOTA task LoRaWAN RF region
 func (o FuotaTaskLoRaWANOutput) RfRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v FuotaTaskLoRaWAN) string { return v.RfRegion }).(pulumi.StringOutput)
@@ -648,50 +597,6 @@ func (o FuotaTaskLoRaWANOutput) RfRegion() pulumi.StringOutput {
 // FUOTA task LoRaWAN start time
 func (o FuotaTaskLoRaWANOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FuotaTaskLoRaWAN) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
-type FuotaTaskLoRaWANPtrOutput struct{ *pulumi.OutputState }
-
-func (FuotaTaskLoRaWANPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FuotaTaskLoRaWAN)(nil)).Elem()
-}
-
-func (o FuotaTaskLoRaWANPtrOutput) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
-	return o
-}
-
-func (o FuotaTaskLoRaWANPtrOutput) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
-	return o
-}
-
-func (o FuotaTaskLoRaWANPtrOutput) Elem() FuotaTaskLoRaWANOutput {
-	return o.ApplyT(func(v *FuotaTaskLoRaWAN) FuotaTaskLoRaWAN {
-		if v != nil {
-			return *v
-		}
-		var ret FuotaTaskLoRaWAN
-		return ret
-	}).(FuotaTaskLoRaWANOutput)
-}
-
-// FUOTA task LoRaWAN RF region
-func (o FuotaTaskLoRaWANPtrOutput) RfRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FuotaTaskLoRaWAN) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RfRegion
-	}).(pulumi.StringPtrOutput)
-}
-
-// FUOTA task LoRaWAN start time
-func (o FuotaTaskLoRaWANPtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FuotaTaskLoRaWAN) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
 }
 
 type FuotaTaskTag struct {
@@ -839,47 +744,6 @@ func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWANOutput)
 }
 
-func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
-	return i.ToMulticastGroupLoRaWANPtrOutputWithContext(context.Background())
-}
-
-func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWANOutput).ToMulticastGroupLoRaWANPtrOutputWithContext(ctx)
-}
-
-// MulticastGroupLoRaWANPtrInput is an input type that accepts MulticastGroupLoRaWANArgs, MulticastGroupLoRaWANPtr and MulticastGroupLoRaWANPtrOutput values.
-// You can construct a concrete instance of `MulticastGroupLoRaWANPtrInput` via:
-//
-//          MulticastGroupLoRaWANArgs{...}
-//
-//  or:
-//
-//          nil
-type MulticastGroupLoRaWANPtrInput interface {
-	pulumi.Input
-
-	ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput
-	ToMulticastGroupLoRaWANPtrOutputWithContext(context.Context) MulticastGroupLoRaWANPtrOutput
-}
-
-type multicastGroupLoRaWANPtrType MulticastGroupLoRaWANArgs
-
-func MulticastGroupLoRaWANPtr(v *MulticastGroupLoRaWANArgs) MulticastGroupLoRaWANPtrInput {
-	return (*multicastGroupLoRaWANPtrType)(v)
-}
-
-func (*multicastGroupLoRaWANPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MulticastGroupLoRaWAN)(nil)).Elem()
-}
-
-func (i *multicastGroupLoRaWANPtrType) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
-	return i.ToMulticastGroupLoRaWANPtrOutputWithContext(context.Background())
-}
-
-func (i *multicastGroupLoRaWANPtrType) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWANPtrOutput)
-}
-
 type MulticastGroupLoRaWANOutput struct{ *pulumi.OutputState }
 
 func (MulticastGroupLoRaWANOutput) ElementType() reflect.Type {
@@ -892,16 +756,6 @@ func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANOutput() MulticastGr
 
 func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANOutputWithContext(ctx context.Context) MulticastGroupLoRaWANOutput {
 	return o
-}
-
-func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
-	return o.ToMulticastGroupLoRaWANPtrOutputWithContext(context.Background())
-}
-
-func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MulticastGroupLoRaWAN) *MulticastGroupLoRaWAN {
-		return &v
-	}).(MulticastGroupLoRaWANPtrOutput)
 }
 
 // Multicast group LoRaWAN DL Class
@@ -922,70 +776,6 @@ func (o MulticastGroupLoRaWANOutput) NumberOfDevicesRequested() pulumi.IntPtrOut
 // Multicast group LoRaWAN RF region
 func (o MulticastGroupLoRaWANOutput) RfRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v MulticastGroupLoRaWAN) string { return v.RfRegion }).(pulumi.StringOutput)
-}
-
-type MulticastGroupLoRaWANPtrOutput struct{ *pulumi.OutputState }
-
-func (MulticastGroupLoRaWANPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MulticastGroupLoRaWAN)(nil)).Elem()
-}
-
-func (o MulticastGroupLoRaWANPtrOutput) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
-	return o
-}
-
-func (o MulticastGroupLoRaWANPtrOutput) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
-	return o
-}
-
-func (o MulticastGroupLoRaWANPtrOutput) Elem() MulticastGroupLoRaWANOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) MulticastGroupLoRaWAN {
-		if v != nil {
-			return *v
-		}
-		var ret MulticastGroupLoRaWAN
-		return ret
-	}).(MulticastGroupLoRaWANOutput)
-}
-
-// Multicast group LoRaWAN DL Class
-func (o MulticastGroupLoRaWANPtrOutput) DlClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DlClass
-	}).(pulumi.StringPtrOutput)
-}
-
-// Multicast group number of devices in group. Returned after successful read.
-func (o MulticastGroupLoRaWANPtrOutput) NumberOfDevicesInGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NumberOfDevicesInGroup
-	}).(pulumi.IntPtrOutput)
-}
-
-// Multicast group number of devices requested. Returned after successful read.
-func (o MulticastGroupLoRaWANPtrOutput) NumberOfDevicesRequested() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NumberOfDevicesRequested
-	}).(pulumi.IntPtrOutput)
-}
-
-// Multicast group LoRaWAN RF region
-func (o MulticastGroupLoRaWANPtrOutput) RfRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RfRegion
-	}).(pulumi.StringPtrOutput)
 }
 
 type MulticastGroupTag struct {
@@ -1227,76 +1017,6 @@ type PartnerAccountSidewalkAccountInfoWithFingerprint struct {
 	Fingerprint *string `pulumi:"fingerprint"`
 }
 
-// PartnerAccountSidewalkAccountInfoWithFingerprintInput is an input type that accepts PartnerAccountSidewalkAccountInfoWithFingerprintArgs and PartnerAccountSidewalkAccountInfoWithFingerprintOutput values.
-// You can construct a concrete instance of `PartnerAccountSidewalkAccountInfoWithFingerprintInput` via:
-//
-//          PartnerAccountSidewalkAccountInfoWithFingerprintArgs{...}
-type PartnerAccountSidewalkAccountInfoWithFingerprintInput interface {
-	pulumi.Input
-
-	ToPartnerAccountSidewalkAccountInfoWithFingerprintOutput() PartnerAccountSidewalkAccountInfoWithFingerprintOutput
-	ToPartnerAccountSidewalkAccountInfoWithFingerprintOutputWithContext(context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintOutput
-}
-
-type PartnerAccountSidewalkAccountInfoWithFingerprintArgs struct {
-	AmazonId    pulumi.StringPtrInput `pulumi:"amazonId"`
-	Arn         pulumi.StringPtrInput `pulumi:"arn"`
-	Fingerprint pulumi.StringPtrInput `pulumi:"fingerprint"`
-}
-
-func (PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprint)(nil)).Elem()
-}
-
-func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintOutput() PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
-	return i.ToPartnerAccountSidewalkAccountInfoWithFingerprintOutputWithContext(context.Background())
-}
-
-func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoWithFingerprintOutput)
-}
-
-func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
-	return i.ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoWithFingerprintOutput).ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx)
-}
-
-// PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput is an input type that accepts PartnerAccountSidewalkAccountInfoWithFingerprintArgs, PartnerAccountSidewalkAccountInfoWithFingerprintPtr and PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput values.
-// You can construct a concrete instance of `PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput` via:
-//
-//          PartnerAccountSidewalkAccountInfoWithFingerprintArgs{...}
-//
-//  or:
-//
-//          nil
-type PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput interface {
-	pulumi.Input
-
-	ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput
-	ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput
-}
-
-type partnerAccountSidewalkAccountInfoWithFingerprintPtrType PartnerAccountSidewalkAccountInfoWithFingerprintArgs
-
-func PartnerAccountSidewalkAccountInfoWithFingerprintPtr(v *PartnerAccountSidewalkAccountInfoWithFingerprintArgs) PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput {
-	return (*partnerAccountSidewalkAccountInfoWithFingerprintPtrType)(v)
-}
-
-func (*partnerAccountSidewalkAccountInfoWithFingerprintPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartnerAccountSidewalkAccountInfoWithFingerprint)(nil)).Elem()
-}
-
-func (i *partnerAccountSidewalkAccountInfoWithFingerprintPtrType) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
-	return i.ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i *partnerAccountSidewalkAccountInfoWithFingerprintPtrType) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput)
-}
-
 type PartnerAccountSidewalkAccountInfoWithFingerprintOutput struct{ *pulumi.OutputState }
 
 func (PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ElementType() reflect.Type {
@@ -1311,16 +1031,6 @@ func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToPartnerAccount
 	return o
 }
 
-func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
-	return o.ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Background())
-}
-
-func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAccountSidewalkAccountInfoWithFingerprint) *PartnerAccountSidewalkAccountInfoWithFingerprint {
-		return &v
-	}).(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput)
-}
-
 func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) AmazonId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartnerAccountSidewalkAccountInfoWithFingerprint) *string { return v.AmazonId }).(pulumi.StringPtrOutput)
 }
@@ -1331,57 +1041,6 @@ func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) Arn() pulumi.Str
 
 func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) Fingerprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartnerAccountSidewalkAccountInfoWithFingerprint) *string { return v.Fingerprint }).(pulumi.StringPtrOutput)
-}
-
-type PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput struct{ *pulumi.OutputState }
-
-func (PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartnerAccountSidewalkAccountInfoWithFingerprint)(nil)).Elem()
-}
-
-func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
-	return o
-}
-
-func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
-	return o
-}
-
-func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) Elem() PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
-	return o.ApplyT(func(v *PartnerAccountSidewalkAccountInfoWithFingerprint) PartnerAccountSidewalkAccountInfoWithFingerprint {
-		if v != nil {
-			return *v
-		}
-		var ret PartnerAccountSidewalkAccountInfoWithFingerprint
-		return ret
-	}).(PartnerAccountSidewalkAccountInfoWithFingerprintOutput)
-}
-
-func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) AmazonId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PartnerAccountSidewalkAccountInfoWithFingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AmazonId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PartnerAccountSidewalkAccountInfoWithFingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) Fingerprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PartnerAccountSidewalkAccountInfoWithFingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Fingerprint
-	}).(pulumi.StringPtrOutput)
 }
 
 type PartnerAccountSidewalkUpdateAccount struct {
@@ -4171,47 +3830,6 @@ func (i WirelessGatewayLoRaWANGatewayArgs) ToWirelessGatewayLoRaWANGatewayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayLoRaWANGatewayOutput)
 }
 
-func (i WirelessGatewayLoRaWANGatewayArgs) ToWirelessGatewayLoRaWANGatewayPtrOutput() WirelessGatewayLoRaWANGatewayPtrOutput {
-	return i.ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i WirelessGatewayLoRaWANGatewayArgs) ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayLoRaWANGatewayOutput).ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(ctx)
-}
-
-// WirelessGatewayLoRaWANGatewayPtrInput is an input type that accepts WirelessGatewayLoRaWANGatewayArgs, WirelessGatewayLoRaWANGatewayPtr and WirelessGatewayLoRaWANGatewayPtrOutput values.
-// You can construct a concrete instance of `WirelessGatewayLoRaWANGatewayPtrInput` via:
-//
-//          WirelessGatewayLoRaWANGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type WirelessGatewayLoRaWANGatewayPtrInput interface {
-	pulumi.Input
-
-	ToWirelessGatewayLoRaWANGatewayPtrOutput() WirelessGatewayLoRaWANGatewayPtrOutput
-	ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(context.Context) WirelessGatewayLoRaWANGatewayPtrOutput
-}
-
-type wirelessGatewayLoRaWANGatewayPtrType WirelessGatewayLoRaWANGatewayArgs
-
-func WirelessGatewayLoRaWANGatewayPtr(v *WirelessGatewayLoRaWANGatewayArgs) WirelessGatewayLoRaWANGatewayPtrInput {
-	return (*wirelessGatewayLoRaWANGatewayPtrType)(v)
-}
-
-func (*wirelessGatewayLoRaWANGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WirelessGatewayLoRaWANGateway)(nil)).Elem()
-}
-
-func (i *wirelessGatewayLoRaWANGatewayPtrType) ToWirelessGatewayLoRaWANGatewayPtrOutput() WirelessGatewayLoRaWANGatewayPtrOutput {
-	return i.ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *wirelessGatewayLoRaWANGatewayPtrType) ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayLoRaWANGatewayPtrOutput)
-}
-
 type WirelessGatewayLoRaWANGatewayOutput struct{ *pulumi.OutputState }
 
 func (WirelessGatewayLoRaWANGatewayOutput) ElementType() reflect.Type {
@@ -4226,64 +3844,12 @@ func (o WirelessGatewayLoRaWANGatewayOutput) ToWirelessGatewayLoRaWANGatewayOutp
 	return o
 }
 
-func (o WirelessGatewayLoRaWANGatewayOutput) ToWirelessGatewayLoRaWANGatewayPtrOutput() WirelessGatewayLoRaWANGatewayPtrOutput {
-	return o.ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o WirelessGatewayLoRaWANGatewayOutput) ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessGatewayLoRaWANGateway) *WirelessGatewayLoRaWANGateway {
-		return &v
-	}).(WirelessGatewayLoRaWANGatewayPtrOutput)
-}
-
 func (o WirelessGatewayLoRaWANGatewayOutput) GatewayEui() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessGatewayLoRaWANGateway) string { return v.GatewayEui }).(pulumi.StringOutput)
 }
 
 func (o WirelessGatewayLoRaWANGatewayOutput) RfRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessGatewayLoRaWANGateway) string { return v.RfRegion }).(pulumi.StringOutput)
-}
-
-type WirelessGatewayLoRaWANGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (WirelessGatewayLoRaWANGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WirelessGatewayLoRaWANGateway)(nil)).Elem()
-}
-
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) ToWirelessGatewayLoRaWANGatewayPtrOutput() WirelessGatewayLoRaWANGatewayPtrOutput {
-	return o
-}
-
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayPtrOutput {
-	return o
-}
-
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) Elem() WirelessGatewayLoRaWANGatewayOutput {
-	return o.ApplyT(func(v *WirelessGatewayLoRaWANGateway) WirelessGatewayLoRaWANGateway {
-		if v != nil {
-			return *v
-		}
-		var ret WirelessGatewayLoRaWANGateway
-		return ret
-	}).(WirelessGatewayLoRaWANGatewayOutput)
-}
-
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) GatewayEui() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WirelessGatewayLoRaWANGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.GatewayEui
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WirelessGatewayLoRaWANGatewayPtrOutput) RfRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WirelessGatewayLoRaWANGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RfRegion
-	}).(pulumi.StringPtrOutput)
 }
 
 type WirelessGatewayTag struct {
@@ -4394,17 +3960,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileTagInput)(nil)).Elem(), DeviceProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileTagArrayInput)(nil)).Elem(), DeviceProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskLoRaWANInput)(nil)).Elem(), FuotaTaskLoRaWANArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskLoRaWANPtrInput)(nil)).Elem(), FuotaTaskLoRaWANArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskTagInput)(nil)).Elem(), FuotaTaskTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskTagArrayInput)(nil)).Elem(), FuotaTaskTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWANInput)(nil)).Elem(), MulticastGroupLoRaWANArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWANPtrInput)(nil)).Elem(), MulticastGroupLoRaWANArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagInput)(nil)).Elem(), MulticastGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagArrayInput)(nil)).Elem(), MulticastGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoPtrInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprintInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoWithFingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoWithFingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkUpdateAccountInput)(nil)).Elem(), PartnerAccountSidewalkUpdateAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkUpdateAccountPtrInput)(nil)).Elem(), PartnerAccountSidewalkUpdateAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountTagInput)(nil)).Elem(), PartnerAccountTagArgs{})
@@ -4440,7 +4002,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTagInput)(nil)).Elem(), WirelessDeviceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTagArrayInput)(nil)).Elem(), WirelessDeviceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayLoRaWANGatewayInput)(nil)).Elem(), WirelessGatewayLoRaWANGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayLoRaWANGatewayPtrInput)(nil)).Elem(), WirelessGatewayLoRaWANGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayTagInput)(nil)).Elem(), WirelessGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayTagArrayInput)(nil)).Elem(), WirelessGatewayTagArray{})
 	pulumi.RegisterOutputType(DestinationTagOutput{})
@@ -4450,17 +4011,14 @@ func init() {
 	pulumi.RegisterOutputType(DeviceProfileTagOutput{})
 	pulumi.RegisterOutputType(DeviceProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(FuotaTaskLoRaWANOutput{})
-	pulumi.RegisterOutputType(FuotaTaskLoRaWANPtrOutput{})
 	pulumi.RegisterOutputType(FuotaTaskTagOutput{})
 	pulumi.RegisterOutputType(FuotaTaskTagArrayOutput{})
 	pulumi.RegisterOutputType(MulticastGroupLoRaWANOutput{})
-	pulumi.RegisterOutputType(MulticastGroupLoRaWANPtrOutput{})
 	pulumi.RegisterOutputType(MulticastGroupTagOutput{})
 	pulumi.RegisterOutputType(MulticastGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoWithFingerprintOutput{})
-	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkUpdateAccountOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkUpdateAccountPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountTagOutput{})
@@ -4496,7 +4054,6 @@ func init() {
 	pulumi.RegisterOutputType(WirelessDeviceTagOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTagArrayOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayLoRaWANGatewayOutput{})
-	pulumi.RegisterOutputType(WirelessGatewayLoRaWANGatewayPtrOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayTagOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayTagArrayOutput{})
 }

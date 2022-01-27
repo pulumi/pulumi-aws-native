@@ -86,7 +86,7 @@ type CoreDefinitionInput interface {
 }
 
 func (*CoreDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*CoreDefinition)(nil))
+	return reflect.TypeOf((**CoreDefinition)(nil)).Elem()
 }
 
 func (i *CoreDefinition) ToCoreDefinitionOutput() CoreDefinitionOutput {
@@ -100,7 +100,7 @@ func (i *CoreDefinition) ToCoreDefinitionOutputWithContext(ctx context.Context) 
 type CoreDefinitionOutput struct{ *pulumi.OutputState }
 
 func (CoreDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CoreDefinition)(nil))
+	return reflect.TypeOf((**CoreDefinition)(nil)).Elem()
 }
 
 func (o CoreDefinitionOutput) ToCoreDefinitionOutput() CoreDefinitionOutput {

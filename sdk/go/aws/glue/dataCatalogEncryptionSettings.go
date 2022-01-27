@@ -88,7 +88,7 @@ type DataCatalogEncryptionSettingsInput interface {
 }
 
 func (*DataCatalogEncryptionSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogEncryptionSettings)(nil))
+	return reflect.TypeOf((**DataCatalogEncryptionSettings)(nil)).Elem()
 }
 
 func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsOutput {
@@ -102,7 +102,7 @@ func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutputWit
 type DataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogEncryptionSettings)(nil))
+	return reflect.TypeOf((**DataCatalogEncryptionSettings)(nil)).Elem()
 }
 
 func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsOutput {

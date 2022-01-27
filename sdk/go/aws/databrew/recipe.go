@@ -95,7 +95,7 @@ type RecipeInput interface {
 }
 
 func (*Recipe) ElementType() reflect.Type {
-	return reflect.TypeOf((*Recipe)(nil))
+	return reflect.TypeOf((**Recipe)(nil)).Elem()
 }
 
 func (i *Recipe) ToRecipeOutput() RecipeOutput {
@@ -109,7 +109,7 @@ func (i *Recipe) ToRecipeOutputWithContext(ctx context.Context) RecipeOutput {
 type RecipeOutput struct{ *pulumi.OutputState }
 
 func (RecipeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Recipe)(nil))
+	return reflect.TypeOf((**Recipe)(nil)).Elem()
 }
 
 func (o RecipeOutput) ToRecipeOutput() RecipeOutput {

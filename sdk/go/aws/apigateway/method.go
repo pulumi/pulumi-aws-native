@@ -161,7 +161,7 @@ type MethodInput interface {
 }
 
 func (*Method) ElementType() reflect.Type {
-	return reflect.TypeOf((*Method)(nil))
+	return reflect.TypeOf((**Method)(nil)).Elem()
 }
 
 func (i *Method) ToMethodOutput() MethodOutput {
@@ -175,7 +175,7 @@ func (i *Method) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
 type MethodOutput struct{ *pulumi.OutputState }
 
 func (MethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Method)(nil))
+	return reflect.TypeOf((**Method)(nil)).Elem()
 }
 
 func (o MethodOutput) ToMethodOutput() MethodOutput {

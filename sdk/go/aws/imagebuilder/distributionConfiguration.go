@@ -103,7 +103,7 @@ type DistributionConfigurationInput interface {
 }
 
 func (*DistributionConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfiguration)(nil))
+	return reflect.TypeOf((**DistributionConfiguration)(nil)).Elem()
 }
 
 func (i *DistributionConfiguration) ToDistributionConfigurationOutput() DistributionConfigurationOutput {
@@ -117,7 +117,7 @@ func (i *DistributionConfiguration) ToDistributionConfigurationOutputWithContext
 type DistributionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionConfiguration)(nil))
+	return reflect.TypeOf((**DistributionConfiguration)(nil)).Elem()
 }
 
 func (o DistributionConfigurationOutput) ToDistributionConfigurationOutput() DistributionConfigurationOutput {

@@ -100,46 +100,44 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.subscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["eventCategories"] = args ? args.eventCategories : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            inputs["sourceIds"] = args ? args.sourceIds : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["custSubscriptionId"] = undefined /*out*/;
-            inputs["customerAwsId"] = undefined /*out*/;
-            inputs["eventCategoriesList"] = undefined /*out*/;
-            inputs["sourceIdsList"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscriptionCreationTime"] = undefined /*out*/;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["custSubscriptionId"] = undefined /*out*/;
+            resourceInputs["customerAwsId"] = undefined /*out*/;
+            resourceInputs["eventCategoriesList"] = undefined /*out*/;
+            resourceInputs["sourceIdsList"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscriptionCreationTime"] = undefined /*out*/;
         } else {
-            inputs["custSubscriptionId"] = undefined /*out*/;
-            inputs["customerAwsId"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["eventCategories"] = undefined /*out*/;
-            inputs["eventCategoriesList"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["snsTopicArn"] = undefined /*out*/;
-            inputs["sourceIds"] = undefined /*out*/;
-            inputs["sourceIdsList"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscriptionCreationTime"] = undefined /*out*/;
-            inputs["subscriptionName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["custSubscriptionId"] = undefined /*out*/;
+            resourceInputs["customerAwsId"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["eventCategories"] = undefined /*out*/;
+            resourceInputs["eventCategoriesList"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["snsTopicArn"] = undefined /*out*/;
+            resourceInputs["sourceIds"] = undefined /*out*/;
+            resourceInputs["sourceIdsList"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscriptionCreationTime"] = undefined /*out*/;
+            resourceInputs["subscriptionName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventSubscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

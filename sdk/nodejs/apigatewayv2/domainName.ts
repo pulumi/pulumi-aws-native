@@ -55,30 +55,28 @@ export class DomainName extends pulumi.CustomResource {
     /** @deprecated DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DomainName is deprecated: DomainName is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["domainNameConfigurations"] = args ? args.domainNameConfigurations : undefined;
-            inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["regionalDomainName"] = undefined /*out*/;
-            inputs["regionalHostedZoneId"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainNameConfigurations"] = args ? args.domainNameConfigurations : undefined;
+            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["regionalDomainName"] = undefined /*out*/;
+            resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
         } else {
-            inputs["domainName"] = undefined /*out*/;
-            inputs["domainNameConfigurations"] = undefined /*out*/;
-            inputs["mutualTlsAuthentication"] = undefined /*out*/;
-            inputs["regionalDomainName"] = undefined /*out*/;
-            inputs["regionalHostedZoneId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainNameConfigurations"] = undefined /*out*/;
+            resourceInputs["mutualTlsAuthentication"] = undefined /*out*/;
+            resourceInputs["regionalDomainName"] = undefined /*out*/;
+            resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainName.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,38 +84,36 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoConfigurationEnabled"] = args ? args.autoConfigurationEnabled : undefined;
-            inputs["cWEMonitorEnabled"] = args ? args.cWEMonitorEnabled : undefined;
-            inputs["componentMonitoringSettings"] = args ? args.componentMonitoringSettings : undefined;
-            inputs["customComponents"] = args ? args.customComponents : undefined;
-            inputs["logPatternSets"] = args ? args.logPatternSets : undefined;
-            inputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
-            inputs["opsItemSNSTopicArn"] = args ? args.opsItemSNSTopicArn : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["applicationARN"] = undefined /*out*/;
+            resourceInputs["autoConfigurationEnabled"] = args ? args.autoConfigurationEnabled : undefined;
+            resourceInputs["cWEMonitorEnabled"] = args ? args.cWEMonitorEnabled : undefined;
+            resourceInputs["componentMonitoringSettings"] = args ? args.componentMonitoringSettings : undefined;
+            resourceInputs["customComponents"] = args ? args.customComponents : undefined;
+            resourceInputs["logPatternSets"] = args ? args.logPatternSets : undefined;
+            resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
+            resourceInputs["opsItemSNSTopicArn"] = args ? args.opsItemSNSTopicArn : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationARN"] = undefined /*out*/;
         } else {
-            inputs["applicationARN"] = undefined /*out*/;
-            inputs["autoConfigurationEnabled"] = undefined /*out*/;
-            inputs["cWEMonitorEnabled"] = undefined /*out*/;
-            inputs["componentMonitoringSettings"] = undefined /*out*/;
-            inputs["customComponents"] = undefined /*out*/;
-            inputs["logPatternSets"] = undefined /*out*/;
-            inputs["opsCenterEnabled"] = undefined /*out*/;
-            inputs["opsItemSNSTopicArn"] = undefined /*out*/;
-            inputs["resourceGroupName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["applicationARN"] = undefined /*out*/;
+            resourceInputs["autoConfigurationEnabled"] = undefined /*out*/;
+            resourceInputs["cWEMonitorEnabled"] = undefined /*out*/;
+            resourceInputs["componentMonitoringSettings"] = undefined /*out*/;
+            resourceInputs["customComponents"] = undefined /*out*/;
+            resourceInputs["logPatternSets"] = undefined /*out*/;
+            resourceInputs["opsCenterEnabled"] = undefined /*out*/;
+            resourceInputs["opsItemSNSTopicArn"] = undefined /*out*/;
+            resourceInputs["resourceGroupName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

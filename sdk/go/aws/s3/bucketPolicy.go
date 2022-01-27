@@ -88,7 +88,7 @@ type BucketPolicyInput interface {
 }
 
 func (*BucketPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketPolicy)(nil))
+	return reflect.TypeOf((**BucketPolicy)(nil)).Elem()
 }
 
 func (i *BucketPolicy) ToBucketPolicyOutput() BucketPolicyOutput {
@@ -102,7 +102,7 @@ func (i *BucketPolicy) ToBucketPolicyOutputWithContext(ctx context.Context) Buck
 type BucketPolicyOutput struct{ *pulumi.OutputState }
 
 func (BucketPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketPolicy)(nil))
+	return reflect.TypeOf((**BucketPolicy)(nil)).Elem()
 }
 
 func (o BucketPolicyOutput) ToBucketPolicyOutput() BucketPolicyOutput {

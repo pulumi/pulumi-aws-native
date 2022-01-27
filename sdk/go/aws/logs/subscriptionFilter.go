@@ -97,7 +97,7 @@ type SubscriptionFilterInput interface {
 }
 
 func (*SubscriptionFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionFilter)(nil))
+	return reflect.TypeOf((**SubscriptionFilter)(nil)).Elem()
 }
 
 func (i *SubscriptionFilter) ToSubscriptionFilterOutput() SubscriptionFilterOutput {
@@ -111,7 +111,7 @@ func (i *SubscriptionFilter) ToSubscriptionFilterOutputWithContext(ctx context.C
 type SubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionFilter)(nil))
+	return reflect.TypeOf((**SubscriptionFilter)(nil)).Elem()
 }
 
 func (o SubscriptionFilterOutput) ToSubscriptionFilterOutput() SubscriptionFilterOutput {

@@ -62,7 +62,7 @@ export class FunctionConfiguration extends pulumi.CustomResource {
     /** @deprecated FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: FunctionConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("FunctionConfiguration is deprecated: FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -74,38 +74,36 @@ export class FunctionConfiguration extends pulumi.CustomResource {
             if ((!args || args.functionVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionVersion'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["dataSourceName"] = args ? args.dataSourceName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["functionVersion"] = args ? args.functionVersion : undefined;
-            inputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
-            inputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
-            inputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
-            inputs["responseMappingTemplateS3Location"] = args ? args.responseMappingTemplateS3Location : undefined;
-            inputs["syncConfig"] = args ? args.syncConfig : undefined;
-            inputs["functionArn"] = undefined /*out*/;
-            inputs["functionId"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["dataSourceName"] = args ? args.dataSourceName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
+            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
+            resourceInputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
+            resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
+            resourceInputs["responseMappingTemplateS3Location"] = args ? args.responseMappingTemplateS3Location : undefined;
+            resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
+            resourceInputs["functionArn"] = undefined /*out*/;
+            resourceInputs["functionId"] = undefined /*out*/;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["dataSourceName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["functionArn"] = undefined /*out*/;
-            inputs["functionId"] = undefined /*out*/;
-            inputs["functionVersion"] = undefined /*out*/;
-            inputs["maxBatchSize"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requestMappingTemplate"] = undefined /*out*/;
-            inputs["requestMappingTemplateS3Location"] = undefined /*out*/;
-            inputs["responseMappingTemplate"] = undefined /*out*/;
-            inputs["responseMappingTemplateS3Location"] = undefined /*out*/;
-            inputs["syncConfig"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["dataSourceName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["functionArn"] = undefined /*out*/;
+            resourceInputs["functionId"] = undefined /*out*/;
+            resourceInputs["functionVersion"] = undefined /*out*/;
+            resourceInputs["maxBatchSize"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requestMappingTemplate"] = undefined /*out*/;
+            resourceInputs["requestMappingTemplateS3Location"] = undefined /*out*/;
+            resourceInputs["responseMappingTemplate"] = undefined /*out*/;
+            resourceInputs["responseMappingTemplateS3Location"] = undefined /*out*/;
+            resourceInputs["syncConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FunctionConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FunctionConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

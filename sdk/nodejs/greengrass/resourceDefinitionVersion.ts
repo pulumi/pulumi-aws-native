@@ -51,7 +51,7 @@ export class ResourceDefinitionVersion extends pulumi.CustomResource {
     /** @deprecated ResourceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ResourceDefinitionVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ResourceDefinitionVersion is deprecated: ResourceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceDefinitionId === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class ResourceDefinitionVersion extends pulumi.CustomResource {
             if ((!args || args.resources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
-            inputs["resourceDefinitionId"] = args ? args.resourceDefinitionId : undefined;
-            inputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["resourceDefinitionId"] = args ? args.resourceDefinitionId : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
         } else {
-            inputs["resourceDefinitionId"] = undefined /*out*/;
-            inputs["resources"] = undefined /*out*/;
+            resourceInputs["resourceDefinitionId"] = undefined /*out*/;
+            resourceInputs["resources"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceDefinitionVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

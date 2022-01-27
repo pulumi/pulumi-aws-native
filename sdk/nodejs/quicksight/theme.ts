@@ -89,7 +89,7 @@ export class Theme extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ThemeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.awsAccountId === undefined) && !opts.urn) {
@@ -98,38 +98,36 @@ export class Theme extends pulumi.CustomResource {
             if ((!args || args.themeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'themeId'");
             }
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["baseThemeId"] = args ? args.baseThemeId : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["themeId"] = args ? args.themeId : undefined;
-            inputs["versionDescription"] = args ? args.versionDescription : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["baseThemeId"] = args ? args.baseThemeId : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["themeId"] = args ? args.themeId : undefined;
+            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["baseThemeId"] = undefined /*out*/;
-            inputs["configuration"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["themeId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionDescription"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["baseThemeId"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["themeId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versionDescription"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Theme.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Theme.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -94,7 +94,7 @@ type PortfolioShareInput interface {
 }
 
 func (*PortfolioShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioShare)(nil))
+	return reflect.TypeOf((**PortfolioShare)(nil)).Elem()
 }
 
 func (i *PortfolioShare) ToPortfolioShareOutput() PortfolioShareOutput {
@@ -108,7 +108,7 @@ func (i *PortfolioShare) ToPortfolioShareOutputWithContext(ctx context.Context) 
 type PortfolioShareOutput struct{ *pulumi.OutputState }
 
 func (PortfolioShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioShare)(nil))
+	return reflect.TypeOf((**PortfolioShare)(nil)).Elem()
 }
 
 func (o PortfolioShareOutput) ToPortfolioShareOutput() PortfolioShareOutput {

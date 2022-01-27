@@ -72,29 +72,27 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: OrganizationConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
-            inputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
-            inputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
-            inputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            inputs["organizationConformancePackName"] = args ? args.organizationConformancePackName : undefined;
-            inputs["templateBody"] = args ? args.templateBody : undefined;
-            inputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
+            resourceInputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
+            resourceInputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
+            resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
+            resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
+            resourceInputs["organizationConformancePackName"] = args ? args.organizationConformancePackName : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
         } else {
-            inputs["conformancePackInputParameters"] = undefined /*out*/;
-            inputs["deliveryS3Bucket"] = undefined /*out*/;
-            inputs["deliveryS3KeyPrefix"] = undefined /*out*/;
-            inputs["excludedAccounts"] = undefined /*out*/;
-            inputs["organizationConformancePackName"] = undefined /*out*/;
-            inputs["templateBody"] = undefined /*out*/;
-            inputs["templateS3Uri"] = undefined /*out*/;
+            resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
+            resourceInputs["deliveryS3Bucket"] = undefined /*out*/;
+            resourceInputs["deliveryS3KeyPrefix"] = undefined /*out*/;
+            resourceInputs["excludedAccounts"] = undefined /*out*/;
+            resourceInputs["organizationConformancePackName"] = undefined /*out*/;
+            resourceInputs["templateBody"] = undefined /*out*/;
+            resourceInputs["templateS3Uri"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OrganizationConformancePack.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OrganizationConformancePack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

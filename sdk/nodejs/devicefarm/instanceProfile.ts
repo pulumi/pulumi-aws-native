@@ -51,29 +51,27 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["excludeAppPackagesFromCleanup"] = args ? args.excludeAppPackagesFromCleanup : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["packageCleanup"] = args ? args.packageCleanup : undefined;
-            inputs["rebootAfterUse"] = args ? args.rebootAfterUse : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["excludeAppPackagesFromCleanup"] = args ? args.excludeAppPackagesFromCleanup : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["packageCleanup"] = args ? args.packageCleanup : undefined;
+            resourceInputs["rebootAfterUse"] = args ? args.rebootAfterUse : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["excludeAppPackagesFromCleanup"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packageCleanup"] = undefined /*out*/;
-            inputs["rebootAfterUse"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["excludeAppPackagesFromCleanup"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageCleanup"] = undefined /*out*/;
+            resourceInputs["rebootAfterUse"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InstanceProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InstanceProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

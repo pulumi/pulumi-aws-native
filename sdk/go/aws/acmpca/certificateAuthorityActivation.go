@@ -106,7 +106,7 @@ type CertificateAuthorityActivationInput interface {
 }
 
 func (*CertificateAuthorityActivation) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateAuthorityActivation)(nil))
+	return reflect.TypeOf((**CertificateAuthorityActivation)(nil)).Elem()
 }
 
 func (i *CertificateAuthorityActivation) ToCertificateAuthorityActivationOutput() CertificateAuthorityActivationOutput {
@@ -120,7 +120,7 @@ func (i *CertificateAuthorityActivation) ToCertificateAuthorityActivationOutputW
 type CertificateAuthorityActivationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityActivationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateAuthorityActivation)(nil))
+	return reflect.TypeOf((**CertificateAuthorityActivation)(nil)).Elem()
 }
 
 func (o CertificateAuthorityActivationOutput) ToCertificateAuthorityActivationOutput() CertificateAuthorityActivationOutput {

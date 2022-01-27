@@ -94,7 +94,7 @@ type ApplicationSettingsInput interface {
 }
 
 func (*ApplicationSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSettings)(nil))
+	return reflect.TypeOf((**ApplicationSettings)(nil)).Elem()
 }
 
 func (i *ApplicationSettings) ToApplicationSettingsOutput() ApplicationSettingsOutput {
@@ -108,7 +108,7 @@ func (i *ApplicationSettings) ToApplicationSettingsOutputWithContext(ctx context
 type ApplicationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSettings)(nil))
+	return reflect.TypeOf((**ApplicationSettings)(nil)).Elem()
 }
 
 func (o ApplicationSettingsOutput) ToApplicationSettingsOutput() ApplicationSettingsOutput {

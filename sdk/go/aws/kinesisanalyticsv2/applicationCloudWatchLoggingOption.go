@@ -88,7 +88,7 @@ type ApplicationCloudWatchLoggingOptionInput interface {
 }
 
 func (*ApplicationCloudWatchLoggingOption) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationCloudWatchLoggingOption)(nil))
+	return reflect.TypeOf((**ApplicationCloudWatchLoggingOption)(nil)).Elem()
 }
 
 func (i *ApplicationCloudWatchLoggingOption) ToApplicationCloudWatchLoggingOptionOutput() ApplicationCloudWatchLoggingOptionOutput {
@@ -102,7 +102,7 @@ func (i *ApplicationCloudWatchLoggingOption) ToApplicationCloudWatchLoggingOptio
 type ApplicationCloudWatchLoggingOptionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCloudWatchLoggingOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationCloudWatchLoggingOption)(nil))
+	return reflect.TypeOf((**ApplicationCloudWatchLoggingOption)(nil)).Elem()
 }
 
 func (o ApplicationCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLoggingOptionOutput() ApplicationCloudWatchLoggingOptionOutput {

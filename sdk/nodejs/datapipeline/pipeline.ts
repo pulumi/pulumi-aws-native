@@ -56,32 +56,30 @@ export class Pipeline extends pulumi.CustomResource {
     /** @deprecated Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Pipeline is deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.parameterObjects === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parameterObjects'");
             }
-            inputs["activate"] = args ? args.activate : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameterObjects"] = args ? args.parameterObjects : undefined;
-            inputs["parameterValues"] = args ? args.parameterValues : undefined;
-            inputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
-            inputs["pipelineTags"] = args ? args.pipelineTags : undefined;
+            resourceInputs["activate"] = args ? args.activate : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameterObjects"] = args ? args.parameterObjects : undefined;
+            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
+            resourceInputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
+            resourceInputs["pipelineTags"] = args ? args.pipelineTags : undefined;
         } else {
-            inputs["activate"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameterObjects"] = undefined /*out*/;
-            inputs["parameterValues"] = undefined /*out*/;
-            inputs["pipelineObjects"] = undefined /*out*/;
-            inputs["pipelineTags"] = undefined /*out*/;
+            resourceInputs["activate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameterObjects"] = undefined /*out*/;
+            resourceInputs["parameterValues"] = undefined /*out*/;
+            resourceInputs["pipelineObjects"] = undefined /*out*/;
+            resourceInputs["pipelineTags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -53,23 +53,21 @@ export class Registry extends pulumi.CustomResource {
     /** @deprecated Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: RegistryArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Registry is deprecated: Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["registryArn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["registryArn"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["registryArn"] = undefined /*out*/;
-            inputs["registryName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["registryArn"] = undefined /*out*/;
+            resourceInputs["registryName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Registry.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Registry.__pulumiType, name, resourceInputs, opts);
     }
 }
 

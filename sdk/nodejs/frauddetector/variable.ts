@@ -84,7 +84,7 @@ export class Variable extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VariableArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataSource === undefined) && !opts.urn) {
@@ -96,32 +96,30 @@ export class Variable extends pulumi.CustomResource {
             if ((!args || args.defaultValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultValue'");
             }
-            inputs["dataSource"] = args ? args.dataSource : undefined;
-            inputs["dataType"] = args ? args.dataType : undefined;
-            inputs["defaultValue"] = args ? args.defaultValue : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["variableType"] = args ? args.variableType : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
+            resourceInputs["dataType"] = args ? args.dataType : undefined;
+            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["variableType"] = args ? args.variableType : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["dataSource"] = undefined /*out*/;
-            inputs["dataType"] = undefined /*out*/;
-            inputs["defaultValue"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["variableType"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["dataSource"] = undefined /*out*/;
+            resourceInputs["dataType"] = undefined /*out*/;
+            resourceInputs["defaultValue"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["variableType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Variable.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Variable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

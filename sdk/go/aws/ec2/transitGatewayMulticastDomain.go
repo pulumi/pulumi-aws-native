@@ -103,7 +103,7 @@ type TransitGatewayMulticastDomainInput interface {
 }
 
 func (*TransitGatewayMulticastDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayMulticastDomain)(nil))
+	return reflect.TypeOf((**TransitGatewayMulticastDomain)(nil)).Elem()
 }
 
 func (i *TransitGatewayMulticastDomain) ToTransitGatewayMulticastDomainOutput() TransitGatewayMulticastDomainOutput {
@@ -117,7 +117,7 @@ func (i *TransitGatewayMulticastDomain) ToTransitGatewayMulticastDomainOutputWit
 type TransitGatewayMulticastDomainOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayMulticastDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayMulticastDomain)(nil))
+	return reflect.TypeOf((**TransitGatewayMulticastDomain)(nil)).Elem()
 }
 
 func (o TransitGatewayMulticastDomainOutput) ToTransitGatewayMulticastDomainOutput() TransitGatewayMulticastDomainOutput {

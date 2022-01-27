@@ -79,7 +79,7 @@ export class Template extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TemplateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.awsAccountId === undefined) && !opts.urn) {
@@ -91,34 +91,32 @@ export class Template extends pulumi.CustomResource {
             if ((!args || args.templateId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateId'");
             }
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateId"] = args ? args.templateId : undefined;
-            inputs["versionDescription"] = args ? args.versionDescription : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateId"] = args ? args.templateId : undefined;
+            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["sourceEntity"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateId"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionDescription"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["sourceEntity"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateId"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versionDescription"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Template.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Template.__pulumiType, name, resourceInputs, opts);
     }
 }
 

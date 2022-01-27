@@ -98,7 +98,7 @@ type PortfolioInput interface {
 }
 
 func (*Portfolio) ElementType() reflect.Type {
-	return reflect.TypeOf((*Portfolio)(nil))
+	return reflect.TypeOf((**Portfolio)(nil)).Elem()
 }
 
 func (i *Portfolio) ToPortfolioOutput() PortfolioOutput {
@@ -112,7 +112,7 @@ func (i *Portfolio) ToPortfolioOutputWithContext(ctx context.Context) PortfolioO
 type PortfolioOutput struct{ *pulumi.OutputState }
 
 func (PortfolioOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Portfolio)(nil))
+	return reflect.TypeOf((**Portfolio)(nil)).Elem()
 }
 
 func (o PortfolioOutput) ToPortfolioOutput() PortfolioOutput {

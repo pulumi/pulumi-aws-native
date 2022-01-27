@@ -63,7 +63,7 @@ export class FargateProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FargateProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -75,26 +75,24 @@ export class FargateProfile extends pulumi.CustomResource {
             if ((!args || args.selectors === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'selectors'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["fargateProfileName"] = args ? args.fargateProfileName : undefined;
-            inputs["podExecutionRoleArn"] = args ? args.podExecutionRoleArn : undefined;
-            inputs["selectors"] = args ? args.selectors : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["fargateProfileName"] = args ? args.fargateProfileName : undefined;
+            resourceInputs["podExecutionRoleArn"] = args ? args.podExecutionRoleArn : undefined;
+            resourceInputs["selectors"] = args ? args.selectors : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["fargateProfileName"] = undefined /*out*/;
-            inputs["podExecutionRoleArn"] = undefined /*out*/;
-            inputs["selectors"] = undefined /*out*/;
-            inputs["subnets"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["fargateProfileName"] = undefined /*out*/;
+            resourceInputs["podExecutionRoleArn"] = undefined /*out*/;
+            resourceInputs["selectors"] = undefined /*out*/;
+            resourceInputs["subnets"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FargateProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FargateProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

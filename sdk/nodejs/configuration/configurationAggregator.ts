@@ -58,25 +58,23 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ConfigurationAggregatorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["accountAggregationSources"] = args ? args.accountAggregationSources : undefined;
-            inputs["configurationAggregatorName"] = args ? args.configurationAggregatorName : undefined;
-            inputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["configurationAggregatorArn"] = undefined /*out*/;
+            resourceInputs["accountAggregationSources"] = args ? args.accountAggregationSources : undefined;
+            resourceInputs["configurationAggregatorName"] = args ? args.configurationAggregatorName : undefined;
+            resourceInputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configurationAggregatorArn"] = undefined /*out*/;
         } else {
-            inputs["accountAggregationSources"] = undefined /*out*/;
-            inputs["configurationAggregatorArn"] = undefined /*out*/;
-            inputs["configurationAggregatorName"] = undefined /*out*/;
-            inputs["organizationAggregationSource"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["accountAggregationSources"] = undefined /*out*/;
+            resourceInputs["configurationAggregatorArn"] = undefined /*out*/;
+            resourceInputs["configurationAggregatorName"] = undefined /*out*/;
+            resourceInputs["organizationAggregationSource"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationAggregator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationAggregator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

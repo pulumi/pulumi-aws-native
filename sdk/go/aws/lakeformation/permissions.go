@@ -94,7 +94,7 @@ type PermissionsInput interface {
 }
 
 func (*Permissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permissions)(nil))
+	return reflect.TypeOf((**Permissions)(nil)).Elem()
 }
 
 func (i *Permissions) ToPermissionsOutput() PermissionsOutput {
@@ -108,7 +108,7 @@ func (i *Permissions) ToPermissionsOutputWithContext(ctx context.Context) Permis
 type PermissionsOutput struct{ *pulumi.OutputState }
 
 func (PermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permissions)(nil))
+	return reflect.TypeOf((**Permissions)(nil)).Elem()
 }
 
 func (o PermissionsOutput) ToPermissionsOutput() PermissionsOutput {

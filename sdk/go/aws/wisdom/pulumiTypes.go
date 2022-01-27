@@ -41,47 +41,6 @@ func (i AssistantAssociationAssociationDataArgs) ToAssistantAssociationAssociati
 	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationAssociationDataOutput)
 }
 
-func (i AssistantAssociationAssociationDataArgs) ToAssistantAssociationAssociationDataPtrOutput() AssistantAssociationAssociationDataPtrOutput {
-	return i.ToAssistantAssociationAssociationDataPtrOutputWithContext(context.Background())
-}
-
-func (i AssistantAssociationAssociationDataArgs) ToAssistantAssociationAssociationDataPtrOutputWithContext(ctx context.Context) AssistantAssociationAssociationDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationAssociationDataOutput).ToAssistantAssociationAssociationDataPtrOutputWithContext(ctx)
-}
-
-// AssistantAssociationAssociationDataPtrInput is an input type that accepts AssistantAssociationAssociationDataArgs, AssistantAssociationAssociationDataPtr and AssistantAssociationAssociationDataPtrOutput values.
-// You can construct a concrete instance of `AssistantAssociationAssociationDataPtrInput` via:
-//
-//          AssistantAssociationAssociationDataArgs{...}
-//
-//  or:
-//
-//          nil
-type AssistantAssociationAssociationDataPtrInput interface {
-	pulumi.Input
-
-	ToAssistantAssociationAssociationDataPtrOutput() AssistantAssociationAssociationDataPtrOutput
-	ToAssistantAssociationAssociationDataPtrOutputWithContext(context.Context) AssistantAssociationAssociationDataPtrOutput
-}
-
-type assistantAssociationAssociationDataPtrType AssistantAssociationAssociationDataArgs
-
-func AssistantAssociationAssociationDataPtr(v *AssistantAssociationAssociationDataArgs) AssistantAssociationAssociationDataPtrInput {
-	return (*assistantAssociationAssociationDataPtrType)(v)
-}
-
-func (*assistantAssociationAssociationDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssistantAssociationAssociationData)(nil)).Elem()
-}
-
-func (i *assistantAssociationAssociationDataPtrType) ToAssistantAssociationAssociationDataPtrOutput() AssistantAssociationAssociationDataPtrOutput {
-	return i.ToAssistantAssociationAssociationDataPtrOutputWithContext(context.Background())
-}
-
-func (i *assistantAssociationAssociationDataPtrType) ToAssistantAssociationAssociationDataPtrOutputWithContext(ctx context.Context) AssistantAssociationAssociationDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationAssociationDataPtrOutput)
-}
-
 type AssistantAssociationAssociationDataOutput struct{ *pulumi.OutputState }
 
 func (AssistantAssociationAssociationDataOutput) ElementType() reflect.Type {
@@ -96,51 +55,8 @@ func (o AssistantAssociationAssociationDataOutput) ToAssistantAssociationAssocia
 	return o
 }
 
-func (o AssistantAssociationAssociationDataOutput) ToAssistantAssociationAssociationDataPtrOutput() AssistantAssociationAssociationDataPtrOutput {
-	return o.ToAssistantAssociationAssociationDataPtrOutputWithContext(context.Background())
-}
-
-func (o AssistantAssociationAssociationDataOutput) ToAssistantAssociationAssociationDataPtrOutputWithContext(ctx context.Context) AssistantAssociationAssociationDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssistantAssociationAssociationData) *AssistantAssociationAssociationData {
-		return &v
-	}).(AssistantAssociationAssociationDataPtrOutput)
-}
-
 func (o AssistantAssociationAssociationDataOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssistantAssociationAssociationData) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
-}
-
-type AssistantAssociationAssociationDataPtrOutput struct{ *pulumi.OutputState }
-
-func (AssistantAssociationAssociationDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssistantAssociationAssociationData)(nil)).Elem()
-}
-
-func (o AssistantAssociationAssociationDataPtrOutput) ToAssistantAssociationAssociationDataPtrOutput() AssistantAssociationAssociationDataPtrOutput {
-	return o
-}
-
-func (o AssistantAssociationAssociationDataPtrOutput) ToAssistantAssociationAssociationDataPtrOutputWithContext(ctx context.Context) AssistantAssociationAssociationDataPtrOutput {
-	return o
-}
-
-func (o AssistantAssociationAssociationDataPtrOutput) Elem() AssistantAssociationAssociationDataOutput {
-	return o.ApplyT(func(v *AssistantAssociationAssociationData) AssistantAssociationAssociationData {
-		if v != nil {
-			return *v
-		}
-		var ret AssistantAssociationAssociationData
-		return ret
-	}).(AssistantAssociationAssociationDataOutput)
-}
-
-func (o AssistantAssociationAssociationDataPtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssistantAssociationAssociationData) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KnowledgeBaseId
-	}).(pulumi.StringPtrOutput)
 }
 
 type AssistantAssociationTag struct {
@@ -1127,7 +1043,6 @@ func (o KnowledgeBaseTagArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseTagOu
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationDataInput)(nil)).Elem(), AssistantAssociationAssociationDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationDataPtrInput)(nil)).Elem(), AssistantAssociationAssociationDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationTagInput)(nil)).Elem(), AssistantAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationTagArrayInput)(nil)).Elem(), AssistantAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
@@ -1145,7 +1060,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTagInput)(nil)).Elem(), KnowledgeBaseTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTagArrayInput)(nil)).Elem(), KnowledgeBaseTagArray{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationDataOutput{})
-	pulumi.RegisterOutputType(AssistantAssociationAssociationDataPtrOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationTagOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationOutput{})

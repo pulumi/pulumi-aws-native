@@ -89,39 +89,37 @@ export class FirewallDomainList extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: FirewallDomainListArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["domainFileUrl"] = args ? args.domainFileUrl : undefined;
-            inputs["domains"] = args ? args.domains : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["creatorRequestId"] = undefined /*out*/;
-            inputs["domainCount"] = undefined /*out*/;
-            inputs["managedOwnerName"] = undefined /*out*/;
-            inputs["modificationTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["domainFileUrl"] = args ? args.domainFileUrl : undefined;
+            resourceInputs["domains"] = args ? args.domains : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["creatorRequestId"] = undefined /*out*/;
+            resourceInputs["domainCount"] = undefined /*out*/;
+            resourceInputs["managedOwnerName"] = undefined /*out*/;
+            resourceInputs["modificationTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["creatorRequestId"] = undefined /*out*/;
-            inputs["domainCount"] = undefined /*out*/;
-            inputs["domainFileUrl"] = undefined /*out*/;
-            inputs["domains"] = undefined /*out*/;
-            inputs["managedOwnerName"] = undefined /*out*/;
-            inputs["modificationTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["creatorRequestId"] = undefined /*out*/;
+            resourceInputs["domainCount"] = undefined /*out*/;
+            resourceInputs["domainFileUrl"] = undefined /*out*/;
+            resourceInputs["domains"] = undefined /*out*/;
+            resourceInputs["managedOwnerName"] = undefined /*out*/;
+            resourceInputs["modificationTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FirewallDomainList.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FirewallDomainList.__pulumiType, name, resourceInputs, opts);
     }
 }
 

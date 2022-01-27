@@ -97,7 +97,7 @@ type ClientVpnRouteInput interface {
 }
 
 func (*ClientVpnRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnRoute)(nil))
+	return reflect.TypeOf((**ClientVpnRoute)(nil)).Elem()
 }
 
 func (i *ClientVpnRoute) ToClientVpnRouteOutput() ClientVpnRouteOutput {
@@ -111,7 +111,7 @@ func (i *ClientVpnRoute) ToClientVpnRouteOutputWithContext(ctx context.Context) 
 type ClientVpnRouteOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnRoute)(nil))
+	return reflect.TypeOf((**ClientVpnRoute)(nil)).Elem()
 }
 
 func (o ClientVpnRouteOutput) ToClientVpnRouteOutput() ClientVpnRouteOutput {

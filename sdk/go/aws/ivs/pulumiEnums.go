@@ -349,42 +349,6 @@ const (
 	RecordingConfigurationStateEnumActive       = RecordingConfigurationStateEnum("ACTIVE")
 )
 
-func (RecordingConfigurationStateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordingConfigurationStateEnum)(nil)).Elem()
-}
-
-func (e RecordingConfigurationStateEnum) ToRecordingConfigurationStateEnumOutput() RecordingConfigurationStateEnumOutput {
-	return pulumi.ToOutput(e).(RecordingConfigurationStateEnumOutput)
-}
-
-func (e RecordingConfigurationStateEnum) ToRecordingConfigurationStateEnumOutputWithContext(ctx context.Context) RecordingConfigurationStateEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RecordingConfigurationStateEnumOutput)
-}
-
-func (e RecordingConfigurationStateEnum) ToRecordingConfigurationStateEnumPtrOutput() RecordingConfigurationStateEnumPtrOutput {
-	return e.ToRecordingConfigurationStateEnumPtrOutputWithContext(context.Background())
-}
-
-func (e RecordingConfigurationStateEnum) ToRecordingConfigurationStateEnumPtrOutputWithContext(ctx context.Context) RecordingConfigurationStateEnumPtrOutput {
-	return RecordingConfigurationStateEnum(e).ToRecordingConfigurationStateEnumOutputWithContext(ctx).ToRecordingConfigurationStateEnumPtrOutputWithContext(ctx)
-}
-
-func (e RecordingConfigurationStateEnum) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RecordingConfigurationStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RecordingConfigurationStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RecordingConfigurationStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type RecordingConfigurationStateEnumOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationStateEnumOutput) ElementType() reflect.Type {
@@ -468,51 +432,11 @@ func (o RecordingConfigurationStateEnumPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecordingConfigurationStateEnumInput is an input type that accepts RecordingConfigurationStateEnumArgs and RecordingConfigurationStateEnumOutput values.
-// You can construct a concrete instance of `RecordingConfigurationStateEnumInput` via:
-//
-//          RecordingConfigurationStateEnumArgs{...}
-type RecordingConfigurationStateEnumInput interface {
-	pulumi.Input
-
-	ToRecordingConfigurationStateEnumOutput() RecordingConfigurationStateEnumOutput
-	ToRecordingConfigurationStateEnumOutputWithContext(context.Context) RecordingConfigurationStateEnumOutput
-}
-
-var recordingConfigurationStateEnumPtrType = reflect.TypeOf((**RecordingConfigurationStateEnum)(nil)).Elem()
-
-type RecordingConfigurationStateEnumPtrInput interface {
-	pulumi.Input
-
-	ToRecordingConfigurationStateEnumPtrOutput() RecordingConfigurationStateEnumPtrOutput
-	ToRecordingConfigurationStateEnumPtrOutputWithContext(context.Context) RecordingConfigurationStateEnumPtrOutput
-}
-
-type recordingConfigurationStateEnumPtr string
-
-func RecordingConfigurationStateEnumPtr(v string) RecordingConfigurationStateEnumPtrInput {
-	return (*recordingConfigurationStateEnumPtr)(&v)
-}
-
-func (*recordingConfigurationStateEnumPtr) ElementType() reflect.Type {
-	return recordingConfigurationStateEnumPtrType
-}
-
-func (in *recordingConfigurationStateEnumPtr) ToRecordingConfigurationStateEnumPtrOutput() RecordingConfigurationStateEnumPtrOutput {
-	return pulumi.ToOutput(in).(RecordingConfigurationStateEnumPtrOutput)
-}
-
-func (in *recordingConfigurationStateEnumPtr) ToRecordingConfigurationStateEnumPtrOutputWithContext(ctx context.Context) RecordingConfigurationStateEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RecordingConfigurationStateEnumPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModeInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModePtrInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeInput)(nil)).Elem(), ChannelType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypePtrInput)(nil)).Elem(), ChannelType("STANDARD"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationStateEnumInput)(nil)).Elem(), RecordingConfigurationStateEnum("CREATING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationStateEnumPtrInput)(nil)).Elem(), RecordingConfigurationStateEnum("CREATING"))
 	pulumi.RegisterOutputType(ChannelLatencyModeOutput{})
 	pulumi.RegisterOutputType(ChannelLatencyModePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTypeOutput{})

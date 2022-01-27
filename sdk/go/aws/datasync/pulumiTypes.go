@@ -158,47 +158,6 @@ func (i LocationEFSEc2ConfigArgs) ToLocationEFSEc2ConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocationEFSEc2ConfigOutput)
 }
 
-func (i LocationEFSEc2ConfigArgs) ToLocationEFSEc2ConfigPtrOutput() LocationEFSEc2ConfigPtrOutput {
-	return i.ToLocationEFSEc2ConfigPtrOutputWithContext(context.Background())
-}
-
-func (i LocationEFSEc2ConfigArgs) ToLocationEFSEc2ConfigPtrOutputWithContext(ctx context.Context) LocationEFSEc2ConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationEFSEc2ConfigOutput).ToLocationEFSEc2ConfigPtrOutputWithContext(ctx)
-}
-
-// LocationEFSEc2ConfigPtrInput is an input type that accepts LocationEFSEc2ConfigArgs, LocationEFSEc2ConfigPtr and LocationEFSEc2ConfigPtrOutput values.
-// You can construct a concrete instance of `LocationEFSEc2ConfigPtrInput` via:
-//
-//          LocationEFSEc2ConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type LocationEFSEc2ConfigPtrInput interface {
-	pulumi.Input
-
-	ToLocationEFSEc2ConfigPtrOutput() LocationEFSEc2ConfigPtrOutput
-	ToLocationEFSEc2ConfigPtrOutputWithContext(context.Context) LocationEFSEc2ConfigPtrOutput
-}
-
-type locationEFSEc2ConfigPtrType LocationEFSEc2ConfigArgs
-
-func LocationEFSEc2ConfigPtr(v *LocationEFSEc2ConfigArgs) LocationEFSEc2ConfigPtrInput {
-	return (*locationEFSEc2ConfigPtrType)(v)
-}
-
-func (*locationEFSEc2ConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationEFSEc2Config)(nil)).Elem()
-}
-
-func (i *locationEFSEc2ConfigPtrType) ToLocationEFSEc2ConfigPtrOutput() LocationEFSEc2ConfigPtrOutput {
-	return i.ToLocationEFSEc2ConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *locationEFSEc2ConfigPtrType) ToLocationEFSEc2ConfigPtrOutputWithContext(ctx context.Context) LocationEFSEc2ConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationEFSEc2ConfigPtrOutput)
-}
-
 // The subnet and security group that DataSync uses to access target EFS file system.
 type LocationEFSEc2ConfigOutput struct{ *pulumi.OutputState }
 
@@ -214,16 +173,6 @@ func (o LocationEFSEc2ConfigOutput) ToLocationEFSEc2ConfigOutputWithContext(ctx 
 	return o
 }
 
-func (o LocationEFSEc2ConfigOutput) ToLocationEFSEc2ConfigPtrOutput() LocationEFSEc2ConfigPtrOutput {
-	return o.ToLocationEFSEc2ConfigPtrOutputWithContext(context.Background())
-}
-
-func (o LocationEFSEc2ConfigOutput) ToLocationEFSEc2ConfigPtrOutputWithContext(ctx context.Context) LocationEFSEc2ConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationEFSEc2Config) *LocationEFSEc2Config {
-		return &v
-	}).(LocationEFSEc2ConfigPtrOutput)
-}
-
 // The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
 func (o LocationEFSEc2ConfigOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocationEFSEc2Config) []string { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
@@ -232,50 +181,6 @@ func (o LocationEFSEc2ConfigOutput) SecurityGroupArns() pulumi.StringArrayOutput
 // The ARN of the subnet that DataSync uses to access the target EFS file system.
 func (o LocationEFSEc2ConfigOutput) SubnetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationEFSEc2Config) string { return v.SubnetArn }).(pulumi.StringOutput)
-}
-
-type LocationEFSEc2ConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (LocationEFSEc2ConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationEFSEc2Config)(nil)).Elem()
-}
-
-func (o LocationEFSEc2ConfigPtrOutput) ToLocationEFSEc2ConfigPtrOutput() LocationEFSEc2ConfigPtrOutput {
-	return o
-}
-
-func (o LocationEFSEc2ConfigPtrOutput) ToLocationEFSEc2ConfigPtrOutputWithContext(ctx context.Context) LocationEFSEc2ConfigPtrOutput {
-	return o
-}
-
-func (o LocationEFSEc2ConfigPtrOutput) Elem() LocationEFSEc2ConfigOutput {
-	return o.ApplyT(func(v *LocationEFSEc2Config) LocationEFSEc2Config {
-		if v != nil {
-			return *v
-		}
-		var ret LocationEFSEc2Config
-		return ret
-	}).(LocationEFSEc2ConfigOutput)
-}
-
-// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
-func (o LocationEFSEc2ConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LocationEFSEc2Config) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupArns
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ARN of the subnet that DataSync uses to access the target EFS file system.
-func (o LocationEFSEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationEFSEc2Config) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubnetArn
-	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1052,47 +957,6 @@ func (i LocationNFSOnPremConfigArgs) ToLocationNFSOnPremConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNFSOnPremConfigOutput)
 }
 
-func (i LocationNFSOnPremConfigArgs) ToLocationNFSOnPremConfigPtrOutput() LocationNFSOnPremConfigPtrOutput {
-	return i.ToLocationNFSOnPremConfigPtrOutputWithContext(context.Background())
-}
-
-func (i LocationNFSOnPremConfigArgs) ToLocationNFSOnPremConfigPtrOutputWithContext(ctx context.Context) LocationNFSOnPremConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationNFSOnPremConfigOutput).ToLocationNFSOnPremConfigPtrOutputWithContext(ctx)
-}
-
-// LocationNFSOnPremConfigPtrInput is an input type that accepts LocationNFSOnPremConfigArgs, LocationNFSOnPremConfigPtr and LocationNFSOnPremConfigPtrOutput values.
-// You can construct a concrete instance of `LocationNFSOnPremConfigPtrInput` via:
-//
-//          LocationNFSOnPremConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type LocationNFSOnPremConfigPtrInput interface {
-	pulumi.Input
-
-	ToLocationNFSOnPremConfigPtrOutput() LocationNFSOnPremConfigPtrOutput
-	ToLocationNFSOnPremConfigPtrOutputWithContext(context.Context) LocationNFSOnPremConfigPtrOutput
-}
-
-type locationNFSOnPremConfigPtrType LocationNFSOnPremConfigArgs
-
-func LocationNFSOnPremConfigPtr(v *LocationNFSOnPremConfigArgs) LocationNFSOnPremConfigPtrInput {
-	return (*locationNFSOnPremConfigPtrType)(v)
-}
-
-func (*locationNFSOnPremConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationNFSOnPremConfig)(nil)).Elem()
-}
-
-func (i *locationNFSOnPremConfigPtrType) ToLocationNFSOnPremConfigPtrOutput() LocationNFSOnPremConfigPtrOutput {
-	return i.ToLocationNFSOnPremConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *locationNFSOnPremConfigPtrType) ToLocationNFSOnPremConfigPtrOutputWithContext(ctx context.Context) LocationNFSOnPremConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationNFSOnPremConfigPtrOutput)
-}
-
 // Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
 type LocationNFSOnPremConfigOutput struct{ *pulumi.OutputState }
 
@@ -1108,53 +972,9 @@ func (o LocationNFSOnPremConfigOutput) ToLocationNFSOnPremConfigOutputWithContex
 	return o
 }
 
-func (o LocationNFSOnPremConfigOutput) ToLocationNFSOnPremConfigPtrOutput() LocationNFSOnPremConfigPtrOutput {
-	return o.ToLocationNFSOnPremConfigPtrOutputWithContext(context.Background())
-}
-
-func (o LocationNFSOnPremConfigOutput) ToLocationNFSOnPremConfigPtrOutputWithContext(ctx context.Context) LocationNFSOnPremConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationNFSOnPremConfig) *LocationNFSOnPremConfig {
-		return &v
-	}).(LocationNFSOnPremConfigPtrOutput)
-}
-
 // ARN(s) of the agent(s) to use for an NFS location.
 func (o LocationNFSOnPremConfigOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocationNFSOnPremConfig) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
-}
-
-type LocationNFSOnPremConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (LocationNFSOnPremConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationNFSOnPremConfig)(nil)).Elem()
-}
-
-func (o LocationNFSOnPremConfigPtrOutput) ToLocationNFSOnPremConfigPtrOutput() LocationNFSOnPremConfigPtrOutput {
-	return o
-}
-
-func (o LocationNFSOnPremConfigPtrOutput) ToLocationNFSOnPremConfigPtrOutputWithContext(ctx context.Context) LocationNFSOnPremConfigPtrOutput {
-	return o
-}
-
-func (o LocationNFSOnPremConfigPtrOutput) Elem() LocationNFSOnPremConfigOutput {
-	return o.ApplyT(func(v *LocationNFSOnPremConfig) LocationNFSOnPremConfig {
-		if v != nil {
-			return *v
-		}
-		var ret LocationNFSOnPremConfig
-		return ret
-	}).(LocationNFSOnPremConfigOutput)
-}
-
-// ARN(s) of the agent(s) to use for an NFS location.
-func (o LocationNFSOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LocationNFSOnPremConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AgentArns
-	}).(pulumi.StringArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1410,47 +1230,6 @@ func (i LocationS3S3ConfigArgs) ToLocationS3S3ConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationS3S3ConfigOutput)
 }
 
-func (i LocationS3S3ConfigArgs) ToLocationS3S3ConfigPtrOutput() LocationS3S3ConfigPtrOutput {
-	return i.ToLocationS3S3ConfigPtrOutputWithContext(context.Background())
-}
-
-func (i LocationS3S3ConfigArgs) ToLocationS3S3ConfigPtrOutputWithContext(ctx context.Context) LocationS3S3ConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationS3S3ConfigOutput).ToLocationS3S3ConfigPtrOutputWithContext(ctx)
-}
-
-// LocationS3S3ConfigPtrInput is an input type that accepts LocationS3S3ConfigArgs, LocationS3S3ConfigPtr and LocationS3S3ConfigPtrOutput values.
-// You can construct a concrete instance of `LocationS3S3ConfigPtrInput` via:
-//
-//          LocationS3S3ConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type LocationS3S3ConfigPtrInput interface {
-	pulumi.Input
-
-	ToLocationS3S3ConfigPtrOutput() LocationS3S3ConfigPtrOutput
-	ToLocationS3S3ConfigPtrOutputWithContext(context.Context) LocationS3S3ConfigPtrOutput
-}
-
-type locationS3S3ConfigPtrType LocationS3S3ConfigArgs
-
-func LocationS3S3ConfigPtr(v *LocationS3S3ConfigArgs) LocationS3S3ConfigPtrInput {
-	return (*locationS3S3ConfigPtrType)(v)
-}
-
-func (*locationS3S3ConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationS3S3Config)(nil)).Elem()
-}
-
-func (i *locationS3S3ConfigPtrType) ToLocationS3S3ConfigPtrOutput() LocationS3S3ConfigPtrOutput {
-	return i.ToLocationS3S3ConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *locationS3S3ConfigPtrType) ToLocationS3S3ConfigPtrOutputWithContext(ctx context.Context) LocationS3S3ConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationS3S3ConfigPtrOutput)
-}
-
 // The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
 type LocationS3S3ConfigOutput struct{ *pulumi.OutputState }
 
@@ -1466,53 +1245,9 @@ func (o LocationS3S3ConfigOutput) ToLocationS3S3ConfigOutputWithContext(ctx cont
 	return o
 }
 
-func (o LocationS3S3ConfigOutput) ToLocationS3S3ConfigPtrOutput() LocationS3S3ConfigPtrOutput {
-	return o.ToLocationS3S3ConfigPtrOutputWithContext(context.Background())
-}
-
-func (o LocationS3S3ConfigOutput) ToLocationS3S3ConfigPtrOutputWithContext(ctx context.Context) LocationS3S3ConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationS3S3Config) *LocationS3S3Config {
-		return &v
-	}).(LocationS3S3ConfigPtrOutput)
-}
-
 // The ARN of the IAM role of the Amazon S3 bucket.
 func (o LocationS3S3ConfigOutput) BucketAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationS3S3Config) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
-}
-
-type LocationS3S3ConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (LocationS3S3ConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocationS3S3Config)(nil)).Elem()
-}
-
-func (o LocationS3S3ConfigPtrOutput) ToLocationS3S3ConfigPtrOutput() LocationS3S3ConfigPtrOutput {
-	return o
-}
-
-func (o LocationS3S3ConfigPtrOutput) ToLocationS3S3ConfigPtrOutputWithContext(ctx context.Context) LocationS3S3ConfigPtrOutput {
-	return o
-}
-
-func (o LocationS3S3ConfigPtrOutput) Elem() LocationS3S3ConfigOutput {
-	return o.ApplyT(func(v *LocationS3S3Config) LocationS3S3Config {
-		if v != nil {
-			return *v
-		}
-		var ret LocationS3S3Config
-		return ret
-	}).(LocationS3S3ConfigOutput)
-}
-
-// The ARN of the IAM role of the Amazon S3 bucket.
-func (o LocationS3S3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationS3S3Config) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BucketAccessRoleArn
-	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2622,7 +2357,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTagInput)(nil)).Elem(), AgentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTagArrayInput)(nil)).Elem(), AgentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSEc2ConfigInput)(nil)).Elem(), LocationEFSEc2ConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSEc2ConfigPtrInput)(nil)).Elem(), LocationEFSEc2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSTagInput)(nil)).Elem(), LocationEFSTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSTagArrayInput)(nil)).Elem(), LocationEFSTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsTagInput)(nil)).Elem(), LocationFSxWindowsTagArgs{})
@@ -2636,13 +2370,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSMountOptionsInput)(nil)).Elem(), LocationNFSMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSMountOptionsPtrInput)(nil)).Elem(), LocationNFSMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSOnPremConfigInput)(nil)).Elem(), LocationNFSOnPremConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSOnPremConfigPtrInput)(nil)).Elem(), LocationNFSOnPremConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSTagInput)(nil)).Elem(), LocationNFSTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSTagArrayInput)(nil)).Elem(), LocationNFSTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageTagInput)(nil)).Elem(), LocationObjectStorageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageTagArrayInput)(nil)).Elem(), LocationObjectStorageTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3S3ConfigInput)(nil)).Elem(), LocationS3S3ConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3S3ConfigPtrInput)(nil)).Elem(), LocationS3S3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3TagInput)(nil)).Elem(), LocationS3TagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3TagArrayInput)(nil)).Elem(), LocationS3TagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBMountOptionsInput)(nil)).Elem(), LocationSMBMountOptionsArgs{})
@@ -2660,7 +2392,6 @@ func init() {
 	pulumi.RegisterOutputType(AgentTagOutput{})
 	pulumi.RegisterOutputType(AgentTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationEFSEc2ConfigOutput{})
-	pulumi.RegisterOutputType(LocationEFSEc2ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationEFSTagOutput{})
 	pulumi.RegisterOutputType(LocationEFSTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationFSxWindowsTagOutput{})
@@ -2674,13 +2405,11 @@ func init() {
 	pulumi.RegisterOutputType(LocationNFSMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationNFSMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationNFSOnPremConfigOutput{})
-	pulumi.RegisterOutputType(LocationNFSOnPremConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationNFSTagOutput{})
 	pulumi.RegisterOutputType(LocationNFSTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageTagOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationS3S3ConfigOutput{})
-	pulumi.RegisterOutputType(LocationS3S3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationS3TagOutput{})
 	pulumi.RegisterOutputType(LocationS3TagArrayOutput{})
 	pulumi.RegisterOutputType(LocationSMBMountOptionsOutput{})

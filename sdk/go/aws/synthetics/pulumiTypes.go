@@ -292,47 +292,6 @@ func (i CanaryCodeArgs) ToCanaryCodeOutputWithContext(ctx context.Context) Canar
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryCodeOutput)
 }
 
-func (i CanaryCodeArgs) ToCanaryCodePtrOutput() CanaryCodePtrOutput {
-	return i.ToCanaryCodePtrOutputWithContext(context.Background())
-}
-
-func (i CanaryCodeArgs) ToCanaryCodePtrOutputWithContext(ctx context.Context) CanaryCodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryCodeOutput).ToCanaryCodePtrOutputWithContext(ctx)
-}
-
-// CanaryCodePtrInput is an input type that accepts CanaryCodeArgs, CanaryCodePtr and CanaryCodePtrOutput values.
-// You can construct a concrete instance of `CanaryCodePtrInput` via:
-//
-//          CanaryCodeArgs{...}
-//
-//  or:
-//
-//          nil
-type CanaryCodePtrInput interface {
-	pulumi.Input
-
-	ToCanaryCodePtrOutput() CanaryCodePtrOutput
-	ToCanaryCodePtrOutputWithContext(context.Context) CanaryCodePtrOutput
-}
-
-type canaryCodePtrType CanaryCodeArgs
-
-func CanaryCodePtr(v *CanaryCodeArgs) CanaryCodePtrInput {
-	return (*canaryCodePtrType)(v)
-}
-
-func (*canaryCodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CanaryCode)(nil)).Elem()
-}
-
-func (i *canaryCodePtrType) ToCanaryCodePtrOutput() CanaryCodePtrOutput {
-	return i.ToCanaryCodePtrOutputWithContext(context.Background())
-}
-
-func (i *canaryCodePtrType) ToCanaryCodePtrOutputWithContext(ctx context.Context) CanaryCodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryCodePtrOutput)
-}
-
 type CanaryCodeOutput struct{ *pulumi.OutputState }
 
 func (CanaryCodeOutput) ElementType() reflect.Type {
@@ -345,16 +304,6 @@ func (o CanaryCodeOutput) ToCanaryCodeOutput() CanaryCodeOutput {
 
 func (o CanaryCodeOutput) ToCanaryCodeOutputWithContext(ctx context.Context) CanaryCodeOutput {
 	return o
-}
-
-func (o CanaryCodeOutput) ToCanaryCodePtrOutput() CanaryCodePtrOutput {
-	return o.ToCanaryCodePtrOutputWithContext(context.Background())
-}
-
-func (o CanaryCodeOutput) ToCanaryCodePtrOutputWithContext(ctx context.Context) CanaryCodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryCode) *CanaryCode {
-		return &v
-	}).(CanaryCodePtrOutput)
 }
 
 func (o CanaryCodeOutput) Handler() pulumi.StringOutput {
@@ -375,75 +324,6 @@ func (o CanaryCodeOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 
 func (o CanaryCodeOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.Script }).(pulumi.StringPtrOutput)
-}
-
-type CanaryCodePtrOutput struct{ *pulumi.OutputState }
-
-func (CanaryCodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CanaryCode)(nil)).Elem()
-}
-
-func (o CanaryCodePtrOutput) ToCanaryCodePtrOutput() CanaryCodePtrOutput {
-	return o
-}
-
-func (o CanaryCodePtrOutput) ToCanaryCodePtrOutputWithContext(ctx context.Context) CanaryCodePtrOutput {
-	return o
-}
-
-func (o CanaryCodePtrOutput) Elem() CanaryCodeOutput {
-	return o.ApplyT(func(v *CanaryCode) CanaryCode {
-		if v != nil {
-			return *v
-		}
-		var ret CanaryCode
-		return ret
-	}).(CanaryCodeOutput)
-}
-
-func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanaryCode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Handler
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CanaryCodePtrOutput) S3Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanaryCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CanaryCodePtrOutput) S3Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanaryCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3Key
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CanaryCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanaryCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3ObjectVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CanaryCodePtrOutput) Script() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanaryCode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Script
-	}).(pulumi.StringPtrOutput)
 }
 
 type CanaryRunConfig struct {
@@ -829,47 +709,6 @@ func (i CanaryScheduleArgs) ToCanaryScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryScheduleOutput)
 }
 
-func (i CanaryScheduleArgs) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
-	return i.ToCanarySchedulePtrOutputWithContext(context.Background())
-}
-
-func (i CanaryScheduleArgs) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryScheduleOutput).ToCanarySchedulePtrOutputWithContext(ctx)
-}
-
-// CanarySchedulePtrInput is an input type that accepts CanaryScheduleArgs, CanarySchedulePtr and CanarySchedulePtrOutput values.
-// You can construct a concrete instance of `CanarySchedulePtrInput` via:
-//
-//          CanaryScheduleArgs{...}
-//
-//  or:
-//
-//          nil
-type CanarySchedulePtrInput interface {
-	pulumi.Input
-
-	ToCanarySchedulePtrOutput() CanarySchedulePtrOutput
-	ToCanarySchedulePtrOutputWithContext(context.Context) CanarySchedulePtrOutput
-}
-
-type canarySchedulePtrType CanaryScheduleArgs
-
-func CanarySchedulePtr(v *CanaryScheduleArgs) CanarySchedulePtrInput {
-	return (*canarySchedulePtrType)(v)
-}
-
-func (*canarySchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CanarySchedule)(nil)).Elem()
-}
-
-func (i *canarySchedulePtrType) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
-	return i.ToCanarySchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *canarySchedulePtrType) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanarySchedulePtrOutput)
-}
-
 type CanaryScheduleOutput struct{ *pulumi.OutputState }
 
 func (CanaryScheduleOutput) ElementType() reflect.Type {
@@ -884,64 +723,12 @@ func (o CanaryScheduleOutput) ToCanaryScheduleOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o CanaryScheduleOutput) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
-	return o.ToCanarySchedulePtrOutputWithContext(context.Background())
-}
-
-func (o CanaryScheduleOutput) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanarySchedule) *CanarySchedule {
-		return &v
-	}).(CanarySchedulePtrOutput)
-}
-
 func (o CanaryScheduleOutput) DurationInSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanarySchedule) *string { return v.DurationInSeconds }).(pulumi.StringPtrOutput)
 }
 
 func (o CanaryScheduleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CanarySchedule) string { return v.Expression }).(pulumi.StringOutput)
-}
-
-type CanarySchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (CanarySchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CanarySchedule)(nil)).Elem()
-}
-
-func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
-	return o
-}
-
-func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return o
-}
-
-func (o CanarySchedulePtrOutput) Elem() CanaryScheduleOutput {
-	return o.ApplyT(func(v *CanarySchedule) CanarySchedule {
-		if v != nil {
-			return *v
-		}
-		var ret CanarySchedule
-		return ret
-	}).(CanaryScheduleOutput)
-}
-
-func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanarySchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DurationInSeconds
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanarySchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Expression
-	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1378,13 +1165,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBaseScreenshotInput)(nil)).Elem(), CanaryBaseScreenshotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBaseScreenshotArrayInput)(nil)).Elem(), CanaryBaseScreenshotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryCodeInput)(nil)).Elem(), CanaryCodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanaryCodePtrInput)(nil)).Elem(), CanaryCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigInput)(nil)).Elem(), CanaryRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigPtrInput)(nil)).Elem(), CanaryRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryS3EncryptionInput)(nil)).Elem(), CanaryS3EncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryS3EncryptionPtrInput)(nil)).Elem(), CanaryS3EncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryScheduleInput)(nil)).Elem(), CanaryScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanarySchedulePtrInput)(nil)).Elem(), CanaryScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTagInput)(nil)).Elem(), CanaryTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTagArrayInput)(nil)).Elem(), CanaryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVPCConfigInput)(nil)).Elem(), CanaryVPCConfigArgs{})
@@ -1396,13 +1181,11 @@ func init() {
 	pulumi.RegisterOutputType(CanaryBaseScreenshotOutput{})
 	pulumi.RegisterOutputType(CanaryBaseScreenshotArrayOutput{})
 	pulumi.RegisterOutputType(CanaryCodeOutput{})
-	pulumi.RegisterOutputType(CanaryCodePtrOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryS3EncryptionOutput{})
 	pulumi.RegisterOutputType(CanaryS3EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(CanaryScheduleOutput{})
-	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
 	pulumi.RegisterOutputType(CanaryTagOutput{})
 	pulumi.RegisterOutputType(CanaryTagArrayOutput{})
 	pulumi.RegisterOutputType(CanaryVPCConfigOutput{})

@@ -194,7 +194,7 @@ type LaunchConfigurationInput interface {
 }
 
 func (*LaunchConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchConfiguration)(nil))
+	return reflect.TypeOf((**LaunchConfiguration)(nil)).Elem()
 }
 
 func (i *LaunchConfiguration) ToLaunchConfigurationOutput() LaunchConfigurationOutput {
@@ -208,7 +208,7 @@ func (i *LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context
 type LaunchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchConfiguration)(nil))
+	return reflect.TypeOf((**LaunchConfiguration)(nil)).Elem()
 }
 
 func (o LaunchConfigurationOutput) ToLaunchConfigurationOutput() LaunchConfigurationOutput {

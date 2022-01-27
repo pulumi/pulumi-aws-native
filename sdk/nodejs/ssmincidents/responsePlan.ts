@@ -70,34 +70,32 @@ export class ResponsePlan extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResponsePlanArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.incidentTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'incidentTemplate'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["chatChannel"] = args ? args.chatChannel : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["engagements"] = args ? args.engagements : undefined;
-            inputs["incidentTemplate"] = args ? args.incidentTemplate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["chatChannel"] = args ? args.chatChannel : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["engagements"] = args ? args.engagements : undefined;
+            resourceInputs["incidentTemplate"] = args ? args.incidentTemplate : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["chatChannel"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["engagements"] = undefined /*out*/;
-            inputs["incidentTemplate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["chatChannel"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["engagements"] = undefined /*out*/;
+            resourceInputs["incidentTemplate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResponsePlan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResponsePlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -78,7 +78,7 @@ type TemplateInput interface {
 }
 
 func (*Template) ElementType() reflect.Type {
-	return reflect.TypeOf((*Template)(nil))
+	return reflect.TypeOf((**Template)(nil)).Elem()
 }
 
 func (i *Template) ToTemplateOutput() TemplateOutput {
@@ -92,7 +92,7 @@ func (i *Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutp
 type TemplateOutput struct{ *pulumi.OutputState }
 
 func (TemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Template)(nil))
+	return reflect.TypeOf((**Template)(nil)).Elem()
 }
 
 func (o TemplateOutput) ToTemplateOutput() TemplateOutput {

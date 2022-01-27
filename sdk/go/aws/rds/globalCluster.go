@@ -115,7 +115,7 @@ type GlobalClusterInput interface {
 }
 
 func (*GlobalCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalCluster)(nil))
+	return reflect.TypeOf((**GlobalCluster)(nil)).Elem()
 }
 
 func (i *GlobalCluster) ToGlobalClusterOutput() GlobalClusterOutput {
@@ -129,7 +129,7 @@ func (i *GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) Gl
 type GlobalClusterOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalCluster)(nil))
+	return reflect.TypeOf((**GlobalCluster)(nil)).Elem()
 }
 
 func (o GlobalClusterOutput) ToGlobalClusterOutput() GlobalClusterOutput {

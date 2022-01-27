@@ -96,7 +96,7 @@ type GeofenceCollectionInput interface {
 }
 
 func (*GeofenceCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeofenceCollection)(nil))
+	return reflect.TypeOf((**GeofenceCollection)(nil)).Elem()
 }
 
 func (i *GeofenceCollection) ToGeofenceCollectionOutput() GeofenceCollectionOutput {
@@ -110,7 +110,7 @@ func (i *GeofenceCollection) ToGeofenceCollectionOutputWithContext(ctx context.C
 type GeofenceCollectionOutput struct{ *pulumi.OutputState }
 
 func (GeofenceCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeofenceCollection)(nil))
+	return reflect.TypeOf((**GeofenceCollection)(nil)).Elem()
 }
 
 func (o GeofenceCollectionOutput) ToGeofenceCollectionOutput() GeofenceCollectionOutput {

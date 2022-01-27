@@ -47,24 +47,22 @@ export class Pipeline extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.pipelineActivities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineActivities'");
             }
-            inputs["pipelineActivities"] = args ? args.pipelineActivities : undefined;
-            inputs["pipelineName"] = args ? args.pipelineName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["pipelineActivities"] = args ? args.pipelineActivities : undefined;
+            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["pipelineActivities"] = undefined /*out*/;
-            inputs["pipelineName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["pipelineActivities"] = undefined /*out*/;
+            resourceInputs["pipelineName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

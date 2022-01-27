@@ -57,44 +57,42 @@ export class Branch extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BranchArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
-            inputs["branchName"] = args ? args.branchName : undefined;
-            inputs["buildSpec"] = args ? args.buildSpec : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
-            inputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
-            inputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
-            inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            inputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
-            inputs["stage"] = args ? args.stage : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
+            resourceInputs["branchName"] = args ? args.branchName : undefined;
+            resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
+            resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
+            resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
+            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["appId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["basicAuthConfig"] = undefined /*out*/;
-            inputs["branchName"] = undefined /*out*/;
-            inputs["buildSpec"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enableAutoBuild"] = undefined /*out*/;
-            inputs["enablePerformanceMode"] = undefined /*out*/;
-            inputs["enablePullRequestPreview"] = undefined /*out*/;
-            inputs["environmentVariables"] = undefined /*out*/;
-            inputs["pullRequestEnvironmentName"] = undefined /*out*/;
-            inputs["stage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["basicAuthConfig"] = undefined /*out*/;
+            resourceInputs["branchName"] = undefined /*out*/;
+            resourceInputs["buildSpec"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enableAutoBuild"] = undefined /*out*/;
+            resourceInputs["enablePerformanceMode"] = undefined /*out*/;
+            resourceInputs["enablePullRequestPreview"] = undefined /*out*/;
+            resourceInputs["environmentVariables"] = undefined /*out*/;
+            resourceInputs["pullRequestEnvironmentName"] = undefined /*out*/;
+            resourceInputs["stage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Branch.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Branch.__pulumiType, name, resourceInputs, opts);
     }
 }
 

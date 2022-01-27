@@ -99,7 +99,7 @@ type MultiRegionAccessPointInput interface {
 }
 
 func (*MultiRegionAccessPoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiRegionAccessPoint)(nil))
+	return reflect.TypeOf((**MultiRegionAccessPoint)(nil)).Elem()
 }
 
 func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointOutput() MultiRegionAccessPointOutput {
@@ -113,7 +113,7 @@ func (i *MultiRegionAccessPoint) ToMultiRegionAccessPointOutputWithContext(ctx c
 type MultiRegionAccessPointOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiRegionAccessPoint)(nil))
+	return reflect.TypeOf((**MultiRegionAccessPoint)(nil)).Elem()
 }
 
 func (o MultiRegionAccessPointOutput) ToMultiRegionAccessPointOutput() MultiRegionAccessPointOutput {

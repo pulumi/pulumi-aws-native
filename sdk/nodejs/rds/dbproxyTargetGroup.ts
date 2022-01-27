@@ -59,7 +59,7 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DBProxyTargetGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dBProxyName === undefined) && !opts.urn) {
@@ -68,24 +68,22 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
             if ((!args || args.targetGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
-            inputs["connectionPoolConfigurationInfo"] = args ? args.connectionPoolConfigurationInfo : undefined;
-            inputs["dBClusterIdentifiers"] = args ? args.dBClusterIdentifiers : undefined;
-            inputs["dBInstanceIdentifiers"] = args ? args.dBInstanceIdentifiers : undefined;
-            inputs["dBProxyName"] = args ? args.dBProxyName : undefined;
-            inputs["targetGroupName"] = args ? args.targetGroupName : undefined;
-            inputs["targetGroupArn"] = undefined /*out*/;
+            resourceInputs["connectionPoolConfigurationInfo"] = args ? args.connectionPoolConfigurationInfo : undefined;
+            resourceInputs["dBClusterIdentifiers"] = args ? args.dBClusterIdentifiers : undefined;
+            resourceInputs["dBInstanceIdentifiers"] = args ? args.dBInstanceIdentifiers : undefined;
+            resourceInputs["dBProxyName"] = args ? args.dBProxyName : undefined;
+            resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
+            resourceInputs["targetGroupArn"] = undefined /*out*/;
         } else {
-            inputs["connectionPoolConfigurationInfo"] = undefined /*out*/;
-            inputs["dBClusterIdentifiers"] = undefined /*out*/;
-            inputs["dBInstanceIdentifiers"] = undefined /*out*/;
-            inputs["dBProxyName"] = undefined /*out*/;
-            inputs["targetGroupArn"] = undefined /*out*/;
-            inputs["targetGroupName"] = undefined /*out*/;
+            resourceInputs["connectionPoolConfigurationInfo"] = undefined /*out*/;
+            resourceInputs["dBClusterIdentifiers"] = undefined /*out*/;
+            resourceInputs["dBInstanceIdentifiers"] = undefined /*out*/;
+            resourceInputs["dBProxyName"] = undefined /*out*/;
+            resourceInputs["targetGroupArn"] = undefined /*out*/;
+            resourceInputs["targetGroupName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DBProxyTargetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DBProxyTargetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

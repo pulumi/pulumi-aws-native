@@ -101,45 +101,43 @@ export class LocationHDFS extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: LocationHDFSArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["agentArns"] = args ? args.agentArns : undefined;
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["blockSize"] = args ? args.blockSize : undefined;
-            inputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
-            inputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
-            inputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
-            inputs["kmsKeyProviderUri"] = args ? args.kmsKeyProviderUri : undefined;
-            inputs["nameNodes"] = args ? args.nameNodes : undefined;
-            inputs["qopConfiguration"] = args ? args.qopConfiguration : undefined;
-            inputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            inputs["simpleUser"] = args ? args.simpleUser : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
+            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["blockSize"] = args ? args.blockSize : undefined;
+            resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
+            resourceInputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
+            resourceInputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
+            resourceInputs["kmsKeyProviderUri"] = args ? args.kmsKeyProviderUri : undefined;
+            resourceInputs["nameNodes"] = args ? args.nameNodes : undefined;
+            resourceInputs["qopConfiguration"] = args ? args.qopConfiguration : undefined;
+            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
+            resourceInputs["simpleUser"] = args ? args.simpleUser : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
         } else {
-            inputs["agentArns"] = undefined /*out*/;
-            inputs["authenticationType"] = undefined /*out*/;
-            inputs["blockSize"] = undefined /*out*/;
-            inputs["kerberosKeytab"] = undefined /*out*/;
-            inputs["kerberosKrb5Conf"] = undefined /*out*/;
-            inputs["kerberosPrincipal"] = undefined /*out*/;
-            inputs["kmsKeyProviderUri"] = undefined /*out*/;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
-            inputs["nameNodes"] = undefined /*out*/;
-            inputs["qopConfiguration"] = undefined /*out*/;
-            inputs["replicationFactor"] = undefined /*out*/;
-            inputs["simpleUser"] = undefined /*out*/;
-            inputs["subdirectory"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["agentArns"] = undefined /*out*/;
+            resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["blockSize"] = undefined /*out*/;
+            resourceInputs["kerberosKeytab"] = undefined /*out*/;
+            resourceInputs["kerberosKrb5Conf"] = undefined /*out*/;
+            resourceInputs["kerberosPrincipal"] = undefined /*out*/;
+            resourceInputs["kmsKeyProviderUri"] = undefined /*out*/;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["nameNodes"] = undefined /*out*/;
+            resourceInputs["qopConfiguration"] = undefined /*out*/;
+            resourceInputs["replicationFactor"] = undefined /*out*/;
+            resourceInputs["simpleUser"] = undefined /*out*/;
+            resourceInputs["subdirectory"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationHDFS.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationHDFS.__pulumiType, name, resourceInputs, opts);
     }
 }
 

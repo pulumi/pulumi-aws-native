@@ -96,7 +96,7 @@ type RealtimeLogConfigInput interface {
 }
 
 func (*RealtimeLogConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*RealtimeLogConfig)(nil))
+	return reflect.TypeOf((**RealtimeLogConfig)(nil)).Elem()
 }
 
 func (i *RealtimeLogConfig) ToRealtimeLogConfigOutput() RealtimeLogConfigOutput {
@@ -110,7 +110,7 @@ func (i *RealtimeLogConfig) ToRealtimeLogConfigOutputWithContext(ctx context.Con
 type RealtimeLogConfigOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RealtimeLogConfig)(nil))
+	return reflect.TypeOf((**RealtimeLogConfig)(nil)).Elem()
 }
 
 func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutput() RealtimeLogConfigOutput {

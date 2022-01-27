@@ -50,22 +50,20 @@ export class AcceptedPortfolioShare extends pulumi.CustomResource {
     /** @deprecated AcceptedPortfolioShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AcceptedPortfolioShareArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AcceptedPortfolioShare is deprecated: AcceptedPortfolioShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["portfolioId"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["portfolioId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AcceptedPortfolioShare.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AcceptedPortfolioShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

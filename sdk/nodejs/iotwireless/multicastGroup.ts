@@ -76,34 +76,32 @@ export class MulticastGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MulticastGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.loRaWAN === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loRaWAN'");
             }
-            inputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
-            inputs["loRaWAN"] = args ? args.loRaWAN : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
+            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["associateWirelessDevice"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["disassociateWirelessDevice"] = undefined /*out*/;
-            inputs["loRaWAN"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associateWirelessDevice"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["disassociateWirelessDevice"] = undefined /*out*/;
+            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MulticastGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MulticastGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

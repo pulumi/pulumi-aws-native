@@ -129,7 +129,7 @@ export class Function extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.code === undefined) && !opts.urn) {
@@ -138,56 +138,54 @@ export class Function extends pulumi.CustomResource {
             if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["architectures"] = args ? args.architectures : undefined;
-            inputs["code"] = args ? args.code : undefined;
-            inputs["codeSigningConfigArn"] = args ? args.codeSigningConfigArn : undefined;
-            inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environment"] = args ? args.environment : undefined;
-            inputs["fileSystemConfigs"] = args ? args.fileSystemConfigs : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["handler"] = args ? args.handler : undefined;
-            inputs["imageConfig"] = args ? args.imageConfig : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["layers"] = args ? args.layers : undefined;
-            inputs["memorySize"] = args ? args.memorySize : undefined;
-            inputs["packageType"] = args ? args.packageType : undefined;
-            inputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["runtime"] = args ? args.runtime : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["tracingConfig"] = args ? args.tracingConfig : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["architectures"] = args ? args.architectures : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["codeSigningConfigArn"] = args ? args.codeSigningConfigArn : undefined;
+            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["fileSystemConfigs"] = args ? args.fileSystemConfigs : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["handler"] = args ? args.handler : undefined;
+            resourceInputs["imageConfig"] = args ? args.imageConfig : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["layers"] = args ? args.layers : undefined;
+            resourceInputs["memorySize"] = args ? args.memorySize : undefined;
+            resourceInputs["packageType"] = args ? args.packageType : undefined;
+            resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["runtime"] = args ? args.runtime : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["architectures"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["code"] = undefined /*out*/;
-            inputs["codeSigningConfigArn"] = undefined /*out*/;
-            inputs["deadLetterConfig"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["environment"] = undefined /*out*/;
-            inputs["fileSystemConfigs"] = undefined /*out*/;
-            inputs["functionName"] = undefined /*out*/;
-            inputs["handler"] = undefined /*out*/;
-            inputs["imageConfig"] = undefined /*out*/;
-            inputs["kmsKeyArn"] = undefined /*out*/;
-            inputs["layers"] = undefined /*out*/;
-            inputs["memorySize"] = undefined /*out*/;
-            inputs["packageType"] = undefined /*out*/;
-            inputs["reservedConcurrentExecutions"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["runtime"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["tracingConfig"] = undefined /*out*/;
-            inputs["vpcConfig"] = undefined /*out*/;
+            resourceInputs["architectures"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["codeSigningConfigArn"] = undefined /*out*/;
+            resourceInputs["deadLetterConfig"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["environment"] = undefined /*out*/;
+            resourceInputs["fileSystemConfigs"] = undefined /*out*/;
+            resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["handler"] = undefined /*out*/;
+            resourceInputs["imageConfig"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
+            resourceInputs["layers"] = undefined /*out*/;
+            resourceInputs["memorySize"] = undefined /*out*/;
+            resourceInputs["packageType"] = undefined /*out*/;
+            resourceInputs["reservedConcurrentExecutions"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["runtime"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["tracingConfig"] = undefined /*out*/;
+            resourceInputs["vpcConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Function.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Function.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -88,7 +88,7 @@ type PolicyPrincipalAttachmentInput interface {
 }
 
 func (*PolicyPrincipalAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPrincipalAttachment)(nil))
+	return reflect.TypeOf((**PolicyPrincipalAttachment)(nil)).Elem()
 }
 
 func (i *PolicyPrincipalAttachment) ToPolicyPrincipalAttachmentOutput() PolicyPrincipalAttachmentOutput {
@@ -102,7 +102,7 @@ func (i *PolicyPrincipalAttachment) ToPolicyPrincipalAttachmentOutputWithContext
 type PolicyPrincipalAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyPrincipalAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPrincipalAttachment)(nil))
+	return reflect.TypeOf((**PolicyPrincipalAttachment)(nil)).Elem()
 }
 
 func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutput() PolicyPrincipalAttachmentOutput {

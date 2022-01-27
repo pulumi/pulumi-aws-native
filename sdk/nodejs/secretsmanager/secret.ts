@@ -56,29 +56,27 @@ export class Secret extends pulumi.CustomResource {
     /** @deprecated Secret is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: SecretArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Secret is deprecated: Secret is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["generateSecretString"] = args ? args.generateSecretString : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["replicaRegions"] = args ? args.replicaRegions : undefined;
-            inputs["secretString"] = args ? args.secretString : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["generateSecretString"] = args ? args.generateSecretString : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["replicaRegions"] = args ? args.replicaRegions : undefined;
+            resourceInputs["secretString"] = args ? args.secretString : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["generateSecretString"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["replicaRegions"] = undefined /*out*/;
-            inputs["secretString"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["generateSecretString"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["replicaRegions"] = undefined /*out*/;
+            resourceInputs["secretString"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Secret.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Secret.__pulumiType, name, resourceInputs, opts);
     }
 }
 

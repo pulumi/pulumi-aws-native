@@ -107,7 +107,7 @@ type KeySigningKeyInput interface {
 }
 
 func (*KeySigningKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeySigningKey)(nil))
+	return reflect.TypeOf((**KeySigningKey)(nil)).Elem()
 }
 
 func (i *KeySigningKey) ToKeySigningKeyOutput() KeySigningKeyOutput {
@@ -121,7 +121,7 @@ func (i *KeySigningKey) ToKeySigningKeyOutputWithContext(ctx context.Context) Ke
 type KeySigningKeyOutput struct{ *pulumi.OutputState }
 
 func (KeySigningKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeySigningKey)(nil))
+	return reflect.TypeOf((**KeySigningKey)(nil)).Elem()
 }
 
 func (o KeySigningKeyOutput) ToKeySigningKeyOutput() KeySigningKeyOutput {

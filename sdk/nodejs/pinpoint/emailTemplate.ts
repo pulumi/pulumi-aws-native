@@ -56,7 +56,7 @@ export class EmailTemplate extends pulumi.CustomResource {
     /** @deprecated EmailTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EmailTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EmailTemplate is deprecated: EmailTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.subject === undefined) && !opts.urn) {
@@ -65,28 +65,26 @@ export class EmailTemplate extends pulumi.CustomResource {
             if ((!args || args.templateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            inputs["defaultSubstitutions"] = args ? args.defaultSubstitutions : undefined;
-            inputs["htmlPart"] = args ? args.htmlPart : undefined;
-            inputs["subject"] = args ? args.subject : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateDescription"] = args ? args.templateDescription : undefined;
-            inputs["templateName"] = args ? args.templateName : undefined;
-            inputs["textPart"] = args ? args.textPart : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultSubstitutions"] = args ? args.defaultSubstitutions : undefined;
+            resourceInputs["htmlPart"] = args ? args.htmlPart : undefined;
+            resourceInputs["subject"] = args ? args.subject : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateDescription"] = args ? args.templateDescription : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["textPart"] = args ? args.textPart : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultSubstitutions"] = undefined /*out*/;
-            inputs["htmlPart"] = undefined /*out*/;
-            inputs["subject"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateDescription"] = undefined /*out*/;
-            inputs["templateName"] = undefined /*out*/;
-            inputs["textPart"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultSubstitutions"] = undefined /*out*/;
+            resourceInputs["htmlPart"] = undefined /*out*/;
+            resourceInputs["subject"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateDescription"] = undefined /*out*/;
+            resourceInputs["templateName"] = undefined /*out*/;
+            resourceInputs["textPart"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EmailTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EmailTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

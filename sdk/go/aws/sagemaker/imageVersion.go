@@ -90,7 +90,7 @@ type ImageVersionInput interface {
 }
 
 func (*ImageVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageVersion)(nil))
+	return reflect.TypeOf((**ImageVersion)(nil)).Elem()
 }
 
 func (i *ImageVersion) ToImageVersionOutput() ImageVersionOutput {
@@ -104,7 +104,7 @@ func (i *ImageVersion) ToImageVersionOutputWithContext(ctx context.Context) Imag
 type ImageVersionOutput struct{ *pulumi.OutputState }
 
 func (ImageVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageVersion)(nil))
+	return reflect.TypeOf((**ImageVersion)(nil)).Elem()
 }
 
 func (o ImageVersionOutput) ToImageVersionOutput() ImageVersionOutput {

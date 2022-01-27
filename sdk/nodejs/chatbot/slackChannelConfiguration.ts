@@ -79,7 +79,7 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SlackChannelConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configurationName === undefined) && !opts.urn) {
@@ -94,30 +94,28 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
             if ((!args || args.slackWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slackWorkspaceId'");
             }
-            inputs["configurationName"] = args ? args.configurationName : undefined;
-            inputs["guardrailPolicies"] = args ? args.guardrailPolicies : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["loggingLevel"] = args ? args.loggingLevel : undefined;
-            inputs["slackChannelId"] = args ? args.slackChannelId : undefined;
-            inputs["slackWorkspaceId"] = args ? args.slackWorkspaceId : undefined;
-            inputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
-            inputs["userRoleRequired"] = args ? args.userRoleRequired : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["guardrailPolicies"] = args ? args.guardrailPolicies : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
+            resourceInputs["slackChannelId"] = args ? args.slackChannelId : undefined;
+            resourceInputs["slackWorkspaceId"] = args ? args.slackWorkspaceId : undefined;
+            resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
+            resourceInputs["userRoleRequired"] = args ? args.userRoleRequired : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["configurationName"] = undefined /*out*/;
-            inputs["guardrailPolicies"] = undefined /*out*/;
-            inputs["iamRoleArn"] = undefined /*out*/;
-            inputs["loggingLevel"] = undefined /*out*/;
-            inputs["slackChannelId"] = undefined /*out*/;
-            inputs["slackWorkspaceId"] = undefined /*out*/;
-            inputs["snsTopicArns"] = undefined /*out*/;
-            inputs["userRoleRequired"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["configurationName"] = undefined /*out*/;
+            resourceInputs["guardrailPolicies"] = undefined /*out*/;
+            resourceInputs["iamRoleArn"] = undefined /*out*/;
+            resourceInputs["loggingLevel"] = undefined /*out*/;
+            resourceInputs["slackChannelId"] = undefined /*out*/;
+            resourceInputs["slackWorkspaceId"] = undefined /*out*/;
+            resourceInputs["snsTopicArns"] = undefined /*out*/;
+            resourceInputs["userRoleRequired"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SlackChannelConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SlackChannelConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

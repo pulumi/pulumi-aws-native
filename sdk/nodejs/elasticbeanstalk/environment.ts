@@ -62,44 +62,42 @@ export class Environment extends pulumi.CustomResource {
     /** @deprecated Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Environment is deprecated: Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["cNAMEPrefix"] = args ? args.cNAMEPrefix : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["operationsRole"] = args ? args.operationsRole : undefined;
-            inputs["optionSettings"] = args ? args.optionSettings : undefined;
-            inputs["platformArn"] = args ? args.platformArn : undefined;
-            inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateName"] = args ? args.templateName : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["versionLabel"] = args ? args.versionLabel : undefined;
-            inputs["endpointURL"] = undefined /*out*/;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["cNAMEPrefix"] = args ? args.cNAMEPrefix : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["operationsRole"] = args ? args.operationsRole : undefined;
+            resourceInputs["optionSettings"] = args ? args.optionSettings : undefined;
+            resourceInputs["platformArn"] = args ? args.platformArn : undefined;
+            resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["versionLabel"] = args ? args.versionLabel : undefined;
+            resourceInputs["endpointURL"] = undefined /*out*/;
         } else {
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["cNAMEPrefix"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["endpointURL"] = undefined /*out*/;
-            inputs["environmentName"] = undefined /*out*/;
-            inputs["operationsRole"] = undefined /*out*/;
-            inputs["optionSettings"] = undefined /*out*/;
-            inputs["platformArn"] = undefined /*out*/;
-            inputs["solutionStackName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateName"] = undefined /*out*/;
-            inputs["tier"] = undefined /*out*/;
-            inputs["versionLabel"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["cNAMEPrefix"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["endpointURL"] = undefined /*out*/;
+            resourceInputs["environmentName"] = undefined /*out*/;
+            resourceInputs["operationsRole"] = undefined /*out*/;
+            resourceInputs["optionSettings"] = undefined /*out*/;
+            resourceInputs["platformArn"] = undefined /*out*/;
+            resourceInputs["solutionStackName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateName"] = undefined /*out*/;
+            resourceInputs["tier"] = undefined /*out*/;
+            resourceInputs["versionLabel"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Environment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

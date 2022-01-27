@@ -57,7 +57,7 @@ export class Workspace extends pulumi.CustomResource {
     /** @deprecated Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Workspace is deprecated: Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bundleId === undefined) && !opts.urn) {
@@ -69,28 +69,26 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["userVolumeEncryptionEnabled"] = args ? args.userVolumeEncryptionEnabled : undefined;
-            inputs["volumeEncryptionKey"] = args ? args.volumeEncryptionKey : undefined;
-            inputs["workspaceProperties"] = args ? args.workspaceProperties : undefined;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["userVolumeEncryptionEnabled"] = args ? args.userVolumeEncryptionEnabled : undefined;
+            resourceInputs["volumeEncryptionKey"] = args ? args.volumeEncryptionKey : undefined;
+            resourceInputs["workspaceProperties"] = args ? args.workspaceProperties : undefined;
         } else {
-            inputs["bundleId"] = undefined /*out*/;
-            inputs["directoryId"] = undefined /*out*/;
-            inputs["rootVolumeEncryptionEnabled"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
-            inputs["userVolumeEncryptionEnabled"] = undefined /*out*/;
-            inputs["volumeEncryptionKey"] = undefined /*out*/;
-            inputs["workspaceProperties"] = undefined /*out*/;
+            resourceInputs["bundleId"] = undefined /*out*/;
+            resourceInputs["directoryId"] = undefined /*out*/;
+            resourceInputs["rootVolumeEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
+            resourceInputs["userVolumeEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["volumeEncryptionKey"] = undefined /*out*/;
+            resourceInputs["workspaceProperties"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Workspace.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

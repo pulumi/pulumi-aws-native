@@ -737,47 +737,6 @@ func (i ClusterResourcesVpcConfigArgs) ToClusterResourcesVpcConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcesVpcConfigOutput)
 }
 
-func (i ClusterResourcesVpcConfigArgs) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
-	return i.ToClusterResourcesVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterResourcesVpcConfigArgs) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcesVpcConfigOutput).ToClusterResourcesVpcConfigPtrOutputWithContext(ctx)
-}
-
-// ClusterResourcesVpcConfigPtrInput is an input type that accepts ClusterResourcesVpcConfigArgs, ClusterResourcesVpcConfigPtr and ClusterResourcesVpcConfigPtrOutput values.
-// You can construct a concrete instance of `ClusterResourcesVpcConfigPtrInput` via:
-//
-//          ClusterResourcesVpcConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterResourcesVpcConfigPtrInput interface {
-	pulumi.Input
-
-	ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput
-	ToClusterResourcesVpcConfigPtrOutputWithContext(context.Context) ClusterResourcesVpcConfigPtrOutput
-}
-
-type clusterResourcesVpcConfigPtrType ClusterResourcesVpcConfigArgs
-
-func ClusterResourcesVpcConfigPtr(v *ClusterResourcesVpcConfigArgs) ClusterResourcesVpcConfigPtrInput {
-	return (*clusterResourcesVpcConfigPtrType)(v)
-}
-
-func (*clusterResourcesVpcConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterResourcesVpcConfig)(nil)).Elem()
-}
-
-func (i *clusterResourcesVpcConfigPtrType) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
-	return i.ToClusterResourcesVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterResourcesVpcConfigPtrType) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcesVpcConfigPtrOutput)
-}
-
 // An object representing the VPC configuration to use for an Amazon EKS cluster.
 type ClusterResourcesVpcConfigOutput struct{ *pulumi.OutputState }
 
@@ -791,16 +750,6 @@ func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigOutput() Clu
 
 func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigOutput {
 	return o
-}
-
-func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
-	return o.ToClusterResourcesVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterResourcesVpcConfig) *ClusterResourcesVpcConfig {
-		return &v
-	}).(ClusterResourcesVpcConfigPtrOutput)
 }
 
 // Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
@@ -826,80 +775,6 @@ func (o ClusterResourcesVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOu
 // Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
 func (o ClusterResourcesVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterResourcesVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
-}
-
-type ClusterResourcesVpcConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterResourcesVpcConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterResourcesVpcConfig)(nil)).Elem()
-}
-
-func (o ClusterResourcesVpcConfigPtrOutput) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
-	return o
-}
-
-func (o ClusterResourcesVpcConfigPtrOutput) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
-	return o
-}
-
-func (o ClusterResourcesVpcConfigPtrOutput) Elem() ClusterResourcesVpcConfigOutput {
-	return o.ApplyT(func(v *ClusterResourcesVpcConfig) ClusterResourcesVpcConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterResourcesVpcConfig
-		return ret
-	}).(ClusterResourcesVpcConfigOutput)
-}
-
-// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
-func (o ClusterResourcesVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterResourcesVpcConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EndpointPrivateAccess
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
-func (o ClusterResourcesVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterResourcesVpcConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EndpointPublicAccess
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
-func (o ClusterResourcesVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicAccessCidrs
-	}).(pulumi.StringArrayOutput)
-}
-
-// Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
-func (o ClusterResourcesVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
-func (o ClusterResourcesVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2069,7 +1944,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingInput)(nil)).Elem(), ClusterLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingPtrInput)(nil)).Elem(), ClusterLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterResourcesVpcConfigInput)(nil)).Elem(), ClusterResourcesVpcConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterResourcesVpcConfigPtrInput)(nil)).Elem(), ClusterResourcesVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileLabelInput)(nil)).Elem(), FargateProfileLabelArgs{})
@@ -2099,7 +1973,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterLoggingOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigOutput{})
-	pulumi.RegisterOutputType(ClusterResourcesVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTagOutput{})
 	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelOutput{})

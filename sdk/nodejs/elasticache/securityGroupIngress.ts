@@ -51,7 +51,7 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
     /** @deprecated SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecurityGroupIngressArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SecurityGroupIngress is deprecated: SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cacheSecurityGroupName === undefined) && !opts.urn) {
@@ -60,18 +60,16 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
             if ((!args || args.eC2SecurityGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eC2SecurityGroupName'");
             }
-            inputs["cacheSecurityGroupName"] = args ? args.cacheSecurityGroupName : undefined;
-            inputs["eC2SecurityGroupName"] = args ? args.eC2SecurityGroupName : undefined;
-            inputs["eC2SecurityGroupOwnerId"] = args ? args.eC2SecurityGroupOwnerId : undefined;
+            resourceInputs["cacheSecurityGroupName"] = args ? args.cacheSecurityGroupName : undefined;
+            resourceInputs["eC2SecurityGroupName"] = args ? args.eC2SecurityGroupName : undefined;
+            resourceInputs["eC2SecurityGroupOwnerId"] = args ? args.eC2SecurityGroupOwnerId : undefined;
         } else {
-            inputs["cacheSecurityGroupName"] = undefined /*out*/;
-            inputs["eC2SecurityGroupName"] = undefined /*out*/;
-            inputs["eC2SecurityGroupOwnerId"] = undefined /*out*/;
+            resourceInputs["cacheSecurityGroupName"] = undefined /*out*/;
+            resourceInputs["eC2SecurityGroupName"] = undefined /*out*/;
+            resourceInputs["eC2SecurityGroupOwnerId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecurityGroupIngress.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecurityGroupIngress.__pulumiType, name, resourceInputs, opts);
     }
 }
 

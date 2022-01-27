@@ -99,7 +99,7 @@ type PlaybackKeyPairInput interface {
 }
 
 func (*PlaybackKeyPair) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlaybackKeyPair)(nil))
+	return reflect.TypeOf((**PlaybackKeyPair)(nil)).Elem()
 }
 
 func (i *PlaybackKeyPair) ToPlaybackKeyPairOutput() PlaybackKeyPairOutput {
@@ -113,7 +113,7 @@ func (i *PlaybackKeyPair) ToPlaybackKeyPairOutputWithContext(ctx context.Context
 type PlaybackKeyPairOutput struct{ *pulumi.OutputState }
 
 func (PlaybackKeyPairOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlaybackKeyPair)(nil))
+	return reflect.TypeOf((**PlaybackKeyPair)(nil)).Elem()
 }
 
 func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutput() PlaybackKeyPairOutput {

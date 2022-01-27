@@ -51,24 +51,22 @@ export class Device extends pulumi.CustomResource {
     /** @deprecated Device is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Device is deprecated: Device is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["deviceId"] = undefined /*out*/;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deviceId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["deviceId"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deviceId"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Device.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Device.__pulumiType, name, resourceInputs, opts);
     }
 }
 

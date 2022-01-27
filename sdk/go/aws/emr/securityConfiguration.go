@@ -85,7 +85,7 @@ type SecurityConfigurationInput interface {
 }
 
 func (*SecurityConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityConfiguration)(nil))
+	return reflect.TypeOf((**SecurityConfiguration)(nil)).Elem()
 }
 
 func (i *SecurityConfiguration) ToSecurityConfigurationOutput() SecurityConfigurationOutput {
@@ -99,7 +99,7 @@ func (i *SecurityConfiguration) ToSecurityConfigurationOutputWithContext(ctx con
 type SecurityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityConfiguration)(nil))
+	return reflect.TypeOf((**SecurityConfiguration)(nil)).Elem()
 }
 
 func (o SecurityConfigurationOutput) ToSecurityConfigurationOutput() SecurityConfigurationOutput {

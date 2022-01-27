@@ -53,28 +53,26 @@ export class User extends pulumi.CustomResource {
     /** @deprecated User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("User is deprecated: User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["firstName"] = args ? args.firstName : undefined;
-            inputs["lastName"] = args ? args.lastName : undefined;
-            inputs["messageAction"] = args ? args.messageAction : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["messageAction"] = args ? args.messageAction : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
         } else {
-            inputs["authenticationType"] = undefined /*out*/;
-            inputs["firstName"] = undefined /*out*/;
-            inputs["lastName"] = undefined /*out*/;
-            inputs["messageAction"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["firstName"] = undefined /*out*/;
+            resourceInputs["lastName"] = undefined /*out*/;
+            resourceInputs["messageAction"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -56,29 +56,27 @@ export class Mesh extends pulumi.CustomResource {
     /** @deprecated Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: MeshArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Mesh is deprecated: Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["meshName"] = args ? args.meshName : undefined;
-            inputs["spec"] = args ? args.spec : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["meshOwner"] = undefined /*out*/;
-            inputs["resourceOwner"] = undefined /*out*/;
-            inputs["uid"] = undefined /*out*/;
+            resourceInputs["meshName"] = args ? args.meshName : undefined;
+            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["meshOwner"] = undefined /*out*/;
+            resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["uid"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["meshName"] = undefined /*out*/;
-            inputs["meshOwner"] = undefined /*out*/;
-            inputs["resourceOwner"] = undefined /*out*/;
-            inputs["spec"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["uid"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["meshName"] = undefined /*out*/;
+            resourceInputs["meshOwner"] = undefined /*out*/;
+            resourceInputs["resourceOwner"] = undefined /*out*/;
+            resourceInputs["spec"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["uid"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Mesh.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Mesh.__pulumiType, name, resourceInputs, opts);
     }
 }
 

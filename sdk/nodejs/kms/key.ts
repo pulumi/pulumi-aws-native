@@ -82,40 +82,38 @@ export class Key extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.keyPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyPolicy'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["keyPolicy"] = args ? args.keyPolicy : undefined;
-            inputs["keySpec"] = args ? args.keySpec : undefined;
-            inputs["keyUsage"] = args ? args.keyUsage : undefined;
-            inputs["multiRegion"] = args ? args.multiRegion : undefined;
-            inputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["keyPolicy"] = args ? args.keyPolicy : undefined;
+            resourceInputs["keySpec"] = args ? args.keySpec : undefined;
+            resourceInputs["keyUsage"] = args ? args.keyUsage : undefined;
+            resourceInputs["multiRegion"] = args ? args.multiRegion : undefined;
+            resourceInputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enableKeyRotation"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
-            inputs["keyPolicy"] = undefined /*out*/;
-            inputs["keySpec"] = undefined /*out*/;
-            inputs["keyUsage"] = undefined /*out*/;
-            inputs["multiRegion"] = undefined /*out*/;
-            inputs["pendingWindowInDays"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enableKeyRotation"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
+            resourceInputs["keyPolicy"] = undefined /*out*/;
+            resourceInputs["keySpec"] = undefined /*out*/;
+            resourceInputs["keyUsage"] = undefined /*out*/;
+            resourceInputs["multiRegion"] = undefined /*out*/;
+            resourceInputs["pendingWindowInDays"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Key.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Key.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -53,28 +53,26 @@ export class Macro extends pulumi.CustomResource {
     /** @deprecated Macro is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MacroArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Macro is deprecated: Macro is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
-            inputs["logRoleARN"] = args ? args.logRoleARN : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["logRoleARN"] = args ? args.logRoleARN : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["functionName"] = undefined /*out*/;
-            inputs["logGroupName"] = undefined /*out*/;
-            inputs["logRoleARN"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["logGroupName"] = undefined /*out*/;
+            resourceInputs["logRoleARN"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Macro.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Macro.__pulumiType, name, resourceInputs, opts);
     }
 }
 

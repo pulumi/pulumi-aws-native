@@ -97,7 +97,7 @@ type DeliveryChannelInput interface {
 }
 
 func (*DeliveryChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryChannel)(nil))
+	return reflect.TypeOf((**DeliveryChannel)(nil)).Elem()
 }
 
 func (i *DeliveryChannel) ToDeliveryChannelOutput() DeliveryChannelOutput {
@@ -111,7 +111,7 @@ func (i *DeliveryChannel) ToDeliveryChannelOutputWithContext(ctx context.Context
 type DeliveryChannelOutput struct{ *pulumi.OutputState }
 
 func (DeliveryChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryChannel)(nil))
+	return reflect.TypeOf((**DeliveryChannel)(nil)).Elem()
 }
 
 func (o DeliveryChannelOutput) ToDeliveryChannelOutput() DeliveryChannelOutput {

@@ -91,7 +91,7 @@ type OIDCProviderInput interface {
 }
 
 func (*OIDCProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*OIDCProvider)(nil))
+	return reflect.TypeOf((**OIDCProvider)(nil)).Elem()
 }
 
 func (i *OIDCProvider) ToOIDCProviderOutput() OIDCProviderOutput {
@@ -105,7 +105,7 @@ func (i *OIDCProvider) ToOIDCProviderOutputWithContext(ctx context.Context) OIDC
 type OIDCProviderOutput struct{ *pulumi.OutputState }
 
 func (OIDCProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OIDCProvider)(nil))
+	return reflect.TypeOf((**OIDCProvider)(nil)).Elem()
 }
 
 func (o OIDCProviderOutput) ToOIDCProviderOutput() OIDCProviderOutput {

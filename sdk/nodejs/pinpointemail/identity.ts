@@ -60,37 +60,35 @@ export class Identity extends pulumi.CustomResource {
     /** @deprecated Identity is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: IdentityArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Identity is deprecated: Identity is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["dkimSigningEnabled"] = args ? args.dkimSigningEnabled : undefined;
-            inputs["feedbackForwardingEnabled"] = args ? args.feedbackForwardingEnabled : undefined;
-            inputs["mailFromAttributes"] = args ? args.mailFromAttributes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["identityDNSRecordName1"] = undefined /*out*/;
-            inputs["identityDNSRecordName2"] = undefined /*out*/;
-            inputs["identityDNSRecordName3"] = undefined /*out*/;
-            inputs["identityDNSRecordValue1"] = undefined /*out*/;
-            inputs["identityDNSRecordValue2"] = undefined /*out*/;
-            inputs["identityDNSRecordValue3"] = undefined /*out*/;
+            resourceInputs["dkimSigningEnabled"] = args ? args.dkimSigningEnabled : undefined;
+            resourceInputs["feedbackForwardingEnabled"] = args ? args.feedbackForwardingEnabled : undefined;
+            resourceInputs["mailFromAttributes"] = args ? args.mailFromAttributes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identityDNSRecordName1"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordName2"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordName3"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordValue1"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordValue2"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordValue3"] = undefined /*out*/;
         } else {
-            inputs["dkimSigningEnabled"] = undefined /*out*/;
-            inputs["feedbackForwardingEnabled"] = undefined /*out*/;
-            inputs["identityDNSRecordName1"] = undefined /*out*/;
-            inputs["identityDNSRecordName2"] = undefined /*out*/;
-            inputs["identityDNSRecordName3"] = undefined /*out*/;
-            inputs["identityDNSRecordValue1"] = undefined /*out*/;
-            inputs["identityDNSRecordValue2"] = undefined /*out*/;
-            inputs["identityDNSRecordValue3"] = undefined /*out*/;
-            inputs["mailFromAttributes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["dkimSigningEnabled"] = undefined /*out*/;
+            resourceInputs["feedbackForwardingEnabled"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordName1"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordName2"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordName3"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordValue1"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordValue2"] = undefined /*out*/;
+            resourceInputs["identityDNSRecordValue3"] = undefined /*out*/;
+            resourceInputs["mailFromAttributes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Identity.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Identity.__pulumiType, name, resourceInputs, opts);
     }
 }
 

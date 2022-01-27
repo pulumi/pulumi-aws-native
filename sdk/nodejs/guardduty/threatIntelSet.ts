@@ -53,7 +53,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     /** @deprecated ThreatIntelSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ThreatIntelSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ThreatIntelSet is deprecated: ThreatIntelSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.activate === undefined) && !opts.urn) {
@@ -68,22 +68,20 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            inputs["activate"] = args ? args.activate : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["activate"] = args ? args.activate : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            inputs["activate"] = undefined /*out*/;
-            inputs["detectorId"] = undefined /*out*/;
-            inputs["format"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["activate"] = undefined /*out*/;
+            resourceInputs["detectorId"] = undefined /*out*/;
+            resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ThreatIntelSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ThreatIntelSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

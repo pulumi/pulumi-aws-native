@@ -100,7 +100,7 @@ type LaunchNotificationConstraintInput interface {
 }
 
 func (*LaunchNotificationConstraint) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchNotificationConstraint)(nil))
+	return reflect.TypeOf((**LaunchNotificationConstraint)(nil)).Elem()
 }
 
 func (i *LaunchNotificationConstraint) ToLaunchNotificationConstraintOutput() LaunchNotificationConstraintOutput {
@@ -114,7 +114,7 @@ func (i *LaunchNotificationConstraint) ToLaunchNotificationConstraintOutputWithC
 type LaunchNotificationConstraintOutput struct{ *pulumi.OutputState }
 
 func (LaunchNotificationConstraintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchNotificationConstraint)(nil))
+	return reflect.TypeOf((**LaunchNotificationConstraint)(nil)).Elem()
 }
 
 func (o LaunchNotificationConstraintOutput) ToLaunchNotificationConstraintOutput() LaunchNotificationConstraintOutput {

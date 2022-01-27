@@ -103,7 +103,7 @@ type ScheduledActionInput interface {
 }
 
 func (*ScheduledAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAction)(nil))
+	return reflect.TypeOf((**ScheduledAction)(nil)).Elem()
 }
 
 func (i *ScheduledAction) ToScheduledActionOutput() ScheduledActionOutput {
@@ -117,7 +117,7 @@ func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context
 type ScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAction)(nil))
+	return reflect.TypeOf((**ScheduledAction)(nil)).Elem()
 }
 
 func (o ScheduledActionOutput) ToScheduledActionOutput() ScheduledActionOutput {

@@ -64,28 +64,26 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PlaybackKeyPairArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.publicKeyMaterial === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicKeyMaterial'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fingerprint"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fingerprint"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["fingerprint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["publicKeyMaterial"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fingerprint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicKeyMaterial"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PlaybackKeyPair.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PlaybackKeyPair.__pulumiType, name, resourceInputs, opts);
     }
 }
 

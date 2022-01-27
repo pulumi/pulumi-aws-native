@@ -81,7 +81,7 @@ export class LocationSMB extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocationSMBArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.agentArns === undefined) && !opts.urn) {
@@ -99,32 +99,30 @@ export class LocationSMB extends pulumi.CustomResource {
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            inputs["agentArns"] = args ? args.agentArns : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["mountOptions"] = args ? args.mountOptions : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["serverHostname"] = args ? args.serverHostname : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["user"] = args ? args.user : undefined;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
+            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
         } else {
-            inputs["agentArns"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
-            inputs["mountOptions"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["serverHostname"] = undefined /*out*/;
-            inputs["subdirectory"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["user"] = undefined /*out*/;
+            resourceInputs["agentArns"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["mountOptions"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["serverHostname"] = undefined /*out*/;
+            resourceInputs["subdirectory"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["user"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationSMB.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationSMB.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -52,7 +52,7 @@ export class SourceCredential extends pulumi.CustomResource {
     /** @deprecated SourceCredential is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SourceCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SourceCredential is deprecated: SourceCredential is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authType === undefined) && !opts.urn) {
@@ -64,20 +64,18 @@ export class SourceCredential extends pulumi.CustomResource {
             if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
-            inputs["authType"] = args ? args.authType : undefined;
-            inputs["serverType"] = args ? args.serverType : undefined;
-            inputs["token"] = args ? args.token : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["serverType"] = args ? args.serverType : undefined;
+            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         } else {
-            inputs["authType"] = undefined /*out*/;
-            inputs["serverType"] = undefined /*out*/;
-            inputs["token"] = undefined /*out*/;
-            inputs["username"] = undefined /*out*/;
+            resourceInputs["authType"] = undefined /*out*/;
+            resourceInputs["serverType"] = undefined /*out*/;
+            resourceInputs["token"] = undefined /*out*/;
+            resourceInputs["username"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SourceCredential.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SourceCredential.__pulumiType, name, resourceInputs, opts);
     }
 }
 

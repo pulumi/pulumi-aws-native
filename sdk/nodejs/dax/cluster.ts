@@ -66,7 +66,7 @@ export class Cluster extends pulumi.CustomResource {
     /** @deprecated Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Cluster is deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.iAMRoleARN === undefined) && !opts.urn) {
@@ -78,46 +78,44 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.replicationFactor === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationFactor'");
             }
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["clusterEndpointEncryptionType"] = args ? args.clusterEndpointEncryptionType : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["iAMRoleARN"] = args ? args.iAMRoleARN : undefined;
-            inputs["nodeType"] = args ? args.nodeType : undefined;
-            inputs["notificationTopicARN"] = args ? args.notificationTopicARN : undefined;
-            inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            inputs["sSESpecification"] = args ? args.sSESpecification : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["clusterDiscoveryEndpoint"] = undefined /*out*/;
-            inputs["clusterDiscoveryEndpointURL"] = undefined /*out*/;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["clusterEndpointEncryptionType"] = args ? args.clusterEndpointEncryptionType : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["iAMRoleARN"] = args ? args.iAMRoleARN : undefined;
+            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
+            resourceInputs["notificationTopicARN"] = args ? args.notificationTopicARN : undefined;
+            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
+            resourceInputs["sSESpecification"] = args ? args.sSESpecification : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterDiscoveryEndpoint"] = undefined /*out*/;
+            resourceInputs["clusterDiscoveryEndpointURL"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["availabilityZones"] = undefined /*out*/;
-            inputs["clusterDiscoveryEndpoint"] = undefined /*out*/;
-            inputs["clusterDiscoveryEndpointURL"] = undefined /*out*/;
-            inputs["clusterEndpointEncryptionType"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["iAMRoleARN"] = undefined /*out*/;
-            inputs["nodeType"] = undefined /*out*/;
-            inputs["notificationTopicARN"] = undefined /*out*/;
-            inputs["parameterGroupName"] = undefined /*out*/;
-            inputs["preferredMaintenanceWindow"] = undefined /*out*/;
-            inputs["replicationFactor"] = undefined /*out*/;
-            inputs["sSESpecification"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["subnetGroupName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["clusterDiscoveryEndpoint"] = undefined /*out*/;
+            resourceInputs["clusterDiscoveryEndpointURL"] = undefined /*out*/;
+            resourceInputs["clusterEndpointEncryptionType"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["iAMRoleARN"] = undefined /*out*/;
+            resourceInputs["nodeType"] = undefined /*out*/;
+            resourceInputs["notificationTopicARN"] = undefined /*out*/;
+            resourceInputs["parameterGroupName"] = undefined /*out*/;
+            resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
+            resourceInputs["replicationFactor"] = undefined /*out*/;
+            resourceInputs["sSESpecification"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["subnetGroupName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

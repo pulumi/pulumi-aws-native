@@ -82,7 +82,7 @@ type KeyspaceInput interface {
 }
 
 func (*Keyspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*Keyspace)(nil))
+	return reflect.TypeOf((**Keyspace)(nil)).Elem()
 }
 
 func (i *Keyspace) ToKeyspaceOutput() KeyspaceOutput {
@@ -96,7 +96,7 @@ func (i *Keyspace) ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutp
 type KeyspaceOutput struct{ *pulumi.OutputState }
 
 func (KeyspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Keyspace)(nil))
+	return reflect.TypeOf((**Keyspace)(nil)).Elem()
 }
 
 func (o KeyspaceOutput) ToKeyspaceOutput() KeyspaceOutput {

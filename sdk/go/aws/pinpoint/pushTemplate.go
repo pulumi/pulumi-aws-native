@@ -107,7 +107,7 @@ type PushTemplateInput interface {
 }
 
 func (*PushTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*PushTemplate)(nil))
+	return reflect.TypeOf((**PushTemplate)(nil)).Elem()
 }
 
 func (i *PushTemplate) ToPushTemplateOutput() PushTemplateOutput {
@@ -121,7 +121,7 @@ func (i *PushTemplate) ToPushTemplateOutputWithContext(ctx context.Context) Push
 type PushTemplateOutput struct{ *pulumi.OutputState }
 
 func (PushTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PushTemplate)(nil))
+	return reflect.TypeOf((**PushTemplate)(nil)).Elem()
 }
 
 func (o PushTemplateOutput) ToPushTemplateOutput() PushTemplateOutput {

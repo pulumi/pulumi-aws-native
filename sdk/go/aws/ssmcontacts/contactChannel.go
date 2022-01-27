@@ -105,7 +105,7 @@ type ContactChannelInput interface {
 }
 
 func (*ContactChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactChannel)(nil))
+	return reflect.TypeOf((**ContactChannel)(nil)).Elem()
 }
 
 func (i *ContactChannel) ToContactChannelOutput() ContactChannelOutput {
@@ -119,7 +119,7 @@ func (i *ContactChannel) ToContactChannelOutputWithContext(ctx context.Context) 
 type ContactChannelOutput struct{ *pulumi.OutputState }
 
 func (ContactChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactChannel)(nil))
+	return reflect.TypeOf((**ContactChannel)(nil)).Elem()
 }
 
 func (o ContactChannelOutput) ToContactChannelOutput() ContactChannelOutput {

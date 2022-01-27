@@ -63,7 +63,7 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocalGatewayRouteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
@@ -75,22 +75,20 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
             if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
             }
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            inputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
+            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["destinationCidrBlock"] = undefined /*out*/;
-            inputs["localGatewayRouteTableId"] = undefined /*out*/;
-            inputs["localGatewayVirtualInterfaceGroupId"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destinationCidrBlock"] = undefined /*out*/;
+            resourceInputs["localGatewayRouteTableId"] = undefined /*out*/;
+            resourceInputs["localGatewayVirtualInterfaceGroupId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocalGatewayRoute.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocalGatewayRoute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

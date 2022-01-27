@@ -84,35 +84,33 @@ export class Repository extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["externalConnections"] = args ? args.externalConnections : undefined;
-            inputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upstreams"] = args ? args.upstreams : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["domainOwner"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["externalConnections"] = args ? args.externalConnections : undefined;
+            resourceInputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upstreams"] = args ? args.upstreams : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainOwner"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["domainOwner"] = undefined /*out*/;
-            inputs["externalConnections"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["permissionsPolicyDocument"] = undefined /*out*/;
-            inputs["repositoryName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["upstreams"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainOwner"] = undefined /*out*/;
+            resourceInputs["externalConnections"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissionsPolicyDocument"] = undefined /*out*/;
+            resourceInputs["repositoryName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["upstreams"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Repository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

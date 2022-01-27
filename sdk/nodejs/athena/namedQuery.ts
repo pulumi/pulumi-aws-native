@@ -67,7 +67,7 @@ export class NamedQuery extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -76,24 +76,22 @@ export class NamedQuery extends pulumi.CustomResource {
             if ((!args || args.queryString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            inputs["database"] = args ? args.database : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queryString"] = args ? args.queryString : undefined;
-            inputs["workGroup"] = args ? args.workGroup : undefined;
-            inputs["namedQueryId"] = undefined /*out*/;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["workGroup"] = args ? args.workGroup : undefined;
+            resourceInputs["namedQueryId"] = undefined /*out*/;
         } else {
-            inputs["database"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["namedQueryId"] = undefined /*out*/;
-            inputs["queryString"] = undefined /*out*/;
-            inputs["workGroup"] = undefined /*out*/;
+            resourceInputs["database"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["namedQueryId"] = undefined /*out*/;
+            resourceInputs["queryString"] = undefined /*out*/;
+            resourceInputs["workGroup"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NamedQuery.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NamedQuery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

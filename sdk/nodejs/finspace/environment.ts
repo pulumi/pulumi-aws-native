@@ -94,43 +94,41 @@ export class Environment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["dataBundles"] = args ? args.dataBundles : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["federationMode"] = args ? args.federationMode : undefined;
-            inputs["federationParameters"] = args ? args.federationParameters : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["superuserParameters"] = args ? args.superuserParameters : undefined;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["dedicatedServiceAccountId"] = undefined /*out*/;
-            inputs["environmentArn"] = undefined /*out*/;
-            inputs["environmentId"] = undefined /*out*/;
-            inputs["environmentUrl"] = undefined /*out*/;
-            inputs["sageMakerStudioDomainUrl"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["dataBundles"] = args ? args.dataBundles : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["federationMode"] = args ? args.federationMode : undefined;
+            resourceInputs["federationParameters"] = args ? args.federationParameters : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["superuserParameters"] = args ? args.superuserParameters : undefined;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["dedicatedServiceAccountId"] = undefined /*out*/;
+            resourceInputs["environmentArn"] = undefined /*out*/;
+            resourceInputs["environmentId"] = undefined /*out*/;
+            resourceInputs["environmentUrl"] = undefined /*out*/;
+            resourceInputs["sageMakerStudioDomainUrl"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["dataBundles"] = undefined /*out*/;
-            inputs["dedicatedServiceAccountId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["environmentArn"] = undefined /*out*/;
-            inputs["environmentId"] = undefined /*out*/;
-            inputs["environmentUrl"] = undefined /*out*/;
-            inputs["federationMode"] = undefined /*out*/;
-            inputs["federationParameters"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sageMakerStudioDomainUrl"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["superuserParameters"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["dataBundles"] = undefined /*out*/;
+            resourceInputs["dedicatedServiceAccountId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["environmentArn"] = undefined /*out*/;
+            resourceInputs["environmentId"] = undefined /*out*/;
+            resourceInputs["environmentUrl"] = undefined /*out*/;
+            resourceInputs["federationMode"] = undefined /*out*/;
+            resourceInputs["federationParameters"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sageMakerStudioDomainUrl"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["superuserParameters"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Environment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

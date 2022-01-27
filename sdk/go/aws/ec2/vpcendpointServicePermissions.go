@@ -85,7 +85,7 @@ type VPCEndpointServicePermissionsInput interface {
 }
 
 func (*VPCEndpointServicePermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEndpointServicePermissions)(nil))
+	return reflect.TypeOf((**VPCEndpointServicePermissions)(nil)).Elem()
 }
 
 func (i *VPCEndpointServicePermissions) ToVPCEndpointServicePermissionsOutput() VPCEndpointServicePermissionsOutput {
@@ -99,7 +99,7 @@ func (i *VPCEndpointServicePermissions) ToVPCEndpointServicePermissionsOutputWit
 type VPCEndpointServicePermissionsOutput struct{ *pulumi.OutputState }
 
 func (VPCEndpointServicePermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEndpointServicePermissions)(nil))
+	return reflect.TypeOf((**VPCEndpointServicePermissions)(nil)).Elem()
 }
 
 func (o VPCEndpointServicePermissionsOutput) ToVPCEndpointServicePermissionsOutput() VPCEndpointServicePermissionsOutput {

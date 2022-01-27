@@ -109,7 +109,7 @@ type ConformancePackInput interface {
 }
 
 func (*ConformancePack) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConformancePack)(nil))
+	return reflect.TypeOf((**ConformancePack)(nil)).Elem()
 }
 
 func (i *ConformancePack) ToConformancePackOutput() ConformancePackOutput {
@@ -123,7 +123,7 @@ func (i *ConformancePack) ToConformancePackOutputWithContext(ctx context.Context
 type ConformancePackOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConformancePack)(nil))
+	return reflect.TypeOf((**ConformancePack)(nil)).Elem()
 }
 
 func (o ConformancePackOutput) ToConformancePackOutput() ConformancePackOutput {

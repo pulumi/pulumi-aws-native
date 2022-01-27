@@ -89,7 +89,7 @@ type SamplingRuleInput interface {
 }
 
 func (*SamplingRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRule)(nil))
+	return reflect.TypeOf((**SamplingRule)(nil)).Elem()
 }
 
 func (i *SamplingRule) ToSamplingRuleOutput() SamplingRuleOutput {
@@ -103,7 +103,7 @@ func (i *SamplingRule) ToSamplingRuleOutputWithContext(ctx context.Context) Samp
 type SamplingRuleOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRule)(nil))
+	return reflect.TypeOf((**SamplingRule)(nil)).Elem()
 }
 
 func (o SamplingRuleOutput) ToSamplingRuleOutput() SamplingRuleOutput {

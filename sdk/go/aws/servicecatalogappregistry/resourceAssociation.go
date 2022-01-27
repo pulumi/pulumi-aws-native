@@ -103,7 +103,7 @@ type ResourceAssociationInput interface {
 }
 
 func (*ResourceAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAssociation)(nil))
+	return reflect.TypeOf((**ResourceAssociation)(nil)).Elem()
 }
 
 func (i *ResourceAssociation) ToResourceAssociationOutput() ResourceAssociationOutput {
@@ -117,7 +117,7 @@ func (i *ResourceAssociation) ToResourceAssociationOutputWithContext(ctx context
 type ResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResourceAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAssociation)(nil))
+	return reflect.TypeOf((**ResourceAssociation)(nil)).Elem()
 }
 
 func (o ResourceAssociationOutput) ToResourceAssociationOutput() ResourceAssociationOutput {

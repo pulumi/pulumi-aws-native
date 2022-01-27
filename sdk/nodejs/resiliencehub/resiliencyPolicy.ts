@@ -66,7 +66,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResiliencyPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -78,26 +78,24 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
             if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            inputs["dataLocationConstraint"] = args ? args.dataLocationConstraint : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["policyDescription"] = args ? args.policyDescription : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["policyArn"] = undefined /*out*/;
+            resourceInputs["dataLocationConstraint"] = args ? args.dataLocationConstraint : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["policyArn"] = undefined /*out*/;
         } else {
-            inputs["dataLocationConstraint"] = undefined /*out*/;
-            inputs["policy"] = undefined /*out*/;
-            inputs["policyArn"] = undefined /*out*/;
-            inputs["policyDescription"] = undefined /*out*/;
-            inputs["policyName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tier"] = undefined /*out*/;
+            resourceInputs["dataLocationConstraint"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["policyArn"] = undefined /*out*/;
+            resourceInputs["policyDescription"] = undefined /*out*/;
+            resourceInputs["policyName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tier"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResiliencyPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResiliencyPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -54,28 +54,26 @@ export class Member extends pulumi.CustomResource {
     /** @deprecated Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MemberArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Member is deprecated: Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.memberConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberConfiguration'");
             }
-            inputs["invitationId"] = args ? args.invitationId : undefined;
-            inputs["memberConfiguration"] = args ? args.memberConfiguration : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["networkId"] = args ? args.networkId : undefined;
-            inputs["memberId"] = undefined /*out*/;
+            resourceInputs["invitationId"] = args ? args.invitationId : undefined;
+            resourceInputs["memberConfiguration"] = args ? args.memberConfiguration : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["networkId"] = args ? args.networkId : undefined;
+            resourceInputs["memberId"] = undefined /*out*/;
         } else {
-            inputs["invitationId"] = undefined /*out*/;
-            inputs["memberConfiguration"] = undefined /*out*/;
-            inputs["memberId"] = undefined /*out*/;
-            inputs["networkConfiguration"] = undefined /*out*/;
-            inputs["networkId"] = undefined /*out*/;
+            resourceInputs["invitationId"] = undefined /*out*/;
+            resourceInputs["memberConfiguration"] = undefined /*out*/;
+            resourceInputs["memberId"] = undefined /*out*/;
+            resourceInputs["networkConfiguration"] = undefined /*out*/;
+            resourceInputs["networkId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Member.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Member.__pulumiType, name, resourceInputs, opts);
     }
 }
 

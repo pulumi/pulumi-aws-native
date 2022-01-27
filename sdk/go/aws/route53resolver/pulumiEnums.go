@@ -22,42 +22,6 @@ const (
 	FirewallDomainListStatusInactiveOwnerAccountClosed = FirewallDomainListStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
 )
 
-func (FirewallDomainListStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallDomainListStatus)(nil)).Elem()
-}
-
-func (e FirewallDomainListStatus) ToFirewallDomainListStatusOutput() FirewallDomainListStatusOutput {
-	return pulumi.ToOutput(e).(FirewallDomainListStatusOutput)
-}
-
-func (e FirewallDomainListStatus) ToFirewallDomainListStatusOutputWithContext(ctx context.Context) FirewallDomainListStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FirewallDomainListStatusOutput)
-}
-
-func (e FirewallDomainListStatus) ToFirewallDomainListStatusPtrOutput() FirewallDomainListStatusPtrOutput {
-	return e.ToFirewallDomainListStatusPtrOutputWithContext(context.Background())
-}
-
-func (e FirewallDomainListStatus) ToFirewallDomainListStatusPtrOutputWithContext(ctx context.Context) FirewallDomainListStatusPtrOutput {
-	return FirewallDomainListStatus(e).ToFirewallDomainListStatusOutputWithContext(ctx).ToFirewallDomainListStatusPtrOutputWithContext(ctx)
-}
-
-func (e FirewallDomainListStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FirewallDomainListStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FirewallDomainListStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FirewallDomainListStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type FirewallDomainListStatusOutput struct{ *pulumi.OutputState }
 
 func (FirewallDomainListStatusOutput) ElementType() reflect.Type {
@@ -139,44 +103,6 @@ func (o FirewallDomainListStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// FirewallDomainListStatusInput is an input type that accepts FirewallDomainListStatusArgs and FirewallDomainListStatusOutput values.
-// You can construct a concrete instance of `FirewallDomainListStatusInput` via:
-//
-//          FirewallDomainListStatusArgs{...}
-type FirewallDomainListStatusInput interface {
-	pulumi.Input
-
-	ToFirewallDomainListStatusOutput() FirewallDomainListStatusOutput
-	ToFirewallDomainListStatusOutputWithContext(context.Context) FirewallDomainListStatusOutput
-}
-
-var firewallDomainListStatusPtrType = reflect.TypeOf((**FirewallDomainListStatus)(nil)).Elem()
-
-type FirewallDomainListStatusPtrInput interface {
-	pulumi.Input
-
-	ToFirewallDomainListStatusPtrOutput() FirewallDomainListStatusPtrOutput
-	ToFirewallDomainListStatusPtrOutputWithContext(context.Context) FirewallDomainListStatusPtrOutput
-}
-
-type firewallDomainListStatusPtr string
-
-func FirewallDomainListStatusPtr(v string) FirewallDomainListStatusPtrInput {
-	return (*firewallDomainListStatusPtr)(&v)
-}
-
-func (*firewallDomainListStatusPtr) ElementType() reflect.Type {
-	return firewallDomainListStatusPtrType
-}
-
-func (in *firewallDomainListStatusPtr) ToFirewallDomainListStatusPtrOutput() FirewallDomainListStatusPtrOutput {
-	return pulumi.ToOutput(in).(FirewallDomainListStatusPtrOutput)
-}
-
-func (in *firewallDomainListStatusPtr) ToFirewallDomainListStatusPtrOutputWithContext(ctx context.Context) FirewallDomainListStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FirewallDomainListStatusPtrOutput)
 }
 
 // MutationProtectionStatus
@@ -354,42 +280,6 @@ const (
 	FirewallRuleGroupAssociationStatusInactiveOwnerAccountClosed = FirewallRuleGroupAssociationStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
 )
 
-func (FirewallRuleGroupAssociationStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleGroupAssociationStatus)(nil)).Elem()
-}
-
-func (e FirewallRuleGroupAssociationStatus) ToFirewallRuleGroupAssociationStatusOutput() FirewallRuleGroupAssociationStatusOutput {
-	return pulumi.ToOutput(e).(FirewallRuleGroupAssociationStatusOutput)
-}
-
-func (e FirewallRuleGroupAssociationStatus) ToFirewallRuleGroupAssociationStatusOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FirewallRuleGroupAssociationStatusOutput)
-}
-
-func (e FirewallRuleGroupAssociationStatus) ToFirewallRuleGroupAssociationStatusPtrOutput() FirewallRuleGroupAssociationStatusPtrOutput {
-	return e.ToFirewallRuleGroupAssociationStatusPtrOutputWithContext(context.Background())
-}
-
-func (e FirewallRuleGroupAssociationStatus) ToFirewallRuleGroupAssociationStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationStatusPtrOutput {
-	return FirewallRuleGroupAssociationStatus(e).ToFirewallRuleGroupAssociationStatusOutputWithContext(ctx).ToFirewallRuleGroupAssociationStatusPtrOutputWithContext(ctx)
-}
-
-func (e FirewallRuleGroupAssociationStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FirewallRuleGroupAssociationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FirewallRuleGroupAssociationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FirewallRuleGroupAssociationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type FirewallRuleGroupAssociationStatusOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupAssociationStatusOutput) ElementType() reflect.Type {
@@ -471,44 +361,6 @@ func (o FirewallRuleGroupAssociationStatusPtrOutput) ToStringPtrOutputWithContex
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// FirewallRuleGroupAssociationStatusInput is an input type that accepts FirewallRuleGroupAssociationStatusArgs and FirewallRuleGroupAssociationStatusOutput values.
-// You can construct a concrete instance of `FirewallRuleGroupAssociationStatusInput` via:
-//
-//          FirewallRuleGroupAssociationStatusArgs{...}
-type FirewallRuleGroupAssociationStatusInput interface {
-	pulumi.Input
-
-	ToFirewallRuleGroupAssociationStatusOutput() FirewallRuleGroupAssociationStatusOutput
-	ToFirewallRuleGroupAssociationStatusOutputWithContext(context.Context) FirewallRuleGroupAssociationStatusOutput
-}
-
-var firewallRuleGroupAssociationStatusPtrType = reflect.TypeOf((**FirewallRuleGroupAssociationStatus)(nil)).Elem()
-
-type FirewallRuleGroupAssociationStatusPtrInput interface {
-	pulumi.Input
-
-	ToFirewallRuleGroupAssociationStatusPtrOutput() FirewallRuleGroupAssociationStatusPtrOutput
-	ToFirewallRuleGroupAssociationStatusPtrOutputWithContext(context.Context) FirewallRuleGroupAssociationStatusPtrOutput
-}
-
-type firewallRuleGroupAssociationStatusPtr string
-
-func FirewallRuleGroupAssociationStatusPtr(v string) FirewallRuleGroupAssociationStatusPtrInput {
-	return (*firewallRuleGroupAssociationStatusPtr)(&v)
-}
-
-func (*firewallRuleGroupAssociationStatusPtr) ElementType() reflect.Type {
-	return firewallRuleGroupAssociationStatusPtrType
-}
-
-func (in *firewallRuleGroupAssociationStatusPtr) ToFirewallRuleGroupAssociationStatusPtrOutput() FirewallRuleGroupAssociationStatusPtrOutput {
-	return pulumi.ToOutput(in).(FirewallRuleGroupAssociationStatusPtrOutput)
-}
-
-func (in *firewallRuleGroupAssociationStatusPtr) ToFirewallRuleGroupAssociationStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupAssociationStatusPtrOutput)
 }
 
 // Rule Action
@@ -1016,42 +868,6 @@ const (
 	FirewallRuleGroupShareStatusSharedByMe   = FirewallRuleGroupShareStatus("SHARED_BY_ME")
 )
 
-func (FirewallRuleGroupShareStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleGroupShareStatus)(nil)).Elem()
-}
-
-func (e FirewallRuleGroupShareStatus) ToFirewallRuleGroupShareStatusOutput() FirewallRuleGroupShareStatusOutput {
-	return pulumi.ToOutput(e).(FirewallRuleGroupShareStatusOutput)
-}
-
-func (e FirewallRuleGroupShareStatus) ToFirewallRuleGroupShareStatusOutputWithContext(ctx context.Context) FirewallRuleGroupShareStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FirewallRuleGroupShareStatusOutput)
-}
-
-func (e FirewallRuleGroupShareStatus) ToFirewallRuleGroupShareStatusPtrOutput() FirewallRuleGroupShareStatusPtrOutput {
-	return e.ToFirewallRuleGroupShareStatusPtrOutputWithContext(context.Background())
-}
-
-func (e FirewallRuleGroupShareStatus) ToFirewallRuleGroupShareStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupShareStatusPtrOutput {
-	return FirewallRuleGroupShareStatus(e).ToFirewallRuleGroupShareStatusOutputWithContext(ctx).ToFirewallRuleGroupShareStatusPtrOutputWithContext(ctx)
-}
-
-func (e FirewallRuleGroupShareStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FirewallRuleGroupShareStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FirewallRuleGroupShareStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FirewallRuleGroupShareStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type FirewallRuleGroupShareStatusOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupShareStatusOutput) ElementType() reflect.Type {
@@ -1135,44 +951,6 @@ func (o FirewallRuleGroupShareStatusPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallRuleGroupShareStatusInput is an input type that accepts FirewallRuleGroupShareStatusArgs and FirewallRuleGroupShareStatusOutput values.
-// You can construct a concrete instance of `FirewallRuleGroupShareStatusInput` via:
-//
-//          FirewallRuleGroupShareStatusArgs{...}
-type FirewallRuleGroupShareStatusInput interface {
-	pulumi.Input
-
-	ToFirewallRuleGroupShareStatusOutput() FirewallRuleGroupShareStatusOutput
-	ToFirewallRuleGroupShareStatusOutputWithContext(context.Context) FirewallRuleGroupShareStatusOutput
-}
-
-var firewallRuleGroupShareStatusPtrType = reflect.TypeOf((**FirewallRuleGroupShareStatus)(nil)).Elem()
-
-type FirewallRuleGroupShareStatusPtrInput interface {
-	pulumi.Input
-
-	ToFirewallRuleGroupShareStatusPtrOutput() FirewallRuleGroupShareStatusPtrOutput
-	ToFirewallRuleGroupShareStatusPtrOutputWithContext(context.Context) FirewallRuleGroupShareStatusPtrOutput
-}
-
-type firewallRuleGroupShareStatusPtr string
-
-func FirewallRuleGroupShareStatusPtr(v string) FirewallRuleGroupShareStatusPtrInput {
-	return (*firewallRuleGroupShareStatusPtr)(&v)
-}
-
-func (*firewallRuleGroupShareStatusPtr) ElementType() reflect.Type {
-	return firewallRuleGroupShareStatusPtrType
-}
-
-func (in *firewallRuleGroupShareStatusPtr) ToFirewallRuleGroupShareStatusPtrOutput() FirewallRuleGroupShareStatusPtrOutput {
-	return pulumi.ToOutput(in).(FirewallRuleGroupShareStatusPtrOutput)
-}
-
-func (in *firewallRuleGroupShareStatusPtr) ToFirewallRuleGroupShareStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupShareStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupShareStatusPtrOutput)
-}
-
 // ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
 type FirewallRuleGroupStatus string
 
@@ -1182,42 +960,6 @@ const (
 	FirewallRuleGroupStatusUpdating                   = FirewallRuleGroupStatus("UPDATING")
 	FirewallRuleGroupStatusInactiveOwnerAccountClosed = FirewallRuleGroupStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
 )
-
-func (FirewallRuleGroupStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleGroupStatus)(nil)).Elem()
-}
-
-func (e FirewallRuleGroupStatus) ToFirewallRuleGroupStatusOutput() FirewallRuleGroupStatusOutput {
-	return pulumi.ToOutput(e).(FirewallRuleGroupStatusOutput)
-}
-
-func (e FirewallRuleGroupStatus) ToFirewallRuleGroupStatusOutputWithContext(ctx context.Context) FirewallRuleGroupStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FirewallRuleGroupStatusOutput)
-}
-
-func (e FirewallRuleGroupStatus) ToFirewallRuleGroupStatusPtrOutput() FirewallRuleGroupStatusPtrOutput {
-	return e.ToFirewallRuleGroupStatusPtrOutputWithContext(context.Background())
-}
-
-func (e FirewallRuleGroupStatus) ToFirewallRuleGroupStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupStatusPtrOutput {
-	return FirewallRuleGroupStatus(e).ToFirewallRuleGroupStatusOutputWithContext(ctx).ToFirewallRuleGroupStatusPtrOutputWithContext(ctx)
-}
-
-func (e FirewallRuleGroupStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FirewallRuleGroupStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FirewallRuleGroupStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FirewallRuleGroupStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type FirewallRuleGroupStatusOutput struct{ *pulumi.OutputState }
 
@@ -1302,44 +1044,6 @@ func (o FirewallRuleGroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallRuleGroupStatusInput is an input type that accepts FirewallRuleGroupStatusArgs and FirewallRuleGroupStatusOutput values.
-// You can construct a concrete instance of `FirewallRuleGroupStatusInput` via:
-//
-//          FirewallRuleGroupStatusArgs{...}
-type FirewallRuleGroupStatusInput interface {
-	pulumi.Input
-
-	ToFirewallRuleGroupStatusOutput() FirewallRuleGroupStatusOutput
-	ToFirewallRuleGroupStatusOutputWithContext(context.Context) FirewallRuleGroupStatusOutput
-}
-
-var firewallRuleGroupStatusPtrType = reflect.TypeOf((**FirewallRuleGroupStatus)(nil)).Elem()
-
-type FirewallRuleGroupStatusPtrInput interface {
-	pulumi.Input
-
-	ToFirewallRuleGroupStatusPtrOutput() FirewallRuleGroupStatusPtrOutput
-	ToFirewallRuleGroupStatusPtrOutputWithContext(context.Context) FirewallRuleGroupStatusPtrOutput
-}
-
-type firewallRuleGroupStatusPtr string
-
-func FirewallRuleGroupStatusPtr(v string) FirewallRuleGroupStatusPtrInput {
-	return (*firewallRuleGroupStatusPtr)(&v)
-}
-
-func (*firewallRuleGroupStatusPtr) ElementType() reflect.Type {
-	return firewallRuleGroupStatusPtrType
-}
-
-func (in *firewallRuleGroupStatusPtr) ToFirewallRuleGroupStatusPtrOutput() FirewallRuleGroupStatusPtrOutput {
-	return pulumi.ToOutput(in).(FirewallRuleGroupStatusPtrOutput)
-}
-
-func (in *firewallRuleGroupStatusPtr) ToFirewallRuleGroupStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupStatusPtrOutput)
-}
-
 // ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
 type ResolverConfigAutodefinedReverse string
 
@@ -1349,42 +1053,6 @@ const (
 	ResolverConfigAutodefinedReverseDisabling = ResolverConfigAutodefinedReverse("DISABLING")
 	ResolverConfigAutodefinedReverseDisabled  = ResolverConfigAutodefinedReverse("DISABLED")
 )
-
-func (ResolverConfigAutodefinedReverse) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverConfigAutodefinedReverse)(nil)).Elem()
-}
-
-func (e ResolverConfigAutodefinedReverse) ToResolverConfigAutodefinedReverseOutput() ResolverConfigAutodefinedReverseOutput {
-	return pulumi.ToOutput(e).(ResolverConfigAutodefinedReverseOutput)
-}
-
-func (e ResolverConfigAutodefinedReverse) ToResolverConfigAutodefinedReverseOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResolverConfigAutodefinedReverseOutput)
-}
-
-func (e ResolverConfigAutodefinedReverse) ToResolverConfigAutodefinedReversePtrOutput() ResolverConfigAutodefinedReversePtrOutput {
-	return e.ToResolverConfigAutodefinedReversePtrOutputWithContext(context.Background())
-}
-
-func (e ResolverConfigAutodefinedReverse) ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReversePtrOutput {
-	return ResolverConfigAutodefinedReverse(e).ToResolverConfigAutodefinedReverseOutputWithContext(ctx).ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx)
-}
-
-func (e ResolverConfigAutodefinedReverse) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverConfigAutodefinedReverse) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverConfigAutodefinedReverse) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverConfigAutodefinedReverse) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ResolverConfigAutodefinedReverseOutput struct{ *pulumi.OutputState }
 
@@ -1467,44 +1135,6 @@ func (o ResolverConfigAutodefinedReversePtrOutput) ToStringPtrOutputWithContext(
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ResolverConfigAutodefinedReverseInput is an input type that accepts ResolverConfigAutodefinedReverseArgs and ResolverConfigAutodefinedReverseOutput values.
-// You can construct a concrete instance of `ResolverConfigAutodefinedReverseInput` via:
-//
-//          ResolverConfigAutodefinedReverseArgs{...}
-type ResolverConfigAutodefinedReverseInput interface {
-	pulumi.Input
-
-	ToResolverConfigAutodefinedReverseOutput() ResolverConfigAutodefinedReverseOutput
-	ToResolverConfigAutodefinedReverseOutputWithContext(context.Context) ResolverConfigAutodefinedReverseOutput
-}
-
-var resolverConfigAutodefinedReversePtrType = reflect.TypeOf((**ResolverConfigAutodefinedReverse)(nil)).Elem()
-
-type ResolverConfigAutodefinedReversePtrInput interface {
-	pulumi.Input
-
-	ToResolverConfigAutodefinedReversePtrOutput() ResolverConfigAutodefinedReversePtrOutput
-	ToResolverConfigAutodefinedReversePtrOutputWithContext(context.Context) ResolverConfigAutodefinedReversePtrOutput
-}
-
-type resolverConfigAutodefinedReversePtr string
-
-func ResolverConfigAutodefinedReversePtr(v string) ResolverConfigAutodefinedReversePtrInput {
-	return (*resolverConfigAutodefinedReversePtr)(&v)
-}
-
-func (*resolverConfigAutodefinedReversePtr) ElementType() reflect.Type {
-	return resolverConfigAutodefinedReversePtrType
-}
-
-func (in *resolverConfigAutodefinedReversePtr) ToResolverConfigAutodefinedReversePtrOutput() ResolverConfigAutodefinedReversePtrOutput {
-	return pulumi.ToOutput(in).(ResolverConfigAutodefinedReversePtrOutput)
-}
-
-func (in *resolverConfigAutodefinedReversePtr) ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReversePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResolverConfigAutodefinedReversePtrOutput)
 }
 
 // Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
@@ -1681,42 +1311,6 @@ const (
 	ResolverDNSSECConfigValidationStatusDisabled  = ResolverDNSSECConfigValidationStatus("DISABLED")
 )
 
-func (ResolverDNSSECConfigValidationStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverDNSSECConfigValidationStatus)(nil)).Elem()
-}
-
-func (e ResolverDNSSECConfigValidationStatus) ToResolverDNSSECConfigValidationStatusOutput() ResolverDNSSECConfigValidationStatusOutput {
-	return pulumi.ToOutput(e).(ResolverDNSSECConfigValidationStatusOutput)
-}
-
-func (e ResolverDNSSECConfigValidationStatus) ToResolverDNSSECConfigValidationStatusOutputWithContext(ctx context.Context) ResolverDNSSECConfigValidationStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResolverDNSSECConfigValidationStatusOutput)
-}
-
-func (e ResolverDNSSECConfigValidationStatus) ToResolverDNSSECConfigValidationStatusPtrOutput() ResolverDNSSECConfigValidationStatusPtrOutput {
-	return e.ToResolverDNSSECConfigValidationStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverDNSSECConfigValidationStatus) ToResolverDNSSECConfigValidationStatusPtrOutputWithContext(ctx context.Context) ResolverDNSSECConfigValidationStatusPtrOutput {
-	return ResolverDNSSECConfigValidationStatus(e).ToResolverDNSSECConfigValidationStatusOutputWithContext(ctx).ToResolverDNSSECConfigValidationStatusPtrOutputWithContext(ctx)
-}
-
-func (e ResolverDNSSECConfigValidationStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverDNSSECConfigValidationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverDNSSECConfigValidationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverDNSSECConfigValidationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type ResolverDNSSECConfigValidationStatusOutput struct{ *pulumi.OutputState }
 
 func (ResolverDNSSECConfigValidationStatusOutput) ElementType() reflect.Type {
@@ -1800,44 +1394,6 @@ func (o ResolverDNSSECConfigValidationStatusPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResolverDNSSECConfigValidationStatusInput is an input type that accepts ResolverDNSSECConfigValidationStatusArgs and ResolverDNSSECConfigValidationStatusOutput values.
-// You can construct a concrete instance of `ResolverDNSSECConfigValidationStatusInput` via:
-//
-//          ResolverDNSSECConfigValidationStatusArgs{...}
-type ResolverDNSSECConfigValidationStatusInput interface {
-	pulumi.Input
-
-	ToResolverDNSSECConfigValidationStatusOutput() ResolverDNSSECConfigValidationStatusOutput
-	ToResolverDNSSECConfigValidationStatusOutputWithContext(context.Context) ResolverDNSSECConfigValidationStatusOutput
-}
-
-var resolverDNSSECConfigValidationStatusPtrType = reflect.TypeOf((**ResolverDNSSECConfigValidationStatus)(nil)).Elem()
-
-type ResolverDNSSECConfigValidationStatusPtrInput interface {
-	pulumi.Input
-
-	ToResolverDNSSECConfigValidationStatusPtrOutput() ResolverDNSSECConfigValidationStatusPtrOutput
-	ToResolverDNSSECConfigValidationStatusPtrOutputWithContext(context.Context) ResolverDNSSECConfigValidationStatusPtrOutput
-}
-
-type resolverDNSSECConfigValidationStatusPtr string
-
-func ResolverDNSSECConfigValidationStatusPtr(v string) ResolverDNSSECConfigValidationStatusPtrInput {
-	return (*resolverDNSSECConfigValidationStatusPtr)(&v)
-}
-
-func (*resolverDNSSECConfigValidationStatusPtr) ElementType() reflect.Type {
-	return resolverDNSSECConfigValidationStatusPtrType
-}
-
-func (in *resolverDNSSECConfigValidationStatusPtr) ToResolverDNSSECConfigValidationStatusPtrOutput() ResolverDNSSECConfigValidationStatusPtrOutput {
-	return pulumi.ToOutput(in).(ResolverDNSSECConfigValidationStatusPtrOutput)
-}
-
-func (in *resolverDNSSECConfigValidationStatusPtr) ToResolverDNSSECConfigValidationStatusPtrOutputWithContext(ctx context.Context) ResolverDNSSECConfigValidationStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResolverDNSSECConfigValidationStatusPtrOutput)
-}
-
 // ResolverQueryLogConfigAssociationError
 type ResolverQueryLoggingConfigAssociationError string
 
@@ -1846,42 +1402,6 @@ const (
 	ResolverQueryLoggingConfigAssociationErrorDestinationNotFound = ResolverQueryLoggingConfigAssociationError("DESTINATION_NOT_FOUND")
 	ResolverQueryLoggingConfigAssociationErrorAccessDenied        = ResolverQueryLoggingConfigAssociationError("ACCESS_DENIED")
 )
-
-func (ResolverQueryLoggingConfigAssociationError) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLoggingConfigAssociationError)(nil)).Elem()
-}
-
-func (e ResolverQueryLoggingConfigAssociationError) ToResolverQueryLoggingConfigAssociationErrorOutput() ResolverQueryLoggingConfigAssociationErrorOutput {
-	return pulumi.ToOutput(e).(ResolverQueryLoggingConfigAssociationErrorOutput)
-}
-
-func (e ResolverQueryLoggingConfigAssociationError) ToResolverQueryLoggingConfigAssociationErrorOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResolverQueryLoggingConfigAssociationErrorOutput)
-}
-
-func (e ResolverQueryLoggingConfigAssociationError) ToResolverQueryLoggingConfigAssociationErrorPtrOutput() ResolverQueryLoggingConfigAssociationErrorPtrOutput {
-	return e.ToResolverQueryLoggingConfigAssociationErrorPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverQueryLoggingConfigAssociationError) ToResolverQueryLoggingConfigAssociationErrorPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationErrorPtrOutput {
-	return ResolverQueryLoggingConfigAssociationError(e).ToResolverQueryLoggingConfigAssociationErrorOutputWithContext(ctx).ToResolverQueryLoggingConfigAssociationErrorPtrOutputWithContext(ctx)
-}
-
-func (e ResolverQueryLoggingConfigAssociationError) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverQueryLoggingConfigAssociationError) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverQueryLoggingConfigAssociationError) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverQueryLoggingConfigAssociationError) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ResolverQueryLoggingConfigAssociationErrorOutput struct{ *pulumi.OutputState }
 
@@ -1966,44 +1486,6 @@ func (o ResolverQueryLoggingConfigAssociationErrorPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResolverQueryLoggingConfigAssociationErrorInput is an input type that accepts ResolverQueryLoggingConfigAssociationErrorArgs and ResolverQueryLoggingConfigAssociationErrorOutput values.
-// You can construct a concrete instance of `ResolverQueryLoggingConfigAssociationErrorInput` via:
-//
-//          ResolverQueryLoggingConfigAssociationErrorArgs{...}
-type ResolverQueryLoggingConfigAssociationErrorInput interface {
-	pulumi.Input
-
-	ToResolverQueryLoggingConfigAssociationErrorOutput() ResolverQueryLoggingConfigAssociationErrorOutput
-	ToResolverQueryLoggingConfigAssociationErrorOutputWithContext(context.Context) ResolverQueryLoggingConfigAssociationErrorOutput
-}
-
-var resolverQueryLoggingConfigAssociationErrorPtrType = reflect.TypeOf((**ResolverQueryLoggingConfigAssociationError)(nil)).Elem()
-
-type ResolverQueryLoggingConfigAssociationErrorPtrInput interface {
-	pulumi.Input
-
-	ToResolverQueryLoggingConfigAssociationErrorPtrOutput() ResolverQueryLoggingConfigAssociationErrorPtrOutput
-	ToResolverQueryLoggingConfigAssociationErrorPtrOutputWithContext(context.Context) ResolverQueryLoggingConfigAssociationErrorPtrOutput
-}
-
-type resolverQueryLoggingConfigAssociationErrorPtr string
-
-func ResolverQueryLoggingConfigAssociationErrorPtr(v string) ResolverQueryLoggingConfigAssociationErrorPtrInput {
-	return (*resolverQueryLoggingConfigAssociationErrorPtr)(&v)
-}
-
-func (*resolverQueryLoggingConfigAssociationErrorPtr) ElementType() reflect.Type {
-	return resolverQueryLoggingConfigAssociationErrorPtrType
-}
-
-func (in *resolverQueryLoggingConfigAssociationErrorPtr) ToResolverQueryLoggingConfigAssociationErrorPtrOutput() ResolverQueryLoggingConfigAssociationErrorPtrOutput {
-	return pulumi.ToOutput(in).(ResolverQueryLoggingConfigAssociationErrorPtrOutput)
-}
-
-func (in *resolverQueryLoggingConfigAssociationErrorPtr) ToResolverQueryLoggingConfigAssociationErrorPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationErrorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResolverQueryLoggingConfigAssociationErrorPtrOutput)
-}
-
 // ResolverQueryLogConfigAssociationStatus
 type ResolverQueryLoggingConfigAssociationStatus string
 
@@ -2015,42 +1497,6 @@ const (
 	ResolverQueryLoggingConfigAssociationStatusFailed       = ResolverQueryLoggingConfigAssociationStatus("FAILED")
 	ResolverQueryLoggingConfigAssociationStatusOverridden   = ResolverQueryLoggingConfigAssociationStatus("OVERRIDDEN")
 )
-
-func (ResolverQueryLoggingConfigAssociationStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLoggingConfigAssociationStatus)(nil)).Elem()
-}
-
-func (e ResolverQueryLoggingConfigAssociationStatus) ToResolverQueryLoggingConfigAssociationStatusOutput() ResolverQueryLoggingConfigAssociationStatusOutput {
-	return pulumi.ToOutput(e).(ResolverQueryLoggingConfigAssociationStatusOutput)
-}
-
-func (e ResolverQueryLoggingConfigAssociationStatus) ToResolverQueryLoggingConfigAssociationStatusOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResolverQueryLoggingConfigAssociationStatusOutput)
-}
-
-func (e ResolverQueryLoggingConfigAssociationStatus) ToResolverQueryLoggingConfigAssociationStatusPtrOutput() ResolverQueryLoggingConfigAssociationStatusPtrOutput {
-	return e.ToResolverQueryLoggingConfigAssociationStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverQueryLoggingConfigAssociationStatus) ToResolverQueryLoggingConfigAssociationStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationStatusPtrOutput {
-	return ResolverQueryLoggingConfigAssociationStatus(e).ToResolverQueryLoggingConfigAssociationStatusOutputWithContext(ctx).ToResolverQueryLoggingConfigAssociationStatusPtrOutputWithContext(ctx)
-}
-
-func (e ResolverQueryLoggingConfigAssociationStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverQueryLoggingConfigAssociationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverQueryLoggingConfigAssociationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverQueryLoggingConfigAssociationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ResolverQueryLoggingConfigAssociationStatusOutput struct{ *pulumi.OutputState }
 
@@ -2135,44 +1581,6 @@ func (o ResolverQueryLoggingConfigAssociationStatusPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResolverQueryLoggingConfigAssociationStatusInput is an input type that accepts ResolverQueryLoggingConfigAssociationStatusArgs and ResolverQueryLoggingConfigAssociationStatusOutput values.
-// You can construct a concrete instance of `ResolverQueryLoggingConfigAssociationStatusInput` via:
-//
-//          ResolverQueryLoggingConfigAssociationStatusArgs{...}
-type ResolverQueryLoggingConfigAssociationStatusInput interface {
-	pulumi.Input
-
-	ToResolverQueryLoggingConfigAssociationStatusOutput() ResolverQueryLoggingConfigAssociationStatusOutput
-	ToResolverQueryLoggingConfigAssociationStatusOutputWithContext(context.Context) ResolverQueryLoggingConfigAssociationStatusOutput
-}
-
-var resolverQueryLoggingConfigAssociationStatusPtrType = reflect.TypeOf((**ResolverQueryLoggingConfigAssociationStatus)(nil)).Elem()
-
-type ResolverQueryLoggingConfigAssociationStatusPtrInput interface {
-	pulumi.Input
-
-	ToResolverQueryLoggingConfigAssociationStatusPtrOutput() ResolverQueryLoggingConfigAssociationStatusPtrOutput
-	ToResolverQueryLoggingConfigAssociationStatusPtrOutputWithContext(context.Context) ResolverQueryLoggingConfigAssociationStatusPtrOutput
-}
-
-type resolverQueryLoggingConfigAssociationStatusPtr string
-
-func ResolverQueryLoggingConfigAssociationStatusPtr(v string) ResolverQueryLoggingConfigAssociationStatusPtrInput {
-	return (*resolverQueryLoggingConfigAssociationStatusPtr)(&v)
-}
-
-func (*resolverQueryLoggingConfigAssociationStatusPtr) ElementType() reflect.Type {
-	return resolverQueryLoggingConfigAssociationStatusPtrType
-}
-
-func (in *resolverQueryLoggingConfigAssociationStatusPtr) ToResolverQueryLoggingConfigAssociationStatusPtrOutput() ResolverQueryLoggingConfigAssociationStatusPtrOutput {
-	return pulumi.ToOutput(in).(ResolverQueryLoggingConfigAssociationStatusPtrOutput)
-}
-
-func (in *resolverQueryLoggingConfigAssociationStatusPtr) ToResolverQueryLoggingConfigAssociationStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResolverQueryLoggingConfigAssociationStatusPtrOutput)
-}
-
 // ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
 type ResolverQueryLoggingConfigShareStatus string
 
@@ -2181,42 +1589,6 @@ const (
 	ResolverQueryLoggingConfigShareStatusSharedWithMe = ResolverQueryLoggingConfigShareStatus("SHARED_WITH_ME")
 	ResolverQueryLoggingConfigShareStatusSharedByMe   = ResolverQueryLoggingConfigShareStatus("SHARED_BY_ME")
 )
-
-func (ResolverQueryLoggingConfigShareStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLoggingConfigShareStatus)(nil)).Elem()
-}
-
-func (e ResolverQueryLoggingConfigShareStatus) ToResolverQueryLoggingConfigShareStatusOutput() ResolverQueryLoggingConfigShareStatusOutput {
-	return pulumi.ToOutput(e).(ResolverQueryLoggingConfigShareStatusOutput)
-}
-
-func (e ResolverQueryLoggingConfigShareStatus) ToResolverQueryLoggingConfigShareStatusOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigShareStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResolverQueryLoggingConfigShareStatusOutput)
-}
-
-func (e ResolverQueryLoggingConfigShareStatus) ToResolverQueryLoggingConfigShareStatusPtrOutput() ResolverQueryLoggingConfigShareStatusPtrOutput {
-	return e.ToResolverQueryLoggingConfigShareStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverQueryLoggingConfigShareStatus) ToResolverQueryLoggingConfigShareStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigShareStatusPtrOutput {
-	return ResolverQueryLoggingConfigShareStatus(e).ToResolverQueryLoggingConfigShareStatusOutputWithContext(ctx).ToResolverQueryLoggingConfigShareStatusPtrOutputWithContext(ctx)
-}
-
-func (e ResolverQueryLoggingConfigShareStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverQueryLoggingConfigShareStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverQueryLoggingConfigShareStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverQueryLoggingConfigShareStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ResolverQueryLoggingConfigShareStatusOutput struct{ *pulumi.OutputState }
 
@@ -2301,44 +1673,6 @@ func (o ResolverQueryLoggingConfigShareStatusPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResolverQueryLoggingConfigShareStatusInput is an input type that accepts ResolverQueryLoggingConfigShareStatusArgs and ResolverQueryLoggingConfigShareStatusOutput values.
-// You can construct a concrete instance of `ResolverQueryLoggingConfigShareStatusInput` via:
-//
-//          ResolverQueryLoggingConfigShareStatusArgs{...}
-type ResolverQueryLoggingConfigShareStatusInput interface {
-	pulumi.Input
-
-	ToResolverQueryLoggingConfigShareStatusOutput() ResolverQueryLoggingConfigShareStatusOutput
-	ToResolverQueryLoggingConfigShareStatusOutputWithContext(context.Context) ResolverQueryLoggingConfigShareStatusOutput
-}
-
-var resolverQueryLoggingConfigShareStatusPtrType = reflect.TypeOf((**ResolverQueryLoggingConfigShareStatus)(nil)).Elem()
-
-type ResolverQueryLoggingConfigShareStatusPtrInput interface {
-	pulumi.Input
-
-	ToResolverQueryLoggingConfigShareStatusPtrOutput() ResolverQueryLoggingConfigShareStatusPtrOutput
-	ToResolverQueryLoggingConfigShareStatusPtrOutputWithContext(context.Context) ResolverQueryLoggingConfigShareStatusPtrOutput
-}
-
-type resolverQueryLoggingConfigShareStatusPtr string
-
-func ResolverQueryLoggingConfigShareStatusPtr(v string) ResolverQueryLoggingConfigShareStatusPtrInput {
-	return (*resolverQueryLoggingConfigShareStatusPtr)(&v)
-}
-
-func (*resolverQueryLoggingConfigShareStatusPtr) ElementType() reflect.Type {
-	return resolverQueryLoggingConfigShareStatusPtrType
-}
-
-func (in *resolverQueryLoggingConfigShareStatusPtr) ToResolverQueryLoggingConfigShareStatusPtrOutput() ResolverQueryLoggingConfigShareStatusPtrOutput {
-	return pulumi.ToOutput(in).(ResolverQueryLoggingConfigShareStatusPtrOutput)
-}
-
-func (in *resolverQueryLoggingConfigShareStatusPtr) ToResolverQueryLoggingConfigShareStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigShareStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResolverQueryLoggingConfigShareStatusPtrOutput)
-}
-
 // ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
 type ResolverQueryLoggingConfigStatus string
 
@@ -2348,42 +1682,6 @@ const (
 	ResolverQueryLoggingConfigStatusDeleting = ResolverQueryLoggingConfigStatus("DELETING")
 	ResolverQueryLoggingConfigStatusFailed   = ResolverQueryLoggingConfigStatus("FAILED")
 )
-
-func (ResolverQueryLoggingConfigStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLoggingConfigStatus)(nil)).Elem()
-}
-
-func (e ResolverQueryLoggingConfigStatus) ToResolverQueryLoggingConfigStatusOutput() ResolverQueryLoggingConfigStatusOutput {
-	return pulumi.ToOutput(e).(ResolverQueryLoggingConfigStatusOutput)
-}
-
-func (e ResolverQueryLoggingConfigStatus) ToResolverQueryLoggingConfigStatusOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResolverQueryLoggingConfigStatusOutput)
-}
-
-func (e ResolverQueryLoggingConfigStatus) ToResolverQueryLoggingConfigStatusPtrOutput() ResolverQueryLoggingConfigStatusPtrOutput {
-	return e.ToResolverQueryLoggingConfigStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverQueryLoggingConfigStatus) ToResolverQueryLoggingConfigStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigStatusPtrOutput {
-	return ResolverQueryLoggingConfigStatus(e).ToResolverQueryLoggingConfigStatusOutputWithContext(ctx).ToResolverQueryLoggingConfigStatusPtrOutputWithContext(ctx)
-}
-
-func (e ResolverQueryLoggingConfigStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverQueryLoggingConfigStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResolverQueryLoggingConfigStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResolverQueryLoggingConfigStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ResolverQueryLoggingConfigStatusOutput struct{ *pulumi.OutputState }
 
@@ -2466,44 +1764,6 @@ func (o ResolverQueryLoggingConfigStatusPtrOutput) ToStringPtrOutputWithContext(
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ResolverQueryLoggingConfigStatusInput is an input type that accepts ResolverQueryLoggingConfigStatusArgs and ResolverQueryLoggingConfigStatusOutput values.
-// You can construct a concrete instance of `ResolverQueryLoggingConfigStatusInput` via:
-//
-//          ResolverQueryLoggingConfigStatusArgs{...}
-type ResolverQueryLoggingConfigStatusInput interface {
-	pulumi.Input
-
-	ToResolverQueryLoggingConfigStatusOutput() ResolverQueryLoggingConfigStatusOutput
-	ToResolverQueryLoggingConfigStatusOutputWithContext(context.Context) ResolverQueryLoggingConfigStatusOutput
-}
-
-var resolverQueryLoggingConfigStatusPtrType = reflect.TypeOf((**ResolverQueryLoggingConfigStatus)(nil)).Elem()
-
-type ResolverQueryLoggingConfigStatusPtrInput interface {
-	pulumi.Input
-
-	ToResolverQueryLoggingConfigStatusPtrOutput() ResolverQueryLoggingConfigStatusPtrOutput
-	ToResolverQueryLoggingConfigStatusPtrOutputWithContext(context.Context) ResolverQueryLoggingConfigStatusPtrOutput
-}
-
-type resolverQueryLoggingConfigStatusPtr string
-
-func ResolverQueryLoggingConfigStatusPtr(v string) ResolverQueryLoggingConfigStatusPtrInput {
-	return (*resolverQueryLoggingConfigStatusPtr)(&v)
-}
-
-func (*resolverQueryLoggingConfigStatusPtr) ElementType() reflect.Type {
-	return resolverQueryLoggingConfigStatusPtrType
-}
-
-func (in *resolverQueryLoggingConfigStatusPtr) ToResolverQueryLoggingConfigStatusPtrOutput() ResolverQueryLoggingConfigStatusPtrOutput {
-	return pulumi.ToOutput(in).(ResolverQueryLoggingConfigStatusPtrOutput)
-}
-
-func (in *resolverQueryLoggingConfigStatusPtr) ToResolverQueryLoggingConfigStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResolverQueryLoggingConfigStatusPtrOutput)
 }
 
 // When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
@@ -2673,36 +1933,16 @@ func (in *resolverRuleRuleTypePtr) ToResolverRuleRuleTypePtrOutputWithContext(ct
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallDomainListStatusInput)(nil)).Elem(), FirewallDomainListStatus("COMPLETE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallDomainListStatusPtrInput)(nil)).Elem(), FirewallDomainListStatus("COMPLETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationMutationProtectionInput)(nil)).Elem(), FirewallRuleGroupAssociationMutationProtection("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationMutationProtectionPtrInput)(nil)).Elem(), FirewallRuleGroupAssociationMutationProtection("ENABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationStatusInput)(nil)).Elem(), FirewallRuleGroupAssociationStatus("COMPLETE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationStatusPtrInput)(nil)).Elem(), FirewallRuleGroupAssociationStatus("COMPLETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleActionInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleActionPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockOverrideDnsType("CNAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockOverrideDnsType("CNAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockResponseInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockResponse("NODATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockResponsePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockResponse("NODATA"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupShareStatusInput)(nil)).Elem(), FirewallRuleGroupShareStatus("NOT_SHARED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupShareStatusPtrInput)(nil)).Elem(), FirewallRuleGroupShareStatus("NOT_SHARED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupStatusInput)(nil)).Elem(), FirewallRuleGroupStatus("COMPLETE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupStatusPtrInput)(nil)).Elem(), FirewallRuleGroupStatus("COMPLETE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseInput)(nil)).Elem(), ResolverConfigAutodefinedReverse("ENABLING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReversePtrInput)(nil)).Elem(), ResolverConfigAutodefinedReverse("ENABLING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagPtrInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDNSSECConfigValidationStatusInput)(nil)).Elem(), ResolverDNSSECConfigValidationStatus("ENABLING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDNSSECConfigValidationStatusPtrInput)(nil)).Elem(), ResolverDNSSECConfigValidationStatus("ENABLING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationErrorInput)(nil)).Elem(), ResolverQueryLoggingConfigAssociationError("NONE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationErrorPtrInput)(nil)).Elem(), ResolverQueryLoggingConfigAssociationError("NONE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationStatusInput)(nil)).Elem(), ResolverQueryLoggingConfigAssociationStatus("CREATING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationStatusPtrInput)(nil)).Elem(), ResolverQueryLoggingConfigAssociationStatus("CREATING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigShareStatusInput)(nil)).Elem(), ResolverQueryLoggingConfigShareStatus("NOT_SHARED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigShareStatusPtrInput)(nil)).Elem(), ResolverQueryLoggingConfigShareStatus("NOT_SHARED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigStatusInput)(nil)).Elem(), ResolverQueryLoggingConfigStatus("CREATING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigStatusPtrInput)(nil)).Elem(), ResolverQueryLoggingConfigStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypeInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypePtrInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
 	pulumi.RegisterOutputType(FirewallDomainListStatusOutput{})

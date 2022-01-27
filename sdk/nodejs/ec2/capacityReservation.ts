@@ -64,7 +64,7 @@ export class CapacityReservation extends pulumi.CustomResource {
     /** @deprecated CapacityReservation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CapacityReservationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CapacityReservation is deprecated: CapacityReservation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
@@ -79,42 +79,40 @@ export class CapacityReservation extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["endDateType"] = args ? args.endDateType : undefined;
-            inputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
-            inputs["instanceCount"] = args ? args.instanceCount : undefined;
-            inputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
-            inputs["instancePlatform"] = args ? args.instancePlatform : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["outPostArn"] = args ? args.outPostArn : undefined;
-            inputs["placementGroupArn"] = args ? args.placementGroupArn : undefined;
-            inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            inputs["tenancy"] = args ? args.tenancy : undefined;
-            inputs["availableInstanceCount"] = undefined /*out*/;
-            inputs["totalInstanceCount"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["endDateType"] = args ? args.endDateType : undefined;
+            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
+            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
+            resourceInputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
+            resourceInputs["instancePlatform"] = args ? args.instancePlatform : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["outPostArn"] = args ? args.outPostArn : undefined;
+            resourceInputs["placementGroupArn"] = args ? args.placementGroupArn : undefined;
+            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
+            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
+            resourceInputs["availableInstanceCount"] = undefined /*out*/;
+            resourceInputs["totalInstanceCount"] = undefined /*out*/;
         } else {
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["availableInstanceCount"] = undefined /*out*/;
-            inputs["ebsOptimized"] = undefined /*out*/;
-            inputs["endDate"] = undefined /*out*/;
-            inputs["endDateType"] = undefined /*out*/;
-            inputs["ephemeralStorage"] = undefined /*out*/;
-            inputs["instanceCount"] = undefined /*out*/;
-            inputs["instanceMatchCriteria"] = undefined /*out*/;
-            inputs["instancePlatform"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["outPostArn"] = undefined /*out*/;
-            inputs["placementGroupArn"] = undefined /*out*/;
-            inputs["tagSpecifications"] = undefined /*out*/;
-            inputs["tenancy"] = undefined /*out*/;
-            inputs["totalInstanceCount"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["availableInstanceCount"] = undefined /*out*/;
+            resourceInputs["ebsOptimized"] = undefined /*out*/;
+            resourceInputs["endDate"] = undefined /*out*/;
+            resourceInputs["endDateType"] = undefined /*out*/;
+            resourceInputs["ephemeralStorage"] = undefined /*out*/;
+            resourceInputs["instanceCount"] = undefined /*out*/;
+            resourceInputs["instanceMatchCriteria"] = undefined /*out*/;
+            resourceInputs["instancePlatform"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["outPostArn"] = undefined /*out*/;
+            resourceInputs["placementGroupArn"] = undefined /*out*/;
+            resourceInputs["tagSpecifications"] = undefined /*out*/;
+            resourceInputs["tenancy"] = undefined /*out*/;
+            resourceInputs["totalInstanceCount"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CapacityReservation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CapacityReservation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

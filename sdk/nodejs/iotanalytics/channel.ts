@@ -48,23 +48,21 @@ export class Channel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["channelName"] = args ? args.channelName : undefined;
-            inputs["channelStorage"] = args ? args.channelStorage : undefined;
-            inputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelName"] = args ? args.channelName : undefined;
+            resourceInputs["channelStorage"] = args ? args.channelStorage : undefined;
+            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["channelName"] = undefined /*out*/;
-            inputs["channelStorage"] = undefined /*out*/;
-            inputs["retentionPeriod"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["channelName"] = undefined /*out*/;
+            resourceInputs["channelStorage"] = undefined /*out*/;
+            resourceInputs["retentionPeriod"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Channel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

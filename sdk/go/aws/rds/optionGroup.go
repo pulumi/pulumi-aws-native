@@ -103,7 +103,7 @@ type OptionGroupInput interface {
 }
 
 func (*OptionGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*OptionGroup)(nil))
+	return reflect.TypeOf((**OptionGroup)(nil)).Elem()
 }
 
 func (i *OptionGroup) ToOptionGroupOutput() OptionGroupOutput {
@@ -117,7 +117,7 @@ func (i *OptionGroup) ToOptionGroupOutputWithContext(ctx context.Context) Option
 type OptionGroupOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OptionGroup)(nil))
+	return reflect.TypeOf((**OptionGroup)(nil)).Elem()
 }
 
 func (o OptionGroupOutput) ToOptionGroupOutput() OptionGroupOutput {

@@ -55,7 +55,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cidrBlock === undefined) && !opts.urn) {
@@ -64,34 +64,32 @@ export class Subnet extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
-            inputs["outpostArn"] = args ? args.outpostArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["ipv6CidrBlocks"] = undefined /*out*/;
-            inputs["networkAclAssociationId"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
+            resourceInputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
+            resourceInputs["networkAclAssociationId"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
         } else {
-            inputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["cidrBlock"] = undefined /*out*/;
-            inputs["ipv6CidrBlock"] = undefined /*out*/;
-            inputs["ipv6CidrBlocks"] = undefined /*out*/;
-            inputs["mapPublicIpOnLaunch"] = undefined /*out*/;
-            inputs["networkAclAssociationId"] = undefined /*out*/;
-            inputs["outpostArn"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
+            resourceInputs["mapPublicIpOnLaunch"] = undefined /*out*/;
+            resourceInputs["networkAclAssociationId"] = undefined /*out*/;
+            resourceInputs["outpostArn"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Subnet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Subnet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

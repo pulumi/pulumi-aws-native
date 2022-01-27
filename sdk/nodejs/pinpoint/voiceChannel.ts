@@ -50,22 +50,20 @@ export class VoiceChannel extends pulumi.CustomResource {
     /** @deprecated VoiceChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VoiceChannelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VoiceChannel is deprecated: VoiceChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VoiceChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VoiceChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

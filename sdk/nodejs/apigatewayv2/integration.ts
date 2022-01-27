@@ -67,7 +67,7 @@ export class Integration extends pulumi.CustomResource {
     /** @deprecated Integration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Integration is deprecated: Integration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -76,48 +76,46 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.integrationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationType'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["connectionType"] = args ? args.connectionType : undefined;
-            inputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
-            inputs["credentialsArn"] = args ? args.credentialsArn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["integrationMethod"] = args ? args.integrationMethod : undefined;
-            inputs["integrationSubtype"] = args ? args.integrationSubtype : undefined;
-            inputs["integrationType"] = args ? args.integrationType : undefined;
-            inputs["integrationUri"] = args ? args.integrationUri : undefined;
-            inputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
-            inputs["payloadFormatVersion"] = args ? args.payloadFormatVersion : undefined;
-            inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["requestTemplates"] = args ? args.requestTemplates : undefined;
-            inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
-            inputs["timeoutInMillis"] = args ? args.timeoutInMillis : undefined;
-            inputs["tlsConfig"] = args ? args.tlsConfig : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
+            resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
+            resourceInputs["credentialsArn"] = args ? args.credentialsArn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["integrationMethod"] = args ? args.integrationMethod : undefined;
+            resourceInputs["integrationSubtype"] = args ? args.integrationSubtype : undefined;
+            resourceInputs["integrationType"] = args ? args.integrationType : undefined;
+            resourceInputs["integrationUri"] = args ? args.integrationUri : undefined;
+            resourceInputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
+            resourceInputs["payloadFormatVersion"] = args ? args.payloadFormatVersion : undefined;
+            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
+            resourceInputs["requestTemplates"] = args ? args.requestTemplates : undefined;
+            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
+            resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
+            resourceInputs["timeoutInMillis"] = args ? args.timeoutInMillis : undefined;
+            resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["connectionId"] = undefined /*out*/;
-            inputs["connectionType"] = undefined /*out*/;
-            inputs["contentHandlingStrategy"] = undefined /*out*/;
-            inputs["credentialsArn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["integrationMethod"] = undefined /*out*/;
-            inputs["integrationSubtype"] = undefined /*out*/;
-            inputs["integrationType"] = undefined /*out*/;
-            inputs["integrationUri"] = undefined /*out*/;
-            inputs["passthroughBehavior"] = undefined /*out*/;
-            inputs["payloadFormatVersion"] = undefined /*out*/;
-            inputs["requestParameters"] = undefined /*out*/;
-            inputs["requestTemplates"] = undefined /*out*/;
-            inputs["responseParameters"] = undefined /*out*/;
-            inputs["templateSelectionExpression"] = undefined /*out*/;
-            inputs["timeoutInMillis"] = undefined /*out*/;
-            inputs["tlsConfig"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["connectionId"] = undefined /*out*/;
+            resourceInputs["connectionType"] = undefined /*out*/;
+            resourceInputs["contentHandlingStrategy"] = undefined /*out*/;
+            resourceInputs["credentialsArn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["integrationMethod"] = undefined /*out*/;
+            resourceInputs["integrationSubtype"] = undefined /*out*/;
+            resourceInputs["integrationType"] = undefined /*out*/;
+            resourceInputs["integrationUri"] = undefined /*out*/;
+            resourceInputs["passthroughBehavior"] = undefined /*out*/;
+            resourceInputs["payloadFormatVersion"] = undefined /*out*/;
+            resourceInputs["requestParameters"] = undefined /*out*/;
+            resourceInputs["requestTemplates"] = undefined /*out*/;
+            resourceInputs["responseParameters"] = undefined /*out*/;
+            resourceInputs["templateSelectionExpression"] = undefined /*out*/;
+            resourceInputs["timeoutInMillis"] = undefined /*out*/;
+            resourceInputs["tlsConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Integration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

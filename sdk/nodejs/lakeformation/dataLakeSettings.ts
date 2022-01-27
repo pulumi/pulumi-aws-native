@@ -51,19 +51,17 @@ export class DataLakeSettings extends pulumi.CustomResource {
     /** @deprecated DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: DataLakeSettingsArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DataLakeSettings is deprecated: DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["admins"] = args ? args.admins : undefined;
-            inputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
+            resourceInputs["admins"] = args ? args.admins : undefined;
+            resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
         } else {
-            inputs["admins"] = undefined /*out*/;
-            inputs["trustedResourceOwners"] = undefined /*out*/;
+            resourceInputs["admins"] = undefined /*out*/;
+            resourceInputs["trustedResourceOwners"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataLakeSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataLakeSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

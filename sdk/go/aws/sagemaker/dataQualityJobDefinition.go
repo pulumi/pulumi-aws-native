@@ -129,7 +129,7 @@ type DataQualityJobDefinitionInput interface {
 }
 
 func (*DataQualityJobDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataQualityJobDefinition)(nil))
+	return reflect.TypeOf((**DataQualityJobDefinition)(nil)).Elem()
 }
 
 func (i *DataQualityJobDefinition) ToDataQualityJobDefinitionOutput() DataQualityJobDefinitionOutput {
@@ -143,7 +143,7 @@ func (i *DataQualityJobDefinition) ToDataQualityJobDefinitionOutputWithContext(c
 type DataQualityJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataQualityJobDefinition)(nil))
+	return reflect.TypeOf((**DataQualityJobDefinition)(nil)).Elem()
 }
 
 func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutput() DataQualityJobDefinitionOutput {

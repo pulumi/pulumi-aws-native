@@ -94,7 +94,7 @@ type SubnetGroupInput interface {
 }
 
 func (*SubnetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetGroup)(nil))
+	return reflect.TypeOf((**SubnetGroup)(nil)).Elem()
 }
 
 func (i *SubnetGroup) ToSubnetGroupOutput() SubnetGroupOutput {
@@ -108,7 +108,7 @@ func (i *SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) Subnet
 type SubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (SubnetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetGroup)(nil))
+	return reflect.TypeOf((**SubnetGroup)(nil)).Elem()
 }
 
 func (o SubnetGroupOutput) ToSubnetGroupOutput() SubnetGroupOutput {

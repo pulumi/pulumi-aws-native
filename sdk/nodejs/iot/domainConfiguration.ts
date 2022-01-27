@@ -55,37 +55,35 @@ export class DomainConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DomainConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["authorizerConfig"] = args ? args.authorizerConfig : undefined;
-            inputs["domainConfigurationName"] = args ? args.domainConfigurationName : undefined;
-            inputs["domainConfigurationStatus"] = args ? args.domainConfigurationStatus : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["serverCertificateArns"] = args ? args.serverCertificateArns : undefined;
-            inputs["serviceType"] = args ? args.serviceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validationCertificateArn"] = args ? args.validationCertificateArn : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainType"] = undefined /*out*/;
-            inputs["serverCertificates"] = undefined /*out*/;
+            resourceInputs["authorizerConfig"] = args ? args.authorizerConfig : undefined;
+            resourceInputs["domainConfigurationName"] = args ? args.domainConfigurationName : undefined;
+            resourceInputs["domainConfigurationStatus"] = args ? args.domainConfigurationStatus : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["serverCertificateArns"] = args ? args.serverCertificateArns : undefined;
+            resourceInputs["serviceType"] = args ? args.serviceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validationCertificateArn"] = args ? args.validationCertificateArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["domainType"] = undefined /*out*/;
+            resourceInputs["serverCertificates"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["authorizerConfig"] = undefined /*out*/;
-            inputs["domainConfigurationName"] = undefined /*out*/;
-            inputs["domainConfigurationStatus"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["domainType"] = undefined /*out*/;
-            inputs["serverCertificateArns"] = undefined /*out*/;
-            inputs["serverCertificates"] = undefined /*out*/;
-            inputs["serviceType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["validationCertificateArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authorizerConfig"] = undefined /*out*/;
+            resourceInputs["domainConfigurationName"] = undefined /*out*/;
+            resourceInputs["domainConfigurationStatus"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainType"] = undefined /*out*/;
+            resourceInputs["serverCertificateArns"] = undefined /*out*/;
+            resourceInputs["serverCertificates"] = undefined /*out*/;
+            resourceInputs["serviceType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["validationCertificateArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

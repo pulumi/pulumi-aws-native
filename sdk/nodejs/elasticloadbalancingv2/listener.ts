@@ -52,7 +52,7 @@ export class Listener extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.defaultActions === undefined) && !opts.urn) {
@@ -61,28 +61,26 @@ export class Listener extends pulumi.CustomResource {
             if ((!args || args.loadBalancerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
-            inputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
-            inputs["certificates"] = args ? args.certificates : undefined;
-            inputs["defaultActions"] = args ? args.defaultActions : undefined;
-            inputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["sslPolicy"] = args ? args.sslPolicy : undefined;
-            inputs["listenerArn"] = undefined /*out*/;
+            resourceInputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
+            resourceInputs["certificates"] = args ? args.certificates : undefined;
+            resourceInputs["defaultActions"] = args ? args.defaultActions : undefined;
+            resourceInputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
+            resourceInputs["listenerArn"] = undefined /*out*/;
         } else {
-            inputs["alpnPolicy"] = undefined /*out*/;
-            inputs["certificates"] = undefined /*out*/;
-            inputs["defaultActions"] = undefined /*out*/;
-            inputs["listenerArn"] = undefined /*out*/;
-            inputs["loadBalancerArn"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["sslPolicy"] = undefined /*out*/;
+            resourceInputs["alpnPolicy"] = undefined /*out*/;
+            resourceInputs["certificates"] = undefined /*out*/;
+            resourceInputs["defaultActions"] = undefined /*out*/;
+            resourceInputs["listenerArn"] = undefined /*out*/;
+            resourceInputs["loadBalancerArn"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["sslPolicy"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Listener.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Listener.__pulumiType, name, resourceInputs, opts);
     }
 }
 

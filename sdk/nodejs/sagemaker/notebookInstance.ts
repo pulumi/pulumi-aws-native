@@ -64,7 +64,7 @@ export class NotebookInstance extends pulumi.CustomResource {
     /** @deprecated NotebookInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NotebookInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NotebookInstance is deprecated: NotebookInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
@@ -73,42 +73,40 @@ export class NotebookInstance extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["acceleratorTypes"] = args ? args.acceleratorTypes : undefined;
-            inputs["additionalCodeRepositories"] = args ? args.additionalCodeRepositories : undefined;
-            inputs["defaultCodeRepository"] = args ? args.defaultCodeRepository : undefined;
-            inputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
-            inputs["notebookInstanceName"] = args ? args.notebookInstanceName : undefined;
-            inputs["platformIdentifier"] = args ? args.platformIdentifier : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["rootAccess"] = args ? args.rootAccess : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["volumeSizeInGB"] = args ? args.volumeSizeInGB : undefined;
+            resourceInputs["acceleratorTypes"] = args ? args.acceleratorTypes : undefined;
+            resourceInputs["additionalCodeRepositories"] = args ? args.additionalCodeRepositories : undefined;
+            resourceInputs["defaultCodeRepository"] = args ? args.defaultCodeRepository : undefined;
+            resourceInputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
+            resourceInputs["notebookInstanceName"] = args ? args.notebookInstanceName : undefined;
+            resourceInputs["platformIdentifier"] = args ? args.platformIdentifier : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["rootAccess"] = args ? args.rootAccess : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["volumeSizeInGB"] = args ? args.volumeSizeInGB : undefined;
         } else {
-            inputs["acceleratorTypes"] = undefined /*out*/;
-            inputs["additionalCodeRepositories"] = undefined /*out*/;
-            inputs["defaultCodeRepository"] = undefined /*out*/;
-            inputs["directInternetAccess"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["lifecycleConfigName"] = undefined /*out*/;
-            inputs["notebookInstanceName"] = undefined /*out*/;
-            inputs["platformIdentifier"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["rootAccess"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["volumeSizeInGB"] = undefined /*out*/;
+            resourceInputs["acceleratorTypes"] = undefined /*out*/;
+            resourceInputs["additionalCodeRepositories"] = undefined /*out*/;
+            resourceInputs["defaultCodeRepository"] = undefined /*out*/;
+            resourceInputs["directInternetAccess"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["lifecycleConfigName"] = undefined /*out*/;
+            resourceInputs["notebookInstanceName"] = undefined /*out*/;
+            resourceInputs["platformIdentifier"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["rootAccess"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["volumeSizeInGB"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotebookInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotebookInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

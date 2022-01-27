@@ -96,7 +96,7 @@ type InAppTemplateInput interface {
 }
 
 func (*InAppTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*InAppTemplate)(nil))
+	return reflect.TypeOf((**InAppTemplate)(nil)).Elem()
 }
 
 func (i *InAppTemplate) ToInAppTemplateOutput() InAppTemplateOutput {
@@ -110,7 +110,7 @@ func (i *InAppTemplate) ToInAppTemplateOutputWithContext(ctx context.Context) In
 type InAppTemplateOutput struct{ *pulumi.OutputState }
 
 func (InAppTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InAppTemplate)(nil))
+	return reflect.TypeOf((**InAppTemplate)(nil)).Elem()
 }
 
 func (o InAppTemplateOutput) ToInAppTemplateOutput() InAppTemplateOutput {

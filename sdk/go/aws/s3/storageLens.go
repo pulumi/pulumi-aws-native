@@ -86,7 +86,7 @@ type StorageLensInput interface {
 }
 
 func (*StorageLens) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageLens)(nil))
+	return reflect.TypeOf((**StorageLens)(nil)).Elem()
 }
 
 func (i *StorageLens) ToStorageLensOutput() StorageLensOutput {
@@ -100,7 +100,7 @@ func (i *StorageLens) ToStorageLensOutputWithContext(ctx context.Context) Storag
 type StorageLensOutput struct{ *pulumi.OutputState }
 
 func (StorageLensOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageLens)(nil))
+	return reflect.TypeOf((**StorageLens)(nil)).Elem()
 }
 
 func (o StorageLensOutput) ToStorageLensOutput() StorageLensOutput {

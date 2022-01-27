@@ -89,47 +89,45 @@ export class DataSource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DataSourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["alternateDataSourceParameters"] = args ? args.alternateDataSourceParameters : undefined;
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            inputs["dataSourceParameters"] = args ? args.dataSourceParameters : undefined;
-            inputs["errorInfo"] = args ? args.errorInfo : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["sslProperties"] = args ? args.sslProperties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpcConnectionProperties"] = args ? args.vpcConnectionProperties : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["alternateDataSourceParameters"] = args ? args.alternateDataSourceParameters : undefined;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
+            resourceInputs["dataSourceParameters"] = args ? args.dataSourceParameters : undefined;
+            resourceInputs["errorInfo"] = args ? args.errorInfo : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["sslProperties"] = args ? args.sslProperties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpcConnectionProperties"] = args ? args.vpcConnectionProperties : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["alternateDataSourceParameters"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["credentials"] = undefined /*out*/;
-            inputs["dataSourceId"] = undefined /*out*/;
-            inputs["dataSourceParameters"] = undefined /*out*/;
-            inputs["errorInfo"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["sslProperties"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vpcConnectionProperties"] = undefined /*out*/;
+            resourceInputs["alternateDataSourceParameters"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["dataSourceId"] = undefined /*out*/;
+            resourceInputs["dataSourceParameters"] = undefined /*out*/;
+            resourceInputs["errorInfo"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["sslProperties"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpcConnectionProperties"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataSource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

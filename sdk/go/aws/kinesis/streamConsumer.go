@@ -91,7 +91,7 @@ type StreamConsumerInput interface {
 }
 
 func (*StreamConsumer) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamConsumer)(nil))
+	return reflect.TypeOf((**StreamConsumer)(nil)).Elem()
 }
 
 func (i *StreamConsumer) ToStreamConsumerOutput() StreamConsumerOutput {
@@ -105,7 +105,7 @@ func (i *StreamConsumer) ToStreamConsumerOutputWithContext(ctx context.Context) 
 type StreamConsumerOutput struct{ *pulumi.OutputState }
 
 func (StreamConsumerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamConsumer)(nil))
+	return reflect.TypeOf((**StreamConsumer)(nil)).Elem()
 }
 
 func (o StreamConsumerOutput) ToStreamConsumerOutput() StreamConsumerOutput {

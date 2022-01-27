@@ -81,7 +81,7 @@ type CachePolicyInput interface {
 }
 
 func (*CachePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachePolicy)(nil))
+	return reflect.TypeOf((**CachePolicy)(nil)).Elem()
 }
 
 func (i *CachePolicy) ToCachePolicyOutput() CachePolicyOutput {
@@ -95,7 +95,7 @@ func (i *CachePolicy) ToCachePolicyOutputWithContext(ctx context.Context) CacheP
 type CachePolicyOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachePolicy)(nil))
+	return reflect.TypeOf((**CachePolicy)(nil)).Elem()
 }
 
 func (o CachePolicyOutput) ToCachePolicyOutput() CachePolicyOutput {

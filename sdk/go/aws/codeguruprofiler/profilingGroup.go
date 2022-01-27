@@ -105,7 +105,7 @@ type ProfilingGroupInput interface {
 }
 
 func (*ProfilingGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfilingGroup)(nil))
+	return reflect.TypeOf((**ProfilingGroup)(nil)).Elem()
 }
 
 func (i *ProfilingGroup) ToProfilingGroupOutput() ProfilingGroupOutput {
@@ -119,7 +119,7 @@ func (i *ProfilingGroup) ToProfilingGroupOutputWithContext(ctx context.Context) 
 type ProfilingGroupOutput struct{ *pulumi.OutputState }
 
 func (ProfilingGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfilingGroup)(nil))
+	return reflect.TypeOf((**ProfilingGroup)(nil)).Elem()
 }
 
 func (o ProfilingGroupOutput) ToProfilingGroupOutput() ProfilingGroupOutput {

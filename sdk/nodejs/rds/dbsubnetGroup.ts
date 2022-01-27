@@ -53,7 +53,7 @@ export class DBSubnetGroup extends pulumi.CustomResource {
     /** @deprecated DBSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DBSubnetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DBSubnetGroup is deprecated: DBSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dBSubnetGroupDescription === undefined) && !opts.urn) {
@@ -62,20 +62,18 @@ export class DBSubnetGroup extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["dBSubnetGroupDescription"] = args ? args.dBSubnetGroupDescription : undefined;
-            inputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dBSubnetGroupDescription"] = args ? args.dBSubnetGroupDescription : undefined;
+            resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["dBSubnetGroupDescription"] = undefined /*out*/;
-            inputs["dBSubnetGroupName"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["dBSubnetGroupDescription"] = undefined /*out*/;
+            resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DBSubnetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DBSubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

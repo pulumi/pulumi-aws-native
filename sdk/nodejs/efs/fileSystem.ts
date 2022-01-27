@@ -60,41 +60,39 @@ export class FileSystem extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["availabilityZoneName"] = args ? args.availabilityZoneName : undefined;
-            inputs["backupPolicy"] = args ? args.backupPolicy : undefined;
-            inputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["fileSystemPolicy"] = args ? args.fileSystemPolicy : undefined;
-            inputs["fileSystemTags"] = args ? args.fileSystemTags : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
-            inputs["performanceMode"] = args ? args.performanceMode : undefined;
-            inputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
-            inputs["throughputMode"] = args ? args.throughputMode : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["availabilityZoneName"] = args ? args.availabilityZoneName : undefined;
+            resourceInputs["backupPolicy"] = args ? args.backupPolicy : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["fileSystemPolicy"] = args ? args.fileSystemPolicy : undefined;
+            resourceInputs["fileSystemTags"] = args ? args.fileSystemTags : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
+            resourceInputs["performanceMode"] = args ? args.performanceMode : undefined;
+            resourceInputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
+            resourceInputs["throughputMode"] = args ? args.throughputMode : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["availabilityZoneName"] = undefined /*out*/;
-            inputs["backupPolicy"] = undefined /*out*/;
-            inputs["bypassPolicyLockoutSafetyCheck"] = undefined /*out*/;
-            inputs["encrypted"] = undefined /*out*/;
-            inputs["fileSystemId"] = undefined /*out*/;
-            inputs["fileSystemPolicy"] = undefined /*out*/;
-            inputs["fileSystemTags"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["lifecyclePolicies"] = undefined /*out*/;
-            inputs["performanceMode"] = undefined /*out*/;
-            inputs["provisionedThroughputInMibps"] = undefined /*out*/;
-            inputs["throughputMode"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["availabilityZoneName"] = undefined /*out*/;
+            resourceInputs["backupPolicy"] = undefined /*out*/;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = undefined /*out*/;
+            resourceInputs["encrypted"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["fileSystemPolicy"] = undefined /*out*/;
+            resourceInputs["fileSystemTags"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["lifecyclePolicies"] = undefined /*out*/;
+            resourceInputs["performanceMode"] = undefined /*out*/;
+            resourceInputs["provisionedThroughputInMibps"] = undefined /*out*/;
+            resourceInputs["throughputMode"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FileSystem.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

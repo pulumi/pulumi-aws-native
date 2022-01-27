@@ -100,7 +100,7 @@ type KnowledgeBaseInput interface {
 }
 
 func (*KnowledgeBase) ElementType() reflect.Type {
-	return reflect.TypeOf((*KnowledgeBase)(nil))
+	return reflect.TypeOf((**KnowledgeBase)(nil)).Elem()
 }
 
 func (i *KnowledgeBase) ToKnowledgeBaseOutput() KnowledgeBaseOutput {
@@ -114,7 +114,7 @@ func (i *KnowledgeBase) ToKnowledgeBaseOutputWithContext(ctx context.Context) Kn
 type KnowledgeBaseOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KnowledgeBase)(nil))
+	return reflect.TypeOf((**KnowledgeBase)(nil)).Elem()
 }
 
 func (o KnowledgeBaseOutput) ToKnowledgeBaseOutput() KnowledgeBaseOutput {

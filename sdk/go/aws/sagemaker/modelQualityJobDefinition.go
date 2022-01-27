@@ -129,7 +129,7 @@ type ModelQualityJobDefinitionInput interface {
 }
 
 func (*ModelQualityJobDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelQualityJobDefinition)(nil))
+	return reflect.TypeOf((**ModelQualityJobDefinition)(nil)).Elem()
 }
 
 func (i *ModelQualityJobDefinition) ToModelQualityJobDefinitionOutput() ModelQualityJobDefinitionOutput {
@@ -143,7 +143,7 @@ func (i *ModelQualityJobDefinition) ToModelQualityJobDefinitionOutputWithContext
 type ModelQualityJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelQualityJobDefinition)(nil))
+	return reflect.TypeOf((**ModelQualityJobDefinition)(nil)).Elem()
 }
 
 func (o ModelQualityJobDefinitionOutput) ToModelQualityJobDefinitionOutput() ModelQualityJobDefinitionOutput {

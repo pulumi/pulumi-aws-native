@@ -105,7 +105,7 @@ type AssetInput interface {
 }
 
 func (*Asset) ElementType() reflect.Type {
-	return reflect.TypeOf((*Asset)(nil))
+	return reflect.TypeOf((**Asset)(nil)).Elem()
 }
 
 func (i *Asset) ToAssetOutput() AssetOutput {
@@ -119,7 +119,7 @@ func (i *Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 type AssetOutput struct{ *pulumi.OutputState }
 
 func (AssetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Asset)(nil))
+	return reflect.TypeOf((**Asset)(nil)).Elem()
 }
 
 func (o AssetOutput) ToAssetOutput() AssetOutput {

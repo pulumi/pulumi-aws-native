@@ -68,30 +68,28 @@ export class Deployment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["deploymentCanarySettings"] = args ? args.deploymentCanarySettings : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["stageDescription"] = args ? args.stageDescription : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
-            inputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["deploymentCanarySettings"] = args ? args.deploymentCanarySettings : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["stageDescription"] = args ? args.stageDescription : undefined;
+            resourceInputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["deploymentId"] = undefined /*out*/;
         } else {
-            inputs["deploymentCanarySettings"] = undefined /*out*/;
-            inputs["deploymentId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
-            inputs["stageDescription"] = undefined /*out*/;
-            inputs["stageName"] = undefined /*out*/;
+            resourceInputs["deploymentCanarySettings"] = undefined /*out*/;
+            resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
+            resourceInputs["stageDescription"] = undefined /*out*/;
+            resourceInputs["stageName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Deployment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

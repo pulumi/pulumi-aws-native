@@ -63,32 +63,30 @@ export class AccessPoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            inputs["accessPointTags"] = args ? args.accessPointTags : undefined;
-            inputs["clientToken"] = args ? args.clientToken : undefined;
-            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            inputs["posixUser"] = args ? args.posixUser : undefined;
-            inputs["rootDirectory"] = args ? args.rootDirectory : undefined;
-            inputs["accessPointId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["accessPointTags"] = args ? args.accessPointTags : undefined;
+            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["posixUser"] = args ? args.posixUser : undefined;
+            resourceInputs["rootDirectory"] = args ? args.rootDirectory : undefined;
+            resourceInputs["accessPointId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["accessPointId"] = undefined /*out*/;
-            inputs["accessPointTags"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["clientToken"] = undefined /*out*/;
-            inputs["fileSystemId"] = undefined /*out*/;
-            inputs["posixUser"] = undefined /*out*/;
-            inputs["rootDirectory"] = undefined /*out*/;
+            resourceInputs["accessPointId"] = undefined /*out*/;
+            resourceInputs["accessPointTags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clientToken"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["posixUser"] = undefined /*out*/;
+            resourceInputs["rootDirectory"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccessPoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

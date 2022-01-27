@@ -58,7 +58,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
@@ -67,34 +67,32 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            inputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["endpointType"] = args ? args.endpointType : undefined;
-            inputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            inputs["lambdaEndpoint"] = args ? args.lambdaEndpoint : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["urlEndpoint"] = args ? args.urlEndpoint : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["serviceIdentifier"] = undefined /*out*/;
+            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
+            resourceInputs["lambdaEndpoint"] = args ? args.lambdaEndpoint : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["urlEndpoint"] = args ? args.urlEndpoint : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["serviceIdentifier"] = undefined /*out*/;
         } else {
-            inputs["applicationIdentifier"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["endpointType"] = undefined /*out*/;
-            inputs["environmentIdentifier"] = undefined /*out*/;
-            inputs["lambdaEndpoint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["serviceIdentifier"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["urlEndpoint"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["applicationIdentifier"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["endpointType"] = undefined /*out*/;
+            resourceInputs["environmentIdentifier"] = undefined /*out*/;
+            resourceInputs["lambdaEndpoint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["serviceIdentifier"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["urlEndpoint"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

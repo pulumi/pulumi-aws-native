@@ -52,7 +52,7 @@ export class DocumentationPart extends pulumi.CustomResource {
     /** @deprecated DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DocumentationPartArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DocumentationPart is deprecated: DocumentationPart is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.location === undefined) && !opts.urn) {
@@ -64,18 +64,16 @@ export class DocumentationPart extends pulumi.CustomResource {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DocumentationPart.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DocumentationPart.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -135,7 +135,7 @@ type TargetGroupInput interface {
 }
 
 func (*TargetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroup)(nil))
+	return reflect.TypeOf((**TargetGroup)(nil)).Elem()
 }
 
 func (i *TargetGroup) ToTargetGroupOutput() TargetGroupOutput {
@@ -149,7 +149,7 @@ func (i *TargetGroup) ToTargetGroupOutputWithContext(ctx context.Context) Target
 type TargetGroupOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroup)(nil))
+	return reflect.TypeOf((**TargetGroup)(nil)).Elem()
 }
 
 func (o TargetGroupOutput) ToTargetGroupOutput() TargetGroupOutput {

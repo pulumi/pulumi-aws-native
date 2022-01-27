@@ -104,48 +104,46 @@ export class FlowSource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FlowSourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            inputs["decryption"] = args ? args.decryption : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["entitlementArn"] = args ? args.entitlementArn : undefined;
-            inputs["flowArn"] = args ? args.flowArn : undefined;
-            inputs["ingestPort"] = args ? args.ingestPort : undefined;
-            inputs["maxBitrate"] = args ? args.maxBitrate : undefined;
-            inputs["maxLatency"] = args ? args.maxLatency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["streamId"] = args ? args.streamId : undefined;
-            inputs["vpcInterfaceName"] = args ? args.vpcInterfaceName : undefined;
-            inputs["whitelistCidr"] = args ? args.whitelistCidr : undefined;
-            inputs["ingestIp"] = undefined /*out*/;
-            inputs["sourceArn"] = undefined /*out*/;
-            inputs["sourceIngestPort"] = undefined /*out*/;
+            resourceInputs["decryption"] = args ? args.decryption : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["entitlementArn"] = args ? args.entitlementArn : undefined;
+            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
+            resourceInputs["ingestPort"] = args ? args.ingestPort : undefined;
+            resourceInputs["maxBitrate"] = args ? args.maxBitrate : undefined;
+            resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["streamId"] = args ? args.streamId : undefined;
+            resourceInputs["vpcInterfaceName"] = args ? args.vpcInterfaceName : undefined;
+            resourceInputs["whitelistCidr"] = args ? args.whitelistCidr : undefined;
+            resourceInputs["ingestIp"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
+            resourceInputs["sourceIngestPort"] = undefined /*out*/;
         } else {
-            inputs["decryption"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["entitlementArn"] = undefined /*out*/;
-            inputs["flowArn"] = undefined /*out*/;
-            inputs["ingestIp"] = undefined /*out*/;
-            inputs["ingestPort"] = undefined /*out*/;
-            inputs["maxBitrate"] = undefined /*out*/;
-            inputs["maxLatency"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["sourceArn"] = undefined /*out*/;
-            inputs["sourceIngestPort"] = undefined /*out*/;
-            inputs["streamId"] = undefined /*out*/;
-            inputs["vpcInterfaceName"] = undefined /*out*/;
-            inputs["whitelistCidr"] = undefined /*out*/;
+            resourceInputs["decryption"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["entitlementArn"] = undefined /*out*/;
+            resourceInputs["flowArn"] = undefined /*out*/;
+            resourceInputs["ingestIp"] = undefined /*out*/;
+            resourceInputs["ingestPort"] = undefined /*out*/;
+            resourceInputs["maxBitrate"] = undefined /*out*/;
+            resourceInputs["maxLatency"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
+            resourceInputs["sourceIngestPort"] = undefined /*out*/;
+            resourceInputs["streamId"] = undefined /*out*/;
+            resourceInputs["vpcInterfaceName"] = undefined /*out*/;
+            resourceInputs["whitelistCidr"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FlowSource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FlowSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

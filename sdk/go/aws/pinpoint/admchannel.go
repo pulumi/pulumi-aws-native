@@ -97,7 +97,7 @@ type ADMChannelInput interface {
 }
 
 func (*ADMChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADMChannel)(nil))
+	return reflect.TypeOf((**ADMChannel)(nil)).Elem()
 }
 
 func (i *ADMChannel) ToADMChannelOutput() ADMChannelOutput {
@@ -111,7 +111,7 @@ func (i *ADMChannel) ToADMChannelOutputWithContext(ctx context.Context) ADMChann
 type ADMChannelOutput struct{ *pulumi.OutputState }
 
 func (ADMChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADMChannel)(nil))
+	return reflect.TypeOf((**ADMChannel)(nil)).Elem()
 }
 
 func (o ADMChannelOutput) ToADMChannelOutput() ADMChannelOutput {

@@ -55,7 +55,7 @@ export class Filter extends pulumi.CustomResource {
     /** @deprecated Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: FilterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Filter is deprecated: Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -73,24 +73,22 @@ export class Filter extends pulumi.CustomResource {
             if ((!args || args.rank === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rank'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["findingCriteria"] = args ? args.findingCriteria : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rank"] = args ? args.rank : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["findingCriteria"] = args ? args.findingCriteria : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rank"] = args ? args.rank : undefined;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["detectorId"] = undefined /*out*/;
-            inputs["findingCriteria"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rank"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["detectorId"] = undefined /*out*/;
+            resourceInputs["findingCriteria"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rank"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Filter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Filter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

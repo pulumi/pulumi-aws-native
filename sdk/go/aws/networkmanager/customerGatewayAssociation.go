@@ -107,7 +107,7 @@ type CustomerGatewayAssociationInput interface {
 }
 
 func (*CustomerGatewayAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerGatewayAssociation)(nil))
+	return reflect.TypeOf((**CustomerGatewayAssociation)(nil)).Elem()
 }
 
 func (i *CustomerGatewayAssociation) ToCustomerGatewayAssociationOutput() CustomerGatewayAssociationOutput {
@@ -121,7 +121,7 @@ func (i *CustomerGatewayAssociation) ToCustomerGatewayAssociationOutputWithConte
 type CustomerGatewayAssociationOutput struct{ *pulumi.OutputState }
 
 func (CustomerGatewayAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerGatewayAssociation)(nil))
+	return reflect.TypeOf((**CustomerGatewayAssociation)(nil)).Elem()
 }
 
 func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutput() CustomerGatewayAssociationOutput {

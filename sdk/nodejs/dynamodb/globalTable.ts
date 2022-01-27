@@ -58,7 +58,7 @@ export class GlobalTable extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GlobalTableArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.attributeDefinitions === undefined) && !opts.urn) {
@@ -70,40 +70,38 @@ export class GlobalTable extends pulumi.CustomResource {
             if ((!args || args.replicas === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicas'");
             }
-            inputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
-            inputs["billingMode"] = args ? args.billingMode : undefined;
-            inputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
-            inputs["keySchema"] = args ? args.keySchema : undefined;
-            inputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
-            inputs["replicas"] = args ? args.replicas : undefined;
-            inputs["sSESpecification"] = args ? args.sSESpecification : undefined;
-            inputs["streamSpecification"] = args ? args.streamSpecification : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
-            inputs["writeProvisionedThroughputSettings"] = args ? args.writeProvisionedThroughputSettings : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["streamArn"] = undefined /*out*/;
-            inputs["tableId"] = undefined /*out*/;
+            resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
+            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
+            resourceInputs["keySchema"] = args ? args.keySchema : undefined;
+            resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
+            resourceInputs["replicas"] = args ? args.replicas : undefined;
+            resourceInputs["sSESpecification"] = args ? args.sSESpecification : undefined;
+            resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
+            resourceInputs["writeProvisionedThroughputSettings"] = args ? args.writeProvisionedThroughputSettings : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["streamArn"] = undefined /*out*/;
+            resourceInputs["tableId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["attributeDefinitions"] = undefined /*out*/;
-            inputs["billingMode"] = undefined /*out*/;
-            inputs["globalSecondaryIndexes"] = undefined /*out*/;
-            inputs["keySchema"] = undefined /*out*/;
-            inputs["localSecondaryIndexes"] = undefined /*out*/;
-            inputs["replicas"] = undefined /*out*/;
-            inputs["sSESpecification"] = undefined /*out*/;
-            inputs["streamArn"] = undefined /*out*/;
-            inputs["streamSpecification"] = undefined /*out*/;
-            inputs["tableId"] = undefined /*out*/;
-            inputs["tableName"] = undefined /*out*/;
-            inputs["timeToLiveSpecification"] = undefined /*out*/;
-            inputs["writeProvisionedThroughputSettings"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["attributeDefinitions"] = undefined /*out*/;
+            resourceInputs["billingMode"] = undefined /*out*/;
+            resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["keySchema"] = undefined /*out*/;
+            resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["replicas"] = undefined /*out*/;
+            resourceInputs["sSESpecification"] = undefined /*out*/;
+            resourceInputs["streamArn"] = undefined /*out*/;
+            resourceInputs["streamSpecification"] = undefined /*out*/;
+            resourceInputs["tableId"] = undefined /*out*/;
+            resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["timeToLiveSpecification"] = undefined /*out*/;
+            resourceInputs["writeProvisionedThroughputSettings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GlobalTable.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GlobalTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -78,31 +78,29 @@ export class PublicTypeVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: PublicTypeVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["logDeliveryBucket"] = args ? args.logDeliveryBucket : undefined;
-            inputs["publicVersionNumber"] = args ? args.publicVersionNumber : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typeName"] = args ? args.typeName : undefined;
-            inputs["publicTypeArn"] = undefined /*out*/;
-            inputs["publisherId"] = undefined /*out*/;
-            inputs["typeVersionArn"] = undefined /*out*/;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["logDeliveryBucket"] = args ? args.logDeliveryBucket : undefined;
+            resourceInputs["publicVersionNumber"] = args ? args.publicVersionNumber : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["publicTypeArn"] = undefined /*out*/;
+            resourceInputs["publisherId"] = undefined /*out*/;
+            resourceInputs["typeVersionArn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["logDeliveryBucket"] = undefined /*out*/;
-            inputs["publicTypeArn"] = undefined /*out*/;
-            inputs["publicVersionNumber"] = undefined /*out*/;
-            inputs["publisherId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["typeName"] = undefined /*out*/;
-            inputs["typeVersionArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["logDeliveryBucket"] = undefined /*out*/;
+            resourceInputs["publicTypeArn"] = undefined /*out*/;
+            resourceInputs["publicVersionNumber"] = undefined /*out*/;
+            resourceInputs["publisherId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["typeName"] = undefined /*out*/;
+            resourceInputs["typeVersionArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PublicTypeVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PublicTypeVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

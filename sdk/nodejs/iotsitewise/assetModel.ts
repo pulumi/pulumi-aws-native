@@ -76,31 +76,29 @@ export class AssetModel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: AssetModelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["assetModelCompositeModels"] = args ? args.assetModelCompositeModels : undefined;
-            inputs["assetModelDescription"] = args ? args.assetModelDescription : undefined;
-            inputs["assetModelHierarchies"] = args ? args.assetModelHierarchies : undefined;
-            inputs["assetModelName"] = args ? args.assetModelName : undefined;
-            inputs["assetModelProperties"] = args ? args.assetModelProperties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["assetModelArn"] = undefined /*out*/;
-            inputs["assetModelId"] = undefined /*out*/;
+            resourceInputs["assetModelCompositeModels"] = args ? args.assetModelCompositeModels : undefined;
+            resourceInputs["assetModelDescription"] = args ? args.assetModelDescription : undefined;
+            resourceInputs["assetModelHierarchies"] = args ? args.assetModelHierarchies : undefined;
+            resourceInputs["assetModelName"] = args ? args.assetModelName : undefined;
+            resourceInputs["assetModelProperties"] = args ? args.assetModelProperties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetModelArn"] = undefined /*out*/;
+            resourceInputs["assetModelId"] = undefined /*out*/;
         } else {
-            inputs["assetModelArn"] = undefined /*out*/;
-            inputs["assetModelCompositeModels"] = undefined /*out*/;
-            inputs["assetModelDescription"] = undefined /*out*/;
-            inputs["assetModelHierarchies"] = undefined /*out*/;
-            inputs["assetModelId"] = undefined /*out*/;
-            inputs["assetModelName"] = undefined /*out*/;
-            inputs["assetModelProperties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["assetModelArn"] = undefined /*out*/;
+            resourceInputs["assetModelCompositeModels"] = undefined /*out*/;
+            resourceInputs["assetModelDescription"] = undefined /*out*/;
+            resourceInputs["assetModelHierarchies"] = undefined /*out*/;
+            resourceInputs["assetModelId"] = undefined /*out*/;
+            resourceInputs["assetModelName"] = undefined /*out*/;
+            resourceInputs["assetModelProperties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AssetModel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AssetModel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

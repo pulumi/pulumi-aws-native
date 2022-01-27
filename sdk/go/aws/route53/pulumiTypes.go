@@ -234,47 +234,6 @@ func (i HealthCheckConfigPropertiesArgs) ToHealthCheckConfigPropertiesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckConfigPropertiesOutput)
 }
 
-func (i HealthCheckConfigPropertiesArgs) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
-	return i.ToHealthCheckConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i HealthCheckConfigPropertiesArgs) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckConfigPropertiesOutput).ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx)
-}
-
-// HealthCheckConfigPropertiesPtrInput is an input type that accepts HealthCheckConfigPropertiesArgs, HealthCheckConfigPropertiesPtr and HealthCheckConfigPropertiesPtrOutput values.
-// You can construct a concrete instance of `HealthCheckConfigPropertiesPtrInput` via:
-//
-//          HealthCheckConfigPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type HealthCheckConfigPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput
-	ToHealthCheckConfigPropertiesPtrOutputWithContext(context.Context) HealthCheckConfigPropertiesPtrOutput
-}
-
-type healthCheckConfigPropertiesPtrType HealthCheckConfigPropertiesArgs
-
-func HealthCheckConfigPropertiesPtr(v *HealthCheckConfigPropertiesArgs) HealthCheckConfigPropertiesPtrInput {
-	return (*healthCheckConfigPropertiesPtrType)(v)
-}
-
-func (*healthCheckConfigPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthCheckConfigProperties)(nil)).Elem()
-}
-
-func (i *healthCheckConfigPropertiesPtrType) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
-	return i.ToHealthCheckConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *healthCheckConfigPropertiesPtrType) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckConfigPropertiesPtrOutput)
-}
-
 // A complex type that contains information about the health check.
 type HealthCheckConfigPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -288,16 +247,6 @@ func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesOutput()
 
 func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesOutput {
 	return o
-}
-
-func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
-	return o.ToHealthCheckConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheckConfigProperties) *HealthCheckConfigProperties {
-		return &v
-	}).(HealthCheckConfigPropertiesPtrOutput)
 }
 
 func (o HealthCheckConfigPropertiesOutput) AlarmIdentifier() HealthCheckAlarmIdentifierPtrOutput {
@@ -368,183 +317,6 @@ func (o HealthCheckConfigPropertiesOutput) SearchString() pulumi.StringPtrOutput
 
 func (o HealthCheckConfigPropertiesOutput) Type() HealthCheckConfigPropertiesTypeOutput {
 	return o.ApplyT(func(v HealthCheckConfigProperties) HealthCheckConfigPropertiesType { return v.Type }).(HealthCheckConfigPropertiesTypeOutput)
-}
-
-type HealthCheckConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (HealthCheckConfigPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthCheckConfigProperties)(nil)).Elem()
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) Elem() HealthCheckConfigPropertiesOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) HealthCheckConfigProperties {
-		if v != nil {
-			return *v
-		}
-		var ret HealthCheckConfigProperties
-		return ret
-	}).(HealthCheckConfigPropertiesOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) AlarmIdentifier() HealthCheckAlarmIdentifierPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckAlarmIdentifier {
-		if v == nil {
-			return nil
-		}
-		return v.AlarmIdentifier
-	}).(HealthCheckAlarmIdentifierPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) ChildHealthChecks() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ChildHealthChecks
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) EnableSNI() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableSNI
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.FailureThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FullyQualifiedDomainName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) HealthThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HealthThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) IPAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IPAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) InsufficientDataHealthStatus() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckConfigPropertiesInsufficientDataHealthStatus {
-		if v == nil {
-			return nil
-		}
-		return v.InsufficientDataHealthStatus
-	}).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) Inverted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Inverted
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) MeasureLatency() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.MeasureLatency
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) Regions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Regions
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) RequestInterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RequestInterval
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) ResourcePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourcePath
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) RoutingControlArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RoutingControlArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) SearchString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SearchString
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HealthCheckConfigPropertiesPtrOutput) Type() HealthCheckConfigPropertiesTypePtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckConfigPropertiesType {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(HealthCheckConfigPropertiesTypePtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1994,7 +1766,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckAlarmIdentifierInput)(nil)).Elem(), HealthCheckAlarmIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckAlarmIdentifierPtrInput)(nil)).Elem(), HealthCheckAlarmIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInput)(nil)).Elem(), HealthCheckConfigPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesPtrInput)(nil)).Elem(), HealthCheckConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckTagInput)(nil)).Elem(), HealthCheckTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckTagArrayInput)(nil)).Elem(), HealthCheckTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigInput)(nil)).Elem(), HostedZoneConfigArgs{})
@@ -2018,7 +1789,6 @@ func init() {
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierOutput{})
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesOutput{})
-	pulumi.RegisterOutputType(HealthCheckConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckTagOutput{})
 	pulumi.RegisterOutputType(HealthCheckTagArrayOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigOutput{})

@@ -126,7 +126,7 @@ type IndexInput interface {
 }
 
 func (*Index) ElementType() reflect.Type {
-	return reflect.TypeOf((*Index)(nil))
+	return reflect.TypeOf((**Index)(nil)).Elem()
 }
 
 func (i *Index) ToIndexOutput() IndexOutput {
@@ -140,7 +140,7 @@ func (i *Index) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 type IndexOutput struct{ *pulumi.OutputState }
 
 func (IndexOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Index)(nil))
+	return reflect.TypeOf((**Index)(nil)).Elem()
 }
 
 func (o IndexOutput) ToIndexOutput() IndexOutput {

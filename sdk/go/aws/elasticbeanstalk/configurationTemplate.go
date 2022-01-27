@@ -100,7 +100,7 @@ type ConfigurationTemplateInput interface {
 }
 
 func (*ConfigurationTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationTemplate)(nil))
+	return reflect.TypeOf((**ConfigurationTemplate)(nil)).Elem()
 }
 
 func (i *ConfigurationTemplate) ToConfigurationTemplateOutput() ConfigurationTemplateOutput {
@@ -114,7 +114,7 @@ func (i *ConfigurationTemplate) ToConfigurationTemplateOutputWithContext(ctx con
 type ConfigurationTemplateOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationTemplate)(nil))
+	return reflect.TypeOf((**ConfigurationTemplate)(nil)).Elem()
 }
 
 func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutput() ConfigurationTemplateOutput {

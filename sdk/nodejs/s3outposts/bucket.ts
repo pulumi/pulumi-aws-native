@@ -64,28 +64,26 @@ export class Bucket extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BucketArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.outpostId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            inputs["bucketName"] = args ? args.bucketName : undefined;
-            inputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
-            inputs["outpostId"] = args ? args.outpostId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
+            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["bucketName"] = undefined /*out*/;
-            inputs["lifecycleConfiguration"] = undefined /*out*/;
-            inputs["outpostId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bucketName"] = undefined /*out*/;
+            resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
+            resourceInputs["outpostId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Bucket.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
 }
 

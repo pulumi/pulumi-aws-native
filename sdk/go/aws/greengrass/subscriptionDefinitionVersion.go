@@ -88,7 +88,7 @@ type SubscriptionDefinitionVersionInput interface {
 }
 
 func (*SubscriptionDefinitionVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionDefinitionVersion)(nil))
+	return reflect.TypeOf((**SubscriptionDefinitionVersion)(nil)).Elem()
 }
 
 func (i *SubscriptionDefinitionVersion) ToSubscriptionDefinitionVersionOutput() SubscriptionDefinitionVersionOutput {
@@ -102,7 +102,7 @@ func (i *SubscriptionDefinitionVersion) ToSubscriptionDefinitionVersionOutputWit
 type SubscriptionDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionDefinitionVersion)(nil))
+	return reflect.TypeOf((**SubscriptionDefinitionVersion)(nil)).Elem()
 }
 
 func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutput() SubscriptionDefinitionVersionOutput {

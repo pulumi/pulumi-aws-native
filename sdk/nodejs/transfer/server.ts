@@ -63,43 +63,41 @@ export class Server extends pulumi.CustomResource {
     /** @deprecated Server is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ServerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Server is deprecated: Server is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
-            inputs["endpointType"] = args ? args.endpointType : undefined;
-            inputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
-            inputs["identityProviderType"] = args ? args.identityProviderType : undefined;
-            inputs["loggingRole"] = args ? args.loggingRole : undefined;
-            inputs["protocolDetails"] = args ? args.protocolDetails : undefined;
-            inputs["protocols"] = args ? args.protocols : undefined;
-            inputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workflowDetails"] = args ? args.workflowDetails : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["serverId"] = undefined /*out*/;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["endpointDetails"] = args ? args.endpointDetails : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
+            resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
+            resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["protocolDetails"] = args ? args.protocolDetails : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workflowDetails"] = args ? args.workflowDetails : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["serverId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["endpointDetails"] = undefined /*out*/;
-            inputs["endpointType"] = undefined /*out*/;
-            inputs["identityProviderDetails"] = undefined /*out*/;
-            inputs["identityProviderType"] = undefined /*out*/;
-            inputs["loggingRole"] = undefined /*out*/;
-            inputs["protocolDetails"] = undefined /*out*/;
-            inputs["protocols"] = undefined /*out*/;
-            inputs["securityPolicyName"] = undefined /*out*/;
-            inputs["serverId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["workflowDetails"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["endpointDetails"] = undefined /*out*/;
+            resourceInputs["endpointType"] = undefined /*out*/;
+            resourceInputs["identityProviderDetails"] = undefined /*out*/;
+            resourceInputs["identityProviderType"] = undefined /*out*/;
+            resourceInputs["loggingRole"] = undefined /*out*/;
+            resourceInputs["protocolDetails"] = undefined /*out*/;
+            resourceInputs["protocols"] = undefined /*out*/;
+            resourceInputs["securityPolicyName"] = undefined /*out*/;
+            resourceInputs["serverId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workflowDetails"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Server.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

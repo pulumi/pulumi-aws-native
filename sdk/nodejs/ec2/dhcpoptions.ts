@@ -69,29 +69,27 @@ export class DHCPOptions extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DHCPOptionsArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["domainNameServers"] = args ? args.domainNameServers : undefined;
-            inputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
-            inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
-            inputs["ntpServers"] = args ? args.ntpServers : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["dhcpOptionsId"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainNameServers"] = args ? args.domainNameServers : undefined;
+            resourceInputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
+            resourceInputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
+            resourceInputs["ntpServers"] = args ? args.ntpServers : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dhcpOptionsId"] = undefined /*out*/;
         } else {
-            inputs["dhcpOptionsId"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["domainNameServers"] = undefined /*out*/;
-            inputs["netbiosNameServers"] = undefined /*out*/;
-            inputs["netbiosNodeType"] = undefined /*out*/;
-            inputs["ntpServers"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["dhcpOptionsId"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainNameServers"] = undefined /*out*/;
+            resourceInputs["netbiosNameServers"] = undefined /*out*/;
+            resourceInputs["netbiosNodeType"] = undefined /*out*/;
+            resourceInputs["ntpServers"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DHCPOptions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DHCPOptions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -92,7 +92,7 @@ type InstanceAccessControlAttributeConfigurationInput interface {
 }
 
 func (*InstanceAccessControlAttributeConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceAccessControlAttributeConfiguration)(nil))
+	return reflect.TypeOf((**InstanceAccessControlAttributeConfiguration)(nil)).Elem()
 }
 
 func (i *InstanceAccessControlAttributeConfiguration) ToInstanceAccessControlAttributeConfigurationOutput() InstanceAccessControlAttributeConfigurationOutput {
@@ -106,7 +106,7 @@ func (i *InstanceAccessControlAttributeConfiguration) ToInstanceAccessControlAtt
 type InstanceAccessControlAttributeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributeConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceAccessControlAttributeConfiguration)(nil))
+	return reflect.TypeOf((**InstanceAccessControlAttributeConfiguration)(nil)).Elem()
 }
 
 func (o InstanceAccessControlAttributeConfigurationOutput) ToInstanceAccessControlAttributeConfigurationOutput() InstanceAccessControlAttributeConfigurationOutput {

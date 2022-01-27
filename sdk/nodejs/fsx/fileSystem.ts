@@ -65,7 +65,7 @@ export class FileSystem extends pulumi.CustomResource {
     /** @deprecated FileSystem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: FileSystemArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("FileSystem is deprecated: FileSystem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fileSystemType === undefined) && !opts.urn) {
@@ -74,44 +74,42 @@ export class FileSystem extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["backupId"] = args ? args.backupId : undefined;
-            inputs["fileSystemType"] = args ? args.fileSystemType : undefined;
-            inputs["fileSystemTypeVersion"] = args ? args.fileSystemTypeVersion : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["lustreConfiguration"] = args ? args.lustreConfiguration : undefined;
-            inputs["ontapConfiguration"] = args ? args.ontapConfiguration : undefined;
-            inputs["openZFSConfiguration"] = args ? args.openZFSConfiguration : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["windowsConfiguration"] = args ? args.windowsConfiguration : undefined;
-            inputs["dNSName"] = undefined /*out*/;
-            inputs["lustreMountName"] = undefined /*out*/;
-            inputs["rootVolumeId"] = undefined /*out*/;
+            resourceInputs["backupId"] = args ? args.backupId : undefined;
+            resourceInputs["fileSystemType"] = args ? args.fileSystemType : undefined;
+            resourceInputs["fileSystemTypeVersion"] = args ? args.fileSystemTypeVersion : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["lustreConfiguration"] = args ? args.lustreConfiguration : undefined;
+            resourceInputs["ontapConfiguration"] = args ? args.ontapConfiguration : undefined;
+            resourceInputs["openZFSConfiguration"] = args ? args.openZFSConfiguration : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["windowsConfiguration"] = args ? args.windowsConfiguration : undefined;
+            resourceInputs["dNSName"] = undefined /*out*/;
+            resourceInputs["lustreMountName"] = undefined /*out*/;
+            resourceInputs["rootVolumeId"] = undefined /*out*/;
         } else {
-            inputs["backupId"] = undefined /*out*/;
-            inputs["dNSName"] = undefined /*out*/;
-            inputs["fileSystemType"] = undefined /*out*/;
-            inputs["fileSystemTypeVersion"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["lustreConfiguration"] = undefined /*out*/;
-            inputs["lustreMountName"] = undefined /*out*/;
-            inputs["ontapConfiguration"] = undefined /*out*/;
-            inputs["openZFSConfiguration"] = undefined /*out*/;
-            inputs["rootVolumeId"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["storageCapacity"] = undefined /*out*/;
-            inputs["storageType"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["windowsConfiguration"] = undefined /*out*/;
+            resourceInputs["backupId"] = undefined /*out*/;
+            resourceInputs["dNSName"] = undefined /*out*/;
+            resourceInputs["fileSystemType"] = undefined /*out*/;
+            resourceInputs["fileSystemTypeVersion"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["lustreConfiguration"] = undefined /*out*/;
+            resourceInputs["lustreMountName"] = undefined /*out*/;
+            resourceInputs["ontapConfiguration"] = undefined /*out*/;
+            resourceInputs["openZFSConfiguration"] = undefined /*out*/;
+            resourceInputs["rootVolumeId"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["storageCapacity"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["windowsConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FileSystem.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

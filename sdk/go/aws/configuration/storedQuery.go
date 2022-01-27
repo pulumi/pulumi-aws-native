@@ -97,7 +97,7 @@ type StoredQueryInput interface {
 }
 
 func (*StoredQuery) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoredQuery)(nil))
+	return reflect.TypeOf((**StoredQuery)(nil)).Elem()
 }
 
 func (i *StoredQuery) ToStoredQueryOutput() StoredQueryOutput {
@@ -111,7 +111,7 @@ func (i *StoredQuery) ToStoredQueryOutputWithContext(ctx context.Context) Stored
 type StoredQueryOutput struct{ *pulumi.OutputState }
 
 func (StoredQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoredQuery)(nil))
+	return reflect.TypeOf((**StoredQuery)(nil)).Elem()
 }
 
 func (o StoredQueryOutput) ToStoredQueryOutput() StoredQueryOutput {

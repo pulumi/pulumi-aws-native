@@ -56,7 +56,7 @@ export class PackageVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PackageVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.packageId === undefined) && !opts.urn) {
@@ -68,36 +68,34 @@ export class PackageVersion extends pulumi.CustomResource {
             if ((!args || args.patchVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'patchVersion'");
             }
-            inputs["markLatest"] = args ? args.markLatest : undefined;
-            inputs["ownerAccount"] = args ? args.ownerAccount : undefined;
-            inputs["packageId"] = args ? args.packageId : undefined;
-            inputs["packageVersion"] = args ? args.packageVersion : undefined;
-            inputs["patchVersion"] = args ? args.patchVersion : undefined;
-            inputs["updatedLatestPatchVersion"] = args ? args.updatedLatestPatchVersion : undefined;
-            inputs["isLatestPatch"] = undefined /*out*/;
-            inputs["packageArn"] = undefined /*out*/;
-            inputs["packageName"] = undefined /*out*/;
-            inputs["registeredTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDescription"] = undefined /*out*/;
+            resourceInputs["markLatest"] = args ? args.markLatest : undefined;
+            resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
+            resourceInputs["packageId"] = args ? args.packageId : undefined;
+            resourceInputs["packageVersion"] = args ? args.packageVersion : undefined;
+            resourceInputs["patchVersion"] = args ? args.patchVersion : undefined;
+            resourceInputs["updatedLatestPatchVersion"] = args ? args.updatedLatestPatchVersion : undefined;
+            resourceInputs["isLatestPatch"] = undefined /*out*/;
+            resourceInputs["packageArn"] = undefined /*out*/;
+            resourceInputs["packageName"] = undefined /*out*/;
+            resourceInputs["registeredTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDescription"] = undefined /*out*/;
         } else {
-            inputs["isLatestPatch"] = undefined /*out*/;
-            inputs["markLatest"] = undefined /*out*/;
-            inputs["ownerAccount"] = undefined /*out*/;
-            inputs["packageArn"] = undefined /*out*/;
-            inputs["packageId"] = undefined /*out*/;
-            inputs["packageName"] = undefined /*out*/;
-            inputs["packageVersion"] = undefined /*out*/;
-            inputs["patchVersion"] = undefined /*out*/;
-            inputs["registeredTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDescription"] = undefined /*out*/;
-            inputs["updatedLatestPatchVersion"] = undefined /*out*/;
+            resourceInputs["isLatestPatch"] = undefined /*out*/;
+            resourceInputs["markLatest"] = undefined /*out*/;
+            resourceInputs["ownerAccount"] = undefined /*out*/;
+            resourceInputs["packageArn"] = undefined /*out*/;
+            resourceInputs["packageId"] = undefined /*out*/;
+            resourceInputs["packageName"] = undefined /*out*/;
+            resourceInputs["packageVersion"] = undefined /*out*/;
+            resourceInputs["patchVersion"] = undefined /*out*/;
+            resourceInputs["registeredTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDescription"] = undefined /*out*/;
+            resourceInputs["updatedLatestPatchVersion"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PackageVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PackageVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

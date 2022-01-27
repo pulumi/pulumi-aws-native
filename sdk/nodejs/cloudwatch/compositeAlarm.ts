@@ -75,7 +75,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CompositeAlarmArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.alarmName === undefined) && !opts.urn) {
@@ -84,28 +84,26 @@ export class CompositeAlarm extends pulumi.CustomResource {
             if ((!args || args.alarmRule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alarmRule'");
             }
-            inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
-            inputs["alarmActions"] = args ? args.alarmActions : undefined;
-            inputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            inputs["alarmName"] = args ? args.alarmName : undefined;
-            inputs["alarmRule"] = args ? args.alarmRule : undefined;
-            inputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            inputs["oKActions"] = args ? args.oKActions : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
+            resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
+            resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
+            resourceInputs["alarmName"] = args ? args.alarmName : undefined;
+            resourceInputs["alarmRule"] = args ? args.alarmRule : undefined;
+            resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
+            resourceInputs["oKActions"] = args ? args.oKActions : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["actionsEnabled"] = undefined /*out*/;
-            inputs["alarmActions"] = undefined /*out*/;
-            inputs["alarmDescription"] = undefined /*out*/;
-            inputs["alarmName"] = undefined /*out*/;
-            inputs["alarmRule"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["insufficientDataActions"] = undefined /*out*/;
-            inputs["oKActions"] = undefined /*out*/;
+            resourceInputs["actionsEnabled"] = undefined /*out*/;
+            resourceInputs["alarmActions"] = undefined /*out*/;
+            resourceInputs["alarmDescription"] = undefined /*out*/;
+            resourceInputs["alarmName"] = undefined /*out*/;
+            resourceInputs["alarmRule"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["insufficientDataActions"] = undefined /*out*/;
+            resourceInputs["oKActions"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CompositeAlarm.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CompositeAlarm.__pulumiType, name, resourceInputs, opts);
     }
 }
 

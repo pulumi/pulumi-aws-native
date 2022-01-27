@@ -109,7 +109,7 @@ export class Job extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
@@ -118,52 +118,50 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["dataCatalogOutputs"] = args ? args.dataCatalogOutputs : undefined;
-            inputs["databaseOutputs"] = args ? args.databaseOutputs : undefined;
-            inputs["datasetName"] = args ? args.datasetName : undefined;
-            inputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
-            inputs["encryptionMode"] = args ? args.encryptionMode : undefined;
-            inputs["jobSample"] = args ? args.jobSample : undefined;
-            inputs["logSubscription"] = args ? args.logSubscription : undefined;
-            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            inputs["maxRetries"] = args ? args.maxRetries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputLocation"] = args ? args.outputLocation : undefined;
-            inputs["outputs"] = args ? args.outputs : undefined;
-            inputs["profileConfiguration"] = args ? args.profileConfiguration : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["recipe"] = args ? args.recipe : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["validationConfigurations"] = args ? args.validationConfigurations : undefined;
+            resourceInputs["dataCatalogOutputs"] = args ? args.dataCatalogOutputs : undefined;
+            resourceInputs["databaseOutputs"] = args ? args.databaseOutputs : undefined;
+            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
+            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
+            resourceInputs["encryptionMode"] = args ? args.encryptionMode : undefined;
+            resourceInputs["jobSample"] = args ? args.jobSample : undefined;
+            resourceInputs["logSubscription"] = args ? args.logSubscription : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
+            resourceInputs["outputs"] = args ? args.outputs : undefined;
+            resourceInputs["profileConfiguration"] = args ? args.profileConfiguration : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["recipe"] = args ? args.recipe : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validationConfigurations"] = args ? args.validationConfigurations : undefined;
         } else {
-            inputs["dataCatalogOutputs"] = undefined /*out*/;
-            inputs["databaseOutputs"] = undefined /*out*/;
-            inputs["datasetName"] = undefined /*out*/;
-            inputs["encryptionKeyArn"] = undefined /*out*/;
-            inputs["encryptionMode"] = undefined /*out*/;
-            inputs["jobSample"] = undefined /*out*/;
-            inputs["logSubscription"] = undefined /*out*/;
-            inputs["maxCapacity"] = undefined /*out*/;
-            inputs["maxRetries"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputLocation"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["profileConfiguration"] = undefined /*out*/;
-            inputs["projectName"] = undefined /*out*/;
-            inputs["recipe"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationConfigurations"] = undefined /*out*/;
+            resourceInputs["dataCatalogOutputs"] = undefined /*out*/;
+            resourceInputs["databaseOutputs"] = undefined /*out*/;
+            resourceInputs["datasetName"] = undefined /*out*/;
+            resourceInputs["encryptionKeyArn"] = undefined /*out*/;
+            resourceInputs["encryptionMode"] = undefined /*out*/;
+            resourceInputs["jobSample"] = undefined /*out*/;
+            resourceInputs["logSubscription"] = undefined /*out*/;
+            resourceInputs["maxCapacity"] = undefined /*out*/;
+            resourceInputs["maxRetries"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputLocation"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["profileConfiguration"] = undefined /*out*/;
+            resourceInputs["projectName"] = undefined /*out*/;
+            resourceInputs["recipe"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationConfigurations"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Job.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }
 

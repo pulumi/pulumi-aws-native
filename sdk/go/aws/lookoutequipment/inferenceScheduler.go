@@ -147,7 +147,7 @@ type InferenceSchedulerInput interface {
 }
 
 func (*InferenceScheduler) ElementType() reflect.Type {
-	return reflect.TypeOf((*InferenceScheduler)(nil))
+	return reflect.TypeOf((**InferenceScheduler)(nil)).Elem()
 }
 
 func (i *InferenceScheduler) ToInferenceSchedulerOutput() InferenceSchedulerOutput {
@@ -161,7 +161,7 @@ func (i *InferenceScheduler) ToInferenceSchedulerOutputWithContext(ctx context.C
 type InferenceSchedulerOutput struct{ *pulumi.OutputState }
 
 func (InferenceSchedulerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InferenceScheduler)(nil))
+	return reflect.TypeOf((**InferenceScheduler)(nil)).Elem()
 }
 
 func (o InferenceSchedulerOutput) ToInferenceSchedulerOutput() InferenceSchedulerOutput {

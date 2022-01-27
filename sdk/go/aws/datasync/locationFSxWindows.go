@@ -132,7 +132,7 @@ type LocationFSxWindowsInput interface {
 }
 
 func (*LocationFSxWindows) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxWindows)(nil))
+	return reflect.TypeOf((**LocationFSxWindows)(nil)).Elem()
 }
 
 func (i *LocationFSxWindows) ToLocationFSxWindowsOutput() LocationFSxWindowsOutput {
@@ -146,7 +146,7 @@ func (i *LocationFSxWindows) ToLocationFSxWindowsOutputWithContext(ctx context.C
 type LocationFSxWindowsOutput struct{ *pulumi.OutputState }
 
 func (LocationFSxWindowsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationFSxWindows)(nil))
+	return reflect.TypeOf((**LocationFSxWindows)(nil)).Elem()
 }
 
 func (o LocationFSxWindowsOutput) ToLocationFSxWindowsOutput() LocationFSxWindowsOutput {

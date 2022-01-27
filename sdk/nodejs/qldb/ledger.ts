@@ -54,28 +54,26 @@ export class Ledger extends pulumi.CustomResource {
     /** @deprecated Ledger is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LedgerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Ledger is deprecated: Ledger is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.permissionsMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionsMode'");
             }
-            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            inputs["kmsKey"] = args ? args.kmsKey : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissionsMode"] = args ? args.permissionsMode : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissionsMode"] = args ? args.permissionsMode : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["deletionProtection"] = undefined /*out*/;
-            inputs["kmsKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["permissionsMode"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = undefined /*out*/;
+            resourceInputs["kmsKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissionsMode"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Ledger.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Ledger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

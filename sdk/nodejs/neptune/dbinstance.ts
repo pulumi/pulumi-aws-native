@@ -62,44 +62,42 @@ export class DBInstance extends pulumi.CustomResource {
     /** @deprecated DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DBInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DBInstance is deprecated: DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dBInstanceClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dBInstanceClass'");
             }
-            inputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
-            inputs["dBInstanceClass"] = args ? args.dBInstanceClass : undefined;
-            inputs["dBInstanceIdentifier"] = args ? args.dBInstanceIdentifier : undefined;
-            inputs["dBParameterGroupName"] = args ? args.dBParameterGroupName : undefined;
-            inputs["dBSnapshotIdentifier"] = args ? args.dBSnapshotIdentifier : undefined;
-            inputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
+            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
+            resourceInputs["dBInstanceClass"] = args ? args.dBInstanceClass : undefined;
+            resourceInputs["dBInstanceIdentifier"] = args ? args.dBInstanceIdentifier : undefined;
+            resourceInputs["dBParameterGroupName"] = args ? args.dBParameterGroupName : undefined;
+            resourceInputs["dBSnapshotIdentifier"] = args ? args.dBSnapshotIdentifier : undefined;
+            resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
         } else {
-            inputs["allowMajorVersionUpgrade"] = undefined /*out*/;
-            inputs["autoMinorVersionUpgrade"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["dBClusterIdentifier"] = undefined /*out*/;
-            inputs["dBInstanceClass"] = undefined /*out*/;
-            inputs["dBInstanceIdentifier"] = undefined /*out*/;
-            inputs["dBParameterGroupName"] = undefined /*out*/;
-            inputs["dBSnapshotIdentifier"] = undefined /*out*/;
-            inputs["dBSubnetGroupName"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["preferredMaintenanceWindow"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dBInstanceClass"] = undefined /*out*/;
+            resourceInputs["dBInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["dBParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dBSnapshotIdentifier"] = undefined /*out*/;
+            resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DBInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DBInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

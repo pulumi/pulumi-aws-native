@@ -95,7 +95,7 @@ type PackagingGroupInput interface {
 }
 
 func (*PackagingGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackagingGroup)(nil))
+	return reflect.TypeOf((**PackagingGroup)(nil)).Elem()
 }
 
 func (i *PackagingGroup) ToPackagingGroupOutput() PackagingGroupOutput {
@@ -109,7 +109,7 @@ func (i *PackagingGroup) ToPackagingGroupOutputWithContext(ctx context.Context) 
 type PackagingGroupOutput struct{ *pulumi.OutputState }
 
 func (PackagingGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackagingGroup)(nil))
+	return reflect.TypeOf((**PackagingGroup)(nil)).Elem()
 }
 
 func (o PackagingGroupOutput) ToPackagingGroupOutput() PackagingGroupOutput {

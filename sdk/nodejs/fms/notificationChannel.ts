@@ -45,7 +45,7 @@ export class NotificationChannel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NotificationChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.snsRoleName === undefined) && !opts.urn) {
@@ -54,16 +54,14 @@ export class NotificationChannel extends pulumi.CustomResource {
             if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            inputs["snsRoleName"] = args ? args.snsRoleName : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["snsRoleName"] = args ? args.snsRoleName : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         } else {
-            inputs["snsRoleName"] = undefined /*out*/;
-            inputs["snsTopicArn"] = undefined /*out*/;
+            resourceInputs["snsRoleName"] = undefined /*out*/;
+            resourceInputs["snsTopicArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotificationChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotificationChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -121,7 +121,7 @@ type CrawlerInput interface {
 }
 
 func (*Crawler) ElementType() reflect.Type {
-	return reflect.TypeOf((*Crawler)(nil))
+	return reflect.TypeOf((**Crawler)(nil)).Elem()
 }
 
 func (i *Crawler) ToCrawlerOutput() CrawlerOutput {
@@ -135,7 +135,7 @@ func (i *Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput 
 type CrawlerOutput struct{ *pulumi.OutputState }
 
 func (CrawlerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Crawler)(nil))
+	return reflect.TypeOf((**Crawler)(nil)).Elem()
 }
 
 func (o CrawlerOutput) ToCrawlerOutput() CrawlerOutput {

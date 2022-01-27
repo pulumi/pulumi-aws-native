@@ -82,7 +82,7 @@ export class EndpointGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EndpointGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointGroupRegion === undefined) && !opts.urn) {
@@ -91,34 +91,32 @@ export class EndpointGroup extends pulumi.CustomResource {
             if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
-            inputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
-            inputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
-            inputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            inputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
-            inputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
-            inputs["portOverrides"] = args ? args.portOverrides : undefined;
-            inputs["thresholdCount"] = args ? args.thresholdCount : undefined;
-            inputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
-            inputs["endpointGroupArn"] = undefined /*out*/;
+            resourceInputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
+            resourceInputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
+            resourceInputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
+            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
+            resourceInputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
+            resourceInputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["portOverrides"] = args ? args.portOverrides : undefined;
+            resourceInputs["thresholdCount"] = args ? args.thresholdCount : undefined;
+            resourceInputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
+            resourceInputs["endpointGroupArn"] = undefined /*out*/;
         } else {
-            inputs["endpointConfigurations"] = undefined /*out*/;
-            inputs["endpointGroupArn"] = undefined /*out*/;
-            inputs["endpointGroupRegion"] = undefined /*out*/;
-            inputs["healthCheckIntervalSeconds"] = undefined /*out*/;
-            inputs["healthCheckPath"] = undefined /*out*/;
-            inputs["healthCheckPort"] = undefined /*out*/;
-            inputs["healthCheckProtocol"] = undefined /*out*/;
-            inputs["listenerArn"] = undefined /*out*/;
-            inputs["portOverrides"] = undefined /*out*/;
-            inputs["thresholdCount"] = undefined /*out*/;
-            inputs["trafficDialPercentage"] = undefined /*out*/;
+            resourceInputs["endpointConfigurations"] = undefined /*out*/;
+            resourceInputs["endpointGroupArn"] = undefined /*out*/;
+            resourceInputs["endpointGroupRegion"] = undefined /*out*/;
+            resourceInputs["healthCheckIntervalSeconds"] = undefined /*out*/;
+            resourceInputs["healthCheckPath"] = undefined /*out*/;
+            resourceInputs["healthCheckPort"] = undefined /*out*/;
+            resourceInputs["healthCheckProtocol"] = undefined /*out*/;
+            resourceInputs["listenerArn"] = undefined /*out*/;
+            resourceInputs["portOverrides"] = undefined /*out*/;
+            resourceInputs["thresholdCount"] = undefined /*out*/;
+            resourceInputs["trafficDialPercentage"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EndpointGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EndpointGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

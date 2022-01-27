@@ -61,42 +61,40 @@ export class GraphQLApi extends pulumi.CustomResource {
     /** @deprecated GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: GraphQLApiArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GraphQLApi is deprecated: GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            inputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
-            inputs["logConfig"] = args ? args.logConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["openIDConnectConfig"] = args ? args.openIDConnectConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
-            inputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
-            inputs["apiId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["graphQLUrl"] = undefined /*out*/;
+            resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
+            resourceInputs["logConfig"] = args ? args.logConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["openIDConnectConfig"] = args ? args.openIDConnectConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
+            resourceInputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["graphQLUrl"] = undefined /*out*/;
         } else {
-            inputs["additionalAuthenticationProviders"] = undefined /*out*/;
-            inputs["apiId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["authenticationType"] = undefined /*out*/;
-            inputs["graphQLUrl"] = undefined /*out*/;
-            inputs["lambdaAuthorizerConfig"] = undefined /*out*/;
-            inputs["logConfig"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["openIDConnectConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userPoolConfig"] = undefined /*out*/;
-            inputs["xrayEnabled"] = undefined /*out*/;
+            resourceInputs["additionalAuthenticationProviders"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["graphQLUrl"] = undefined /*out*/;
+            resourceInputs["lambdaAuthorizerConfig"] = undefined /*out*/;
+            resourceInputs["logConfig"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["openIDConnectConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userPoolConfig"] = undefined /*out*/;
+            resourceInputs["xrayEnabled"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GraphQLApi.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GraphQLApi.__pulumiType, name, resourceInputs, opts);
     }
 }
 

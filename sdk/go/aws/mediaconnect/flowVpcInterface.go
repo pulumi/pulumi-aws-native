@@ -118,7 +118,7 @@ type FlowVpcInterfaceInput interface {
 }
 
 func (*FlowVpcInterface) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowVpcInterface)(nil))
+	return reflect.TypeOf((**FlowVpcInterface)(nil)).Elem()
 }
 
 func (i *FlowVpcInterface) ToFlowVpcInterfaceOutput() FlowVpcInterfaceOutput {
@@ -132,7 +132,7 @@ func (i *FlowVpcInterface) ToFlowVpcInterfaceOutputWithContext(ctx context.Conte
 type FlowVpcInterfaceOutput struct{ *pulumi.OutputState }
 
 func (FlowVpcInterfaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowVpcInterface)(nil))
+	return reflect.TypeOf((**FlowVpcInterface)(nil)).Elem()
 }
 
 func (o FlowVpcInterfaceOutput) ToFlowVpcInterfaceOutput() FlowVpcInterfaceOutput {

@@ -51,7 +51,7 @@ export class AccessPointPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccessPointPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.objectLambdaAccessPoint === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class AccessPointPolicy extends pulumi.CustomResource {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            inputs["objectLambdaAccessPoint"] = args ? args.objectLambdaAccessPoint : undefined;
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["objectLambdaAccessPoint"] = args ? args.objectLambdaAccessPoint : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
         } else {
-            inputs["objectLambdaAccessPoint"] = undefined /*out*/;
-            inputs["policyDocument"] = undefined /*out*/;
+            resourceInputs["objectLambdaAccessPoint"] = undefined /*out*/;
+            resourceInputs["policyDocument"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccessPointPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccessPointPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

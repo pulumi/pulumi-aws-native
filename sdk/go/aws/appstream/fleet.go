@@ -139,7 +139,7 @@ type FleetInput interface {
 }
 
 func (*Fleet) ElementType() reflect.Type {
-	return reflect.TypeOf((*Fleet)(nil))
+	return reflect.TypeOf((**Fleet)(nil)).Elem()
 }
 
 func (i *Fleet) ToFleetOutput() FleetOutput {
@@ -153,7 +153,7 @@ func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 type FleetOutput struct{ *pulumi.OutputState }
 
 func (FleetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Fleet)(nil))
+	return reflect.TypeOf((**Fleet)(nil)).Elem()
 }
 
 func (o FleetOutput) ToFleetOutput() FleetOutput {

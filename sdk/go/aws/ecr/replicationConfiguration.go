@@ -82,7 +82,7 @@ type ReplicationConfigurationInput interface {
 }
 
 func (*ReplicationConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfiguration)(nil))
+	return reflect.TypeOf((**ReplicationConfiguration)(nil)).Elem()
 }
 
 func (i *ReplicationConfiguration) ToReplicationConfigurationOutput() ReplicationConfigurationOutput {
@@ -96,7 +96,7 @@ func (i *ReplicationConfiguration) ToReplicationConfigurationOutputWithContext(c
 type ReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfiguration)(nil))
+	return reflect.TypeOf((**ReplicationConfiguration)(nil)).Elem()
 }
 
 func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutput() ReplicationConfigurationOutput {

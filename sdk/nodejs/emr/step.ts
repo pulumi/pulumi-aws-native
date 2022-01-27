@@ -53,7 +53,7 @@ export class Step extends pulumi.CustomResource {
     /** @deprecated Step is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StepArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Step is deprecated: Step is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actionOnFailure === undefined) && !opts.urn) {
@@ -65,20 +65,18 @@ export class Step extends pulumi.CustomResource {
             if ((!args || args.jobFlowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobFlowId'");
             }
-            inputs["actionOnFailure"] = args ? args.actionOnFailure : undefined;
-            inputs["hadoopJarStep"] = args ? args.hadoopJarStep : undefined;
-            inputs["jobFlowId"] = args ? args.jobFlowId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["actionOnFailure"] = args ? args.actionOnFailure : undefined;
+            resourceInputs["hadoopJarStep"] = args ? args.hadoopJarStep : undefined;
+            resourceInputs["jobFlowId"] = args ? args.jobFlowId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            inputs["actionOnFailure"] = undefined /*out*/;
-            inputs["hadoopJarStep"] = undefined /*out*/;
-            inputs["jobFlowId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["actionOnFailure"] = undefined /*out*/;
+            resourceInputs["hadoopJarStep"] = undefined /*out*/;
+            resourceInputs["jobFlowId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Step.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Step.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -91,7 +91,7 @@ type ClusterSecurityGroupIngressInput interface {
 }
 
 func (*ClusterSecurityGroupIngress) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSecurityGroupIngress)(nil))
+	return reflect.TypeOf((**ClusterSecurityGroupIngress)(nil)).Elem()
 }
 
 func (i *ClusterSecurityGroupIngress) ToClusterSecurityGroupIngressOutput() ClusterSecurityGroupIngressOutput {
@@ -105,7 +105,7 @@ func (i *ClusterSecurityGroupIngress) ToClusterSecurityGroupIngressOutputWithCon
 type ClusterSecurityGroupIngressOutput struct{ *pulumi.OutputState }
 
 func (ClusterSecurityGroupIngressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSecurityGroupIngress)(nil))
+	return reflect.TypeOf((**ClusterSecurityGroupIngress)(nil)).Elem()
 }
 
 func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutput() ClusterSecurityGroupIngressOutput {

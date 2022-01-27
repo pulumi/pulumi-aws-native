@@ -114,7 +114,7 @@ type BranchInput interface {
 }
 
 func (*Branch) ElementType() reflect.Type {
-	return reflect.TypeOf((*Branch)(nil))
+	return reflect.TypeOf((**Branch)(nil)).Elem()
 }
 
 func (i *Branch) ToBranchOutput() BranchOutput {
@@ -128,7 +128,7 @@ func (i *Branch) ToBranchOutputWithContext(ctx context.Context) BranchOutput {
 type BranchOutput struct{ *pulumi.OutputState }
 
 func (BranchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Branch)(nil))
+	return reflect.TypeOf((**Branch)(nil)).Elem()
 }
 
 func (o BranchOutput) ToBranchOutput() BranchOutput {

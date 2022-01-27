@@ -91,7 +91,7 @@ type NetworkInsightsAccessScopeAnalysisInput interface {
 }
 
 func (*NetworkInsightsAccessScopeAnalysis) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAccessScopeAnalysis)(nil))
+	return reflect.TypeOf((**NetworkInsightsAccessScopeAnalysis)(nil)).Elem()
 }
 
 func (i *NetworkInsightsAccessScopeAnalysis) ToNetworkInsightsAccessScopeAnalysisOutput() NetworkInsightsAccessScopeAnalysisOutput {
@@ -105,7 +105,7 @@ func (i *NetworkInsightsAccessScopeAnalysis) ToNetworkInsightsAccessScopeAnalysi
 type NetworkInsightsAccessScopeAnalysisOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAccessScopeAnalysisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAccessScopeAnalysis)(nil))
+	return reflect.TypeOf((**NetworkInsightsAccessScopeAnalysis)(nil)).Elem()
 }
 
 func (o NetworkInsightsAccessScopeAnalysisOutput) ToNetworkInsightsAccessScopeAnalysisOutput() NetworkInsightsAccessScopeAnalysisOutput {

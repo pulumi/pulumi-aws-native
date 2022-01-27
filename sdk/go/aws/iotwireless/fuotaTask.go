@@ -147,7 +147,7 @@ type FuotaTaskInput interface {
 }
 
 func (*FuotaTask) ElementType() reflect.Type {
-	return reflect.TypeOf((*FuotaTask)(nil))
+	return reflect.TypeOf((**FuotaTask)(nil)).Elem()
 }
 
 func (i *FuotaTask) ToFuotaTaskOutput() FuotaTaskOutput {
@@ -161,7 +161,7 @@ func (i *FuotaTask) ToFuotaTaskOutputWithContext(ctx context.Context) FuotaTaskO
 type FuotaTaskOutput struct{ *pulumi.OutputState }
 
 func (FuotaTaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FuotaTask)(nil))
+	return reflect.TypeOf((**FuotaTask)(nil)).Elem()
 }
 
 func (o FuotaTaskOutput) ToFuotaTaskOutput() FuotaTaskOutput {

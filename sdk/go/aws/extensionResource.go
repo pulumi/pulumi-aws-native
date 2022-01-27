@@ -90,7 +90,7 @@ type ExtensionResourceInput interface {
 }
 
 func (*ExtensionResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionResource)(nil))
+	return reflect.TypeOf((**ExtensionResource)(nil)).Elem()
 }
 
 func (i *ExtensionResource) ToExtensionResourceOutput() ExtensionResourceOutput {
@@ -104,7 +104,7 @@ func (i *ExtensionResource) ToExtensionResourceOutputWithContext(ctx context.Con
 type ExtensionResourceOutput struct{ *pulumi.OutputState }
 
 func (ExtensionResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionResource)(nil))
+	return reflect.TypeOf((**ExtensionResource)(nil)).Elem()
 }
 
 func (o ExtensionResourceOutput) ToExtensionResourceOutput() ExtensionResourceOutput {

@@ -51,7 +51,7 @@ export class Database extends pulumi.CustomResource {
     /** @deprecated Database is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Database is deprecated: Database is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.catalogId === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.databaseInput === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseInput'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["databaseInput"] = args ? args.databaseInput : undefined;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["databaseInput"] = args ? args.databaseInput : undefined;
         } else {
-            inputs["catalogId"] = undefined /*out*/;
-            inputs["databaseInput"] = undefined /*out*/;
+            resourceInputs["catalogId"] = undefined /*out*/;
+            resourceInputs["databaseInput"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Database.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }
 

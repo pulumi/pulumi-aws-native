@@ -54,7 +54,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkInsightsPathArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.destination === undefined) && !opts.urn) {
@@ -66,32 +66,30 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["destinationIp"] = args ? args.destinationIp : undefined;
-            inputs["destinationPort"] = args ? args.destinationPort : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["sourceIp"] = args ? args.sourceIp : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["networkInsightsPathArn"] = undefined /*out*/;
-            inputs["networkInsightsPathId"] = undefined /*out*/;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["destinationIp"] = args ? args.destinationIp : undefined;
+            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["networkInsightsPathArn"] = undefined /*out*/;
+            resourceInputs["networkInsightsPathId"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["destination"] = undefined /*out*/;
-            inputs["destinationIp"] = undefined /*out*/;
-            inputs["destinationPort"] = undefined /*out*/;
-            inputs["networkInsightsPathArn"] = undefined /*out*/;
-            inputs["networkInsightsPathId"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["sourceIp"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["destinationIp"] = undefined /*out*/;
+            resourceInputs["destinationPort"] = undefined /*out*/;
+            resourceInputs["networkInsightsPathArn"] = undefined /*out*/;
+            resourceInputs["networkInsightsPathId"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["sourceIp"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInsightsPath.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInsightsPath.__pulumiType, name, resourceInputs, opts);
     }
 }
 

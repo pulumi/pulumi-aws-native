@@ -81,7 +81,7 @@ type PublicKeyInput interface {
 }
 
 func (*PublicKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicKey)(nil))
+	return reflect.TypeOf((**PublicKey)(nil)).Elem()
 }
 
 func (i *PublicKey) ToPublicKeyOutput() PublicKeyOutput {
@@ -95,7 +95,7 @@ func (i *PublicKey) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyO
 type PublicKeyOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicKey)(nil))
+	return reflect.TypeOf((**PublicKey)(nil)).Elem()
 }
 
 func (o PublicKeyOutput) ToPublicKeyOutput() PublicKeyOutput {

@@ -72,7 +72,7 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TransitGatewayConnectArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.options === undefined) && !opts.urn) {
@@ -81,26 +81,24 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
             if ((!args || args.transportTransitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transportTransitGatewayAttachmentId'");
             }
-            inputs["options"] = args ? args.options : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
-            inputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["transitGatewayId"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["options"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
-            inputs["transitGatewayId"] = undefined /*out*/;
-            inputs["transportTransitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["transportTransitGatewayAttachmentId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayConnect.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayConnect.__pulumiType, name, resourceInputs, opts);
     }
 }
 

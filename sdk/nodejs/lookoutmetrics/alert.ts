@@ -68,7 +68,7 @@ export class Alert extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AlertArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -80,24 +80,22 @@ export class Alert extends pulumi.CustomResource {
             if ((!args || args.anomalyDetectorArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'anomalyDetectorArn'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["alertDescription"] = args ? args.alertDescription : undefined;
-            inputs["alertName"] = args ? args.alertName : undefined;
-            inputs["alertSensitivityThreshold"] = args ? args.alertSensitivityThreshold : undefined;
-            inputs["anomalyDetectorArn"] = args ? args.anomalyDetectorArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["alertDescription"] = args ? args.alertDescription : undefined;
+            resourceInputs["alertName"] = args ? args.alertName : undefined;
+            resourceInputs["alertSensitivityThreshold"] = args ? args.alertSensitivityThreshold : undefined;
+            resourceInputs["anomalyDetectorArn"] = args ? args.anomalyDetectorArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["alertDescription"] = undefined /*out*/;
-            inputs["alertName"] = undefined /*out*/;
-            inputs["alertSensitivityThreshold"] = undefined /*out*/;
-            inputs["anomalyDetectorArn"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["alertDescription"] = undefined /*out*/;
+            resourceInputs["alertName"] = undefined /*out*/;
+            resourceInputs["alertSensitivityThreshold"] = undefined /*out*/;
+            resourceInputs["anomalyDetectorArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Alert.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Alert.__pulumiType, name, resourceInputs, opts);
     }
 }
 

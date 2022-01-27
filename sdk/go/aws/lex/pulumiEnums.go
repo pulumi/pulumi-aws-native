@@ -19,42 +19,6 @@ const (
 	BotAliasStatusFailed    = BotAliasStatus("Failed")
 )
 
-func (BotAliasStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAliasStatus)(nil)).Elem()
-}
-
-func (e BotAliasStatus) ToBotAliasStatusOutput() BotAliasStatusOutput {
-	return pulumi.ToOutput(e).(BotAliasStatusOutput)
-}
-
-func (e BotAliasStatus) ToBotAliasStatusOutputWithContext(ctx context.Context) BotAliasStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(BotAliasStatusOutput)
-}
-
-func (e BotAliasStatus) ToBotAliasStatusPtrOutput() BotAliasStatusPtrOutput {
-	return e.ToBotAliasStatusPtrOutputWithContext(context.Background())
-}
-
-func (e BotAliasStatus) ToBotAliasStatusPtrOutputWithContext(ctx context.Context) BotAliasStatusPtrOutput {
-	return BotAliasStatus(e).ToBotAliasStatusOutputWithContext(ctx).ToBotAliasStatusPtrOutputWithContext(ctx)
-}
-
-func (e BotAliasStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e BotAliasStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e BotAliasStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e BotAliasStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type BotAliasStatusOutput struct{ *pulumi.OutputState }
 
 func (BotAliasStatusOutput) ElementType() reflect.Type {
@@ -136,44 +100,6 @@ func (o BotAliasStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// BotAliasStatusInput is an input type that accepts BotAliasStatusArgs and BotAliasStatusOutput values.
-// You can construct a concrete instance of `BotAliasStatusInput` via:
-//
-//          BotAliasStatusArgs{...}
-type BotAliasStatusInput interface {
-	pulumi.Input
-
-	ToBotAliasStatusOutput() BotAliasStatusOutput
-	ToBotAliasStatusOutputWithContext(context.Context) BotAliasStatusOutput
-}
-
-var botAliasStatusPtrType = reflect.TypeOf((**BotAliasStatus)(nil)).Elem()
-
-type BotAliasStatusPtrInput interface {
-	pulumi.Input
-
-	ToBotAliasStatusPtrOutput() BotAliasStatusPtrOutput
-	ToBotAliasStatusPtrOutputWithContext(context.Context) BotAliasStatusPtrOutput
-}
-
-type botAliasStatusPtr string
-
-func BotAliasStatusPtr(v string) BotAliasStatusPtrInput {
-	return (*botAliasStatusPtr)(&v)
-}
-
-func (*botAliasStatusPtr) ElementType() reflect.Type {
-	return botAliasStatusPtrType
-}
-
-func (in *botAliasStatusPtr) ToBotAliasStatusPtrOutput() BotAliasStatusPtrOutput {
-	return pulumi.ToOutput(in).(BotAliasStatusPtrOutput)
-}
-
-func (in *botAliasStatusPtr) ToBotAliasStatusPtrOutputWithContext(ctx context.Context) BotAliasStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(BotAliasStatusPtrOutput)
 }
 
 // Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
@@ -670,8 +596,6 @@ func (in *botSlotValueResolutionStrategyPtr) ToBotSlotValueResolutionStrategyPtr
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasStatusInput)(nil)).Elem(), BotAliasStatus("Creating"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasStatusPtrInput)(nil)).Elem(), BotAliasStatus("Creating"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypeInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypePtrInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotConstraintInput)(nil)).Elem(), BotSlotConstraint("Required"))

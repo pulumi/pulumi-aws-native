@@ -85,7 +85,7 @@ type XssMatchSetInput interface {
 }
 
 func (*XssMatchSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*XssMatchSet)(nil))
+	return reflect.TypeOf((**XssMatchSet)(nil)).Elem()
 }
 
 func (i *XssMatchSet) ToXssMatchSetOutput() XssMatchSetOutput {
@@ -99,7 +99,7 @@ func (i *XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMat
 type XssMatchSetOutput struct{ *pulumi.OutputState }
 
 func (XssMatchSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*XssMatchSet)(nil))
+	return reflect.TypeOf((**XssMatchSet)(nil)).Elem()
 }
 
 func (o XssMatchSetOutput) ToXssMatchSetOutput() XssMatchSetOutput {

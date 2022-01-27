@@ -96,7 +96,7 @@ export class Component extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.platform === undefined) && !opts.urn) {
@@ -105,38 +105,36 @@ export class Component extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["changeDescription"] = args ? args.changeDescription : undefined;
-            inputs["data"] = args ? args.data : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["encrypted"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["changeDescription"] = args ? args.changeDescription : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["encrypted"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["changeDescription"] = undefined /*out*/;
-            inputs["data"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["encrypted"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["supportedOsVersions"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["changeDescription"] = undefined /*out*/;
+            resourceInputs["data"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["encrypted"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["supportedOsVersions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Component.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Component.__pulumiType, name, resourceInputs, opts);
     }
 }
 

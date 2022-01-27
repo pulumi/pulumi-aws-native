@@ -101,7 +101,7 @@ type BasePathMappingInput interface {
 }
 
 func (*BasePathMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasePathMapping)(nil))
+	return reflect.TypeOf((**BasePathMapping)(nil)).Elem()
 }
 
 func (i *BasePathMapping) ToBasePathMappingOutput() BasePathMappingOutput {
@@ -115,7 +115,7 @@ func (i *BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context
 type BasePathMappingOutput struct{ *pulumi.OutputState }
 
 func (BasePathMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasePathMapping)(nil))
+	return reflect.TypeOf((**BasePathMapping)(nil)).Elem()
 }
 
 func (o BasePathMappingOutput) ToBasePathMappingOutput() BasePathMappingOutput {

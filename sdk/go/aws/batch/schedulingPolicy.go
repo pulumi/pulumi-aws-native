@@ -89,7 +89,7 @@ type SchedulingPolicyInput interface {
 }
 
 func (*SchedulingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchedulingPolicy)(nil))
+	return reflect.TypeOf((**SchedulingPolicy)(nil)).Elem()
 }
 
 func (i *SchedulingPolicy) ToSchedulingPolicyOutput() SchedulingPolicyOutput {
@@ -103,7 +103,7 @@ func (i *SchedulingPolicy) ToSchedulingPolicyOutputWithContext(ctx context.Conte
 type SchedulingPolicyOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchedulingPolicy)(nil))
+	return reflect.TypeOf((**SchedulingPolicy)(nil)).Elem()
 }
 
 func (o SchedulingPolicyOutput) ToSchedulingPolicyOutput() SchedulingPolicyOutput {

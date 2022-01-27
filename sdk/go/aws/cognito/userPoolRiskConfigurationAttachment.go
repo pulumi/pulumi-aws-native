@@ -97,7 +97,7 @@ type UserPoolRiskConfigurationAttachmentInput interface {
 }
 
 func (*UserPoolRiskConfigurationAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolRiskConfigurationAttachment)(nil))
+	return reflect.TypeOf((**UserPoolRiskConfigurationAttachment)(nil)).Elem()
 }
 
 func (i *UserPoolRiskConfigurationAttachment) ToUserPoolRiskConfigurationAttachmentOutput() UserPoolRiskConfigurationAttachmentOutput {
@@ -111,7 +111,7 @@ func (i *UserPoolRiskConfigurationAttachment) ToUserPoolRiskConfigurationAttachm
 type UserPoolRiskConfigurationAttachmentOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolRiskConfigurationAttachment)(nil))
+	return reflect.TypeOf((**UserPoolRiskConfigurationAttachment)(nil)).Elem()
 }
 
 func (o UserPoolRiskConfigurationAttachmentOutput) ToUserPoolRiskConfigurationAttachmentOutput() UserPoolRiskConfigurationAttachmentOutput {

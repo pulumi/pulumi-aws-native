@@ -119,7 +119,7 @@ type GlobalTableInput interface {
 }
 
 func (*GlobalTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTable)(nil))
+	return reflect.TypeOf((**GlobalTable)(nil)).Elem()
 }
 
 func (i *GlobalTable) ToGlobalTableOutput() GlobalTableOutput {
@@ -133,7 +133,7 @@ func (i *GlobalTable) ToGlobalTableOutputWithContext(ctx context.Context) Global
 type GlobalTableOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalTable)(nil))
+	return reflect.TypeOf((**GlobalTable)(nil)).Elem()
 }
 
 func (o GlobalTableOutput) ToGlobalTableOutput() GlobalTableOutput {

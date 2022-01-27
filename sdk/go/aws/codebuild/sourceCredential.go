@@ -97,7 +97,7 @@ type SourceCredentialInput interface {
 }
 
 func (*SourceCredential) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCredential)(nil))
+	return reflect.TypeOf((**SourceCredential)(nil)).Elem()
 }
 
 func (i *SourceCredential) ToSourceCredentialOutput() SourceCredentialOutput {
@@ -111,7 +111,7 @@ func (i *SourceCredential) ToSourceCredentialOutputWithContext(ctx context.Conte
 type SourceCredentialOutput struct{ *pulumi.OutputState }
 
 func (SourceCredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCredential)(nil))
+	return reflect.TypeOf((**SourceCredential)(nil)).Elem()
 }
 
 func (o SourceCredentialOutput) ToSourceCredentialOutput() SourceCredentialOutput {

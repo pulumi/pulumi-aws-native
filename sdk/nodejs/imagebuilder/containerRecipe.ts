@@ -108,47 +108,45 @@ export class ContainerRecipe extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ContainerRecipeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["components"] = args ? args.components : undefined;
-            inputs["containerType"] = args ? args.containerType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dockerfileTemplateData"] = args ? args.dockerfileTemplateData : undefined;
-            inputs["dockerfileTemplateUri"] = args ? args.dockerfileTemplateUri : undefined;
-            inputs["imageOsVersionOverride"] = args ? args.imageOsVersionOverride : undefined;
-            inputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentImage"] = args ? args.parentImage : undefined;
-            inputs["platformOverride"] = args ? args.platformOverride : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetRepository"] = args ? args.targetRepository : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["workingDirectory"] = args ? args.workingDirectory : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["components"] = args ? args.components : undefined;
+            resourceInputs["containerType"] = args ? args.containerType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dockerfileTemplateData"] = args ? args.dockerfileTemplateData : undefined;
+            resourceInputs["dockerfileTemplateUri"] = args ? args.dockerfileTemplateUri : undefined;
+            resourceInputs["imageOsVersionOverride"] = args ? args.imageOsVersionOverride : undefined;
+            resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentImage"] = args ? args.parentImage : undefined;
+            resourceInputs["platformOverride"] = args ? args.platformOverride : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRepository"] = args ? args.targetRepository : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["components"] = undefined /*out*/;
-            inputs["containerType"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["dockerfileTemplateData"] = undefined /*out*/;
-            inputs["dockerfileTemplateUri"] = undefined /*out*/;
-            inputs["imageOsVersionOverride"] = undefined /*out*/;
-            inputs["instanceConfiguration"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parentImage"] = undefined /*out*/;
-            inputs["platformOverride"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetRepository"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["workingDirectory"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["components"] = undefined /*out*/;
+            resourceInputs["containerType"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["dockerfileTemplateData"] = undefined /*out*/;
+            resourceInputs["dockerfileTemplateUri"] = undefined /*out*/;
+            resourceInputs["imageOsVersionOverride"] = undefined /*out*/;
+            resourceInputs["instanceConfiguration"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parentImage"] = undefined /*out*/;
+            resourceInputs["platformOverride"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetRepository"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["workingDirectory"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ContainerRecipe.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ContainerRecipe.__pulumiType, name, resourceInputs, opts);
     }
 }
 

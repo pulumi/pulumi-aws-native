@@ -119,7 +119,7 @@ type ImageBuilderInput interface {
 }
 
 func (*ImageBuilder) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageBuilder)(nil))
+	return reflect.TypeOf((**ImageBuilder)(nil)).Elem()
 }
 
 func (i *ImageBuilder) ToImageBuilderOutput() ImageBuilderOutput {
@@ -133,7 +133,7 @@ func (i *ImageBuilder) ToImageBuilderOutputWithContext(ctx context.Context) Imag
 type ImageBuilderOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageBuilder)(nil))
+	return reflect.TypeOf((**ImageBuilder)(nil)).Elem()
 }
 
 func (o ImageBuilderOutput) ToImageBuilderOutput() ImageBuilderOutput {

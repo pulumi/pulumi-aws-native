@@ -20,42 +20,6 @@ const (
 	FHIRDatastoreDatastoreStatusDeleted  = FHIRDatastoreDatastoreStatus("DELETED")
 )
 
-func (FHIRDatastoreDatastoreStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*FHIRDatastoreDatastoreStatus)(nil)).Elem()
-}
-
-func (e FHIRDatastoreDatastoreStatus) ToFHIRDatastoreDatastoreStatusOutput() FHIRDatastoreDatastoreStatusOutput {
-	return pulumi.ToOutput(e).(FHIRDatastoreDatastoreStatusOutput)
-}
-
-func (e FHIRDatastoreDatastoreStatus) ToFHIRDatastoreDatastoreStatusOutputWithContext(ctx context.Context) FHIRDatastoreDatastoreStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FHIRDatastoreDatastoreStatusOutput)
-}
-
-func (e FHIRDatastoreDatastoreStatus) ToFHIRDatastoreDatastoreStatusPtrOutput() FHIRDatastoreDatastoreStatusPtrOutput {
-	return e.ToFHIRDatastoreDatastoreStatusPtrOutputWithContext(context.Background())
-}
-
-func (e FHIRDatastoreDatastoreStatus) ToFHIRDatastoreDatastoreStatusPtrOutputWithContext(ctx context.Context) FHIRDatastoreDatastoreStatusPtrOutput {
-	return FHIRDatastoreDatastoreStatus(e).ToFHIRDatastoreDatastoreStatusOutputWithContext(ctx).ToFHIRDatastoreDatastoreStatusPtrOutputWithContext(ctx)
-}
-
-func (e FHIRDatastoreDatastoreStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FHIRDatastoreDatastoreStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FHIRDatastoreDatastoreStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FHIRDatastoreDatastoreStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type FHIRDatastoreDatastoreStatusOutput struct{ *pulumi.OutputState }
 
 func (FHIRDatastoreDatastoreStatusOutput) ElementType() reflect.Type {
@@ -137,44 +101,6 @@ func (o FHIRDatastoreDatastoreStatusPtrOutput) ToStringPtrOutputWithContext(ctx 
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// FHIRDatastoreDatastoreStatusInput is an input type that accepts FHIRDatastoreDatastoreStatusArgs and FHIRDatastoreDatastoreStatusOutput values.
-// You can construct a concrete instance of `FHIRDatastoreDatastoreStatusInput` via:
-//
-//          FHIRDatastoreDatastoreStatusArgs{...}
-type FHIRDatastoreDatastoreStatusInput interface {
-	pulumi.Input
-
-	ToFHIRDatastoreDatastoreStatusOutput() FHIRDatastoreDatastoreStatusOutput
-	ToFHIRDatastoreDatastoreStatusOutputWithContext(context.Context) FHIRDatastoreDatastoreStatusOutput
-}
-
-var fhirdatastoreDatastoreStatusPtrType = reflect.TypeOf((**FHIRDatastoreDatastoreStatus)(nil)).Elem()
-
-type FHIRDatastoreDatastoreStatusPtrInput interface {
-	pulumi.Input
-
-	ToFHIRDatastoreDatastoreStatusPtrOutput() FHIRDatastoreDatastoreStatusPtrOutput
-	ToFHIRDatastoreDatastoreStatusPtrOutputWithContext(context.Context) FHIRDatastoreDatastoreStatusPtrOutput
-}
-
-type fhirdatastoreDatastoreStatusPtr string
-
-func FHIRDatastoreDatastoreStatusPtr(v string) FHIRDatastoreDatastoreStatusPtrInput {
-	return (*fhirdatastoreDatastoreStatusPtr)(&v)
-}
-
-func (*fhirdatastoreDatastoreStatusPtr) ElementType() reflect.Type {
-	return fhirdatastoreDatastoreStatusPtrType
-}
-
-func (in *fhirdatastoreDatastoreStatusPtr) ToFHIRDatastoreDatastoreStatusPtrOutput() FHIRDatastoreDatastoreStatusPtrOutput {
-	return pulumi.ToOutput(in).(FHIRDatastoreDatastoreStatusPtrOutput)
-}
-
-func (in *fhirdatastoreDatastoreStatusPtr) ToFHIRDatastoreDatastoreStatusPtrOutputWithContext(ctx context.Context) FHIRDatastoreDatastoreStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FHIRDatastoreDatastoreStatusPtrOutput)
 }
 
 // The FHIR version. Only R4 version data is supported.
@@ -671,8 +597,6 @@ func (in *fhirdatastorePreloadDataConfigPreloadDataTypePtr) ToFHIRDatastorePrelo
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreStatusInput)(nil)).Elem(), FHIRDatastoreDatastoreStatus("CREATING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreStatusPtrInput)(nil)).Elem(), FHIRDatastoreDatastoreStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreTypeVersionInput)(nil)).Elem(), FHIRDatastoreDatastoreTypeVersion("R4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreTypeVersionPtrInput)(nil)).Elem(), FHIRDatastoreDatastoreTypeVersion("R4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigCmkTypeInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY"))

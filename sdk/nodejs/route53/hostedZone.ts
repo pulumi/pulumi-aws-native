@@ -63,27 +63,25 @@ export class HostedZone extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: HostedZoneArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["hostedZoneConfig"] = args ? args.hostedZoneConfig : undefined;
-            inputs["hostedZoneTags"] = args ? args.hostedZoneTags : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queryLoggingConfig"] = args ? args.queryLoggingConfig : undefined;
-            inputs["vPCs"] = args ? args.vPCs : undefined;
-            inputs["nameServers"] = undefined /*out*/;
+            resourceInputs["hostedZoneConfig"] = args ? args.hostedZoneConfig : undefined;
+            resourceInputs["hostedZoneTags"] = args ? args.hostedZoneTags : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryLoggingConfig"] = args ? args.queryLoggingConfig : undefined;
+            resourceInputs["vPCs"] = args ? args.vPCs : undefined;
+            resourceInputs["nameServers"] = undefined /*out*/;
         } else {
-            inputs["hostedZoneConfig"] = undefined /*out*/;
-            inputs["hostedZoneTags"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nameServers"] = undefined /*out*/;
-            inputs["queryLoggingConfig"] = undefined /*out*/;
-            inputs["vPCs"] = undefined /*out*/;
+            resourceInputs["hostedZoneConfig"] = undefined /*out*/;
+            resourceInputs["hostedZoneTags"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
+            resourceInputs["queryLoggingConfig"] = undefined /*out*/;
+            resourceInputs["vPCs"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(HostedZone.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(HostedZone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

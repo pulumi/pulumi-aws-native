@@ -51,7 +51,7 @@ export class ApplicationReferenceDataSource extends pulumi.CustomResource {
     /** @deprecated ApplicationReferenceDataSource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApplicationReferenceDataSourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApplicationReferenceDataSource is deprecated: ApplicationReferenceDataSource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class ApplicationReferenceDataSource extends pulumi.CustomResource {
             if ((!args || args.referenceDataSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'referenceDataSource'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["referenceDataSource"] = args ? args.referenceDataSource : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["referenceDataSource"] = args ? args.referenceDataSource : undefined;
         } else {
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["referenceDataSource"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["referenceDataSource"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationReferenceDataSource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationReferenceDataSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -103,7 +103,7 @@ type RouteResponseInput interface {
 }
 
 func (*RouteResponse) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteResponse)(nil))
+	return reflect.TypeOf((**RouteResponse)(nil)).Elem()
 }
 
 func (i *RouteResponse) ToRouteResponseOutput() RouteResponseOutput {
@@ -117,7 +117,7 @@ func (i *RouteResponse) ToRouteResponseOutputWithContext(ctx context.Context) Ro
 type RouteResponseOutput struct{ *pulumi.OutputState }
 
 func (RouteResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteResponse)(nil))
+	return reflect.TypeOf((**RouteResponse)(nil)).Elem()
 }
 
 func (o RouteResponseOutput) ToRouteResponseOutput() RouteResponseOutput {

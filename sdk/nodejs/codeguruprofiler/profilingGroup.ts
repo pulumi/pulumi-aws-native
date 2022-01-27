@@ -68,27 +68,25 @@ export class ProfilingGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProfilingGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["agentPermissions"] = args ? args.agentPermissions : undefined;
-            inputs["anomalyDetectionNotificationConfiguration"] = args ? args.anomalyDetectionNotificationConfiguration : undefined;
-            inputs["computePlatform"] = args ? args.computePlatform : undefined;
-            inputs["profilingGroupName"] = args ? args.profilingGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["agentPermissions"] = args ? args.agentPermissions : undefined;
+            resourceInputs["anomalyDetectionNotificationConfiguration"] = args ? args.anomalyDetectionNotificationConfiguration : undefined;
+            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
+            resourceInputs["profilingGroupName"] = args ? args.profilingGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["agentPermissions"] = undefined /*out*/;
-            inputs["anomalyDetectionNotificationConfiguration"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["computePlatform"] = undefined /*out*/;
-            inputs["profilingGroupName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["agentPermissions"] = undefined /*out*/;
+            resourceInputs["anomalyDetectionNotificationConfiguration"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["computePlatform"] = undefined /*out*/;
+            resourceInputs["profilingGroupName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfilingGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfilingGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

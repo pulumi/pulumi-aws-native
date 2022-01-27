@@ -98,7 +98,7 @@ type EnclaveCertificateIamRoleAssociationInput interface {
 }
 
 func (*EnclaveCertificateIamRoleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnclaveCertificateIamRoleAssociation)(nil))
+	return reflect.TypeOf((**EnclaveCertificateIamRoleAssociation)(nil)).Elem()
 }
 
 func (i *EnclaveCertificateIamRoleAssociation) ToEnclaveCertificateIamRoleAssociationOutput() EnclaveCertificateIamRoleAssociationOutput {
@@ -112,7 +112,7 @@ func (i *EnclaveCertificateIamRoleAssociation) ToEnclaveCertificateIamRoleAssoci
 type EnclaveCertificateIamRoleAssociationOutput struct{ *pulumi.OutputState }
 
 func (EnclaveCertificateIamRoleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnclaveCertificateIamRoleAssociation)(nil))
+	return reflect.TypeOf((**EnclaveCertificateIamRoleAssociation)(nil)).Elem()
 }
 
 func (o EnclaveCertificateIamRoleAssociationOutput) ToEnclaveCertificateIamRoleAssociationOutput() EnclaveCertificateIamRoleAssociationOutput {

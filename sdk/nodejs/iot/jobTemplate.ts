@@ -83,7 +83,7 @@ export class JobTemplate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JobTemplateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -92,36 +92,34 @@ export class JobTemplate extends pulumi.CustomResource {
             if ((!args || args.jobTemplateId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobTemplateId'");
             }
-            inputs["abortConfig"] = args ? args.abortConfig : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["document"] = args ? args.document : undefined;
-            inputs["documentSource"] = args ? args.documentSource : undefined;
-            inputs["jobArn"] = args ? args.jobArn : undefined;
-            inputs["jobExecutionsRetryConfig"] = args ? args.jobExecutionsRetryConfig : undefined;
-            inputs["jobExecutionsRolloutConfig"] = args ? args.jobExecutionsRolloutConfig : undefined;
-            inputs["jobTemplateId"] = args ? args.jobTemplateId : undefined;
-            inputs["presignedUrlConfig"] = args ? args.presignedUrlConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeoutConfig"] = args ? args.timeoutConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["abortConfig"] = args ? args.abortConfig : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["document"] = args ? args.document : undefined;
+            resourceInputs["documentSource"] = args ? args.documentSource : undefined;
+            resourceInputs["jobArn"] = args ? args.jobArn : undefined;
+            resourceInputs["jobExecutionsRetryConfig"] = args ? args.jobExecutionsRetryConfig : undefined;
+            resourceInputs["jobExecutionsRolloutConfig"] = args ? args.jobExecutionsRolloutConfig : undefined;
+            resourceInputs["jobTemplateId"] = args ? args.jobTemplateId : undefined;
+            resourceInputs["presignedUrlConfig"] = args ? args.presignedUrlConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeoutConfig"] = args ? args.timeoutConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["abortConfig"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["document"] = undefined /*out*/;
-            inputs["documentSource"] = undefined /*out*/;
-            inputs["jobArn"] = undefined /*out*/;
-            inputs["jobExecutionsRetryConfig"] = undefined /*out*/;
-            inputs["jobExecutionsRolloutConfig"] = undefined /*out*/;
-            inputs["jobTemplateId"] = undefined /*out*/;
-            inputs["presignedUrlConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeoutConfig"] = undefined /*out*/;
+            resourceInputs["abortConfig"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["document"] = undefined /*out*/;
+            resourceInputs["documentSource"] = undefined /*out*/;
+            resourceInputs["jobArn"] = undefined /*out*/;
+            resourceInputs["jobExecutionsRetryConfig"] = undefined /*out*/;
+            resourceInputs["jobExecutionsRolloutConfig"] = undefined /*out*/;
+            resourceInputs["jobTemplateId"] = undefined /*out*/;
+            resourceInputs["presignedUrlConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeoutConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(JobTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(JobTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

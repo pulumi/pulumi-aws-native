@@ -131,7 +131,7 @@ type MatchmakingConfigurationInput interface {
 }
 
 func (*MatchmakingConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingConfiguration)(nil))
+	return reflect.TypeOf((**MatchmakingConfiguration)(nil)).Elem()
 }
 
 func (i *MatchmakingConfiguration) ToMatchmakingConfigurationOutput() MatchmakingConfigurationOutput {
@@ -145,7 +145,7 @@ func (i *MatchmakingConfiguration) ToMatchmakingConfigurationOutputWithContext(c
 type MatchmakingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingConfiguration)(nil))
+	return reflect.TypeOf((**MatchmakingConfiguration)(nil)).Elem()
 }
 
 func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutput() MatchmakingConfigurationOutput {

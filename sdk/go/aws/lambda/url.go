@@ -107,7 +107,7 @@ type UrlInput interface {
 }
 
 func (*Url) ElementType() reflect.Type {
-	return reflect.TypeOf((*Url)(nil))
+	return reflect.TypeOf((**Url)(nil)).Elem()
 }
 
 func (i *Url) ToUrlOutput() UrlOutput {
@@ -121,7 +121,7 @@ func (i *Url) ToUrlOutputWithContext(ctx context.Context) UrlOutput {
 type UrlOutput struct{ *pulumi.OutputState }
 
 func (UrlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Url)(nil))
+	return reflect.TypeOf((**Url)(nil)).Elem()
 }
 
 func (o UrlOutput) ToUrlOutput() UrlOutput {

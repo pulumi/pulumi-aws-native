@@ -98,7 +98,7 @@ type RobotApplicationInput interface {
 }
 
 func (*RobotApplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*RobotApplication)(nil))
+	return reflect.TypeOf((**RobotApplication)(nil)).Elem()
 }
 
 func (i *RobotApplication) ToRobotApplicationOutput() RobotApplicationOutput {
@@ -112,7 +112,7 @@ func (i *RobotApplication) ToRobotApplicationOutputWithContext(ctx context.Conte
 type RobotApplicationOutput struct{ *pulumi.OutputState }
 
 func (RobotApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RobotApplication)(nil))
+	return reflect.TypeOf((**RobotApplication)(nil)).Elem()
 }
 
 func (o RobotApplicationOutput) ToRobotApplicationOutput() RobotApplicationOutput {

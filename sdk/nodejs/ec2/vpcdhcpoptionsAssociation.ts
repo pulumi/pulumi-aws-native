@@ -51,7 +51,7 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VPCDHCPOptionsAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dhcpOptionsId === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         } else {
-            inputs["dhcpOptionsId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["dhcpOptionsId"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCDHCPOptionsAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCDHCPOptionsAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

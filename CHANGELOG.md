@@ -1,5 +1,7 @@
 ## HEAD (Unreleased)
 
+- Update Pulumi dependencies to v3.23.0
+
 ---
 
 ## 0.11.0 (Jan 24, 2022)

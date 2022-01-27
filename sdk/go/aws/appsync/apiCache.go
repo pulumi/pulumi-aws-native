@@ -106,7 +106,7 @@ type ApiCacheInput interface {
 }
 
 func (*ApiCache) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiCache)(nil))
+	return reflect.TypeOf((**ApiCache)(nil)).Elem()
 }
 
 func (i *ApiCache) ToApiCacheOutput() ApiCacheOutput {
@@ -120,7 +120,7 @@ func (i *ApiCache) ToApiCacheOutputWithContext(ctx context.Context) ApiCacheOutp
 type ApiCacheOutput struct{ *pulumi.OutputState }
 
 func (ApiCacheOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiCache)(nil))
+	return reflect.TypeOf((**ApiCache)(nil)).Elem()
 }
 
 func (o ApiCacheOutput) ToApiCacheOutput() ApiCacheOutput {

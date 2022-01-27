@@ -112,7 +112,7 @@ type ApiDestinationInput interface {
 }
 
 func (*ApiDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDestination)(nil))
+	return reflect.TypeOf((**ApiDestination)(nil)).Elem()
 }
 
 func (i *ApiDestination) ToApiDestinationOutput() ApiDestinationOutput {
@@ -126,7 +126,7 @@ func (i *ApiDestination) ToApiDestinationOutputWithContext(ctx context.Context) 
 type ApiDestinationOutput struct{ *pulumi.OutputState }
 
 func (ApiDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDestination)(nil))
+	return reflect.TypeOf((**ApiDestination)(nil)).Elem()
 }
 
 func (o ApiDestinationOutput) ToApiDestinationOutput() ApiDestinationOutput {

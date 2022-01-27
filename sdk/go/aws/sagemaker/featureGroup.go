@@ -131,7 +131,7 @@ type FeatureGroupInput interface {
 }
 
 func (*FeatureGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*FeatureGroup)(nil))
+	return reflect.TypeOf((**FeatureGroup)(nil)).Elem()
 }
 
 func (i *FeatureGroup) ToFeatureGroupOutput() FeatureGroupOutput {
@@ -145,7 +145,7 @@ func (i *FeatureGroup) ToFeatureGroupOutputWithContext(ctx context.Context) Feat
 type FeatureGroupOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FeatureGroup)(nil))
+	return reflect.TypeOf((**FeatureGroup)(nil)).Elem()
 }
 
 func (o FeatureGroupOutput) ToFeatureGroupOutput() FeatureGroupOutput {

@@ -94,7 +94,7 @@ type ResourceShareInput interface {
 }
 
 func (*ResourceShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceShare)(nil))
+	return reflect.TypeOf((**ResourceShare)(nil)).Elem()
 }
 
 func (i *ResourceShare) ToResourceShareOutput() ResourceShareOutput {
@@ -108,7 +108,7 @@ func (i *ResourceShare) ToResourceShareOutputWithContext(ctx context.Context) Re
 type ResourceShareOutput struct{ *pulumi.OutputState }
 
 func (ResourceShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceShare)(nil))
+	return reflect.TypeOf((**ResourceShare)(nil)).Elem()
 }
 
 func (o ResourceShareOutput) ToResourceShareOutput() ResourceShareOutput {

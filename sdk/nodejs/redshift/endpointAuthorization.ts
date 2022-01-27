@@ -91,7 +91,7 @@ export class EndpointAuthorization extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EndpointAuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.account === undefined) && !opts.urn) {
@@ -100,36 +100,34 @@ export class EndpointAuthorization extends pulumi.CustomResource {
             if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            inputs["account"] = args ? args.account : undefined;
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["force"] = args ? args.force : undefined;
-            inputs["vpcIds"] = args ? args.vpcIds : undefined;
-            inputs["allowedAllVPCs"] = undefined /*out*/;
-            inputs["allowedVPCs"] = undefined /*out*/;
-            inputs["authorizeTime"] = undefined /*out*/;
-            inputs["clusterStatus"] = undefined /*out*/;
-            inputs["endpointCount"] = undefined /*out*/;
-            inputs["grantee"] = undefined /*out*/;
-            inputs["grantor"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["account"] = args ? args.account : undefined;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["force"] = args ? args.force : undefined;
+            resourceInputs["vpcIds"] = args ? args.vpcIds : undefined;
+            resourceInputs["allowedAllVPCs"] = undefined /*out*/;
+            resourceInputs["allowedVPCs"] = undefined /*out*/;
+            resourceInputs["authorizeTime"] = undefined /*out*/;
+            resourceInputs["clusterStatus"] = undefined /*out*/;
+            resourceInputs["endpointCount"] = undefined /*out*/;
+            resourceInputs["grantee"] = undefined /*out*/;
+            resourceInputs["grantor"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["account"] = undefined /*out*/;
-            inputs["allowedAllVPCs"] = undefined /*out*/;
-            inputs["allowedVPCs"] = undefined /*out*/;
-            inputs["authorizeTime"] = undefined /*out*/;
-            inputs["clusterIdentifier"] = undefined /*out*/;
-            inputs["clusterStatus"] = undefined /*out*/;
-            inputs["endpointCount"] = undefined /*out*/;
-            inputs["force"] = undefined /*out*/;
-            inputs["grantee"] = undefined /*out*/;
-            inputs["grantor"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["vpcIds"] = undefined /*out*/;
+            resourceInputs["account"] = undefined /*out*/;
+            resourceInputs["allowedAllVPCs"] = undefined /*out*/;
+            resourceInputs["allowedVPCs"] = undefined /*out*/;
+            resourceInputs["authorizeTime"] = undefined /*out*/;
+            resourceInputs["clusterIdentifier"] = undefined /*out*/;
+            resourceInputs["clusterStatus"] = undefined /*out*/;
+            resourceInputs["endpointCount"] = undefined /*out*/;
+            resourceInputs["force"] = undefined /*out*/;
+            resourceInputs["grantee"] = undefined /*out*/;
+            resourceInputs["grantor"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["vpcIds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EndpointAuthorization.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EndpointAuthorization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

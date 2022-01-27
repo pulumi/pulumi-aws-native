@@ -404,47 +404,6 @@ func (i SchemaPropertiesArgs) ToSchemaPropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput)
 }
 
-func (i SchemaPropertiesArgs) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
-	return i.ToSchemaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SchemaPropertiesArgs) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput).ToSchemaPropertiesPtrOutputWithContext(ctx)
-}
-
-// SchemaPropertiesPtrInput is an input type that accepts SchemaPropertiesArgs, SchemaPropertiesPtr and SchemaPropertiesPtrOutput values.
-// You can construct a concrete instance of `SchemaPropertiesPtrInput` via:
-//
-//          SchemaPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SchemaPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput
-	ToSchemaPropertiesPtrOutputWithContext(context.Context) SchemaPropertiesPtrOutput
-}
-
-type schemaPropertiesPtrType SchemaPropertiesArgs
-
-func SchemaPropertiesPtr(v *SchemaPropertiesArgs) SchemaPropertiesPtrInput {
-	return (*schemaPropertiesPtrType)(v)
-}
-
-func (*schemaPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchemaProperties)(nil)).Elem()
-}
-
-func (i *schemaPropertiesPtrType) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
-	return i.ToSchemaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *schemaPropertiesPtrType) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesPtrOutput)
-}
-
 type SchemaPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SchemaPropertiesOutput) ElementType() reflect.Type {
@@ -459,51 +418,8 @@ func (o SchemaPropertiesOutput) ToSchemaPropertiesOutputWithContext(ctx context.
 	return o
 }
 
-func (o SchemaPropertiesOutput) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
-	return o.ToSchemaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SchemaPropertiesOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaProperties) *SchemaProperties {
-		return &v
-	}).(SchemaPropertiesPtrOutput)
-}
-
 func (o SchemaPropertiesOutput) Attributes() AttributesItemPropertiesArrayOutput {
 	return o.ApplyT(func(v SchemaProperties) []AttributesItemProperties { return v.Attributes }).(AttributesItemPropertiesArrayOutput)
-}
-
-type SchemaPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SchemaPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchemaProperties)(nil)).Elem()
-}
-
-func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
-	return o
-}
-
-func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
-	return o
-}
-
-func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
-	return o.ApplyT(func(v *SchemaProperties) SchemaProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SchemaProperties
-		return ret
-	}).(SchemaPropertiesOutput)
-}
-
-func (o SchemaPropertiesPtrOutput) Attributes() AttributesItemPropertiesArrayOutput {
-	return o.ApplyT(func(v *SchemaProperties) []AttributesItemProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Attributes
-	}).(AttributesItemPropertiesArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -617,7 +533,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigPropertiesInput)(nil)).Elem(), EncryptionConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigPropertiesPtrInput)(nil)).Elem(), EncryptionConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesInput)(nil)).Elem(), SchemaPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesPtrInput)(nil)).Elem(), SchemaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesInput)(nil)).Elem(), TagsItemPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesArrayInput)(nil)).Elem(), TagsItemPropertiesArray{})
 	pulumi.RegisterOutputType(AttributesItemPropertiesOutput{})
@@ -627,7 +542,6 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchemaPropertiesOutput{})
-	pulumi.RegisterOutputType(SchemaPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TagsItemPropertiesOutput{})
 	pulumi.RegisterOutputType(TagsItemPropertiesArrayOutput{})
 }

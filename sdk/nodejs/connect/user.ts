@@ -88,7 +88,7 @@ export class User extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
@@ -106,34 +106,32 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["directoryUserId"] = args ? args.directoryUserId : undefined;
-            inputs["hierarchyGroupArn"] = args ? args.hierarchyGroupArn : undefined;
-            inputs["identityInfo"] = args ? args.identityInfo : undefined;
-            inputs["instanceArn"] = args ? args.instanceArn : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["phoneConfig"] = args ? args.phoneConfig : undefined;
-            inputs["routingProfileArn"] = args ? args.routingProfileArn : undefined;
-            inputs["securityProfileArns"] = args ? args.securityProfileArns : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["userArn"] = undefined /*out*/;
+            resourceInputs["directoryUserId"] = args ? args.directoryUserId : undefined;
+            resourceInputs["hierarchyGroupArn"] = args ? args.hierarchyGroupArn : undefined;
+            resourceInputs["identityInfo"] = args ? args.identityInfo : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["phoneConfig"] = args ? args.phoneConfig : undefined;
+            resourceInputs["routingProfileArn"] = args ? args.routingProfileArn : undefined;
+            resourceInputs["securityProfileArns"] = args ? args.securityProfileArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["userArn"] = undefined /*out*/;
         } else {
-            inputs["directoryUserId"] = undefined /*out*/;
-            inputs["hierarchyGroupArn"] = undefined /*out*/;
-            inputs["identityInfo"] = undefined /*out*/;
-            inputs["instanceArn"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["phoneConfig"] = undefined /*out*/;
-            inputs["routingProfileArn"] = undefined /*out*/;
-            inputs["securityProfileArns"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userArn"] = undefined /*out*/;
-            inputs["username"] = undefined /*out*/;
+            resourceInputs["directoryUserId"] = undefined /*out*/;
+            resourceInputs["hierarchyGroupArn"] = undefined /*out*/;
+            resourceInputs["identityInfo"] = undefined /*out*/;
+            resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["phoneConfig"] = undefined /*out*/;
+            resourceInputs["routingProfileArn"] = undefined /*out*/;
+            resourceInputs["securityProfileArns"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userArn"] = undefined /*out*/;
+            resourceInputs["username"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

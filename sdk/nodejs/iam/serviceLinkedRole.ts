@@ -51,24 +51,22 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     /** @deprecated ServiceLinkedRole is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ServiceLinkedRoleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ServiceLinkedRole is deprecated: ServiceLinkedRole is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.aWSServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'aWSServiceName'");
             }
-            inputs["aWSServiceName"] = args ? args.aWSServiceName : undefined;
-            inputs["customSuffix"] = args ? args.customSuffix : undefined;
-            inputs["description"] = args ? args.description : undefined;
+            resourceInputs["aWSServiceName"] = args ? args.aWSServiceName : undefined;
+            resourceInputs["customSuffix"] = args ? args.customSuffix : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
         } else {
-            inputs["aWSServiceName"] = undefined /*out*/;
-            inputs["customSuffix"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
+            resourceInputs["aWSServiceName"] = undefined /*out*/;
+            resourceInputs["customSuffix"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceLinkedRole.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceLinkedRole.__pulumiType, name, resourceInputs, opts);
     }
 }
 

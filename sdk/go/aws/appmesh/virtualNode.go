@@ -100,7 +100,7 @@ type VirtualNodeInput interface {
 }
 
 func (*VirtualNode) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNode)(nil))
+	return reflect.TypeOf((**VirtualNode)(nil)).Elem()
 }
 
 func (i *VirtualNode) ToVirtualNodeOutput() VirtualNodeOutput {
@@ -114,7 +114,7 @@ func (i *VirtualNode) ToVirtualNodeOutputWithContext(ctx context.Context) Virtua
 type VirtualNodeOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNode)(nil))
+	return reflect.TypeOf((**VirtualNode)(nil)).Elem()
 }
 
 func (o VirtualNodeOutput) ToVirtualNodeOutput() VirtualNodeOutput {

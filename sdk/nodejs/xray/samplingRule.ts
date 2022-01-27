@@ -50,27 +50,25 @@ export class SamplingRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: SamplingRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["samplingRule"] = args ? args.samplingRule : undefined;
-            inputs["samplingRuleRecord"] = args ? args.samplingRuleRecord : undefined;
-            inputs["samplingRuleUpdate"] = args ? args.samplingRuleUpdate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ruleARN"] = undefined /*out*/;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["samplingRule"] = args ? args.samplingRule : undefined;
+            resourceInputs["samplingRuleRecord"] = args ? args.samplingRuleRecord : undefined;
+            resourceInputs["samplingRuleUpdate"] = args ? args.samplingRuleUpdate : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ruleARN"] = undefined /*out*/;
         } else {
-            inputs["ruleARN"] = undefined /*out*/;
-            inputs["ruleName"] = undefined /*out*/;
-            inputs["samplingRule"] = undefined /*out*/;
-            inputs["samplingRuleRecord"] = undefined /*out*/;
-            inputs["samplingRuleUpdate"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["ruleARN"] = undefined /*out*/;
+            resourceInputs["ruleName"] = undefined /*out*/;
+            resourceInputs["samplingRule"] = undefined /*out*/;
+            resourceInputs["samplingRuleRecord"] = undefined /*out*/;
+            resourceInputs["samplingRuleUpdate"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SamplingRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SamplingRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

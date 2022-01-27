@@ -52,28 +52,26 @@ export class OIDCProvider extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OIDCProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.thumbprintList === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thumbprintList'");
             }
-            inputs["clientIdList"] = args ? args.clientIdList : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["thumbprintList"] = args ? args.thumbprintList : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["clientIdList"] = args ? args.clientIdList : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["thumbprintList"] = args ? args.thumbprintList : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["clientIdList"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["thumbprintList"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clientIdList"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["thumbprintList"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OIDCProvider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OIDCProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

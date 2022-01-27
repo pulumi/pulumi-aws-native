@@ -100,7 +100,7 @@ type DomainConfigurationInput interface {
 }
 
 func (*DomainConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfiguration)(nil))
+	return reflect.TypeOf((**DomainConfiguration)(nil)).Elem()
 }
 
 func (i *DomainConfiguration) ToDomainConfigurationOutput() DomainConfigurationOutput {
@@ -114,7 +114,7 @@ func (i *DomainConfiguration) ToDomainConfigurationOutputWithContext(ctx context
 type DomainConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfiguration)(nil))
+	return reflect.TypeOf((**DomainConfiguration)(nil)).Elem()
 }
 
 func (o DomainConfigurationOutput) ToDomainConfigurationOutput() DomainConfigurationOutput {

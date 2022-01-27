@@ -100,7 +100,7 @@ type AggregationAuthorizationInput interface {
 }
 
 func (*AggregationAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*AggregationAuthorization)(nil))
+	return reflect.TypeOf((**AggregationAuthorization)(nil)).Elem()
 }
 
 func (i *AggregationAuthorization) ToAggregationAuthorizationOutput() AggregationAuthorizationOutput {
@@ -114,7 +114,7 @@ func (i *AggregationAuthorization) ToAggregationAuthorizationOutputWithContext(c
 type AggregationAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AggregationAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AggregationAuthorization)(nil))
+	return reflect.TypeOf((**AggregationAuthorization)(nil)).Elem()
 }
 
 func (o AggregationAuthorizationOutput) ToAggregationAuthorizationOutput() AggregationAuthorizationOutput {

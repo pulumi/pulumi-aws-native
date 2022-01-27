@@ -74,7 +74,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /** @deprecated AnomalySubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AnomalySubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AnomalySubscription is deprecated: AnomalySubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.frequency === undefined) && !opts.urn) {
@@ -92,26 +92,24 @@ export class AnomalySubscription extends pulumi.CustomResource {
             if ((!args || args.threshold === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["monitorArnList"] = args ? args.monitorArnList : undefined;
-            inputs["subscribers"] = args ? args.subscribers : undefined;
-            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            inputs["threshold"] = args ? args.threshold : undefined;
-            inputs["accountId"] = undefined /*out*/;
-            inputs["subscriptionArn"] = undefined /*out*/;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["monitorArnList"] = args ? args.monitorArnList : undefined;
+            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["threshold"] = args ? args.threshold : undefined;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["subscriptionArn"] = undefined /*out*/;
         } else {
-            inputs["accountId"] = undefined /*out*/;
-            inputs["frequency"] = undefined /*out*/;
-            inputs["monitorArnList"] = undefined /*out*/;
-            inputs["subscribers"] = undefined /*out*/;
-            inputs["subscriptionArn"] = undefined /*out*/;
-            inputs["subscriptionName"] = undefined /*out*/;
-            inputs["threshold"] = undefined /*out*/;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["frequency"] = undefined /*out*/;
+            resourceInputs["monitorArnList"] = undefined /*out*/;
+            resourceInputs["subscribers"] = undefined /*out*/;
+            resourceInputs["subscriptionArn"] = undefined /*out*/;
+            resourceInputs["subscriptionName"] = undefined /*out*/;
+            resourceInputs["threshold"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AnomalySubscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AnomalySubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

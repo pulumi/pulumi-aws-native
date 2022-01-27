@@ -132,7 +132,7 @@ type WirelessDeviceInput interface {
 }
 
 func (*WirelessDevice) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessDevice)(nil))
+	return reflect.TypeOf((**WirelessDevice)(nil)).Elem()
 }
 
 func (i *WirelessDevice) ToWirelessDeviceOutput() WirelessDeviceOutput {
@@ -146,7 +146,7 @@ func (i *WirelessDevice) ToWirelessDeviceOutputWithContext(ctx context.Context) 
 type WirelessDeviceOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WirelessDevice)(nil))
+	return reflect.TypeOf((**WirelessDevice)(nil)).Elem()
 }
 
 func (o WirelessDeviceOutput) ToWirelessDeviceOutput() WirelessDeviceOutput {

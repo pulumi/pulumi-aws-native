@@ -101,7 +101,7 @@ export class Canary extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CanaryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.artifactS3Location === undefined) && !opts.urn) {
@@ -122,42 +122,40 @@ export class Canary extends pulumi.CustomResource {
             if ((!args || args.startCanaryAfterCreation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startCanaryAfterCreation'");
             }
-            inputs["artifactConfig"] = args ? args.artifactConfig : undefined;
-            inputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
-            inputs["code"] = args ? args.code : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["runConfig"] = args ? args.runConfig : undefined;
-            inputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["startCanaryAfterCreation"] = args ? args.startCanaryAfterCreation : undefined;
-            inputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vPCConfig"] = args ? args.vPCConfig : undefined;
-            inputs["visualReference"] = args ? args.visualReference : undefined;
-            inputs["state"] = undefined /*out*/;
+            resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
+            resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["runConfig"] = args ? args.runConfig : undefined;
+            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["startCanaryAfterCreation"] = args ? args.startCanaryAfterCreation : undefined;
+            resourceInputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vPCConfig"] = args ? args.vPCConfig : undefined;
+            resourceInputs["visualReference"] = args ? args.visualReference : undefined;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
-            inputs["artifactConfig"] = undefined /*out*/;
-            inputs["artifactS3Location"] = undefined /*out*/;
-            inputs["code"] = undefined /*out*/;
-            inputs["executionRoleArn"] = undefined /*out*/;
-            inputs["failureRetentionPeriod"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["runConfig"] = undefined /*out*/;
-            inputs["runtimeVersion"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["startCanaryAfterCreation"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["successRetentionPeriod"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vPCConfig"] = undefined /*out*/;
-            inputs["visualReference"] = undefined /*out*/;
+            resourceInputs["artifactConfig"] = undefined /*out*/;
+            resourceInputs["artifactS3Location"] = undefined /*out*/;
+            resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["failureRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["runConfig"] = undefined /*out*/;
+            resourceInputs["runtimeVersion"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["startCanaryAfterCreation"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["successRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vPCConfig"] = undefined /*out*/;
+            resourceInputs["visualReference"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Canary.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Canary.__pulumiType, name, resourceInputs, opts);
     }
 }
 

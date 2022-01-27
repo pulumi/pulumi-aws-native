@@ -64,7 +64,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accessPolicyIdentity === undefined) && !opts.urn) {
@@ -76,22 +76,20 @@ export class AccessPolicy extends pulumi.CustomResource {
             if ((!args || args.accessPolicyResource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyResource'");
             }
-            inputs["accessPolicyIdentity"] = args ? args.accessPolicyIdentity : undefined;
-            inputs["accessPolicyPermission"] = args ? args.accessPolicyPermission : undefined;
-            inputs["accessPolicyResource"] = args ? args.accessPolicyResource : undefined;
-            inputs["accessPolicyArn"] = undefined /*out*/;
-            inputs["accessPolicyId"] = undefined /*out*/;
+            resourceInputs["accessPolicyIdentity"] = args ? args.accessPolicyIdentity : undefined;
+            resourceInputs["accessPolicyPermission"] = args ? args.accessPolicyPermission : undefined;
+            resourceInputs["accessPolicyResource"] = args ? args.accessPolicyResource : undefined;
+            resourceInputs["accessPolicyArn"] = undefined /*out*/;
+            resourceInputs["accessPolicyId"] = undefined /*out*/;
         } else {
-            inputs["accessPolicyArn"] = undefined /*out*/;
-            inputs["accessPolicyId"] = undefined /*out*/;
-            inputs["accessPolicyIdentity"] = undefined /*out*/;
-            inputs["accessPolicyPermission"] = undefined /*out*/;
-            inputs["accessPolicyResource"] = undefined /*out*/;
+            resourceInputs["accessPolicyArn"] = undefined /*out*/;
+            resourceInputs["accessPolicyId"] = undefined /*out*/;
+            resourceInputs["accessPolicyIdentity"] = undefined /*out*/;
+            resourceInputs["accessPolicyPermission"] = undefined /*out*/;
+            resourceInputs["accessPolicyResource"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccessPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

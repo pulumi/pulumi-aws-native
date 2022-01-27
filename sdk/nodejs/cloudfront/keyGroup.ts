@@ -46,22 +46,20 @@ export class KeyGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KeyGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.keyGroupConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyGroupConfig'");
             }
-            inputs["keyGroupConfig"] = args ? args.keyGroupConfig : undefined;
-            inputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["keyGroupConfig"] = args ? args.keyGroupConfig : undefined;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["keyGroupConfig"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["keyGroupConfig"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(KeyGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(KeyGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

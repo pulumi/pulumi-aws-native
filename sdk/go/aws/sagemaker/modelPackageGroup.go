@@ -93,7 +93,7 @@ type ModelPackageGroupInput interface {
 }
 
 func (*ModelPackageGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroup)(nil))
+	return reflect.TypeOf((**ModelPackageGroup)(nil)).Elem()
 }
 
 func (i *ModelPackageGroup) ToModelPackageGroupOutput() ModelPackageGroupOutput {
@@ -107,7 +107,7 @@ func (i *ModelPackageGroup) ToModelPackageGroupOutputWithContext(ctx context.Con
 type ModelPackageGroupOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroup)(nil))
+	return reflect.TypeOf((**ModelPackageGroup)(nil)).Elem()
 }
 
 func (o ModelPackageGroupOutput) ToModelPackageGroupOutput() ModelPackageGroupOutput {

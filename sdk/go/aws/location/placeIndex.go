@@ -99,7 +99,7 @@ type PlaceIndexInput interface {
 }
 
 func (*PlaceIndex) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlaceIndex)(nil))
+	return reflect.TypeOf((**PlaceIndex)(nil)).Elem()
 }
 
 func (i *PlaceIndex) ToPlaceIndexOutput() PlaceIndexOutput {
@@ -113,7 +113,7 @@ func (i *PlaceIndex) ToPlaceIndexOutputWithContext(ctx context.Context) PlaceInd
 type PlaceIndexOutput struct{ *pulumi.OutputState }
 
 func (PlaceIndexOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlaceIndex)(nil))
+	return reflect.TypeOf((**PlaceIndex)(nil)).Elem()
 }
 
 func (o PlaceIndexOutput) ToPlaceIndexOutput() PlaceIndexOutput {

@@ -66,52 +66,50 @@ export class ReplicationInstance extends pulumi.CustomResource {
     /** @deprecated ReplicationInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ReplicationInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReplicationInstance is deprecated: ReplicationInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.replicationInstanceClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicationInstanceClass'");
             }
-            inputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
-            inputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["multiAZ"] = args ? args.multiAZ : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
-            inputs["replicationInstanceIdentifier"] = args ? args.replicationInstanceIdentifier : undefined;
-            inputs["replicationSubnetGroupIdentifier"] = args ? args.replicationSubnetGroupIdentifier : undefined;
-            inputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["replicationInstancePrivateIpAddresses"] = undefined /*out*/;
-            inputs["replicationInstancePublicIpAddresses"] = undefined /*out*/;
+            resourceInputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
+            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["multiAZ"] = args ? args.multiAZ : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
+            resourceInputs["replicationInstanceIdentifier"] = args ? args.replicationInstanceIdentifier : undefined;
+            resourceInputs["replicationSubnetGroupIdentifier"] = args ? args.replicationSubnetGroupIdentifier : undefined;
+            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["replicationInstancePrivateIpAddresses"] = undefined /*out*/;
+            resourceInputs["replicationInstancePublicIpAddresses"] = undefined /*out*/;
         } else {
-            inputs["allocatedStorage"] = undefined /*out*/;
-            inputs["allowMajorVersionUpgrade"] = undefined /*out*/;
-            inputs["autoMinorVersionUpgrade"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["multiAZ"] = undefined /*out*/;
-            inputs["preferredMaintenanceWindow"] = undefined /*out*/;
-            inputs["publiclyAccessible"] = undefined /*out*/;
-            inputs["replicationInstanceClass"] = undefined /*out*/;
-            inputs["replicationInstanceIdentifier"] = undefined /*out*/;
-            inputs["replicationInstancePrivateIpAddresses"] = undefined /*out*/;
-            inputs["replicationInstancePublicIpAddresses"] = undefined /*out*/;
-            inputs["replicationSubnetGroupIdentifier"] = undefined /*out*/;
-            inputs["resourceIdentifier"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcSecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["allocatedStorage"] = undefined /*out*/;
+            resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["multiAZ"] = undefined /*out*/;
+            resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
+            resourceInputs["publiclyAccessible"] = undefined /*out*/;
+            resourceInputs["replicationInstanceClass"] = undefined /*out*/;
+            resourceInputs["replicationInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["replicationInstancePrivateIpAddresses"] = undefined /*out*/;
+            resourceInputs["replicationInstancePublicIpAddresses"] = undefined /*out*/;
+            resourceInputs["replicationSubnetGroupIdentifier"] = undefined /*out*/;
+            resourceInputs["resourceIdentifier"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicationInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicationInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -65,7 +65,7 @@ export class ClientVpnEndpoint extends pulumi.CustomResource {
     /** @deprecated ClientVpnEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ClientVpnEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ClientVpnEndpoint is deprecated: ClientVpnEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authenticationOptions === undefined) && !opts.urn) {
@@ -80,44 +80,42 @@ export class ClientVpnEndpoint extends pulumi.CustomResource {
             if ((!args || args.serverCertificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverCertificateArn'");
             }
-            inputs["authenticationOptions"] = args ? args.authenticationOptions : undefined;
-            inputs["clientCidrBlock"] = args ? args.clientCidrBlock : undefined;
-            inputs["clientConnectOptions"] = args ? args.clientConnectOptions : undefined;
-            inputs["clientLoginBannerOptions"] = args ? args.clientLoginBannerOptions : undefined;
-            inputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
-            inputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
-            inputs["sessionTimeoutHours"] = args ? args.sessionTimeoutHours : undefined;
-            inputs["splitTunnel"] = args ? args.splitTunnel : undefined;
-            inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            inputs["transportProtocol"] = args ? args.transportProtocol : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["vpnPort"] = args ? args.vpnPort : undefined;
+            resourceInputs["authenticationOptions"] = args ? args.authenticationOptions : undefined;
+            resourceInputs["clientCidrBlock"] = args ? args.clientCidrBlock : undefined;
+            resourceInputs["clientConnectOptions"] = args ? args.clientConnectOptions : undefined;
+            resourceInputs["clientLoginBannerOptions"] = args ? args.clientLoginBannerOptions : undefined;
+            resourceInputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
+            resourceInputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
+            resourceInputs["sessionTimeoutHours"] = args ? args.sessionTimeoutHours : undefined;
+            resourceInputs["splitTunnel"] = args ? args.splitTunnel : undefined;
+            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
+            resourceInputs["transportProtocol"] = args ? args.transportProtocol : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["vpnPort"] = args ? args.vpnPort : undefined;
         } else {
-            inputs["authenticationOptions"] = undefined /*out*/;
-            inputs["clientCidrBlock"] = undefined /*out*/;
-            inputs["clientConnectOptions"] = undefined /*out*/;
-            inputs["clientLoginBannerOptions"] = undefined /*out*/;
-            inputs["connectionLogOptions"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["dnsServers"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["selfServicePortal"] = undefined /*out*/;
-            inputs["serverCertificateArn"] = undefined /*out*/;
-            inputs["sessionTimeoutHours"] = undefined /*out*/;
-            inputs["splitTunnel"] = undefined /*out*/;
-            inputs["tagSpecifications"] = undefined /*out*/;
-            inputs["transportProtocol"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
-            inputs["vpnPort"] = undefined /*out*/;
+            resourceInputs["authenticationOptions"] = undefined /*out*/;
+            resourceInputs["clientCidrBlock"] = undefined /*out*/;
+            resourceInputs["clientConnectOptions"] = undefined /*out*/;
+            resourceInputs["clientLoginBannerOptions"] = undefined /*out*/;
+            resourceInputs["connectionLogOptions"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["dnsServers"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["selfServicePortal"] = undefined /*out*/;
+            resourceInputs["serverCertificateArn"] = undefined /*out*/;
+            resourceInputs["sessionTimeoutHours"] = undefined /*out*/;
+            resourceInputs["splitTunnel"] = undefined /*out*/;
+            resourceInputs["tagSpecifications"] = undefined /*out*/;
+            resourceInputs["transportProtocol"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
+            resourceInputs["vpnPort"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ClientVpnEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ClientVpnEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

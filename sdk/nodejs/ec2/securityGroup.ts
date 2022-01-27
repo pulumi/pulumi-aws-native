@@ -56,32 +56,30 @@ export class SecurityGroup extends pulumi.CustomResource {
     /** @deprecated SecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SecurityGroup is deprecated: SecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupDescription'");
             }
-            inputs["groupDescription"] = args ? args.groupDescription : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["securityGroupEgress"] = args ? args.securityGroupEgress : undefined;
-            inputs["securityGroupIngress"] = args ? args.securityGroupIngress : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["groupId"] = undefined /*out*/;
+            resourceInputs["groupDescription"] = args ? args.groupDescription : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["securityGroupEgress"] = args ? args.securityGroupEgress : undefined;
+            resourceInputs["securityGroupIngress"] = args ? args.securityGroupIngress : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["groupId"] = undefined /*out*/;
         } else {
-            inputs["groupDescription"] = undefined /*out*/;
-            inputs["groupId"] = undefined /*out*/;
-            inputs["groupName"] = undefined /*out*/;
-            inputs["securityGroupEgress"] = undefined /*out*/;
-            inputs["securityGroupIngress"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["groupDescription"] = undefined /*out*/;
+            resourceInputs["groupId"] = undefined /*out*/;
+            resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["securityGroupEgress"] = undefined /*out*/;
+            resourceInputs["securityGroupIngress"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecurityGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

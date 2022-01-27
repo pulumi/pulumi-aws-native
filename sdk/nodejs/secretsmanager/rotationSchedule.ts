@@ -53,26 +53,24 @@ export class RotationSchedule extends pulumi.CustomResource {
     /** @deprecated RotationSchedule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RotationScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RotationSchedule is deprecated: RotationSchedule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            inputs["hostedRotationLambda"] = args ? args.hostedRotationLambda : undefined;
-            inputs["rotationLambdaARN"] = args ? args.rotationLambdaARN : undefined;
-            inputs["rotationRules"] = args ? args.rotationRules : undefined;
-            inputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["hostedRotationLambda"] = args ? args.hostedRotationLambda : undefined;
+            resourceInputs["rotationLambdaARN"] = args ? args.rotationLambdaARN : undefined;
+            resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
+            resourceInputs["secretId"] = args ? args.secretId : undefined;
         } else {
-            inputs["hostedRotationLambda"] = undefined /*out*/;
-            inputs["rotationLambdaARN"] = undefined /*out*/;
-            inputs["rotationRules"] = undefined /*out*/;
-            inputs["secretId"] = undefined /*out*/;
+            resourceInputs["hostedRotationLambda"] = undefined /*out*/;
+            resourceInputs["rotationLambdaARN"] = undefined /*out*/;
+            resourceInputs["rotationRules"] = undefined /*out*/;
+            resourceInputs["secretId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RotationSchedule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RotationSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

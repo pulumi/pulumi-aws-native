@@ -117,7 +117,7 @@ type RepositoryInput interface {
 }
 
 func (*Repository) ElementType() reflect.Type {
-	return reflect.TypeOf((*Repository)(nil))
+	return reflect.TypeOf((**Repository)(nil)).Elem()
 }
 
 func (i *Repository) ToRepositoryOutput() RepositoryOutput {
@@ -131,7 +131,7 @@ func (i *Repository) ToRepositoryOutputWithContext(ctx context.Context) Reposito
 type RepositoryOutput struct{ *pulumi.OutputState }
 
 func (RepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Repository)(nil))
+	return reflect.TypeOf((**Repository)(nil)).Elem()
 }
 
 func (o RepositoryOutput) ToRepositoryOutput() RepositoryOutput {

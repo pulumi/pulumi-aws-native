@@ -100,46 +100,44 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InfrastructureConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["instanceMetadataOptions"] = args ? args.instanceMetadataOptions : undefined;
-            inputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            inputs["instanceTypes"] = args ? args.instanceTypes : undefined;
-            inputs["keyPair"] = args ? args.keyPair : undefined;
-            inputs["logging"] = args ? args.logging : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceTags"] = args ? args.resourceTags : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["terminateInstanceOnFailure"] = args ? args.terminateInstanceOnFailure : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["instanceMetadataOptions"] = args ? args.instanceMetadataOptions : undefined;
+            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
+            resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
+            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
+            resourceInputs["logging"] = args ? args.logging : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminateInstanceOnFailure"] = args ? args.terminateInstanceOnFailure : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["instanceMetadataOptions"] = undefined /*out*/;
-            inputs["instanceProfileName"] = undefined /*out*/;
-            inputs["instanceTypes"] = undefined /*out*/;
-            inputs["keyPair"] = undefined /*out*/;
-            inputs["logging"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceTags"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["snsTopicArn"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["terminateInstanceOnFailure"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["instanceMetadataOptions"] = undefined /*out*/;
+            resourceInputs["instanceProfileName"] = undefined /*out*/;
+            resourceInputs["instanceTypes"] = undefined /*out*/;
+            resourceInputs["keyPair"] = undefined /*out*/;
+            resourceInputs["logging"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceTags"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["snsTopicArn"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["terminateInstanceOnFailure"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InfrastructureConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InfrastructureConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

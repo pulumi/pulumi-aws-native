@@ -124,7 +124,7 @@ type AnomalySubscriptionInput interface {
 }
 
 func (*AnomalySubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalySubscription)(nil))
+	return reflect.TypeOf((**AnomalySubscription)(nil)).Elem()
 }
 
 func (i *AnomalySubscription) ToAnomalySubscriptionOutput() AnomalySubscriptionOutput {
@@ -138,7 +138,7 @@ func (i *AnomalySubscription) ToAnomalySubscriptionOutputWithContext(ctx context
 type AnomalySubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalySubscription)(nil))
+	return reflect.TypeOf((**AnomalySubscription)(nil)).Elem()
 }
 
 func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutput() AnomalySubscriptionOutput {

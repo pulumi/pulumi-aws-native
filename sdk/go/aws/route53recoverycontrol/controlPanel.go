@@ -99,7 +99,7 @@ type ControlPanelInput interface {
 }
 
 func (*ControlPanel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControlPanel)(nil))
+	return reflect.TypeOf((**ControlPanel)(nil)).Elem()
 }
 
 func (i *ControlPanel) ToControlPanelOutput() ControlPanelOutput {
@@ -113,7 +113,7 @@ func (i *ControlPanel) ToControlPanelOutputWithContext(ctx context.Context) Cont
 type ControlPanelOutput struct{ *pulumi.OutputState }
 
 func (ControlPanelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControlPanel)(nil))
+	return reflect.TypeOf((**ControlPanel)(nil)).Elem()
 }
 
 func (o ControlPanelOutput) ToControlPanelOutput() ControlPanelOutput {

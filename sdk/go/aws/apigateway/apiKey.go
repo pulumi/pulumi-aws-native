@@ -123,7 +123,7 @@ type ApiKeyInput interface {
 }
 
 func (*ApiKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiKey)(nil))
+	return reflect.TypeOf((**ApiKey)(nil)).Elem()
 }
 
 func (i *ApiKey) ToApiKeyOutput() ApiKeyOutput {
@@ -137,7 +137,7 @@ func (i *ApiKey) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
 type ApiKeyOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiKey)(nil))
+	return reflect.TypeOf((**ApiKey)(nil)).Elem()
 }
 
 func (o ApiKeyOutput) ToApiKeyOutput() ApiKeyOutput {

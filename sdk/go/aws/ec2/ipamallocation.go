@@ -97,7 +97,7 @@ type IPAMAllocationInput interface {
 }
 
 func (*IPAMAllocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMAllocation)(nil))
+	return reflect.TypeOf((**IPAMAllocation)(nil)).Elem()
 }
 
 func (i *IPAMAllocation) ToIPAMAllocationOutput() IPAMAllocationOutput {
@@ -111,7 +111,7 @@ func (i *IPAMAllocation) ToIPAMAllocationOutputWithContext(ctx context.Context) 
 type IPAMAllocationOutput struct{ *pulumi.OutputState }
 
 func (IPAMAllocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMAllocation)(nil))
+	return reflect.TypeOf((**IPAMAllocation)(nil)).Elem()
 }
 
 func (o IPAMAllocationOutput) ToIPAMAllocationOutput() IPAMAllocationOutput {

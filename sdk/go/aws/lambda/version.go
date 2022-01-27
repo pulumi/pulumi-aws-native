@@ -92,7 +92,7 @@ type VersionInput interface {
 }
 
 func (*Version) ElementType() reflect.Type {
-	return reflect.TypeOf((*Version)(nil))
+	return reflect.TypeOf((**Version)(nil)).Elem()
 }
 
 func (i *Version) ToVersionOutput() VersionOutput {
@@ -106,7 +106,7 @@ func (i *Version) ToVersionOutputWithContext(ctx context.Context) VersionOutput 
 type VersionOutput struct{ *pulumi.OutputState }
 
 func (VersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Version)(nil))
+	return reflect.TypeOf((**Version)(nil)).Elem()
 }
 
 func (o VersionOutput) ToVersionOutput() VersionOutput {

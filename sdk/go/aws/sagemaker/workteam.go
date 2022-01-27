@@ -90,7 +90,7 @@ type WorkteamInput interface {
 }
 
 func (*Workteam) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workteam)(nil))
+	return reflect.TypeOf((**Workteam)(nil)).Elem()
 }
 
 func (i *Workteam) ToWorkteamOutput() WorkteamOutput {
@@ -104,7 +104,7 @@ func (i *Workteam) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutp
 type WorkteamOutput struct{ *pulumi.OutputState }
 
 func (WorkteamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workteam)(nil))
+	return reflect.TypeOf((**Workteam)(nil)).Elem()
 }
 
 func (o WorkteamOutput) ToWorkteamOutput() WorkteamOutput {

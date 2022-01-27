@@ -46,7 +46,7 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceActionAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.productId === undefined) && !opts.urn) {
@@ -58,18 +58,16 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
             if ((!args || args.serviceActionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceActionId'");
             }
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
-            inputs["serviceActionId"] = args ? args.serviceActionId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
+            resourceInputs["serviceActionId"] = args ? args.serviceActionId : undefined;
         } else {
-            inputs["productId"] = undefined /*out*/;
-            inputs["provisioningArtifactId"] = undefined /*out*/;
-            inputs["serviceActionId"] = undefined /*out*/;
+            resourceInputs["productId"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactId"] = undefined /*out*/;
+            resourceInputs["serviceActionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceActionAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceActionAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

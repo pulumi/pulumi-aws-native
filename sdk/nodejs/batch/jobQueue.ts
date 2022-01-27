@@ -55,7 +55,7 @@ export class JobQueue extends pulumi.CustomResource {
     /** @deprecated JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: JobQueueArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("JobQueue is deprecated: JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.computeEnvironmentOrder === undefined) && !opts.urn) {
@@ -64,24 +64,22 @@ export class JobQueue extends pulumi.CustomResource {
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            inputs["computeEnvironmentOrder"] = args ? args.computeEnvironmentOrder : undefined;
-            inputs["jobQueueName"] = args ? args.jobQueueName : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["computeEnvironmentOrder"] = args ? args.computeEnvironmentOrder : undefined;
+            resourceInputs["jobQueueName"] = args ? args.jobQueueName : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["computeEnvironmentOrder"] = undefined /*out*/;
-            inputs["jobQueueName"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["schedulingPolicyArn"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["computeEnvironmentOrder"] = undefined /*out*/;
+            resourceInputs["jobQueueName"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["schedulingPolicyArn"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(JobQueue.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(JobQueue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

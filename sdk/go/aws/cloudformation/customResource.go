@@ -82,7 +82,7 @@ type CustomResourceInput interface {
 }
 
 func (*CustomResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomResource)(nil))
+	return reflect.TypeOf((**CustomResource)(nil)).Elem()
 }
 
 func (i *CustomResource) ToCustomResourceOutput() CustomResourceOutput {
@@ -96,7 +96,7 @@ func (i *CustomResource) ToCustomResourceOutputWithContext(ctx context.Context) 
 type CustomResourceOutput struct{ *pulumi.OutputState }
 
 func (CustomResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomResource)(nil))
+	return reflect.TypeOf((**CustomResource)(nil)).Elem()
 }
 
 func (o CustomResourceOutput) ToCustomResourceOutput() CustomResourceOutput {

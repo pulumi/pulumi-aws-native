@@ -55,7 +55,7 @@ export class Portfolio extends pulumi.CustomResource {
     /** @deprecated Portfolio is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PortfolioArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Portfolio is deprecated: Portfolio is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -64,24 +64,22 @@ export class Portfolio extends pulumi.CustomResource {
             if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["portfolioName"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["portfolioName"] = undefined /*out*/;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["portfolioName"] = undefined /*out*/;
-            inputs["providerName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["portfolioName"] = undefined /*out*/;
+            resourceInputs["providerName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Portfolio.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Portfolio.__pulumiType, name, resourceInputs, opts);
     }
 }
 

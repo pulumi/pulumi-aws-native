@@ -72,32 +72,30 @@ export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TransitGatewayMulticastDomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            inputs["options"] = args ? args.options : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["transitGatewayMulticastDomainArn"] = undefined /*out*/;
-            inputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["transitGatewayMulticastDomainArn"] = undefined /*out*/;
+            resourceInputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["options"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["transitGatewayId"] = undefined /*out*/;
-            inputs["transitGatewayMulticastDomainArn"] = undefined /*out*/;
-            inputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["transitGatewayMulticastDomainArn"] = undefined /*out*/;
+            resourceInputs["transitGatewayMulticastDomainId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TransitGatewayMulticastDomain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TransitGatewayMulticastDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

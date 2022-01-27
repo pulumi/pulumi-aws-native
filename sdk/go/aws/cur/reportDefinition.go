@@ -175,7 +175,7 @@ type ReportDefinitionInput interface {
 }
 
 func (*ReportDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDefinition)(nil))
+	return reflect.TypeOf((**ReportDefinition)(nil)).Elem()
 }
 
 func (i *ReportDefinition) ToReportDefinitionOutput() ReportDefinitionOutput {
@@ -189,7 +189,7 @@ func (i *ReportDefinition) ToReportDefinitionOutputWithContext(ctx context.Conte
 type ReportDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDefinition)(nil))
+	return reflect.TypeOf((**ReportDefinition)(nil)).Elem()
 }
 
 func (o ReportDefinitionOutput) ToReportDefinitionOutput() ReportDefinitionOutput {

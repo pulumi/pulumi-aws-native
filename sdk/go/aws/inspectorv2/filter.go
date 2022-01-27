@@ -106,7 +106,7 @@ type FilterInput interface {
 }
 
 func (*Filter) ElementType() reflect.Type {
-	return reflect.TypeOf((*Filter)(nil))
+	return reflect.TypeOf((**Filter)(nil)).Elem()
 }
 
 func (i *Filter) ToFilterOutput() FilterOutput {
@@ -120,7 +120,7 @@ func (i *Filter) ToFilterOutputWithContext(ctx context.Context) FilterOutput {
 type FilterOutput struct{ *pulumi.OutputState }
 
 func (FilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Filter)(nil))
+	return reflect.TypeOf((**Filter)(nil)).Elem()
 }
 
 func (o FilterOutput) ToFilterOutput() FilterOutput {

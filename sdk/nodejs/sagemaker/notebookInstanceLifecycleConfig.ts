@@ -52,21 +52,19 @@ export class NotebookInstanceLifecycleConfig extends pulumi.CustomResource {
     /** @deprecated NotebookInstanceLifecycleConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: NotebookInstanceLifecycleConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NotebookInstanceLifecycleConfig is deprecated: NotebookInstanceLifecycleConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["notebookInstanceLifecycleConfigName"] = args ? args.notebookInstanceLifecycleConfigName : undefined;
-            inputs["onCreate"] = args ? args.onCreate : undefined;
-            inputs["onStart"] = args ? args.onStart : undefined;
+            resourceInputs["notebookInstanceLifecycleConfigName"] = args ? args.notebookInstanceLifecycleConfigName : undefined;
+            resourceInputs["onCreate"] = args ? args.onCreate : undefined;
+            resourceInputs["onStart"] = args ? args.onStart : undefined;
         } else {
-            inputs["notebookInstanceLifecycleConfigName"] = undefined /*out*/;
-            inputs["onCreate"] = undefined /*out*/;
-            inputs["onStart"] = undefined /*out*/;
+            resourceInputs["notebookInstanceLifecycleConfigName"] = undefined /*out*/;
+            resourceInputs["onCreate"] = undefined /*out*/;
+            resourceInputs["onStart"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotebookInstanceLifecycleConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotebookInstanceLifecycleConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

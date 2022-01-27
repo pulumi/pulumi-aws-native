@@ -57,7 +57,7 @@ export class StackSetConstraint extends pulumi.CustomResource {
     /** @deprecated StackSetConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StackSetConstraintArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("StackSetConstraint is deprecated: StackSetConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountList === undefined) && !opts.urn) {
@@ -84,30 +84,28 @@ export class StackSetConstraint extends pulumi.CustomResource {
             if ((!args || args.stackInstanceControl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackInstanceControl'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["accountList"] = args ? args.accountList : undefined;
-            inputs["adminRole"] = args ? args.adminRole : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["executionRole"] = args ? args.executionRole : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["regionList"] = args ? args.regionList : undefined;
-            inputs["stackInstanceControl"] = args ? args.stackInstanceControl : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["accountList"] = args ? args.accountList : undefined;
+            resourceInputs["adminRole"] = args ? args.adminRole : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["regionList"] = args ? args.regionList : undefined;
+            resourceInputs["stackInstanceControl"] = args ? args.stackInstanceControl : undefined;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["accountList"] = undefined /*out*/;
-            inputs["adminRole"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["executionRole"] = undefined /*out*/;
-            inputs["portfolioId"] = undefined /*out*/;
-            inputs["productId"] = undefined /*out*/;
-            inputs["regionList"] = undefined /*out*/;
-            inputs["stackInstanceControl"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["accountList"] = undefined /*out*/;
+            resourceInputs["adminRole"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["executionRole"] = undefined /*out*/;
+            resourceInputs["portfolioId"] = undefined /*out*/;
+            resourceInputs["productId"] = undefined /*out*/;
+            resourceInputs["regionList"] = undefined /*out*/;
+            resourceInputs["stackInstanceControl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StackSetConstraint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StackSetConstraint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -88,7 +88,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourcesVpcConfig === undefined) && !opts.urn) {
@@ -97,40 +97,38 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            inputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
-            inputs["logging"] = args ? args.logging : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourcesVpcConfig"] = args ? args.resourcesVpcConfig : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateAuthorityData"] = undefined /*out*/;
-            inputs["clusterSecurityGroupId"] = undefined /*out*/;
-            inputs["encryptionConfigKeyArn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["openIdConnectIssuerUrl"] = undefined /*out*/;
+            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
+            resourceInputs["logging"] = args ? args.logging : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourcesVpcConfig"] = args ? args.resourcesVpcConfig : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateAuthorityData"] = undefined /*out*/;
+            resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["openIdConnectIssuerUrl"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateAuthorityData"] = undefined /*out*/;
-            inputs["clusterSecurityGroupId"] = undefined /*out*/;
-            inputs["encryptionConfig"] = undefined /*out*/;
-            inputs["encryptionConfigKeyArn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["kubernetesNetworkConfig"] = undefined /*out*/;
-            inputs["logging"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["openIdConnectIssuerUrl"] = undefined /*out*/;
-            inputs["resourcesVpcConfig"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateAuthorityData"] = undefined /*out*/;
+            resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["encryptionConfig"] = undefined /*out*/;
+            resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["kubernetesNetworkConfig"] = undefined /*out*/;
+            resourceInputs["logging"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["openIdConnectIssuerUrl"] = undefined /*out*/;
+            resourceInputs["resourcesVpcConfig"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

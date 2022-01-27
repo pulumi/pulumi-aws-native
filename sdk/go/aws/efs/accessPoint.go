@@ -106,7 +106,7 @@ type AccessPointInput interface {
 }
 
 func (*AccessPoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPoint)(nil))
+	return reflect.TypeOf((**AccessPoint)(nil)).Elem()
 }
 
 func (i *AccessPoint) ToAccessPointOutput() AccessPointOutput {
@@ -120,7 +120,7 @@ func (i *AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) Access
 type AccessPointOutput struct{ *pulumi.OutputState }
 
 func (AccessPointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPoint)(nil))
+	return reflect.TypeOf((**AccessPoint)(nil)).Elem()
 }
 
 func (o AccessPointOutput) ToAccessPointOutput() AccessPointOutput {

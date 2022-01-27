@@ -205,7 +205,7 @@ type FunctionInput interface {
 }
 
 func (*Function) ElementType() reflect.Type {
-	return reflect.TypeOf((*Function)(nil))
+	return reflect.TypeOf((**Function)(nil)).Elem()
 }
 
 func (i *Function) ToFunctionOutput() FunctionOutput {
@@ -219,7 +219,7 @@ func (i *Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutp
 type FunctionOutput struct{ *pulumi.OutputState }
 
 func (FunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Function)(nil))
+	return reflect.TypeOf((**Function)(nil)).Elem()
 }
 
 func (o FunctionOutput) ToFunctionOutput() FunctionOutput {

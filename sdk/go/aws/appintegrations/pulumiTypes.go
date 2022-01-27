@@ -23,67 +23,6 @@ type EventIntegrationAssociation struct {
 	EventIntegrationAssociationId *string `pulumi:"eventIntegrationAssociationId"`
 }
 
-// EventIntegrationAssociationInput is an input type that accepts EventIntegrationAssociationArgs and EventIntegrationAssociationOutput values.
-// You can construct a concrete instance of `EventIntegrationAssociationInput` via:
-//
-//          EventIntegrationAssociationArgs{...}
-type EventIntegrationAssociationInput interface {
-	pulumi.Input
-
-	ToEventIntegrationAssociationOutput() EventIntegrationAssociationOutput
-	ToEventIntegrationAssociationOutputWithContext(context.Context) EventIntegrationAssociationOutput
-}
-
-type EventIntegrationAssociationArgs struct {
-	// The metadata associated with the client.
-	ClientAssociationMetadata EventIntegrationMetadataArrayInput `pulumi:"clientAssociationMetadata"`
-	// The identifier for the client that is associated with the event integration.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The name of the Eventbridge rule.
-	EventBridgeRuleName pulumi.StringPtrInput `pulumi:"eventBridgeRuleName"`
-	// The Amazon Resource Name (ARN) for the event integration association.
-	EventIntegrationAssociationArn pulumi.StringPtrInput `pulumi:"eventIntegrationAssociationArn"`
-	// The identifier for the event integration association.
-	EventIntegrationAssociationId pulumi.StringPtrInput `pulumi:"eventIntegrationAssociationId"`
-}
-
-func (EventIntegrationAssociationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventIntegrationAssociation)(nil)).Elem()
-}
-
-func (i EventIntegrationAssociationArgs) ToEventIntegrationAssociationOutput() EventIntegrationAssociationOutput {
-	return i.ToEventIntegrationAssociationOutputWithContext(context.Background())
-}
-
-func (i EventIntegrationAssociationArgs) ToEventIntegrationAssociationOutputWithContext(ctx context.Context) EventIntegrationAssociationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationAssociationOutput)
-}
-
-// EventIntegrationAssociationArrayInput is an input type that accepts EventIntegrationAssociationArray and EventIntegrationAssociationArrayOutput values.
-// You can construct a concrete instance of `EventIntegrationAssociationArrayInput` via:
-//
-//          EventIntegrationAssociationArray{ EventIntegrationAssociationArgs{...} }
-type EventIntegrationAssociationArrayInput interface {
-	pulumi.Input
-
-	ToEventIntegrationAssociationArrayOutput() EventIntegrationAssociationArrayOutput
-	ToEventIntegrationAssociationArrayOutputWithContext(context.Context) EventIntegrationAssociationArrayOutput
-}
-
-type EventIntegrationAssociationArray []EventIntegrationAssociationInput
-
-func (EventIntegrationAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventIntegrationAssociation)(nil)).Elem()
-}
-
-func (i EventIntegrationAssociationArray) ToEventIntegrationAssociationArrayOutput() EventIntegrationAssociationArrayOutput {
-	return i.ToEventIntegrationAssociationArrayOutputWithContext(context.Background())
-}
-
-func (i EventIntegrationAssociationArray) ToEventIntegrationAssociationArrayOutputWithContext(ctx context.Context) EventIntegrationAssociationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationAssociationArrayOutput)
-}
-
 type EventIntegrationAssociationOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationAssociationOutput) ElementType() reflect.Type {
@@ -176,47 +115,6 @@ func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterOutput)
 }
 
-func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
-	return i.ToEventIntegrationEventFilterPtrOutputWithContext(context.Background())
-}
-
-func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterOutput).ToEventIntegrationEventFilterPtrOutputWithContext(ctx)
-}
-
-// EventIntegrationEventFilterPtrInput is an input type that accepts EventIntegrationEventFilterArgs, EventIntegrationEventFilterPtr and EventIntegrationEventFilterPtrOutput values.
-// You can construct a concrete instance of `EventIntegrationEventFilterPtrInput` via:
-//
-//          EventIntegrationEventFilterArgs{...}
-//
-//  or:
-//
-//          nil
-type EventIntegrationEventFilterPtrInput interface {
-	pulumi.Input
-
-	ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput
-	ToEventIntegrationEventFilterPtrOutputWithContext(context.Context) EventIntegrationEventFilterPtrOutput
-}
-
-type eventIntegrationEventFilterPtrType EventIntegrationEventFilterArgs
-
-func EventIntegrationEventFilterPtr(v *EventIntegrationEventFilterArgs) EventIntegrationEventFilterPtrInput {
-	return (*eventIntegrationEventFilterPtrType)(v)
-}
-
-func (*eventIntegrationEventFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventIntegrationEventFilter)(nil)).Elem()
-}
-
-func (i *eventIntegrationEventFilterPtrType) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
-	return i.ToEventIntegrationEventFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *eventIntegrationEventFilterPtrType) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterPtrOutput)
-}
-
 type EventIntegrationEventFilterOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationEventFilterOutput) ElementType() reflect.Type {
@@ -231,53 +129,9 @@ func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterOutputWi
 	return o
 }
 
-func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
-	return o.ToEventIntegrationEventFilterPtrOutputWithContext(context.Background())
-}
-
-func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventIntegrationEventFilter) *EventIntegrationEventFilter {
-		return &v
-	}).(EventIntegrationEventFilterPtrOutput)
-}
-
 // The source of the events.
 func (o EventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v EventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
-}
-
-type EventIntegrationEventFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (EventIntegrationEventFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventIntegrationEventFilter)(nil)).Elem()
-}
-
-func (o EventIntegrationEventFilterPtrOutput) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
-	return o
-}
-
-func (o EventIntegrationEventFilterPtrOutput) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
-	return o
-}
-
-func (o EventIntegrationEventFilterPtrOutput) Elem() EventIntegrationEventFilterOutput {
-	return o.ApplyT(func(v *EventIntegrationEventFilter) EventIntegrationEventFilter {
-		if v != nil {
-			return *v
-		}
-		var ret EventIntegrationEventFilter
-		return ret
-	}).(EventIntegrationEventFilterOutput)
-}
-
-// The source of the events.
-func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventIntegrationEventFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Source
-	}).(pulumi.StringPtrOutput)
 }
 
 type EventIntegrationMetadata struct {
@@ -285,61 +139,6 @@ type EventIntegrationMetadata struct {
 	Key string `pulumi:"key"`
 	// Corresponding metadata value for the key.
 	Value string `pulumi:"value"`
-}
-
-// EventIntegrationMetadataInput is an input type that accepts EventIntegrationMetadataArgs and EventIntegrationMetadataOutput values.
-// You can construct a concrete instance of `EventIntegrationMetadataInput` via:
-//
-//          EventIntegrationMetadataArgs{...}
-type EventIntegrationMetadataInput interface {
-	pulumi.Input
-
-	ToEventIntegrationMetadataOutput() EventIntegrationMetadataOutput
-	ToEventIntegrationMetadataOutputWithContext(context.Context) EventIntegrationMetadataOutput
-}
-
-type EventIntegrationMetadataArgs struct {
-	// A key to identify the metadata.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Corresponding metadata value for the key.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (EventIntegrationMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventIntegrationMetadata)(nil)).Elem()
-}
-
-func (i EventIntegrationMetadataArgs) ToEventIntegrationMetadataOutput() EventIntegrationMetadataOutput {
-	return i.ToEventIntegrationMetadataOutputWithContext(context.Background())
-}
-
-func (i EventIntegrationMetadataArgs) ToEventIntegrationMetadataOutputWithContext(ctx context.Context) EventIntegrationMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationMetadataOutput)
-}
-
-// EventIntegrationMetadataArrayInput is an input type that accepts EventIntegrationMetadataArray and EventIntegrationMetadataArrayOutput values.
-// You can construct a concrete instance of `EventIntegrationMetadataArrayInput` via:
-//
-//          EventIntegrationMetadataArray{ EventIntegrationMetadataArgs{...} }
-type EventIntegrationMetadataArrayInput interface {
-	pulumi.Input
-
-	ToEventIntegrationMetadataArrayOutput() EventIntegrationMetadataArrayOutput
-	ToEventIntegrationMetadataArrayOutputWithContext(context.Context) EventIntegrationMetadataArrayOutput
-}
-
-type EventIntegrationMetadataArray []EventIntegrationMetadataInput
-
-func (EventIntegrationMetadataArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventIntegrationMetadata)(nil)).Elem()
-}
-
-func (i EventIntegrationMetadataArray) ToEventIntegrationMetadataArrayOutput() EventIntegrationMetadataArrayOutput {
-	return i.ToEventIntegrationMetadataArrayOutputWithContext(context.Background())
-}
-
-func (i EventIntegrationMetadataArray) ToEventIntegrationMetadataArrayOutputWithContext(ctx context.Context) EventIntegrationMetadataArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationMetadataArrayOutput)
 }
 
 type EventIntegrationMetadataOutput struct{ *pulumi.OutputState }
@@ -493,18 +292,12 @@ func (o EventIntegrationTagArrayOutput) Index(i pulumi.IntInput) EventIntegratio
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationAssociationInput)(nil)).Elem(), EventIntegrationAssociationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationAssociationArrayInput)(nil)).Elem(), EventIntegrationAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterPtrInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationMetadataInput)(nil)).Elem(), EventIntegrationMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationMetadataArrayInput)(nil)).Elem(), EventIntegrationMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationTagInput)(nil)).Elem(), EventIntegrationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationTagArrayInput)(nil)).Elem(), EventIntegrationTagArray{})
 	pulumi.RegisterOutputType(EventIntegrationAssociationOutput{})
 	pulumi.RegisterOutputType(EventIntegrationAssociationArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})
-	pulumi.RegisterOutputType(EventIntegrationEventFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventIntegrationMetadataOutput{})
 	pulumi.RegisterOutputType(EventIntegrationMetadataArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationTagOutput{})

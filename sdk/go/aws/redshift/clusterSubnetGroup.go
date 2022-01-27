@@ -91,7 +91,7 @@ type ClusterSubnetGroupInput interface {
 }
 
 func (*ClusterSubnetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSubnetGroup)(nil))
+	return reflect.TypeOf((**ClusterSubnetGroup)(nil)).Elem()
 }
 
 func (i *ClusterSubnetGroup) ToClusterSubnetGroupOutput() ClusterSubnetGroupOutput {
@@ -105,7 +105,7 @@ func (i *ClusterSubnetGroup) ToClusterSubnetGroupOutputWithContext(ctx context.C
 type ClusterSubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterSubnetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterSubnetGroup)(nil))
+	return reflect.TypeOf((**ClusterSubnetGroup)(nil)).Elem()
 }
 
 func (o ClusterSubnetGroupOutput) ToClusterSubnetGroupOutput() ClusterSubnetGroupOutput {

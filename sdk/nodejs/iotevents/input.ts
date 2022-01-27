@@ -59,26 +59,24 @@ export class Input extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InputArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.inputDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputDefinition'");
             }
-            inputs["inputDefinition"] = args ? args.inputDefinition : undefined;
-            inputs["inputDescription"] = args ? args.inputDescription : undefined;
-            inputs["inputName"] = args ? args.inputName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["inputDefinition"] = args ? args.inputDefinition : undefined;
+            resourceInputs["inputDescription"] = args ? args.inputDescription : undefined;
+            resourceInputs["inputName"] = args ? args.inputName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["inputDefinition"] = undefined /*out*/;
-            inputs["inputDescription"] = undefined /*out*/;
-            inputs["inputName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["inputDefinition"] = undefined /*out*/;
+            resourceInputs["inputDescription"] = undefined /*out*/;
+            resourceInputs["inputName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Input.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Input.__pulumiType, name, resourceInputs, opts);
     }
 }
 

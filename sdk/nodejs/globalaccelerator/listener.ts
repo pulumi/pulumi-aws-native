@@ -61,7 +61,7 @@ export class Listener extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.acceleratorArn === undefined) && !opts.urn) {
@@ -73,22 +73,20 @@ export class Listener extends pulumi.CustomResource {
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            inputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
-            inputs["clientAffinity"] = args ? args.clientAffinity : undefined;
-            inputs["portRanges"] = args ? args.portRanges : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["listenerArn"] = undefined /*out*/;
+            resourceInputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
+            resourceInputs["clientAffinity"] = args ? args.clientAffinity : undefined;
+            resourceInputs["portRanges"] = args ? args.portRanges : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["listenerArn"] = undefined /*out*/;
         } else {
-            inputs["acceleratorArn"] = undefined /*out*/;
-            inputs["clientAffinity"] = undefined /*out*/;
-            inputs["listenerArn"] = undefined /*out*/;
-            inputs["portRanges"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
+            resourceInputs["acceleratorArn"] = undefined /*out*/;
+            resourceInputs["clientAffinity"] = undefined /*out*/;
+            resourceInputs["listenerArn"] = undefined /*out*/;
+            resourceInputs["portRanges"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Listener.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Listener.__pulumiType, name, resourceInputs, opts);
     }
 }
 

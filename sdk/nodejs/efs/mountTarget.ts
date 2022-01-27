@@ -47,7 +47,7 @@ export class MountTarget extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MountTargetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fileSystemId === undefined) && !opts.urn) {
@@ -59,20 +59,18 @@ export class MountTarget extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         } else {
-            inputs["fileSystemId"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["securityGroups"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["securityGroups"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MountTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MountTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

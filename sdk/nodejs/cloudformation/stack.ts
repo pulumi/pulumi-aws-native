@@ -54,28 +54,26 @@ export class Stack extends pulumi.CustomResource {
     /** @deprecated Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StackArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Stack is deprecated: Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.templateURL === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateURL'");
             }
-            inputs["notificationARNs"] = args ? args.notificationARNs : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateURL"] = args ? args.templateURL : undefined;
-            inputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
+            resourceInputs["notificationARNs"] = args ? args.notificationARNs : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateURL"] = args ? args.templateURL : undefined;
+            resourceInputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
         } else {
-            inputs["notificationARNs"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateURL"] = undefined /*out*/;
-            inputs["timeoutInMinutes"] = undefined /*out*/;
+            resourceInputs["notificationARNs"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateURL"] = undefined /*out*/;
+            resourceInputs["timeoutInMinutes"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stack.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -158,7 +158,7 @@ type AlarmInput interface {
 }
 
 func (*Alarm) ElementType() reflect.Type {
-	return reflect.TypeOf((*Alarm)(nil))
+	return reflect.TypeOf((**Alarm)(nil)).Elem()
 }
 
 func (i *Alarm) ToAlarmOutput() AlarmOutput {
@@ -172,7 +172,7 @@ func (i *Alarm) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 type AlarmOutput struct{ *pulumi.OutputState }
 
 func (AlarmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Alarm)(nil))
+	return reflect.TypeOf((**Alarm)(nil)).Elem()
 }
 
 func (o AlarmOutput) ToAlarmOutput() AlarmOutput {

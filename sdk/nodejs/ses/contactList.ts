@@ -60,23 +60,21 @@ export class ContactList extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ContactListArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["contactListName"] = args ? args.contactListName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["contactListName"] = args ? args.contactListName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["topics"] = args ? args.topics : undefined;
         } else {
-            inputs["contactListName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["topics"] = undefined /*out*/;
+            resourceInputs["contactListName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["topics"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ContactList.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ContactList.__pulumiType, name, resourceInputs, opts);
     }
 }
 

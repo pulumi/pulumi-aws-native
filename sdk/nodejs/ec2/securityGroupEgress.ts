@@ -57,7 +57,7 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
     /** @deprecated SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecurityGroupEgressArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SecurityGroupEgress is deprecated: SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupId === undefined) && !opts.urn) {
@@ -66,30 +66,28 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
             if ((!args || args.ipProtocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipProtocol'");
             }
-            inputs["cidrIp"] = args ? args.cidrIp : undefined;
-            inputs["cidrIpv6"] = args ? args.cidrIpv6 : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
-            inputs["destinationSecurityGroupId"] = args ? args.destinationSecurityGroupId : undefined;
-            inputs["fromPort"] = args ? args.fromPort : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["ipProtocol"] = args ? args.ipProtocol : undefined;
-            inputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["cidrIp"] = args ? args.cidrIp : undefined;
+            resourceInputs["cidrIpv6"] = args ? args.cidrIpv6 : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
+            resourceInputs["destinationSecurityGroupId"] = args ? args.destinationSecurityGroupId : undefined;
+            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
+            resourceInputs["toPort"] = args ? args.toPort : undefined;
         } else {
-            inputs["cidrIp"] = undefined /*out*/;
-            inputs["cidrIpv6"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["destinationPrefixListId"] = undefined /*out*/;
-            inputs["destinationSecurityGroupId"] = undefined /*out*/;
-            inputs["fromPort"] = undefined /*out*/;
-            inputs["groupId"] = undefined /*out*/;
-            inputs["ipProtocol"] = undefined /*out*/;
-            inputs["toPort"] = undefined /*out*/;
+            resourceInputs["cidrIp"] = undefined /*out*/;
+            resourceInputs["cidrIpv6"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationPrefixListId"] = undefined /*out*/;
+            resourceInputs["destinationSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["fromPort"] = undefined /*out*/;
+            resourceInputs["groupId"] = undefined /*out*/;
+            resourceInputs["ipProtocol"] = undefined /*out*/;
+            resourceInputs["toPort"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecurityGroupEgress.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecurityGroupEgress.__pulumiType, name, resourceInputs, opts);
     }
 }
 

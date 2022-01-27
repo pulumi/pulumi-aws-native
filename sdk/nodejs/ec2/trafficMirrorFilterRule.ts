@@ -59,7 +59,7 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
     /** @deprecated TrafficMirrorFilterRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TrafficMirrorFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TrafficMirrorFilterRule is deprecated: TrafficMirrorFilterRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
@@ -80,32 +80,30 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
             if ((!args || args.trafficMirrorFilterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorFilterId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["ruleAction"] = args ? args.ruleAction : undefined;
-            inputs["ruleNumber"] = args ? args.ruleNumber : undefined;
-            inputs["sourceCidrBlock"] = args ? args.sourceCidrBlock : undefined;
-            inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
-            inputs["trafficDirection"] = args ? args.trafficDirection : undefined;
-            inputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["ruleAction"] = args ? args.ruleAction : undefined;
+            resourceInputs["ruleNumber"] = args ? args.ruleNumber : undefined;
+            resourceInputs["sourceCidrBlock"] = args ? args.sourceCidrBlock : undefined;
+            resourceInputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
+            resourceInputs["trafficDirection"] = args ? args.trafficDirection : undefined;
+            resourceInputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["destinationCidrBlock"] = undefined /*out*/;
-            inputs["destinationPortRange"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["ruleAction"] = undefined /*out*/;
-            inputs["ruleNumber"] = undefined /*out*/;
-            inputs["sourceCidrBlock"] = undefined /*out*/;
-            inputs["sourcePortRange"] = undefined /*out*/;
-            inputs["trafficDirection"] = undefined /*out*/;
-            inputs["trafficMirrorFilterId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationCidrBlock"] = undefined /*out*/;
+            resourceInputs["destinationPortRange"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["ruleAction"] = undefined /*out*/;
+            resourceInputs["ruleNumber"] = undefined /*out*/;
+            resourceInputs["sourceCidrBlock"] = undefined /*out*/;
+            resourceInputs["sourcePortRange"] = undefined /*out*/;
+            resourceInputs["trafficDirection"] = undefined /*out*/;
+            resourceInputs["trafficMirrorFilterId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TrafficMirrorFilterRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TrafficMirrorFilterRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

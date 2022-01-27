@@ -126,7 +126,7 @@ type FaqInput interface {
 }
 
 func (*Faq) ElementType() reflect.Type {
-	return reflect.TypeOf((*Faq)(nil))
+	return reflect.TypeOf((**Faq)(nil)).Elem()
 }
 
 func (i *Faq) ToFaqOutput() FaqOutput {
@@ -140,7 +140,7 @@ func (i *Faq) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 type FaqOutput struct{ *pulumi.OutputState }
 
 func (FaqOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Faq)(nil))
+	return reflect.TypeOf((**Faq)(nil)).Elem()
 }
 
 func (o FaqOutput) ToFaqOutput() FaqOutput {

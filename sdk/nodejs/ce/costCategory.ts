@@ -63,7 +63,7 @@ export class CostCategory extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CostCategoryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ruleVersion === undefined) && !opts.urn) {
@@ -72,26 +72,24 @@ export class CostCategory extends pulumi.CustomResource {
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["defaultValue"] = args ? args.defaultValue : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ruleVersion"] = args ? args.ruleVersion : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["splitChargeRules"] = args ? args.splitChargeRules : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["effectiveStart"] = undefined /*out*/;
+            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ruleVersion"] = args ? args.ruleVersion : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["splitChargeRules"] = args ? args.splitChargeRules : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["effectiveStart"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultValue"] = undefined /*out*/;
-            inputs["effectiveStart"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ruleVersion"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
-            inputs["splitChargeRules"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultValue"] = undefined /*out*/;
+            resourceInputs["effectiveStart"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ruleVersion"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
+            resourceInputs["splitChargeRules"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CostCategory.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CostCategory.__pulumiType, name, resourceInputs, opts);
     }
 }
 

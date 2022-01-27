@@ -112,7 +112,7 @@ type ScalingPolicyInput interface {
 }
 
 func (*ScalingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalingPolicy)(nil))
+	return reflect.TypeOf((**ScalingPolicy)(nil)).Elem()
 }
 
 func (i *ScalingPolicy) ToScalingPolicyOutput() ScalingPolicyOutput {
@@ -126,7 +126,7 @@ func (i *ScalingPolicy) ToScalingPolicyOutputWithContext(ctx context.Context) Sc
 type ScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalingPolicy)(nil))
+	return reflect.TypeOf((**ScalingPolicy)(nil)).Elem()
 }
 
 func (o ScalingPolicyOutput) ToScalingPolicyOutput() ScalingPolicyOutput {

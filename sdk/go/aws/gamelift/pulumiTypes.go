@@ -51,47 +51,6 @@ func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyOutput)
 }
 
-func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
-	return i.ToAliasRoutingStrategyPtrOutputWithContext(context.Background())
-}
-
-func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyOutput).ToAliasRoutingStrategyPtrOutputWithContext(ctx)
-}
-
-// AliasRoutingStrategyPtrInput is an input type that accepts AliasRoutingStrategyArgs, AliasRoutingStrategyPtr and AliasRoutingStrategyPtrOutput values.
-// You can construct a concrete instance of `AliasRoutingStrategyPtrInput` via:
-//
-//          AliasRoutingStrategyArgs{...}
-//
-//  or:
-//
-//          nil
-type AliasRoutingStrategyPtrInput interface {
-	pulumi.Input
-
-	ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput
-	ToAliasRoutingStrategyPtrOutputWithContext(context.Context) AliasRoutingStrategyPtrOutput
-}
-
-type aliasRoutingStrategyPtrType AliasRoutingStrategyArgs
-
-func AliasRoutingStrategyPtr(v *AliasRoutingStrategyArgs) AliasRoutingStrategyPtrInput {
-	return (*aliasRoutingStrategyPtrType)(v)
-}
-
-func (*aliasRoutingStrategyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AliasRoutingStrategy)(nil)).Elem()
-}
-
-func (i *aliasRoutingStrategyPtrType) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
-	return i.ToAliasRoutingStrategyPtrOutputWithContext(context.Background())
-}
-
-func (i *aliasRoutingStrategyPtrType) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyPtrOutput)
-}
-
 type AliasRoutingStrategyOutput struct{ *pulumi.OutputState }
 
 func (AliasRoutingStrategyOutput) ElementType() reflect.Type {
@@ -104,16 +63,6 @@ func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyOutput() AliasRoutingS
 
 func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyOutputWithContext(ctx context.Context) AliasRoutingStrategyOutput {
 	return o
-}
-
-func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
-	return o.ToAliasRoutingStrategyPtrOutputWithContext(context.Background())
-}
-
-func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasRoutingStrategy) *AliasRoutingStrategy {
-		return &v
-	}).(AliasRoutingStrategyPtrOutput)
 }
 
 // A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
@@ -129,60 +78,6 @@ func (o AliasRoutingStrategyOutput) Message() pulumi.StringPtrOutput {
 // Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
 func (o AliasRoutingStrategyOutput) Type() AliasRoutingStrategyTypeOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) AliasRoutingStrategyType { return v.Type }).(AliasRoutingStrategyTypeOutput)
-}
-
-type AliasRoutingStrategyPtrOutput struct{ *pulumi.OutputState }
-
-func (AliasRoutingStrategyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AliasRoutingStrategy)(nil)).Elem()
-}
-
-func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
-	return o
-}
-
-func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return o
-}
-
-func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) AliasRoutingStrategy {
-		if v != nil {
-			return *v
-		}
-		var ret AliasRoutingStrategy
-		return ret
-	}).(AliasRoutingStrategyOutput)
-}
-
-// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
-func (o AliasRoutingStrategyPtrOutput) FleetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FleetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
-func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
-func (o AliasRoutingStrategyPtrOutput) Type() AliasRoutingStrategyTypePtrOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) *AliasRoutingStrategyType {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(AliasRoutingStrategyTypePtrOutput)
 }
 
 type BuildS3Location struct {
@@ -1687,47 +1582,6 @@ func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplateOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput)
 }
 
-func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
-	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput).ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx)
-}
-
-// GameServerGroupLaunchTemplatePtrInput is an input type that accepts GameServerGroupLaunchTemplateArgs, GameServerGroupLaunchTemplatePtr and GameServerGroupLaunchTemplatePtrOutput values.
-// You can construct a concrete instance of `GameServerGroupLaunchTemplatePtrInput` via:
-//
-//          GameServerGroupLaunchTemplateArgs{...}
-//
-//  or:
-//
-//          nil
-type GameServerGroupLaunchTemplatePtrInput interface {
-	pulumi.Input
-
-	ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput
-	ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Context) GameServerGroupLaunchTemplatePtrOutput
-}
-
-type gameServerGroupLaunchTemplatePtrType GameServerGroupLaunchTemplateArgs
-
-func GameServerGroupLaunchTemplatePtr(v *GameServerGroupLaunchTemplateArgs) GameServerGroupLaunchTemplatePtrInput {
-	return (*gameServerGroupLaunchTemplatePtrType)(v)
-}
-
-func (*gameServerGroupLaunchTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GameServerGroupLaunchTemplate)(nil)).Elem()
-}
-
-func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
-	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplatePtrOutput)
-}
-
 // The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
 type GameServerGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
@@ -1743,16 +1597,6 @@ func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplateOutp
 	return o
 }
 
-func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
-	return o.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupLaunchTemplate) *GameServerGroupLaunchTemplate {
-		return &v
-	}).(GameServerGroupLaunchTemplatePtrOutput)
-}
-
 func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
@@ -1763,57 +1607,6 @@ func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateName() pulumi.StringP
 
 func (o GameServerGroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type GameServerGroupLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupLaunchTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GameServerGroupLaunchTemplate)(nil)).Elem()
-}
-
-func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
-	return o
-}
-
-func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
-	return o
-}
-
-func (o GameServerGroupLaunchTemplatePtrOutput) Elem() GameServerGroupLaunchTemplateOutput {
-	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) GameServerGroupLaunchTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret GameServerGroupLaunchTemplate
-		return ret
-	}).(GameServerGroupLaunchTemplateOutput)
-}
-
-func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LaunchTemplateId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LaunchTemplateName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 type GameServerGroupTag struct {
@@ -2970,47 +2763,6 @@ func (i ScriptS3LocationArgs) ToScriptS3LocationOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptS3LocationOutput)
 }
 
-func (i ScriptS3LocationArgs) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
-	return i.ToScriptS3LocationPtrOutputWithContext(context.Background())
-}
-
-func (i ScriptS3LocationArgs) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScriptS3LocationOutput).ToScriptS3LocationPtrOutputWithContext(ctx)
-}
-
-// ScriptS3LocationPtrInput is an input type that accepts ScriptS3LocationArgs, ScriptS3LocationPtr and ScriptS3LocationPtrOutput values.
-// You can construct a concrete instance of `ScriptS3LocationPtrInput` via:
-//
-//          ScriptS3LocationArgs{...}
-//
-//  or:
-//
-//          nil
-type ScriptS3LocationPtrInput interface {
-	pulumi.Input
-
-	ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput
-	ToScriptS3LocationPtrOutputWithContext(context.Context) ScriptS3LocationPtrOutput
-}
-
-type scriptS3LocationPtrType ScriptS3LocationArgs
-
-func ScriptS3LocationPtr(v *ScriptS3LocationArgs) ScriptS3LocationPtrInput {
-	return (*scriptS3LocationPtrType)(v)
-}
-
-func (*scriptS3LocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScriptS3Location)(nil)).Elem()
-}
-
-func (i *scriptS3LocationPtrType) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
-	return i.ToScriptS3LocationPtrOutputWithContext(context.Background())
-}
-
-func (i *scriptS3LocationPtrType) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScriptS3LocationPtrOutput)
-}
-
 type ScriptS3LocationOutput struct{ *pulumi.OutputState }
 
 func (ScriptS3LocationOutput) ElementType() reflect.Type {
@@ -3023,16 +2775,6 @@ func (o ScriptS3LocationOutput) ToScriptS3LocationOutput() ScriptS3LocationOutpu
 
 func (o ScriptS3LocationOutput) ToScriptS3LocationOutputWithContext(ctx context.Context) ScriptS3LocationOutput {
 	return o
-}
-
-func (o ScriptS3LocationOutput) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
-	return o.ToScriptS3LocationPtrOutputWithContext(context.Background())
-}
-
-func (o ScriptS3LocationOutput) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptS3Location) *ScriptS3Location {
-		return &v
-	}).(ScriptS3LocationPtrOutput)
 }
 
 func (o ScriptS3LocationOutput) Bucket() pulumi.StringOutput {
@@ -3049,66 +2791,6 @@ func (o ScriptS3LocationOutput) ObjectVersion() pulumi.StringPtrOutput {
 
 func (o ScriptS3LocationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptS3Location) string { return v.RoleArn }).(pulumi.StringOutput)
-}
-
-type ScriptS3LocationPtrOutput struct{ *pulumi.OutputState }
-
-func (ScriptS3LocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScriptS3Location)(nil)).Elem()
-}
-
-func (o ScriptS3LocationPtrOutput) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
-	return o
-}
-
-func (o ScriptS3LocationPtrOutput) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
-	return o
-}
-
-func (o ScriptS3LocationPtrOutput) Elem() ScriptS3LocationOutput {
-	return o.ApplyT(func(v *ScriptS3Location) ScriptS3Location {
-		if v != nil {
-			return *v
-		}
-		var ret ScriptS3Location
-		return ret
-	}).(ScriptS3LocationOutput)
-}
-
-func (o ScriptS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScriptS3Location) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ScriptS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScriptS3Location) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ScriptS3LocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScriptS3Location) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ObjectVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ScriptS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScriptS3Location) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type ScriptTag struct {
@@ -3213,7 +2895,6 @@ func (o ScriptTagArrayOutput) Index(i pulumi.IntInput) ScriptTagOutput {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyPtrInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildS3LocationInput)(nil)).Elem(), BuildS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildS3LocationPtrInput)(nil)).Elem(), BuildS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationInput)(nil)).Elem(), FleetCertificateConfigurationArgs{})
@@ -3235,7 +2916,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInstanceDefinitionInput)(nil)).Elem(), GameServerGroupInstanceDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInstanceDefinitionArrayInput)(nil)).Elem(), GameServerGroupInstanceDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplateInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplatePtrInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTagInput)(nil)).Elem(), GameServerGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTagArrayInput)(nil)).Elem(), GameServerGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTargetTrackingConfigurationInput)(nil)).Elem(), GameServerGroupTargetTrackingConfigurationArgs{})
@@ -3257,11 +2937,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingRuleSetTagInput)(nil)).Elem(), MatchmakingRuleSetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingRuleSetTagArrayInput)(nil)).Elem(), MatchmakingRuleSetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptS3LocationInput)(nil)).Elem(), ScriptS3LocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScriptS3LocationPtrInput)(nil)).Elem(), ScriptS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagInput)(nil)).Elem(), ScriptTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagArrayInput)(nil)).Elem(), ScriptTagArray{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
-	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BuildS3LocationOutput{})
 	pulumi.RegisterOutputType(BuildS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationOutput{})
@@ -3283,7 +2961,6 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionOutput{})
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplateOutput{})
-	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTagOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationOutput{})
@@ -3305,7 +2982,6 @@ func init() {
 	pulumi.RegisterOutputType(MatchmakingRuleSetTagOutput{})
 	pulumi.RegisterOutputType(MatchmakingRuleSetTagArrayOutput{})
 	pulumi.RegisterOutputType(ScriptS3LocationOutput{})
-	pulumi.RegisterOutputType(ScriptS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ScriptTagOutput{})
 	pulumi.RegisterOutputType(ScriptTagArrayOutput{})
 }

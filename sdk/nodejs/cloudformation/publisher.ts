@@ -68,30 +68,28 @@ export class Publisher extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PublisherArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.acceptTermsAndConditions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'acceptTermsAndConditions'");
             }
-            inputs["acceptTermsAndConditions"] = args ? args.acceptTermsAndConditions : undefined;
-            inputs["connectionArn"] = args ? args.connectionArn : undefined;
-            inputs["identityProvider"] = undefined /*out*/;
-            inputs["publisherId"] = undefined /*out*/;
-            inputs["publisherProfile"] = undefined /*out*/;
-            inputs["publisherStatus"] = undefined /*out*/;
+            resourceInputs["acceptTermsAndConditions"] = args ? args.acceptTermsAndConditions : undefined;
+            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
+            resourceInputs["identityProvider"] = undefined /*out*/;
+            resourceInputs["publisherId"] = undefined /*out*/;
+            resourceInputs["publisherProfile"] = undefined /*out*/;
+            resourceInputs["publisherStatus"] = undefined /*out*/;
         } else {
-            inputs["acceptTermsAndConditions"] = undefined /*out*/;
-            inputs["connectionArn"] = undefined /*out*/;
-            inputs["identityProvider"] = undefined /*out*/;
-            inputs["publisherId"] = undefined /*out*/;
-            inputs["publisherProfile"] = undefined /*out*/;
-            inputs["publisherStatus"] = undefined /*out*/;
+            resourceInputs["acceptTermsAndConditions"] = undefined /*out*/;
+            resourceInputs["connectionArn"] = undefined /*out*/;
+            resourceInputs["identityProvider"] = undefined /*out*/;
+            resourceInputs["publisherId"] = undefined /*out*/;
+            resourceInputs["publisherProfile"] = undefined /*out*/;
+            resourceInputs["publisherStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Publisher.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Publisher.__pulumiType, name, resourceInputs, opts);
     }
 }
 

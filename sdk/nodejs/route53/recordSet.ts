@@ -64,48 +64,46 @@ export class RecordSet extends pulumi.CustomResource {
     /** @deprecated RecordSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RecordSet is deprecated: RecordSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["aliasTarget"] = args ? args.aliasTarget : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["failover"] = args ? args.failover : undefined;
-            inputs["geoLocation"] = args ? args.geoLocation : undefined;
-            inputs["healthCheckId"] = args ? args.healthCheckId : undefined;
-            inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            inputs["hostedZoneName"] = args ? args.hostedZoneName : undefined;
-            inputs["multiValueAnswer"] = args ? args.multiValueAnswer : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["resourceRecords"] = args ? args.resourceRecords : undefined;
-            inputs["setIdentifier"] = args ? args.setIdentifier : undefined;
-            inputs["tTL"] = args ? args.tTL : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["aliasTarget"] = args ? args.aliasTarget : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["failover"] = args ? args.failover : undefined;
+            resourceInputs["geoLocation"] = args ? args.geoLocation : undefined;
+            resourceInputs["healthCheckId"] = args ? args.healthCheckId : undefined;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["hostedZoneName"] = args ? args.hostedZoneName : undefined;
+            resourceInputs["multiValueAnswer"] = args ? args.multiValueAnswer : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceRecords"] = args ? args.resourceRecords : undefined;
+            resourceInputs["setIdentifier"] = args ? args.setIdentifier : undefined;
+            resourceInputs["tTL"] = args ? args.tTL : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["weight"] = args ? args.weight : undefined;
         } else {
-            inputs["aliasTarget"] = undefined /*out*/;
-            inputs["comment"] = undefined /*out*/;
-            inputs["failover"] = undefined /*out*/;
-            inputs["geoLocation"] = undefined /*out*/;
-            inputs["healthCheckId"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
-            inputs["hostedZoneName"] = undefined /*out*/;
-            inputs["multiValueAnswer"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
-            inputs["resourceRecords"] = undefined /*out*/;
-            inputs["setIdentifier"] = undefined /*out*/;
-            inputs["tTL"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["weight"] = undefined /*out*/;
+            resourceInputs["aliasTarget"] = undefined /*out*/;
+            resourceInputs["comment"] = undefined /*out*/;
+            resourceInputs["failover"] = undefined /*out*/;
+            resourceInputs["geoLocation"] = undefined /*out*/;
+            resourceInputs["healthCheckId"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["hostedZoneName"] = undefined /*out*/;
+            resourceInputs["multiValueAnswer"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["resourceRecords"] = undefined /*out*/;
+            resourceInputs["setIdentifier"] = undefined /*out*/;
+            resourceInputs["tTL"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["weight"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RecordSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RecordSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

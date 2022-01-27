@@ -55,7 +55,7 @@ export class Stream extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.inclusiveStartTime === undefined) && !opts.urn) {
@@ -70,28 +70,26 @@ export class Stream extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["exclusiveEndTime"] = args ? args.exclusiveEndTime : undefined;
-            inputs["inclusiveStartTime"] = args ? args.inclusiveStartTime : undefined;
-            inputs["kinesisConfiguration"] = args ? args.kinesisConfiguration : undefined;
-            inputs["ledgerName"] = args ? args.ledgerName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["streamName"] = args ? args.streamName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["exclusiveEndTime"] = args ? args.exclusiveEndTime : undefined;
+            resourceInputs["inclusiveStartTime"] = args ? args.inclusiveStartTime : undefined;
+            resourceInputs["kinesisConfiguration"] = args ? args.kinesisConfiguration : undefined;
+            resourceInputs["ledgerName"] = args ? args.ledgerName : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["streamName"] = args ? args.streamName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["exclusiveEndTime"] = undefined /*out*/;
-            inputs["inclusiveStartTime"] = undefined /*out*/;
-            inputs["kinesisConfiguration"] = undefined /*out*/;
-            inputs["ledgerName"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["streamName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["exclusiveEndTime"] = undefined /*out*/;
+            resourceInputs["inclusiveStartTime"] = undefined /*out*/;
+            resourceInputs["kinesisConfiguration"] = undefined /*out*/;
+            resourceInputs["ledgerName"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["streamName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stream.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -108,7 +108,7 @@ type DataSourceInput interface {
 }
 
 func (*DataSource) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSource)(nil))
+	return reflect.TypeOf((**DataSource)(nil)).Elem()
 }
 
 func (i *DataSource) ToDataSourceOutput() DataSourceOutput {
@@ -122,7 +122,7 @@ func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSour
 type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSource)(nil))
+	return reflect.TypeOf((**DataSource)(nil)).Elem()
 }
 
 func (o DataSourceOutput) ToDataSourceOutput() DataSourceOutput {

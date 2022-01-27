@@ -53,26 +53,24 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
     /** @deprecated MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MatchmakingRuleSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MatchmakingRuleSet is deprecated: MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ruleSetBody === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetBody'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ruleSetBody"] = args ? args.ruleSetBody : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ruleSetBody"] = args ? args.ruleSetBody : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ruleSetBody"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ruleSetBody"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MatchmakingRuleSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MatchmakingRuleSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

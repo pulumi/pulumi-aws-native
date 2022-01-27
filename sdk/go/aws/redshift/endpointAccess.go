@@ -122,7 +122,7 @@ type EndpointAccessInput interface {
 }
 
 func (*EndpointAccess) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAccess)(nil))
+	return reflect.TypeOf((**EndpointAccess)(nil)).Elem()
 }
 
 func (i *EndpointAccess) ToEndpointAccessOutput() EndpointAccessOutput {
@@ -136,7 +136,7 @@ func (i *EndpointAccess) ToEndpointAccessOutputWithContext(ctx context.Context) 
 type EndpointAccessOutput struct{ *pulumi.OutputState }
 
 func (EndpointAccessOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAccess)(nil))
+	return reflect.TypeOf((**EndpointAccess)(nil)).Elem()
 }
 
 func (o EndpointAccessOutput) ToEndpointAccessOutput() EndpointAccessOutput {

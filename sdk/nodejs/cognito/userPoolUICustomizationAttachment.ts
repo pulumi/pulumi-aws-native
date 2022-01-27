@@ -51,7 +51,7 @@ export class UserPoolUICustomizationAttachment extends pulumi.CustomResource {
     /** @deprecated UserPoolUICustomizationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserPoolUICustomizationAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserPoolUICustomizationAttachment is deprecated: UserPoolUICustomizationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clientId === undefined) && !opts.urn) {
@@ -60,18 +60,16 @@ export class UserPoolUICustomizationAttachment extends pulumi.CustomResource {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["cSS"] = args ? args.cSS : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["cSS"] = args ? args.cSS : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         } else {
-            inputs["cSS"] = undefined /*out*/;
-            inputs["clientId"] = undefined /*out*/;
-            inputs["userPoolId"] = undefined /*out*/;
+            resourceInputs["cSS"] = undefined /*out*/;
+            resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["userPoolId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPoolUICustomizationAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPoolUICustomizationAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

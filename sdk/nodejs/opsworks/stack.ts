@@ -74,7 +74,7 @@ export class Stack extends pulumi.CustomResource {
     /** @deprecated Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StackArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Stack is deprecated: Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.defaultInstanceProfileArn === undefined) && !opts.urn) {
@@ -83,62 +83,60 @@ export class Stack extends pulumi.CustomResource {
             if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            inputs["agentVersion"] = args ? args.agentVersion : undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["chefConfiguration"] = args ? args.chefConfiguration : undefined;
-            inputs["cloneAppIds"] = args ? args.cloneAppIds : undefined;
-            inputs["clonePermissions"] = args ? args.clonePermissions : undefined;
-            inputs["configurationManager"] = args ? args.configurationManager : undefined;
-            inputs["customCookbooksSource"] = args ? args.customCookbooksSource : undefined;
-            inputs["customJson"] = args ? args.customJson : undefined;
-            inputs["defaultAvailabilityZone"] = args ? args.defaultAvailabilityZone : undefined;
-            inputs["defaultInstanceProfileArn"] = args ? args.defaultInstanceProfileArn : undefined;
-            inputs["defaultOs"] = args ? args.defaultOs : undefined;
-            inputs["defaultRootDeviceType"] = args ? args.defaultRootDeviceType : undefined;
-            inputs["defaultSshKeyName"] = args ? args.defaultSshKeyName : undefined;
-            inputs["defaultSubnetId"] = args ? args.defaultSubnetId : undefined;
-            inputs["ecsClusterArn"] = args ? args.ecsClusterArn : undefined;
-            inputs["elasticIps"] = args ? args.elasticIps : undefined;
-            inputs["hostnameTheme"] = args ? args.hostnameTheme : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rdsDbInstances"] = args ? args.rdsDbInstances : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["sourceStackId"] = args ? args.sourceStackId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["useCustomCookbooks"] = args ? args.useCustomCookbooks : undefined;
-            inputs["useOpsworksSecurityGroups"] = args ? args.useOpsworksSecurityGroups : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["chefConfiguration"] = args ? args.chefConfiguration : undefined;
+            resourceInputs["cloneAppIds"] = args ? args.cloneAppIds : undefined;
+            resourceInputs["clonePermissions"] = args ? args.clonePermissions : undefined;
+            resourceInputs["configurationManager"] = args ? args.configurationManager : undefined;
+            resourceInputs["customCookbooksSource"] = args ? args.customCookbooksSource : undefined;
+            resourceInputs["customJson"] = args ? args.customJson : undefined;
+            resourceInputs["defaultAvailabilityZone"] = args ? args.defaultAvailabilityZone : undefined;
+            resourceInputs["defaultInstanceProfileArn"] = args ? args.defaultInstanceProfileArn : undefined;
+            resourceInputs["defaultOs"] = args ? args.defaultOs : undefined;
+            resourceInputs["defaultRootDeviceType"] = args ? args.defaultRootDeviceType : undefined;
+            resourceInputs["defaultSshKeyName"] = args ? args.defaultSshKeyName : undefined;
+            resourceInputs["defaultSubnetId"] = args ? args.defaultSubnetId : undefined;
+            resourceInputs["ecsClusterArn"] = args ? args.ecsClusterArn : undefined;
+            resourceInputs["elasticIps"] = args ? args.elasticIps : undefined;
+            resourceInputs["hostnameTheme"] = args ? args.hostnameTheme : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rdsDbInstances"] = args ? args.rdsDbInstances : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["sourceStackId"] = args ? args.sourceStackId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useCustomCookbooks"] = args ? args.useCustomCookbooks : undefined;
+            resourceInputs["useOpsworksSecurityGroups"] = args ? args.useOpsworksSecurityGroups : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         } else {
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["attributes"] = undefined /*out*/;
-            inputs["chefConfiguration"] = undefined /*out*/;
-            inputs["cloneAppIds"] = undefined /*out*/;
-            inputs["clonePermissions"] = undefined /*out*/;
-            inputs["configurationManager"] = undefined /*out*/;
-            inputs["customCookbooksSource"] = undefined /*out*/;
-            inputs["customJson"] = undefined /*out*/;
-            inputs["defaultAvailabilityZone"] = undefined /*out*/;
-            inputs["defaultInstanceProfileArn"] = undefined /*out*/;
-            inputs["defaultOs"] = undefined /*out*/;
-            inputs["defaultRootDeviceType"] = undefined /*out*/;
-            inputs["defaultSshKeyName"] = undefined /*out*/;
-            inputs["defaultSubnetId"] = undefined /*out*/;
-            inputs["ecsClusterArn"] = undefined /*out*/;
-            inputs["elasticIps"] = undefined /*out*/;
-            inputs["hostnameTheme"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rdsDbInstances"] = undefined /*out*/;
-            inputs["serviceRoleArn"] = undefined /*out*/;
-            inputs["sourceStackId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["useCustomCookbooks"] = undefined /*out*/;
-            inputs["useOpsworksSecurityGroups"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["chefConfiguration"] = undefined /*out*/;
+            resourceInputs["cloneAppIds"] = undefined /*out*/;
+            resourceInputs["clonePermissions"] = undefined /*out*/;
+            resourceInputs["configurationManager"] = undefined /*out*/;
+            resourceInputs["customCookbooksSource"] = undefined /*out*/;
+            resourceInputs["customJson"] = undefined /*out*/;
+            resourceInputs["defaultAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["defaultInstanceProfileArn"] = undefined /*out*/;
+            resourceInputs["defaultOs"] = undefined /*out*/;
+            resourceInputs["defaultRootDeviceType"] = undefined /*out*/;
+            resourceInputs["defaultSshKeyName"] = undefined /*out*/;
+            resourceInputs["defaultSubnetId"] = undefined /*out*/;
+            resourceInputs["ecsClusterArn"] = undefined /*out*/;
+            resourceInputs["elasticIps"] = undefined /*out*/;
+            resourceInputs["hostnameTheme"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rdsDbInstances"] = undefined /*out*/;
+            resourceInputs["serviceRoleArn"] = undefined /*out*/;
+            resourceInputs["sourceStackId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["useCustomCookbooks"] = undefined /*out*/;
+            resourceInputs["useOpsworksSecurityGroups"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stack.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -106,7 +106,7 @@ type RuleGroupsNamespaceInput interface {
 }
 
 func (*RuleGroupsNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupsNamespace)(nil))
+	return reflect.TypeOf((**RuleGroupsNamespace)(nil)).Elem()
 }
 
 func (i *RuleGroupsNamespace) ToRuleGroupsNamespaceOutput() RuleGroupsNamespaceOutput {
@@ -120,7 +120,7 @@ func (i *RuleGroupsNamespace) ToRuleGroupsNamespaceOutputWithContext(ctx context
 type RuleGroupsNamespaceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupsNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupsNamespace)(nil))
+	return reflect.TypeOf((**RuleGroupsNamespace)(nil)).Elem()
 }
 
 func (o RuleGroupsNamespaceOutput) ToRuleGroupsNamespaceOutput() RuleGroupsNamespaceOutput {

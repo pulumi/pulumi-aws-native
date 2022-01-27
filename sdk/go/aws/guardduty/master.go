@@ -86,7 +86,7 @@ type MasterInput interface {
 }
 
 func (*Master) ElementType() reflect.Type {
-	return reflect.TypeOf((*Master)(nil))
+	return reflect.TypeOf((**Master)(nil)).Elem()
 }
 
 func (i *Master) ToMasterOutput() MasterOutput {
@@ -100,7 +100,7 @@ func (i *Master) ToMasterOutputWithContext(ctx context.Context) MasterOutput {
 type MasterOutput struct{ *pulumi.OutputState }
 
 func (MasterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Master)(nil))
+	return reflect.TypeOf((**Master)(nil)).Elem()
 }
 
 func (o MasterOutput) ToMasterOutput() MasterOutput {

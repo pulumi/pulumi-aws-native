@@ -47,20 +47,18 @@ export class DNSSEC extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DNSSECArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
         } else {
-            inputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DNSSEC.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DNSSEC.__pulumiType, name, resourceInputs, opts);
     }
 }
 

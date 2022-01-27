@@ -53,7 +53,7 @@ export class BudgetsAction extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BudgetsActionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actionThreshold === undefined) && !opts.urn) {
@@ -77,30 +77,28 @@ export class BudgetsAction extends pulumi.CustomResource {
             if ((!args || args.subscribers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            inputs["actionThreshold"] = args ? args.actionThreshold : undefined;
-            inputs["actionType"] = args ? args.actionType : undefined;
-            inputs["approvalModel"] = args ? args.approvalModel : undefined;
-            inputs["budgetName"] = args ? args.budgetName : undefined;
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["notificationType"] = args ? args.notificationType : undefined;
-            inputs["subscribers"] = args ? args.subscribers : undefined;
-            inputs["actionId"] = undefined /*out*/;
+            resourceInputs["actionThreshold"] = args ? args.actionThreshold : undefined;
+            resourceInputs["actionType"] = args ? args.actionType : undefined;
+            resourceInputs["approvalModel"] = args ? args.approvalModel : undefined;
+            resourceInputs["budgetName"] = args ? args.budgetName : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["actionId"] = undefined /*out*/;
         } else {
-            inputs["actionId"] = undefined /*out*/;
-            inputs["actionThreshold"] = undefined /*out*/;
-            inputs["actionType"] = undefined /*out*/;
-            inputs["approvalModel"] = undefined /*out*/;
-            inputs["budgetName"] = undefined /*out*/;
-            inputs["definition"] = undefined /*out*/;
-            inputs["executionRoleArn"] = undefined /*out*/;
-            inputs["notificationType"] = undefined /*out*/;
-            inputs["subscribers"] = undefined /*out*/;
+            resourceInputs["actionId"] = undefined /*out*/;
+            resourceInputs["actionThreshold"] = undefined /*out*/;
+            resourceInputs["actionType"] = undefined /*out*/;
+            resourceInputs["approvalModel"] = undefined /*out*/;
+            resourceInputs["budgetName"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["notificationType"] = undefined /*out*/;
+            resourceInputs["subscribers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BudgetsAction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BudgetsAction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -62,7 +62,7 @@ export class ReplicationTask extends pulumi.CustomResource {
     /** @deprecated ReplicationTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ReplicationTaskArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReplicationTask is deprecated: ReplicationTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.migrationType === undefined) && !opts.urn) {
@@ -80,38 +80,36 @@ export class ReplicationTask extends pulumi.CustomResource {
             if ((!args || args.targetEndpointArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
-            inputs["cdcStartPosition"] = args ? args.cdcStartPosition : undefined;
-            inputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;
-            inputs["cdcStopPosition"] = args ? args.cdcStopPosition : undefined;
-            inputs["migrationType"] = args ? args.migrationType : undefined;
-            inputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
-            inputs["replicationTaskIdentifier"] = args ? args.replicationTaskIdentifier : undefined;
-            inputs["replicationTaskSettings"] = args ? args.replicationTaskSettings : undefined;
-            inputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            inputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
-            inputs["tableMappings"] = args ? args.tableMappings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
-            inputs["taskData"] = args ? args.taskData : undefined;
+            resourceInputs["cdcStartPosition"] = args ? args.cdcStartPosition : undefined;
+            resourceInputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;
+            resourceInputs["cdcStopPosition"] = args ? args.cdcStopPosition : undefined;
+            resourceInputs["migrationType"] = args ? args.migrationType : undefined;
+            resourceInputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
+            resourceInputs["replicationTaskIdentifier"] = args ? args.replicationTaskIdentifier : undefined;
+            resourceInputs["replicationTaskSettings"] = args ? args.replicationTaskSettings : undefined;
+            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
+            resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
+            resourceInputs["taskData"] = args ? args.taskData : undefined;
         } else {
-            inputs["cdcStartPosition"] = undefined /*out*/;
-            inputs["cdcStartTime"] = undefined /*out*/;
-            inputs["cdcStopPosition"] = undefined /*out*/;
-            inputs["migrationType"] = undefined /*out*/;
-            inputs["replicationInstanceArn"] = undefined /*out*/;
-            inputs["replicationTaskIdentifier"] = undefined /*out*/;
-            inputs["replicationTaskSettings"] = undefined /*out*/;
-            inputs["resourceIdentifier"] = undefined /*out*/;
-            inputs["sourceEndpointArn"] = undefined /*out*/;
-            inputs["tableMappings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetEndpointArn"] = undefined /*out*/;
-            inputs["taskData"] = undefined /*out*/;
+            resourceInputs["cdcStartPosition"] = undefined /*out*/;
+            resourceInputs["cdcStartTime"] = undefined /*out*/;
+            resourceInputs["cdcStopPosition"] = undefined /*out*/;
+            resourceInputs["migrationType"] = undefined /*out*/;
+            resourceInputs["replicationInstanceArn"] = undefined /*out*/;
+            resourceInputs["replicationTaskIdentifier"] = undefined /*out*/;
+            resourceInputs["replicationTaskSettings"] = undefined /*out*/;
+            resourceInputs["resourceIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceEndpointArn"] = undefined /*out*/;
+            resourceInputs["tableMappings"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetEndpointArn"] = undefined /*out*/;
+            resourceInputs["taskData"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicationTask.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicationTask.__pulumiType, name, resourceInputs, opts);
     }
 }
 

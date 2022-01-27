@@ -64,28 +64,26 @@ export class DatasetGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatasetGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            inputs["datasetArns"] = args ? args.datasetArns : undefined;
-            inputs["datasetGroupName"] = args ? args.datasetGroupName : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["datasetGroupArn"] = undefined /*out*/;
+            resourceInputs["datasetArns"] = args ? args.datasetArns : undefined;
+            resourceInputs["datasetGroupName"] = args ? args.datasetGroupName : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datasetGroupArn"] = undefined /*out*/;
         } else {
-            inputs["datasetArns"] = undefined /*out*/;
-            inputs["datasetGroupArn"] = undefined /*out*/;
-            inputs["datasetGroupName"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["datasetArns"] = undefined /*out*/;
+            resourceInputs["datasetGroupArn"] = undefined /*out*/;
+            resourceInputs["datasetGroupName"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DatasetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DatasetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

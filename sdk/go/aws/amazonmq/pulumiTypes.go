@@ -1145,47 +1145,6 @@ func (i ConfigurationAssociationConfigurationIdArgs) ToConfigurationAssociationC
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssociationConfigurationIdOutput)
 }
 
-func (i ConfigurationAssociationConfigurationIdArgs) ToConfigurationAssociationConfigurationIdPtrOutput() ConfigurationAssociationConfigurationIdPtrOutput {
-	return i.ToConfigurationAssociationConfigurationIdPtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationAssociationConfigurationIdArgs) ToConfigurationAssociationConfigurationIdPtrOutputWithContext(ctx context.Context) ConfigurationAssociationConfigurationIdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssociationConfigurationIdOutput).ToConfigurationAssociationConfigurationIdPtrOutputWithContext(ctx)
-}
-
-// ConfigurationAssociationConfigurationIdPtrInput is an input type that accepts ConfigurationAssociationConfigurationIdArgs, ConfigurationAssociationConfigurationIdPtr and ConfigurationAssociationConfigurationIdPtrOutput values.
-// You can construct a concrete instance of `ConfigurationAssociationConfigurationIdPtrInput` via:
-//
-//          ConfigurationAssociationConfigurationIdArgs{...}
-//
-//  or:
-//
-//          nil
-type ConfigurationAssociationConfigurationIdPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationAssociationConfigurationIdPtrOutput() ConfigurationAssociationConfigurationIdPtrOutput
-	ToConfigurationAssociationConfigurationIdPtrOutputWithContext(context.Context) ConfigurationAssociationConfigurationIdPtrOutput
-}
-
-type configurationAssociationConfigurationIdPtrType ConfigurationAssociationConfigurationIdArgs
-
-func ConfigurationAssociationConfigurationIdPtr(v *ConfigurationAssociationConfigurationIdArgs) ConfigurationAssociationConfigurationIdPtrInput {
-	return (*configurationAssociationConfigurationIdPtrType)(v)
-}
-
-func (*configurationAssociationConfigurationIdPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationAssociationConfigurationId)(nil)).Elem()
-}
-
-func (i *configurationAssociationConfigurationIdPtrType) ToConfigurationAssociationConfigurationIdPtrOutput() ConfigurationAssociationConfigurationIdPtrOutput {
-	return i.ToConfigurationAssociationConfigurationIdPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationAssociationConfigurationIdPtrType) ToConfigurationAssociationConfigurationIdPtrOutputWithContext(ctx context.Context) ConfigurationAssociationConfigurationIdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssociationConfigurationIdPtrOutput)
-}
-
 type ConfigurationAssociationConfigurationIdOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAssociationConfigurationIdOutput) ElementType() reflect.Type {
@@ -1200,64 +1159,12 @@ func (o ConfigurationAssociationConfigurationIdOutput) ToConfigurationAssociatio
 	return o
 }
 
-func (o ConfigurationAssociationConfigurationIdOutput) ToConfigurationAssociationConfigurationIdPtrOutput() ConfigurationAssociationConfigurationIdPtrOutput {
-	return o.ToConfigurationAssociationConfigurationIdPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationAssociationConfigurationIdOutput) ToConfigurationAssociationConfigurationIdPtrOutputWithContext(ctx context.Context) ConfigurationAssociationConfigurationIdPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationAssociationConfigurationId) *ConfigurationAssociationConfigurationId {
-		return &v
-	}).(ConfigurationAssociationConfigurationIdPtrOutput)
-}
-
 func (o ConfigurationAssociationConfigurationIdOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationAssociationConfigurationId) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationAssociationConfigurationIdOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v ConfigurationAssociationConfigurationId) int { return v.Revision }).(pulumi.IntOutput)
-}
-
-type ConfigurationAssociationConfigurationIdPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationAssociationConfigurationIdPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationAssociationConfigurationId)(nil)).Elem()
-}
-
-func (o ConfigurationAssociationConfigurationIdPtrOutput) ToConfigurationAssociationConfigurationIdPtrOutput() ConfigurationAssociationConfigurationIdPtrOutput {
-	return o
-}
-
-func (o ConfigurationAssociationConfigurationIdPtrOutput) ToConfigurationAssociationConfigurationIdPtrOutputWithContext(ctx context.Context) ConfigurationAssociationConfigurationIdPtrOutput {
-	return o
-}
-
-func (o ConfigurationAssociationConfigurationIdPtrOutput) Elem() ConfigurationAssociationConfigurationIdOutput {
-	return o.ApplyT(func(v *ConfigurationAssociationConfigurationId) ConfigurationAssociationConfigurationId {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationAssociationConfigurationId
-		return ret
-	}).(ConfigurationAssociationConfigurationIdOutput)
-}
-
-func (o ConfigurationAssociationConfigurationIdPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationAssociationConfigurationId) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConfigurationAssociationConfigurationIdPtrOutput) Revision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConfigurationAssociationConfigurationId) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Revision
-	}).(pulumi.IntPtrOutput)
 }
 
 type ConfigurationTagsEntry struct {
@@ -1376,7 +1283,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserInput)(nil)).Elem(), BrokerUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserArrayInput)(nil)).Elem(), BrokerUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAssociationConfigurationIdInput)(nil)).Elem(), ConfigurationAssociationConfigurationIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAssociationConfigurationIdPtrInput)(nil)).Elem(), ConfigurationAssociationConfigurationIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTagsEntryInput)(nil)).Elem(), ConfigurationTagsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTagsEntryArrayInput)(nil)).Elem(), ConfigurationTagsEntryArray{})
 	pulumi.RegisterOutputType(BrokerConfigurationIdOutput{})
@@ -1394,7 +1300,6 @@ func init() {
 	pulumi.RegisterOutputType(BrokerUserOutput{})
 	pulumi.RegisterOutputType(BrokerUserArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAssociationConfigurationIdOutput{})
-	pulumi.RegisterOutputType(ConfigurationAssociationConfigurationIdPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTagsEntryOutput{})
 	pulumi.RegisterOutputType(ConfigurationTagsEntryArrayOutput{})
 }

@@ -82,7 +82,7 @@ type InputSecurityGroupInput interface {
 }
 
 func (*InputSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputSecurityGroup)(nil))
+	return reflect.TypeOf((**InputSecurityGroup)(nil)).Elem()
 }
 
 func (i *InputSecurityGroup) ToInputSecurityGroupOutput() InputSecurityGroupOutput {
@@ -96,7 +96,7 @@ func (i *InputSecurityGroup) ToInputSecurityGroupOutputWithContext(ctx context.C
 type InputSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (InputSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputSecurityGroup)(nil))
+	return reflect.TypeOf((**InputSecurityGroup)(nil)).Elem()
 }
 
 func (o InputSecurityGroupOutput) ToInputSecurityGroupOutput() InputSecurityGroupOutput {

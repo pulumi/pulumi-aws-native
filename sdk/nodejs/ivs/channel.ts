@@ -80,33 +80,31 @@ export class Channel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["authorized"] = args ? args.authorized : undefined;
-            inputs["latencyMode"] = args ? args.latencyMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ingestEndpoint"] = undefined /*out*/;
-            inputs["playbackUrl"] = undefined /*out*/;
+            resourceInputs["authorized"] = args ? args.authorized : undefined;
+            resourceInputs["latencyMode"] = args ? args.latencyMode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ingestEndpoint"] = undefined /*out*/;
+            resourceInputs["playbackUrl"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["authorized"] = undefined /*out*/;
-            inputs["ingestEndpoint"] = undefined /*out*/;
-            inputs["latencyMode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["playbackUrl"] = undefined /*out*/;
-            inputs["recordingConfigurationArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authorized"] = undefined /*out*/;
+            resourceInputs["ingestEndpoint"] = undefined /*out*/;
+            resourceInputs["latencyMode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["playbackUrl"] = undefined /*out*/;
+            resourceInputs["recordingConfigurationArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Channel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

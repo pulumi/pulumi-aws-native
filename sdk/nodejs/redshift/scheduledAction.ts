@@ -84,35 +84,33 @@ export class ScheduledAction extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ScheduledActionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["enable"] = args ? args.enable : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["iamRole"] = args ? args.iamRole : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["scheduledActionDescription"] = args ? args.scheduledActionDescription : undefined;
-            inputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["targetAction"] = args ? args.targetAction : undefined;
-            inputs["nextInvocations"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["iamRole"] = args ? args.iamRole : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["scheduledActionDescription"] = args ? args.scheduledActionDescription : undefined;
+            resourceInputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["targetAction"] = args ? args.targetAction : undefined;
+            resourceInputs["nextInvocations"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
-            inputs["enable"] = undefined /*out*/;
-            inputs["endTime"] = undefined /*out*/;
-            inputs["iamRole"] = undefined /*out*/;
-            inputs["nextInvocations"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["scheduledActionDescription"] = undefined /*out*/;
-            inputs["scheduledActionName"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["targetAction"] = undefined /*out*/;
+            resourceInputs["enable"] = undefined /*out*/;
+            resourceInputs["endTime"] = undefined /*out*/;
+            resourceInputs["iamRole"] = undefined /*out*/;
+            resourceInputs["nextInvocations"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["scheduledActionDescription"] = undefined /*out*/;
+            resourceInputs["scheduledActionName"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["targetAction"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScheduledAction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

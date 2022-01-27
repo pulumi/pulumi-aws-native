@@ -141,7 +141,7 @@ type LaunchProfileInput interface {
 }
 
 func (*LaunchProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchProfile)(nil))
+	return reflect.TypeOf((**LaunchProfile)(nil)).Elem()
 }
 
 func (i *LaunchProfile) ToLaunchProfileOutput() LaunchProfileOutput {
@@ -155,7 +155,7 @@ func (i *LaunchProfile) ToLaunchProfileOutputWithContext(ctx context.Context) La
 type LaunchProfileOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchProfile)(nil))
+	return reflect.TypeOf((**LaunchProfile)(nil)).Elem()
 }
 
 func (o LaunchProfileOutput) ToLaunchProfileOutput() LaunchProfileOutput {

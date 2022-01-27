@@ -85,7 +85,7 @@ type FlowTemplateInput interface {
 }
 
 func (*FlowTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowTemplate)(nil))
+	return reflect.TypeOf((**FlowTemplate)(nil)).Elem()
 }
 
 func (i *FlowTemplate) ToFlowTemplateOutput() FlowTemplateOutput {
@@ -99,7 +99,7 @@ func (i *FlowTemplate) ToFlowTemplateOutputWithContext(ctx context.Context) Flow
 type FlowTemplateOutput struct{ *pulumi.OutputState }
 
 func (FlowTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowTemplate)(nil))
+	return reflect.TypeOf((**FlowTemplate)(nil)).Elem()
 }
 
 func (o FlowTemplateOutput) ToFlowTemplateOutput() FlowTemplateOutput {

@@ -56,7 +56,7 @@ export class Launch extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LaunchArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groups === undefined) && !opts.urn) {
@@ -68,30 +68,28 @@ export class Launch extends pulumi.CustomResource {
             if ((!args || args.scheduledSplitsConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduledSplitsConfig'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["metricMonitors"] = args ? args.metricMonitors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["project"] = args ? args.project : undefined;
-            inputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
-            inputs["scheduledSplitsConfig"] = args ? args.scheduledSplitsConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["metricMonitors"] = args ? args.metricMonitors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["project"] = args ? args.project : undefined;
+            resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
+            resourceInputs["scheduledSplitsConfig"] = args ? args.scheduledSplitsConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["groups"] = undefined /*out*/;
-            inputs["metricMonitors"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["project"] = undefined /*out*/;
-            inputs["randomizationSalt"] = undefined /*out*/;
-            inputs["scheduledSplitsConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["metricMonitors"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["project"] = undefined /*out*/;
+            resourceInputs["randomizationSalt"] = undefined /*out*/;
+            resourceInputs["scheduledSplitsConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Launch.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Launch.__pulumiType, name, resourceInputs, opts);
     }
 }
 

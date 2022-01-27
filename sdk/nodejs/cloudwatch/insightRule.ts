@@ -54,7 +54,7 @@ export class InsightRule extends pulumi.CustomResource {
     /** @deprecated InsightRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: InsightRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("InsightRule is deprecated: InsightRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ruleBody === undefined) && !opts.urn) {
@@ -66,22 +66,20 @@ export class InsightRule extends pulumi.CustomResource {
             if ((!args || args.ruleState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleState'");
             }
-            inputs["ruleBody"] = args ? args.ruleBody : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["ruleState"] = args ? args.ruleState : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["ruleBody"] = args ? args.ruleBody : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["ruleState"] = args ? args.ruleState : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["ruleBody"] = undefined /*out*/;
-            inputs["ruleName"] = undefined /*out*/;
-            inputs["ruleState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ruleBody"] = undefined /*out*/;
+            resourceInputs["ruleName"] = undefined /*out*/;
+            resourceInputs["ruleState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InsightRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InsightRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

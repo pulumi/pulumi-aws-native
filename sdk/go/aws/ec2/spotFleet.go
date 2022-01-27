@@ -80,7 +80,7 @@ type SpotFleetInput interface {
 }
 
 func (*SpotFleet) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleet)(nil))
+	return reflect.TypeOf((**SpotFleet)(nil)).Elem()
 }
 
 func (i *SpotFleet) ToSpotFleetOutput() SpotFleetOutput {
@@ -94,7 +94,7 @@ func (i *SpotFleet) ToSpotFleetOutputWithContext(ctx context.Context) SpotFleetO
 type SpotFleetOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleet)(nil))
+	return reflect.TypeOf((**SpotFleet)(nil)).Elem()
 }
 
 func (o SpotFleetOutput) ToSpotFleetOutput() SpotFleetOutput {

@@ -166,7 +166,7 @@ type FlowOutputResourceInput interface {
 }
 
 func (*FlowOutputResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowOutputResource)(nil))
+	return reflect.TypeOf((**FlowOutputResource)(nil)).Elem()
 }
 
 func (i *FlowOutputResource) ToFlowOutputResourceOutput() FlowOutputResourceOutput {
@@ -180,7 +180,7 @@ func (i *FlowOutputResource) ToFlowOutputResourceOutputWithContext(ctx context.C
 type FlowOutputResourceOutput struct{ *pulumi.OutputState }
 
 func (FlowOutputResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowOutputResource)(nil))
+	return reflect.TypeOf((**FlowOutputResource)(nil)).Elem()
 }
 
 func (o FlowOutputResourceOutput) ToFlowOutputResourceOutput() FlowOutputResourceOutput {

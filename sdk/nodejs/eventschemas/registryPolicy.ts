@@ -46,7 +46,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RegistryPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -55,18 +55,16 @@ export class RegistryPolicy extends pulumi.CustomResource {
             if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["revisionId"] = args ? args.revisionId : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["revisionId"] = args ? args.revisionId : undefined;
         } else {
-            inputs["policy"] = undefined /*out*/;
-            inputs["registryName"] = undefined /*out*/;
-            inputs["revisionId"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["registryName"] = undefined /*out*/;
+            resourceInputs["revisionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RegistryPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RegistryPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

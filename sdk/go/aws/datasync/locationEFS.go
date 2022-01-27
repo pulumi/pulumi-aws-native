@@ -105,7 +105,7 @@ type LocationEFSInput interface {
 }
 
 func (*LocationEFS) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationEFS)(nil))
+	return reflect.TypeOf((**LocationEFS)(nil)).Elem()
 }
 
 func (i *LocationEFS) ToLocationEFSOutput() LocationEFSOutput {
@@ -119,7 +119,7 @@ func (i *LocationEFS) ToLocationEFSOutputWithContext(ctx context.Context) Locati
 type LocationEFSOutput struct{ *pulumi.OutputState }
 
 func (LocationEFSOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationEFS)(nil))
+	return reflect.TypeOf((**LocationEFS)(nil)).Elem()
 }
 
 func (o LocationEFSOutput) ToLocationEFSOutput() LocationEFSOutput {

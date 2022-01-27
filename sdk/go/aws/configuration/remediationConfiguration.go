@@ -115,7 +115,7 @@ type RemediationConfigurationInput interface {
 }
 
 func (*RemediationConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationConfiguration)(nil))
+	return reflect.TypeOf((**RemediationConfiguration)(nil)).Elem()
 }
 
 func (i *RemediationConfiguration) ToRemediationConfigurationOutput() RemediationConfigurationOutput {
@@ -129,7 +129,7 @@ func (i *RemediationConfiguration) ToRemediationConfigurationOutputWithContext(c
 type RemediationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationConfiguration)(nil))
+	return reflect.TypeOf((**RemediationConfiguration)(nil)).Elem()
 }
 
 func (o RemediationConfigurationOutput) ToRemediationConfigurationOutput() RemediationConfigurationOutput {

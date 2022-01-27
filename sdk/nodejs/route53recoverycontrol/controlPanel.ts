@@ -72,29 +72,27 @@ export class ControlPanel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ControlPanelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["clusterArn"] = args ? args.clusterArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["controlPanelArn"] = undefined /*out*/;
-            inputs["defaultControlPanel"] = undefined /*out*/;
-            inputs["routingControlCount"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["controlPanelArn"] = undefined /*out*/;
+            resourceInputs["defaultControlPanel"] = undefined /*out*/;
+            resourceInputs["routingControlCount"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["clusterArn"] = undefined /*out*/;
-            inputs["controlPanelArn"] = undefined /*out*/;
-            inputs["defaultControlPanel"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["routingControlCount"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["clusterArn"] = undefined /*out*/;
+            resourceInputs["controlPanelArn"] = undefined /*out*/;
+            resourceInputs["defaultControlPanel"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["routingControlCount"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ControlPanel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ControlPanel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

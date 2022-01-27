@@ -131,7 +131,7 @@ type DocumentInput interface {
 }
 
 func (*Document) ElementType() reflect.Type {
-	return reflect.TypeOf((*Document)(nil))
+	return reflect.TypeOf((**Document)(nil)).Elem()
 }
 
 func (i *Document) ToDocumentOutput() DocumentOutput {
@@ -145,7 +145,7 @@ func (i *Document) ToDocumentOutputWithContext(ctx context.Context) DocumentOutp
 type DocumentOutput struct{ *pulumi.OutputState }
 
 func (DocumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Document)(nil))
+	return reflect.TypeOf((**Document)(nil)).Elem()
 }
 
 func (o DocumentOutput) ToDocumentOutput() DocumentOutput {

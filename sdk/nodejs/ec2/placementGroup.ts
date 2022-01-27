@@ -49,17 +49,15 @@ export class PlacementGroup extends pulumi.CustomResource {
     /** @deprecated PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PlacementGroup is deprecated: PlacementGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["strategy"] = args ? args.strategy : undefined;
+            resourceInputs["strategy"] = args ? args.strategy : undefined;
         } else {
-            inputs["strategy"] = undefined /*out*/;
+            resourceInputs["strategy"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PlacementGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PlacementGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -56,7 +56,7 @@ export class Deployment extends pulumi.CustomResource {
     /** @deprecated Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Deployment is deprecated: Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -74,26 +74,24 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            inputs["configurationVersion"] = args ? args.configurationVersion : undefined;
-            inputs["deploymentStrategyId"] = args ? args.deploymentStrategyId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environmentId"] = args ? args.environmentId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
+            resourceInputs["configurationVersion"] = args ? args.configurationVersion : undefined;
+            resourceInputs["deploymentStrategyId"] = args ? args.deploymentStrategyId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["configurationProfileId"] = undefined /*out*/;
-            inputs["configurationVersion"] = undefined /*out*/;
-            inputs["deploymentStrategyId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["environmentId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["configurationProfileId"] = undefined /*out*/;
+            resourceInputs["configurationVersion"] = undefined /*out*/;
+            resourceInputs["deploymentStrategyId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["environmentId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Deployment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

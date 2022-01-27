@@ -53,28 +53,26 @@ export class DBSecurityGroupIngress extends pulumi.CustomResource {
     /** @deprecated DBSecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DBSecurityGroupIngressArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DBSecurityGroupIngress is deprecated: DBSecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dBSecurityGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dBSecurityGroupName'");
             }
-            inputs["cIDRIP"] = args ? args.cIDRIP : undefined;
-            inputs["dBSecurityGroupName"] = args ? args.dBSecurityGroupName : undefined;
-            inputs["eC2SecurityGroupId"] = args ? args.eC2SecurityGroupId : undefined;
-            inputs["eC2SecurityGroupName"] = args ? args.eC2SecurityGroupName : undefined;
-            inputs["eC2SecurityGroupOwnerId"] = args ? args.eC2SecurityGroupOwnerId : undefined;
+            resourceInputs["cIDRIP"] = args ? args.cIDRIP : undefined;
+            resourceInputs["dBSecurityGroupName"] = args ? args.dBSecurityGroupName : undefined;
+            resourceInputs["eC2SecurityGroupId"] = args ? args.eC2SecurityGroupId : undefined;
+            resourceInputs["eC2SecurityGroupName"] = args ? args.eC2SecurityGroupName : undefined;
+            resourceInputs["eC2SecurityGroupOwnerId"] = args ? args.eC2SecurityGroupOwnerId : undefined;
         } else {
-            inputs["cIDRIP"] = undefined /*out*/;
-            inputs["dBSecurityGroupName"] = undefined /*out*/;
-            inputs["eC2SecurityGroupId"] = undefined /*out*/;
-            inputs["eC2SecurityGroupName"] = undefined /*out*/;
-            inputs["eC2SecurityGroupOwnerId"] = undefined /*out*/;
+            resourceInputs["cIDRIP"] = undefined /*out*/;
+            resourceInputs["dBSecurityGroupName"] = undefined /*out*/;
+            resourceInputs["eC2SecurityGroupId"] = undefined /*out*/;
+            resourceInputs["eC2SecurityGroupName"] = undefined /*out*/;
+            resourceInputs["eC2SecurityGroupOwnerId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DBSecurityGroupIngress.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DBSecurityGroupIngress.__pulumiType, name, resourceInputs, opts);
     }
 }
 

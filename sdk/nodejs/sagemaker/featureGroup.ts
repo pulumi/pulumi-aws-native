@@ -74,7 +74,7 @@ export class FeatureGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FeatureGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.eventTimeFeatureName === undefined) && !opts.urn) {
@@ -86,30 +86,28 @@ export class FeatureGroup extends pulumi.CustomResource {
             if ((!args || args.recordIdentifierFeatureName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recordIdentifierFeatureName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventTimeFeatureName"] = args ? args.eventTimeFeatureName : undefined;
-            inputs["featureDefinitions"] = args ? args.featureDefinitions : undefined;
-            inputs["featureGroupName"] = args ? args.featureGroupName : undefined;
-            inputs["offlineStoreConfig"] = args ? args.offlineStoreConfig : undefined;
-            inputs["onlineStoreConfig"] = args ? args.onlineStoreConfig : undefined;
-            inputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventTimeFeatureName"] = args ? args.eventTimeFeatureName : undefined;
+            resourceInputs["featureDefinitions"] = args ? args.featureDefinitions : undefined;
+            resourceInputs["featureGroupName"] = args ? args.featureGroupName : undefined;
+            resourceInputs["offlineStoreConfig"] = args ? args.offlineStoreConfig : undefined;
+            resourceInputs["onlineStoreConfig"] = args ? args.onlineStoreConfig : undefined;
+            resourceInputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["eventTimeFeatureName"] = undefined /*out*/;
-            inputs["featureDefinitions"] = undefined /*out*/;
-            inputs["featureGroupName"] = undefined /*out*/;
-            inputs["offlineStoreConfig"] = undefined /*out*/;
-            inputs["onlineStoreConfig"] = undefined /*out*/;
-            inputs["recordIdentifierFeatureName"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["eventTimeFeatureName"] = undefined /*out*/;
+            resourceInputs["featureDefinitions"] = undefined /*out*/;
+            resourceInputs["featureGroupName"] = undefined /*out*/;
+            resourceInputs["offlineStoreConfig"] = undefined /*out*/;
+            resourceInputs["onlineStoreConfig"] = undefined /*out*/;
+            resourceInputs["recordIdentifierFeatureName"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FeatureGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FeatureGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

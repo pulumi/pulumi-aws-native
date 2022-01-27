@@ -49,28 +49,26 @@ export class ConnectionAlias extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectionAliasArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.connectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["aliasId"] = undefined /*out*/;
-            inputs["associations"] = undefined /*out*/;
-            inputs["connectionAliasState"] = undefined /*out*/;
+            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aliasId"] = undefined /*out*/;
+            resourceInputs["associations"] = undefined /*out*/;
+            resourceInputs["connectionAliasState"] = undefined /*out*/;
         } else {
-            inputs["aliasId"] = undefined /*out*/;
-            inputs["associations"] = undefined /*out*/;
-            inputs["connectionAliasState"] = undefined /*out*/;
-            inputs["connectionString"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["aliasId"] = undefined /*out*/;
+            resourceInputs["associations"] = undefined /*out*/;
+            resourceInputs["connectionAliasState"] = undefined /*out*/;
+            resourceInputs["connectionString"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConnectionAlias.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConnectionAlias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

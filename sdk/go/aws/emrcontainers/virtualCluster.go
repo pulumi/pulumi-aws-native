@@ -96,7 +96,7 @@ type VirtualClusterInput interface {
 }
 
 func (*VirtualCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualCluster)(nil))
+	return reflect.TypeOf((**VirtualCluster)(nil)).Elem()
 }
 
 func (i *VirtualCluster) ToVirtualClusterOutput() VirtualClusterOutput {
@@ -110,7 +110,7 @@ func (i *VirtualCluster) ToVirtualClusterOutputWithContext(ctx context.Context) 
 type VirtualClusterOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualCluster)(nil))
+	return reflect.TypeOf((**VirtualCluster)(nil)).Elem()
 }
 
 func (o VirtualClusterOutput) ToVirtualClusterOutput() VirtualClusterOutput {

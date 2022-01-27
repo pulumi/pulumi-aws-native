@@ -46,7 +46,7 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DomainNameApiAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -55,18 +55,16 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["apiAssociationIdentifier"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["apiAssociationIdentifier"] = undefined /*out*/;
         } else {
-            inputs["apiAssociationIdentifier"] = undefined /*out*/;
-            inputs["apiId"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
+            resourceInputs["apiAssociationIdentifier"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DomainNameApiAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DomainNameApiAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

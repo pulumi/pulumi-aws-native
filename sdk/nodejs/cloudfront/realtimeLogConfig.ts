@@ -49,7 +49,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RealtimeLogConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endPoints === undefined) && !opts.urn) {
@@ -61,22 +61,20 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
             if ((!args || args.samplingRate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'samplingRate'");
             }
-            inputs["endPoints"] = args ? args.endPoints : undefined;
-            inputs["fields"] = args ? args.fields : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["samplingRate"] = args ? args.samplingRate : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["endPoints"] = args ? args.endPoints : undefined;
+            resourceInputs["fields"] = args ? args.fields : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["samplingRate"] = args ? args.samplingRate : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["endPoints"] = undefined /*out*/;
-            inputs["fields"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["samplingRate"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endPoints"] = undefined /*out*/;
+            resourceInputs["fields"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["samplingRate"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RealtimeLogConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RealtimeLogConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

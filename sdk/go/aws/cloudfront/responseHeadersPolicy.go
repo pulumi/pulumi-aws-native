@@ -81,7 +81,7 @@ type ResponseHeadersPolicyInput interface {
 }
 
 func (*ResponseHeadersPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponseHeadersPolicy)(nil))
+	return reflect.TypeOf((**ResponseHeadersPolicy)(nil)).Elem()
 }
 
 func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyOutput() ResponseHeadersPolicyOutput {
@@ -95,7 +95,7 @@ func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyOutputWithContext(ctx con
 type ResponseHeadersPolicyOutput struct{ *pulumi.OutputState }
 
 func (ResponseHeadersPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponseHeadersPolicy)(nil))
+	return reflect.TypeOf((**ResponseHeadersPolicy)(nil)).Elem()
 }
 
 func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutput() ResponseHeadersPolicyOutput {

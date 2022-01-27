@@ -91,51 +91,49 @@ export class DataSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: DataSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["columnGroups"] = args ? args.columnGroups : undefined;
-            inputs["columnLevelPermissionRules"] = args ? args.columnLevelPermissionRules : undefined;
-            inputs["dataSetId"] = args ? args.dataSetId : undefined;
-            inputs["fieldFolders"] = args ? args.fieldFolders : undefined;
-            inputs["importMode"] = args ? args.importMode : undefined;
-            inputs["ingestionWaitPolicy"] = args ? args.ingestionWaitPolicy : undefined;
-            inputs["logicalTableMap"] = args ? args.logicalTableMap : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["physicalTableMap"] = args ? args.physicalTableMap : undefined;
-            inputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["outputColumns"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["columnGroups"] = args ? args.columnGroups : undefined;
+            resourceInputs["columnLevelPermissionRules"] = args ? args.columnLevelPermissionRules : undefined;
+            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["fieldFolders"] = args ? args.fieldFolders : undefined;
+            resourceInputs["importMode"] = args ? args.importMode : undefined;
+            resourceInputs["ingestionWaitPolicy"] = args ? args.ingestionWaitPolicy : undefined;
+            resourceInputs["logicalTableMap"] = args ? args.logicalTableMap : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["physicalTableMap"] = args ? args.physicalTableMap : undefined;
+            resourceInputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["outputColumns"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["columnGroups"] = undefined /*out*/;
-            inputs["columnLevelPermissionRules"] = undefined /*out*/;
-            inputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["fieldFolders"] = undefined /*out*/;
-            inputs["importMode"] = undefined /*out*/;
-            inputs["ingestionWaitPolicy"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["logicalTableMap"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputColumns"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["physicalTableMap"] = undefined /*out*/;
-            inputs["rowLevelPermissionDataSet"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["columnGroups"] = undefined /*out*/;
+            resourceInputs["columnLevelPermissionRules"] = undefined /*out*/;
+            resourceInputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["fieldFolders"] = undefined /*out*/;
+            resourceInputs["importMode"] = undefined /*out*/;
+            resourceInputs["ingestionWaitPolicy"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["logicalTableMap"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputColumns"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["physicalTableMap"] = undefined /*out*/;
+            resourceInputs["rowLevelPermissionDataSet"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

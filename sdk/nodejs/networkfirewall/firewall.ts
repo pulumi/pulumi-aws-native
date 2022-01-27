@@ -56,7 +56,7 @@ export class Firewall extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FirewallArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.firewallPolicyArn === undefined) && !opts.urn) {
@@ -68,36 +68,34 @@ export class Firewall extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["firewallName"] = args ? args.firewallName : undefined;
-            inputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
-            inputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
-            inputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
-            inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["endpointIds"] = undefined /*out*/;
-            inputs["firewallArn"] = undefined /*out*/;
-            inputs["firewallId"] = undefined /*out*/;
+            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["firewallName"] = args ? args.firewallName : undefined;
+            resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
+            resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
+            resourceInputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
+            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["endpointIds"] = undefined /*out*/;
+            resourceInputs["firewallArn"] = undefined /*out*/;
+            resourceInputs["firewallId"] = undefined /*out*/;
         } else {
-            inputs["deleteProtection"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["endpointIds"] = undefined /*out*/;
-            inputs["firewallArn"] = undefined /*out*/;
-            inputs["firewallId"] = undefined /*out*/;
-            inputs["firewallName"] = undefined /*out*/;
-            inputs["firewallPolicyArn"] = undefined /*out*/;
-            inputs["firewallPolicyChangeProtection"] = undefined /*out*/;
-            inputs["subnetChangeProtection"] = undefined /*out*/;
-            inputs["subnetMappings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["deleteProtection"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["endpointIds"] = undefined /*out*/;
+            resourceInputs["firewallArn"] = undefined /*out*/;
+            resourceInputs["firewallId"] = undefined /*out*/;
+            resourceInputs["firewallName"] = undefined /*out*/;
+            resourceInputs["firewallPolicyArn"] = undefined /*out*/;
+            resourceInputs["firewallPolicyChangeProtection"] = undefined /*out*/;
+            resourceInputs["subnetChangeProtection"] = undefined /*out*/;
+            resourceInputs["subnetMappings"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Firewall.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Firewall.__pulumiType, name, resourceInputs, opts);
     }
 }
 

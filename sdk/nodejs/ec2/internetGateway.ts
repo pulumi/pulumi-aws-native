@@ -52,19 +52,17 @@ export class InternetGateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: InternetGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["internetGatewayId"] = undefined /*out*/;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["internetGatewayId"] = undefined /*out*/;
         } else {
-            inputs["internetGatewayId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["internetGatewayId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InternetGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InternetGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

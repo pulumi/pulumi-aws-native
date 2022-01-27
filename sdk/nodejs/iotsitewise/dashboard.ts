@@ -72,7 +72,7 @@ export class Dashboard extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dashboardDefinition === undefined) && !opts.urn) {
@@ -81,26 +81,24 @@ export class Dashboard extends pulumi.CustomResource {
             if ((!args || args.dashboardDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboardDescription'");
             }
-            inputs["dashboardDefinition"] = args ? args.dashboardDefinition : undefined;
-            inputs["dashboardDescription"] = args ? args.dashboardDescription : undefined;
-            inputs["dashboardName"] = args ? args.dashboardName : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["dashboardArn"] = undefined /*out*/;
-            inputs["dashboardId"] = undefined /*out*/;
+            resourceInputs["dashboardDefinition"] = args ? args.dashboardDefinition : undefined;
+            resourceInputs["dashboardDescription"] = args ? args.dashboardDescription : undefined;
+            resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dashboardArn"] = undefined /*out*/;
+            resourceInputs["dashboardId"] = undefined /*out*/;
         } else {
-            inputs["dashboardArn"] = undefined /*out*/;
-            inputs["dashboardDefinition"] = undefined /*out*/;
-            inputs["dashboardDescription"] = undefined /*out*/;
-            inputs["dashboardId"] = undefined /*out*/;
-            inputs["dashboardName"] = undefined /*out*/;
-            inputs["projectId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["dashboardArn"] = undefined /*out*/;
+            resourceInputs["dashboardDefinition"] = undefined /*out*/;
+            resourceInputs["dashboardDescription"] = undefined /*out*/;
+            resourceInputs["dashboardId"] = undefined /*out*/;
+            resourceInputs["dashboardName"] = undefined /*out*/;
+            resourceInputs["projectId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dashboard.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }
 

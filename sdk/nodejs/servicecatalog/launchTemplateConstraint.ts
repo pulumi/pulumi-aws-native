@@ -53,7 +53,7 @@ export class LaunchTemplateConstraint extends pulumi.CustomResource {
     /** @deprecated LaunchTemplateConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LaunchTemplateConstraintArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LaunchTemplateConstraint is deprecated: LaunchTemplateConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
@@ -65,22 +65,20 @@ export class LaunchTemplateConstraint extends pulumi.CustomResource {
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["portfolioId"] = undefined /*out*/;
-            inputs["productId"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["portfolioId"] = undefined /*out*/;
+            resourceInputs["productId"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LaunchTemplateConstraint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LaunchTemplateConstraint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

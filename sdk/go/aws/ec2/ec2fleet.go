@@ -117,7 +117,7 @@ type EC2FleetInput interface {
 }
 
 func (*EC2Fleet) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2Fleet)(nil))
+	return reflect.TypeOf((**EC2Fleet)(nil)).Elem()
 }
 
 func (i *EC2Fleet) ToEC2FleetOutput() EC2FleetOutput {
@@ -131,7 +131,7 @@ func (i *EC2Fleet) ToEC2FleetOutputWithContext(ctx context.Context) EC2FleetOutp
 type EC2FleetOutput struct{ *pulumi.OutputState }
 
 func (EC2FleetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EC2Fleet)(nil))
+	return reflect.TypeOf((**EC2Fleet)(nil)).Elem()
 }
 
 func (o EC2FleetOutput) ToEC2FleetOutput() EC2FleetOutput {

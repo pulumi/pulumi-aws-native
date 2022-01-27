@@ -100,7 +100,7 @@ type LaunchRoleConstraintInput interface {
 }
 
 func (*LaunchRoleConstraint) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchRoleConstraint)(nil))
+	return reflect.TypeOf((**LaunchRoleConstraint)(nil)).Elem()
 }
 
 func (i *LaunchRoleConstraint) ToLaunchRoleConstraintOutput() LaunchRoleConstraintOutput {
@@ -114,7 +114,7 @@ func (i *LaunchRoleConstraint) ToLaunchRoleConstraintOutputWithContext(ctx conte
 type LaunchRoleConstraintOutput struct{ *pulumi.OutputState }
 
 func (LaunchRoleConstraintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchRoleConstraint)(nil))
+	return reflect.TypeOf((**LaunchRoleConstraint)(nil)).Elem()
 }
 
 func (o LaunchRoleConstraintOutput) ToLaunchRoleConstraintOutput() LaunchRoleConstraintOutput {

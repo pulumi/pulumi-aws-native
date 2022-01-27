@@ -90,7 +90,7 @@ type HealthCheckInput interface {
 }
 
 func (*HealthCheck) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheck)(nil))
+	return reflect.TypeOf((**HealthCheck)(nil)).Elem()
 }
 
 func (i *HealthCheck) ToHealthCheckOutput() HealthCheckOutput {
@@ -104,7 +104,7 @@ func (i *HealthCheck) ToHealthCheckOutputWithContext(ctx context.Context) Health
 type HealthCheckOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheck)(nil))
+	return reflect.TypeOf((**HealthCheck)(nil)).Elem()
 }
 
 func (o HealthCheckOutput) ToHealthCheckOutput() HealthCheckOutput {

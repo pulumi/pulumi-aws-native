@@ -56,7 +56,7 @@ export class Route extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
@@ -68,30 +68,28 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.serviceIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceIdentifier'");
             }
-            inputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            inputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            inputs["routeType"] = args ? args.routeType : undefined;
-            inputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uriPathRoute"] = args ? args.uriPathRoute : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["pathResourceToId"] = undefined /*out*/;
-            inputs["routeIdentifier"] = undefined /*out*/;
+            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
+            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
+            resourceInputs["routeType"] = args ? args.routeType : undefined;
+            resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uriPathRoute"] = args ? args.uriPathRoute : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["pathResourceToId"] = undefined /*out*/;
+            resourceInputs["routeIdentifier"] = undefined /*out*/;
         } else {
-            inputs["applicationIdentifier"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["environmentIdentifier"] = undefined /*out*/;
-            inputs["pathResourceToId"] = undefined /*out*/;
-            inputs["routeIdentifier"] = undefined /*out*/;
-            inputs["routeType"] = undefined /*out*/;
-            inputs["serviceIdentifier"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["uriPathRoute"] = undefined /*out*/;
+            resourceInputs["applicationIdentifier"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["environmentIdentifier"] = undefined /*out*/;
+            resourceInputs["pathResourceToId"] = undefined /*out*/;
+            resourceInputs["routeIdentifier"] = undefined /*out*/;
+            resourceInputs["routeType"] = undefined /*out*/;
+            resourceInputs["serviceIdentifier"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["uriPathRoute"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Route.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

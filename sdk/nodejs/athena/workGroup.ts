@@ -76,31 +76,29 @@ export class WorkGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: WorkGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recursiveDeleteOption"] = args ? args.recursiveDeleteOption : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workGroupConfiguration"] = args ? args.workGroupConfiguration : undefined;
-            inputs["workGroupConfigurationUpdates"] = args ? args.workGroupConfigurationUpdates : undefined;
-            inputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recursiveDeleteOption"] = args ? args.recursiveDeleteOption : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workGroupConfiguration"] = args ? args.workGroupConfiguration : undefined;
+            resourceInputs["workGroupConfigurationUpdates"] = args ? args.workGroupConfigurationUpdates : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["recursiveDeleteOption"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["workGroupConfiguration"] = undefined /*out*/;
-            inputs["workGroupConfigurationUpdates"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recursiveDeleteOption"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workGroupConfiguration"] = undefined /*out*/;
+            resourceInputs["workGroupConfigurationUpdates"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WorkGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WorkGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

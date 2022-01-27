@@ -97,7 +97,7 @@ type LabelInput interface {
 }
 
 func (*Label) ElementType() reflect.Type {
-	return reflect.TypeOf((*Label)(nil))
+	return reflect.TypeOf((**Label)(nil)).Elem()
 }
 
 func (i *Label) ToLabelOutput() LabelOutput {
@@ -111,7 +111,7 @@ func (i *Label) ToLabelOutputWithContext(ctx context.Context) LabelOutput {
 type LabelOutput struct{ *pulumi.OutputState }
 
 func (LabelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Label)(nil))
+	return reflect.TypeOf((**Label)(nil)).Elem()
 }
 
 func (o LabelOutput) ToLabelOutput() LabelOutput {

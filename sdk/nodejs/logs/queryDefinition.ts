@@ -59,26 +59,24 @@ export class QueryDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: QueryDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.queryString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            inputs["logGroupNames"] = args ? args.logGroupNames : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queryString"] = args ? args.queryString : undefined;
-            inputs["queryDefinitionId"] = undefined /*out*/;
+            resourceInputs["logGroupNames"] = args ? args.logGroupNames : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["queryDefinitionId"] = undefined /*out*/;
         } else {
-            inputs["logGroupNames"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["queryDefinitionId"] = undefined /*out*/;
-            inputs["queryString"] = undefined /*out*/;
+            resourceInputs["logGroupNames"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["queryDefinitionId"] = undefined /*out*/;
+            resourceInputs["queryString"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(QueryDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(QueryDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

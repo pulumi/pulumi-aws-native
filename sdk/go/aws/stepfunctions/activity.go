@@ -80,7 +80,7 @@ type ActivityInput interface {
 }
 
 func (*Activity) ElementType() reflect.Type {
-	return reflect.TypeOf((*Activity)(nil))
+	return reflect.TypeOf((**Activity)(nil)).Elem()
 }
 
 func (i *Activity) ToActivityOutput() ActivityOutput {
@@ -94,7 +94,7 @@ func (i *Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutp
 type ActivityOutput struct{ *pulumi.OutputState }
 
 func (ActivityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Activity)(nil))
+	return reflect.TypeOf((**Activity)(nil)).Elem()
 }
 
 func (o ActivityOutput) ToActivityOutput() ActivityOutput {

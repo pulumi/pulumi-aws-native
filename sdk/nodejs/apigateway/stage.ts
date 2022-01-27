@@ -100,46 +100,44 @@ export class Stage extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["accessLogSetting"] = args ? args.accessLogSetting : undefined;
-            inputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
-            inputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
-            inputs["canarySetting"] = args ? args.canarySetting : undefined;
-            inputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
-            inputs["deploymentId"] = args ? args.deploymentId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["documentationVersion"] = args ? args.documentationVersion : undefined;
-            inputs["methodSettings"] = args ? args.methodSettings : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tracingEnabled"] = args ? args.tracingEnabled : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["accessLogSetting"] = args ? args.accessLogSetting : undefined;
+            resourceInputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
+            resourceInputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
+            resourceInputs["canarySetting"] = args ? args.canarySetting : undefined;
+            resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
+            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["documentationVersion"] = args ? args.documentationVersion : undefined;
+            resourceInputs["methodSettings"] = args ? args.methodSettings : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tracingEnabled"] = args ? args.tracingEnabled : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
         } else {
-            inputs["accessLogSetting"] = undefined /*out*/;
-            inputs["cacheClusterEnabled"] = undefined /*out*/;
-            inputs["cacheClusterSize"] = undefined /*out*/;
-            inputs["canarySetting"] = undefined /*out*/;
-            inputs["clientCertificateId"] = undefined /*out*/;
-            inputs["deploymentId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["documentationVersion"] = undefined /*out*/;
-            inputs["methodSettings"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
-            inputs["stageName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tracingEnabled"] = undefined /*out*/;
-            inputs["variables"] = undefined /*out*/;
+            resourceInputs["accessLogSetting"] = undefined /*out*/;
+            resourceInputs["cacheClusterEnabled"] = undefined /*out*/;
+            resourceInputs["cacheClusterSize"] = undefined /*out*/;
+            resourceInputs["canarySetting"] = undefined /*out*/;
+            resourceInputs["clientCertificateId"] = undefined /*out*/;
+            resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationVersion"] = undefined /*out*/;
+            resourceInputs["methodSettings"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
+            resourceInputs["stageName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tracingEnabled"] = undefined /*out*/;
+            resourceInputs["variables"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Stage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Stage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

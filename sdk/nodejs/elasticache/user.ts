@@ -76,7 +76,7 @@ export class User extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.engine === undefined) && !opts.urn) {
@@ -85,28 +85,26 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["accessString"] = args ? args.accessString : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
-            inputs["passwords"] = args ? args.passwords : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["accessString"] = args ? args.accessString : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
+            resourceInputs["passwords"] = args ? args.passwords : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["accessString"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["engine"] = undefined /*out*/;
-            inputs["noPasswordRequired"] = undefined /*out*/;
-            inputs["passwords"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["userId"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["accessString"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["noPasswordRequired"] = undefined /*out*/;
+            resourceInputs["passwords"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["userId"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

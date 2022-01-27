@@ -56,32 +56,30 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /** @deprecated ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ComputeEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ComputeEnvironment is deprecated: ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
-            inputs["computeResources"] = args ? args.computeResources : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["unmanagedvCpus"] = args ? args.unmanagedvCpus : undefined;
+            resourceInputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
+            resourceInputs["computeResources"] = args ? args.computeResources : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["unmanagedvCpus"] = args ? args.unmanagedvCpus : undefined;
         } else {
-            inputs["computeEnvironmentName"] = undefined /*out*/;
-            inputs["computeResources"] = undefined /*out*/;
-            inputs["serviceRole"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["unmanagedvCpus"] = undefined /*out*/;
+            resourceInputs["computeEnvironmentName"] = undefined /*out*/;
+            resourceInputs["computeResources"] = undefined /*out*/;
+            resourceInputs["serviceRole"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["unmanagedvCpus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ComputeEnvironment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ComputeEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

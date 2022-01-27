@@ -111,7 +111,7 @@ type LocationNFSInput interface {
 }
 
 func (*LocationNFS) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationNFS)(nil))
+	return reflect.TypeOf((**LocationNFS)(nil)).Elem()
 }
 
 func (i *LocationNFS) ToLocationNFSOutput() LocationNFSOutput {
@@ -125,7 +125,7 @@ func (i *LocationNFS) ToLocationNFSOutputWithContext(ctx context.Context) Locati
 type LocationNFSOutput struct{ *pulumi.OutputState }
 
 func (LocationNFSOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationNFS)(nil))
+	return reflect.TypeOf((**LocationNFS)(nil)).Elem()
 }
 
 func (o LocationNFSOutput) ToLocationNFSOutput() LocationNFSOutput {

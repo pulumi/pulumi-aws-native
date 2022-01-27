@@ -50,7 +50,7 @@ export class TopicPolicy extends pulumi.CustomResource {
     /** @deprecated TopicPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TopicPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TopicPolicy is deprecated: TopicPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class TopicPolicy extends pulumi.CustomResource {
             if ((!args || args.topics === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topics'");
             }
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
-            inputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["topics"] = args ? args.topics : undefined;
         } else {
-            inputs["policyDocument"] = undefined /*out*/;
-            inputs["topics"] = undefined /*out*/;
+            resourceInputs["policyDocument"] = undefined /*out*/;
+            resourceInputs["topics"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TopicPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TopicPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

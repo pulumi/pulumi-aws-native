@@ -41,47 +41,6 @@ func (i MapConfigurationArgs) ToMapConfigurationOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MapConfigurationOutput)
 }
 
-func (i MapConfigurationArgs) ToMapConfigurationPtrOutput() MapConfigurationPtrOutput {
-	return i.ToMapConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i MapConfigurationArgs) ToMapConfigurationPtrOutputWithContext(ctx context.Context) MapConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MapConfigurationOutput).ToMapConfigurationPtrOutputWithContext(ctx)
-}
-
-// MapConfigurationPtrInput is an input type that accepts MapConfigurationArgs, MapConfigurationPtr and MapConfigurationPtrOutput values.
-// You can construct a concrete instance of `MapConfigurationPtrInput` via:
-//
-//          MapConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type MapConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToMapConfigurationPtrOutput() MapConfigurationPtrOutput
-	ToMapConfigurationPtrOutputWithContext(context.Context) MapConfigurationPtrOutput
-}
-
-type mapConfigurationPtrType MapConfigurationArgs
-
-func MapConfigurationPtr(v *MapConfigurationArgs) MapConfigurationPtrInput {
-	return (*mapConfigurationPtrType)(v)
-}
-
-func (*mapConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MapConfiguration)(nil)).Elem()
-}
-
-func (i *mapConfigurationPtrType) ToMapConfigurationPtrOutput() MapConfigurationPtrOutput {
-	return i.ToMapConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *mapConfigurationPtrType) ToMapConfigurationPtrOutputWithContext(ctx context.Context) MapConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MapConfigurationPtrOutput)
-}
-
 type MapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MapConfigurationOutput) ElementType() reflect.Type {
@@ -96,51 +55,8 @@ func (o MapConfigurationOutput) ToMapConfigurationOutputWithContext(ctx context.
 	return o
 }
 
-func (o MapConfigurationOutput) ToMapConfigurationPtrOutput() MapConfigurationPtrOutput {
-	return o.ToMapConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o MapConfigurationOutput) ToMapConfigurationPtrOutputWithContext(ctx context.Context) MapConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MapConfiguration) *MapConfiguration {
-		return &v
-	}).(MapConfigurationPtrOutput)
-}
-
 func (o MapConfigurationOutput) Style() pulumi.StringOutput {
 	return o.ApplyT(func(v MapConfiguration) string { return v.Style }).(pulumi.StringOutput)
-}
-
-type MapConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (MapConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MapConfiguration)(nil)).Elem()
-}
-
-func (o MapConfigurationPtrOutput) ToMapConfigurationPtrOutput() MapConfigurationPtrOutput {
-	return o
-}
-
-func (o MapConfigurationPtrOutput) ToMapConfigurationPtrOutputWithContext(ctx context.Context) MapConfigurationPtrOutput {
-	return o
-}
-
-func (o MapConfigurationPtrOutput) Elem() MapConfigurationOutput {
-	return o.ApplyT(func(v *MapConfiguration) MapConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret MapConfiguration
-		return ret
-	}).(MapConfigurationOutput)
-}
-
-func (o MapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MapConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Style
-	}).(pulumi.StringPtrOutput)
 }
 
 type PlaceIndexDataSourceConfiguration struct {
@@ -278,11 +194,9 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() PlaceIndexInte
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MapConfigurationInput)(nil)).Elem(), MapConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MapConfigurationPtrInput)(nil)).Elem(), MapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexDataSourceConfigurationInput)(nil)).Elem(), PlaceIndexDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexDataSourceConfigurationPtrInput)(nil)).Elem(), PlaceIndexDataSourceConfigurationArgs{})
 	pulumi.RegisterOutputType(MapConfigurationOutput{})
-	pulumi.RegisterOutputType(MapConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaceIndexDataSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaceIndexDataSourceConfigurationPtrOutput{})
 }

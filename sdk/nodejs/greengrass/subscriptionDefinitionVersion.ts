@@ -51,7 +51,7 @@ export class SubscriptionDefinitionVersion extends pulumi.CustomResource {
     /** @deprecated SubscriptionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SubscriptionDefinitionVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SubscriptionDefinitionVersion is deprecated: SubscriptionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.subscriptionDefinitionId === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class SubscriptionDefinitionVersion extends pulumi.CustomResource {
             if ((!args || args.subscriptions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptions'");
             }
-            inputs["subscriptionDefinitionId"] = args ? args.subscriptionDefinitionId : undefined;
-            inputs["subscriptions"] = args ? args.subscriptions : undefined;
+            resourceInputs["subscriptionDefinitionId"] = args ? args.subscriptionDefinitionId : undefined;
+            resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
         } else {
-            inputs["subscriptionDefinitionId"] = undefined /*out*/;
-            inputs["subscriptions"] = undefined /*out*/;
+            resourceInputs["subscriptionDefinitionId"] = undefined /*out*/;
+            resourceInputs["subscriptions"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SubscriptionDefinitionVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SubscriptionDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

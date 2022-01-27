@@ -56,32 +56,30 @@ export class Endpoint extends pulumi.CustomResource {
     /** @deprecated Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Endpoint is deprecated: Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointConfigName'");
             }
-            inputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
-            inputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["excludeRetainedVariantProperties"] = args ? args.excludeRetainedVariantProperties : undefined;
-            inputs["retainAllVariantProperties"] = args ? args.retainAllVariantProperties : undefined;
-            inputs["retainDeploymentConfig"] = args ? args.retainDeploymentConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
+            resourceInputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["excludeRetainedVariantProperties"] = args ? args.excludeRetainedVariantProperties : undefined;
+            resourceInputs["retainAllVariantProperties"] = args ? args.retainAllVariantProperties : undefined;
+            resourceInputs["retainDeploymentConfig"] = args ? args.retainDeploymentConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["deploymentConfig"] = undefined /*out*/;
-            inputs["endpointConfigName"] = undefined /*out*/;
-            inputs["endpointName"] = undefined /*out*/;
-            inputs["excludeRetainedVariantProperties"] = undefined /*out*/;
-            inputs["retainAllVariantProperties"] = undefined /*out*/;
-            inputs["retainDeploymentConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["deploymentConfig"] = undefined /*out*/;
+            resourceInputs["endpointConfigName"] = undefined /*out*/;
+            resourceInputs["endpointName"] = undefined /*out*/;
+            resourceInputs["excludeRetainedVariantProperties"] = undefined /*out*/;
+            resourceInputs["retainAllVariantProperties"] = undefined /*out*/;
+            resourceInputs["retainDeploymentConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -89,7 +89,7 @@ type MatchmakingRuleSetInput interface {
 }
 
 func (*MatchmakingRuleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingRuleSet)(nil))
+	return reflect.TypeOf((**MatchmakingRuleSet)(nil)).Elem()
 }
 
 func (i *MatchmakingRuleSet) ToMatchmakingRuleSetOutput() MatchmakingRuleSetOutput {
@@ -103,7 +103,7 @@ func (i *MatchmakingRuleSet) ToMatchmakingRuleSetOutputWithContext(ctx context.C
 type MatchmakingRuleSetOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingRuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MatchmakingRuleSet)(nil))
+	return reflect.TypeOf((**MatchmakingRuleSet)(nil)).Elem()
 }
 
 func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutput() MatchmakingRuleSetOutput {

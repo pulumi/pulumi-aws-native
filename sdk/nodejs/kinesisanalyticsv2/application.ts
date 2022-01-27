@@ -56,7 +56,7 @@ export class Application extends pulumi.CustomResource {
     /** @deprecated Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.runtimeEnvironment === undefined) && !opts.urn) {
@@ -65,26 +65,24 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.serviceExecutionRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRole'");
             }
-            inputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
-            inputs["applicationDescription"] = args ? args.applicationDescription : undefined;
-            inputs["applicationMode"] = args ? args.applicationMode : undefined;
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
-            inputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
+            resourceInputs["applicationDescription"] = args ? args.applicationDescription : undefined;
+            resourceInputs["applicationMode"] = args ? args.applicationMode : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
+            resourceInputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["applicationConfiguration"] = undefined /*out*/;
-            inputs["applicationDescription"] = undefined /*out*/;
-            inputs["applicationMode"] = undefined /*out*/;
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["runtimeEnvironment"] = undefined /*out*/;
-            inputs["serviceExecutionRole"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["applicationConfiguration"] = undefined /*out*/;
+            resourceInputs["applicationDescription"] = undefined /*out*/;
+            resourceInputs["applicationMode"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["runtimeEnvironment"] = undefined /*out*/;
+            resourceInputs["serviceExecutionRole"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

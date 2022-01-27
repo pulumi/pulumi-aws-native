@@ -120,7 +120,7 @@ type FunctionConfigurationInput interface {
 }
 
 func (*FunctionConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionConfiguration)(nil))
+	return reflect.TypeOf((**FunctionConfiguration)(nil)).Elem()
 }
 
 func (i *FunctionConfiguration) ToFunctionConfigurationOutput() FunctionConfigurationOutput {
@@ -134,7 +134,7 @@ func (i *FunctionConfiguration) ToFunctionConfigurationOutputWithContext(ctx con
 type FunctionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FunctionConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionConfiguration)(nil))
+	return reflect.TypeOf((**FunctionConfiguration)(nil)).Elem()
 }
 
 func (o FunctionConfigurationOutput) ToFunctionConfigurationOutput() FunctionConfigurationOutput {

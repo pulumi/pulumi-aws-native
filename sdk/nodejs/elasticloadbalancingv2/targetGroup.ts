@@ -71,59 +71,57 @@ export class TargetGroup extends pulumi.CustomResource {
     /** @deprecated TargetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: TargetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TargetGroup is deprecated: TargetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["healthCheckEnabled"] = args ? args.healthCheckEnabled : undefined;
-            inputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
-            inputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            inputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
-            inputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
-            inputs["healthCheckTimeoutSeconds"] = args ? args.healthCheckTimeoutSeconds : undefined;
-            inputs["healthyThresholdCount"] = args ? args.healthyThresholdCount : undefined;
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["matcher"] = args ? args.matcher : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["protocolVersion"] = args ? args.protocolVersion : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetGroupAttributes"] = args ? args.targetGroupAttributes : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["unhealthyThresholdCount"] = args ? args.unhealthyThresholdCount : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["loadBalancerArns"] = undefined /*out*/;
-            inputs["targetGroupFullName"] = undefined /*out*/;
-            inputs["targetGroupName"] = undefined /*out*/;
+            resourceInputs["healthCheckEnabled"] = args ? args.healthCheckEnabled : undefined;
+            resourceInputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
+            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
+            resourceInputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
+            resourceInputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
+            resourceInputs["healthCheckTimeoutSeconds"] = args ? args.healthCheckTimeoutSeconds : undefined;
+            resourceInputs["healthyThresholdCount"] = args ? args.healthyThresholdCount : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["matcher"] = args ? args.matcher : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["protocolVersion"] = args ? args.protocolVersion : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetGroupAttributes"] = args ? args.targetGroupAttributes : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["unhealthyThresholdCount"] = args ? args.unhealthyThresholdCount : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["loadBalancerArns"] = undefined /*out*/;
+            resourceInputs["targetGroupFullName"] = undefined /*out*/;
+            resourceInputs["targetGroupName"] = undefined /*out*/;
         } else {
-            inputs["healthCheckEnabled"] = undefined /*out*/;
-            inputs["healthCheckIntervalSeconds"] = undefined /*out*/;
-            inputs["healthCheckPath"] = undefined /*out*/;
-            inputs["healthCheckPort"] = undefined /*out*/;
-            inputs["healthCheckProtocol"] = undefined /*out*/;
-            inputs["healthCheckTimeoutSeconds"] = undefined /*out*/;
-            inputs["healthyThresholdCount"] = undefined /*out*/;
-            inputs["ipAddressType"] = undefined /*out*/;
-            inputs["loadBalancerArns"] = undefined /*out*/;
-            inputs["matcher"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["protocolVersion"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetGroupAttributes"] = undefined /*out*/;
-            inputs["targetGroupFullName"] = undefined /*out*/;
-            inputs["targetGroupName"] = undefined /*out*/;
-            inputs["targetType"] = undefined /*out*/;
-            inputs["targets"] = undefined /*out*/;
-            inputs["unhealthyThresholdCount"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["healthCheckEnabled"] = undefined /*out*/;
+            resourceInputs["healthCheckIntervalSeconds"] = undefined /*out*/;
+            resourceInputs["healthCheckPath"] = undefined /*out*/;
+            resourceInputs["healthCheckPort"] = undefined /*out*/;
+            resourceInputs["healthCheckProtocol"] = undefined /*out*/;
+            resourceInputs["healthCheckTimeoutSeconds"] = undefined /*out*/;
+            resourceInputs["healthyThresholdCount"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["loadBalancerArns"] = undefined /*out*/;
+            resourceInputs["matcher"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["protocolVersion"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetGroupAttributes"] = undefined /*out*/;
+            resourceInputs["targetGroupFullName"] = undefined /*out*/;
+            resourceInputs["targetGroupName"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
+            resourceInputs["targets"] = undefined /*out*/;
+            resourceInputs["unhealthyThresholdCount"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TargetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TargetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

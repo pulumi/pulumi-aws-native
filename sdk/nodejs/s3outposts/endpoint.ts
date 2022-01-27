@@ -81,7 +81,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.outpostId === undefined) && !opts.urn) {
@@ -93,32 +93,30 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["accessType"] = args ? args.accessType : undefined;
-            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
-            inputs["outpostId"] = args ? args.outpostId : undefined;
-            inputs["securityGroupId"] = args ? args.securityGroupId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["cidrBlock"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["accessType"] = args ? args.accessType : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
+            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["accessType"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["cidrBlock"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["customerOwnedIpv4Pool"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["outpostId"] = undefined /*out*/;
-            inputs["securityGroupId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
+            resourceInputs["accessType"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["customerOwnedIpv4Pool"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["outpostId"] = undefined /*out*/;
+            resourceInputs["securityGroupId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

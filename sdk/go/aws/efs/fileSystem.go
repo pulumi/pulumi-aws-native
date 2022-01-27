@@ -111,7 +111,7 @@ type FileSystemInput interface {
 }
 
 func (*FileSystem) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystem)(nil))
+	return reflect.TypeOf((**FileSystem)(nil)).Elem()
 }
 
 func (i *FileSystem) ToFileSystemOutput() FileSystemOutput {
@@ -125,7 +125,7 @@ func (i *FileSystem) ToFileSystemOutputWithContext(ctx context.Context) FileSyst
 type FileSystemOutput struct{ *pulumi.OutputState }
 
 func (FileSystemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystem)(nil))
+	return reflect.TypeOf((**FileSystem)(nil)).Elem()
 }
 
 func (o FileSystemOutput) ToFileSystemOutput() FileSystemOutput {

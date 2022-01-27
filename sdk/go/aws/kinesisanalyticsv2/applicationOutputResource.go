@@ -88,7 +88,7 @@ type ApplicationOutputResourceInput interface {
 }
 
 func (*ApplicationOutputResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputResource)(nil))
+	return reflect.TypeOf((**ApplicationOutputResource)(nil)).Elem()
 }
 
 func (i *ApplicationOutputResource) ToApplicationOutputResourceOutput() ApplicationOutputResourceOutput {
@@ -102,7 +102,7 @@ func (i *ApplicationOutputResource) ToApplicationOutputResourceOutputWithContext
 type ApplicationOutputResourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputResource)(nil))
+	return reflect.TypeOf((**ApplicationOutputResource)(nil)).Elem()
 }
 
 func (o ApplicationOutputResourceOutput) ToApplicationOutputResourceOutput() ApplicationOutputResourceOutput {

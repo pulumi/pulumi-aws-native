@@ -183,42 +183,6 @@ const (
 	ContactFlowModuleStatusSaved     = ContactFlowModuleStatus("SAVED")
 )
 
-func (ContactFlowModuleStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactFlowModuleStatus)(nil)).Elem()
-}
-
-func (e ContactFlowModuleStatus) ToContactFlowModuleStatusOutput() ContactFlowModuleStatusOutput {
-	return pulumi.ToOutput(e).(ContactFlowModuleStatusOutput)
-}
-
-func (e ContactFlowModuleStatus) ToContactFlowModuleStatusOutputWithContext(ctx context.Context) ContactFlowModuleStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ContactFlowModuleStatusOutput)
-}
-
-func (e ContactFlowModuleStatus) ToContactFlowModuleStatusPtrOutput() ContactFlowModuleStatusPtrOutput {
-	return e.ToContactFlowModuleStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ContactFlowModuleStatus) ToContactFlowModuleStatusPtrOutputWithContext(ctx context.Context) ContactFlowModuleStatusPtrOutput {
-	return ContactFlowModuleStatus(e).ToContactFlowModuleStatusOutputWithContext(ctx).ToContactFlowModuleStatusPtrOutputWithContext(ctx)
-}
-
-func (e ContactFlowModuleStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ContactFlowModuleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ContactFlowModuleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ContactFlowModuleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type ContactFlowModuleStatusOutput struct{ *pulumi.OutputState }
 
 func (ContactFlowModuleStatusOutput) ElementType() reflect.Type {
@@ -300,44 +264,6 @@ func (o ContactFlowModuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ContactFlowModuleStatusInput is an input type that accepts ContactFlowModuleStatusArgs and ContactFlowModuleStatusOutput values.
-// You can construct a concrete instance of `ContactFlowModuleStatusInput` via:
-//
-//          ContactFlowModuleStatusArgs{...}
-type ContactFlowModuleStatusInput interface {
-	pulumi.Input
-
-	ToContactFlowModuleStatusOutput() ContactFlowModuleStatusOutput
-	ToContactFlowModuleStatusOutputWithContext(context.Context) ContactFlowModuleStatusOutput
-}
-
-var contactFlowModuleStatusPtrType = reflect.TypeOf((**ContactFlowModuleStatus)(nil)).Elem()
-
-type ContactFlowModuleStatusPtrInput interface {
-	pulumi.Input
-
-	ToContactFlowModuleStatusPtrOutput() ContactFlowModuleStatusPtrOutput
-	ToContactFlowModuleStatusPtrOutputWithContext(context.Context) ContactFlowModuleStatusPtrOutput
-}
-
-type contactFlowModuleStatusPtr string
-
-func ContactFlowModuleStatusPtr(v string) ContactFlowModuleStatusPtrInput {
-	return (*contactFlowModuleStatusPtr)(&v)
-}
-
-func (*contactFlowModuleStatusPtr) ElementType() reflect.Type {
-	return contactFlowModuleStatusPtrType
-}
-
-func (in *contactFlowModuleStatusPtr) ToContactFlowModuleStatusPtrOutput() ContactFlowModuleStatusPtrOutput {
-	return pulumi.ToOutput(in).(ContactFlowModuleStatusPtrOutput)
-}
-
-func (in *contactFlowModuleStatusPtr) ToContactFlowModuleStatusPtrOutputWithContext(ctx context.Context) ContactFlowModuleStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ContactFlowModuleStatusPtrOutput)
 }
 
 // The state of the contact flow.
@@ -1181,8 +1107,6 @@ func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutputWithContext(ctx context.Cont
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleStateEnumInput)(nil)).Elem(), ContactFlowModuleStateEnum("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleStateEnumPtrInput)(nil)).Elem(), ContactFlowModuleStateEnum("ACTIVE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleStatusInput)(nil)).Elem(), ContactFlowModuleStatus("PUBLISHED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleStatusPtrInput)(nil)).Elem(), ContactFlowModuleStatus("PUBLISHED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowStateEnumInput)(nil)).Elem(), ContactFlowStateEnum("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowStateEnumPtrInput)(nil)).Elem(), ContactFlowStateEnum("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTypeInput)(nil)).Elem(), ContactFlowType("CONTACT_FLOW"))

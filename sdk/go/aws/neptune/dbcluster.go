@@ -144,7 +144,7 @@ type DBClusterInput interface {
 }
 
 func (*DBCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBCluster)(nil))
+	return reflect.TypeOf((**DBCluster)(nil)).Elem()
 }
 
 func (i *DBCluster) ToDBClusterOutput() DBClusterOutput {
@@ -158,7 +158,7 @@ func (i *DBCluster) ToDBClusterOutputWithContext(ctx context.Context) DBClusterO
 type DBClusterOutput struct{ *pulumi.OutputState }
 
 func (DBClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBCluster)(nil))
+	return reflect.TypeOf((**DBCluster)(nil)).Elem()
 }
 
 func (o DBClusterOutput) ToDBClusterOutput() DBClusterOutput {

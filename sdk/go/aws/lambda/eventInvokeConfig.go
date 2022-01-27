@@ -97,7 +97,7 @@ type EventInvokeConfigInput interface {
 }
 
 func (*EventInvokeConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventInvokeConfig)(nil))
+	return reflect.TypeOf((**EventInvokeConfig)(nil)).Elem()
 }
 
 func (i *EventInvokeConfig) ToEventInvokeConfigOutput() EventInvokeConfigOutput {
@@ -111,7 +111,7 @@ func (i *EventInvokeConfig) ToEventInvokeConfigOutputWithContext(ctx context.Con
 type EventInvokeConfigOutput struct{ *pulumi.OutputState }
 
 func (EventInvokeConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventInvokeConfig)(nil))
+	return reflect.TypeOf((**EventInvokeConfig)(nil)).Elem()
 }
 
 func (o EventInvokeConfigOutput) ToEventInvokeConfigOutput() EventInvokeConfigOutput {

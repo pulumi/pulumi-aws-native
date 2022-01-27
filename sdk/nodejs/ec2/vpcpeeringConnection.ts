@@ -55,7 +55,7 @@ export class VPCPeeringConnection extends pulumi.CustomResource {
     /** @deprecated VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCPeeringConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPCPeeringConnection is deprecated: VPCPeeringConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.peerVpcId === undefined) && !opts.urn) {
@@ -64,24 +64,22 @@ export class VPCPeeringConnection extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["peerOwnerId"] = args ? args.peerOwnerId : undefined;
-            inputs["peerRegion"] = args ? args.peerRegion : undefined;
-            inputs["peerRoleArn"] = args ? args.peerRoleArn : undefined;
-            inputs["peerVpcId"] = args ? args.peerVpcId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["peerOwnerId"] = args ? args.peerOwnerId : undefined;
+            resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
+            resourceInputs["peerRoleArn"] = args ? args.peerRoleArn : undefined;
+            resourceInputs["peerVpcId"] = args ? args.peerVpcId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         } else {
-            inputs["peerOwnerId"] = undefined /*out*/;
-            inputs["peerRegion"] = undefined /*out*/;
-            inputs["peerRoleArn"] = undefined /*out*/;
-            inputs["peerVpcId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["peerOwnerId"] = undefined /*out*/;
+            resourceInputs["peerRegion"] = undefined /*out*/;
+            resourceInputs["peerRoleArn"] = undefined /*out*/;
+            resourceInputs["peerVpcId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCPeeringConnection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCPeeringConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

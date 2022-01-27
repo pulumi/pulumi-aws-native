@@ -87,7 +87,7 @@ type CollectionInput interface {
 }
 
 func (*Collection) ElementType() reflect.Type {
-	return reflect.TypeOf((*Collection)(nil))
+	return reflect.TypeOf((**Collection)(nil)).Elem()
 }
 
 func (i *Collection) ToCollectionOutput() CollectionOutput {
@@ -101,7 +101,7 @@ func (i *Collection) ToCollectionOutputWithContext(ctx context.Context) Collecti
 type CollectionOutput struct{ *pulumi.OutputState }
 
 func (CollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Collection)(nil))
+	return reflect.TypeOf((**Collection)(nil)).Elem()
 }
 
 func (o CollectionOutput) ToCollectionOutput() CollectionOutput {

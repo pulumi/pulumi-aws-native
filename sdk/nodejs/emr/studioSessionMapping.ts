@@ -60,7 +60,7 @@ export class StudioSessionMapping extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StudioSessionMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.identityName === undefined) && !opts.urn) {
@@ -75,20 +75,18 @@ export class StudioSessionMapping extends pulumi.CustomResource {
             if ((!args || args.studioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            inputs["identityName"] = args ? args.identityName : undefined;
-            inputs["identityType"] = args ? args.identityType : undefined;
-            inputs["sessionPolicyArn"] = args ? args.sessionPolicyArn : undefined;
-            inputs["studioId"] = args ? args.studioId : undefined;
+            resourceInputs["identityName"] = args ? args.identityName : undefined;
+            resourceInputs["identityType"] = args ? args.identityType : undefined;
+            resourceInputs["sessionPolicyArn"] = args ? args.sessionPolicyArn : undefined;
+            resourceInputs["studioId"] = args ? args.studioId : undefined;
         } else {
-            inputs["identityName"] = undefined /*out*/;
-            inputs["identityType"] = undefined /*out*/;
-            inputs["sessionPolicyArn"] = undefined /*out*/;
-            inputs["studioId"] = undefined /*out*/;
+            resourceInputs["identityName"] = undefined /*out*/;
+            resourceInputs["identityType"] = undefined /*out*/;
+            resourceInputs["sessionPolicyArn"] = undefined /*out*/;
+            resourceInputs["studioId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StudioSessionMapping.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StudioSessionMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

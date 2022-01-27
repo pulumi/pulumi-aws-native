@@ -52,34 +52,32 @@ export class Dataset extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["contentDeliveryRules"] = args ? args.contentDeliveryRules : undefined;
-            inputs["datasetName"] = args ? args.datasetName : undefined;
-            inputs["lateDataRules"] = args ? args.lateDataRules : undefined;
-            inputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["triggers"] = args ? args.triggers : undefined;
-            inputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["contentDeliveryRules"] = args ? args.contentDeliveryRules : undefined;
+            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
+            resourceInputs["lateDataRules"] = args ? args.lateDataRules : undefined;
+            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["contentDeliveryRules"] = undefined /*out*/;
-            inputs["datasetName"] = undefined /*out*/;
-            inputs["lateDataRules"] = undefined /*out*/;
-            inputs["retentionPeriod"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["triggers"] = undefined /*out*/;
-            inputs["versioningConfiguration"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["contentDeliveryRules"] = undefined /*out*/;
+            resourceInputs["datasetName"] = undefined /*out*/;
+            resourceInputs["lateDataRules"] = undefined /*out*/;
+            resourceInputs["retentionPeriod"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["triggers"] = undefined /*out*/;
+            resourceInputs["versioningConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dataset.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dataset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

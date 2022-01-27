@@ -45,7 +45,7 @@ export class TrackerConsumer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TrackerConsumerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.consumerArn === undefined) && !opts.urn) {
@@ -54,16 +54,14 @@ export class TrackerConsumer extends pulumi.CustomResource {
             if ((!args || args.trackerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trackerName'");
             }
-            inputs["consumerArn"] = args ? args.consumerArn : undefined;
-            inputs["trackerName"] = args ? args.trackerName : undefined;
+            resourceInputs["consumerArn"] = args ? args.consumerArn : undefined;
+            resourceInputs["trackerName"] = args ? args.trackerName : undefined;
         } else {
-            inputs["consumerArn"] = undefined /*out*/;
-            inputs["trackerName"] = undefined /*out*/;
+            resourceInputs["consumerArn"] = undefined /*out*/;
+            resourceInputs["trackerName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TrackerConsumer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TrackerConsumer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

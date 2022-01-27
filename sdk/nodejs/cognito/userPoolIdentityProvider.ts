@@ -54,7 +54,7 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
     /** @deprecated UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserPoolIdentityProviderArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserPoolIdentityProvider is deprecated: UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.providerName === undefined) && !opts.urn) {
@@ -66,24 +66,22 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["attributeMapping"] = args ? args.attributeMapping : undefined;
-            inputs["idpIdentifiers"] = args ? args.idpIdentifiers : undefined;
-            inputs["providerDetails"] = args ? args.providerDetails : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
-            inputs["providerType"] = args ? args.providerType : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["attributeMapping"] = args ? args.attributeMapping : undefined;
+            resourceInputs["idpIdentifiers"] = args ? args.idpIdentifiers : undefined;
+            resourceInputs["providerDetails"] = args ? args.providerDetails : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         } else {
-            inputs["attributeMapping"] = undefined /*out*/;
-            inputs["idpIdentifiers"] = undefined /*out*/;
-            inputs["providerDetails"] = undefined /*out*/;
-            inputs["providerName"] = undefined /*out*/;
-            inputs["providerType"] = undefined /*out*/;
-            inputs["userPoolId"] = undefined /*out*/;
+            resourceInputs["attributeMapping"] = undefined /*out*/;
+            resourceInputs["idpIdentifiers"] = undefined /*out*/;
+            resourceInputs["providerDetails"] = undefined /*out*/;
+            resourceInputs["providerName"] = undefined /*out*/;
+            resourceInputs["providerType"] = undefined /*out*/;
+            resourceInputs["userPoolId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPoolIdentityProvider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPoolIdentityProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

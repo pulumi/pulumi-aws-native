@@ -87,7 +87,7 @@ type RecordSetGroupInput interface {
 }
 
 func (*RecordSetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSetGroup)(nil))
+	return reflect.TypeOf((**RecordSetGroup)(nil)).Elem()
 }
 
 func (i *RecordSetGroup) ToRecordSetGroupOutput() RecordSetGroupOutput {
@@ -101,7 +101,7 @@ func (i *RecordSetGroup) ToRecordSetGroupOutputWithContext(ctx context.Context) 
 type RecordSetGroupOutput struct{ *pulumi.OutputState }
 
 func (RecordSetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSetGroup)(nil))
+	return reflect.TypeOf((**RecordSetGroup)(nil)).Elem()
 }
 
 func (o RecordSetGroupOutput) ToRecordSetGroupOutput() RecordSetGroupOutput {

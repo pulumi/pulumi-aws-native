@@ -56,32 +56,30 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
     /** @deprecated PrivateDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PrivateDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PrivateDnsNamespace is deprecated: PrivateDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.vpc === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpc'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpc"] = args ? args.vpc : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpc"] = args ? args.vpc : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpc"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpc"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PrivateDnsNamespace.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PrivateDnsNamespace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

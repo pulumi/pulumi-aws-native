@@ -51,24 +51,22 @@ export class SubnetGroup extends pulumi.CustomResource {
     /** @deprecated SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SubnetGroup is deprecated: SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["subnetGroupName"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["subnetGroupName"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SubnetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

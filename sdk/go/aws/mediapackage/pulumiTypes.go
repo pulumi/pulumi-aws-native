@@ -18,62 +18,6 @@ type AssetEgressEndpoint struct {
 	Url string `pulumi:"url"`
 }
 
-// AssetEgressEndpointInput is an input type that accepts AssetEgressEndpointArgs and AssetEgressEndpointOutput values.
-// You can construct a concrete instance of `AssetEgressEndpointInput` via:
-//
-//          AssetEgressEndpointArgs{...}
-type AssetEgressEndpointInput interface {
-	pulumi.Input
-
-	ToAssetEgressEndpointOutput() AssetEgressEndpointOutput
-	ToAssetEgressEndpointOutputWithContext(context.Context) AssetEgressEndpointOutput
-}
-
-// The endpoint URL used to access an Asset using one PackagingConfiguration.
-type AssetEgressEndpointArgs struct {
-	// The ID of the PackagingConfiguration being applied to the Asset.
-	PackagingConfigurationId pulumi.StringInput `pulumi:"packagingConfigurationId"`
-	// The URL of the parent manifest for the repackaged Asset.
-	Url pulumi.StringInput `pulumi:"url"`
-}
-
-func (AssetEgressEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetEgressEndpoint)(nil)).Elem()
-}
-
-func (i AssetEgressEndpointArgs) ToAssetEgressEndpointOutput() AssetEgressEndpointOutput {
-	return i.ToAssetEgressEndpointOutputWithContext(context.Background())
-}
-
-func (i AssetEgressEndpointArgs) ToAssetEgressEndpointOutputWithContext(ctx context.Context) AssetEgressEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetEgressEndpointOutput)
-}
-
-// AssetEgressEndpointArrayInput is an input type that accepts AssetEgressEndpointArray and AssetEgressEndpointArrayOutput values.
-// You can construct a concrete instance of `AssetEgressEndpointArrayInput` via:
-//
-//          AssetEgressEndpointArray{ AssetEgressEndpointArgs{...} }
-type AssetEgressEndpointArrayInput interface {
-	pulumi.Input
-
-	ToAssetEgressEndpointArrayOutput() AssetEgressEndpointArrayOutput
-	ToAssetEgressEndpointArrayOutputWithContext(context.Context) AssetEgressEndpointArrayOutput
-}
-
-type AssetEgressEndpointArray []AssetEgressEndpointInput
-
-func (AssetEgressEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetEgressEndpoint)(nil)).Elem()
-}
-
-func (i AssetEgressEndpointArray) ToAssetEgressEndpointArrayOutput() AssetEgressEndpointArrayOutput {
-	return i.ToAssetEgressEndpointArrayOutputWithContext(context.Background())
-}
-
-func (i AssetEgressEndpointArray) ToAssetEgressEndpointArrayOutputWithContext(ctx context.Context) AssetEgressEndpointArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetEgressEndpointArrayOutput)
-}
-
 // The endpoint URL used to access an Asset using one PackagingConfiguration.
 type AssetEgressEndpointOutput struct{ *pulumi.OutputState }
 
@@ -225,76 +169,6 @@ type ChannelHlsIngest struct {
 	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
 }
 
-// ChannelHlsIngestInput is an input type that accepts ChannelHlsIngestArgs and ChannelHlsIngestOutput values.
-// You can construct a concrete instance of `ChannelHlsIngestInput` via:
-//
-//          ChannelHlsIngestArgs{...}
-type ChannelHlsIngestInput interface {
-	pulumi.Input
-
-	ToChannelHlsIngestOutput() ChannelHlsIngestOutput
-	ToChannelHlsIngestOutputWithContext(context.Context) ChannelHlsIngestOutput
-}
-
-// An HTTP Live Streaming (HLS) ingest resource configuration.
-type ChannelHlsIngestArgs struct {
-	// A list of endpoints to which the source stream should be sent.
-	IngestEndpoints ChannelIngestEndpointArrayInput `pulumi:"ingestEndpoints"`
-}
-
-func (ChannelHlsIngestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelHlsIngest)(nil)).Elem()
-}
-
-func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutput() ChannelHlsIngestOutput {
-	return i.ToChannelHlsIngestOutputWithContext(context.Background())
-}
-
-func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutputWithContext(ctx context.Context) ChannelHlsIngestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput)
-}
-
-func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
-	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
-}
-
-func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput).ToChannelHlsIngestPtrOutputWithContext(ctx)
-}
-
-// ChannelHlsIngestPtrInput is an input type that accepts ChannelHlsIngestArgs, ChannelHlsIngestPtr and ChannelHlsIngestPtrOutput values.
-// You can construct a concrete instance of `ChannelHlsIngestPtrInput` via:
-//
-//          ChannelHlsIngestArgs{...}
-//
-//  or:
-//
-//          nil
-type ChannelHlsIngestPtrInput interface {
-	pulumi.Input
-
-	ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput
-	ToChannelHlsIngestPtrOutputWithContext(context.Context) ChannelHlsIngestPtrOutput
-}
-
-type channelHlsIngestPtrType ChannelHlsIngestArgs
-
-func ChannelHlsIngestPtr(v *ChannelHlsIngestArgs) ChannelHlsIngestPtrInput {
-	return (*channelHlsIngestPtrType)(v)
-}
-
-func (*channelHlsIngestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelHlsIngest)(nil)).Elem()
-}
-
-func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
-	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
-}
-
-func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestPtrOutput)
-}
-
 // An HTTP Live Streaming (HLS) ingest resource configuration.
 type ChannelHlsIngestOutput struct{ *pulumi.OutputState }
 
@@ -310,53 +184,9 @@ func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutputWithContext(ctx context.
 	return o
 }
 
-func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
-	return o.ToChannelHlsIngestPtrOutputWithContext(context.Background())
-}
-
-func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsIngest) *ChannelHlsIngest {
-		return &v
-	}).(ChannelHlsIngestPtrOutput)
-}
-
 // A list of endpoints to which the source stream should be sent.
 func (o ChannelHlsIngestOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
 	return o.ApplyT(func(v ChannelHlsIngest) []ChannelIngestEndpoint { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
-}
-
-type ChannelHlsIngestPtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelHlsIngestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelHlsIngest)(nil)).Elem()
-}
-
-func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
-	return o
-}
-
-func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
-	return o
-}
-
-func (o ChannelHlsIngestPtrOutput) Elem() ChannelHlsIngestOutput {
-	return o.ApplyT(func(v *ChannelHlsIngest) ChannelHlsIngest {
-		if v != nil {
-			return *v
-		}
-		var ret ChannelHlsIngest
-		return ret
-	}).(ChannelHlsIngestOutput)
-}
-
-// A list of endpoints to which the source stream should be sent.
-func (o ChannelHlsIngestPtrOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
-	return o.ApplyT(func(v *ChannelHlsIngest) []ChannelIngestEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.IngestEndpoints
-	}).(ChannelIngestEndpointArrayOutput)
 }
 
 // An endpoint for ingesting source content for a Channel.
@@ -369,66 +199,6 @@ type ChannelIngestEndpoint struct {
 	Url *string `pulumi:"url"`
 	// The system generated username for ingest authentication.
 	Username *string `pulumi:"username"`
-}
-
-// ChannelIngestEndpointInput is an input type that accepts ChannelIngestEndpointArgs and ChannelIngestEndpointOutput values.
-// You can construct a concrete instance of `ChannelIngestEndpointInput` via:
-//
-//          ChannelIngestEndpointArgs{...}
-type ChannelIngestEndpointInput interface {
-	pulumi.Input
-
-	ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput
-	ToChannelIngestEndpointOutputWithContext(context.Context) ChannelIngestEndpointOutput
-}
-
-// An endpoint for ingesting source content for a Channel.
-type ChannelIngestEndpointArgs struct {
-	// The system generated unique identifier for the IngestEndpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The system generated password for ingest authentication.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The ingest URL to which the source stream should be sent.
-	Url pulumi.StringPtrInput `pulumi:"url"`
-	// The system generated username for ingest authentication.
-	Username pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (ChannelIngestEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelIngestEndpoint)(nil)).Elem()
-}
-
-func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput {
-	return i.ToChannelIngestEndpointOutputWithContext(context.Background())
-}
-
-func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutputWithContext(ctx context.Context) ChannelIngestEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointOutput)
-}
-
-// ChannelIngestEndpointArrayInput is an input type that accepts ChannelIngestEndpointArray and ChannelIngestEndpointArrayOutput values.
-// You can construct a concrete instance of `ChannelIngestEndpointArrayInput` via:
-//
-//          ChannelIngestEndpointArray{ ChannelIngestEndpointArgs{...} }
-type ChannelIngestEndpointArrayInput interface {
-	pulumi.Input
-
-	ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput
-	ToChannelIngestEndpointArrayOutputWithContext(context.Context) ChannelIngestEndpointArrayOutput
-}
-
-type ChannelIngestEndpointArray []ChannelIngestEndpointInput
-
-func (ChannelIngestEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelIngestEndpoint)(nil)).Elem()
-}
-
-func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput {
-	return i.ToChannelIngestEndpointArrayOutputWithContext(context.Background())
-}
-
-func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelIngestEndpointArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointArrayOutput)
 }
 
 // An endpoint for ingesting source content for a Channel.
@@ -5955,14 +5725,8 @@ func (o PackagingGroupTagArrayOutput) Index(i pulumi.IntInput) PackagingGroupTag
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AssetEgressEndpointInput)(nil)).Elem(), AssetEgressEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssetEgressEndpointArrayInput)(nil)).Elem(), AssetEgressEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetTagInput)(nil)).Elem(), AssetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetTagArrayInput)(nil)).Elem(), AssetTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestInput)(nil)).Elem(), ChannelHlsIngestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestPtrInput)(nil)).Elem(), ChannelHlsIngestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIngestEndpointInput)(nil)).Elem(), ChannelIngestEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIngestEndpointArrayInput)(nil)).Elem(), ChannelIngestEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogConfigurationInput)(nil)).Elem(), ChannelLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogConfigurationPtrInput)(nil)).Elem(), ChannelLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
@@ -6032,7 +5796,6 @@ func init() {
 	pulumi.RegisterOutputType(AssetTagOutput{})
 	pulumi.RegisterOutputType(AssetTagArrayOutput{})
 	pulumi.RegisterOutputType(ChannelHlsIngestOutput{})
-	pulumi.RegisterOutputType(ChannelHlsIngestPtrOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ChannelLogConfigurationOutput{})

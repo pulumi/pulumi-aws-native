@@ -99,7 +99,7 @@ type DevicePoolInput interface {
 }
 
 func (*DevicePool) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevicePool)(nil))
+	return reflect.TypeOf((**DevicePool)(nil)).Elem()
 }
 
 func (i *DevicePool) ToDevicePoolOutput() DevicePoolOutput {
@@ -113,7 +113,7 @@ func (i *DevicePool) ToDevicePoolOutputWithContext(ctx context.Context) DevicePo
 type DevicePoolOutput struct{ *pulumi.OutputState }
 
 func (DevicePoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DevicePool)(nil))
+	return reflect.TypeOf((**DevicePool)(nil)).Elem()
 }
 
 func (o DevicePoolOutput) ToDevicePoolOutput() DevicePoolOutput {

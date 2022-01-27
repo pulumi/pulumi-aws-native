@@ -114,7 +114,7 @@ type PatchBaselineInput interface {
 }
 
 func (*PatchBaseline) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaseline)(nil))
+	return reflect.TypeOf((**PatchBaseline)(nil)).Elem()
 }
 
 func (i *PatchBaseline) ToPatchBaselineOutput() PatchBaselineOutput {
@@ -128,7 +128,7 @@ func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) Pa
 type PatchBaselineOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchBaseline)(nil))
+	return reflect.TypeOf((**PatchBaseline)(nil)).Elem()
 }
 
 func (o PatchBaselineOutput) ToPatchBaselineOutput() PatchBaselineOutput {

@@ -60,23 +60,21 @@ export class RecoveryGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: RecoveryGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["cells"] = args ? args.cells : undefined;
-            inputs["recoveryGroupName"] = args ? args.recoveryGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["recoveryGroupArn"] = undefined /*out*/;
+            resourceInputs["cells"] = args ? args.cells : undefined;
+            resourceInputs["recoveryGroupName"] = args ? args.recoveryGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["recoveryGroupArn"] = undefined /*out*/;
         } else {
-            inputs["cells"] = undefined /*out*/;
-            inputs["recoveryGroupArn"] = undefined /*out*/;
-            inputs["recoveryGroupName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["cells"] = undefined /*out*/;
+            resourceInputs["recoveryGroupArn"] = undefined /*out*/;
+            resourceInputs["recoveryGroupName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RecoveryGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RecoveryGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

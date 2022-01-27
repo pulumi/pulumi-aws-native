@@ -112,7 +112,7 @@ type GatewayResponseInput interface {
 }
 
 func (*GatewayResponse) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayResponse)(nil))
+	return reflect.TypeOf((**GatewayResponse)(nil)).Elem()
 }
 
 func (i *GatewayResponse) ToGatewayResponseOutput() GatewayResponseOutput {
@@ -126,7 +126,7 @@ func (i *GatewayResponse) ToGatewayResponseOutputWithContext(ctx context.Context
 type GatewayResponseOutput struct{ *pulumi.OutputState }
 
 func (GatewayResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayResponse)(nil))
+	return reflect.TypeOf((**GatewayResponse)(nil)).Elem()
 }
 
 func (o GatewayResponseOutput) ToGatewayResponseOutput() GatewayResponseOutput {

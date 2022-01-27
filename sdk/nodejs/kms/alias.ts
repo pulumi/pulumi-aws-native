@@ -51,22 +51,20 @@ export class Alias extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.targetKeyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetKeyId'");
             }
-            inputs["aliasName"] = args ? args.aliasName : undefined;
-            inputs["targetKeyId"] = args ? args.targetKeyId : undefined;
+            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
+            resourceInputs["targetKeyId"] = args ? args.targetKeyId : undefined;
         } else {
-            inputs["aliasName"] = undefined /*out*/;
-            inputs["targetKeyId"] = undefined /*out*/;
+            resourceInputs["aliasName"] = undefined /*out*/;
+            resourceInputs["targetKeyId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Alias.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Alias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -51,29 +51,27 @@ export class Function extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: FunctionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["autoPublish"] = args ? args.autoPublish : undefined;
-            inputs["functionCode"] = args ? args.functionCode : undefined;
-            inputs["functionConfig"] = args ? args.functionConfig : undefined;
-            inputs["functionMetadata"] = args ? args.functionMetadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["functionARN"] = undefined /*out*/;
-            inputs["stage"] = undefined /*out*/;
+            resourceInputs["autoPublish"] = args ? args.autoPublish : undefined;
+            resourceInputs["functionCode"] = args ? args.functionCode : undefined;
+            resourceInputs["functionConfig"] = args ? args.functionConfig : undefined;
+            resourceInputs["functionMetadata"] = args ? args.functionMetadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["functionARN"] = undefined /*out*/;
+            resourceInputs["stage"] = undefined /*out*/;
         } else {
-            inputs["autoPublish"] = undefined /*out*/;
-            inputs["functionARN"] = undefined /*out*/;
-            inputs["functionCode"] = undefined /*out*/;
-            inputs["functionConfig"] = undefined /*out*/;
-            inputs["functionMetadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["stage"] = undefined /*out*/;
+            resourceInputs["autoPublish"] = undefined /*out*/;
+            resourceInputs["functionARN"] = undefined /*out*/;
+            resourceInputs["functionCode"] = undefined /*out*/;
+            resourceInputs["functionConfig"] = undefined /*out*/;
+            resourceInputs["functionMetadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["stage"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Function.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Function.__pulumiType, name, resourceInputs, opts);
     }
 }
 

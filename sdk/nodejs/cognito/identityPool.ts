@@ -61,42 +61,40 @@ export class IdentityPool extends pulumi.CustomResource {
     /** @deprecated IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: IdentityPoolArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IdentityPool is deprecated: IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.allowUnauthenticatedIdentities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allowUnauthenticatedIdentities'");
             }
-            inputs["allowClassicFlow"] = args ? args.allowClassicFlow : undefined;
-            inputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;
-            inputs["cognitoEvents"] = args ? args.cognitoEvents : undefined;
-            inputs["cognitoIdentityProviders"] = args ? args.cognitoIdentityProviders : undefined;
-            inputs["cognitoStreams"] = args ? args.cognitoStreams : undefined;
-            inputs["developerProviderName"] = args ? args.developerProviderName : undefined;
-            inputs["identityPoolName"] = args ? args.identityPoolName : undefined;
-            inputs["openIdConnectProviderARNs"] = args ? args.openIdConnectProviderARNs : undefined;
-            inputs["pushSync"] = args ? args.pushSync : undefined;
-            inputs["samlProviderARNs"] = args ? args.samlProviderARNs : undefined;
-            inputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["allowClassicFlow"] = args ? args.allowClassicFlow : undefined;
+            resourceInputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;
+            resourceInputs["cognitoEvents"] = args ? args.cognitoEvents : undefined;
+            resourceInputs["cognitoIdentityProviders"] = args ? args.cognitoIdentityProviders : undefined;
+            resourceInputs["cognitoStreams"] = args ? args.cognitoStreams : undefined;
+            resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
+            resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
+            resourceInputs["openIdConnectProviderARNs"] = args ? args.openIdConnectProviderARNs : undefined;
+            resourceInputs["pushSync"] = args ? args.pushSync : undefined;
+            resourceInputs["samlProviderARNs"] = args ? args.samlProviderARNs : undefined;
+            resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["allowClassicFlow"] = undefined /*out*/;
-            inputs["allowUnauthenticatedIdentities"] = undefined /*out*/;
-            inputs["cognitoEvents"] = undefined /*out*/;
-            inputs["cognitoIdentityProviders"] = undefined /*out*/;
-            inputs["cognitoStreams"] = undefined /*out*/;
-            inputs["developerProviderName"] = undefined /*out*/;
-            inputs["identityPoolName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["openIdConnectProviderARNs"] = undefined /*out*/;
-            inputs["pushSync"] = undefined /*out*/;
-            inputs["samlProviderARNs"] = undefined /*out*/;
-            inputs["supportedLoginProviders"] = undefined /*out*/;
+            resourceInputs["allowClassicFlow"] = undefined /*out*/;
+            resourceInputs["allowUnauthenticatedIdentities"] = undefined /*out*/;
+            resourceInputs["cognitoEvents"] = undefined /*out*/;
+            resourceInputs["cognitoIdentityProviders"] = undefined /*out*/;
+            resourceInputs["cognitoStreams"] = undefined /*out*/;
+            resourceInputs["developerProviderName"] = undefined /*out*/;
+            resourceInputs["identityPoolName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["openIdConnectProviderARNs"] = undefined /*out*/;
+            resourceInputs["pushSync"] = undefined /*out*/;
+            resourceInputs["samlProviderARNs"] = undefined /*out*/;
+            resourceInputs["supportedLoginProviders"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IdentityPool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IdentityPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

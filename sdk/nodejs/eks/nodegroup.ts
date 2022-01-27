@@ -68,7 +68,7 @@ export class Nodegroup extends pulumi.CustomResource {
     /** @deprecated Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NodegroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Nodegroup is deprecated: Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -80,50 +80,48 @@ export class Nodegroup extends pulumi.CustomResource {
             if ((!args || args.subnets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnets'");
             }
-            inputs["amiType"] = args ? args.amiType : undefined;
-            inputs["capacityType"] = args ? args.capacityType : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["diskSize"] = args ? args.diskSize : undefined;
-            inputs["forceUpdateEnabled"] = args ? args.forceUpdateEnabled : undefined;
-            inputs["instanceTypes"] = args ? args.instanceTypes : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            inputs["nodeRole"] = args ? args.nodeRole : undefined;
-            inputs["nodegroupName"] = args ? args.nodegroupName : undefined;
-            inputs["releaseVersion"] = args ? args.releaseVersion : undefined;
-            inputs["remoteAccess"] = args ? args.remoteAccess : undefined;
-            inputs["scalingConfig"] = args ? args.scalingConfig : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taints"] = args ? args.taints : undefined;
-            inputs["updateConfig"] = args ? args.updateConfig : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["amiType"] = args ? args.amiType : undefined;
+            resourceInputs["capacityType"] = args ? args.capacityType : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["diskSize"] = args ? args.diskSize : undefined;
+            resourceInputs["forceUpdateEnabled"] = args ? args.forceUpdateEnabled : undefined;
+            resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["nodeRole"] = args ? args.nodeRole : undefined;
+            resourceInputs["nodegroupName"] = args ? args.nodegroupName : undefined;
+            resourceInputs["releaseVersion"] = args ? args.releaseVersion : undefined;
+            resourceInputs["remoteAccess"] = args ? args.remoteAccess : undefined;
+            resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taints"] = args ? args.taints : undefined;
+            resourceInputs["updateConfig"] = args ? args.updateConfig : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["amiType"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["capacityType"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["diskSize"] = undefined /*out*/;
-            inputs["forceUpdateEnabled"] = undefined /*out*/;
-            inputs["instanceTypes"] = undefined /*out*/;
-            inputs["labels"] = undefined /*out*/;
-            inputs["launchTemplate"] = undefined /*out*/;
-            inputs["nodeRole"] = undefined /*out*/;
-            inputs["nodegroupName"] = undefined /*out*/;
-            inputs["releaseVersion"] = undefined /*out*/;
-            inputs["remoteAccess"] = undefined /*out*/;
-            inputs["scalingConfig"] = undefined /*out*/;
-            inputs["subnets"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["taints"] = undefined /*out*/;
-            inputs["updateConfig"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["amiType"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["capacityType"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["diskSize"] = undefined /*out*/;
+            resourceInputs["forceUpdateEnabled"] = undefined /*out*/;
+            resourceInputs["instanceTypes"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["launchTemplate"] = undefined /*out*/;
+            resourceInputs["nodeRole"] = undefined /*out*/;
+            resourceInputs["nodegroupName"] = undefined /*out*/;
+            resourceInputs["releaseVersion"] = undefined /*out*/;
+            resourceInputs["remoteAccess"] = undefined /*out*/;
+            resourceInputs["scalingConfig"] = undefined /*out*/;
+            resourceInputs["subnets"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["taints"] = undefined /*out*/;
+            resourceInputs["updateConfig"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Nodegroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Nodegroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -100,7 +100,7 @@ type PartitionInput interface {
 }
 
 func (*Partition) ElementType() reflect.Type {
-	return reflect.TypeOf((*Partition)(nil))
+	return reflect.TypeOf((**Partition)(nil)).Elem()
 }
 
 func (i *Partition) ToPartitionOutput() PartitionOutput {
@@ -114,7 +114,7 @@ func (i *Partition) ToPartitionOutputWithContext(ctx context.Context) PartitionO
 type PartitionOutput struct{ *pulumi.OutputState }
 
 func (PartitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Partition)(nil))
+	return reflect.TypeOf((**Partition)(nil)).Elem()
 }
 
 func (o PartitionOutput) ToPartitionOutput() PartitionOutput {

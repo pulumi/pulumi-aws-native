@@ -101,7 +101,7 @@ type SafetyRuleInput interface {
 }
 
 func (*SafetyRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SafetyRule)(nil))
+	return reflect.TypeOf((**SafetyRule)(nil)).Elem()
 }
 
 func (i *SafetyRule) ToSafetyRuleOutput() SafetyRuleOutput {
@@ -115,7 +115,7 @@ func (i *SafetyRule) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRu
 type SafetyRuleOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SafetyRule)(nil))
+	return reflect.TypeOf((**SafetyRule)(nil)).Elem()
 }
 
 func (o SafetyRuleOutput) ToSafetyRuleOutput() SafetyRuleOutput {

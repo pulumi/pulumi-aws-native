@@ -63,7 +63,7 @@ export class Host extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HostArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
@@ -72,22 +72,20 @@ export class Host extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["autoPlacement"] = args ? args.autoPlacement : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["hostRecovery"] = args ? args.hostRecovery : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["hostId"] = undefined /*out*/;
+            resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["hostId"] = undefined /*out*/;
         } else {
-            inputs["autoPlacement"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["hostId"] = undefined /*out*/;
-            inputs["hostRecovery"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
+            resourceInputs["autoPlacement"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["hostId"] = undefined /*out*/;
+            resourceInputs["hostRecovery"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Host.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Host.__pulumiType, name, resourceInputs, opts);
     }
 }
 

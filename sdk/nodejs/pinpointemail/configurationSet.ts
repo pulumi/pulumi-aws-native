@@ -55,27 +55,25 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /** @deprecated ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigurationSet is deprecated: ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["reputationOptions"] = args ? args.reputationOptions : undefined;
-            inputs["sendingOptions"] = args ? args.sendingOptions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trackingOptions"] = args ? args.trackingOptions : undefined;
+            resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["reputationOptions"] = args ? args.reputationOptions : undefined;
+            resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
         } else {
-            inputs["deliveryOptions"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["reputationOptions"] = undefined /*out*/;
-            inputs["sendingOptions"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trackingOptions"] = undefined /*out*/;
+            resourceInputs["deliveryOptions"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["reputationOptions"] = undefined /*out*/;
+            resourceInputs["sendingOptions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trackingOptions"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

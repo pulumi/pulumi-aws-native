@@ -93,7 +93,7 @@ type StreamKeyInput interface {
 }
 
 func (*StreamKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamKey)(nil))
+	return reflect.TypeOf((**StreamKey)(nil)).Elem()
 }
 
 func (i *StreamKey) ToStreamKeyOutput() StreamKeyOutput {
@@ -107,7 +107,7 @@ func (i *StreamKey) ToStreamKeyOutputWithContext(ctx context.Context) StreamKeyO
 type StreamKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamKey)(nil))
+	return reflect.TypeOf((**StreamKey)(nil)).Elem()
 }
 
 func (o StreamKeyOutput) ToStreamKeyOutput() StreamKeyOutput {

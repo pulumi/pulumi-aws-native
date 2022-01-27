@@ -100,7 +100,7 @@ export class GameServerGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GameServerGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceDefinitions === undefined) && !opts.urn) {
@@ -112,40 +112,38 @@ export class GameServerGroup extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
-            inputs["balancingStrategy"] = args ? args.balancingStrategy : undefined;
-            inputs["deleteOption"] = args ? args.deleteOption : undefined;
-            inputs["gameServerGroupName"] = args ? args.gameServerGroupName : undefined;
-            inputs["gameServerProtectionPolicy"] = args ? args.gameServerProtectionPolicy : undefined;
-            inputs["instanceDefinitions"] = args ? args.instanceDefinitions : undefined;
-            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSubnets"] = args ? args.vpcSubnets : undefined;
-            inputs["autoScalingGroupArn"] = undefined /*out*/;
-            inputs["gameServerGroupArn"] = undefined /*out*/;
+            resourceInputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
+            resourceInputs["balancingStrategy"] = args ? args.balancingStrategy : undefined;
+            resourceInputs["deleteOption"] = args ? args.deleteOption : undefined;
+            resourceInputs["gameServerGroupName"] = args ? args.gameServerGroupName : undefined;
+            resourceInputs["gameServerProtectionPolicy"] = args ? args.gameServerProtectionPolicy : undefined;
+            resourceInputs["instanceDefinitions"] = args ? args.instanceDefinitions : undefined;
+            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcSubnets"] = args ? args.vpcSubnets : undefined;
+            resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
+            resourceInputs["gameServerGroupArn"] = undefined /*out*/;
         } else {
-            inputs["autoScalingGroupArn"] = undefined /*out*/;
-            inputs["autoScalingPolicy"] = undefined /*out*/;
-            inputs["balancingStrategy"] = undefined /*out*/;
-            inputs["deleteOption"] = undefined /*out*/;
-            inputs["gameServerGroupArn"] = undefined /*out*/;
-            inputs["gameServerGroupName"] = undefined /*out*/;
-            inputs["gameServerProtectionPolicy"] = undefined /*out*/;
-            inputs["instanceDefinitions"] = undefined /*out*/;
-            inputs["launchTemplate"] = undefined /*out*/;
-            inputs["maxSize"] = undefined /*out*/;
-            inputs["minSize"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcSubnets"] = undefined /*out*/;
+            resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
+            resourceInputs["autoScalingPolicy"] = undefined /*out*/;
+            resourceInputs["balancingStrategy"] = undefined /*out*/;
+            resourceInputs["deleteOption"] = undefined /*out*/;
+            resourceInputs["gameServerGroupArn"] = undefined /*out*/;
+            resourceInputs["gameServerGroupName"] = undefined /*out*/;
+            resourceInputs["gameServerProtectionPolicy"] = undefined /*out*/;
+            resourceInputs["instanceDefinitions"] = undefined /*out*/;
+            resourceInputs["launchTemplate"] = undefined /*out*/;
+            resourceInputs["maxSize"] = undefined /*out*/;
+            resourceInputs["minSize"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcSubnets"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GameServerGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GameServerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

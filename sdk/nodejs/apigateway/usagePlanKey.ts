@@ -56,7 +56,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UsagePlanKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.keyId === undefined) && !opts.urn) {
@@ -68,18 +68,16 @@ export class UsagePlanKey extends pulumi.CustomResource {
             if ((!args || args.usagePlanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usagePlanId'");
             }
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["keyType"] = args ? args.keyType : undefined;
-            inputs["usagePlanId"] = args ? args.usagePlanId : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["keyType"] = args ? args.keyType : undefined;
+            resourceInputs["usagePlanId"] = args ? args.usagePlanId : undefined;
         } else {
-            inputs["keyId"] = undefined /*out*/;
-            inputs["keyType"] = undefined /*out*/;
-            inputs["usagePlanId"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
+            resourceInputs["keyType"] = undefined /*out*/;
+            resourceInputs["usagePlanId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UsagePlanKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UsagePlanKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

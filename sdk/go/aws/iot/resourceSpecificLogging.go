@@ -103,7 +103,7 @@ type ResourceSpecificLoggingInput interface {
 }
 
 func (*ResourceSpecificLogging) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSpecificLogging)(nil))
+	return reflect.TypeOf((**ResourceSpecificLogging)(nil)).Elem()
 }
 
 func (i *ResourceSpecificLogging) ToResourceSpecificLoggingOutput() ResourceSpecificLoggingOutput {
@@ -117,7 +117,7 @@ func (i *ResourceSpecificLogging) ToResourceSpecificLoggingOutputWithContext(ctx
 type ResourceSpecificLoggingOutput struct{ *pulumi.OutputState }
 
 func (ResourceSpecificLoggingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSpecificLogging)(nil))
+	return reflect.TypeOf((**ResourceSpecificLogging)(nil)).Elem()
 }
 
 func (o ResourceSpecificLoggingOutput) ToResourceSpecificLoggingOutput() ResourceSpecificLoggingOutput {

@@ -106,7 +106,7 @@ type APNSChannelInput interface {
 }
 
 func (*APNSChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*APNSChannel)(nil))
+	return reflect.TypeOf((**APNSChannel)(nil)).Elem()
 }
 
 func (i *APNSChannel) ToAPNSChannelOutput() APNSChannelOutput {
@@ -120,7 +120,7 @@ func (i *APNSChannel) ToAPNSChannelOutputWithContext(ctx context.Context) APNSCh
 type APNSChannelOutput struct{ *pulumi.OutputState }
 
 func (APNSChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*APNSChannel)(nil))
+	return reflect.TypeOf((**APNSChannel)(nil)).Elem()
 }
 
 func (o APNSChannelOutput) ToAPNSChannelOutput() APNSChannelOutput {

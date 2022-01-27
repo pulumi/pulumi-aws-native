@@ -63,7 +63,7 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EnclaveCertificateIamRoleAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.certificateArn === undefined) && !opts.urn) {
@@ -72,22 +72,20 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["certificateS3BucketName"] = undefined /*out*/;
-            inputs["certificateS3ObjectKey"] = undefined /*out*/;
-            inputs["encryptionKmsKeyId"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["certificateS3BucketName"] = undefined /*out*/;
+            resourceInputs["certificateS3ObjectKey"] = undefined /*out*/;
+            resourceInputs["encryptionKmsKeyId"] = undefined /*out*/;
         } else {
-            inputs["certificateArn"] = undefined /*out*/;
-            inputs["certificateS3BucketName"] = undefined /*out*/;
-            inputs["certificateS3ObjectKey"] = undefined /*out*/;
-            inputs["encryptionKmsKeyId"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = undefined /*out*/;
+            resourceInputs["certificateS3BucketName"] = undefined /*out*/;
+            resourceInputs["certificateS3ObjectKey"] = undefined /*out*/;
+            resourceInputs["encryptionKmsKeyId"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EnclaveCertificateIamRoleAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EnclaveCertificateIamRoleAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

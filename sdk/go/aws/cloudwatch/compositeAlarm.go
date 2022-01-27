@@ -124,7 +124,7 @@ type CompositeAlarmInput interface {
 }
 
 func (*CompositeAlarm) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositeAlarm)(nil))
+	return reflect.TypeOf((**CompositeAlarm)(nil)).Elem()
 }
 
 func (i *CompositeAlarm) ToCompositeAlarmOutput() CompositeAlarmOutput {
@@ -138,7 +138,7 @@ func (i *CompositeAlarm) ToCompositeAlarmOutputWithContext(ctx context.Context) 
 type CompositeAlarmOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositeAlarm)(nil))
+	return reflect.TypeOf((**CompositeAlarm)(nil)).Elem()
 }
 
 func (o CompositeAlarmOutput) ToCompositeAlarmOutput() CompositeAlarmOutput {

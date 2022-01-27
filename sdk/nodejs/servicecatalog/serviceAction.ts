@@ -49,7 +49,7 @@ export class ServiceAction extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceActionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.definition === undefined) && !opts.urn) {
@@ -58,22 +58,20 @@ export class ServiceAction extends pulumi.CustomResource {
             if ((!args || args.definitionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definitionType'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["definitionType"] = args ? args.definitionType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["definitionType"] = args ? args.definitionType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["definition"] = undefined /*out*/;
-            inputs["definitionType"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["definitionType"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceAction.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceAction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

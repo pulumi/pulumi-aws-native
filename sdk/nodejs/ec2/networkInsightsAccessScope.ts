@@ -51,29 +51,27 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: NetworkInsightsAccessScopeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["excludePaths"] = args ? args.excludePaths : undefined;
-            inputs["matchPaths"] = args ? args.matchPaths : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeArn"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeId"] = undefined /*out*/;
-            inputs["updatedDate"] = undefined /*out*/;
+            resourceInputs["excludePaths"] = args ? args.excludePaths : undefined;
+            resourceInputs["matchPaths"] = args ? args.matchPaths : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeArn"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeId"] = undefined /*out*/;
+            resourceInputs["updatedDate"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["excludePaths"] = undefined /*out*/;
-            inputs["matchPaths"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeArn"] = undefined /*out*/;
-            inputs["networkInsightsAccessScopeId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["updatedDate"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["excludePaths"] = undefined /*out*/;
+            resourceInputs["matchPaths"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeArn"] = undefined /*out*/;
+            resourceInputs["networkInsightsAccessScopeId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["updatedDate"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInsightsAccessScope.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInsightsAccessScope.__pulumiType, name, resourceInputs, opts);
     }
 }
 

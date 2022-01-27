@@ -91,7 +91,7 @@ type RotationScheduleInput interface {
 }
 
 func (*RotationSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*RotationSchedule)(nil))
+	return reflect.TypeOf((**RotationSchedule)(nil)).Elem()
 }
 
 func (i *RotationSchedule) ToRotationScheduleOutput() RotationScheduleOutput {
@@ -105,7 +105,7 @@ func (i *RotationSchedule) ToRotationScheduleOutputWithContext(ctx context.Conte
 type RotationScheduleOutput struct{ *pulumi.OutputState }
 
 func (RotationScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RotationSchedule)(nil))
+	return reflect.TypeOf((**RotationSchedule)(nil)).Elem()
 }
 
 func (o RotationScheduleOutput) ToRotationScheduleOutput() RotationScheduleOutput {

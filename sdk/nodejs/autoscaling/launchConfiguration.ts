@@ -120,7 +120,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LaunchConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.imageId === undefined) && !opts.urn) {
@@ -129,50 +129,48 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
-            inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            inputs["classicLinkVPCId"] = args ? args.classicLinkVPCId : undefined;
-            inputs["classicLinkVPCSecurityGroups"] = args ? args.classicLinkVPCSecurityGroups : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
-            inputs["imageId"] = args ? args.imageId : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["instanceMonitoring"] = args ? args.instanceMonitoring : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["kernelId"] = args ? args.kernelId : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["launchConfigurationName"] = args ? args.launchConfigurationName : undefined;
-            inputs["metadataOptions"] = args ? args.metadataOptions : undefined;
-            inputs["placementTenancy"] = args ? args.placementTenancy : undefined;
-            inputs["ramDiskId"] = args ? args.ramDiskId : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["spotPrice"] = args ? args.spotPrice : undefined;
-            inputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
+            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
+            resourceInputs["classicLinkVPCId"] = args ? args.classicLinkVPCId : undefined;
+            resourceInputs["classicLinkVPCSecurityGroups"] = args ? args.classicLinkVPCSecurityGroups : undefined;
+            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
+            resourceInputs["imageId"] = args ? args.imageId : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["instanceMonitoring"] = args ? args.instanceMonitoring : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["kernelId"] = args ? args.kernelId : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["launchConfigurationName"] = args ? args.launchConfigurationName : undefined;
+            resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
+            resourceInputs["placementTenancy"] = args ? args.placementTenancy : undefined;
+            resourceInputs["ramDiskId"] = args ? args.ramDiskId : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
+            resourceInputs["userData"] = args ? args.userData : undefined;
         } else {
-            inputs["associatePublicIpAddress"] = undefined /*out*/;
-            inputs["blockDeviceMappings"] = undefined /*out*/;
-            inputs["classicLinkVPCId"] = undefined /*out*/;
-            inputs["classicLinkVPCSecurityGroups"] = undefined /*out*/;
-            inputs["ebsOptimized"] = undefined /*out*/;
-            inputs["iamInstanceProfile"] = undefined /*out*/;
-            inputs["imageId"] = undefined /*out*/;
-            inputs["instanceId"] = undefined /*out*/;
-            inputs["instanceMonitoring"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["kernelId"] = undefined /*out*/;
-            inputs["keyName"] = undefined /*out*/;
-            inputs["launchConfigurationName"] = undefined /*out*/;
-            inputs["metadataOptions"] = undefined /*out*/;
-            inputs["placementTenancy"] = undefined /*out*/;
-            inputs["ramDiskId"] = undefined /*out*/;
-            inputs["securityGroups"] = undefined /*out*/;
-            inputs["spotPrice"] = undefined /*out*/;
-            inputs["userData"] = undefined /*out*/;
+            resourceInputs["associatePublicIpAddress"] = undefined /*out*/;
+            resourceInputs["blockDeviceMappings"] = undefined /*out*/;
+            resourceInputs["classicLinkVPCId"] = undefined /*out*/;
+            resourceInputs["classicLinkVPCSecurityGroups"] = undefined /*out*/;
+            resourceInputs["ebsOptimized"] = undefined /*out*/;
+            resourceInputs["iamInstanceProfile"] = undefined /*out*/;
+            resourceInputs["imageId"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["instanceMonitoring"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["kernelId"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
+            resourceInputs["launchConfigurationName"] = undefined /*out*/;
+            resourceInputs["metadataOptions"] = undefined /*out*/;
+            resourceInputs["placementTenancy"] = undefined /*out*/;
+            resourceInputs["ramDiskId"] = undefined /*out*/;
+            resourceInputs["securityGroups"] = undefined /*out*/;
+            resourceInputs["spotPrice"] = undefined /*out*/;
+            resourceInputs["userData"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LaunchConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LaunchConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -120,7 +120,7 @@ type BudgetsActionInput interface {
 }
 
 func (*BudgetsAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetsAction)(nil))
+	return reflect.TypeOf((**BudgetsAction)(nil)).Elem()
 }
 
 func (i *BudgetsAction) ToBudgetsActionOutput() BudgetsActionOutput {
@@ -134,7 +134,7 @@ func (i *BudgetsAction) ToBudgetsActionOutputWithContext(ctx context.Context) Bu
 type BudgetsActionOutput struct{ *pulumi.OutputState }
 
 func (BudgetsActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetsAction)(nil))
+	return reflect.TypeOf((**BudgetsAction)(nil)).Elem()
 }
 
 func (o BudgetsActionOutput) ToBudgetsActionOutput() BudgetsActionOutput {

@@ -69,7 +69,7 @@ export class Integration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -78,26 +78,24 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.objectTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'objectTypeName'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["flowDefinition"] = args ? args.flowDefinition : undefined;
-            inputs["objectTypeName"] = args ? args.objectTypeName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["flowDefinition"] = args ? args.flowDefinition : undefined;
+            resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["flowDefinition"] = undefined /*out*/;
-            inputs["lastUpdatedAt"] = undefined /*out*/;
-            inputs["objectTypeName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["flowDefinition"] = undefined /*out*/;
+            resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["objectTypeName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Integration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

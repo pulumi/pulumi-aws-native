@@ -53,7 +53,7 @@ export class Destination extends pulumi.CustomResource {
     /** @deprecated Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DestinationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Destination is deprecated: Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.destinationPolicy === undefined) && !opts.urn) {
@@ -65,22 +65,20 @@ export class Destination extends pulumi.CustomResource {
             if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            inputs["destinationName"] = args ? args.destinationName : undefined;
-            inputs["destinationPolicy"] = args ? args.destinationPolicy : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["targetArn"] = args ? args.targetArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["destinationName"] = args ? args.destinationName : undefined;
+            resourceInputs["destinationPolicy"] = args ? args.destinationPolicy : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["destinationName"] = undefined /*out*/;
-            inputs["destinationPolicy"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["targetArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["destinationName"] = undefined /*out*/;
+            resourceInputs["destinationPolicy"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["targetArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Destination.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Destination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -95,7 +95,7 @@ type PresetInput interface {
 }
 
 func (*Preset) ElementType() reflect.Type {
-	return reflect.TypeOf((*Preset)(nil))
+	return reflect.TypeOf((**Preset)(nil)).Elem()
 }
 
 func (i *Preset) ToPresetOutput() PresetOutput {
@@ -109,7 +109,7 @@ func (i *Preset) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
 type PresetOutput struct{ *pulumi.OutputState }
 
 func (PresetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Preset)(nil))
+	return reflect.TypeOf((**Preset)(nil)).Elem()
 }
 
 func (o PresetOutput) ToPresetOutput() PresetOutput {

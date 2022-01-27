@@ -89,7 +89,7 @@ export class InferenceScheduler extends pulumi.CustomResource {
     /** @deprecated InferenceScheduler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: InferenceSchedulerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("InferenceScheduler is deprecated: InferenceScheduler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataInputConfiguration === undefined) && !opts.urn) {
@@ -107,32 +107,30 @@ export class InferenceScheduler extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["dataDelayOffsetInMinutes"] = args ? args.dataDelayOffsetInMinutes : undefined;
-            inputs["dataInputConfiguration"] = args ? args.dataInputConfiguration : undefined;
-            inputs["dataOutputConfiguration"] = args ? args.dataOutputConfiguration : undefined;
-            inputs["dataUploadFrequency"] = args ? args.dataUploadFrequency : undefined;
-            inputs["inferenceSchedulerName"] = args ? args.inferenceSchedulerName : undefined;
-            inputs["modelName"] = args ? args.modelName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["serverSideKmsKeyId"] = args ? args.serverSideKmsKeyId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["inferenceSchedulerArn"] = undefined /*out*/;
+            resourceInputs["dataDelayOffsetInMinutes"] = args ? args.dataDelayOffsetInMinutes : undefined;
+            resourceInputs["dataInputConfiguration"] = args ? args.dataInputConfiguration : undefined;
+            resourceInputs["dataOutputConfiguration"] = args ? args.dataOutputConfiguration : undefined;
+            resourceInputs["dataUploadFrequency"] = args ? args.dataUploadFrequency : undefined;
+            resourceInputs["inferenceSchedulerName"] = args ? args.inferenceSchedulerName : undefined;
+            resourceInputs["modelName"] = args ? args.modelName : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["serverSideKmsKeyId"] = args ? args.serverSideKmsKeyId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["inferenceSchedulerArn"] = undefined /*out*/;
         } else {
-            inputs["dataDelayOffsetInMinutes"] = undefined /*out*/;
-            inputs["dataInputConfiguration"] = undefined /*out*/;
-            inputs["dataOutputConfiguration"] = undefined /*out*/;
-            inputs["dataUploadFrequency"] = undefined /*out*/;
-            inputs["inferenceSchedulerArn"] = undefined /*out*/;
-            inputs["inferenceSchedulerName"] = undefined /*out*/;
-            inputs["modelName"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["serverSideKmsKeyId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["dataDelayOffsetInMinutes"] = undefined /*out*/;
+            resourceInputs["dataInputConfiguration"] = undefined /*out*/;
+            resourceInputs["dataOutputConfiguration"] = undefined /*out*/;
+            resourceInputs["dataUploadFrequency"] = undefined /*out*/;
+            resourceInputs["inferenceSchedulerArn"] = undefined /*out*/;
+            resourceInputs["inferenceSchedulerName"] = undefined /*out*/;
+            resourceInputs["modelName"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["serverSideKmsKeyId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InferenceScheduler.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InferenceScheduler.__pulumiType, name, resourceInputs, opts);
     }
 }
 

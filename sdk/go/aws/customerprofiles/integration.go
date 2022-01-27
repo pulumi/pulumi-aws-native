@@ -111,7 +111,7 @@ type IntegrationInput interface {
 }
 
 func (*Integration) ElementType() reflect.Type {
-	return reflect.TypeOf((*Integration)(nil))
+	return reflect.TypeOf((**Integration)(nil)).Elem()
 }
 
 func (i *Integration) ToIntegrationOutput() IntegrationOutput {
@@ -125,7 +125,7 @@ func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) Integr
 type IntegrationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Integration)(nil))
+	return reflect.TypeOf((**Integration)(nil)).Elem()
 }
 
 func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {

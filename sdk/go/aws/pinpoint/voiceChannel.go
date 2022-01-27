@@ -85,7 +85,7 @@ type VoiceChannelInput interface {
 }
 
 func (*VoiceChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceChannel)(nil))
+	return reflect.TypeOf((**VoiceChannel)(nil)).Elem()
 }
 
 func (i *VoiceChannel) ToVoiceChannelOutput() VoiceChannelOutput {
@@ -99,7 +99,7 @@ func (i *VoiceChannel) ToVoiceChannelOutputWithContext(ctx context.Context) Voic
 type VoiceChannelOutput struct{ *pulumi.OutputState }
 
 func (VoiceChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceChannel)(nil))
+	return reflect.TypeOf((**VoiceChannel)(nil)).Elem()
 }
 
 func (o VoiceChannelOutput) ToVoiceChannelOutput() VoiceChannelOutput {

@@ -51,7 +51,7 @@ export class LoggerDefinitionVersion extends pulumi.CustomResource {
     /** @deprecated LoggerDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LoggerDefinitionVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LoggerDefinitionVersion is deprecated: LoggerDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.loggerDefinitionId === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class LoggerDefinitionVersion extends pulumi.CustomResource {
             if ((!args || args.loggers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loggers'");
             }
-            inputs["loggerDefinitionId"] = args ? args.loggerDefinitionId : undefined;
-            inputs["loggers"] = args ? args.loggers : undefined;
+            resourceInputs["loggerDefinitionId"] = args ? args.loggerDefinitionId : undefined;
+            resourceInputs["loggers"] = args ? args.loggers : undefined;
         } else {
-            inputs["loggerDefinitionId"] = undefined /*out*/;
-            inputs["loggers"] = undefined /*out*/;
+            resourceInputs["loggerDefinitionId"] = undefined /*out*/;
+            resourceInputs["loggers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoggerDefinitionVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoggerDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -667,47 +667,6 @@ func (i ApplicationVersionSourceBundleArgs) ToApplicationVersionSourceBundleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionSourceBundleOutput)
 }
 
-func (i ApplicationVersionSourceBundleArgs) ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput {
-	return i.ToApplicationVersionSourceBundlePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationVersionSourceBundleArgs) ToApplicationVersionSourceBundlePtrOutputWithContext(ctx context.Context) ApplicationVersionSourceBundlePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionSourceBundleOutput).ToApplicationVersionSourceBundlePtrOutputWithContext(ctx)
-}
-
-// ApplicationVersionSourceBundlePtrInput is an input type that accepts ApplicationVersionSourceBundleArgs, ApplicationVersionSourceBundlePtr and ApplicationVersionSourceBundlePtrOutput values.
-// You can construct a concrete instance of `ApplicationVersionSourceBundlePtrInput` via:
-//
-//          ApplicationVersionSourceBundleArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationVersionSourceBundlePtrInput interface {
-	pulumi.Input
-
-	ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput
-	ToApplicationVersionSourceBundlePtrOutputWithContext(context.Context) ApplicationVersionSourceBundlePtrOutput
-}
-
-type applicationVersionSourceBundlePtrType ApplicationVersionSourceBundleArgs
-
-func ApplicationVersionSourceBundlePtr(v *ApplicationVersionSourceBundleArgs) ApplicationVersionSourceBundlePtrInput {
-	return (*applicationVersionSourceBundlePtrType)(v)
-}
-
-func (*applicationVersionSourceBundlePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationVersionSourceBundle)(nil)).Elem()
-}
-
-func (i *applicationVersionSourceBundlePtrType) ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput {
-	return i.ToApplicationVersionSourceBundlePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationVersionSourceBundlePtrType) ToApplicationVersionSourceBundlePtrOutputWithContext(ctx context.Context) ApplicationVersionSourceBundlePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionSourceBundlePtrOutput)
-}
-
 type ApplicationVersionSourceBundleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionSourceBundleOutput) ElementType() reflect.Type {
@@ -722,64 +681,12 @@ func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundleOu
 	return o
 }
 
-func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput {
-	return o.ToApplicationVersionSourceBundlePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundlePtrOutputWithContext(ctx context.Context) ApplicationVersionSourceBundlePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersionSourceBundle) *ApplicationVersionSourceBundle {
-		return &v
-	}).(ApplicationVersionSourceBundlePtrOutput)
-}
-
 func (o ApplicationVersionSourceBundleOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationVersionSourceBundle) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
 func (o ApplicationVersionSourceBundleOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationVersionSourceBundle) string { return v.S3Key }).(pulumi.StringOutput)
-}
-
-type ApplicationVersionSourceBundlePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationVersionSourceBundlePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationVersionSourceBundle)(nil)).Elem()
-}
-
-func (o ApplicationVersionSourceBundlePtrOutput) ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput {
-	return o
-}
-
-func (o ApplicationVersionSourceBundlePtrOutput) ToApplicationVersionSourceBundlePtrOutputWithContext(ctx context.Context) ApplicationVersionSourceBundlePtrOutput {
-	return o
-}
-
-func (o ApplicationVersionSourceBundlePtrOutput) Elem() ApplicationVersionSourceBundleOutput {
-	return o.ApplyT(func(v *ApplicationVersionSourceBundle) ApplicationVersionSourceBundle {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationVersionSourceBundle
-		return ret
-	}).(ApplicationVersionSourceBundleOutput)
-}
-
-func (o ApplicationVersionSourceBundlePtrOutput) S3Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationVersionSourceBundle) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationVersionSourceBundlePtrOutput) S3Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationVersionSourceBundle) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Key
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationTemplateConfigurationOptionSetting struct {
@@ -1427,7 +1334,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionLifecycleConfigInput)(nil)).Elem(), ApplicationVersionLifecycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionLifecycleConfigPtrInput)(nil)).Elem(), ApplicationVersionLifecycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionSourceBundleInput)(nil)).Elem(), ApplicationVersionSourceBundleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionSourceBundlePtrInput)(nil)).Elem(), ApplicationVersionSourceBundleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateConfigurationOptionSettingInput)(nil)).Elem(), ConfigurationTemplateConfigurationOptionSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateConfigurationOptionSettingArrayInput)(nil)).Elem(), ConfigurationTemplateConfigurationOptionSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateSourceConfigurationInput)(nil)).Elem(), ConfigurationTemplateSourceConfigurationArgs{})
@@ -1447,7 +1353,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationVersionLifecycleConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionLifecycleConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionSourceBundleOutput{})
-	pulumi.RegisterOutputType(ApplicationVersionSourceBundlePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateConfigurationOptionSettingOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateConfigurationOptionSettingArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateSourceConfigurationOutput{})

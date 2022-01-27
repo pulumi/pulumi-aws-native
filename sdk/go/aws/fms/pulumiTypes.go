@@ -400,47 +400,6 @@ func (i SecurityServicePolicyDataPropertiesArgs) ToSecurityServicePolicyDataProp
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityServicePolicyDataPropertiesOutput)
 }
 
-func (i SecurityServicePolicyDataPropertiesArgs) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
-	return i.ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SecurityServicePolicyDataPropertiesArgs) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityServicePolicyDataPropertiesOutput).ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx)
-}
-
-// SecurityServicePolicyDataPropertiesPtrInput is an input type that accepts SecurityServicePolicyDataPropertiesArgs, SecurityServicePolicyDataPropertiesPtr and SecurityServicePolicyDataPropertiesPtrOutput values.
-// You can construct a concrete instance of `SecurityServicePolicyDataPropertiesPtrInput` via:
-//
-//          SecurityServicePolicyDataPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SecurityServicePolicyDataPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput
-	ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(context.Context) SecurityServicePolicyDataPropertiesPtrOutput
-}
-
-type securityServicePolicyDataPropertiesPtrType SecurityServicePolicyDataPropertiesArgs
-
-func SecurityServicePolicyDataPropertiesPtr(v *SecurityServicePolicyDataPropertiesArgs) SecurityServicePolicyDataPropertiesPtrInput {
-	return (*securityServicePolicyDataPropertiesPtrType)(v)
-}
-
-func (*securityServicePolicyDataPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityServicePolicyDataProperties)(nil)).Elem()
-}
-
-func (i *securityServicePolicyDataPropertiesPtrType) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
-	return i.ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *securityServicePolicyDataPropertiesPtrType) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityServicePolicyDataPropertiesPtrOutput)
-}
-
 type SecurityServicePolicyDataPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SecurityServicePolicyDataPropertiesOutput) ElementType() reflect.Type {
@@ -455,16 +414,6 @@ func (o SecurityServicePolicyDataPropertiesOutput) ToSecurityServicePolicyDataPr
 	return o
 }
 
-func (o SecurityServicePolicyDataPropertiesOutput) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
-	return o.ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityServicePolicyDataPropertiesOutput) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityServicePolicyDataProperties) *SecurityServicePolicyDataProperties {
-		return &v
-	}).(SecurityServicePolicyDataPropertiesPtrOutput)
-}
-
 func (o SecurityServicePolicyDataPropertiesOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityServicePolicyDataProperties) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
 }
@@ -475,48 +424,6 @@ func (o SecurityServicePolicyDataPropertiesOutput) Type() PolicySecurityServiceP
 	}).(PolicySecurityServicePolicyDataPropertiesTypeOutput)
 }
 
-type SecurityServicePolicyDataPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityServicePolicyDataPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityServicePolicyDataProperties)(nil)).Elem()
-}
-
-func (o SecurityServicePolicyDataPropertiesPtrOutput) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
-	return o
-}
-
-func (o SecurityServicePolicyDataPropertiesPtrOutput) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
-	return o
-}
-
-func (o SecurityServicePolicyDataPropertiesPtrOutput) Elem() SecurityServicePolicyDataPropertiesOutput {
-	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) SecurityServicePolicyDataProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityServicePolicyDataProperties
-		return ret
-	}).(SecurityServicePolicyDataPropertiesOutput)
-}
-
-func (o SecurityServicePolicyDataPropertiesPtrOutput) ManagedServiceData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedServiceData
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SecurityServicePolicyDataPropertiesPtrOutput) Type() PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
-	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) *PolicySecurityServicePolicyDataPropertiesType {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(PolicySecurityServicePolicyDataPropertiesTypePtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapInput)(nil)).Elem(), PolicyIEMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapPtrInput)(nil)).Elem(), PolicyIEMapArgs{})
@@ -525,7 +432,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagInput)(nil)).Elem(), PolicyTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagArrayInput)(nil)).Elem(), PolicyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityServicePolicyDataPropertiesInput)(nil)).Elem(), SecurityServicePolicyDataPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityServicePolicyDataPropertiesPtrInput)(nil)).Elem(), SecurityServicePolicyDataPropertiesArgs{})
 	pulumi.RegisterOutputType(PolicyIEMapOutput{})
 	pulumi.RegisterOutputType(PolicyIEMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyResourceTagOutput{})
@@ -533,5 +439,4 @@ func init() {
 	pulumi.RegisterOutputType(PolicyTagOutput{})
 	pulumi.RegisterOutputType(PolicyTagArrayOutput{})
 	pulumi.RegisterOutputType(SecurityServicePolicyDataPropertiesOutput{})
-	pulumi.RegisterOutputType(SecurityServicePolicyDataPropertiesPtrOutput{})
 }

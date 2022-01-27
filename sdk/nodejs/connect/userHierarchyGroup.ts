@@ -59,26 +59,24 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserHierarchyGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            inputs["instanceArn"] = args ? args.instanceArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentGroupArn"] = args ? args.parentGroupArn : undefined;
-            inputs["userHierarchyGroupArn"] = undefined /*out*/;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentGroupArn"] = args ? args.parentGroupArn : undefined;
+            resourceInputs["userHierarchyGroupArn"] = undefined /*out*/;
         } else {
-            inputs["instanceArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parentGroupArn"] = undefined /*out*/;
-            inputs["userHierarchyGroupArn"] = undefined /*out*/;
+            resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parentGroupArn"] = undefined /*out*/;
+            resourceInputs["userHierarchyGroupArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserHierarchyGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserHierarchyGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

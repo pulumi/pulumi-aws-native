@@ -111,7 +111,7 @@ type LocationS3Input interface {
 }
 
 func (*LocationS3) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationS3)(nil))
+	return reflect.TypeOf((**LocationS3)(nil)).Elem()
 }
 
 func (i *LocationS3) ToLocationS3Output() LocationS3Output {
@@ -125,7 +125,7 @@ func (i *LocationS3) ToLocationS3OutputWithContext(ctx context.Context) Location
 type LocationS3Output struct{ *pulumi.OutputState }
 
 func (LocationS3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationS3)(nil))
+	return reflect.TypeOf((**LocationS3)(nil)).Elem()
 }
 
 func (o LocationS3Output) ToLocationS3Output() LocationS3Output {

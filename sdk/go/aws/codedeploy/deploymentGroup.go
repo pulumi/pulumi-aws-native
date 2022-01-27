@@ -133,7 +133,7 @@ type DeploymentGroupInput interface {
 }
 
 func (*DeploymentGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroup)(nil))
+	return reflect.TypeOf((**DeploymentGroup)(nil)).Elem()
 }
 
 func (i *DeploymentGroup) ToDeploymentGroupOutput() DeploymentGroupOutput {
@@ -147,7 +147,7 @@ func (i *DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context
 type DeploymentGroupOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroup)(nil))
+	return reflect.TypeOf((**DeploymentGroup)(nil)).Elem()
 }
 
 func (o DeploymentGroupOutput) ToDeploymentGroupOutput() DeploymentGroupOutput {

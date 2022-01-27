@@ -116,7 +116,7 @@ type WebACLInput interface {
 }
 
 func (*WebACL) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACL)(nil))
+	return reflect.TypeOf((**WebACL)(nil)).Elem()
 }
 
 func (i *WebACL) ToWebACLOutput() WebACLOutput {
@@ -130,7 +130,7 @@ func (i *WebACL) ToWebACLOutputWithContext(ctx context.Context) WebACLOutput {
 type WebACLOutput struct{ *pulumi.OutputState }
 
 func (WebACLOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACL)(nil))
+	return reflect.TypeOf((**WebACL)(nil)).Elem()
 }
 
 func (o WebACLOutput) ToWebACLOutput() WebACLOutput {

@@ -59,7 +59,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     /** @deprecated RemediationConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RemediationConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RemediationConfiguration is deprecated: RemediationConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configRuleName === undefined) && !opts.urn) {
@@ -71,32 +71,30 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            inputs["automatic"] = args ? args.automatic : undefined;
-            inputs["configRuleName"] = args ? args.configRuleName : undefined;
-            inputs["executionControls"] = args ? args.executionControls : undefined;
-            inputs["maximumAutomaticAttempts"] = args ? args.maximumAutomaticAttempts : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["retryAttemptSeconds"] = args ? args.retryAttemptSeconds : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["targetVersion"] = args ? args.targetVersion : undefined;
+            resourceInputs["automatic"] = args ? args.automatic : undefined;
+            resourceInputs["configRuleName"] = args ? args.configRuleName : undefined;
+            resourceInputs["executionControls"] = args ? args.executionControls : undefined;
+            resourceInputs["maximumAutomaticAttempts"] = args ? args.maximumAutomaticAttempts : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["retryAttemptSeconds"] = args ? args.retryAttemptSeconds : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["targetVersion"] = args ? args.targetVersion : undefined;
         } else {
-            inputs["automatic"] = undefined /*out*/;
-            inputs["configRuleName"] = undefined /*out*/;
-            inputs["executionControls"] = undefined /*out*/;
-            inputs["maximumAutomaticAttempts"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["retryAttemptSeconds"] = undefined /*out*/;
-            inputs["targetId"] = undefined /*out*/;
-            inputs["targetType"] = undefined /*out*/;
-            inputs["targetVersion"] = undefined /*out*/;
+            resourceInputs["automatic"] = undefined /*out*/;
+            resourceInputs["configRuleName"] = undefined /*out*/;
+            resourceInputs["executionControls"] = undefined /*out*/;
+            resourceInputs["maximumAutomaticAttempts"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["retryAttemptSeconds"] = undefined /*out*/;
+            resourceInputs["targetId"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
+            resourceInputs["targetVersion"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RemediationConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RemediationConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

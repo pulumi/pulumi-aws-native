@@ -87,7 +87,7 @@ type VPCEndpointServiceInput interface {
 }
 
 func (*VPCEndpointService) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEndpointService)(nil))
+	return reflect.TypeOf((**VPCEndpointService)(nil)).Elem()
 }
 
 func (i *VPCEndpointService) ToVPCEndpointServiceOutput() VPCEndpointServiceOutput {
@@ -101,7 +101,7 @@ func (i *VPCEndpointService) ToVPCEndpointServiceOutputWithContext(ctx context.C
 type VPCEndpointServiceOutput struct{ *pulumi.OutputState }
 
 func (VPCEndpointServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEndpointService)(nil))
+	return reflect.TypeOf((**VPCEndpointService)(nil)).Elem()
 }
 
 func (o VPCEndpointServiceOutput) ToVPCEndpointServiceOutput() VPCEndpointServiceOutput {

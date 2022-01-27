@@ -52,7 +52,7 @@ export class Table extends pulumi.CustomResource {
     /** @deprecated Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Table is deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.catalogId === undefined) && !opts.urn) {
@@ -64,18 +64,16 @@ export class Table extends pulumi.CustomResource {
             if ((!args || args.tableInput === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableInput'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["tableInput"] = args ? args.tableInput : undefined;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["tableInput"] = args ? args.tableInput : undefined;
         } else {
-            inputs["catalogId"] = undefined /*out*/;
-            inputs["databaseName"] = undefined /*out*/;
-            inputs["tableInput"] = undefined /*out*/;
+            resourceInputs["catalogId"] = undefined /*out*/;
+            resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["tableInput"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Table.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }
 

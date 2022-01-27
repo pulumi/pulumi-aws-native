@@ -60,23 +60,21 @@ export class AppImageConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: AppImageConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
-            inputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["appImageConfigArn"] = undefined /*out*/;
+            resourceInputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
+            resourceInputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appImageConfigArn"] = undefined /*out*/;
         } else {
-            inputs["appImageConfigArn"] = undefined /*out*/;
-            inputs["appImageConfigName"] = undefined /*out*/;
-            inputs["kernelGatewayImageConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["appImageConfigArn"] = undefined /*out*/;
+            resourceInputs["appImageConfigName"] = undefined /*out*/;
+            resourceInputs["kernelGatewayImageConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AppImageConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AppImageConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

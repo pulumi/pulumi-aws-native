@@ -56,32 +56,30 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     /** @deprecated ConfigurationTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigurationTemplate is deprecated: ConfigurationTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environmentId"] = args ? args.environmentId : undefined;
-            inputs["optionSettings"] = args ? args.optionSettings : undefined;
-            inputs["platformArn"] = args ? args.platformArn : undefined;
-            inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
-            inputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["optionSettings"] = args ? args.optionSettings : undefined;
+            resourceInputs["platformArn"] = args ? args.platformArn : undefined;
+            resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
+            resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
         } else {
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["environmentId"] = undefined /*out*/;
-            inputs["optionSettings"] = undefined /*out*/;
-            inputs["platformArn"] = undefined /*out*/;
-            inputs["solutionStackName"] = undefined /*out*/;
-            inputs["sourceConfiguration"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["environmentId"] = undefined /*out*/;
+            resourceInputs["optionSettings"] = undefined /*out*/;
+            resourceInputs["platformArn"] = undefined /*out*/;
+            resourceInputs["solutionStackName"] = undefined /*out*/;
+            resourceInputs["sourceConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

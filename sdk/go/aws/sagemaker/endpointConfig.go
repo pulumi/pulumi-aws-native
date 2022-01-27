@@ -97,7 +97,7 @@ type EndpointConfigInput interface {
 }
 
 func (*EndpointConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointConfig)(nil))
+	return reflect.TypeOf((**EndpointConfig)(nil)).Elem()
 }
 
 func (i *EndpointConfig) ToEndpointConfigOutput() EndpointConfigOutput {
@@ -111,7 +111,7 @@ func (i *EndpointConfig) ToEndpointConfigOutputWithContext(ctx context.Context) 
 type EndpointConfigOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointConfig)(nil))
+	return reflect.TypeOf((**EndpointConfig)(nil)).Elem()
 }
 
 func (o EndpointConfigOutput) ToEndpointConfigOutput() EndpointConfigOutput {

@@ -97,7 +97,7 @@ type UserHierarchyGroupInput interface {
 }
 
 func (*UserHierarchyGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserHierarchyGroup)(nil))
+	return reflect.TypeOf((**UserHierarchyGroup)(nil)).Elem()
 }
 
 func (i *UserHierarchyGroup) ToUserHierarchyGroupOutput() UserHierarchyGroupOutput {
@@ -111,7 +111,7 @@ func (i *UserHierarchyGroup) ToUserHierarchyGroupOutputWithContext(ctx context.C
 type UserHierarchyGroupOutput struct{ *pulumi.OutputState }
 
 func (UserHierarchyGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserHierarchyGroup)(nil))
+	return reflect.TypeOf((**UserHierarchyGroup)(nil)).Elem()
 }
 
 func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutput() UserHierarchyGroupOutput {

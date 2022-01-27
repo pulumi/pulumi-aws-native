@@ -100,7 +100,7 @@ type LaunchTemplateConstraintInput interface {
 }
 
 func (*LaunchTemplateConstraint) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateConstraint)(nil))
+	return reflect.TypeOf((**LaunchTemplateConstraint)(nil)).Elem()
 }
 
 func (i *LaunchTemplateConstraint) ToLaunchTemplateConstraintOutput() LaunchTemplateConstraintOutput {
@@ -114,7 +114,7 @@ func (i *LaunchTemplateConstraint) ToLaunchTemplateConstraintOutputWithContext(c
 type LaunchTemplateConstraintOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateConstraintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateConstraint)(nil))
+	return reflect.TypeOf((**LaunchTemplateConstraint)(nil)).Elem()
 }
 
 func (o LaunchTemplateConstraintOutput) ToLaunchTemplateConstraintOutput() LaunchTemplateConstraintOutput {

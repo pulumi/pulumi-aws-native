@@ -81,7 +81,7 @@ type SqlInjectionMatchSetInput interface {
 }
 
 func (*SqlInjectionMatchSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlInjectionMatchSet)(nil))
+	return reflect.TypeOf((**SqlInjectionMatchSet)(nil)).Elem()
 }
 
 func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutput() SqlInjectionMatchSetOutput {
@@ -95,7 +95,7 @@ func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutputWithContext(ctx conte
 type SqlInjectionMatchSetOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlInjectionMatchSet)(nil))
+	return reflect.TypeOf((**SqlInjectionMatchSet)(nil)).Elem()
 }
 
 func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutput() SqlInjectionMatchSetOutput {

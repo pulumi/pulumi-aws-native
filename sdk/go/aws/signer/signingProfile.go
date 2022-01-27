@@ -103,7 +103,7 @@ type SigningProfileInput interface {
 }
 
 func (*SigningProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*SigningProfile)(nil))
+	return reflect.TypeOf((**SigningProfile)(nil)).Elem()
 }
 
 func (i *SigningProfile) ToSigningProfileOutput() SigningProfileOutput {
@@ -117,7 +117,7 @@ func (i *SigningProfile) ToSigningProfileOutputWithContext(ctx context.Context) 
 type SigningProfileOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SigningProfile)(nil))
+	return reflect.TypeOf((**SigningProfile)(nil)).Elem()
 }
 
 func (o SigningProfileOutput) ToSigningProfileOutput() SigningProfileOutput {

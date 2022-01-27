@@ -52,7 +52,7 @@ export class FunctionDefinitionVersion extends pulumi.CustomResource {
     /** @deprecated FunctionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: FunctionDefinitionVersionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("FunctionDefinitionVersion is deprecated: FunctionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.functionDefinitionId === undefined) && !opts.urn) {
@@ -61,18 +61,16 @@ export class FunctionDefinitionVersion extends pulumi.CustomResource {
             if ((!args || args.functions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functions'");
             }
-            inputs["defaultConfig"] = args ? args.defaultConfig : undefined;
-            inputs["functionDefinitionId"] = args ? args.functionDefinitionId : undefined;
-            inputs["functions"] = args ? args.functions : undefined;
+            resourceInputs["defaultConfig"] = args ? args.defaultConfig : undefined;
+            resourceInputs["functionDefinitionId"] = args ? args.functionDefinitionId : undefined;
+            resourceInputs["functions"] = args ? args.functions : undefined;
         } else {
-            inputs["defaultConfig"] = undefined /*out*/;
-            inputs["functionDefinitionId"] = undefined /*out*/;
-            inputs["functions"] = undefined /*out*/;
+            resourceInputs["defaultConfig"] = undefined /*out*/;
+            resourceInputs["functionDefinitionId"] = undefined /*out*/;
+            resourceInputs["functions"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FunctionDefinitionVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FunctionDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -52,21 +52,19 @@ export class Application extends pulumi.CustomResource {
     /** @deprecated Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["resourceLifecycleConfig"] = args ? args.resourceLifecycleConfig : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["resourceLifecycleConfig"] = args ? args.resourceLifecycleConfig : undefined;
         } else {
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["resourceLifecycleConfig"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["resourceLifecycleConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

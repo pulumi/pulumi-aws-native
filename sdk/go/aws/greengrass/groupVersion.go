@@ -103,7 +103,7 @@ type GroupVersionInput interface {
 }
 
 func (*GroupVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupVersion)(nil))
+	return reflect.TypeOf((**GroupVersion)(nil)).Elem()
 }
 
 func (i *GroupVersion) ToGroupVersionOutput() GroupVersionOutput {
@@ -117,7 +117,7 @@ func (i *GroupVersion) ToGroupVersionOutputWithContext(ctx context.Context) Grou
 type GroupVersionOutput struct{ *pulumi.OutputState }
 
 func (GroupVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupVersion)(nil))
+	return reflect.TypeOf((**GroupVersion)(nil)).Elem()
 }
 
 func (o GroupVersionOutput) ToGroupVersionOutput() GroupVersionOutput {

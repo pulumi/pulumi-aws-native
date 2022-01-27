@@ -73,7 +73,7 @@ export class Faq extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FaqArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.indexId === undefined) && !opts.urn) {
@@ -85,28 +85,26 @@ export class Faq extends pulumi.CustomResource {
             if ((!args || args.s3Path === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Path'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["fileFormat"] = args ? args.fileFormat : undefined;
-            inputs["indexId"] = args ? args.indexId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["s3Path"] = args ? args.s3Path : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
+            resourceInputs["indexId"] = args ? args.indexId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["s3Path"] = args ? args.s3Path : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["fileFormat"] = undefined /*out*/;
-            inputs["indexId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["s3Path"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["fileFormat"] = undefined /*out*/;
+            resourceInputs["indexId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["s3Path"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Faq.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Faq.__pulumiType, name, resourceInputs, opts);
     }
 }
 

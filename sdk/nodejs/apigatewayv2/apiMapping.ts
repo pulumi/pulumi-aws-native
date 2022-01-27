@@ -52,7 +52,7 @@ export class ApiMapping extends pulumi.CustomResource {
     /** @deprecated ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApiMappingArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApiMapping is deprecated: ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -64,20 +64,18 @@ export class ApiMapping extends pulumi.CustomResource {
             if ((!args || args.stage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["apiMappingKey"] = args ? args.apiMappingKey : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["apiMappingKey"] = args ? args.apiMappingKey : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["stage"] = args ? args.stage : undefined;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["apiMappingKey"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["stage"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["apiMappingKey"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["stage"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiMapping.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

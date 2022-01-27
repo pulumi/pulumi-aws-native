@@ -92,7 +92,7 @@ type AccessPointPolicyInput interface {
 }
 
 func (*AccessPointPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointPolicy)(nil))
+	return reflect.TypeOf((**AccessPointPolicy)(nil)).Elem()
 }
 
 func (i *AccessPointPolicy) ToAccessPointPolicyOutput() AccessPointPolicyOutput {
@@ -106,7 +106,7 @@ func (i *AccessPointPolicy) ToAccessPointPolicyOutputWithContext(ctx context.Con
 type AccessPointPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointPolicy)(nil))
+	return reflect.TypeOf((**AccessPointPolicy)(nil)).Elem()
 }
 
 func (o AccessPointPolicyOutput) ToAccessPointPolicyOutput() AccessPointPolicyOutput {

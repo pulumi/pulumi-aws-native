@@ -88,7 +88,7 @@ type CoreDefinitionVersionInput interface {
 }
 
 func (*CoreDefinitionVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*CoreDefinitionVersion)(nil))
+	return reflect.TypeOf((**CoreDefinitionVersion)(nil)).Elem()
 }
 
 func (i *CoreDefinitionVersion) ToCoreDefinitionVersionOutput() CoreDefinitionVersionOutput {
@@ -102,7 +102,7 @@ func (i *CoreDefinitionVersion) ToCoreDefinitionVersionOutputWithContext(ctx con
 type CoreDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (CoreDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CoreDefinitionVersion)(nil))
+	return reflect.TypeOf((**CoreDefinitionVersion)(nil)).Elem()
 }
 
 func (o CoreDefinitionVersionOutput) ToCoreDefinitionVersionOutput() CoreDefinitionVersionOutput {

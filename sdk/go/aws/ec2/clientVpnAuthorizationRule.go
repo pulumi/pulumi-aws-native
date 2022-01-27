@@ -97,7 +97,7 @@ type ClientVpnAuthorizationRuleInput interface {
 }
 
 func (*ClientVpnAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnAuthorizationRule)(nil))
+	return reflect.TypeOf((**ClientVpnAuthorizationRule)(nil)).Elem()
 }
 
 func (i *ClientVpnAuthorizationRule) ToClientVpnAuthorizationRuleOutput() ClientVpnAuthorizationRuleOutput {
@@ -111,7 +111,7 @@ func (i *ClientVpnAuthorizationRule) ToClientVpnAuthorizationRuleOutputWithConte
 type ClientVpnAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnAuthorizationRule)(nil))
+	return reflect.TypeOf((**ClientVpnAuthorizationRule)(nil)).Elem()
 }
 
 func (o ClientVpnAuthorizationRuleOutput) ToClientVpnAuthorizationRuleOutput() ClientVpnAuthorizationRuleOutput {

@@ -115,7 +115,7 @@ type StreamingImageInput interface {
 }
 
 func (*StreamingImage) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingImage)(nil))
+	return reflect.TypeOf((**StreamingImage)(nil)).Elem()
 }
 
 func (i *StreamingImage) ToStreamingImageOutput() StreamingImageOutput {
@@ -129,7 +129,7 @@ func (i *StreamingImage) ToStreamingImageOutputWithContext(ctx context.Context) 
 type StreamingImageOutput struct{ *pulumi.OutputState }
 
 func (StreamingImageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingImage)(nil))
+	return reflect.TypeOf((**StreamingImage)(nil)).Elem()
 }
 
 func (o StreamingImageOutput) ToStreamingImageOutput() StreamingImageOutput {

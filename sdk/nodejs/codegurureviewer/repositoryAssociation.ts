@@ -72,32 +72,30 @@ export class RepositoryAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RepositoryAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["bucketName"] = args ? args.bucketName : undefined;
-            inputs["connectionArn"] = args ? args.connectionArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["associationArn"] = undefined /*out*/;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["associationArn"] = undefined /*out*/;
         } else {
-            inputs["associationArn"] = undefined /*out*/;
-            inputs["bucketName"] = undefined /*out*/;
-            inputs["connectionArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["associationArn"] = undefined /*out*/;
+            resourceInputs["bucketName"] = undefined /*out*/;
+            resourceInputs["connectionArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RepositoryAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RepositoryAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

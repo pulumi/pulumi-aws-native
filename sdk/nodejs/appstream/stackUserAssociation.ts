@@ -52,7 +52,7 @@ export class StackUserAssociation extends pulumi.CustomResource {
     /** @deprecated StackUserAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StackUserAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("StackUserAssociation is deprecated: StackUserAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
@@ -64,20 +64,18 @@ export class StackUserAssociation extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
-            inputs["stackName"] = args ? args.stackName : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
         } else {
-            inputs["authenticationType"] = undefined /*out*/;
-            inputs["sendEmailNotification"] = undefined /*out*/;
-            inputs["stackName"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["sendEmailNotification"] = undefined /*out*/;
+            resourceInputs["stackName"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StackUserAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StackUserAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

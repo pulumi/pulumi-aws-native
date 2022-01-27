@@ -97,7 +97,7 @@ type TransitGatewayVpcAttachmentInput interface {
 }
 
 func (*TransitGatewayVpcAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayVpcAttachment)(nil))
+	return reflect.TypeOf((**TransitGatewayVpcAttachment)(nil)).Elem()
 }
 
 func (i *TransitGatewayVpcAttachment) ToTransitGatewayVpcAttachmentOutput() TransitGatewayVpcAttachmentOutput {
@@ -111,7 +111,7 @@ func (i *TransitGatewayVpcAttachment) ToTransitGatewayVpcAttachmentOutputWithCon
 type TransitGatewayVpcAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayVpcAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayVpcAttachment)(nil))
+	return reflect.TypeOf((**TransitGatewayVpcAttachment)(nil)).Elem()
 }
 
 func (o TransitGatewayVpcAttachmentOutput) ToTransitGatewayVpcAttachmentOutput() TransitGatewayVpcAttachmentOutput {

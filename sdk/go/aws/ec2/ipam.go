@@ -98,7 +98,7 @@ type IPAMInput interface {
 }
 
 func (*IPAM) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAM)(nil))
+	return reflect.TypeOf((**IPAM)(nil)).Elem()
 }
 
 func (i *IPAM) ToIPAMOutput() IPAMOutput {
@@ -112,7 +112,7 @@ func (i *IPAM) ToIPAMOutputWithContext(ctx context.Context) IPAMOutput {
 type IPAMOutput struct{ *pulumi.OutputState }
 
 func (IPAMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAM)(nil))
+	return reflect.TypeOf((**IPAM)(nil)).Elem()
 }
 
 func (o IPAMOutput) ToIPAMOutput() IPAMOutput {

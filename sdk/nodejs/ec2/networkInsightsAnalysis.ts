@@ -57,44 +57,42 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkInsightsAnalysisArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkInsightsPathId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsPathId'");
             }
-            inputs["filterInArns"] = args ? args.filterInArns : undefined;
-            inputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["alternatePathHints"] = undefined /*out*/;
-            inputs["explanations"] = undefined /*out*/;
-            inputs["forwardPathComponents"] = undefined /*out*/;
-            inputs["networkInsightsAnalysisArn"] = undefined /*out*/;
-            inputs["networkInsightsAnalysisId"] = undefined /*out*/;
-            inputs["networkPathFound"] = undefined /*out*/;
-            inputs["returnPathComponents"] = undefined /*out*/;
-            inputs["startDate"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["filterInArns"] = args ? args.filterInArns : undefined;
+            resourceInputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["alternatePathHints"] = undefined /*out*/;
+            resourceInputs["explanations"] = undefined /*out*/;
+            resourceInputs["forwardPathComponents"] = undefined /*out*/;
+            resourceInputs["networkInsightsAnalysisArn"] = undefined /*out*/;
+            resourceInputs["networkInsightsAnalysisId"] = undefined /*out*/;
+            resourceInputs["networkPathFound"] = undefined /*out*/;
+            resourceInputs["returnPathComponents"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
         } else {
-            inputs["alternatePathHints"] = undefined /*out*/;
-            inputs["explanations"] = undefined /*out*/;
-            inputs["filterInArns"] = undefined /*out*/;
-            inputs["forwardPathComponents"] = undefined /*out*/;
-            inputs["networkInsightsAnalysisArn"] = undefined /*out*/;
-            inputs["networkInsightsAnalysisId"] = undefined /*out*/;
-            inputs["networkInsightsPathId"] = undefined /*out*/;
-            inputs["networkPathFound"] = undefined /*out*/;
-            inputs["returnPathComponents"] = undefined /*out*/;
-            inputs["startDate"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["alternatePathHints"] = undefined /*out*/;
+            resourceInputs["explanations"] = undefined /*out*/;
+            resourceInputs["filterInArns"] = undefined /*out*/;
+            resourceInputs["forwardPathComponents"] = undefined /*out*/;
+            resourceInputs["networkInsightsAnalysisArn"] = undefined /*out*/;
+            resourceInputs["networkInsightsAnalysisId"] = undefined /*out*/;
+            resourceInputs["networkInsightsPathId"] = undefined /*out*/;
+            resourceInputs["networkPathFound"] = undefined /*out*/;
+            resourceInputs["returnPathComponents"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInsightsAnalysis.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInsightsAnalysis.__pulumiType, name, resourceInputs, opts);
     }
 }
 

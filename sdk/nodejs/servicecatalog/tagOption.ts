@@ -51,7 +51,7 @@ export class TagOption extends pulumi.CustomResource {
     /** @deprecated TagOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TagOptionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TagOption is deprecated: TagOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -60,18 +60,16 @@ export class TagOption extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["value"] = args ? args.value : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         } else {
-            inputs["active"] = undefined /*out*/;
-            inputs["key"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["active"] = undefined /*out*/;
+            resourceInputs["key"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TagOption.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TagOption.__pulumiType, name, resourceInputs, opts);
     }
 }
 

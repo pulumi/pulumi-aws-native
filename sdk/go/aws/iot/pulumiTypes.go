@@ -345,47 +345,6 @@ func (i AccountAuditConfigurationAuditCheckConfigurationsArgs) ToAccountAuditCon
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
 }
 
-func (i AccountAuditConfigurationAuditCheckConfigurationsArgs) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutput() AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
-	return i.ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(context.Background())
-}
-
-func (i AccountAuditConfigurationAuditCheckConfigurationsArgs) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationAuditCheckConfigurationsOutput).ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(ctx)
-}
-
-// AccountAuditConfigurationAuditCheckConfigurationsPtrInput is an input type that accepts AccountAuditConfigurationAuditCheckConfigurationsArgs, AccountAuditConfigurationAuditCheckConfigurationsPtr and AccountAuditConfigurationAuditCheckConfigurationsPtrOutput values.
-// You can construct a concrete instance of `AccountAuditConfigurationAuditCheckConfigurationsPtrInput` via:
-//
-//          AccountAuditConfigurationAuditCheckConfigurationsArgs{...}
-//
-//  or:
-//
-//          nil
-type AccountAuditConfigurationAuditCheckConfigurationsPtrInput interface {
-	pulumi.Input
-
-	ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutput() AccountAuditConfigurationAuditCheckConfigurationsPtrOutput
-	ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(context.Context) AccountAuditConfigurationAuditCheckConfigurationsPtrOutput
-}
-
-type accountAuditConfigurationAuditCheckConfigurationsPtrType AccountAuditConfigurationAuditCheckConfigurationsArgs
-
-func AccountAuditConfigurationAuditCheckConfigurationsPtr(v *AccountAuditConfigurationAuditCheckConfigurationsArgs) AccountAuditConfigurationAuditCheckConfigurationsPtrInput {
-	return (*accountAuditConfigurationAuditCheckConfigurationsPtrType)(v)
-}
-
-func (*accountAuditConfigurationAuditCheckConfigurationsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountAuditConfigurationAuditCheckConfigurations)(nil)).Elem()
-}
-
-func (i *accountAuditConfigurationAuditCheckConfigurationsPtrType) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutput() AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
-	return i.ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(context.Background())
-}
-
-func (i *accountAuditConfigurationAuditCheckConfigurationsPtrType) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationAuditCheckConfigurationsPtrOutput)
-}
-
 // Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurationsOutput struct{ *pulumi.OutputState }
 
@@ -399,16 +358,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ToAccountAuditC
 
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ToAccountAuditConfigurationAuditCheckConfigurationsOutputWithContext(ctx context.Context) AccountAuditConfigurationAuditCheckConfigurationsOutput {
 	return o
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutput() AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
-	return o.ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(context.Background())
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfigurations {
-		return &v
-	}).(AccountAuditConfigurationAuditCheckConfigurationsPtrOutput)
 }
 
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
@@ -491,156 +440,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) RevokedDeviceCe
 
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		return v.UnauthenticatedCognitoRoleOverlyPermissiveCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-type AccountAuditConfigurationAuditCheckConfigurationsPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountAuditConfigurationAuditCheckConfigurations)(nil)).Elem()
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutput() AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
-	return o
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ToAccountAuditConfigurationAuditCheckConfigurationsPtrOutputWithContext(ctx context.Context) AccountAuditConfigurationAuditCheckConfigurationsPtrOutput {
-	return o
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Elem() AccountAuditConfigurationAuditCheckConfigurationsOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) AccountAuditConfigurationAuditCheckConfigurations {
-		if v != nil {
-			return *v
-		}
-		var ret AccountAuditConfigurationAuditCheckConfigurations
-		return ret
-	}).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.AuthenticatedCognitoRoleOverlyPermissiveCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CaCertificateExpiringCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CaCertificateKeyQualityCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingClientIdsCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ConflictingClientIdsCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.DeviceCertificateExpiringCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.DeviceCertificateKeyQualityCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.DeviceCertificateSharedCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotPolicyOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.IotPolicyOverlyPermissiveCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasAllowsAccessToUnusedServicesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.IotRoleAliasAllowsAccessToUnusedServicesCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.IotRoleAliasOverlyPermissiveCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) LoggingDisabledCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.LoggingDisabledCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedCaCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.RevokedCaCertificateStillActiveCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedDeviceCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.RevokedDeviceCertificateStillActiveCheck
-	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
-}
-
-func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
-		if v == nil {
-			return nil
-		}
 		return v.UnauthenticatedCognitoRoleOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
@@ -1428,60 +1227,6 @@ type DomainConfigurationServerCertificateSummary struct {
 	ServerCertificateArn          *string                                                             `pulumi:"serverCertificateArn"`
 	ServerCertificateStatus       *DomainConfigurationServerCertificateSummaryServerCertificateStatus `pulumi:"serverCertificateStatus"`
 	ServerCertificateStatusDetail *string                                                             `pulumi:"serverCertificateStatusDetail"`
-}
-
-// DomainConfigurationServerCertificateSummaryInput is an input type that accepts DomainConfigurationServerCertificateSummaryArgs and DomainConfigurationServerCertificateSummaryOutput values.
-// You can construct a concrete instance of `DomainConfigurationServerCertificateSummaryInput` via:
-//
-//          DomainConfigurationServerCertificateSummaryArgs{...}
-type DomainConfigurationServerCertificateSummaryInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationServerCertificateSummaryOutput() DomainConfigurationServerCertificateSummaryOutput
-	ToDomainConfigurationServerCertificateSummaryOutputWithContext(context.Context) DomainConfigurationServerCertificateSummaryOutput
-}
-
-type DomainConfigurationServerCertificateSummaryArgs struct {
-	ServerCertificateArn          pulumi.StringPtrInput                                                      `pulumi:"serverCertificateArn"`
-	ServerCertificateStatus       DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrInput `pulumi:"serverCertificateStatus"`
-	ServerCertificateStatusDetail pulumi.StringPtrInput                                                      `pulumi:"serverCertificateStatusDetail"`
-}
-
-func (DomainConfigurationServerCertificateSummaryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationServerCertificateSummary)(nil)).Elem()
-}
-
-func (i DomainConfigurationServerCertificateSummaryArgs) ToDomainConfigurationServerCertificateSummaryOutput() DomainConfigurationServerCertificateSummaryOutput {
-	return i.ToDomainConfigurationServerCertificateSummaryOutputWithContext(context.Background())
-}
-
-func (i DomainConfigurationServerCertificateSummaryArgs) ToDomainConfigurationServerCertificateSummaryOutputWithContext(ctx context.Context) DomainConfigurationServerCertificateSummaryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationServerCertificateSummaryOutput)
-}
-
-// DomainConfigurationServerCertificateSummaryArrayInput is an input type that accepts DomainConfigurationServerCertificateSummaryArray and DomainConfigurationServerCertificateSummaryArrayOutput values.
-// You can construct a concrete instance of `DomainConfigurationServerCertificateSummaryArrayInput` via:
-//
-//          DomainConfigurationServerCertificateSummaryArray{ DomainConfigurationServerCertificateSummaryArgs{...} }
-type DomainConfigurationServerCertificateSummaryArrayInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationServerCertificateSummaryArrayOutput() DomainConfigurationServerCertificateSummaryArrayOutput
-	ToDomainConfigurationServerCertificateSummaryArrayOutputWithContext(context.Context) DomainConfigurationServerCertificateSummaryArrayOutput
-}
-
-type DomainConfigurationServerCertificateSummaryArray []DomainConfigurationServerCertificateSummaryInput
-
-func (DomainConfigurationServerCertificateSummaryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainConfigurationServerCertificateSummary)(nil)).Elem()
-}
-
-func (i DomainConfigurationServerCertificateSummaryArray) ToDomainConfigurationServerCertificateSummaryArrayOutput() DomainConfigurationServerCertificateSummaryArrayOutput {
-	return i.ToDomainConfigurationServerCertificateSummaryArrayOutputWithContext(context.Background())
-}
-
-func (i DomainConfigurationServerCertificateSummaryArray) ToDomainConfigurationServerCertificateSummaryArrayOutputWithContext(ctx context.Context) DomainConfigurationServerCertificateSummaryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationServerCertificateSummaryArrayOutput)
 }
 
 type DomainConfigurationServerCertificateSummaryOutput struct{ *pulumi.OutputState }
@@ -2904,47 +2649,6 @@ func (i MitigationActionActionParamsArgs) ToMitigationActionActionParamsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionActionParamsOutput)
 }
 
-func (i MitigationActionActionParamsArgs) ToMitigationActionActionParamsPtrOutput() MitigationActionActionParamsPtrOutput {
-	return i.ToMitigationActionActionParamsPtrOutputWithContext(context.Background())
-}
-
-func (i MitigationActionActionParamsArgs) ToMitigationActionActionParamsPtrOutputWithContext(ctx context.Context) MitigationActionActionParamsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionActionParamsOutput).ToMitigationActionActionParamsPtrOutputWithContext(ctx)
-}
-
-// MitigationActionActionParamsPtrInput is an input type that accepts MitigationActionActionParamsArgs, MitigationActionActionParamsPtr and MitigationActionActionParamsPtrOutput values.
-// You can construct a concrete instance of `MitigationActionActionParamsPtrInput` via:
-//
-//          MitigationActionActionParamsArgs{...}
-//
-//  or:
-//
-//          nil
-type MitigationActionActionParamsPtrInput interface {
-	pulumi.Input
-
-	ToMitigationActionActionParamsPtrOutput() MitigationActionActionParamsPtrOutput
-	ToMitigationActionActionParamsPtrOutputWithContext(context.Context) MitigationActionActionParamsPtrOutput
-}
-
-type mitigationActionActionParamsPtrType MitigationActionActionParamsArgs
-
-func MitigationActionActionParamsPtr(v *MitigationActionActionParamsArgs) MitigationActionActionParamsPtrInput {
-	return (*mitigationActionActionParamsPtrType)(v)
-}
-
-func (*mitigationActionActionParamsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MitigationActionActionParams)(nil)).Elem()
-}
-
-func (i *mitigationActionActionParamsPtrType) ToMitigationActionActionParamsPtrOutput() MitigationActionActionParamsPtrOutput {
-	return i.ToMitigationActionActionParamsPtrOutputWithContext(context.Background())
-}
-
-func (i *mitigationActionActionParamsPtrType) ToMitigationActionActionParamsPtrOutputWithContext(ctx context.Context) MitigationActionActionParamsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionActionParamsPtrOutput)
-}
-
 // The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParamsOutput struct{ *pulumi.OutputState }
 
@@ -2958,16 +2662,6 @@ func (o MitigationActionActionParamsOutput) ToMitigationActionActionParamsOutput
 
 func (o MitigationActionActionParamsOutput) ToMitigationActionActionParamsOutputWithContext(ctx context.Context) MitigationActionActionParamsOutput {
 	return o
-}
-
-func (o MitigationActionActionParamsOutput) ToMitigationActionActionParamsPtrOutput() MitigationActionActionParamsPtrOutput {
-	return o.ToMitigationActionActionParamsPtrOutputWithContext(context.Background())
-}
-
-func (o MitigationActionActionParamsOutput) ToMitigationActionActionParamsPtrOutputWithContext(ctx context.Context) MitigationActionActionParamsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MitigationActionActionParams) *MitigationActionActionParams {
-		return &v
-	}).(MitigationActionActionParamsPtrOutput)
 }
 
 func (o MitigationActionActionParamsOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
@@ -3002,84 +2696,6 @@ func (o MitigationActionActionParamsOutput) UpdateCACertificateParams() Mitigati
 
 func (o MitigationActionActionParamsOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
-		return v.UpdateDeviceCertificateParams
-	}).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
-}
-
-type MitigationActionActionParamsPtrOutput struct{ *pulumi.OutputState }
-
-func (MitigationActionActionParamsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MitigationActionActionParams)(nil)).Elem()
-}
-
-func (o MitigationActionActionParamsPtrOutput) ToMitigationActionActionParamsPtrOutput() MitigationActionActionParamsPtrOutput {
-	return o
-}
-
-func (o MitigationActionActionParamsPtrOutput) ToMitigationActionActionParamsPtrOutputWithContext(ctx context.Context) MitigationActionActionParamsPtrOutput {
-	return o
-}
-
-func (o MitigationActionActionParamsPtrOutput) Elem() MitigationActionActionParamsOutput {
-	return o.ApplyT(func(v *MitigationActionActionParams) MitigationActionActionParams {
-		if v != nil {
-			return *v
-		}
-		var ret MitigationActionActionParams
-		return ret
-	}).(MitigationActionActionParamsOutput)
-}
-
-func (o MitigationActionActionParamsPtrOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
-	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionAddThingsToThingGroupParams {
-		if v == nil {
-			return nil
-		}
-		return v.AddThingsToThingGroupParams
-	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
-}
-
-func (o MitigationActionActionParamsPtrOutput) EnableIoTLoggingParams() MitigationActionEnableIoTLoggingParamsPtrOutput {
-	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionEnableIoTLoggingParams {
-		if v == nil {
-			return nil
-		}
-		return v.EnableIoTLoggingParams
-	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
-}
-
-func (o MitigationActionActionParamsPtrOutput) PublishFindingToSnsParams() MitigationActionPublishFindingToSnsParamsPtrOutput {
-	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionPublishFindingToSnsParams {
-		if v == nil {
-			return nil
-		}
-		return v.PublishFindingToSnsParams
-	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
-}
-
-func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams() MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput {
-	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionReplaceDefaultPolicyVersionParams {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceDefaultPolicyVersionParams
-	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
-}
-
-func (o MitigationActionActionParamsPtrOutput) UpdateCACertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
-	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateCACertificateParams {
-		if v == nil {
-			return nil
-		}
-		return v.UpdateCACertificateParams
-	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
-}
-
-func (o MitigationActionActionParamsPtrOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
-	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
-		if v == nil {
-			return nil
-		}
 		return v.UpdateDeviceCertificateParams
 	}).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
 }
@@ -10063,47 +9679,6 @@ func (i TopicRulePayloadArgs) ToTopicRulePayloadOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePayloadOutput)
 }
 
-func (i TopicRulePayloadArgs) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
-	return i.ToTopicRulePayloadPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRulePayloadArgs) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePayloadOutput).ToTopicRulePayloadPtrOutputWithContext(ctx)
-}
-
-// TopicRulePayloadPtrInput is an input type that accepts TopicRulePayloadArgs, TopicRulePayloadPtr and TopicRulePayloadPtrOutput values.
-// You can construct a concrete instance of `TopicRulePayloadPtrInput` via:
-//
-//          TopicRulePayloadArgs{...}
-//
-//  or:
-//
-//          nil
-type TopicRulePayloadPtrInput interface {
-	pulumi.Input
-
-	ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput
-	ToTopicRulePayloadPtrOutputWithContext(context.Context) TopicRulePayloadPtrOutput
-}
-
-type topicRulePayloadPtrType TopicRulePayloadArgs
-
-func TopicRulePayloadPtr(v *TopicRulePayloadArgs) TopicRulePayloadPtrInput {
-	return (*topicRulePayloadPtrType)(v)
-}
-
-func (*topicRulePayloadPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRulePayload)(nil)).Elem()
-}
-
-func (i *topicRulePayloadPtrType) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
-	return i.ToTopicRulePayloadPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRulePayloadPtrType) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePayloadPtrOutput)
-}
-
 type TopicRulePayloadOutput struct{ *pulumi.OutputState }
 
 func (TopicRulePayloadOutput) ElementType() reflect.Type {
@@ -10116,16 +9691,6 @@ func (o TopicRulePayloadOutput) ToTopicRulePayloadOutput() TopicRulePayloadOutpu
 
 func (o TopicRulePayloadOutput) ToTopicRulePayloadOutputWithContext(ctx context.Context) TopicRulePayloadOutput {
 	return o
-}
-
-func (o TopicRulePayloadOutput) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
-	return o.ToTopicRulePayloadPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRulePayloadOutput) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRulePayload) *TopicRulePayload {
-		return &v
-	}).(TopicRulePayloadPtrOutput)
 }
 
 func (o TopicRulePayloadOutput) Actions() TopicRuleActionArrayOutput {
@@ -10150,84 +9715,6 @@ func (o TopicRulePayloadOutput) RuleDisabled() pulumi.BoolPtrOutput {
 
 func (o TopicRulePayloadOutput) Sql() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRulePayload) string { return v.Sql }).(pulumi.StringOutput)
-}
-
-type TopicRulePayloadPtrOutput struct{ *pulumi.OutputState }
-
-func (TopicRulePayloadPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRulePayload)(nil)).Elem()
-}
-
-func (o TopicRulePayloadPtrOutput) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
-	return o
-}
-
-func (o TopicRulePayloadPtrOutput) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
-	return o
-}
-
-func (o TopicRulePayloadPtrOutput) Elem() TopicRulePayloadOutput {
-	return o.ApplyT(func(v *TopicRulePayload) TopicRulePayload {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRulePayload
-		return ret
-	}).(TopicRulePayloadOutput)
-}
-
-func (o TopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput {
-	return o.ApplyT(func(v *TopicRulePayload) []TopicRuleAction {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(TopicRuleActionArrayOutput)
-}
-
-func (o TopicRulePayloadPtrOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRulePayload) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AwsIotSqlVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRulePayload) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutput {
-	return o.ApplyT(func(v *TopicRulePayload) *TopicRuleAction {
-		if v == nil {
-			return nil
-		}
-		return v.ErrorAction
-	}).(TopicRuleActionPtrOutput)
-}
-
-func (o TopicRulePayloadPtrOutput) RuleDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TopicRulePayload) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RuleDisabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o TopicRulePayloadPtrOutput) Sql() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRulePayload) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Sql
-	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRulePutAssetPropertyValueEntry struct {
@@ -12036,7 +11523,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditCheckConfigurationInput)(nil)).Elem(), AccountAuditConfigurationAuditCheckConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditCheckConfigurationPtrInput)(nil)).Elem(), AccountAuditConfigurationAuditCheckConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditCheckConfigurationsInput)(nil)).Elem(), AccountAuditConfigurationAuditCheckConfigurationsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditCheckConfigurationsPtrInput)(nil)).Elem(), AccountAuditConfigurationAuditCheckConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditNotificationTargetInput)(nil)).Elem(), AccountAuditConfigurationAuditNotificationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditNotificationTargetPtrInput)(nil)).Elem(), AccountAuditConfigurationAuditNotificationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditNotificationTargetConfigurationsInput)(nil)).Elem(), AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs{})
@@ -12049,8 +11535,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTagArrayInput)(nil)).Elem(), DimensionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigPtrInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServerCertificateSummaryInput)(nil)).Elem(), DomainConfigurationServerCertificateSummaryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServerCertificateSummaryArrayInput)(nil)).Elem(), DomainConfigurationServerCertificateSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTagInput)(nil)).Elem(), DomainConfigurationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTagArrayInput)(nil)).Elem(), DomainConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricAggregationTypeInput)(nil)).Elem(), FleetMetricAggregationTypeArgs{})
@@ -12072,7 +11556,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTagInput)(nil)).Elem(), JobTemplateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTagArrayInput)(nil)).Elem(), JobTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionActionParamsInput)(nil)).Elem(), MitigationActionActionParamsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionActionParamsPtrInput)(nil)).Elem(), MitigationActionActionParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionAddThingsToThingGroupParamsInput)(nil)).Elem(), MitigationActionAddThingsToThingGroupParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionAddThingsToThingGroupParamsPtrInput)(nil)).Elem(), MitigationActionAddThingsToThingGroupParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsArgs{})
@@ -12161,7 +11644,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleOpenSearchActionInput)(nil)).Elem(), TopicRuleOpenSearchActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleOpenSearchActionPtrInput)(nil)).Elem(), TopicRuleOpenSearchActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePayloadInput)(nil)).Elem(), TopicRulePayloadArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePayloadPtrInput)(nil)).Elem(), TopicRulePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePutAssetPropertyValueEntryInput)(nil)).Elem(), TopicRulePutAssetPropertyValueEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePutAssetPropertyValueEntryArrayInput)(nil)).Elem(), TopicRulePutAssetPropertyValueEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePutItemInputInput)(nil)).Elem(), TopicRulePutItemInputArgs{})
@@ -12191,7 +11673,6 @@ func init() {
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationsOutput{})
-	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationsPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput{})
@@ -12227,7 +11708,6 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateTagOutput{})
 	pulumi.RegisterOutputType(JobTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsOutput{})
-	pulumi.RegisterOutputType(MitigationActionActionParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionAddThingsToThingGroupParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionAddThingsToThingGroupParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsOutput{})
@@ -12316,7 +11796,6 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleOpenSearchActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleOpenSearchActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRulePayloadOutput{})
-	pulumi.RegisterOutputType(TopicRulePayloadPtrOutput{})
 	pulumi.RegisterOutputType(TopicRulePutAssetPropertyValueEntryOutput{})
 	pulumi.RegisterOutputType(TopicRulePutAssetPropertyValueEntryArrayOutput{})
 	pulumi.RegisterOutputType(TopicRulePutItemInputOutput{})

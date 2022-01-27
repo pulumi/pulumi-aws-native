@@ -58,33 +58,31 @@ export class Rule extends pulumi.CustomResource {
     /** @deprecated Rule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: RuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Rule is deprecated: Rule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventBusName"] = args ? args.eventBusName : undefined;
-            inputs["eventPattern"] = args ? args.eventPattern : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
+            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["eventBusName"] = undefined /*out*/;
-            inputs["eventPattern"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["scheduleExpression"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["targets"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["eventBusName"] = undefined /*out*/;
+            resourceInputs["eventPattern"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["scheduleExpression"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["targets"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Rule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

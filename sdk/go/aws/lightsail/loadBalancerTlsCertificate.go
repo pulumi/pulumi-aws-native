@@ -116,7 +116,7 @@ type LoadBalancerTlsCertificateInput interface {
 }
 
 func (*LoadBalancerTlsCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerTlsCertificate)(nil))
+	return reflect.TypeOf((**LoadBalancerTlsCertificate)(nil)).Elem()
 }
 
 func (i *LoadBalancerTlsCertificate) ToLoadBalancerTlsCertificateOutput() LoadBalancerTlsCertificateOutput {
@@ -130,7 +130,7 @@ func (i *LoadBalancerTlsCertificate) ToLoadBalancerTlsCertificateOutputWithConte
 type LoadBalancerTlsCertificateOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerTlsCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerTlsCertificate)(nil))
+	return reflect.TypeOf((**LoadBalancerTlsCertificate)(nil)).Elem()
 }
 
 func (o LoadBalancerTlsCertificateOutput) ToLoadBalancerTlsCertificateOutput() LoadBalancerTlsCertificateOutput {

@@ -52,7 +52,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
     /** @deprecated UserPoolDomain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserPoolDomainArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserPoolDomain is deprecated: UserPoolDomain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domain === undefined) && !opts.urn) {
@@ -61,18 +61,16 @@ export class UserPoolDomain extends pulumi.CustomResource {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["customDomainConfig"] = args ? args.customDomainConfig : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["customDomainConfig"] = args ? args.customDomainConfig : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         } else {
-            inputs["customDomainConfig"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["userPoolId"] = undefined /*out*/;
+            resourceInputs["customDomainConfig"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["userPoolId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPoolDomain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPoolDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

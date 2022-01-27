@@ -88,7 +88,7 @@ type DeviceDefinitionVersionInput interface {
 }
 
 func (*DeviceDefinitionVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceDefinitionVersion)(nil))
+	return reflect.TypeOf((**DeviceDefinitionVersion)(nil)).Elem()
 }
 
 func (i *DeviceDefinitionVersion) ToDeviceDefinitionVersionOutput() DeviceDefinitionVersionOutput {
@@ -102,7 +102,7 @@ func (i *DeviceDefinitionVersion) ToDeviceDefinitionVersionOutputWithContext(ctx
 type DeviceDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (DeviceDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceDefinitionVersion)(nil))
+	return reflect.TypeOf((**DeviceDefinitionVersion)(nil)).Elem()
 }
 
 func (o DeviceDefinitionVersionOutput) ToDeviceDefinitionVersionOutput() DeviceDefinitionVersionOutput {

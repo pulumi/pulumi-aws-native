@@ -106,7 +106,7 @@ type GatewayRouteInput interface {
 }
 
 func (*GatewayRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRoute)(nil))
+	return reflect.TypeOf((**GatewayRoute)(nil)).Elem()
 }
 
 func (i *GatewayRoute) ToGatewayRouteOutput() GatewayRouteOutput {
@@ -120,7 +120,7 @@ func (i *GatewayRoute) ToGatewayRouteOutputWithContext(ctx context.Context) Gate
 type GatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRoute)(nil))
+	return reflect.TypeOf((**GatewayRoute)(nil)).Elem()
 }
 
 func (o GatewayRouteOutput) ToGatewayRouteOutput() GatewayRouteOutput {

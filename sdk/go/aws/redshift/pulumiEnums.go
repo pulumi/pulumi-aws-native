@@ -564,42 +564,6 @@ const (
 	EventSubscriptionStatusTopicNotExist = EventSubscriptionStatus("topic-not-exist")
 )
 
-func (EventSubscriptionStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionStatus)(nil)).Elem()
-}
-
-func (e EventSubscriptionStatus) ToEventSubscriptionStatusOutput() EventSubscriptionStatusOutput {
-	return pulumi.ToOutput(e).(EventSubscriptionStatusOutput)
-}
-
-func (e EventSubscriptionStatus) ToEventSubscriptionStatusOutputWithContext(ctx context.Context) EventSubscriptionStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EventSubscriptionStatusOutput)
-}
-
-func (e EventSubscriptionStatus) ToEventSubscriptionStatusPtrOutput() EventSubscriptionStatusPtrOutput {
-	return e.ToEventSubscriptionStatusPtrOutputWithContext(context.Background())
-}
-
-func (e EventSubscriptionStatus) ToEventSubscriptionStatusPtrOutputWithContext(ctx context.Context) EventSubscriptionStatusPtrOutput {
-	return EventSubscriptionStatus(e).ToEventSubscriptionStatusOutputWithContext(ctx).ToEventSubscriptionStatusPtrOutputWithContext(ctx)
-}
-
-func (e EventSubscriptionStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EventSubscriptionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EventSubscriptionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e EventSubscriptionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type EventSubscriptionStatusOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStatusOutput) ElementType() reflect.Type {
@@ -683,44 +647,6 @@ func (o EventSubscriptionStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventSubscriptionStatusInput is an input type that accepts EventSubscriptionStatusArgs and EventSubscriptionStatusOutput values.
-// You can construct a concrete instance of `EventSubscriptionStatusInput` via:
-//
-//          EventSubscriptionStatusArgs{...}
-type EventSubscriptionStatusInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionStatusOutput() EventSubscriptionStatusOutput
-	ToEventSubscriptionStatusOutputWithContext(context.Context) EventSubscriptionStatusOutput
-}
-
-var eventSubscriptionStatusPtrType = reflect.TypeOf((**EventSubscriptionStatus)(nil)).Elem()
-
-type EventSubscriptionStatusPtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionStatusPtrOutput() EventSubscriptionStatusPtrOutput
-	ToEventSubscriptionStatusPtrOutputWithContext(context.Context) EventSubscriptionStatusPtrOutput
-}
-
-type eventSubscriptionStatusPtr string
-
-func EventSubscriptionStatusPtr(v string) EventSubscriptionStatusPtrInput {
-	return (*eventSubscriptionStatusPtr)(&v)
-}
-
-func (*eventSubscriptionStatusPtr) ElementType() reflect.Type {
-	return eventSubscriptionStatusPtrType
-}
-
-func (in *eventSubscriptionStatusPtr) ToEventSubscriptionStatusPtrOutput() EventSubscriptionStatusPtrOutput {
-	return pulumi.ToOutput(in).(EventSubscriptionStatusPtrOutput)
-}
-
-func (in *eventSubscriptionStatusPtr) ToEventSubscriptionStatusPtrOutputWithContext(ctx context.Context) EventSubscriptionStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionStatusPtrOutput)
-}
-
 // The state of the scheduled action.
 type ScheduledActionStateEnum string
 
@@ -728,42 +654,6 @@ const (
 	ScheduledActionStateEnumActive   = ScheduledActionStateEnum("ACTIVE")
 	ScheduledActionStateEnumDisabled = ScheduledActionStateEnum("DISABLED")
 )
-
-func (ScheduledActionStateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledActionStateEnum)(nil)).Elem()
-}
-
-func (e ScheduledActionStateEnum) ToScheduledActionStateEnumOutput() ScheduledActionStateEnumOutput {
-	return pulumi.ToOutput(e).(ScheduledActionStateEnumOutput)
-}
-
-func (e ScheduledActionStateEnum) ToScheduledActionStateEnumOutputWithContext(ctx context.Context) ScheduledActionStateEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScheduledActionStateEnumOutput)
-}
-
-func (e ScheduledActionStateEnum) ToScheduledActionStateEnumPtrOutput() ScheduledActionStateEnumPtrOutput {
-	return e.ToScheduledActionStateEnumPtrOutputWithContext(context.Background())
-}
-
-func (e ScheduledActionStateEnum) ToScheduledActionStateEnumPtrOutputWithContext(ctx context.Context) ScheduledActionStateEnumPtrOutput {
-	return ScheduledActionStateEnum(e).ToScheduledActionStateEnumOutputWithContext(ctx).ToScheduledActionStateEnumPtrOutputWithContext(ctx)
-}
-
-func (e ScheduledActionStateEnum) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScheduledActionStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScheduledActionStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ScheduledActionStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type ScheduledActionStateEnumOutput struct{ *pulumi.OutputState }
 
@@ -848,44 +738,6 @@ func (o ScheduledActionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduledActionStateEnumInput is an input type that accepts ScheduledActionStateEnumArgs and ScheduledActionStateEnumOutput values.
-// You can construct a concrete instance of `ScheduledActionStateEnumInput` via:
-//
-//          ScheduledActionStateEnumArgs{...}
-type ScheduledActionStateEnumInput interface {
-	pulumi.Input
-
-	ToScheduledActionStateEnumOutput() ScheduledActionStateEnumOutput
-	ToScheduledActionStateEnumOutputWithContext(context.Context) ScheduledActionStateEnumOutput
-}
-
-var scheduledActionStateEnumPtrType = reflect.TypeOf((**ScheduledActionStateEnum)(nil)).Elem()
-
-type ScheduledActionStateEnumPtrInput interface {
-	pulumi.Input
-
-	ToScheduledActionStateEnumPtrOutput() ScheduledActionStateEnumPtrOutput
-	ToScheduledActionStateEnumPtrOutputWithContext(context.Context) ScheduledActionStateEnumPtrOutput
-}
-
-type scheduledActionStateEnumPtr string
-
-func ScheduledActionStateEnumPtr(v string) ScheduledActionStateEnumPtrInput {
-	return (*scheduledActionStateEnumPtr)(&v)
-}
-
-func (*scheduledActionStateEnumPtr) ElementType() reflect.Type {
-	return scheduledActionStateEnumPtrType
-}
-
-func (in *scheduledActionStateEnumPtr) ToScheduledActionStateEnumPtrOutput() ScheduledActionStateEnumPtrOutput {
-	return pulumi.ToOutput(in).(ScheduledActionStateEnumPtrOutput)
-}
-
-func (in *scheduledActionStateEnumPtr) ToScheduledActionStateEnumPtrOutputWithContext(ctx context.Context) ScheduledActionStateEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScheduledActionStateEnumPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionEventCategoriesItemInput)(nil)).Elem(), EventSubscriptionEventCategoriesItem("configuration"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionEventCategoriesItemPtrInput)(nil)).Elem(), EventSubscriptionEventCategoriesItem("configuration"))
@@ -894,10 +746,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSeverityPtrInput)(nil)).Elem(), EventSubscriptionSeverity("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSourceTypeInput)(nil)).Elem(), EventSubscriptionSourceType("cluster"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSourceTypePtrInput)(nil)).Elem(), EventSubscriptionSourceType("cluster"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionStatusInput)(nil)).Elem(), EventSubscriptionStatus("active"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionStatusPtrInput)(nil)).Elem(), EventSubscriptionStatus("active"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionStateEnumInput)(nil)).Elem(), ScheduledActionStateEnum("ACTIVE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionStateEnumPtrInput)(nil)).Elem(), ScheduledActionStateEnum("ACTIVE"))
 	pulumi.RegisterOutputType(EventSubscriptionEventCategoriesItemOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventCategoriesItemPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventCategoriesItemArrayOutput{})

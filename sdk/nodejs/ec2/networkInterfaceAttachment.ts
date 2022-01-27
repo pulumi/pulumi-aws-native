@@ -52,7 +52,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /** @deprecated NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NetworkInterfaceAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NetworkInterfaceAttachment is deprecated: NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceIndex === undefined) && !opts.urn) {
@@ -64,20 +64,18 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            inputs["deleteOnTermination"] = args ? args.deleteOnTermination : undefined;
-            inputs["deviceIndex"] = args ? args.deviceIndex : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["deleteOnTermination"] = args ? args.deleteOnTermination : undefined;
+            resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         } else {
-            inputs["deleteOnTermination"] = undefined /*out*/;
-            inputs["deviceIndex"] = undefined /*out*/;
-            inputs["instanceId"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["deleteOnTermination"] = undefined /*out*/;
+            resourceInputs["deviceIndex"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInterfaceAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInterfaceAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

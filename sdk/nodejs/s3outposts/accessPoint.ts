@@ -64,7 +64,7 @@ export class AccessPoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -73,22 +73,20 @@ export class AccessPoint extends pulumi.CustomResource {
             if ((!args || args.vpcConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfiguration'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["bucket"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policy"] = undefined /*out*/;
-            inputs["vpcConfiguration"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bucket"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["vpcConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccessPoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

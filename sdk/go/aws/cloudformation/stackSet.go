@@ -166,7 +166,7 @@ type StackSetInput interface {
 }
 
 func (*StackSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSet)(nil))
+	return reflect.TypeOf((**StackSet)(nil)).Elem()
 }
 
 func (i *StackSet) ToStackSetOutput() StackSetOutput {
@@ -180,7 +180,7 @@ func (i *StackSet) ToStackSetOutputWithContext(ctx context.Context) StackSetOutp
 type StackSetOutput struct{ *pulumi.OutputState }
 
 func (StackSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackSet)(nil))
+	return reflect.TypeOf((**StackSet)(nil)).Elem()
 }
 
 func (o StackSetOutput) ToStackSetOutput() StackSetOutput {

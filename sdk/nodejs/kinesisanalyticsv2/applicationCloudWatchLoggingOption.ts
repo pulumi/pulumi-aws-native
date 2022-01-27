@@ -51,7 +51,7 @@ export class ApplicationCloudWatchLoggingOption extends pulumi.CustomResource {
     /** @deprecated ApplicationCloudWatchLoggingOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApplicationCloudWatchLoggingOptionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApplicationCloudWatchLoggingOption is deprecated: ApplicationCloudWatchLoggingOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class ApplicationCloudWatchLoggingOption extends pulumi.CustomResource {
             if ((!args || args.cloudWatchLoggingOption === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cloudWatchLoggingOption'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["cloudWatchLoggingOption"] = args ? args.cloudWatchLoggingOption : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["cloudWatchLoggingOption"] = args ? args.cloudWatchLoggingOption : undefined;
         } else {
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["cloudWatchLoggingOption"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["cloudWatchLoggingOption"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationCloudWatchLoggingOption.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationCloudWatchLoggingOption.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -55,7 +55,7 @@ export class NotificationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NotificationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.detailType === undefined) && !opts.urn) {
@@ -70,34 +70,32 @@ export class NotificationRule extends pulumi.CustomResource {
             if ((!args || args.targets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            inputs["createdBy"] = args ? args.createdBy : undefined;
-            inputs["detailType"] = args ? args.detailType : undefined;
-            inputs["eventTypeId"] = args ? args.eventTypeId : undefined;
-            inputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetAddress"] = args ? args.targetAddress : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["detailType"] = args ? args.detailType : undefined;
+            resourceInputs["eventTypeId"] = args ? args.eventTypeId : undefined;
+            resourceInputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetAddress"] = args ? args.targetAddress : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["detailType"] = undefined /*out*/;
-            inputs["eventTypeId"] = undefined /*out*/;
-            inputs["eventTypeIds"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resource"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetAddress"] = undefined /*out*/;
-            inputs["targets"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["detailType"] = undefined /*out*/;
+            resourceInputs["eventTypeId"] = undefined /*out*/;
+            resourceInputs["eventTypeIds"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resource"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetAddress"] = undefined /*out*/;
+            resourceInputs["targets"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NotificationRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NotificationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

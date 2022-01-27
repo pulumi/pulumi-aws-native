@@ -68,27 +68,25 @@ export class ContactChannel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ContactChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["channelAddress"] = args ? args.channelAddress : undefined;
-            inputs["channelName"] = args ? args.channelName : undefined;
-            inputs["channelType"] = args ? args.channelType : undefined;
-            inputs["contactId"] = args ? args.contactId : undefined;
-            inputs["deferActivation"] = args ? args.deferActivation : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["channelAddress"] = args ? args.channelAddress : undefined;
+            resourceInputs["channelName"] = args ? args.channelName : undefined;
+            resourceInputs["channelType"] = args ? args.channelType : undefined;
+            resourceInputs["contactId"] = args ? args.contactId : undefined;
+            resourceInputs["deferActivation"] = args ? args.deferActivation : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["channelAddress"] = undefined /*out*/;
-            inputs["channelName"] = undefined /*out*/;
-            inputs["channelType"] = undefined /*out*/;
-            inputs["contactId"] = undefined /*out*/;
-            inputs["deferActivation"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["channelAddress"] = undefined /*out*/;
+            resourceInputs["channelName"] = undefined /*out*/;
+            resourceInputs["channelType"] = undefined /*out*/;
+            resourceInputs["contactId"] = undefined /*out*/;
+            resourceInputs["deferActivation"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ContactChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ContactChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

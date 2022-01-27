@@ -86,7 +86,7 @@ type ConnectionAliasInput interface {
 }
 
 func (*ConnectionAlias) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAlias)(nil))
+	return reflect.TypeOf((**ConnectionAlias)(nil)).Elem()
 }
 
 func (i *ConnectionAlias) ToConnectionAliasOutput() ConnectionAliasOutput {
@@ -100,7 +100,7 @@ func (i *ConnectionAlias) ToConnectionAliasOutputWithContext(ctx context.Context
 type ConnectionAliasOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAlias)(nil))
+	return reflect.TypeOf((**ConnectionAlias)(nil)).Elem()
 }
 
 func (o ConnectionAliasOutput) ToConnectionAliasOutput() ConnectionAliasOutput {

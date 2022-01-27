@@ -7756,47 +7756,6 @@ func (i DataPrivacyPropertiesArgs) ToDataPrivacyPropertiesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataPrivacyPropertiesOutput)
 }
 
-func (i DataPrivacyPropertiesArgs) ToDataPrivacyPropertiesPtrOutput() DataPrivacyPropertiesPtrOutput {
-	return i.ToDataPrivacyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DataPrivacyPropertiesArgs) ToDataPrivacyPropertiesPtrOutputWithContext(ctx context.Context) DataPrivacyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataPrivacyPropertiesOutput).ToDataPrivacyPropertiesPtrOutputWithContext(ctx)
-}
-
-// DataPrivacyPropertiesPtrInput is an input type that accepts DataPrivacyPropertiesArgs, DataPrivacyPropertiesPtr and DataPrivacyPropertiesPtrOutput values.
-// You can construct a concrete instance of `DataPrivacyPropertiesPtrInput` via:
-//
-//          DataPrivacyPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DataPrivacyPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDataPrivacyPropertiesPtrOutput() DataPrivacyPropertiesPtrOutput
-	ToDataPrivacyPropertiesPtrOutputWithContext(context.Context) DataPrivacyPropertiesPtrOutput
-}
-
-type dataPrivacyPropertiesPtrType DataPrivacyPropertiesArgs
-
-func DataPrivacyPropertiesPtr(v *DataPrivacyPropertiesArgs) DataPrivacyPropertiesPtrInput {
-	return (*dataPrivacyPropertiesPtrType)(v)
-}
-
-func (*dataPrivacyPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataPrivacyProperties)(nil)).Elem()
-}
-
-func (i *dataPrivacyPropertiesPtrType) ToDataPrivacyPropertiesPtrOutput() DataPrivacyPropertiesPtrOutput {
-	return i.ToDataPrivacyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *dataPrivacyPropertiesPtrType) ToDataPrivacyPropertiesPtrOutputWithContext(ctx context.Context) DataPrivacyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataPrivacyPropertiesPtrOutput)
-}
-
 // Data privacy setting of the Bot.
 type DataPrivacyPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -7812,51 +7771,8 @@ func (o DataPrivacyPropertiesOutput) ToDataPrivacyPropertiesOutputWithContext(ct
 	return o
 }
 
-func (o DataPrivacyPropertiesOutput) ToDataPrivacyPropertiesPtrOutput() DataPrivacyPropertiesPtrOutput {
-	return o.ToDataPrivacyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DataPrivacyPropertiesOutput) ToDataPrivacyPropertiesPtrOutputWithContext(ctx context.Context) DataPrivacyPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataPrivacyProperties) *DataPrivacyProperties {
-		return &v
-	}).(DataPrivacyPropertiesPtrOutput)
-}
-
 func (o DataPrivacyPropertiesOutput) ChildDirected() pulumi.BoolOutput {
 	return o.ApplyT(func(v DataPrivacyProperties) bool { return v.ChildDirected }).(pulumi.BoolOutput)
-}
-
-type DataPrivacyPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DataPrivacyPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataPrivacyProperties)(nil)).Elem()
-}
-
-func (o DataPrivacyPropertiesPtrOutput) ToDataPrivacyPropertiesPtrOutput() DataPrivacyPropertiesPtrOutput {
-	return o
-}
-
-func (o DataPrivacyPropertiesPtrOutput) ToDataPrivacyPropertiesPtrOutputWithContext(ctx context.Context) DataPrivacyPropertiesPtrOutput {
-	return o
-}
-
-func (o DataPrivacyPropertiesPtrOutput) Elem() DataPrivacyPropertiesOutput {
-	return o.ApplyT(func(v *DataPrivacyProperties) DataPrivacyProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DataPrivacyProperties
-		return ret
-	}).(DataPrivacyPropertiesOutput)
-}
-
-func (o DataPrivacyPropertiesPtrOutput) ChildDirected() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DataPrivacyProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.ChildDirected
-	}).(pulumi.BoolPtrOutput)
 }
 
 // A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
@@ -7890,47 +7806,6 @@ func (i ResourcePolicyPolicyArgs) ToResourcePolicyPolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyPolicyOutput)
 }
 
-func (i ResourcePolicyPolicyArgs) ToResourcePolicyPolicyPtrOutput() ResourcePolicyPolicyPtrOutput {
-	return i.ToResourcePolicyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ResourcePolicyPolicyArgs) ToResourcePolicyPolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyPolicyOutput).ToResourcePolicyPolicyPtrOutputWithContext(ctx)
-}
-
-// ResourcePolicyPolicyPtrInput is an input type that accepts ResourcePolicyPolicyArgs, ResourcePolicyPolicyPtr and ResourcePolicyPolicyPtrOutput values.
-// You can construct a concrete instance of `ResourcePolicyPolicyPtrInput` via:
-//
-//          ResourcePolicyPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourcePolicyPolicyPtrInput interface {
-	pulumi.Input
-
-	ToResourcePolicyPolicyPtrOutput() ResourcePolicyPolicyPtrOutput
-	ToResourcePolicyPolicyPtrOutputWithContext(context.Context) ResourcePolicyPolicyPtrOutput
-}
-
-type resourcePolicyPolicyPtrType ResourcePolicyPolicyArgs
-
-func ResourcePolicyPolicyPtr(v *ResourcePolicyPolicyArgs) ResourcePolicyPolicyPtrInput {
-	return (*resourcePolicyPolicyPtrType)(v)
-}
-
-func (*resourcePolicyPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourcePolicyPolicy)(nil)).Elem()
-}
-
-func (i *resourcePolicyPolicyPtrType) ToResourcePolicyPolicyPtrOutput() ResourcePolicyPolicyPtrOutput {
-	return i.ToResourcePolicyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *resourcePolicyPolicyPtrType) ToResourcePolicyPolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyPolicyPtrOutput)
-}
-
 // A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
 type ResourcePolicyPolicyOutput struct{ *pulumi.OutputState }
 
@@ -7944,40 +7819,6 @@ func (o ResourcePolicyPolicyOutput) ToResourcePolicyPolicyOutput() ResourcePolic
 
 func (o ResourcePolicyPolicyOutput) ToResourcePolicyPolicyOutputWithContext(ctx context.Context) ResourcePolicyPolicyOutput {
 	return o
-}
-
-func (o ResourcePolicyPolicyOutput) ToResourcePolicyPolicyPtrOutput() ResourcePolicyPolicyPtrOutput {
-	return o.ToResourcePolicyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ResourcePolicyPolicyOutput) ToResourcePolicyPolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcePolicyPolicy) *ResourcePolicyPolicy {
-		return &v
-	}).(ResourcePolicyPolicyPtrOutput)
-}
-
-type ResourcePolicyPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourcePolicyPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourcePolicyPolicy)(nil)).Elem()
-}
-
-func (o ResourcePolicyPolicyPtrOutput) ToResourcePolicyPolicyPtrOutput() ResourcePolicyPolicyPtrOutput {
-	return o
-}
-
-func (o ResourcePolicyPolicyPtrOutput) ToResourcePolicyPolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPolicyPtrOutput {
-	return o
-}
-
-func (o ResourcePolicyPolicyPtrOutput) Elem() ResourcePolicyPolicyOutput {
-	return o.ApplyT(func(v *ResourcePolicyPolicy) ResourcePolicyPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ResourcePolicyPolicy
-		return ret
-	}).(ResourcePolicyPolicyOutput)
 }
 
 // Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
@@ -8232,9 +8073,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotWaitAndContinueSpecificationInput)(nil)).Elem(), BotWaitAndContinueSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotWaitAndContinueSpecificationPtrInput)(nil)).Elem(), BotWaitAndContinueSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataPrivacyPropertiesInput)(nil)).Elem(), DataPrivacyPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataPrivacyPropertiesPtrInput)(nil)).Elem(), DataPrivacyPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyPolicyInput)(nil)).Elem(), ResourcePolicyPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyPolicyPtrInput)(nil)).Elem(), ResourcePolicyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SentimentAnalysisSettingsPropertiesInput)(nil)).Elem(), SentimentAnalysisSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SentimentAnalysisSettingsPropertiesPtrInput)(nil)).Elem(), SentimentAnalysisSettingsPropertiesArgs{})
 	pulumi.RegisterOutputType(BotAliasAudioLogDestinationOutput{})
@@ -8348,9 +8187,7 @@ func init() {
 	pulumi.RegisterOutputType(BotWaitAndContinueSpecificationOutput{})
 	pulumi.RegisterOutputType(BotWaitAndContinueSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(DataPrivacyPropertiesOutput{})
-	pulumi.RegisterOutputType(DataPrivacyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyPolicyOutput{})
-	pulumi.RegisterOutputType(ResourcePolicyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SentimentAnalysisSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(SentimentAnalysisSettingsPropertiesPtrOutput{})
 }

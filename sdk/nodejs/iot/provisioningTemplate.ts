@@ -52,7 +52,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProvisioningTemplateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.provisioningRoleArn === undefined) && !opts.urn) {
@@ -61,28 +61,26 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             if ((!args || args.templateBody === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateBody'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["preProvisioningHook"] = args ? args.preProvisioningHook : undefined;
-            inputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateBody"] = args ? args.templateBody : undefined;
-            inputs["templateName"] = args ? args.templateName : undefined;
-            inputs["templateArn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["preProvisioningHook"] = args ? args.preProvisioningHook : undefined;
+            resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["templateArn"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["preProvisioningHook"] = undefined /*out*/;
-            inputs["provisioningRoleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateArn"] = undefined /*out*/;
-            inputs["templateBody"] = undefined /*out*/;
-            inputs["templateName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["preProvisioningHook"] = undefined /*out*/;
+            resourceInputs["provisioningRoleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateArn"] = undefined /*out*/;
+            resourceInputs["templateBody"] = undefined /*out*/;
+            resourceInputs["templateName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProvisioningTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProvisioningTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

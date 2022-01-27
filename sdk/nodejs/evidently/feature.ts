@@ -56,7 +56,7 @@ export class Feature extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FeatureArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.project === undefined) && !opts.urn) {
@@ -65,30 +65,28 @@ export class Feature extends pulumi.CustomResource {
             if ((!args || args.variations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'variations'");
             }
-            inputs["defaultVariation"] = args ? args.defaultVariation : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["entityOverrides"] = args ? args.entityOverrides : undefined;
-            inputs["evaluationStrategy"] = args ? args.evaluationStrategy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["project"] = args ? args.project : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["variations"] = args ? args.variations : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultVariation"] = args ? args.defaultVariation : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["entityOverrides"] = args ? args.entityOverrides : undefined;
+            resourceInputs["evaluationStrategy"] = args ? args.evaluationStrategy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["project"] = args ? args.project : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["variations"] = args ? args.variations : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultVariation"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["entityOverrides"] = undefined /*out*/;
-            inputs["evaluationStrategy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["project"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["variations"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultVariation"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["entityOverrides"] = undefined /*out*/;
+            resourceInputs["evaluationStrategy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["project"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["variations"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Feature.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Feature.__pulumiType, name, resourceInputs, opts);
     }
 }
 

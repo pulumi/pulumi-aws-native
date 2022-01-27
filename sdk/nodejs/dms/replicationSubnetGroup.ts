@@ -53,7 +53,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     /** @deprecated ReplicationSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ReplicationSubnetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReplicationSubnetGroup is deprecated: ReplicationSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.replicationSubnetGroupDescription === undefined) && !opts.urn) {
@@ -62,20 +62,18 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["replicationSubnetGroupDescription"] = args ? args.replicationSubnetGroupDescription : undefined;
-            inputs["replicationSubnetGroupIdentifier"] = args ? args.replicationSubnetGroupIdentifier : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["replicationSubnetGroupDescription"] = args ? args.replicationSubnetGroupDescription : undefined;
+            resourceInputs["replicationSubnetGroupIdentifier"] = args ? args.replicationSubnetGroupIdentifier : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["replicationSubnetGroupDescription"] = undefined /*out*/;
-            inputs["replicationSubnetGroupIdentifier"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["replicationSubnetGroupDescription"] = undefined /*out*/;
+            resourceInputs["replicationSubnetGroupIdentifier"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicationSubnetGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicationSubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

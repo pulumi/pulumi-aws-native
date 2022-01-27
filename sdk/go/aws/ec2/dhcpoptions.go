@@ -110,7 +110,7 @@ type DHCPOptionsInput interface {
 }
 
 func (*DHCPOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*DHCPOptions)(nil))
+	return reflect.TypeOf((**DHCPOptions)(nil)).Elem()
 }
 
 func (i *DHCPOptions) ToDHCPOptionsOutput() DHCPOptionsOutput {
@@ -124,7 +124,7 @@ func (i *DHCPOptions) ToDHCPOptionsOutputWithContext(ctx context.Context) DHCPOp
 type DHCPOptionsOutput struct{ *pulumi.OutputState }
 
 func (DHCPOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DHCPOptions)(nil))
+	return reflect.TypeOf((**DHCPOptions)(nil)).Elem()
 }
 
 func (o DHCPOptionsOutput) ToDHCPOptionsOutput() DHCPOptionsOutput {

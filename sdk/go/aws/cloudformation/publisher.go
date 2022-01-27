@@ -97,7 +97,7 @@ type PublisherInput interface {
 }
 
 func (*Publisher) ElementType() reflect.Type {
-	return reflect.TypeOf((*Publisher)(nil))
+	return reflect.TypeOf((**Publisher)(nil)).Elem()
 }
 
 func (i *Publisher) ToPublisherOutput() PublisherOutput {
@@ -111,7 +111,7 @@ func (i *Publisher) ToPublisherOutputWithContext(ctx context.Context) PublisherO
 type PublisherOutput struct{ *pulumi.OutputState }
 
 func (PublisherOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Publisher)(nil))
+	return reflect.TypeOf((**Publisher)(nil)).Elem()
 }
 
 func (o PublisherOutput) ToPublisherOutput() PublisherOutput {

@@ -92,7 +92,7 @@ type TransitGatewayRegistrationInput interface {
 }
 
 func (*TransitGatewayRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRegistration)(nil))
+	return reflect.TypeOf((**TransitGatewayRegistration)(nil)).Elem()
 }
 
 func (i *TransitGatewayRegistration) ToTransitGatewayRegistrationOutput() TransitGatewayRegistrationOutput {
@@ -106,7 +106,7 @@ func (i *TransitGatewayRegistration) ToTransitGatewayRegistrationOutputWithConte
 type TransitGatewayRegistrationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRegistration)(nil))
+	return reflect.TypeOf((**TransitGatewayRegistration)(nil)).Elem()
 }
 
 func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutput() TransitGatewayRegistrationOutput {

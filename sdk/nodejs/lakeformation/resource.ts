@@ -51,7 +51,7 @@ export class Resource extends pulumi.CustomResource {
     /** @deprecated Resource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Resource is deprecated: Resource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceArn === undefined) && !opts.urn) {
@@ -60,18 +60,16 @@ export class Resource extends pulumi.CustomResource {
             if ((!args || args.useServiceLinkedRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'useServiceLinkedRole'");
             }
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
         } else {
-            inputs["resourceArn"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["useServiceLinkedRole"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["useServiceLinkedRole"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Resource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Resource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

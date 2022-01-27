@@ -136,7 +136,7 @@ type EndpointGroupInput interface {
 }
 
 func (*EndpointGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointGroup)(nil))
+	return reflect.TypeOf((**EndpointGroup)(nil)).Elem()
 }
 
 func (i *EndpointGroup) ToEndpointGroupOutput() EndpointGroupOutput {
@@ -150,7 +150,7 @@ func (i *EndpointGroup) ToEndpointGroupOutputWithContext(ctx context.Context) En
 type EndpointGroupOutput struct{ *pulumi.OutputState }
 
 func (EndpointGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointGroup)(nil))
+	return reflect.TypeOf((**EndpointGroup)(nil)).Elem()
 }
 
 func (o EndpointGroupOutput) ToEndpointGroupOutput() EndpointGroupOutput {

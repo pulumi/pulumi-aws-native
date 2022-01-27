@@ -66,7 +66,7 @@ export class LocationNFS extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocationNFSArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.onPremConfig === undefined) && !opts.urn) {
@@ -78,26 +78,24 @@ export class LocationNFS extends pulumi.CustomResource {
             if ((!args || args.subdirectory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
-            inputs["mountOptions"] = args ? args.mountOptions : undefined;
-            inputs["onPremConfig"] = args ? args.onPremConfig : undefined;
-            inputs["serverHostname"] = args ? args.serverHostname : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
+            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
+            resourceInputs["onPremConfig"] = args ? args.onPremConfig : undefined;
+            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
         } else {
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
-            inputs["mountOptions"] = undefined /*out*/;
-            inputs["onPremConfig"] = undefined /*out*/;
-            inputs["serverHostname"] = undefined /*out*/;
-            inputs["subdirectory"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["mountOptions"] = undefined /*out*/;
+            resourceInputs["onPremConfig"] = undefined /*out*/;
+            resourceInputs["serverHostname"] = undefined /*out*/;
+            resourceInputs["subdirectory"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationNFS.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationNFS.__pulumiType, name, resourceInputs, opts);
     }
 }
 

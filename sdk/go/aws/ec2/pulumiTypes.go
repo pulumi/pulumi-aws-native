@@ -1224,47 +1224,6 @@ func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsOutput)
 }
 
-func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
-	return i.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsOutput).ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx)
-}
-
-// ClientVpnEndpointConnectionLogOptionsPtrInput is an input type that accepts ClientVpnEndpointConnectionLogOptionsArgs, ClientVpnEndpointConnectionLogOptionsPtr and ClientVpnEndpointConnectionLogOptionsPtrOutput values.
-// You can construct a concrete instance of `ClientVpnEndpointConnectionLogOptionsPtrInput` via:
-//
-//          ClientVpnEndpointConnectionLogOptionsArgs{...}
-//
-//  or:
-//
-//          nil
-type ClientVpnEndpointConnectionLogOptionsPtrInput interface {
-	pulumi.Input
-
-	ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput
-	ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput
-}
-
-type clientVpnEndpointConnectionLogOptionsPtrType ClientVpnEndpointConnectionLogOptionsArgs
-
-func ClientVpnEndpointConnectionLogOptionsPtr(v *ClientVpnEndpointConnectionLogOptionsArgs) ClientVpnEndpointConnectionLogOptionsPtrInput {
-	return (*clientVpnEndpointConnectionLogOptionsPtrType)(v)
-}
-
-func (*clientVpnEndpointConnectionLogOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
-}
-
-func (i *clientVpnEndpointConnectionLogOptionsPtrType) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
-	return i.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *clientVpnEndpointConnectionLogOptionsPtrType) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsPtrOutput)
-}
-
 type ClientVpnEndpointConnectionLogOptionsOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnEndpointConnectionLogOptionsOutput) ElementType() reflect.Type {
@@ -1279,16 +1238,6 @@ func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnecti
 	return o
 }
 
-func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
-	return o.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointConnectionLogOptions) *ClientVpnEndpointConnectionLogOptions {
-		return &v
-	}).(ClientVpnEndpointConnectionLogOptionsPtrOutput)
-}
-
 func (o ClientVpnEndpointConnectionLogOptionsOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) *string { return v.CloudwatchLogGroup }).(pulumi.StringPtrOutput)
 }
@@ -1299,57 +1248,6 @@ func (o ClientVpnEndpointConnectionLogOptionsOutput) CloudwatchLogStream() pulum
 
 func (o ClientVpnEndpointConnectionLogOptionsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type ClientVpnEndpointConnectionLogOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (ClientVpnEndpointConnectionLogOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
-}
-
-func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
-	return o
-}
-
-func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
-	return o
-}
-
-func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Elem() ClientVpnEndpointConnectionLogOptionsOutput {
-	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) ClientVpnEndpointConnectionLogOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ClientVpnEndpointConnectionLogOptions
-		return ret
-	}).(ClientVpnEndpointConnectionLogOptionsOutput)
-}
-
-func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CloudwatchLogGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CloudwatchLogStream
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type ClientVpnEndpointDirectoryServiceAuthenticationRequest struct {
@@ -5301,47 +5199,6 @@ func (i EC2FleetTargetCapacitySpecificationRequestArgs) ToEC2FleetTargetCapacity
 	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTargetCapacitySpecificationRequestOutput)
 }
 
-func (i EC2FleetTargetCapacitySpecificationRequestArgs) ToEC2FleetTargetCapacitySpecificationRequestPtrOutput() EC2FleetTargetCapacitySpecificationRequestPtrOutput {
-	return i.ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(context.Background())
-}
-
-func (i EC2FleetTargetCapacitySpecificationRequestArgs) ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTargetCapacitySpecificationRequestOutput).ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(ctx)
-}
-
-// EC2FleetTargetCapacitySpecificationRequestPtrInput is an input type that accepts EC2FleetTargetCapacitySpecificationRequestArgs, EC2FleetTargetCapacitySpecificationRequestPtr and EC2FleetTargetCapacitySpecificationRequestPtrOutput values.
-// You can construct a concrete instance of `EC2FleetTargetCapacitySpecificationRequestPtrInput` via:
-//
-//          EC2FleetTargetCapacitySpecificationRequestArgs{...}
-//
-//  or:
-//
-//          nil
-type EC2FleetTargetCapacitySpecificationRequestPtrInput interface {
-	pulumi.Input
-
-	ToEC2FleetTargetCapacitySpecificationRequestPtrOutput() EC2FleetTargetCapacitySpecificationRequestPtrOutput
-	ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(context.Context) EC2FleetTargetCapacitySpecificationRequestPtrOutput
-}
-
-type ec2fleetTargetCapacitySpecificationRequestPtrType EC2FleetTargetCapacitySpecificationRequestArgs
-
-func EC2FleetTargetCapacitySpecificationRequestPtr(v *EC2FleetTargetCapacitySpecificationRequestArgs) EC2FleetTargetCapacitySpecificationRequestPtrInput {
-	return (*ec2fleetTargetCapacitySpecificationRequestPtrType)(v)
-}
-
-func (*ec2fleetTargetCapacitySpecificationRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
-}
-
-func (i *ec2fleetTargetCapacitySpecificationRequestPtrType) ToEC2FleetTargetCapacitySpecificationRequestPtrOutput() EC2FleetTargetCapacitySpecificationRequestPtrOutput {
-	return i.ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *ec2fleetTargetCapacitySpecificationRequestPtrType) ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetTargetCapacitySpecificationRequestPtrOutput)
-}
-
 type EC2FleetTargetCapacitySpecificationRequestOutput struct{ *pulumi.OutputState }
 
 func (EC2FleetTargetCapacitySpecificationRequestOutput) ElementType() reflect.Type {
@@ -5354,16 +5211,6 @@ func (o EC2FleetTargetCapacitySpecificationRequestOutput) ToEC2FleetTargetCapaci
 
 func (o EC2FleetTargetCapacitySpecificationRequestOutput) ToEC2FleetTargetCapacitySpecificationRequestOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestOutput {
 	return o
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) ToEC2FleetTargetCapacitySpecificationRequestPtrOutput() EC2FleetTargetCapacitySpecificationRequestPtrOutput {
-	return o.ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(context.Background())
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequest {
-		return &v
-	}).(EC2FleetTargetCapacitySpecificationRequestPtrOutput)
 }
 
 func (o EC2FleetTargetCapacitySpecificationRequestOutput) DefaultTargetCapacityType() EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
@@ -5388,75 +5235,6 @@ func (o EC2FleetTargetCapacitySpecificationRequestOutput) TargetCapacityUnitType
 
 func (o EC2FleetTargetCapacitySpecificationRequestOutput) TotalTargetCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) int { return v.TotalTargetCapacity }).(pulumi.IntOutput)
-}
-
-type EC2FleetTargetCapacitySpecificationRequestPtrOutput struct{ *pulumi.OutputState }
-
-func (EC2FleetTargetCapacitySpecificationRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EC2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) ToEC2FleetTargetCapacitySpecificationRequestPtrOutput() EC2FleetTargetCapacitySpecificationRequestPtrOutput {
-	return o
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestPtrOutput {
-	return o
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) Elem() EC2FleetTargetCapacitySpecificationRequestOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) EC2FleetTargetCapacitySpecificationRequest {
-		if v != nil {
-			return *v
-		}
-		var ret EC2FleetTargetCapacitySpecificationRequest
-		return ret
-	}).(EC2FleetTargetCapacitySpecificationRequestOutput)
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) DefaultTargetCapacityType() EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultTargetCapacityType
-	}).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
-		if v == nil {
-			return nil
-		}
-		return v.OnDemandTargetCapacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
-		if v == nil {
-			return nil
-		}
-		return v.SpotTargetCapacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TargetCapacityUnitType() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
-		if v == nil {
-			return nil
-		}
-		return v.TargetCapacityUnitType
-	}).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
-}
-
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TotalTargetCapacity
-	}).(pulumi.IntPtrOutput)
 }
 
 type EC2FleetTotalLocalStorageGBRequest struct {
@@ -15580,59 +15358,6 @@ type NetworkInsightsAnalysisAlternatePathHint struct {
 	ComponentId  *string `pulumi:"componentId"`
 }
 
-// NetworkInsightsAnalysisAlternatePathHintInput is an input type that accepts NetworkInsightsAnalysisAlternatePathHintArgs and NetworkInsightsAnalysisAlternatePathHintOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAlternatePathHintInput` via:
-//
-//          NetworkInsightsAnalysisAlternatePathHintArgs{...}
-type NetworkInsightsAnalysisAlternatePathHintInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAlternatePathHintOutput() NetworkInsightsAnalysisAlternatePathHintOutput
-	ToNetworkInsightsAnalysisAlternatePathHintOutputWithContext(context.Context) NetworkInsightsAnalysisAlternatePathHintOutput
-}
-
-type NetworkInsightsAnalysisAlternatePathHintArgs struct {
-	ComponentArn pulumi.StringPtrInput `pulumi:"componentArn"`
-	ComponentId  pulumi.StringPtrInput `pulumi:"componentId"`
-}
-
-func (NetworkInsightsAnalysisAlternatePathHintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisAlternatePathHint)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAlternatePathHintArgs) ToNetworkInsightsAnalysisAlternatePathHintOutput() NetworkInsightsAnalysisAlternatePathHintOutput {
-	return i.ToNetworkInsightsAnalysisAlternatePathHintOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAlternatePathHintArgs) ToNetworkInsightsAnalysisAlternatePathHintOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAlternatePathHintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAlternatePathHintOutput)
-}
-
-// NetworkInsightsAnalysisAlternatePathHintArrayInput is an input type that accepts NetworkInsightsAnalysisAlternatePathHintArray and NetworkInsightsAnalysisAlternatePathHintArrayOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAlternatePathHintArrayInput` via:
-//
-//          NetworkInsightsAnalysisAlternatePathHintArray{ NetworkInsightsAnalysisAlternatePathHintArgs{...} }
-type NetworkInsightsAnalysisAlternatePathHintArrayInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAlternatePathHintArrayOutput() NetworkInsightsAnalysisAlternatePathHintArrayOutput
-	ToNetworkInsightsAnalysisAlternatePathHintArrayOutputWithContext(context.Context) NetworkInsightsAnalysisAlternatePathHintArrayOutput
-}
-
-type NetworkInsightsAnalysisAlternatePathHintArray []NetworkInsightsAnalysisAlternatePathHintInput
-
-func (NetworkInsightsAnalysisAlternatePathHintArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkInsightsAnalysisAlternatePathHint)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAlternatePathHintArray) ToNetworkInsightsAnalysisAlternatePathHintArrayOutput() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
-	return i.ToNetworkInsightsAnalysisAlternatePathHintArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAlternatePathHintArray) ToNetworkInsightsAnalysisAlternatePathHintArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAlternatePathHintArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAlternatePathHintArrayOutput)
-}
-
 type NetworkInsightsAnalysisAlternatePathHintOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisAlternatePathHintOutput) ElementType() reflect.Type {
@@ -15684,79 +15409,6 @@ type NetworkInsightsAnalysisAnalysisAclRule struct {
 	RuleNumber *int                              `pulumi:"ruleNumber"`
 }
 
-// NetworkInsightsAnalysisAnalysisAclRuleInput is an input type that accepts NetworkInsightsAnalysisAnalysisAclRuleArgs and NetworkInsightsAnalysisAnalysisAclRuleOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisAclRuleInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisAclRuleArgs{...}
-type NetworkInsightsAnalysisAnalysisAclRuleInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisAclRuleOutput() NetworkInsightsAnalysisAnalysisAclRuleOutput
-	ToNetworkInsightsAnalysisAnalysisAclRuleOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisAclRuleOutput
-}
-
-type NetworkInsightsAnalysisAnalysisAclRuleArgs struct {
-	Cidr       pulumi.StringPtrInput                    `pulumi:"cidr"`
-	Egress     pulumi.BoolPtrInput                      `pulumi:"egress"`
-	PortRange  NetworkInsightsAnalysisPortRangePtrInput `pulumi:"portRange"`
-	Protocol   pulumi.StringPtrInput                    `pulumi:"protocol"`
-	RuleAction pulumi.StringPtrInput                    `pulumi:"ruleAction"`
-	RuleNumber pulumi.IntPtrInput                       `pulumi:"ruleNumber"`
-}
-
-func (NetworkInsightsAnalysisAnalysisAclRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisAclRule)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAnalysisAclRuleArgs) ToNetworkInsightsAnalysisAnalysisAclRuleOutput() NetworkInsightsAnalysisAnalysisAclRuleOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisAclRuleOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisAclRuleArgs) ToNetworkInsightsAnalysisAnalysisAclRuleOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisAclRuleOutput)
-}
-
-func (i NetworkInsightsAnalysisAnalysisAclRuleArgs) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisAclRuleArgs) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisAclRuleOutput).ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx)
-}
-
-// NetworkInsightsAnalysisAnalysisAclRulePtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisAclRuleArgs, NetworkInsightsAnalysisAnalysisAclRulePtr and NetworkInsightsAnalysisAnalysisAclRulePtrOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisAclRulePtrInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisAclRuleArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInsightsAnalysisAnalysisAclRulePtrInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput
-	ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput
-}
-
-type networkInsightsAnalysisAnalysisAclRulePtrType NetworkInsightsAnalysisAnalysisAclRuleArgs
-
-func NetworkInsightsAnalysisAnalysisAclRulePtr(v *NetworkInsightsAnalysisAnalysisAclRuleArgs) NetworkInsightsAnalysisAnalysisAclRulePtrInput {
-	return (*networkInsightsAnalysisAnalysisAclRulePtrType)(v)
-}
-
-func (*networkInsightsAnalysisAnalysisAclRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisAclRule)(nil)).Elem()
-}
-
-func (i *networkInsightsAnalysisAnalysisAclRulePtrType) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(context.Background())
-}
-
-func (i *networkInsightsAnalysisAnalysisAclRulePtrType) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
-}
-
 type NetworkInsightsAnalysisAnalysisAclRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisAnalysisAclRuleOutput) ElementType() reflect.Type {
@@ -15769,16 +15421,6 @@ func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisA
 
 func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisAnalysisAclRuleOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRuleOutput {
 	return o
-}
-
-func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutput() NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
-	return o.ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) ToNetworkInsightsAnalysisAnalysisAclRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisAclRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAnalysisAnalysisAclRule) *NetworkInsightsAnalysisAnalysisAclRule {
-		return &v
-	}).(NetworkInsightsAnalysisAnalysisAclRulePtrOutput)
 }
 
 func (o NetworkInsightsAnalysisAnalysisAclRuleOutput) Cidr() pulumi.StringPtrOutput {
@@ -15888,100 +15530,6 @@ type NetworkInsightsAnalysisAnalysisComponent struct {
 	Id  *string `pulumi:"id"`
 }
 
-// NetworkInsightsAnalysisAnalysisComponentInput is an input type that accepts NetworkInsightsAnalysisAnalysisComponentArgs and NetworkInsightsAnalysisAnalysisComponentOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisComponentInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisComponentArgs{...}
-type NetworkInsightsAnalysisAnalysisComponentInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisComponentOutput() NetworkInsightsAnalysisAnalysisComponentOutput
-	ToNetworkInsightsAnalysisAnalysisComponentOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisComponentOutput
-}
-
-type NetworkInsightsAnalysisAnalysisComponentArgs struct {
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	Id  pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (NetworkInsightsAnalysisAnalysisComponentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAnalysisComponentArgs) ToNetworkInsightsAnalysisAnalysisComponentOutput() NetworkInsightsAnalysisAnalysisComponentOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisComponentOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisComponentArgs) ToNetworkInsightsAnalysisAnalysisComponentOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisComponentOutput)
-}
-
-func (i NetworkInsightsAnalysisAnalysisComponentArgs) ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisComponentArgs) ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisComponentOutput).ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx)
-}
-
-// NetworkInsightsAnalysisAnalysisComponentPtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisComponentArgs, NetworkInsightsAnalysisAnalysisComponentPtr and NetworkInsightsAnalysisAnalysisComponentPtrOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisComponentPtrInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisComponentArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInsightsAnalysisAnalysisComponentPtrInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput
-	ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput
-}
-
-type networkInsightsAnalysisAnalysisComponentPtrType NetworkInsightsAnalysisAnalysisComponentArgs
-
-func NetworkInsightsAnalysisAnalysisComponentPtr(v *NetworkInsightsAnalysisAnalysisComponentArgs) NetworkInsightsAnalysisAnalysisComponentPtrInput {
-	return (*networkInsightsAnalysisAnalysisComponentPtrType)(v)
-}
-
-func (*networkInsightsAnalysisAnalysisComponentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
-}
-
-func (i *networkInsightsAnalysisAnalysisComponentPtrType) ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(context.Background())
-}
-
-func (i *networkInsightsAnalysisAnalysisComponentPtrType) ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
-}
-
-// NetworkInsightsAnalysisAnalysisComponentArrayInput is an input type that accepts NetworkInsightsAnalysisAnalysisComponentArray and NetworkInsightsAnalysisAnalysisComponentArrayOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisComponentArrayInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisComponentArray{ NetworkInsightsAnalysisAnalysisComponentArgs{...} }
-type NetworkInsightsAnalysisAnalysisComponentArrayInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisComponentArrayOutput() NetworkInsightsAnalysisAnalysisComponentArrayOutput
-	ToNetworkInsightsAnalysisAnalysisComponentArrayOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisComponentArrayOutput
-}
-
-type NetworkInsightsAnalysisAnalysisComponentArray []NetworkInsightsAnalysisAnalysisComponentInput
-
-func (NetworkInsightsAnalysisAnalysisComponentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkInsightsAnalysisAnalysisComponent)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAnalysisComponentArray) ToNetworkInsightsAnalysisAnalysisComponentArrayOutput() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisComponentArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisComponentArray) ToNetworkInsightsAnalysisAnalysisComponentArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisComponentArrayOutput)
-}
-
 type NetworkInsightsAnalysisAnalysisComponentOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisAnalysisComponentOutput) ElementType() reflect.Type {
@@ -15994,16 +15542,6 @@ func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysi
 
 func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysisAnalysisComponentOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentOutput {
 	return o
-}
-
-func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysisAnalysisComponentPtrOutput() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
-	return o.ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInsightsAnalysisAnalysisComponentOutput) ToNetworkInsightsAnalysisAnalysisComponentPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisComponentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAnalysisAnalysisComponent) *NetworkInsightsAnalysisAnalysisComponent {
-		return &v
-	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
 }
 
 func (o NetworkInsightsAnalysisAnalysisComponentOutput) Arn() pulumi.StringPtrOutput {
@@ -16081,75 +15619,6 @@ type NetworkInsightsAnalysisAnalysisLoadBalancerListener struct {
 	LoadBalancerPort *int `pulumi:"loadBalancerPort"`
 }
 
-// NetworkInsightsAnalysisAnalysisLoadBalancerListenerInput is an input type that accepts NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs and NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisLoadBalancerListenerInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs{...}
-type NetworkInsightsAnalysisAnalysisLoadBalancerListenerInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput
-	ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput
-}
-
-type NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs struct {
-	InstancePort     pulumi.IntPtrInput `pulumi:"instancePort"`
-	LoadBalancerPort pulumi.IntPtrInput `pulumi:"loadBalancerPort"`
-}
-
-func (NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerListener)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput)
-}
-
-func (i NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput).ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx)
-}
-
-// NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs, NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtr and NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput
-	ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput
-}
-
-type networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs
-
-func NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtr(v *NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput {
-	return (*networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType)(v)
-}
-
-func (*networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisLoadBalancerListener)(nil)).Elem()
-}
-
-func (i *networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(context.Background())
-}
-
-func (i *networkInsightsAnalysisAnalysisLoadBalancerListenerPtrType) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput)
-}
-
 type NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ElementType() reflect.Type {
@@ -16162,16 +15631,6 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsi
 
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput {
 	return o
-}
-
-func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
-	return o.ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAnalysisAnalysisLoadBalancerListener) *NetworkInsightsAnalysisAnalysisLoadBalancerListener {
-		return &v
-	}).(NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrOutput)
 }
 
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerListenerOutput) InstancePort() pulumi.IntPtrOutput {
@@ -16231,77 +15690,6 @@ type NetworkInsightsAnalysisAnalysisLoadBalancerTarget struct {
 	Port             *int                                      `pulumi:"port"`
 }
 
-// NetworkInsightsAnalysisAnalysisLoadBalancerTargetInput is an input type that accepts NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs and NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisLoadBalancerTargetInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs{...}
-type NetworkInsightsAnalysisAnalysisLoadBalancerTargetInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput
-	ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput
-}
-
-type NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs struct {
-	Address          pulumi.StringPtrInput                            `pulumi:"address"`
-	AvailabilityZone pulumi.StringPtrInput                            `pulumi:"availabilityZone"`
-	Instance         NetworkInsightsAnalysisAnalysisComponentPtrInput `pulumi:"instance"`
-	Port             pulumi.IntPtrInput                               `pulumi:"port"`
-}
-
-func (NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerTarget)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput)
-}
-
-func (i NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput).ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx)
-}
-
-// NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs, NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtr and NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput
-	ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput
-}
-
-type networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs
-
-func NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtr(v *NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput {
-	return (*networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType)(v)
-}
-
-func (*networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisLoadBalancerTarget)(nil)).Elem()
-}
-
-func (i *networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(context.Background())
-}
-
-func (i *networkInsightsAnalysisAnalysisLoadBalancerTargetPtrType) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput)
-}
-
 type NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ElementType() reflect.Type {
@@ -16314,16 +15702,6 @@ func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsigh
 
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput {
 	return o
-}
-
-func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput() NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
-	return o.ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) ToNetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAnalysisAnalysisLoadBalancerTarget) *NetworkInsightsAnalysisAnalysisLoadBalancerTarget {
-		return &v
-	}).(NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrOutput)
 }
 
 func (o NetworkInsightsAnalysisAnalysisLoadBalancerTargetOutput) Address() pulumi.StringPtrOutput {
@@ -16412,78 +15790,6 @@ type NetworkInsightsAnalysisAnalysisPacketHeader struct {
 	SourcePortRanges      []NetworkInsightsAnalysisPortRange `pulumi:"sourcePortRanges"`
 }
 
-// NetworkInsightsAnalysisAnalysisPacketHeaderInput is an input type that accepts NetworkInsightsAnalysisAnalysisPacketHeaderArgs and NetworkInsightsAnalysisAnalysisPacketHeaderOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisPacketHeaderInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisPacketHeaderArgs{...}
-type NetworkInsightsAnalysisAnalysisPacketHeaderInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisPacketHeaderOutput() NetworkInsightsAnalysisAnalysisPacketHeaderOutput
-	ToNetworkInsightsAnalysisAnalysisPacketHeaderOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderOutput
-}
-
-type NetworkInsightsAnalysisAnalysisPacketHeaderArgs struct {
-	DestinationAddresses  pulumi.StringArrayInput                    `pulumi:"destinationAddresses"`
-	DestinationPortRanges NetworkInsightsAnalysisPortRangeArrayInput `pulumi:"destinationPortRanges"`
-	Protocol              pulumi.StringPtrInput                      `pulumi:"protocol"`
-	SourceAddresses       pulumi.StringArrayInput                    `pulumi:"sourceAddresses"`
-	SourcePortRanges      NetworkInsightsAnalysisPortRangeArrayInput `pulumi:"sourcePortRanges"`
-}
-
-func (NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisPacketHeader)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ToNetworkInsightsAnalysisAnalysisPacketHeaderOutput() NetworkInsightsAnalysisAnalysisPacketHeaderOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisPacketHeaderOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ToNetworkInsightsAnalysisAnalysisPacketHeaderOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisPacketHeaderOutput)
-}
-
-func (i NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisPacketHeaderArgs) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisPacketHeaderOutput).ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx)
-}
-
-// NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisPacketHeaderArgs, NetworkInsightsAnalysisAnalysisPacketHeaderPtr and NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisPacketHeaderArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput
-	ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput
-}
-
-type networkInsightsAnalysisAnalysisPacketHeaderPtrType NetworkInsightsAnalysisAnalysisPacketHeaderArgs
-
-func NetworkInsightsAnalysisAnalysisPacketHeaderPtr(v *NetworkInsightsAnalysisAnalysisPacketHeaderArgs) NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput {
-	return (*networkInsightsAnalysisAnalysisPacketHeaderPtrType)(v)
-}
-
-func (*networkInsightsAnalysisAnalysisPacketHeaderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisPacketHeader)(nil)).Elem()
-}
-
-func (i *networkInsightsAnalysisAnalysisPacketHeaderPtrType) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i *networkInsightsAnalysisAnalysisPacketHeaderPtrType) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput)
-}
-
 type NetworkInsightsAnalysisAnalysisPacketHeaderOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ElementType() reflect.Type {
@@ -16496,16 +15802,6 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnal
 
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderOutput {
 	return o
-}
-
-func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput() NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
-	return o.ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) ToNetworkInsightsAnalysisAnalysisPacketHeaderPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAnalysisAnalysisPacketHeader) *NetworkInsightsAnalysisAnalysisPacketHeader {
-		return &v
-	}).(NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput)
 }
 
 func (o NetworkInsightsAnalysisAnalysisPacketHeaderOutput) DestinationAddresses() pulumi.StringArrayOutput {
@@ -16614,83 +15910,6 @@ type NetworkInsightsAnalysisAnalysisRouteTableRoute struct {
 	VpcPeeringConnectionId      *string `pulumi:"vpcPeeringConnectionId"`
 }
 
-// NetworkInsightsAnalysisAnalysisRouteTableRouteInput is an input type that accepts NetworkInsightsAnalysisAnalysisRouteTableRouteArgs and NetworkInsightsAnalysisAnalysisRouteTableRouteOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisRouteTableRouteInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisRouteTableRouteArgs{...}
-type NetworkInsightsAnalysisAnalysisRouteTableRouteInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutput() NetworkInsightsAnalysisAnalysisRouteTableRouteOutput
-	ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisRouteTableRouteOutput
-}
-
-type NetworkInsightsAnalysisAnalysisRouteTableRouteArgs struct {
-	DestinationCidr             pulumi.StringPtrInput `pulumi:"destinationCidr"`
-	DestinationPrefixListId     pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
-	EgressOnlyInternetGatewayId pulumi.StringPtrInput `pulumi:"egressOnlyInternetGatewayId"`
-	GatewayId                   pulumi.StringPtrInput `pulumi:"gatewayId"`
-	InstanceId                  pulumi.StringPtrInput `pulumi:"instanceId"`
-	NatGatewayId                pulumi.StringPtrInput `pulumi:"natGatewayId"`
-	NetworkInterfaceId          pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	Origin                      pulumi.StringPtrInput `pulumi:"origin"`
-	TransitGatewayId            pulumi.StringPtrInput `pulumi:"transitGatewayId"`
-	VpcPeeringConnectionId      pulumi.StringPtrInput `pulumi:"vpcPeeringConnectionId"`
-}
-
-func (NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisRouteTableRoute)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutput() NetworkInsightsAnalysisAnalysisRouteTableRouteOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRouteOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisRouteTableRouteOutput)
-}
-
-func (i NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisRouteTableRouteOutput).ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx)
-}
-
-// NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisRouteTableRouteArgs, NetworkInsightsAnalysisAnalysisRouteTableRoutePtr and NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisRouteTableRouteArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput
-	ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput
-}
-
-type networkInsightsAnalysisAnalysisRouteTableRoutePtrType NetworkInsightsAnalysisAnalysisRouteTableRouteArgs
-
-func NetworkInsightsAnalysisAnalysisRouteTableRoutePtr(v *NetworkInsightsAnalysisAnalysisRouteTableRouteArgs) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput {
-	return (*networkInsightsAnalysisAnalysisRouteTableRoutePtrType)(v)
-}
-
-func (*networkInsightsAnalysisAnalysisRouteTableRoutePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisRouteTableRoute)(nil)).Elem()
-}
-
-func (i *networkInsightsAnalysisAnalysisRouteTableRoutePtrType) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(context.Background())
-}
-
-func (i *networkInsightsAnalysisAnalysisRouteTableRoutePtrType) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput)
-}
-
 type NetworkInsightsAnalysisAnalysisRouteTableRouteOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ElementType() reflect.Type {
@@ -16703,16 +15922,6 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsA
 
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRouteOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRouteOutput {
 	return o
-}
-
-func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput() NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
-	return o.ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) ToNetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAnalysisAnalysisRouteTableRoute) *NetworkInsightsAnalysisAnalysisRouteTableRoute {
-		return &v
-	}).(NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput)
 }
 
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationCidr() pulumi.StringPtrOutput {
@@ -16878,79 +16087,6 @@ type NetworkInsightsAnalysisAnalysisSecurityGroupRule struct {
 	SecurityGroupId *string                           `pulumi:"securityGroupId"`
 }
 
-// NetworkInsightsAnalysisAnalysisSecurityGroupRuleInput is an input type that accepts NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs and NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisSecurityGroupRuleInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs{...}
-type NetworkInsightsAnalysisAnalysisSecurityGroupRuleInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput
-	ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput
-}
-
-type NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs struct {
-	Cidr            pulumi.StringPtrInput                    `pulumi:"cidr"`
-	Direction       pulumi.StringPtrInput                    `pulumi:"direction"`
-	PortRange       NetworkInsightsAnalysisPortRangePtrInput `pulumi:"portRange"`
-	PrefixListId    pulumi.StringPtrInput                    `pulumi:"prefixListId"`
-	Protocol        pulumi.StringPtrInput                    `pulumi:"protocol"`
-	SecurityGroupId pulumi.StringPtrInput                    `pulumi:"securityGroupId"`
-}
-
-func (NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisAnalysisSecurityGroupRule)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput)
-}
-
-func (i NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput).ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx)
-}
-
-// NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput is an input type that accepts NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs, NetworkInsightsAnalysisAnalysisSecurityGroupRulePtr and NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput` via:
-//
-//          NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput
-	ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput
-}
-
-type networkInsightsAnalysisAnalysisSecurityGroupRulePtrType NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs
-
-func NetworkInsightsAnalysisAnalysisSecurityGroupRulePtr(v *NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput {
-	return (*networkInsightsAnalysisAnalysisSecurityGroupRulePtrType)(v)
-}
-
-func (*networkInsightsAnalysisAnalysisSecurityGroupRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInsightsAnalysisAnalysisSecurityGroupRule)(nil)).Elem()
-}
-
-func (i *networkInsightsAnalysisAnalysisSecurityGroupRulePtrType) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
-	return i.ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(context.Background())
-}
-
-func (i *networkInsightsAnalysisAnalysisSecurityGroupRulePtrType) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput)
-}
-
 type NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ElementType() reflect.Type {
@@ -16963,16 +16099,6 @@ func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsight
 
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRuleOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput {
 	return o
-}
-
-func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput() NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
-	return o.ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) ToNetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAnalysisAnalysisSecurityGroupRule) *NetworkInsightsAnalysisAnalysisSecurityGroupRule {
-		return &v
-	}).(NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrOutput)
 }
 
 func (o NetworkInsightsAnalysisAnalysisSecurityGroupRuleOutput) Cidr() pulumi.StringPtrOutput {
@@ -17125,102 +16251,6 @@ type NetworkInsightsAnalysisExplanation struct {
 	VpcPeeringConnection        *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"vpcPeeringConnection"`
 	VpnConnection               *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"vpnConnection"`
 	VpnGateway                  *NetworkInsightsAnalysisAnalysisComponent            `pulumi:"vpnGateway"`
-}
-
-// NetworkInsightsAnalysisExplanationInput is an input type that accepts NetworkInsightsAnalysisExplanationArgs and NetworkInsightsAnalysisExplanationOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisExplanationInput` via:
-//
-//          NetworkInsightsAnalysisExplanationArgs{...}
-type NetworkInsightsAnalysisExplanationInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisExplanationOutput() NetworkInsightsAnalysisExplanationOutput
-	ToNetworkInsightsAnalysisExplanationOutputWithContext(context.Context) NetworkInsightsAnalysisExplanationOutput
-}
-
-type NetworkInsightsAnalysisExplanationArgs struct {
-	Acl                         NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"acl"`
-	AclRule                     NetworkInsightsAnalysisAnalysisAclRulePtrInput              `pulumi:"aclRule"`
-	Address                     pulumi.StringPtrInput                                       `pulumi:"address"`
-	Addresses                   pulumi.StringArrayInput                                     `pulumi:"addresses"`
-	AttachedTo                  NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"attachedTo"`
-	AvailabilityZones           pulumi.StringArrayInput                                     `pulumi:"availabilityZones"`
-	Cidrs                       pulumi.StringArrayInput                                     `pulumi:"cidrs"`
-	ClassicLoadBalancerListener NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput `pulumi:"classicLoadBalancerListener"`
-	Component                   NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"component"`
-	CustomerGateway             NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"customerGateway"`
-	Destination                 NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"destination"`
-	DestinationVpc              NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"destinationVpc"`
-	Direction                   pulumi.StringPtrInput                                       `pulumi:"direction"`
-	ElasticLoadBalancerListener NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"elasticLoadBalancerListener"`
-	ExplanationCode             pulumi.StringPtrInput                                       `pulumi:"explanationCode"`
-	IngressRouteTable           NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"ingressRouteTable"`
-	InternetGateway             NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"internetGateway"`
-	LoadBalancerArn             pulumi.StringPtrInput                                       `pulumi:"loadBalancerArn"`
-	LoadBalancerListenerPort    pulumi.IntPtrInput                                          `pulumi:"loadBalancerListenerPort"`
-	LoadBalancerTarget          NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput   `pulumi:"loadBalancerTarget"`
-	LoadBalancerTargetGroup     NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"loadBalancerTargetGroup"`
-	LoadBalancerTargetGroups    NetworkInsightsAnalysisAnalysisComponentArrayInput          `pulumi:"loadBalancerTargetGroups"`
-	LoadBalancerTargetPort      pulumi.IntPtrInput                                          `pulumi:"loadBalancerTargetPort"`
-	MissingComponent            pulumi.StringPtrInput                                       `pulumi:"missingComponent"`
-	NatGateway                  NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"natGateway"`
-	NetworkInterface            NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"networkInterface"`
-	PacketField                 pulumi.StringPtrInput                                       `pulumi:"packetField"`
-	Port                        pulumi.IntPtrInput                                          `pulumi:"port"`
-	PortRanges                  NetworkInsightsAnalysisPortRangeArrayInput                  `pulumi:"portRanges"`
-	PrefixList                  NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"prefixList"`
-	Protocols                   pulumi.StringArrayInput                                     `pulumi:"protocols"`
-	RouteTable                  NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"routeTable"`
-	RouteTableRoute             NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput      `pulumi:"routeTableRoute"`
-	SecurityGroup               NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"securityGroup"`
-	SecurityGroupRule           NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput    `pulumi:"securityGroupRule"`
-	SecurityGroups              NetworkInsightsAnalysisAnalysisComponentArrayInput          `pulumi:"securityGroups"`
-	SourceVpc                   NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"sourceVpc"`
-	State                       pulumi.StringPtrInput                                       `pulumi:"state"`
-	Subnet                      NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"subnet"`
-	SubnetRouteTable            NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"subnetRouteTable"`
-	Vpc                         NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"vpc"`
-	VpcEndpoint                 NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"vpcEndpoint"`
-	VpcPeeringConnection        NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"vpcPeeringConnection"`
-	VpnConnection               NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"vpnConnection"`
-	VpnGateway                  NetworkInsightsAnalysisAnalysisComponentPtrInput            `pulumi:"vpnGateway"`
-}
-
-func (NetworkInsightsAnalysisExplanationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisExplanation)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisExplanationArgs) ToNetworkInsightsAnalysisExplanationOutput() NetworkInsightsAnalysisExplanationOutput {
-	return i.ToNetworkInsightsAnalysisExplanationOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisExplanationArgs) ToNetworkInsightsAnalysisExplanationOutputWithContext(ctx context.Context) NetworkInsightsAnalysisExplanationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisExplanationOutput)
-}
-
-// NetworkInsightsAnalysisExplanationArrayInput is an input type that accepts NetworkInsightsAnalysisExplanationArray and NetworkInsightsAnalysisExplanationArrayOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisExplanationArrayInput` via:
-//
-//          NetworkInsightsAnalysisExplanationArray{ NetworkInsightsAnalysisExplanationArgs{...} }
-type NetworkInsightsAnalysisExplanationArrayInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisExplanationArrayOutput() NetworkInsightsAnalysisExplanationArrayOutput
-	ToNetworkInsightsAnalysisExplanationArrayOutputWithContext(context.Context) NetworkInsightsAnalysisExplanationArrayOutput
-}
-
-type NetworkInsightsAnalysisExplanationArray []NetworkInsightsAnalysisExplanationInput
-
-func (NetworkInsightsAnalysisExplanationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkInsightsAnalysisExplanation)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisExplanationArray) ToNetworkInsightsAnalysisExplanationArrayOutput() NetworkInsightsAnalysisExplanationArrayOutput {
-	return i.ToNetworkInsightsAnalysisExplanationArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisExplanationArray) ToNetworkInsightsAnalysisExplanationArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisExplanationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisExplanationArrayOutput)
 }
 
 type NetworkInsightsAnalysisExplanationOutput struct{ *pulumi.OutputState }
@@ -17503,68 +16533,6 @@ type NetworkInsightsAnalysisPathComponent struct {
 	Vpc               *NetworkInsightsAnalysisAnalysisComponent         `pulumi:"vpc"`
 }
 
-// NetworkInsightsAnalysisPathComponentInput is an input type that accepts NetworkInsightsAnalysisPathComponentArgs and NetworkInsightsAnalysisPathComponentOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisPathComponentInput` via:
-//
-//          NetworkInsightsAnalysisPathComponentArgs{...}
-type NetworkInsightsAnalysisPathComponentInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisPathComponentOutput() NetworkInsightsAnalysisPathComponentOutput
-	ToNetworkInsightsAnalysisPathComponentOutputWithContext(context.Context) NetworkInsightsAnalysisPathComponentOutput
-}
-
-type NetworkInsightsAnalysisPathComponentArgs struct {
-	AclRule           NetworkInsightsAnalysisAnalysisAclRulePtrInput           `pulumi:"aclRule"`
-	Component         NetworkInsightsAnalysisAnalysisComponentPtrInput         `pulumi:"component"`
-	DestinationVpc    NetworkInsightsAnalysisAnalysisComponentPtrInput         `pulumi:"destinationVpc"`
-	InboundHeader     NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput      `pulumi:"inboundHeader"`
-	OutboundHeader    NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput      `pulumi:"outboundHeader"`
-	RouteTableRoute   NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput   `pulumi:"routeTableRoute"`
-	SecurityGroupRule NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput `pulumi:"securityGroupRule"`
-	SequenceNumber    pulumi.IntPtrInput                                       `pulumi:"sequenceNumber"`
-	SourceVpc         NetworkInsightsAnalysisAnalysisComponentPtrInput         `pulumi:"sourceVpc"`
-	Subnet            NetworkInsightsAnalysisAnalysisComponentPtrInput         `pulumi:"subnet"`
-	Vpc               NetworkInsightsAnalysisAnalysisComponentPtrInput         `pulumi:"vpc"`
-}
-
-func (NetworkInsightsAnalysisPathComponentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisPathComponent)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisPathComponentArgs) ToNetworkInsightsAnalysisPathComponentOutput() NetworkInsightsAnalysisPathComponentOutput {
-	return i.ToNetworkInsightsAnalysisPathComponentOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisPathComponentArgs) ToNetworkInsightsAnalysisPathComponentOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPathComponentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPathComponentOutput)
-}
-
-// NetworkInsightsAnalysisPathComponentArrayInput is an input type that accepts NetworkInsightsAnalysisPathComponentArray and NetworkInsightsAnalysisPathComponentArrayOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisPathComponentArrayInput` via:
-//
-//          NetworkInsightsAnalysisPathComponentArray{ NetworkInsightsAnalysisPathComponentArgs{...} }
-type NetworkInsightsAnalysisPathComponentArrayInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisPathComponentArrayOutput() NetworkInsightsAnalysisPathComponentArrayOutput
-	ToNetworkInsightsAnalysisPathComponentArrayOutputWithContext(context.Context) NetworkInsightsAnalysisPathComponentArrayOutput
-}
-
-type NetworkInsightsAnalysisPathComponentArray []NetworkInsightsAnalysisPathComponentInput
-
-func (NetworkInsightsAnalysisPathComponentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkInsightsAnalysisPathComponent)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisPathComponentArray) ToNetworkInsightsAnalysisPathComponentArrayOutput() NetworkInsightsAnalysisPathComponentArrayOutput {
-	return i.ToNetworkInsightsAnalysisPathComponentArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisPathComponentArray) ToNetworkInsightsAnalysisPathComponentArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPathComponentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPathComponentArrayOutput)
-}
-
 type NetworkInsightsAnalysisPathComponentOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisPathComponentOutput) ElementType() reflect.Type {
@@ -17664,100 +16632,6 @@ type NetworkInsightsAnalysisPortRange struct {
 	To   *int `pulumi:"to"`
 }
 
-// NetworkInsightsAnalysisPortRangeInput is an input type that accepts NetworkInsightsAnalysisPortRangeArgs and NetworkInsightsAnalysisPortRangeOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisPortRangeInput` via:
-//
-//          NetworkInsightsAnalysisPortRangeArgs{...}
-type NetworkInsightsAnalysisPortRangeInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisPortRangeOutput() NetworkInsightsAnalysisPortRangeOutput
-	ToNetworkInsightsAnalysisPortRangeOutputWithContext(context.Context) NetworkInsightsAnalysisPortRangeOutput
-}
-
-type NetworkInsightsAnalysisPortRangeArgs struct {
-	From pulumi.IntPtrInput `pulumi:"from"`
-	To   pulumi.IntPtrInput `pulumi:"to"`
-}
-
-func (NetworkInsightsAnalysisPortRangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInsightsAnalysisPortRange)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisPortRangeArgs) ToNetworkInsightsAnalysisPortRangeOutput() NetworkInsightsAnalysisPortRangeOutput {
-	return i.ToNetworkInsightsAnalysisPortRangeOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisPortRangeArgs) ToNetworkInsightsAnalysisPortRangeOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPortRangeOutput)
-}
-
-func (i NetworkInsightsAnalysisPortRangeArgs) ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput {
-	return i.ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisPortRangeArgs) ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPortRangeOutput).ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx)
-}
-
-// NetworkInsightsAnalysisPortRangePtrInput is an input type that accepts NetworkInsightsAnalysisPortRangeArgs, NetworkInsightsAnalysisPortRangePtr and NetworkInsightsAnalysisPortRangePtrOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisPortRangePtrInput` via:
-//
-//          NetworkInsightsAnalysisPortRangeArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInsightsAnalysisPortRangePtrInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput
-	ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(context.Context) NetworkInsightsAnalysisPortRangePtrOutput
-}
-
-type networkInsightsAnalysisPortRangePtrType NetworkInsightsAnalysisPortRangeArgs
-
-func NetworkInsightsAnalysisPortRangePtr(v *NetworkInsightsAnalysisPortRangeArgs) NetworkInsightsAnalysisPortRangePtrInput {
-	return (*networkInsightsAnalysisPortRangePtrType)(v)
-}
-
-func (*networkInsightsAnalysisPortRangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInsightsAnalysisPortRange)(nil)).Elem()
-}
-
-func (i *networkInsightsAnalysisPortRangePtrType) ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput {
-	return i.ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(context.Background())
-}
-
-func (i *networkInsightsAnalysisPortRangePtrType) ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPortRangePtrOutput)
-}
-
-// NetworkInsightsAnalysisPortRangeArrayInput is an input type that accepts NetworkInsightsAnalysisPortRangeArray and NetworkInsightsAnalysisPortRangeArrayOutput values.
-// You can construct a concrete instance of `NetworkInsightsAnalysisPortRangeArrayInput` via:
-//
-//          NetworkInsightsAnalysisPortRangeArray{ NetworkInsightsAnalysisPortRangeArgs{...} }
-type NetworkInsightsAnalysisPortRangeArrayInput interface {
-	pulumi.Input
-
-	ToNetworkInsightsAnalysisPortRangeArrayOutput() NetworkInsightsAnalysisPortRangeArrayOutput
-	ToNetworkInsightsAnalysisPortRangeArrayOutputWithContext(context.Context) NetworkInsightsAnalysisPortRangeArrayOutput
-}
-
-type NetworkInsightsAnalysisPortRangeArray []NetworkInsightsAnalysisPortRangeInput
-
-func (NetworkInsightsAnalysisPortRangeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkInsightsAnalysisPortRange)(nil)).Elem()
-}
-
-func (i NetworkInsightsAnalysisPortRangeArray) ToNetworkInsightsAnalysisPortRangeArrayOutput() NetworkInsightsAnalysisPortRangeArrayOutput {
-	return i.ToNetworkInsightsAnalysisPortRangeArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkInsightsAnalysisPortRangeArray) ToNetworkInsightsAnalysisPortRangeArrayOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAnalysisPortRangeArrayOutput)
-}
-
 type NetworkInsightsAnalysisPortRangeOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAnalysisPortRangeOutput) ElementType() reflect.Type {
@@ -17770,16 +16644,6 @@ func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRan
 
 func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRangeOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangeOutput {
 	return o
-}
-
-func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRangePtrOutput() NetworkInsightsAnalysisPortRangePtrOutput {
-	return o.ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInsightsAnalysisPortRangeOutput) ToNetworkInsightsAnalysisPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisPortRangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAnalysisPortRange) *NetworkInsightsAnalysisPortRange {
-		return &v
-	}).(NetworkInsightsAnalysisPortRangePtrOutput)
 }
 
 func (o NetworkInsightsAnalysisPortRangeOutput) From() pulumi.IntPtrOutput {
@@ -22636,47 +21500,6 @@ func (i SpotFleetRequestConfigDataArgs) ToSpotFleetRequestConfigDataOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestConfigDataOutput)
 }
 
-func (i SpotFleetRequestConfigDataArgs) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
-	return i.ToSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (i SpotFleetRequestConfigDataArgs) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestConfigDataOutput).ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx)
-}
-
-// SpotFleetRequestConfigDataPtrInput is an input type that accepts SpotFleetRequestConfigDataArgs, SpotFleetRequestConfigDataPtr and SpotFleetRequestConfigDataPtrOutput values.
-// You can construct a concrete instance of `SpotFleetRequestConfigDataPtrInput` via:
-//
-//          SpotFleetRequestConfigDataArgs{...}
-//
-//  or:
-//
-//          nil
-type SpotFleetRequestConfigDataPtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput
-	ToSpotFleetRequestConfigDataPtrOutputWithContext(context.Context) SpotFleetRequestConfigDataPtrOutput
-}
-
-type spotFleetRequestConfigDataPtrType SpotFleetRequestConfigDataArgs
-
-func SpotFleetRequestConfigDataPtr(v *SpotFleetRequestConfigDataArgs) SpotFleetRequestConfigDataPtrInput {
-	return (*spotFleetRequestConfigDataPtrType)(v)
-}
-
-func (*spotFleetRequestConfigDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetRequestConfigData)(nil)).Elem()
-}
-
-func (i *spotFleetRequestConfigDataPtrType) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
-	return i.ToSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (i *spotFleetRequestConfigDataPtrType) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestConfigDataPtrOutput)
-}
-
 type SpotFleetRequestConfigDataOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetRequestConfigDataOutput) ElementType() reflect.Type {
@@ -22689,16 +21512,6 @@ func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataOutput() S
 
 func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataOutput {
 	return o
-}
-
-func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
-	return o.ToSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestConfigData) *SpotFleetRequestConfigData {
-		return &v
-	}).(SpotFleetRequestConfigDataPtrOutput)
 }
 
 func (o SpotFleetRequestConfigDataOutput) AllocationStrategy() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
@@ -22797,228 +21610,6 @@ func (o SpotFleetRequestConfigDataOutput) ValidFrom() pulumi.StringPtrOutput {
 
 func (o SpotFleetRequestConfigDataOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetRequestConfigDataPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetRequestConfigDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetRequestConfigData)(nil)).Elem()
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
-	return o
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
-	return o
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) Elem() SpotFleetRequestConfigDataOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) SpotFleetRequestConfigData {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetRequestConfigData
-		return ret
-	}).(SpotFleetRequestConfigDataOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) AllocationStrategy() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataAllocationStrategy {
-		if v == nil {
-			return nil
-		}
-		return v.AllocationStrategy
-	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Context
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) ExcessCapacityTerminationPolicy() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.ExcessCapacityTerminationPolicy
-	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) IamFleetRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.IamFleetRole
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavior() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataInstanceInterruptionBehavior {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceInterruptionBehavior
-	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
-		if v == nil {
-			return nil
-		}
-		return v.InstancePoolsToUseCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) LaunchSpecifications() SpotFleetLaunchSpecificationArrayOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetLaunchSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.LaunchSpecifications
-	}).(SpotFleetLaunchSpecificationArrayOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) LaunchTemplateConfigs() SpotFleetLaunchTemplateConfigArrayOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetLaunchTemplateConfig {
-		if v == nil {
-			return nil
-		}
-		return v.LaunchTemplateConfigs
-	}).(SpotFleetLaunchTemplateConfigArrayOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) LoadBalancersConfig() SpotFleetLoadBalancersConfigPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetLoadBalancersConfig {
-		if v == nil {
-			return nil
-		}
-		return v.LoadBalancersConfig
-	}).(SpotFleetLoadBalancersConfigPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OnDemandAllocationStrategy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OnDemandMaxTotalPrice
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
-		if v == nil {
-			return nil
-		}
-		return v.OnDemandTargetCapacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceUnhealthyInstances
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
-		if v == nil {
-			return nil
-		}
-		return v.SpotMaintenanceStrategies
-	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SpotMaxTotalPrice
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) SpotPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SpotPrice
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetCapacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacityUnitType() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataTargetCapacityUnitType {
-		if v == nil {
-			return nil
-		}
-		return v.TargetCapacityUnitType
-	}).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.TerminateInstancesWithExpiration
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) Type() SpotFleetRequestConfigDataTypePtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataType {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(SpotFleetRequestConfigDataTypePtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) ValidFrom() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ValidFrom
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ValidUntil
-	}).(pulumi.StringPtrOutput)
 }
 
 type SpotFleetSpotCapacityRebalance struct {
@@ -24871,47 +23462,6 @@ func (i TransitGatewayConnectOptionsArgs) ToTransitGatewayConnectOptionsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectOptionsOutput)
 }
 
-func (i TransitGatewayConnectOptionsArgs) ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput {
-	return i.ToTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayConnectOptionsArgs) ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectOptionsOutput).ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx)
-}
-
-// TransitGatewayConnectOptionsPtrInput is an input type that accepts TransitGatewayConnectOptionsArgs, TransitGatewayConnectOptionsPtr and TransitGatewayConnectOptionsPtrOutput values.
-// You can construct a concrete instance of `TransitGatewayConnectOptionsPtrInput` via:
-//
-//          TransitGatewayConnectOptionsArgs{...}
-//
-//  or:
-//
-//          nil
-type TransitGatewayConnectOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput
-	ToTransitGatewayConnectOptionsPtrOutputWithContext(context.Context) TransitGatewayConnectOptionsPtrOutput
-}
-
-type transitGatewayConnectOptionsPtrType TransitGatewayConnectOptionsArgs
-
-func TransitGatewayConnectOptionsPtr(v *TransitGatewayConnectOptionsArgs) TransitGatewayConnectOptionsPtrInput {
-	return (*transitGatewayConnectOptionsPtrType)(v)
-}
-
-func (*transitGatewayConnectOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitGatewayConnectOptions)(nil)).Elem()
-}
-
-func (i *transitGatewayConnectOptionsPtrType) ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput {
-	return i.ToTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *transitGatewayConnectOptionsPtrType) ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectOptionsPtrOutput)
-}
-
 type TransitGatewayConnectOptionsOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayConnectOptionsOutput) ElementType() reflect.Type {
@@ -24926,53 +23476,9 @@ func (o TransitGatewayConnectOptionsOutput) ToTransitGatewayConnectOptionsOutput
 	return o
 }
 
-func (o TransitGatewayConnectOptionsOutput) ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput {
-	return o.ToTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TransitGatewayConnectOptionsOutput) ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayConnectOptions) *TransitGatewayConnectOptions {
-		return &v
-	}).(TransitGatewayConnectOptionsPtrOutput)
-}
-
 // The tunnel protocol.
 func (o TransitGatewayConnectOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransitGatewayConnectOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
-}
-
-type TransitGatewayConnectOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TransitGatewayConnectOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitGatewayConnectOptions)(nil)).Elem()
-}
-
-func (o TransitGatewayConnectOptionsPtrOutput) ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput {
-	return o
-}
-
-func (o TransitGatewayConnectOptionsPtrOutput) ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsPtrOutput {
-	return o
-}
-
-func (o TransitGatewayConnectOptionsPtrOutput) Elem() TransitGatewayConnectOptionsOutput {
-	return o.ApplyT(func(v *TransitGatewayConnectOptions) TransitGatewayConnectOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TransitGatewayConnectOptions
-		return ret
-	}).(TransitGatewayConnectOptionsOutput)
-}
-
-// The tunnel protocol.
-func (o TransitGatewayConnectOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TransitGatewayConnectOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Protocol
-	}).(pulumi.StringPtrOutput)
 }
 
 type TransitGatewayConnectTag struct {
@@ -25331,77 +23837,6 @@ type TransitGatewayPeeringAttachmentPeeringAttachmentStatus struct {
 	Message *string `pulumi:"message"`
 }
 
-// TransitGatewayPeeringAttachmentPeeringAttachmentStatusInput is an input type that accepts TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs and TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput values.
-// You can construct a concrete instance of `TransitGatewayPeeringAttachmentPeeringAttachmentStatusInput` via:
-//
-//          TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs{...}
-type TransitGatewayPeeringAttachmentPeeringAttachmentStatusInput interface {
-	pulumi.Input
-
-	ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput() TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput
-	ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusOutputWithContext(context.Context) TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput
-}
-
-type TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs struct {
-	// The status code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// The status message, if applicable.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-}
-
-func (TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayPeeringAttachmentPeeringAttachmentStatus)(nil)).Elem()
-}
-
-func (i TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput() TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput {
-	return i.ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput)
-}
-
-func (i TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput() TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
-	return i.ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput).ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(ctx)
-}
-
-// TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrInput is an input type that accepts TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs, TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtr and TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput values.
-// You can construct a concrete instance of `TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrInput` via:
-//
-//          TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs{...}
-//
-//  or:
-//
-//          nil
-type TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrInput interface {
-	pulumi.Input
-
-	ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput() TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput
-	ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(context.Context) TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput
-}
-
-type transitGatewayPeeringAttachmentPeeringAttachmentStatusPtrType TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs
-
-func TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtr(v *TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs) TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrInput {
-	return (*transitGatewayPeeringAttachmentPeeringAttachmentStatusPtrType)(v)
-}
-
-func (*transitGatewayPeeringAttachmentPeeringAttachmentStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitGatewayPeeringAttachmentPeeringAttachmentStatus)(nil)).Elem()
-}
-
-func (i *transitGatewayPeeringAttachmentPeeringAttachmentStatusPtrType) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput() TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
-	return i.ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *transitGatewayPeeringAttachmentPeeringAttachmentStatusPtrType) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput)
-}
-
 type TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput) ElementType() reflect.Type {
@@ -25416,16 +23851,6 @@ func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput) ToTransitG
 	return o
 }
 
-func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput() TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
-	return o.ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayPeeringAttachmentPeeringAttachmentStatus) *TransitGatewayPeeringAttachmentPeeringAttachmentStatus {
-		return &v
-	}).(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput)
-}
-
 // The status code.
 func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransitGatewayPeeringAttachmentPeeringAttachmentStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
@@ -25434,50 +23859,6 @@ func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput) Code() pul
 // The status message, if applicable.
 func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransitGatewayPeeringAttachmentPeeringAttachmentStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-type TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitGatewayPeeringAttachmentPeeringAttachmentStatus)(nil)).Elem()
-}
-
-func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput() TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
-	return o
-}
-
-func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
-	return o
-}
-
-func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) Elem() TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput {
-	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentPeeringAttachmentStatus) TransitGatewayPeeringAttachmentPeeringAttachmentStatus {
-		if v != nil {
-			return *v
-		}
-		var ret TransitGatewayPeeringAttachmentPeeringAttachmentStatus
-		return ret
-	}).(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput)
-}
-
-// The status code.
-func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentPeeringAttachmentStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status message, if applicable.
-func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentPeeringAttachmentStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
 }
 
 type TransitGatewayPeeringAttachmentTag struct {
@@ -26508,7 +24889,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointConnectionLogOptionsInput)(nil)).Elem(), ClientVpnEndpointConnectionLogOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointConnectionLogOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointFederatedAuthenticationRequestArgs{})
@@ -26560,7 +24940,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTagSpecificationInput)(nil)).Elem(), EC2FleetTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTagSpecificationArrayInput)(nil)).Elem(), EC2FleetTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTargetCapacitySpecificationRequestInput)(nil)).Elem(), EC2FleetTargetCapacitySpecificationRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTargetCapacitySpecificationRequestPtrInput)(nil)).Elem(), EC2FleetTargetCapacitySpecificationRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTotalLocalStorageGBRequestInput)(nil)).Elem(), EC2FleetTotalLocalStorageGBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTotalLocalStorageGBRequestPtrInput)(nil)).Elem(), EC2FleetTotalLocalStorageGBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetVCpuCountRangeRequestInput)(nil)).Elem(), EC2FleetVCpuCountRangeRequestArgs{})
@@ -26705,30 +25084,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeTagArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeThroughResourcesStatementRequestInput)(nil)).Elem(), NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeThroughResourcesStatementRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAlternatePathHintInput)(nil)).Elem(), NetworkInsightsAnalysisAlternatePathHintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAlternatePathHintArrayInput)(nil)).Elem(), NetworkInsightsAnalysisAlternatePathHintArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisAclRuleInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisAclRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisAclRulePtrInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisAclRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisComponentInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisComponentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisComponentPtrInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisComponentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisComponentArrayInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisComponentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerListenerInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerListenerPtrInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerTargetInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisLoadBalancerTargetPtrInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisPacketHeaderInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisPacketHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisPacketHeaderPtrInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisPacketHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisRouteTableRouteInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisRouteTableRouteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisRouteTableRoutePtrInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisRouteTableRouteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisSecurityGroupRuleInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisAnalysisSecurityGroupRulePtrInput)(nil)).Elem(), NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisExplanationInput)(nil)).Elem(), NetworkInsightsAnalysisExplanationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisExplanationArrayInput)(nil)).Elem(), NetworkInsightsAnalysisExplanationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisPathComponentInput)(nil)).Elem(), NetworkInsightsAnalysisPathComponentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisPathComponentArrayInput)(nil)).Elem(), NetworkInsightsAnalysisPathComponentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisPortRangeInput)(nil)).Elem(), NetworkInsightsAnalysisPortRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisPortRangePtrInput)(nil)).Elem(), NetworkInsightsAnalysisPortRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisPortRangeArrayInput)(nil)).Elem(), NetworkInsightsAnalysisPortRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisTagInput)(nil)).Elem(), NetworkInsightsAnalysisTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisTagArrayInput)(nil)).Elem(), NetworkInsightsAnalysisTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathTagInput)(nil)).Elem(), NetworkInsightsPathTagArgs{})
@@ -26798,7 +25153,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetPrivateIpAddressSpecificationInput)(nil)).Elem(), SpotFleetPrivateIpAddressSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetPrivateIpAddressSpecificationArrayInput)(nil)).Elem(), SpotFleetPrivateIpAddressSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestConfigDataInput)(nil)).Elem(), SpotFleetRequestConfigDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestConfigDataPtrInput)(nil)).Elem(), SpotFleetRequestConfigDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetSpotCapacityRebalanceInput)(nil)).Elem(), SpotFleetSpotCapacityRebalanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetSpotCapacityRebalancePtrInput)(nil)).Elem(), SpotFleetSpotCapacityRebalanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetSpotMaintenanceStrategiesInput)(nil)).Elem(), SpotFleetSpotMaintenanceStrategiesArgs{})
@@ -26830,15 +25184,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentTagInput)(nil)).Elem(), TransitGatewayAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentTagArrayInput)(nil)).Elem(), TransitGatewayAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectOptionsInput)(nil)).Elem(), TransitGatewayConnectOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectOptionsPtrInput)(nil)).Elem(), TransitGatewayConnectOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectTagInput)(nil)).Elem(), TransitGatewayConnectTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectTagArrayInput)(nil)).Elem(), TransitGatewayConnectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMulticastDomainTagInput)(nil)).Elem(), TransitGatewayMulticastDomainTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMulticastDomainTagArrayInput)(nil)).Elem(), TransitGatewayMulticastDomainTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentOptionsInput)(nil)).Elem(), TransitGatewayPeeringAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentOptionsPtrInput)(nil)).Elem(), TransitGatewayPeeringAttachmentOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentPeeringAttachmentStatusInput)(nil)).Elem(), TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrInput)(nil)).Elem(), TransitGatewayPeeringAttachmentPeeringAttachmentStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentTagInput)(nil)).Elem(), TransitGatewayPeeringAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentTagArrayInput)(nil)).Elem(), TransitGatewayPeeringAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableTagInput)(nil)).Elem(), TransitGatewayRouteTableTagArgs{})
@@ -26880,7 +25231,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
-	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointFederatedAuthenticationRequestOutput{})
@@ -26932,7 +25282,6 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationOutput{})
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestOutput{})
-	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetTotalLocalStorageGBRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetTotalLocalStorageGBRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetVCpuCountRangeRequestOutput{})
@@ -27170,7 +25519,6 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataOutput{})
-	pulumi.RegisterOutputType(SpotFleetRequestConfigDataPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalanceOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalancePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotMaintenanceStrategiesOutput{})
@@ -27202,7 +25550,6 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayAttachmentTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectOptionsOutput{})
-	pulumi.RegisterOutputType(TransitGatewayConnectOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainTagOutput{})
@@ -27210,7 +25557,6 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})
-	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableTagOutput{})

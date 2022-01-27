@@ -78,7 +78,7 @@ export class Connector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.capacity === undefined) && !opts.urn) {
@@ -105,38 +105,36 @@ export class Connector extends pulumi.CustomResource {
             if ((!args || args.serviceExecutionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRoleArn'");
             }
-            inputs["capacity"] = args ? args.capacity : undefined;
-            inputs["connectorConfiguration"] = args ? args.connectorConfiguration : undefined;
-            inputs["connectorDescription"] = args ? args.connectorDescription : undefined;
-            inputs["connectorName"] = args ? args.connectorName : undefined;
-            inputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            inputs["kafkaClusterClientAuthentication"] = args ? args.kafkaClusterClientAuthentication : undefined;
-            inputs["kafkaClusterEncryptionInTransit"] = args ? args.kafkaClusterEncryptionInTransit : undefined;
-            inputs["kafkaConnectVersion"] = args ? args.kafkaConnectVersion : undefined;
-            inputs["logDelivery"] = args ? args.logDelivery : undefined;
-            inputs["plugins"] = args ? args.plugins : undefined;
-            inputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
-            inputs["workerConfiguration"] = args ? args.workerConfiguration : undefined;
-            inputs["connectorArn"] = undefined /*out*/;
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["connectorConfiguration"] = args ? args.connectorConfiguration : undefined;
+            resourceInputs["connectorDescription"] = args ? args.connectorDescription : undefined;
+            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
+            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
+            resourceInputs["kafkaClusterClientAuthentication"] = args ? args.kafkaClusterClientAuthentication : undefined;
+            resourceInputs["kafkaClusterEncryptionInTransit"] = args ? args.kafkaClusterEncryptionInTransit : undefined;
+            resourceInputs["kafkaConnectVersion"] = args ? args.kafkaConnectVersion : undefined;
+            resourceInputs["logDelivery"] = args ? args.logDelivery : undefined;
+            resourceInputs["plugins"] = args ? args.plugins : undefined;
+            resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
+            resourceInputs["workerConfiguration"] = args ? args.workerConfiguration : undefined;
+            resourceInputs["connectorArn"] = undefined /*out*/;
         } else {
-            inputs["capacity"] = undefined /*out*/;
-            inputs["connectorArn"] = undefined /*out*/;
-            inputs["connectorConfiguration"] = undefined /*out*/;
-            inputs["connectorDescription"] = undefined /*out*/;
-            inputs["connectorName"] = undefined /*out*/;
-            inputs["kafkaCluster"] = undefined /*out*/;
-            inputs["kafkaClusterClientAuthentication"] = undefined /*out*/;
-            inputs["kafkaClusterEncryptionInTransit"] = undefined /*out*/;
-            inputs["kafkaConnectVersion"] = undefined /*out*/;
-            inputs["logDelivery"] = undefined /*out*/;
-            inputs["plugins"] = undefined /*out*/;
-            inputs["serviceExecutionRoleArn"] = undefined /*out*/;
-            inputs["workerConfiguration"] = undefined /*out*/;
+            resourceInputs["capacity"] = undefined /*out*/;
+            resourceInputs["connectorArn"] = undefined /*out*/;
+            resourceInputs["connectorConfiguration"] = undefined /*out*/;
+            resourceInputs["connectorDescription"] = undefined /*out*/;
+            resourceInputs["connectorName"] = undefined /*out*/;
+            resourceInputs["kafkaCluster"] = undefined /*out*/;
+            resourceInputs["kafkaClusterClientAuthentication"] = undefined /*out*/;
+            resourceInputs["kafkaClusterEncryptionInTransit"] = undefined /*out*/;
+            resourceInputs["kafkaConnectVersion"] = undefined /*out*/;
+            resourceInputs["logDelivery"] = undefined /*out*/;
+            resourceInputs["plugins"] = undefined /*out*/;
+            resourceInputs["serviceExecutionRoleArn"] = undefined /*out*/;
+            resourceInputs["workerConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Connector.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Connector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

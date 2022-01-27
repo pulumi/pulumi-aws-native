@@ -176,47 +176,6 @@ func (i ExperimentOnlineAbConfigObjectArgs) ToExperimentOnlineAbConfigObjectOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentOnlineAbConfigObjectOutput)
 }
 
-func (i ExperimentOnlineAbConfigObjectArgs) ToExperimentOnlineAbConfigObjectPtrOutput() ExperimentOnlineAbConfigObjectPtrOutput {
-	return i.ToExperimentOnlineAbConfigObjectPtrOutputWithContext(context.Background())
-}
-
-func (i ExperimentOnlineAbConfigObjectArgs) ToExperimentOnlineAbConfigObjectPtrOutputWithContext(ctx context.Context) ExperimentOnlineAbConfigObjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentOnlineAbConfigObjectOutput).ToExperimentOnlineAbConfigObjectPtrOutputWithContext(ctx)
-}
-
-// ExperimentOnlineAbConfigObjectPtrInput is an input type that accepts ExperimentOnlineAbConfigObjectArgs, ExperimentOnlineAbConfigObjectPtr and ExperimentOnlineAbConfigObjectPtrOutput values.
-// You can construct a concrete instance of `ExperimentOnlineAbConfigObjectPtrInput` via:
-//
-//          ExperimentOnlineAbConfigObjectArgs{...}
-//
-//  or:
-//
-//          nil
-type ExperimentOnlineAbConfigObjectPtrInput interface {
-	pulumi.Input
-
-	ToExperimentOnlineAbConfigObjectPtrOutput() ExperimentOnlineAbConfigObjectPtrOutput
-	ToExperimentOnlineAbConfigObjectPtrOutputWithContext(context.Context) ExperimentOnlineAbConfigObjectPtrOutput
-}
-
-type experimentOnlineAbConfigObjectPtrType ExperimentOnlineAbConfigObjectArgs
-
-func ExperimentOnlineAbConfigObjectPtr(v *ExperimentOnlineAbConfigObjectArgs) ExperimentOnlineAbConfigObjectPtrInput {
-	return (*experimentOnlineAbConfigObjectPtrType)(v)
-}
-
-func (*experimentOnlineAbConfigObjectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExperimentOnlineAbConfigObject)(nil)).Elem()
-}
-
-func (i *experimentOnlineAbConfigObjectPtrType) ToExperimentOnlineAbConfigObjectPtrOutput() ExperimentOnlineAbConfigObjectPtrOutput {
-	return i.ToExperimentOnlineAbConfigObjectPtrOutputWithContext(context.Background())
-}
-
-func (i *experimentOnlineAbConfigObjectPtrType) ToExperimentOnlineAbConfigObjectPtrOutputWithContext(ctx context.Context) ExperimentOnlineAbConfigObjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentOnlineAbConfigObjectPtrOutput)
-}
-
 type ExperimentOnlineAbConfigObjectOutput struct{ *pulumi.OutputState }
 
 func (ExperimentOnlineAbConfigObjectOutput) ElementType() reflect.Type {
@@ -231,64 +190,12 @@ func (o ExperimentOnlineAbConfigObjectOutput) ToExperimentOnlineAbConfigObjectOu
 	return o
 }
 
-func (o ExperimentOnlineAbConfigObjectOutput) ToExperimentOnlineAbConfigObjectPtrOutput() ExperimentOnlineAbConfigObjectPtrOutput {
-	return o.ToExperimentOnlineAbConfigObjectPtrOutputWithContext(context.Background())
-}
-
-func (o ExperimentOnlineAbConfigObjectOutput) ToExperimentOnlineAbConfigObjectPtrOutputWithContext(ctx context.Context) ExperimentOnlineAbConfigObjectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentOnlineAbConfigObject) *ExperimentOnlineAbConfigObject {
-		return &v
-	}).(ExperimentOnlineAbConfigObjectPtrOutput)
-}
-
 func (o ExperimentOnlineAbConfigObjectOutput) ControlTreatmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentOnlineAbConfigObject) *string { return v.ControlTreatmentName }).(pulumi.StringPtrOutput)
 }
 
 func (o ExperimentOnlineAbConfigObjectOutput) TreatmentWeights() ExperimentTreatmentToWeightArrayOutput {
 	return o.ApplyT(func(v ExperimentOnlineAbConfigObject) []ExperimentTreatmentToWeight { return v.TreatmentWeights }).(ExperimentTreatmentToWeightArrayOutput)
-}
-
-type ExperimentOnlineAbConfigObjectPtrOutput struct{ *pulumi.OutputState }
-
-func (ExperimentOnlineAbConfigObjectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExperimentOnlineAbConfigObject)(nil)).Elem()
-}
-
-func (o ExperimentOnlineAbConfigObjectPtrOutput) ToExperimentOnlineAbConfigObjectPtrOutput() ExperimentOnlineAbConfigObjectPtrOutput {
-	return o
-}
-
-func (o ExperimentOnlineAbConfigObjectPtrOutput) ToExperimentOnlineAbConfigObjectPtrOutputWithContext(ctx context.Context) ExperimentOnlineAbConfigObjectPtrOutput {
-	return o
-}
-
-func (o ExperimentOnlineAbConfigObjectPtrOutput) Elem() ExperimentOnlineAbConfigObjectOutput {
-	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) ExperimentOnlineAbConfigObject {
-		if v != nil {
-			return *v
-		}
-		var ret ExperimentOnlineAbConfigObject
-		return ret
-	}).(ExperimentOnlineAbConfigObjectOutput)
-}
-
-func (o ExperimentOnlineAbConfigObjectPtrOutput) ControlTreatmentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ControlTreatmentName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ExperimentOnlineAbConfigObjectPtrOutput) TreatmentWeights() ExperimentTreatmentToWeightArrayOutput {
-	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) []ExperimentTreatmentToWeight {
-		if v == nil {
-			return nil
-		}
-		return v.TreatmentWeights
-	}).(ExperimentTreatmentToWeightArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1899,7 +1806,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentMetricGoalObjectInput)(nil)).Elem(), ExperimentMetricGoalObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentMetricGoalObjectArrayInput)(nil)).Elem(), ExperimentMetricGoalObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentOnlineAbConfigObjectInput)(nil)).Elem(), ExperimentOnlineAbConfigObjectArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentOnlineAbConfigObjectPtrInput)(nil)).Elem(), ExperimentOnlineAbConfigObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTagInput)(nil)).Elem(), ExperimentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTagArrayInput)(nil)).Elem(), ExperimentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTreatmentObjectInput)(nil)).Elem(), ExperimentTreatmentObjectArgs{})
@@ -1931,7 +1837,6 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentMetricGoalObjectOutput{})
 	pulumi.RegisterOutputType(ExperimentMetricGoalObjectArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentOnlineAbConfigObjectOutput{})
-	pulumi.RegisterOutputType(ExperimentOnlineAbConfigObjectPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTagOutput{})
 	pulumi.RegisterOutputType(ExperimentTagArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTreatmentObjectOutput{})

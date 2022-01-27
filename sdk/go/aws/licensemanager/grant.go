@@ -104,7 +104,7 @@ type GrantInput interface {
 }
 
 func (*Grant) ElementType() reflect.Type {
-	return reflect.TypeOf((*Grant)(nil))
+	return reflect.TypeOf((**Grant)(nil)).Elem()
 }
 
 func (i *Grant) ToGrantOutput() GrantOutput {
@@ -118,7 +118,7 @@ func (i *Grant) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 type GrantOutput struct{ *pulumi.OutputState }
 
 func (GrantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Grant)(nil))
+	return reflect.TypeOf((**Grant)(nil)).Elem()
 }
 
 func (o GrantOutput) ToGrantOutput() GrantOutput {

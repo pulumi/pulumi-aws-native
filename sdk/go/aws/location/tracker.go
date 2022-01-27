@@ -95,7 +95,7 @@ type TrackerInput interface {
 }
 
 func (*Tracker) ElementType() reflect.Type {
-	return reflect.TypeOf((*Tracker)(nil))
+	return reflect.TypeOf((**Tracker)(nil)).Elem()
 }
 
 func (i *Tracker) ToTrackerOutput() TrackerOutput {
@@ -109,7 +109,7 @@ func (i *Tracker) ToTrackerOutputWithContext(ctx context.Context) TrackerOutput 
 type TrackerOutput struct{ *pulumi.OutputState }
 
 func (TrackerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Tracker)(nil))
+	return reflect.TypeOf((**Tracker)(nil)).Elem()
 }
 
 func (o TrackerOutput) ToTrackerOutput() TrackerOutput {

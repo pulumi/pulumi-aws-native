@@ -63,47 +63,45 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: CloudFormationProvisionedProductArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["notificationArns"] = args ? args.notificationArns : undefined;
-            inputs["pathId"] = args ? args.pathId : undefined;
-            inputs["pathName"] = args ? args.pathName : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["productName"] = args ? args.productName : undefined;
-            inputs["provisionedProductName"] = args ? args.provisionedProductName : undefined;
-            inputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
-            inputs["provisioningArtifactName"] = args ? args.provisioningArtifactName : undefined;
-            inputs["provisioningParameters"] = args ? args.provisioningParameters : undefined;
-            inputs["provisioningPreferences"] = args ? args.provisioningPreferences : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["cloudformationStackArn"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["provisionedProductId"] = undefined /*out*/;
-            inputs["recordId"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
+            resourceInputs["pathId"] = args ? args.pathId : undefined;
+            resourceInputs["pathName"] = args ? args.pathName : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["productName"] = args ? args.productName : undefined;
+            resourceInputs["provisionedProductName"] = args ? args.provisionedProductName : undefined;
+            resourceInputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
+            resourceInputs["provisioningArtifactName"] = args ? args.provisioningArtifactName : undefined;
+            resourceInputs["provisioningParameters"] = args ? args.provisioningParameters : undefined;
+            resourceInputs["provisioningPreferences"] = args ? args.provisioningPreferences : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cloudformationStackArn"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["provisionedProductId"] = undefined /*out*/;
+            resourceInputs["recordId"] = undefined /*out*/;
         } else {
-            inputs["acceptLanguage"] = undefined /*out*/;
-            inputs["cloudformationStackArn"] = undefined /*out*/;
-            inputs["notificationArns"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["pathId"] = undefined /*out*/;
-            inputs["pathName"] = undefined /*out*/;
-            inputs["productId"] = undefined /*out*/;
-            inputs["productName"] = undefined /*out*/;
-            inputs["provisionedProductId"] = undefined /*out*/;
-            inputs["provisionedProductName"] = undefined /*out*/;
-            inputs["provisioningArtifactId"] = undefined /*out*/;
-            inputs["provisioningArtifactName"] = undefined /*out*/;
-            inputs["provisioningParameters"] = undefined /*out*/;
-            inputs["provisioningPreferences"] = undefined /*out*/;
-            inputs["recordId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["cloudformationStackArn"] = undefined /*out*/;
+            resourceInputs["notificationArns"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["pathId"] = undefined /*out*/;
+            resourceInputs["pathName"] = undefined /*out*/;
+            resourceInputs["productId"] = undefined /*out*/;
+            resourceInputs["productName"] = undefined /*out*/;
+            resourceInputs["provisionedProductId"] = undefined /*out*/;
+            resourceInputs["provisionedProductName"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactId"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactName"] = undefined /*out*/;
+            resourceInputs["provisioningParameters"] = undefined /*out*/;
+            resourceInputs["provisioningPreferences"] = undefined /*out*/;
+            resourceInputs["recordId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CloudFormationProvisionedProduct.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CloudFormationProvisionedProduct.__pulumiType, name, resourceInputs, opts);
     }
 }
 

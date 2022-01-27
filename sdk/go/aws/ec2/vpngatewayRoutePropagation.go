@@ -94,7 +94,7 @@ type VPNGatewayRoutePropagationInput interface {
 }
 
 func (*VPNGatewayRoutePropagation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPNGatewayRoutePropagation)(nil))
+	return reflect.TypeOf((**VPNGatewayRoutePropagation)(nil)).Elem()
 }
 
 func (i *VPNGatewayRoutePropagation) ToVPNGatewayRoutePropagationOutput() VPNGatewayRoutePropagationOutput {
@@ -108,7 +108,7 @@ func (i *VPNGatewayRoutePropagation) ToVPNGatewayRoutePropagationOutputWithConte
 type VPNGatewayRoutePropagationOutput struct{ *pulumi.OutputState }
 
 func (VPNGatewayRoutePropagationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPNGatewayRoutePropagation)(nil))
+	return reflect.TypeOf((**VPNGatewayRoutePropagation)(nil)).Elem()
 }
 
 func (o VPNGatewayRoutePropagationOutput) ToVPNGatewayRoutePropagationOutput() VPNGatewayRoutePropagationOutput {

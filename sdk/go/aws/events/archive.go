@@ -91,7 +91,7 @@ type ArchiveInput interface {
 }
 
 func (*Archive) ElementType() reflect.Type {
-	return reflect.TypeOf((*Archive)(nil))
+	return reflect.TypeOf((**Archive)(nil)).Elem()
 }
 
 func (i *Archive) ToArchiveOutput() ArchiveOutput {
@@ -105,7 +105,7 @@ func (i *Archive) ToArchiveOutputWithContext(ctx context.Context) ArchiveOutput 
 type ArchiveOutput struct{ *pulumi.OutputState }
 
 func (ArchiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Archive)(nil))
+	return reflect.TypeOf((**Archive)(nil)).Elem()
 }
 
 func (o ArchiveOutput) ToArchiveOutput() ArchiveOutput {

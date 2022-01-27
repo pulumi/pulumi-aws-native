@@ -93,7 +93,7 @@ type ServerCertificateInput interface {
 }
 
 func (*ServerCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificate)(nil))
+	return reflect.TypeOf((**ServerCertificate)(nil)).Elem()
 }
 
 func (i *ServerCertificate) ToServerCertificateOutput() ServerCertificateOutput {
@@ -107,7 +107,7 @@ func (i *ServerCertificate) ToServerCertificateOutputWithContext(ctx context.Con
 type ServerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificate)(nil))
+	return reflect.TypeOf((**ServerCertificate)(nil)).Elem()
 }
 
 func (o ServerCertificateOutput) ToServerCertificateOutput() ServerCertificateOutput {

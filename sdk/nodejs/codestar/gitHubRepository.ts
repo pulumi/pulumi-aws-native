@@ -57,7 +57,7 @@ export class GitHubRepository extends pulumi.CustomResource {
     /** @deprecated GitHubRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: GitHubRepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GitHubRepository is deprecated: GitHubRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.repositoryName === undefined) && !opts.urn) {
@@ -66,28 +66,26 @@ export class GitHubRepository extends pulumi.CustomResource {
             if ((!args || args.repositoryOwner === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryOwner'");
             }
-            inputs["code"] = args ? args.code : undefined;
-            inputs["connectionArn"] = args ? args.connectionArn : undefined;
-            inputs["enableIssues"] = args ? args.enableIssues : undefined;
-            inputs["isPrivate"] = args ? args.isPrivate : undefined;
-            inputs["repositoryAccessToken"] = args ? args.repositoryAccessToken : undefined;
-            inputs["repositoryDescription"] = args ? args.repositoryDescription : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["repositoryOwner"] = args ? args.repositoryOwner : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
+            resourceInputs["enableIssues"] = args ? args.enableIssues : undefined;
+            resourceInputs["isPrivate"] = args ? args.isPrivate : undefined;
+            resourceInputs["repositoryAccessToken"] = args ? args.repositoryAccessToken : undefined;
+            resourceInputs["repositoryDescription"] = args ? args.repositoryDescription : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["repositoryOwner"] = args ? args.repositoryOwner : undefined;
         } else {
-            inputs["code"] = undefined /*out*/;
-            inputs["connectionArn"] = undefined /*out*/;
-            inputs["enableIssues"] = undefined /*out*/;
-            inputs["isPrivate"] = undefined /*out*/;
-            inputs["repositoryAccessToken"] = undefined /*out*/;
-            inputs["repositoryDescription"] = undefined /*out*/;
-            inputs["repositoryName"] = undefined /*out*/;
-            inputs["repositoryOwner"] = undefined /*out*/;
+            resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["connectionArn"] = undefined /*out*/;
+            resourceInputs["enableIssues"] = undefined /*out*/;
+            resourceInputs["isPrivate"] = undefined /*out*/;
+            resourceInputs["repositoryAccessToken"] = undefined /*out*/;
+            resourceInputs["repositoryDescription"] = undefined /*out*/;
+            resourceInputs["repositoryName"] = undefined /*out*/;
+            resourceInputs["repositoryOwner"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GitHubRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GitHubRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -164,47 +164,6 @@ func (i RobotApplicationRobotSoftwareSuiteArgs) ToRobotApplicationRobotSoftwareS
 	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationRobotSoftwareSuiteOutput)
 }
 
-func (i RobotApplicationRobotSoftwareSuiteArgs) ToRobotApplicationRobotSoftwareSuitePtrOutput() RobotApplicationRobotSoftwareSuitePtrOutput {
-	return i.ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (i RobotApplicationRobotSoftwareSuiteArgs) ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationRobotSoftwareSuiteOutput).ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(ctx)
-}
-
-// RobotApplicationRobotSoftwareSuitePtrInput is an input type that accepts RobotApplicationRobotSoftwareSuiteArgs, RobotApplicationRobotSoftwareSuitePtr and RobotApplicationRobotSoftwareSuitePtrOutput values.
-// You can construct a concrete instance of `RobotApplicationRobotSoftwareSuitePtrInput` via:
-//
-//          RobotApplicationRobotSoftwareSuiteArgs{...}
-//
-//  or:
-//
-//          nil
-type RobotApplicationRobotSoftwareSuitePtrInput interface {
-	pulumi.Input
-
-	ToRobotApplicationRobotSoftwareSuitePtrOutput() RobotApplicationRobotSoftwareSuitePtrOutput
-	ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(context.Context) RobotApplicationRobotSoftwareSuitePtrOutput
-}
-
-type robotApplicationRobotSoftwareSuitePtrType RobotApplicationRobotSoftwareSuiteArgs
-
-func RobotApplicationRobotSoftwareSuitePtr(v *RobotApplicationRobotSoftwareSuiteArgs) RobotApplicationRobotSoftwareSuitePtrInput {
-	return (*robotApplicationRobotSoftwareSuitePtrType)(v)
-}
-
-func (*robotApplicationRobotSoftwareSuitePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RobotApplicationRobotSoftwareSuite)(nil)).Elem()
-}
-
-func (i *robotApplicationRobotSoftwareSuitePtrType) ToRobotApplicationRobotSoftwareSuitePtrOutput() RobotApplicationRobotSoftwareSuitePtrOutput {
-	return i.ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (i *robotApplicationRobotSoftwareSuitePtrType) ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RobotApplicationRobotSoftwareSuitePtrOutput)
-}
-
 type RobotApplicationRobotSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
 func (RobotApplicationRobotSoftwareSuiteOutput) ElementType() reflect.Type {
@@ -219,64 +178,12 @@ func (o RobotApplicationRobotSoftwareSuiteOutput) ToRobotApplicationRobotSoftwar
 	return o
 }
 
-func (o RobotApplicationRobotSoftwareSuiteOutput) ToRobotApplicationRobotSoftwareSuitePtrOutput() RobotApplicationRobotSoftwareSuitePtrOutput {
-	return o.ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (o RobotApplicationRobotSoftwareSuiteOutput) ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuitePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RobotApplicationRobotSoftwareSuite) *RobotApplicationRobotSoftwareSuite {
-		return &v
-	}).(RobotApplicationRobotSoftwareSuitePtrOutput)
-}
-
 func (o RobotApplicationRobotSoftwareSuiteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RobotApplicationRobotSoftwareSuite) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o RobotApplicationRobotSoftwareSuiteOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v RobotApplicationRobotSoftwareSuite) string { return v.Version }).(pulumi.StringOutput)
-}
-
-type RobotApplicationRobotSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
-
-func (RobotApplicationRobotSoftwareSuitePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RobotApplicationRobotSoftwareSuite)(nil)).Elem()
-}
-
-func (o RobotApplicationRobotSoftwareSuitePtrOutput) ToRobotApplicationRobotSoftwareSuitePtrOutput() RobotApplicationRobotSoftwareSuitePtrOutput {
-	return o
-}
-
-func (o RobotApplicationRobotSoftwareSuitePtrOutput) ToRobotApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuitePtrOutput {
-	return o
-}
-
-func (o RobotApplicationRobotSoftwareSuitePtrOutput) Elem() RobotApplicationRobotSoftwareSuiteOutput {
-	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuite) RobotApplicationRobotSoftwareSuite {
-		if v != nil {
-			return *v
-		}
-		var ret RobotApplicationRobotSoftwareSuite
-		return ret
-	}).(RobotApplicationRobotSoftwareSuiteOutput)
-}
-
-func (o RobotApplicationRobotSoftwareSuitePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuite) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RobotApplicationRobotSoftwareSuitePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuite) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 type RobotApplicationSourceConfig struct {
@@ -704,47 +611,6 @@ func (i SimulationApplicationRobotSoftwareSuiteArgs) ToSimulationApplicationRobo
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRobotSoftwareSuiteOutput)
 }
 
-func (i SimulationApplicationRobotSoftwareSuiteArgs) ToSimulationApplicationRobotSoftwareSuitePtrOutput() SimulationApplicationRobotSoftwareSuitePtrOutput {
-	return i.ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (i SimulationApplicationRobotSoftwareSuiteArgs) ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRobotSoftwareSuiteOutput).ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(ctx)
-}
-
-// SimulationApplicationRobotSoftwareSuitePtrInput is an input type that accepts SimulationApplicationRobotSoftwareSuiteArgs, SimulationApplicationRobotSoftwareSuitePtr and SimulationApplicationRobotSoftwareSuitePtrOutput values.
-// You can construct a concrete instance of `SimulationApplicationRobotSoftwareSuitePtrInput` via:
-//
-//          SimulationApplicationRobotSoftwareSuiteArgs{...}
-//
-//  or:
-//
-//          nil
-type SimulationApplicationRobotSoftwareSuitePtrInput interface {
-	pulumi.Input
-
-	ToSimulationApplicationRobotSoftwareSuitePtrOutput() SimulationApplicationRobotSoftwareSuitePtrOutput
-	ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(context.Context) SimulationApplicationRobotSoftwareSuitePtrOutput
-}
-
-type simulationApplicationRobotSoftwareSuitePtrType SimulationApplicationRobotSoftwareSuiteArgs
-
-func SimulationApplicationRobotSoftwareSuitePtr(v *SimulationApplicationRobotSoftwareSuiteArgs) SimulationApplicationRobotSoftwareSuitePtrInput {
-	return (*simulationApplicationRobotSoftwareSuitePtrType)(v)
-}
-
-func (*simulationApplicationRobotSoftwareSuitePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SimulationApplicationRobotSoftwareSuite)(nil)).Elem()
-}
-
-func (i *simulationApplicationRobotSoftwareSuitePtrType) ToSimulationApplicationRobotSoftwareSuitePtrOutput() SimulationApplicationRobotSoftwareSuitePtrOutput {
-	return i.ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (i *simulationApplicationRobotSoftwareSuitePtrType) ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRobotSoftwareSuitePtrOutput)
-}
-
 // Information about a robot software suite.
 type SimulationApplicationRobotSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
@@ -760,16 +626,6 @@ func (o SimulationApplicationRobotSoftwareSuiteOutput) ToSimulationApplicationRo
 	return o
 }
 
-func (o SimulationApplicationRobotSoftwareSuiteOutput) ToSimulationApplicationRobotSoftwareSuitePtrOutput() SimulationApplicationRobotSoftwareSuitePtrOutput {
-	return o.ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (o SimulationApplicationRobotSoftwareSuiteOutput) ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuitePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuite {
-		return &v
-	}).(SimulationApplicationRobotSoftwareSuitePtrOutput)
-}
-
 // The name of the robot software suite.
 func (o SimulationApplicationRobotSoftwareSuiteOutput) Name() SimulationApplicationRobotSoftwareSuiteNameOutput {
 	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) SimulationApplicationRobotSoftwareSuiteName {
@@ -780,50 +636,6 @@ func (o SimulationApplicationRobotSoftwareSuiteOutput) Name() SimulationApplicat
 // The version of the robot software suite.
 func (o SimulationApplicationRobotSoftwareSuiteOutput) Version() SimulationApplicationRobotSoftwareSuiteVersionPtrOutput {
 	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteVersion {
-		return v.Version
-	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
-}
-
-type SimulationApplicationRobotSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
-
-func (SimulationApplicationRobotSoftwareSuitePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SimulationApplicationRobotSoftwareSuite)(nil)).Elem()
-}
-
-func (o SimulationApplicationRobotSoftwareSuitePtrOutput) ToSimulationApplicationRobotSoftwareSuitePtrOutput() SimulationApplicationRobotSoftwareSuitePtrOutput {
-	return o
-}
-
-func (o SimulationApplicationRobotSoftwareSuitePtrOutput) ToSimulationApplicationRobotSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuitePtrOutput {
-	return o
-}
-
-func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Elem() SimulationApplicationRobotSoftwareSuiteOutput {
-	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) SimulationApplicationRobotSoftwareSuite {
-		if v != nil {
-			return *v
-		}
-		var ret SimulationApplicationRobotSoftwareSuite
-		return ret
-	}).(SimulationApplicationRobotSoftwareSuiteOutput)
-}
-
-// The name of the robot software suite.
-func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Name() SimulationApplicationRobotSoftwareSuiteNamePtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteName {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(SimulationApplicationRobotSoftwareSuiteNamePtrOutput)
-}
-
-// The version of the robot software suite.
-func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Version() SimulationApplicationRobotSoftwareSuiteVersionPtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteVersion {
-		if v == nil {
-			return nil
-		}
 		return v.Version
 	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
@@ -867,47 +679,6 @@ func (i SimulationApplicationSimulationSoftwareSuiteArgs) ToSimulationApplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationSimulationSoftwareSuiteOutput)
 }
 
-func (i SimulationApplicationSimulationSoftwareSuiteArgs) ToSimulationApplicationSimulationSoftwareSuitePtrOutput() SimulationApplicationSimulationSoftwareSuitePtrOutput {
-	return i.ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (i SimulationApplicationSimulationSoftwareSuiteArgs) ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationSimulationSoftwareSuiteOutput).ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(ctx)
-}
-
-// SimulationApplicationSimulationSoftwareSuitePtrInput is an input type that accepts SimulationApplicationSimulationSoftwareSuiteArgs, SimulationApplicationSimulationSoftwareSuitePtr and SimulationApplicationSimulationSoftwareSuitePtrOutput values.
-// You can construct a concrete instance of `SimulationApplicationSimulationSoftwareSuitePtrInput` via:
-//
-//          SimulationApplicationSimulationSoftwareSuiteArgs{...}
-//
-//  or:
-//
-//          nil
-type SimulationApplicationSimulationSoftwareSuitePtrInput interface {
-	pulumi.Input
-
-	ToSimulationApplicationSimulationSoftwareSuitePtrOutput() SimulationApplicationSimulationSoftwareSuitePtrOutput
-	ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(context.Context) SimulationApplicationSimulationSoftwareSuitePtrOutput
-}
-
-type simulationApplicationSimulationSoftwareSuitePtrType SimulationApplicationSimulationSoftwareSuiteArgs
-
-func SimulationApplicationSimulationSoftwareSuitePtr(v *SimulationApplicationSimulationSoftwareSuiteArgs) SimulationApplicationSimulationSoftwareSuitePtrInput {
-	return (*simulationApplicationSimulationSoftwareSuitePtrType)(v)
-}
-
-func (*simulationApplicationSimulationSoftwareSuitePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SimulationApplicationSimulationSoftwareSuite)(nil)).Elem()
-}
-
-func (i *simulationApplicationSimulationSoftwareSuitePtrType) ToSimulationApplicationSimulationSoftwareSuitePtrOutput() SimulationApplicationSimulationSoftwareSuitePtrOutput {
-	return i.ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (i *simulationApplicationSimulationSoftwareSuitePtrType) ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationSimulationSoftwareSuitePtrOutput)
-}
-
 // Information about a simulation software suite.
 type SimulationApplicationSimulationSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
@@ -923,16 +694,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteOutput) ToSimulationApplicat
 	return o
 }
 
-func (o SimulationApplicationSimulationSoftwareSuiteOutput) ToSimulationApplicationSimulationSoftwareSuitePtrOutput() SimulationApplicationSimulationSoftwareSuitePtrOutput {
-	return o.ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(context.Background())
-}
-
-func (o SimulationApplicationSimulationSoftwareSuiteOutput) ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuitePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuite {
-		return &v
-	}).(SimulationApplicationSimulationSoftwareSuitePtrOutput)
-}
-
 // The name of the simulation software suite.
 func (o SimulationApplicationSimulationSoftwareSuiteOutput) Name() SimulationApplicationSimulationSoftwareSuiteNameOutput {
 	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) SimulationApplicationSimulationSoftwareSuiteName {
@@ -943,50 +704,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteOutput) Name() SimulationApp
 // The version of the simulation software suite.
 func (o SimulationApplicationSimulationSoftwareSuiteOutput) Version() SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput {
 	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteVersion {
-		return v.Version
-	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
-}
-
-type SimulationApplicationSimulationSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
-
-func (SimulationApplicationSimulationSoftwareSuitePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SimulationApplicationSimulationSoftwareSuite)(nil)).Elem()
-}
-
-func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) ToSimulationApplicationSimulationSoftwareSuitePtrOutput() SimulationApplicationSimulationSoftwareSuitePtrOutput {
-	return o
-}
-
-func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) ToSimulationApplicationSimulationSoftwareSuitePtrOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuitePtrOutput {
-	return o
-}
-
-func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Elem() SimulationApplicationSimulationSoftwareSuiteOutput {
-	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) SimulationApplicationSimulationSoftwareSuite {
-		if v != nil {
-			return *v
-		}
-		var ret SimulationApplicationSimulationSoftwareSuite
-		return ret
-	}).(SimulationApplicationSimulationSoftwareSuiteOutput)
-}
-
-// The name of the simulation software suite.
-func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Name() SimulationApplicationSimulationSoftwareSuiteNamePtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteName {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(SimulationApplicationSimulationSoftwareSuiteNamePtrOutput)
-}
-
-// The version of the simulation software suite.
-func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Version() SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteVersion {
-		if v == nil {
-			return nil
-		}
 		return v.Version
 	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
 }
@@ -1236,7 +953,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagsInput)(nil)).Elem(), FleetTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagsPtrInput)(nil)).Elem(), FleetTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationRobotSoftwareSuiteInput)(nil)).Elem(), RobotApplicationRobotSoftwareSuiteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationRobotSoftwareSuitePtrInput)(nil)).Elem(), RobotApplicationRobotSoftwareSuiteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationSourceConfigInput)(nil)).Elem(), RobotApplicationSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationSourceConfigArrayInput)(nil)).Elem(), RobotApplicationSourceConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RobotTagsInput)(nil)).Elem(), RobotTagsArgs{})
@@ -1244,9 +960,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRenderingEngineInput)(nil)).Elem(), SimulationApplicationRenderingEngineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRenderingEnginePtrInput)(nil)).Elem(), SimulationApplicationRenderingEngineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRobotSoftwareSuiteInput)(nil)).Elem(), SimulationApplicationRobotSoftwareSuiteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRobotSoftwareSuitePtrInput)(nil)).Elem(), SimulationApplicationRobotSoftwareSuiteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSimulationSoftwareSuiteInput)(nil)).Elem(), SimulationApplicationSimulationSoftwareSuiteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSimulationSoftwareSuitePtrInput)(nil)).Elem(), SimulationApplicationSimulationSoftwareSuiteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSourceConfigInput)(nil)).Elem(), SimulationApplicationSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSourceConfigArrayInput)(nil)).Elem(), SimulationApplicationSourceConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationTagsInput)(nil)).Elem(), SimulationApplicationTagsArgs{})
@@ -1254,7 +968,6 @@ func init() {
 	pulumi.RegisterOutputType(FleetTagsOutput{})
 	pulumi.RegisterOutputType(FleetTagsPtrOutput{})
 	pulumi.RegisterOutputType(RobotApplicationRobotSoftwareSuiteOutput{})
-	pulumi.RegisterOutputType(RobotApplicationRobotSoftwareSuitePtrOutput{})
 	pulumi.RegisterOutputType(RobotApplicationSourceConfigOutput{})
 	pulumi.RegisterOutputType(RobotApplicationSourceConfigArrayOutput{})
 	pulumi.RegisterOutputType(RobotTagsOutput{})
@@ -1262,9 +975,7 @@ func init() {
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEngineOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEnginePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRobotSoftwareSuiteOutput{})
-	pulumi.RegisterOutputType(SimulationApplicationRobotSoftwareSuitePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationSimulationSoftwareSuiteOutput{})
-	pulumi.RegisterOutputType(SimulationApplicationSimulationSoftwareSuitePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationSourceConfigOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationSourceConfigArrayOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationTagsOutput{})

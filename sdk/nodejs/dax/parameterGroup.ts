@@ -51,21 +51,19 @@ export class ParameterGroup extends pulumi.CustomResource {
     /** @deprecated ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ParameterGroup is deprecated: ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            inputs["parameterNameValues"] = args ? args.parameterNameValues : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
+            resourceInputs["parameterNameValues"] = args ? args.parameterNameValues : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["parameterGroupName"] = undefined /*out*/;
-            inputs["parameterNameValues"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["parameterGroupName"] = undefined /*out*/;
+            resourceInputs["parameterNameValues"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ParameterGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

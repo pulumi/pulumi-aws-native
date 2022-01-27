@@ -54,35 +54,33 @@ export class CapacityReservationFleet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: CapacityReservationFleetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
-            inputs["instanceTypeSpecifications"] = args ? args.instanceTypeSpecifications : undefined;
-            inputs["noRemoveEndDate"] = args ? args.noRemoveEndDate : undefined;
-            inputs["removeEndDate"] = args ? args.removeEndDate : undefined;
-            inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            inputs["tenancy"] = args ? args.tenancy : undefined;
-            inputs["totalTargetCapacity"] = args ? args.totalTargetCapacity : undefined;
-            inputs["capacityReservationFleetId"] = undefined /*out*/;
+            resourceInputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
+            resourceInputs["instanceTypeSpecifications"] = args ? args.instanceTypeSpecifications : undefined;
+            resourceInputs["noRemoveEndDate"] = args ? args.noRemoveEndDate : undefined;
+            resourceInputs["removeEndDate"] = args ? args.removeEndDate : undefined;
+            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
+            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
+            resourceInputs["totalTargetCapacity"] = args ? args.totalTargetCapacity : undefined;
+            resourceInputs["capacityReservationFleetId"] = undefined /*out*/;
         } else {
-            inputs["allocationStrategy"] = undefined /*out*/;
-            inputs["capacityReservationFleetId"] = undefined /*out*/;
-            inputs["endDate"] = undefined /*out*/;
-            inputs["instanceMatchCriteria"] = undefined /*out*/;
-            inputs["instanceTypeSpecifications"] = undefined /*out*/;
-            inputs["noRemoveEndDate"] = undefined /*out*/;
-            inputs["removeEndDate"] = undefined /*out*/;
-            inputs["tagSpecifications"] = undefined /*out*/;
-            inputs["tenancy"] = undefined /*out*/;
-            inputs["totalTargetCapacity"] = undefined /*out*/;
+            resourceInputs["allocationStrategy"] = undefined /*out*/;
+            resourceInputs["capacityReservationFleetId"] = undefined /*out*/;
+            resourceInputs["endDate"] = undefined /*out*/;
+            resourceInputs["instanceMatchCriteria"] = undefined /*out*/;
+            resourceInputs["instanceTypeSpecifications"] = undefined /*out*/;
+            resourceInputs["noRemoveEndDate"] = undefined /*out*/;
+            resourceInputs["removeEndDate"] = undefined /*out*/;
+            resourceInputs["tagSpecifications"] = undefined /*out*/;
+            resourceInputs["tenancy"] = undefined /*out*/;
+            resourceInputs["totalTargetCapacity"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CapacityReservationFleet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CapacityReservationFleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

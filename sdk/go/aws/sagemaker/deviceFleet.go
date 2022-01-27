@@ -110,7 +110,7 @@ type DeviceFleetInput interface {
 }
 
 func (*DeviceFleet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceFleet)(nil))
+	return reflect.TypeOf((**DeviceFleet)(nil)).Elem()
 }
 
 func (i *DeviceFleet) ToDeviceFleetOutput() DeviceFleetOutput {
@@ -124,7 +124,7 @@ func (i *DeviceFleet) ToDeviceFleetOutputWithContext(ctx context.Context) Device
 type DeviceFleetOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceFleet)(nil))
+	return reflect.TypeOf((**DeviceFleet)(nil)).Elem()
 }
 
 func (o DeviceFleetOutput) ToDeviceFleetOutput() DeviceFleetOutput {

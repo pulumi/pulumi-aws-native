@@ -152,7 +152,7 @@ type LocationHDFSInput interface {
 }
 
 func (*LocationHDFS) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHDFS)(nil))
+	return reflect.TypeOf((**LocationHDFS)(nil)).Elem()
 }
 
 func (i *LocationHDFS) ToLocationHDFSOutput() LocationHDFSOutput {
@@ -166,7 +166,7 @@ func (i *LocationHDFS) ToLocationHDFSOutputWithContext(ctx context.Context) Loca
 type LocationHDFSOutput struct{ *pulumi.OutputState }
 
 func (LocationHDFSOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationHDFS)(nil))
+	return reflect.TypeOf((**LocationHDFS)(nil)).Elem()
 }
 
 func (o LocationHDFSOutput) ToLocationHDFSOutput() LocationHDFSOutput {

@@ -57,29 +57,27 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["capacityProviders"] = args ? args.capacityProviders : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["defaultCapacityProviderStrategy"] = args ? args.defaultCapacityProviderStrategy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["capacityProviders"] = args ? args.capacityProviders : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["defaultCapacityProviderStrategy"] = args ? args.defaultCapacityProviderStrategy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["capacityProviders"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["clusterSettings"] = undefined /*out*/;
-            inputs["configuration"] = undefined /*out*/;
-            inputs["defaultCapacityProviderStrategy"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["capacityProviders"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["clusterSettings"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["defaultCapacityProviderStrategy"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

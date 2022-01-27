@@ -86,7 +86,7 @@ export class Detector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DetectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.detectorId === undefined) && !opts.urn) {
@@ -98,36 +98,34 @@ export class Detector extends pulumi.CustomResource {
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["associatedModels"] = args ? args.associatedModels : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["detectorVersionStatus"] = args ? args.detectorVersionStatus : undefined;
-            inputs["eventType"] = args ? args.eventType : undefined;
-            inputs["ruleExecutionMode"] = args ? args.ruleExecutionMode : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["detectorVersionId"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["associatedModels"] = args ? args.associatedModels : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["detectorVersionStatus"] = args ? args.detectorVersionStatus : undefined;
+            resourceInputs["eventType"] = args ? args.eventType : undefined;
+            resourceInputs["ruleExecutionMode"] = args ? args.ruleExecutionMode : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["detectorVersionId"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["associatedModels"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["detectorId"] = undefined /*out*/;
-            inputs["detectorVersionId"] = undefined /*out*/;
-            inputs["detectorVersionStatus"] = undefined /*out*/;
-            inputs["eventType"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["ruleExecutionMode"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associatedModels"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["detectorId"] = undefined /*out*/;
+            resourceInputs["detectorVersionId"] = undefined /*out*/;
+            resourceInputs["detectorVersionStatus"] = undefined /*out*/;
+            resourceInputs["eventType"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["ruleExecutionMode"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Detector.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Detector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -61,40 +61,38 @@ export class BotAlias extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BotAliasArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.botId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            inputs["botAliasLocaleSettings"] = args ? args.botAliasLocaleSettings : undefined;
-            inputs["botAliasName"] = args ? args.botAliasName : undefined;
-            inputs["botAliasTags"] = args ? args.botAliasTags : undefined;
-            inputs["botId"] = args ? args.botId : undefined;
-            inputs["botVersion"] = args ? args.botVersion : undefined;
-            inputs["conversationLogSettings"] = args ? args.conversationLogSettings : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["sentimentAnalysisSettings"] = args ? args.sentimentAnalysisSettings : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["botAliasId"] = undefined /*out*/;
-            inputs["botAliasStatus"] = undefined /*out*/;
+            resourceInputs["botAliasLocaleSettings"] = args ? args.botAliasLocaleSettings : undefined;
+            resourceInputs["botAliasName"] = args ? args.botAliasName : undefined;
+            resourceInputs["botAliasTags"] = args ? args.botAliasTags : undefined;
+            resourceInputs["botId"] = args ? args.botId : undefined;
+            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
+            resourceInputs["conversationLogSettings"] = args ? args.conversationLogSettings : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["sentimentAnalysisSettings"] = args ? args.sentimentAnalysisSettings : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["botAliasId"] = undefined /*out*/;
+            resourceInputs["botAliasStatus"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["botAliasId"] = undefined /*out*/;
-            inputs["botAliasLocaleSettings"] = undefined /*out*/;
-            inputs["botAliasName"] = undefined /*out*/;
-            inputs["botAliasStatus"] = undefined /*out*/;
-            inputs["botAliasTags"] = undefined /*out*/;
-            inputs["botId"] = undefined /*out*/;
-            inputs["botVersion"] = undefined /*out*/;
-            inputs["conversationLogSettings"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["sentimentAnalysisSettings"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["botAliasId"] = undefined /*out*/;
+            resourceInputs["botAliasLocaleSettings"] = undefined /*out*/;
+            resourceInputs["botAliasName"] = undefined /*out*/;
+            resourceInputs["botAliasStatus"] = undefined /*out*/;
+            resourceInputs["botAliasTags"] = undefined /*out*/;
+            resourceInputs["botId"] = undefined /*out*/;
+            resourceInputs["botVersion"] = undefined /*out*/;
+            resourceInputs["conversationLogSettings"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["sentimentAnalysisSettings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BotAlias.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BotAlias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

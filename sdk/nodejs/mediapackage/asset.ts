@@ -76,7 +76,7 @@ export class Asset extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
@@ -88,28 +88,26 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.sourceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRoleArn'");
             }
-            inputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["sourceArn"] = args ? args.sourceArn : undefined;
-            inputs["sourceRoleArn"] = args ? args.sourceRoleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["egressEndpoints"] = undefined /*out*/;
+            resourceInputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["sourceRoleArn"] = args ? args.sourceRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["egressEndpoints"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["egressEndpoints"] = undefined /*out*/;
-            inputs["packagingGroupId"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["sourceArn"] = undefined /*out*/;
-            inputs["sourceRoleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["egressEndpoints"] = undefined /*out*/;
+            resourceInputs["packagingGroupId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
+            resourceInputs["sourceRoleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Asset.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Asset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

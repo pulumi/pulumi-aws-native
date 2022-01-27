@@ -116,7 +116,7 @@ type EventTypeInput interface {
 }
 
 func (*EventType) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventType)(nil))
+	return reflect.TypeOf((**EventType)(nil)).Elem()
 }
 
 func (i *EventType) ToEventTypeOutput() EventTypeOutput {
@@ -130,7 +130,7 @@ func (i *EventType) ToEventTypeOutputWithContext(ctx context.Context) EventTypeO
 type EventTypeOutput struct{ *pulumi.OutputState }
 
 func (EventTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventType)(nil))
+	return reflect.TypeOf((**EventType)(nil)).Elem()
 }
 
 func (o EventTypeOutput) ToEventTypeOutput() EventTypeOutput {

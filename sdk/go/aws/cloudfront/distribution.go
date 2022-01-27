@@ -84,7 +84,7 @@ type DistributionInput interface {
 }
 
 func (*Distribution) ElementType() reflect.Type {
-	return reflect.TypeOf((*Distribution)(nil))
+	return reflect.TypeOf((**Distribution)(nil)).Elem()
 }
 
 func (i *Distribution) ToDistributionOutput() DistributionOutput {
@@ -98,7 +98,7 @@ func (i *Distribution) ToDistributionOutputWithContext(ctx context.Context) Dist
 type DistributionOutput struct{ *pulumi.OutputState }
 
 func (DistributionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Distribution)(nil))
+	return reflect.TypeOf((**Distribution)(nil)).Elem()
 }
 
 func (o DistributionOutput) ToDistributionOutput() DistributionOutput {

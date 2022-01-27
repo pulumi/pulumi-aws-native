@@ -54,7 +54,7 @@ export class Node extends pulumi.CustomResource {
     /** @deprecated Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: NodeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Node is deprecated: Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.memberId === undefined) && !opts.urn) {
@@ -66,22 +66,20 @@ export class Node extends pulumi.CustomResource {
             if ((!args || args.nodeConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeConfiguration'");
             }
-            inputs["memberId"] = args ? args.memberId : undefined;
-            inputs["networkId"] = args ? args.networkId : undefined;
-            inputs["nodeConfiguration"] = args ? args.nodeConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["nodeId"] = undefined /*out*/;
+            resourceInputs["memberId"] = args ? args.memberId : undefined;
+            resourceInputs["networkId"] = args ? args.networkId : undefined;
+            resourceInputs["nodeConfiguration"] = args ? args.nodeConfiguration : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["nodeId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["memberId"] = undefined /*out*/;
-            inputs["networkId"] = undefined /*out*/;
-            inputs["nodeConfiguration"] = undefined /*out*/;
-            inputs["nodeId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["memberId"] = undefined /*out*/;
+            resourceInputs["networkId"] = undefined /*out*/;
+            resourceInputs["nodeConfiguration"] = undefined /*out*/;
+            resourceInputs["nodeId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Node.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Node.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -162,47 +162,6 @@ func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaOutput)
 }
 
-func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
-	return i.ToFindingsFilterFindingCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaOutput).ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx)
-}
-
-// FindingsFilterFindingCriteriaPtrInput is an input type that accepts FindingsFilterFindingCriteriaArgs, FindingsFilterFindingCriteriaPtr and FindingsFilterFindingCriteriaPtrOutput values.
-// You can construct a concrete instance of `FindingsFilterFindingCriteriaPtrInput` via:
-//
-//          FindingsFilterFindingCriteriaArgs{...}
-//
-//  or:
-//
-//          nil
-type FindingsFilterFindingCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput
-	ToFindingsFilterFindingCriteriaPtrOutputWithContext(context.Context) FindingsFilterFindingCriteriaPtrOutput
-}
-
-type findingsFilterFindingCriteriaPtrType FindingsFilterFindingCriteriaArgs
-
-func FindingsFilterFindingCriteriaPtr(v *FindingsFilterFindingCriteriaArgs) FindingsFilterFindingCriteriaPtrInput {
-	return (*findingsFilterFindingCriteriaPtrType)(v)
-}
-
-func (*findingsFilterFindingCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingsFilterFindingCriteria)(nil)).Elem()
-}
-
-func (i *findingsFilterFindingCriteriaPtrType) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
-	return i.ToFindingsFilterFindingCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *findingsFilterFindingCriteriaPtrType) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaPtrOutput)
-}
-
 type FindingsFilterFindingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingCriteriaOutput) ElementType() reflect.Type {
@@ -217,111 +176,14 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaOutp
 	return o
 }
 
-func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
-	return o.ToFindingsFilterFindingCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FindingsFilterFindingCriteria) *FindingsFilterFindingCriteria {
-		return &v
-	}).(FindingsFilterFindingCriteriaPtrOutput)
-}
-
 func (o FindingsFilterFindingCriteriaOutput) Criterion() FindingsFilterCriterionPtrOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteria) *FindingsFilterCriterion { return v.Criterion }).(FindingsFilterCriterionPtrOutput)
-}
-
-type FindingsFilterFindingCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (FindingsFilterFindingCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingsFilterFindingCriteria)(nil)).Elem()
-}
-
-func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
-	return o
-}
-
-func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return o
-}
-
-func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCriteriaOutput {
-	return o.ApplyT(func(v *FindingsFilterFindingCriteria) FindingsFilterFindingCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret FindingsFilterFindingCriteria
-		return ret
-	}).(FindingsFilterFindingCriteriaOutput)
-}
-
-func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriterionPtrOutput {
-	return o.ApplyT(func(v *FindingsFilterFindingCriteria) *FindingsFilterCriterion {
-		if v == nil {
-			return nil
-		}
-		return v.Criterion
-	}).(FindingsFilterCriterionPtrOutput)
 }
 
 // Returned by ListHandler representing filter name and ID.
 type FindingsFilterListItem struct {
 	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
-}
-
-// FindingsFilterListItemInput is an input type that accepts FindingsFilterListItemArgs and FindingsFilterListItemOutput values.
-// You can construct a concrete instance of `FindingsFilterListItemInput` via:
-//
-//          FindingsFilterListItemArgs{...}
-type FindingsFilterListItemInput interface {
-	pulumi.Input
-
-	ToFindingsFilterListItemOutput() FindingsFilterListItemOutput
-	ToFindingsFilterListItemOutputWithContext(context.Context) FindingsFilterListItemOutput
-}
-
-// Returned by ListHandler representing filter name and ID.
-type FindingsFilterListItemArgs struct {
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (FindingsFilterListItemArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingsFilterListItem)(nil)).Elem()
-}
-
-func (i FindingsFilterListItemArgs) ToFindingsFilterListItemOutput() FindingsFilterListItemOutput {
-	return i.ToFindingsFilterListItemOutputWithContext(context.Background())
-}
-
-func (i FindingsFilterListItemArgs) ToFindingsFilterListItemOutputWithContext(ctx context.Context) FindingsFilterListItemOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterListItemOutput)
-}
-
-// FindingsFilterListItemArrayInput is an input type that accepts FindingsFilterListItemArray and FindingsFilterListItemArrayOutput values.
-// You can construct a concrete instance of `FindingsFilterListItemArrayInput` via:
-//
-//          FindingsFilterListItemArray{ FindingsFilterListItemArgs{...} }
-type FindingsFilterListItemArrayInput interface {
-	pulumi.Input
-
-	ToFindingsFilterListItemArrayOutput() FindingsFilterListItemArrayOutput
-	ToFindingsFilterListItemArrayOutputWithContext(context.Context) FindingsFilterListItemArrayOutput
-}
-
-type FindingsFilterListItemArray []FindingsFilterListItemInput
-
-func (FindingsFilterListItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FindingsFilterListItem)(nil)).Elem()
-}
-
-func (i FindingsFilterListItemArray) ToFindingsFilterListItemArrayOutput() FindingsFilterListItemArrayOutput {
-	return i.ToFindingsFilterListItemArrayOutputWithContext(context.Background())
-}
-
-func (i FindingsFilterListItemArray) ToFindingsFilterListItemArrayOutputWithContext(ctx context.Context) FindingsFilterListItemArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterListItemArrayOutput)
 }
 
 // Returned by ListHandler representing filter name and ID.
@@ -371,13 +233,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionPtrInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaPtrInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterListItemInput)(nil)).Elem(), FindingsFilterListItemArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterListItemArrayInput)(nil)).Elem(), FindingsFilterListItemArray{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})
-	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterListItemOutput{})
 	pulumi.RegisterOutputType(FindingsFilterListItemArrayOutput{})
 }

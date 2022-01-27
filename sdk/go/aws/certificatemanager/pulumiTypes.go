@@ -41,47 +41,6 @@ func (i AccountExpiryEventsConfigurationArgs) ToAccountExpiryEventsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(AccountExpiryEventsConfigurationOutput)
 }
 
-func (i AccountExpiryEventsConfigurationArgs) ToAccountExpiryEventsConfigurationPtrOutput() AccountExpiryEventsConfigurationPtrOutput {
-	return i.ToAccountExpiryEventsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i AccountExpiryEventsConfigurationArgs) ToAccountExpiryEventsConfigurationPtrOutputWithContext(ctx context.Context) AccountExpiryEventsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountExpiryEventsConfigurationOutput).ToAccountExpiryEventsConfigurationPtrOutputWithContext(ctx)
-}
-
-// AccountExpiryEventsConfigurationPtrInput is an input type that accepts AccountExpiryEventsConfigurationArgs, AccountExpiryEventsConfigurationPtr and AccountExpiryEventsConfigurationPtrOutput values.
-// You can construct a concrete instance of `AccountExpiryEventsConfigurationPtrInput` via:
-//
-//          AccountExpiryEventsConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type AccountExpiryEventsConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToAccountExpiryEventsConfigurationPtrOutput() AccountExpiryEventsConfigurationPtrOutput
-	ToAccountExpiryEventsConfigurationPtrOutputWithContext(context.Context) AccountExpiryEventsConfigurationPtrOutput
-}
-
-type accountExpiryEventsConfigurationPtrType AccountExpiryEventsConfigurationArgs
-
-func AccountExpiryEventsConfigurationPtr(v *AccountExpiryEventsConfigurationArgs) AccountExpiryEventsConfigurationPtrInput {
-	return (*accountExpiryEventsConfigurationPtrType)(v)
-}
-
-func (*accountExpiryEventsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountExpiryEventsConfiguration)(nil)).Elem()
-}
-
-func (i *accountExpiryEventsConfigurationPtrType) ToAccountExpiryEventsConfigurationPtrOutput() AccountExpiryEventsConfigurationPtrOutput {
-	return i.ToAccountExpiryEventsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *accountExpiryEventsConfigurationPtrType) ToAccountExpiryEventsConfigurationPtrOutputWithContext(ctx context.Context) AccountExpiryEventsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountExpiryEventsConfigurationPtrOutput)
-}
-
 type AccountExpiryEventsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccountExpiryEventsConfigurationOutput) ElementType() reflect.Type {
@@ -96,51 +55,8 @@ func (o AccountExpiryEventsConfigurationOutput) ToAccountExpiryEventsConfigurati
 	return o
 }
 
-func (o AccountExpiryEventsConfigurationOutput) ToAccountExpiryEventsConfigurationPtrOutput() AccountExpiryEventsConfigurationPtrOutput {
-	return o.ToAccountExpiryEventsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o AccountExpiryEventsConfigurationOutput) ToAccountExpiryEventsConfigurationPtrOutputWithContext(ctx context.Context) AccountExpiryEventsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountExpiryEventsConfiguration) *AccountExpiryEventsConfiguration {
-		return &v
-	}).(AccountExpiryEventsConfigurationPtrOutput)
-}
-
 func (o AccountExpiryEventsConfigurationOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountExpiryEventsConfiguration) *int { return v.DaysBeforeExpiry }).(pulumi.IntPtrOutput)
-}
-
-type AccountExpiryEventsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountExpiryEventsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountExpiryEventsConfiguration)(nil)).Elem()
-}
-
-func (o AccountExpiryEventsConfigurationPtrOutput) ToAccountExpiryEventsConfigurationPtrOutput() AccountExpiryEventsConfigurationPtrOutput {
-	return o
-}
-
-func (o AccountExpiryEventsConfigurationPtrOutput) ToAccountExpiryEventsConfigurationPtrOutputWithContext(ctx context.Context) AccountExpiryEventsConfigurationPtrOutput {
-	return o
-}
-
-func (o AccountExpiryEventsConfigurationPtrOutput) Elem() AccountExpiryEventsConfigurationOutput {
-	return o.ApplyT(func(v *AccountExpiryEventsConfiguration) AccountExpiryEventsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AccountExpiryEventsConfiguration
-		return ret
-	}).(AccountExpiryEventsConfigurationOutput)
-}
-
-func (o AccountExpiryEventsConfigurationPtrOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AccountExpiryEventsConfiguration) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DaysBeforeExpiry
-	}).(pulumi.IntPtrOutput)
 }
 
 type CertificateDomainValidationOption struct {
@@ -351,13 +267,11 @@ func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountExpiryEventsConfigurationInput)(nil)).Elem(), AccountExpiryEventsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountExpiryEventsConfigurationPtrInput)(nil)).Elem(), AccountExpiryEventsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagInput)(nil)).Elem(), CertificateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagArrayInput)(nil)).Elem(), CertificateTagArray{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationOutput{})
-	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
 	pulumi.RegisterOutputType(CertificateTagOutput{})

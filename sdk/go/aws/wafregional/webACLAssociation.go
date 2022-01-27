@@ -88,7 +88,7 @@ type WebACLAssociationInput interface {
 }
 
 func (*WebACLAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAssociation)(nil))
+	return reflect.TypeOf((**WebACLAssociation)(nil)).Elem()
 }
 
 func (i *WebACLAssociation) ToWebACLAssociationOutput() WebACLAssociationOutput {
@@ -102,7 +102,7 @@ func (i *WebACLAssociation) ToWebACLAssociationOutputWithContext(ctx context.Con
 type WebACLAssociationOutput struct{ *pulumi.OutputState }
 
 func (WebACLAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAssociation)(nil))
+	return reflect.TypeOf((**WebACLAssociation)(nil)).Elem()
 }
 
 func (o WebACLAssociationOutput) ToWebACLAssociationOutput() WebACLAssociationOutput {

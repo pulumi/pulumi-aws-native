@@ -91,7 +91,7 @@ type SchemaVersionInput interface {
 }
 
 func (*SchemaVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaVersion)(nil))
+	return reflect.TypeOf((**SchemaVersion)(nil)).Elem()
 }
 
 func (i *SchemaVersion) ToSchemaVersionOutput() SchemaVersionOutput {
@@ -105,7 +105,7 @@ func (i *SchemaVersion) ToSchemaVersionOutputWithContext(ctx context.Context) Sc
 type SchemaVersionOutput struct{ *pulumi.OutputState }
 
 func (SchemaVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaVersion)(nil))
+	return reflect.TypeOf((**SchemaVersion)(nil)).Elem()
 }
 
 func (o SchemaVersionOutput) ToSchemaVersionOutput() SchemaVersionOutput {

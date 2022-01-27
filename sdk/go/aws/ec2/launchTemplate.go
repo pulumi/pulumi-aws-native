@@ -86,7 +86,7 @@ type LaunchTemplateInput interface {
 }
 
 func (*LaunchTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplate)(nil))
+	return reflect.TypeOf((**LaunchTemplate)(nil)).Elem()
 }
 
 func (i *LaunchTemplate) ToLaunchTemplateOutput() LaunchTemplateOutput {
@@ -100,7 +100,7 @@ func (i *LaunchTemplate) ToLaunchTemplateOutputWithContext(ctx context.Context) 
 type LaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplate)(nil))
+	return reflect.TypeOf((**LaunchTemplate)(nil)).Elem()
 }
 
 func (o LaunchTemplateOutput) ToLaunchTemplateOutput() LaunchTemplateOutput {

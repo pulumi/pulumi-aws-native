@@ -98,7 +98,7 @@ type ResourceDataSyncInput interface {
 }
 
 func (*ResourceDataSync) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDataSync)(nil))
+	return reflect.TypeOf((**ResourceDataSync)(nil)).Elem()
 }
 
 func (i *ResourceDataSync) ToResourceDataSyncOutput() ResourceDataSyncOutput {
@@ -112,7 +112,7 @@ func (i *ResourceDataSync) ToResourceDataSyncOutputWithContext(ctx context.Conte
 type ResourceDataSyncOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDataSync)(nil))
+	return reflect.TypeOf((**ResourceDataSync)(nil)).Elem()
 }
 
 func (o ResourceDataSyncOutput) ToResourceDataSyncOutput() ResourceDataSyncOutput {

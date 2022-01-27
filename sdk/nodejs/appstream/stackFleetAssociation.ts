@@ -50,7 +50,7 @@ export class StackFleetAssociation extends pulumi.CustomResource {
     /** @deprecated StackFleetAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: StackFleetAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("StackFleetAssociation is deprecated: StackFleetAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fleetName === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class StackFleetAssociation extends pulumi.CustomResource {
             if ((!args || args.stackName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            inputs["fleetName"] = args ? args.fleetName : undefined;
-            inputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
         } else {
-            inputs["fleetName"] = undefined /*out*/;
-            inputs["stackName"] = undefined /*out*/;
+            resourceInputs["fleetName"] = undefined /*out*/;
+            resourceInputs["stackName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StackFleetAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StackFleetAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

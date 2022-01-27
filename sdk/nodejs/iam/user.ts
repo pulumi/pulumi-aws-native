@@ -58,33 +58,31 @@ export class User extends pulumi.CustomResource {
     /** @deprecated User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("User is deprecated: User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["loginProfile"] = args ? args.loginProfile : undefined;
-            inputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
-            inputs["policies"] = args ? args.policies : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["loginProfile"] = args ? args.loginProfile : undefined;
+            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["groups"] = undefined /*out*/;
-            inputs["loginProfile"] = undefined /*out*/;
-            inputs["managedPolicyArns"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["permissionsBoundary"] = undefined /*out*/;
-            inputs["policies"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["loginProfile"] = undefined /*out*/;
+            resourceInputs["managedPolicyArns"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["permissionsBoundary"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

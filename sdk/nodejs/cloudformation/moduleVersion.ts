@@ -90,7 +90,7 @@ export class ModuleVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ModuleVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.moduleName === undefined) && !opts.urn) {
@@ -99,32 +99,30 @@ export class ModuleVersion extends pulumi.CustomResource {
             if ((!args || args.modulePackage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modulePackage'");
             }
-            inputs["moduleName"] = args ? args.moduleName : undefined;
-            inputs["modulePackage"] = args ? args.modulePackage : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["documentationUrl"] = undefined /*out*/;
-            inputs["isDefaultVersion"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
-            inputs["visibility"] = undefined /*out*/;
+            resourceInputs["moduleName"] = args ? args.moduleName : undefined;
+            resourceInputs["modulePackage"] = args ? args.modulePackage : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationUrl"] = undefined /*out*/;
+            resourceInputs["isDefaultVersion"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
+            resourceInputs["visibility"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["documentationUrl"] = undefined /*out*/;
-            inputs["isDefaultVersion"] = undefined /*out*/;
-            inputs["moduleName"] = undefined /*out*/;
-            inputs["modulePackage"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
-            inputs["visibility"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationUrl"] = undefined /*out*/;
+            resourceInputs["isDefaultVersion"] = undefined /*out*/;
+            resourceInputs["moduleName"] = undefined /*out*/;
+            resourceInputs["modulePackage"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
+            resourceInputs["visibility"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ModuleVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ModuleVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

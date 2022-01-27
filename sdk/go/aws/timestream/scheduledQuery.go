@@ -136,7 +136,7 @@ type ScheduledQueryInput interface {
 }
 
 func (*ScheduledQuery) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQuery)(nil))
+	return reflect.TypeOf((**ScheduledQuery)(nil)).Elem()
 }
 
 func (i *ScheduledQuery) ToScheduledQueryOutput() ScheduledQueryOutput {
@@ -150,7 +150,7 @@ func (i *ScheduledQuery) ToScheduledQueryOutputWithContext(ctx context.Context) 
 type ScheduledQueryOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQuery)(nil))
+	return reflect.TypeOf((**ScheduledQuery)(nil)).Elem()
 }
 
 func (o ScheduledQueryOutput) ToScheduledQueryOutput() ScheduledQueryOutput {

@@ -115,7 +115,7 @@ type CustomDataIdentifierInput interface {
 }
 
 func (*CustomDataIdentifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataIdentifier)(nil))
+	return reflect.TypeOf((**CustomDataIdentifier)(nil)).Elem()
 }
 
 func (i *CustomDataIdentifier) ToCustomDataIdentifierOutput() CustomDataIdentifierOutput {
@@ -129,7 +129,7 @@ func (i *CustomDataIdentifier) ToCustomDataIdentifierOutputWithContext(ctx conte
 type CustomDataIdentifierOutput struct{ *pulumi.OutputState }
 
 func (CustomDataIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataIdentifier)(nil))
+	return reflect.TypeOf((**CustomDataIdentifier)(nil)).Elem()
 }
 
 func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutput() CustomDataIdentifierOutput {

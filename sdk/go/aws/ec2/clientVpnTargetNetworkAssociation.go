@@ -88,7 +88,7 @@ type ClientVpnTargetNetworkAssociationInput interface {
 }
 
 func (*ClientVpnTargetNetworkAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnTargetNetworkAssociation)(nil))
+	return reflect.TypeOf((**ClientVpnTargetNetworkAssociation)(nil)).Elem()
 }
 
 func (i *ClientVpnTargetNetworkAssociation) ToClientVpnTargetNetworkAssociationOutput() ClientVpnTargetNetworkAssociationOutput {
@@ -102,7 +102,7 @@ func (i *ClientVpnTargetNetworkAssociation) ToClientVpnTargetNetworkAssociationO
 type ClientVpnTargetNetworkAssociationOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnTargetNetworkAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnTargetNetworkAssociation)(nil))
+	return reflect.TypeOf((**ClientVpnTargetNetworkAssociation)(nil)).Elem()
 }
 
 func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssociationOutput() ClientVpnTargetNetworkAssociationOutput {

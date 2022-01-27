@@ -100,7 +100,7 @@ type EventSubscriptionInput interface {
 }
 
 func (*EventSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscription)(nil))
+	return reflect.TypeOf((**EventSubscription)(nil)).Elem()
 }
 
 func (i *EventSubscription) ToEventSubscriptionOutput() EventSubscriptionOutput {
@@ -114,7 +114,7 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscription)(nil))
+	return reflect.TypeOf((**EventSubscription)(nil)).Elem()
 }
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOutput {

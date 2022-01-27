@@ -91,7 +91,7 @@ type ApiGatewayManagedOverridesInput interface {
 }
 
 func (*ApiGatewayManagedOverrides) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiGatewayManagedOverrides)(nil))
+	return reflect.TypeOf((**ApiGatewayManagedOverrides)(nil)).Elem()
 }
 
 func (i *ApiGatewayManagedOverrides) ToApiGatewayManagedOverridesOutput() ApiGatewayManagedOverridesOutput {
@@ -105,7 +105,7 @@ func (i *ApiGatewayManagedOverrides) ToApiGatewayManagedOverridesOutputWithConte
 type ApiGatewayManagedOverridesOutput struct{ *pulumi.OutputState }
 
 func (ApiGatewayManagedOverridesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiGatewayManagedOverrides)(nil))
+	return reflect.TypeOf((**ApiGatewayManagedOverrides)(nil)).Elem()
 }
 
 func (o ApiGatewayManagedOverridesOutput) ToApiGatewayManagedOverridesOutput() ApiGatewayManagedOverridesOutput {

@@ -100,7 +100,7 @@ type JobQueueInput interface {
 }
 
 func (*JobQueue) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobQueue)(nil))
+	return reflect.TypeOf((**JobQueue)(nil)).Elem()
 }
 
 func (i *JobQueue) ToJobQueueOutput() JobQueueOutput {
@@ -114,7 +114,7 @@ func (i *JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutp
 type JobQueueOutput struct{ *pulumi.OutputState }
 
 func (JobQueueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobQueue)(nil))
+	return reflect.TypeOf((**JobQueue)(nil)).Elem()
 }
 
 func (o JobQueueOutput) ToJobQueueOutput() JobQueueOutput {

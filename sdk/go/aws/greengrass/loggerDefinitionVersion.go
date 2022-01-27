@@ -88,7 +88,7 @@ type LoggerDefinitionVersionInput interface {
 }
 
 func (*LoggerDefinitionVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggerDefinitionVersion)(nil))
+	return reflect.TypeOf((**LoggerDefinitionVersion)(nil)).Elem()
 }
 
 func (i *LoggerDefinitionVersion) ToLoggerDefinitionVersionOutput() LoggerDefinitionVersionOutput {
@@ -102,7 +102,7 @@ func (i *LoggerDefinitionVersion) ToLoggerDefinitionVersionOutputWithContext(ctx
 type LoggerDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (LoggerDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggerDefinitionVersion)(nil))
+	return reflect.TypeOf((**LoggerDefinitionVersion)(nil)).Elem()
 }
 
 func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutput() LoggerDefinitionVersionOutput {

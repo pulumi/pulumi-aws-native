@@ -96,7 +96,7 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FirewallRuleGroupAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.firewallRuleGroupId === undefined) && !opts.urn) {
@@ -108,38 +108,36 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
-            inputs["mutationProtection"] = args ? args.mutationProtection : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["creatorRequestId"] = undefined /*out*/;
-            inputs["managedOwnerName"] = undefined /*out*/;
-            inputs["modificationTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
+            resourceInputs["mutationProtection"] = args ? args.mutationProtection : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["creatorRequestId"] = undefined /*out*/;
+            resourceInputs["managedOwnerName"] = undefined /*out*/;
+            resourceInputs["modificationTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["creatorRequestId"] = undefined /*out*/;
-            inputs["firewallRuleGroupId"] = undefined /*out*/;
-            inputs["managedOwnerName"] = undefined /*out*/;
-            inputs["modificationTime"] = undefined /*out*/;
-            inputs["mutationProtection"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["creatorRequestId"] = undefined /*out*/;
+            resourceInputs["firewallRuleGroupId"] = undefined /*out*/;
+            resourceInputs["managedOwnerName"] = undefined /*out*/;
+            resourceInputs["modificationTime"] = undefined /*out*/;
+            resourceInputs["mutationProtection"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FirewallRuleGroupAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FirewallRuleGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

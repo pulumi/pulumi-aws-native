@@ -55,32 +55,30 @@ export class ManagedPolicy extends pulumi.CustomResource {
     /** @deprecated ManagedPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ManagedPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ManagedPolicy is deprecated: ManagedPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["managedPolicyName"] = args ? args.managedPolicyName : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["users"] = args ? args.users : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["managedPolicyName"] = args ? args.managedPolicyName : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["groups"] = undefined /*out*/;
-            inputs["managedPolicyName"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["policyDocument"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["managedPolicyName"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["policyDocument"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

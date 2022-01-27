@@ -54,25 +54,23 @@ export class EIP extends pulumi.CustomResource {
     /** @deprecated EIP is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: EIPArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EIP is deprecated: EIP is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["allocationId"] = undefined /*out*/;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocationId"] = undefined /*out*/;
         } else {
-            inputs["allocationId"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["instanceId"] = undefined /*out*/;
-            inputs["publicIpv4Pool"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["allocationId"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["publicIpv4Pool"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EIP.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EIP.__pulumiType, name, resourceInputs, opts);
     }
 }
 

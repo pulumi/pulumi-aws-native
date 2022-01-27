@@ -59,7 +59,7 @@ export class Resource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.parentId === undefined) && !opts.urn) {
@@ -71,20 +71,18 @@ export class Resource extends pulumi.CustomResource {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["parentId"] = args ? args.parentId : undefined;
-            inputs["pathPart"] = args ? args.pathPart : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["resourceId"] = undefined /*out*/;
+            resourceInputs["parentId"] = args ? args.parentId : undefined;
+            resourceInputs["pathPart"] = args ? args.pathPart : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["resourceId"] = undefined /*out*/;
         } else {
-            inputs["parentId"] = undefined /*out*/;
-            inputs["pathPart"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["restApiId"] = undefined /*out*/;
+            resourceInputs["parentId"] = undefined /*out*/;
+            resourceInputs["pathPart"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Resource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Resource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

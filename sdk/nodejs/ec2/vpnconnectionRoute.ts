@@ -50,7 +50,7 @@ export class VPNConnectionRoute extends pulumi.CustomResource {
     /** @deprecated VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPNConnectionRouteArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPNConnectionRoute is deprecated: VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class VPNConnectionRoute extends pulumi.CustomResource {
             if ((!args || args.vpnConnectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnConnectionId'");
             }
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
         } else {
-            inputs["destinationCidrBlock"] = undefined /*out*/;
-            inputs["vpnConnectionId"] = undefined /*out*/;
+            resourceInputs["destinationCidrBlock"] = undefined /*out*/;
+            resourceInputs["vpnConnectionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPNConnectionRoute.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPNConnectionRoute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

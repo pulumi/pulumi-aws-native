@@ -86,7 +86,7 @@ type ConnectorDefinitionInput interface {
 }
 
 func (*ConnectorDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorDefinition)(nil))
+	return reflect.TypeOf((**ConnectorDefinition)(nil)).Elem()
 }
 
 func (i *ConnectorDefinition) ToConnectorDefinitionOutput() ConnectorDefinitionOutput {
@@ -100,7 +100,7 @@ func (i *ConnectorDefinition) ToConnectorDefinitionOutputWithContext(ctx context
 type ConnectorDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ConnectorDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorDefinition)(nil))
+	return reflect.TypeOf((**ConnectorDefinition)(nil)).Elem()
 }
 
 func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutput() ConnectorDefinitionOutput {

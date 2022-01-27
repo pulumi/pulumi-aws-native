@@ -72,32 +72,30 @@ export class Addon extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AddonArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            inputs["addonName"] = args ? args.addonName : undefined;
-            inputs["addonVersion"] = args ? args.addonVersion : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
-            inputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["addonName"] = args ? args.addonName : undefined;
+            resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
+            resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["addonName"] = undefined /*out*/;
-            inputs["addonVersion"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["resolveConflicts"] = undefined /*out*/;
-            inputs["serviceAccountRoleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["addonName"] = undefined /*out*/;
+            resourceInputs["addonVersion"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["resolveConflicts"] = undefined /*out*/;
+            resourceInputs["serviceAccountRoleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Addon.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Addon.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -52,7 +52,7 @@ export class Volume extends pulumi.CustomResource {
     /** @deprecated Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Volume is deprecated: Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ec2VolumeId === undefined) && !opts.urn) {
@@ -61,20 +61,18 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            inputs["ec2VolumeId"] = args ? args.ec2VolumeId : undefined;
-            inputs["mountPoint"] = args ? args.mountPoint : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["ec2VolumeId"] = args ? args.ec2VolumeId : undefined;
+            resourceInputs["mountPoint"] = args ? args.mountPoint : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
         } else {
-            inputs["ec2VolumeId"] = undefined /*out*/;
-            inputs["mountPoint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["stackId"] = undefined /*out*/;
+            resourceInputs["ec2VolumeId"] = undefined /*out*/;
+            resourceInputs["mountPoint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["stackId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Volume.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -73,31 +73,29 @@ export class IPAM extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: IPAMArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["operatingRegions"] = args ? args.operatingRegions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ipamId"] = undefined /*out*/;
-            inputs["privateDefaultScopeId"] = undefined /*out*/;
-            inputs["publicDefaultScopeId"] = undefined /*out*/;
-            inputs["scopeCount"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ipamId"] = undefined /*out*/;
+            resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
+            resourceInputs["publicDefaultScopeId"] = undefined /*out*/;
+            resourceInputs["scopeCount"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["ipamId"] = undefined /*out*/;
-            inputs["operatingRegions"] = undefined /*out*/;
-            inputs["privateDefaultScopeId"] = undefined /*out*/;
-            inputs["publicDefaultScopeId"] = undefined /*out*/;
-            inputs["scopeCount"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ipamId"] = undefined /*out*/;
+            resourceInputs["operatingRegions"] = undefined /*out*/;
+            resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
+            resourceInputs["publicDefaultScopeId"] = undefined /*out*/;
+            resourceInputs["scopeCount"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IPAM.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IPAM.__pulumiType, name, resourceInputs, opts);
     }
 }
 

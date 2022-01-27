@@ -54,7 +54,7 @@ export class Member extends pulumi.CustomResource {
     /** @deprecated Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MemberArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Member is deprecated: Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.detectorId === undefined) && !opts.urn) {
@@ -63,24 +63,22 @@ export class Member extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["memberId"] = undefined /*out*/;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["memberId"] = undefined /*out*/;
         } else {
-            inputs["detectorId"] = undefined /*out*/;
-            inputs["disableEmailNotification"] = undefined /*out*/;
-            inputs["email"] = undefined /*out*/;
-            inputs["memberId"] = undefined /*out*/;
-            inputs["message"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["detectorId"] = undefined /*out*/;
+            resourceInputs["disableEmailNotification"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["memberId"] = undefined /*out*/;
+            resourceInputs["message"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Member.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Member.__pulumiType, name, resourceInputs, opts);
     }
 }
 

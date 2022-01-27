@@ -51,7 +51,7 @@ export class EventStream extends pulumi.CustomResource {
     /** @deprecated EventStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EventStreamArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventStream is deprecated: EventStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -63,18 +63,16 @@ export class EventStream extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["destinationStreamArn"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["destinationStreamArn"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventStream.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventStream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

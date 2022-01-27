@@ -84,35 +84,33 @@ export class Image extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ImageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
-            inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
-            inputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
-            inputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
-            inputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
-            inputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["imageId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
+            resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
+            resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
+            resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
+            resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["imageId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["containerRecipeArn"] = undefined /*out*/;
-            inputs["distributionConfigurationArn"] = undefined /*out*/;
-            inputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
-            inputs["imageId"] = undefined /*out*/;
-            inputs["imageRecipeArn"] = undefined /*out*/;
-            inputs["imageTestsConfiguration"] = undefined /*out*/;
-            inputs["infrastructureConfigurationArn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["containerRecipeArn"] = undefined /*out*/;
+            resourceInputs["distributionConfigurationArn"] = undefined /*out*/;
+            resourceInputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
+            resourceInputs["imageId"] = undefined /*out*/;
+            resourceInputs["imageRecipeArn"] = undefined /*out*/;
+            resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
+            resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Image.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Image.__pulumiType, name, resourceInputs, opts);
     }
 }
 

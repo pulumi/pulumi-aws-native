@@ -241,7 +241,7 @@ type DBInstanceInput interface {
 }
 
 func (*DBInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstance)(nil))
+	return reflect.TypeOf((**DBInstance)(nil)).Elem()
 }
 
 func (i *DBInstance) ToDBInstanceOutput() DBInstanceOutput {
@@ -255,7 +255,7 @@ func (i *DBInstance) ToDBInstanceOutputWithContext(ctx context.Context) DBInstan
 type DBInstanceOutput struct{ *pulumi.OutputState }
 
 func (DBInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstance)(nil))
+	return reflect.TypeOf((**DBInstance)(nil)).Elem()
 }
 
 func (o DBInstanceOutput) ToDBInstanceOutput() DBInstanceOutput {

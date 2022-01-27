@@ -74,7 +74,7 @@ export class Instance extends pulumi.CustomResource {
     /** @deprecated Instance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Instance is deprecated: Instance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
@@ -86,62 +86,60 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            inputs["agentVersion"] = args ? args.agentVersion : undefined;
-            inputs["amiId"] = args ? args.amiId : undefined;
-            inputs["architecture"] = args ? args.architecture : undefined;
-            inputs["autoScalingType"] = args ? args.autoScalingType : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["elasticIps"] = args ? args.elasticIps : undefined;
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["layerIds"] = args ? args.layerIds : undefined;
-            inputs["os"] = args ? args.os : undefined;
-            inputs["rootDeviceType"] = args ? args.rootDeviceType : undefined;
-            inputs["sshKeyName"] = args ? args.sshKeyName : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tenancy"] = args ? args.tenancy : undefined;
-            inputs["timeBasedAutoScaling"] = args ? args.timeBasedAutoScaling : undefined;
-            inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
-            inputs["volumes"] = args ? args.volumes : undefined;
-            inputs["privateDnsName"] = undefined /*out*/;
-            inputs["privateIp"] = undefined /*out*/;
-            inputs["publicDnsName"] = undefined /*out*/;
-            inputs["publicIp"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
+            resourceInputs["amiId"] = args ? args.amiId : undefined;
+            resourceInputs["architecture"] = args ? args.architecture : undefined;
+            resourceInputs["autoScalingType"] = args ? args.autoScalingType : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
+            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            resourceInputs["elasticIps"] = args ? args.elasticIps : undefined;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["layerIds"] = args ? args.layerIds : undefined;
+            resourceInputs["os"] = args ? args.os : undefined;
+            resourceInputs["rootDeviceType"] = args ? args.rootDeviceType : undefined;
+            resourceInputs["sshKeyName"] = args ? args.sshKeyName : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
+            resourceInputs["timeBasedAutoScaling"] = args ? args.timeBasedAutoScaling : undefined;
+            resourceInputs["virtualizationType"] = args ? args.virtualizationType : undefined;
+            resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["privateDnsName"] = undefined /*out*/;
+            resourceInputs["privateIp"] = undefined /*out*/;
+            resourceInputs["publicDnsName"] = undefined /*out*/;
+            resourceInputs["publicIp"] = undefined /*out*/;
         } else {
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["amiId"] = undefined /*out*/;
-            inputs["architecture"] = undefined /*out*/;
-            inputs["autoScalingType"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["blockDeviceMappings"] = undefined /*out*/;
-            inputs["ebsOptimized"] = undefined /*out*/;
-            inputs["elasticIps"] = undefined /*out*/;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["installUpdatesOnBoot"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["layerIds"] = undefined /*out*/;
-            inputs["os"] = undefined /*out*/;
-            inputs["privateDnsName"] = undefined /*out*/;
-            inputs["privateIp"] = undefined /*out*/;
-            inputs["publicDnsName"] = undefined /*out*/;
-            inputs["publicIp"] = undefined /*out*/;
-            inputs["rootDeviceType"] = undefined /*out*/;
-            inputs["sshKeyName"] = undefined /*out*/;
-            inputs["stackId"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tenancy"] = undefined /*out*/;
-            inputs["timeBasedAutoScaling"] = undefined /*out*/;
-            inputs["virtualizationType"] = undefined /*out*/;
-            inputs["volumes"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["amiId"] = undefined /*out*/;
+            resourceInputs["architecture"] = undefined /*out*/;
+            resourceInputs["autoScalingType"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["blockDeviceMappings"] = undefined /*out*/;
+            resourceInputs["ebsOptimized"] = undefined /*out*/;
+            resourceInputs["elasticIps"] = undefined /*out*/;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["installUpdatesOnBoot"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["layerIds"] = undefined /*out*/;
+            resourceInputs["os"] = undefined /*out*/;
+            resourceInputs["privateDnsName"] = undefined /*out*/;
+            resourceInputs["privateIp"] = undefined /*out*/;
+            resourceInputs["publicDnsName"] = undefined /*out*/;
+            resourceInputs["publicIp"] = undefined /*out*/;
+            resourceInputs["rootDeviceType"] = undefined /*out*/;
+            resourceInputs["sshKeyName"] = undefined /*out*/;
+            resourceInputs["stackId"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tenancy"] = undefined /*out*/;
+            resourceInputs["timeBasedAutoScaling"] = undefined /*out*/;
+            resourceInputs["virtualizationType"] = undefined /*out*/;
+            resourceInputs["volumes"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Instance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

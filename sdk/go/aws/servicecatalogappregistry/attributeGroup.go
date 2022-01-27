@@ -96,7 +96,7 @@ type AttributeGroupInput interface {
 }
 
 func (*AttributeGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttributeGroup)(nil))
+	return reflect.TypeOf((**AttributeGroup)(nil)).Elem()
 }
 
 func (i *AttributeGroup) ToAttributeGroupOutput() AttributeGroupOutput {
@@ -110,7 +110,7 @@ func (i *AttributeGroup) ToAttributeGroupOutputWithContext(ctx context.Context) 
 type AttributeGroupOutput struct{ *pulumi.OutputState }
 
 func (AttributeGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttributeGroup)(nil))
+	return reflect.TypeOf((**AttributeGroup)(nil)).Elem()
 }
 
 func (o AttributeGroupOutput) ToAttributeGroupOutput() AttributeGroupOutput {

@@ -48,26 +48,24 @@ export class TopicRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TopicRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.topicRulePayload === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicRulePayload'");
             }
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["topicRulePayload"] = args ? args.topicRulePayload : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["topicRulePayload"] = args ? args.topicRulePayload : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["ruleName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["topicRulePayload"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ruleName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["topicRulePayload"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TopicRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TopicRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

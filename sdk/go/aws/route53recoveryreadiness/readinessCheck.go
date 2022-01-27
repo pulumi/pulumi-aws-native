@@ -93,7 +93,7 @@ type ReadinessCheckInput interface {
 }
 
 func (*ReadinessCheck) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadinessCheck)(nil))
+	return reflect.TypeOf((**ReadinessCheck)(nil)).Elem()
 }
 
 func (i *ReadinessCheck) ToReadinessCheckOutput() ReadinessCheckOutput {
@@ -107,7 +107,7 @@ func (i *ReadinessCheck) ToReadinessCheckOutputWithContext(ctx context.Context) 
 type ReadinessCheckOutput struct{ *pulumi.OutputState }
 
 func (ReadinessCheckOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadinessCheck)(nil))
+	return reflect.TypeOf((**ReadinessCheck)(nil)).Elem()
 }
 
 func (o ReadinessCheckOutput) ToReadinessCheckOutput() ReadinessCheckOutput {

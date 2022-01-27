@@ -191,42 +191,6 @@ const (
 	EnvironmentStatusSuspended       = EnvironmentStatus("SUSPENDED")
 )
 
-func (EnvironmentStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentStatus)(nil)).Elem()
-}
-
-func (e EnvironmentStatus) ToEnvironmentStatusOutput() EnvironmentStatusOutput {
-	return pulumi.ToOutput(e).(EnvironmentStatusOutput)
-}
-
-func (e EnvironmentStatus) ToEnvironmentStatusOutputWithContext(ctx context.Context) EnvironmentStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EnvironmentStatusOutput)
-}
-
-func (e EnvironmentStatus) ToEnvironmentStatusPtrOutput() EnvironmentStatusPtrOutput {
-	return e.ToEnvironmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (e EnvironmentStatus) ToEnvironmentStatusPtrOutputWithContext(ctx context.Context) EnvironmentStatusPtrOutput {
-	return EnvironmentStatus(e).ToEnvironmentStatusOutputWithContext(ctx).ToEnvironmentStatusPtrOutputWithContext(ctx)
-}
-
-func (e EnvironmentStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EnvironmentStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EnvironmentStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e EnvironmentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type EnvironmentStatusOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentStatusOutput) ElementType() reflect.Type {
@@ -310,49 +274,9 @@ func (o EnvironmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentStatusInput is an input type that accepts EnvironmentStatusArgs and EnvironmentStatusOutput values.
-// You can construct a concrete instance of `EnvironmentStatusInput` via:
-//
-//          EnvironmentStatusArgs{...}
-type EnvironmentStatusInput interface {
-	pulumi.Input
-
-	ToEnvironmentStatusOutput() EnvironmentStatusOutput
-	ToEnvironmentStatusOutputWithContext(context.Context) EnvironmentStatusOutput
-}
-
-var environmentStatusPtrType = reflect.TypeOf((**EnvironmentStatus)(nil)).Elem()
-
-type EnvironmentStatusPtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentStatusPtrOutput() EnvironmentStatusPtrOutput
-	ToEnvironmentStatusPtrOutputWithContext(context.Context) EnvironmentStatusPtrOutput
-}
-
-type environmentStatusPtr string
-
-func EnvironmentStatusPtr(v string) EnvironmentStatusPtrInput {
-	return (*environmentStatusPtr)(&v)
-}
-
-func (*environmentStatusPtr) ElementType() reflect.Type {
-	return environmentStatusPtrType
-}
-
-func (in *environmentStatusPtr) ToEnvironmentStatusPtrOutput() EnvironmentStatusPtrOutput {
-	return pulumi.ToOutput(in).(EnvironmentStatusPtrOutput)
-}
-
-func (in *environmentStatusPtr) ToEnvironmentStatusPtrOutputWithContext(ctx context.Context) EnvironmentStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentStatusPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationModeInput)(nil)).Elem(), EnvironmentFederationMode("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationModePtrInput)(nil)).Elem(), EnvironmentFederationMode("LOCAL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStatusInput)(nil)).Elem(), EnvironmentStatus("CREATE_REQUESTED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStatusPtrInput)(nil)).Elem(), EnvironmentStatus("CREATE_REQUESTED"))
 	pulumi.RegisterOutputType(EnvironmentFederationModeOutput{})
 	pulumi.RegisterOutputType(EnvironmentFederationModePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusOutput{})

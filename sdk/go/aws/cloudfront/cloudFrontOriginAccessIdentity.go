@@ -81,7 +81,7 @@ type CloudFrontOriginAccessIdentityInput interface {
 }
 
 func (*CloudFrontOriginAccessIdentity) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFrontOriginAccessIdentity)(nil))
+	return reflect.TypeOf((**CloudFrontOriginAccessIdentity)(nil)).Elem()
 }
 
 func (i *CloudFrontOriginAccessIdentity) ToCloudFrontOriginAccessIdentityOutput() CloudFrontOriginAccessIdentityOutput {
@@ -95,7 +95,7 @@ func (i *CloudFrontOriginAccessIdentity) ToCloudFrontOriginAccessIdentityOutputW
 type CloudFrontOriginAccessIdentityOutput struct{ *pulumi.OutputState }
 
 func (CloudFrontOriginAccessIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFrontOriginAccessIdentity)(nil))
+	return reflect.TypeOf((**CloudFrontOriginAccessIdentity)(nil)).Elem()
 }
 
 func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOutput() CloudFrontOriginAccessIdentityOutput {

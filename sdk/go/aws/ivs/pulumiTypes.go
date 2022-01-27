@@ -243,47 +243,6 @@ func (i RecordingConfigurationDestinationConfigurationArgs) ToRecordingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationOutput)
 }
 
-func (i RecordingConfigurationDestinationConfigurationArgs) ToRecordingConfigurationDestinationConfigurationPtrOutput() RecordingConfigurationDestinationConfigurationPtrOutput {
-	return i.ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i RecordingConfigurationDestinationConfigurationArgs) ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationDestinationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationOutput).ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(ctx)
-}
-
-// RecordingConfigurationDestinationConfigurationPtrInput is an input type that accepts RecordingConfigurationDestinationConfigurationArgs, RecordingConfigurationDestinationConfigurationPtr and RecordingConfigurationDestinationConfigurationPtrOutput values.
-// You can construct a concrete instance of `RecordingConfigurationDestinationConfigurationPtrInput` via:
-//
-//          RecordingConfigurationDestinationConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type RecordingConfigurationDestinationConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToRecordingConfigurationDestinationConfigurationPtrOutput() RecordingConfigurationDestinationConfigurationPtrOutput
-	ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(context.Context) RecordingConfigurationDestinationConfigurationPtrOutput
-}
-
-type recordingConfigurationDestinationConfigurationPtrType RecordingConfigurationDestinationConfigurationArgs
-
-func RecordingConfigurationDestinationConfigurationPtr(v *RecordingConfigurationDestinationConfigurationArgs) RecordingConfigurationDestinationConfigurationPtrInput {
-	return (*recordingConfigurationDestinationConfigurationPtrType)(v)
-}
-
-func (*recordingConfigurationDestinationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecordingConfigurationDestinationConfiguration)(nil)).Elem()
-}
-
-func (i *recordingConfigurationDestinationConfigurationPtrType) ToRecordingConfigurationDestinationConfigurationPtrOutput() RecordingConfigurationDestinationConfigurationPtrOutput {
-	return i.ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *recordingConfigurationDestinationConfigurationPtrType) ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationDestinationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationPtrOutput)
-}
-
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -299,53 +258,10 @@ func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigu
 	return o
 }
 
-func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigurationDestinationConfigurationPtrOutput() RecordingConfigurationDestinationConfigurationPtrOutput {
-	return o.ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationDestinationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationDestinationConfiguration) *RecordingConfigurationDestinationConfiguration {
-		return &v
-	}).(RecordingConfigurationDestinationConfigurationPtrOutput)
-}
-
 func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v RecordingConfigurationDestinationConfiguration) RecordingConfigurationS3DestinationConfiguration {
 		return v.S3
 	}).(RecordingConfigurationS3DestinationConfigurationOutput)
-}
-
-type RecordingConfigurationDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (RecordingConfigurationDestinationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecordingConfigurationDestinationConfiguration)(nil)).Elem()
-}
-
-func (o RecordingConfigurationDestinationConfigurationPtrOutput) ToRecordingConfigurationDestinationConfigurationPtrOutput() RecordingConfigurationDestinationConfigurationPtrOutput {
-	return o
-}
-
-func (o RecordingConfigurationDestinationConfigurationPtrOutput) ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationDestinationConfigurationPtrOutput {
-	return o
-}
-
-func (o RecordingConfigurationDestinationConfigurationPtrOutput) Elem() RecordingConfigurationDestinationConfigurationOutput {
-	return o.ApplyT(func(v *RecordingConfigurationDestinationConfiguration) RecordingConfigurationDestinationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret RecordingConfigurationDestinationConfiguration
-		return ret
-	}).(RecordingConfigurationDestinationConfigurationOutput)
-}
-
-func (o RecordingConfigurationDestinationConfigurationPtrOutput) S3() RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v *RecordingConfigurationDestinationConfiguration) *RecordingConfigurationS3DestinationConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.S3
-	}).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
 // Recording S3 Destination Configuration.
@@ -381,47 +297,6 @@ func (i RecordingConfigurationS3DestinationConfigurationArgs) ToRecordingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationOutput)
 }
 
-func (i RecordingConfigurationS3DestinationConfigurationArgs) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return i.ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i RecordingConfigurationS3DestinationConfigurationArgs) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationOutput).ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx)
-}
-
-// RecordingConfigurationS3DestinationConfigurationPtrInput is an input type that accepts RecordingConfigurationS3DestinationConfigurationArgs, RecordingConfigurationS3DestinationConfigurationPtr and RecordingConfigurationS3DestinationConfigurationPtrOutput values.
-// You can construct a concrete instance of `RecordingConfigurationS3DestinationConfigurationPtrInput` via:
-//
-//          RecordingConfigurationS3DestinationConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type RecordingConfigurationS3DestinationConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput
-	ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput
-}
-
-type recordingConfigurationS3DestinationConfigurationPtrType RecordingConfigurationS3DestinationConfigurationArgs
-
-func RecordingConfigurationS3DestinationConfigurationPtr(v *RecordingConfigurationS3DestinationConfigurationArgs) RecordingConfigurationS3DestinationConfigurationPtrInput {
-	return (*recordingConfigurationS3DestinationConfigurationPtrType)(v)
-}
-
-func (*recordingConfigurationS3DestinationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecordingConfigurationS3DestinationConfiguration)(nil)).Elem()
-}
-
-func (i *recordingConfigurationS3DestinationConfigurationPtrType) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return i.ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *recordingConfigurationS3DestinationConfigurationPtrType) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
-}
-
 // Recording S3 Destination Configuration.
 type RecordingConfigurationS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -437,51 +312,8 @@ func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfi
 	return o
 }
 
-func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return o.ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationS3DestinationConfiguration) *RecordingConfigurationS3DestinationConfiguration {
-		return &v
-	}).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
-}
-
 func (o RecordingConfigurationS3DestinationConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordingConfigurationS3DestinationConfiguration) string { return v.BucketName }).(pulumi.StringOutput)
-}
-
-type RecordingConfigurationS3DestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (RecordingConfigurationS3DestinationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecordingConfigurationS3DestinationConfiguration)(nil)).Elem()
-}
-
-func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutput() RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return o
-}
-
-func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) ToRecordingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationS3DestinationConfigurationPtrOutput {
-	return o
-}
-
-func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) Elem() RecordingConfigurationS3DestinationConfigurationOutput {
-	return o.ApplyT(func(v *RecordingConfigurationS3DestinationConfiguration) RecordingConfigurationS3DestinationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret RecordingConfigurationS3DestinationConfiguration
-		return ret
-	}).(RecordingConfigurationS3DestinationConfigurationOutput)
-}
-
-func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RecordingConfigurationS3DestinationConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BucketName
-	}).(pulumi.StringPtrOutput)
 }
 
 type RecordingConfigurationTag struct {
@@ -690,9 +522,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackKeyPairTagInput)(nil)).Elem(), PlaybackKeyPairTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackKeyPairTagArrayInput)(nil)).Elem(), PlaybackKeyPairTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationDestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationDestinationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationDestinationConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagInput)(nil)).Elem(), RecordingConfigurationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagArrayInput)(nil)).Elem(), RecordingConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyTagInput)(nil)).Elem(), StreamKeyTagArgs{})
@@ -702,9 +532,7 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackKeyPairTagOutput{})
 	pulumi.RegisterOutputType(PlaybackKeyPairTagArrayOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationDestinationConfigurationOutput{})
-	pulumi.RegisterOutputType(RecordingConfigurationDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationOutput{})
-	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationTagOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamKeyTagOutput{})

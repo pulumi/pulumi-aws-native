@@ -64,31 +64,29 @@ export class SafetyRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: SafetyRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["assertionRule"] = args ? args.assertionRule : undefined;
-            inputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            inputs["gatingRule"] = args ? args.gatingRule : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ruleConfig"] = args ? args.ruleConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["safetyRuleArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["assertionRule"] = args ? args.assertionRule : undefined;
+            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
+            resourceInputs["gatingRule"] = args ? args.gatingRule : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ruleConfig"] = args ? args.ruleConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["safetyRuleArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["assertionRule"] = undefined /*out*/;
-            inputs["controlPanelArn"] = undefined /*out*/;
-            inputs["gatingRule"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ruleConfig"] = undefined /*out*/;
-            inputs["safetyRuleArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["assertionRule"] = undefined /*out*/;
+            resourceInputs["controlPanelArn"] = undefined /*out*/;
+            resourceInputs["gatingRule"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ruleConfig"] = undefined /*out*/;
+            resourceInputs["safetyRuleArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SafetyRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SafetyRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

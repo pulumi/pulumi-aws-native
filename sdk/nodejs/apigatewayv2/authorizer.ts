@@ -60,7 +60,7 @@ export class Authorizer extends pulumi.CustomResource {
     /** @deprecated Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Authorizer is deprecated: Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -69,34 +69,32 @@ export class Authorizer extends pulumi.CustomResource {
             if ((!args || args.authorizerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["authorizerCredentialsArn"] = args ? args.authorizerCredentialsArn : undefined;
-            inputs["authorizerPayloadFormatVersion"] = args ? args.authorizerPayloadFormatVersion : undefined;
-            inputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
-            inputs["authorizerType"] = args ? args.authorizerType : undefined;
-            inputs["authorizerUri"] = args ? args.authorizerUri : undefined;
-            inputs["enableSimpleResponses"] = args ? args.enableSimpleResponses : undefined;
-            inputs["identitySource"] = args ? args.identitySource : undefined;
-            inputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
-            inputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["authorizerCredentialsArn"] = args ? args.authorizerCredentialsArn : undefined;
+            resourceInputs["authorizerPayloadFormatVersion"] = args ? args.authorizerPayloadFormatVersion : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerType"] = args ? args.authorizerType : undefined;
+            resourceInputs["authorizerUri"] = args ? args.authorizerUri : undefined;
+            resourceInputs["enableSimpleResponses"] = args ? args.enableSimpleResponses : undefined;
+            resourceInputs["identitySource"] = args ? args.identitySource : undefined;
+            resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
+            resourceInputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["authorizerCredentialsArn"] = undefined /*out*/;
-            inputs["authorizerPayloadFormatVersion"] = undefined /*out*/;
-            inputs["authorizerResultTtlInSeconds"] = undefined /*out*/;
-            inputs["authorizerType"] = undefined /*out*/;
-            inputs["authorizerUri"] = undefined /*out*/;
-            inputs["enableSimpleResponses"] = undefined /*out*/;
-            inputs["identitySource"] = undefined /*out*/;
-            inputs["identityValidationExpression"] = undefined /*out*/;
-            inputs["jwtConfiguration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["authorizerCredentialsArn"] = undefined /*out*/;
+            resourceInputs["authorizerPayloadFormatVersion"] = undefined /*out*/;
+            resourceInputs["authorizerResultTtlInSeconds"] = undefined /*out*/;
+            resourceInputs["authorizerType"] = undefined /*out*/;
+            resourceInputs["authorizerUri"] = undefined /*out*/;
+            resourceInputs["enableSimpleResponses"] = undefined /*out*/;
+            resourceInputs["identitySource"] = undefined /*out*/;
+            resourceInputs["identityValidationExpression"] = undefined /*out*/;
+            resourceInputs["jwtConfiguration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Authorizer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Authorizer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

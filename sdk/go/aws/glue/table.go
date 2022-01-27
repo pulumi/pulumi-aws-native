@@ -94,7 +94,7 @@ type TableInput interface {
 }
 
 func (*Table) ElementType() reflect.Type {
-	return reflect.TypeOf((*Table)(nil))
+	return reflect.TypeOf((**Table)(nil)).Elem()
 }
 
 func (i *Table) ToTableOutput() TableOutput {
@@ -108,7 +108,7 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 type TableOutput struct{ *pulumi.OutputState }
 
 func (TableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Table)(nil))
+	return reflect.TypeOf((**Table)(nil)).Elem()
 }
 
 func (o TableOutput) ToTableOutput() TableOutput {

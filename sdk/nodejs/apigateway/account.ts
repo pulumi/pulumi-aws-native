@@ -47,17 +47,15 @@ export class Account extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["cloudWatchRoleArn"] = args ? args.cloudWatchRoleArn : undefined;
+            resourceInputs["cloudWatchRoleArn"] = args ? args.cloudWatchRoleArn : undefined;
         } else {
-            inputs["cloudWatchRoleArn"] = undefined /*out*/;
+            resourceInputs["cloudWatchRoleArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Account.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

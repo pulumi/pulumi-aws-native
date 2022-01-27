@@ -80,7 +80,7 @@ export class Flow extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FlowArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.destinationFlowConfigList === undefined) && !opts.urn) {
@@ -95,30 +95,28 @@ export class Flow extends pulumi.CustomResource {
             if ((!args || args.triggerConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'triggerConfig'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinationFlowConfigList"] = args ? args.destinationFlowConfigList : undefined;
-            inputs["flowName"] = args ? args.flowName : undefined;
-            inputs["kMSArn"] = args ? args.kMSArn : undefined;
-            inputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tasks"] = args ? args.tasks : undefined;
-            inputs["triggerConfig"] = args ? args.triggerConfig : undefined;
-            inputs["flowArn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationFlowConfigList"] = args ? args.destinationFlowConfigList : undefined;
+            resourceInputs["flowName"] = args ? args.flowName : undefined;
+            resourceInputs["kMSArn"] = args ? args.kMSArn : undefined;
+            resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tasks"] = args ? args.tasks : undefined;
+            resourceInputs["triggerConfig"] = args ? args.triggerConfig : undefined;
+            resourceInputs["flowArn"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["destinationFlowConfigList"] = undefined /*out*/;
-            inputs["flowArn"] = undefined /*out*/;
-            inputs["flowName"] = undefined /*out*/;
-            inputs["kMSArn"] = undefined /*out*/;
-            inputs["sourceFlowConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tasks"] = undefined /*out*/;
-            inputs["triggerConfig"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationFlowConfigList"] = undefined /*out*/;
+            resourceInputs["flowArn"] = undefined /*out*/;
+            resourceInputs["flowName"] = undefined /*out*/;
+            resourceInputs["kMSArn"] = undefined /*out*/;
+            resourceInputs["sourceFlowConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tasks"] = undefined /*out*/;
+            resourceInputs["triggerConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Flow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Flow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

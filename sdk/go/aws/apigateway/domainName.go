@@ -101,7 +101,7 @@ type DomainNameInput interface {
 }
 
 func (*DomainName) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainName)(nil))
+	return reflect.TypeOf((**DomainName)(nil)).Elem()
 }
 
 func (i *DomainName) ToDomainNameOutput() DomainNameOutput {
@@ -115,7 +115,7 @@ func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNa
 type DomainNameOutput struct{ *pulumi.OutputState }
 
 func (DomainNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainName)(nil))
+	return reflect.TypeOf((**DomainName)(nil)).Elem()
 }
 
 func (o DomainNameOutput) ToDomainNameOutput() DomainNameOutput {

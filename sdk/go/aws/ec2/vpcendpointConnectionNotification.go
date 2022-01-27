@@ -94,7 +94,7 @@ type VPCEndpointConnectionNotificationInput interface {
 }
 
 func (*VPCEndpointConnectionNotification) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEndpointConnectionNotification)(nil))
+	return reflect.TypeOf((**VPCEndpointConnectionNotification)(nil)).Elem()
 }
 
 func (i *VPCEndpointConnectionNotification) ToVPCEndpointConnectionNotificationOutput() VPCEndpointConnectionNotificationOutput {
@@ -108,7 +108,7 @@ func (i *VPCEndpointConnectionNotification) ToVPCEndpointConnectionNotificationO
 type VPCEndpointConnectionNotificationOutput struct{ *pulumi.OutputState }
 
 func (VPCEndpointConnectionNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCEndpointConnectionNotification)(nil))
+	return reflect.TypeOf((**VPCEndpointConnectionNotification)(nil)).Elem()
 }
 
 func (o VPCEndpointConnectionNotificationOutput) ToVPCEndpointConnectionNotificationOutput() VPCEndpointConnectionNotificationOutput {

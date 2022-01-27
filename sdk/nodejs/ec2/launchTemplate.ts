@@ -54,25 +54,23 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /** @deprecated LaunchTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: LaunchTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LaunchTemplate is deprecated: LaunchTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["launchTemplateData"] = args ? args.launchTemplateData : undefined;
-            inputs["launchTemplateName"] = args ? args.launchTemplateName : undefined;
-            inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            inputs["defaultVersionNumber"] = undefined /*out*/;
-            inputs["latestVersionNumber"] = undefined /*out*/;
+            resourceInputs["launchTemplateData"] = args ? args.launchTemplateData : undefined;
+            resourceInputs["launchTemplateName"] = args ? args.launchTemplateName : undefined;
+            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
+            resourceInputs["defaultVersionNumber"] = undefined /*out*/;
+            resourceInputs["latestVersionNumber"] = undefined /*out*/;
         } else {
-            inputs["defaultVersionNumber"] = undefined /*out*/;
-            inputs["latestVersionNumber"] = undefined /*out*/;
-            inputs["launchTemplateData"] = undefined /*out*/;
-            inputs["launchTemplateName"] = undefined /*out*/;
-            inputs["tagSpecifications"] = undefined /*out*/;
+            resourceInputs["defaultVersionNumber"] = undefined /*out*/;
+            resourceInputs["latestVersionNumber"] = undefined /*out*/;
+            resourceInputs["launchTemplateData"] = undefined /*out*/;
+            resourceInputs["launchTemplateName"] = undefined /*out*/;
+            resourceInputs["tagSpecifications"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LaunchTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LaunchTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

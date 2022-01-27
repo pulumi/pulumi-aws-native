@@ -95,7 +95,7 @@ export class Analysis extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AnalysisArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.analysisId === undefined) && !opts.urn) {
@@ -107,42 +107,40 @@ export class Analysis extends pulumi.CustomResource {
             if ((!args || args.sourceEntity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceEntity'");
             }
-            inputs["analysisId"] = args ? args.analysisId : undefined;
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["errors"] = args ? args.errors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["themeArn"] = args ? args.themeArn : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["dataSetArns"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["sheets"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["analysisId"] = args ? args.analysisId : undefined;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["errors"] = args ? args.errors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["themeArn"] = args ? args.themeArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["dataSetArns"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["sheets"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["analysisId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["dataSetArns"] = undefined /*out*/;
-            inputs["errors"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["sheets"] = undefined /*out*/;
-            inputs["sourceEntity"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["themeArn"] = undefined /*out*/;
+            resourceInputs["analysisId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["dataSetArns"] = undefined /*out*/;
+            resourceInputs["errors"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["sheets"] = undefined /*out*/;
+            resourceInputs["sourceEntity"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["themeArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Analysis.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Analysis.__pulumiType, name, resourceInputs, opts);
     }
 }
 

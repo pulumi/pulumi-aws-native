@@ -94,7 +94,7 @@ type DocumentationPartInput interface {
 }
 
 func (*DocumentationPart) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationPart)(nil))
+	return reflect.TypeOf((**DocumentationPart)(nil)).Elem()
 }
 
 func (i *DocumentationPart) ToDocumentationPartOutput() DocumentationPartOutput {
@@ -108,7 +108,7 @@ func (i *DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Con
 type DocumentationPartOutput struct{ *pulumi.OutputState }
 
 func (DocumentationPartOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentationPart)(nil))
+	return reflect.TypeOf((**DocumentationPart)(nil)).Elem()
 }
 
 func (o DocumentationPartOutput) ToDocumentationPartOutput() DocumentationPartOutput {

@@ -52,7 +52,7 @@ export class RouteCalculator extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RouteCalculatorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.calculatorName === undefined) && !opts.urn) {
@@ -61,28 +61,26 @@ export class RouteCalculator extends pulumi.CustomResource {
             if ((!args || args.dataSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            inputs["calculatorName"] = args ? args.calculatorName : undefined;
-            inputs["dataSource"] = args ? args.dataSource : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["calculatorArn"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["calculatorName"] = args ? args.calculatorName : undefined;
+            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["calculatorArn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["calculatorArn"] = undefined /*out*/;
-            inputs["calculatorName"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["dataSource"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["pricingPlan"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["calculatorArn"] = undefined /*out*/;
+            resourceInputs["calculatorName"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["dataSource"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["pricingPlan"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RouteCalculator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RouteCalculator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

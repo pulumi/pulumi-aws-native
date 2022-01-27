@@ -53,23 +53,21 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
     /** @deprecated OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: OrganizationConfigRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("OrganizationConfigRule is deprecated: OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            inputs["organizationConfigRuleName"] = args ? args.organizationConfigRuleName : undefined;
-            inputs["organizationCustomRuleMetadata"] = args ? args.organizationCustomRuleMetadata : undefined;
-            inputs["organizationManagedRuleMetadata"] = args ? args.organizationManagedRuleMetadata : undefined;
+            resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
+            resourceInputs["organizationConfigRuleName"] = args ? args.organizationConfigRuleName : undefined;
+            resourceInputs["organizationCustomRuleMetadata"] = args ? args.organizationCustomRuleMetadata : undefined;
+            resourceInputs["organizationManagedRuleMetadata"] = args ? args.organizationManagedRuleMetadata : undefined;
         } else {
-            inputs["excludedAccounts"] = undefined /*out*/;
-            inputs["organizationConfigRuleName"] = undefined /*out*/;
-            inputs["organizationCustomRuleMetadata"] = undefined /*out*/;
-            inputs["organizationManagedRuleMetadata"] = undefined /*out*/;
+            resourceInputs["excludedAccounts"] = undefined /*out*/;
+            resourceInputs["organizationConfigRuleName"] = undefined /*out*/;
+            resourceInputs["organizationCustomRuleMetadata"] = undefined /*out*/;
+            resourceInputs["organizationManagedRuleMetadata"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OrganizationConfigRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OrganizationConfigRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

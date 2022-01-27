@@ -51,24 +51,22 @@ export class GraphQLSchema extends pulumi.CustomResource {
     /** @deprecated GraphQLSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: GraphQLSchemaArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GraphQLSchema is deprecated: GraphQLSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["definition"] = undefined /*out*/;
-            inputs["definitionS3Location"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["definitionS3Location"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GraphQLSchema.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GraphQLSchema.__pulumiType, name, resourceInputs, opts);
     }
 }
 

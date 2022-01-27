@@ -60,7 +60,7 @@ export class InstanceGroupConfig extends pulumi.CustomResource {
     /** @deprecated InstanceGroupConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: InstanceGroupConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("InstanceGroupConfig is deprecated: InstanceGroupConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceCount === undefined) && !opts.urn) {
@@ -75,34 +75,32 @@ export class InstanceGroupConfig extends pulumi.CustomResource {
             if ((!args || args.jobFlowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobFlowId'");
             }
-            inputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
-            inputs["bidPrice"] = args ? args.bidPrice : undefined;
-            inputs["configurations"] = args ? args.configurations : undefined;
-            inputs["customAmiId"] = args ? args.customAmiId : undefined;
-            inputs["ebsConfiguration"] = args ? args.ebsConfiguration : undefined;
-            inputs["instanceCount"] = args ? args.instanceCount : undefined;
-            inputs["instanceRole"] = args ? args.instanceRole : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["jobFlowId"] = args ? args.jobFlowId : undefined;
-            inputs["market"] = args ? args.market : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
+            resourceInputs["bidPrice"] = args ? args.bidPrice : undefined;
+            resourceInputs["configurations"] = args ? args.configurations : undefined;
+            resourceInputs["customAmiId"] = args ? args.customAmiId : undefined;
+            resourceInputs["ebsConfiguration"] = args ? args.ebsConfiguration : undefined;
+            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
+            resourceInputs["instanceRole"] = args ? args.instanceRole : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["jobFlowId"] = args ? args.jobFlowId : undefined;
+            resourceInputs["market"] = args ? args.market : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            inputs["autoScalingPolicy"] = undefined /*out*/;
-            inputs["bidPrice"] = undefined /*out*/;
-            inputs["configurations"] = undefined /*out*/;
-            inputs["customAmiId"] = undefined /*out*/;
-            inputs["ebsConfiguration"] = undefined /*out*/;
-            inputs["instanceCount"] = undefined /*out*/;
-            inputs["instanceRole"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["jobFlowId"] = undefined /*out*/;
-            inputs["market"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["autoScalingPolicy"] = undefined /*out*/;
+            resourceInputs["bidPrice"] = undefined /*out*/;
+            resourceInputs["configurations"] = undefined /*out*/;
+            resourceInputs["customAmiId"] = undefined /*out*/;
+            resourceInputs["ebsConfiguration"] = undefined /*out*/;
+            resourceInputs["instanceCount"] = undefined /*out*/;
+            resourceInputs["instanceRole"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["jobFlowId"] = undefined /*out*/;
+            resourceInputs["market"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InstanceGroupConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InstanceGroupConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

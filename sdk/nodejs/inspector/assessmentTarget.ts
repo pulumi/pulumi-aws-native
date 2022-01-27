@@ -51,21 +51,19 @@ export class AssessmentTarget extends pulumi.CustomResource {
     /** @deprecated AssessmentTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: AssessmentTargetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AssessmentTarget is deprecated: AssessmentTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["assessmentTargetName"] = args ? args.assessmentTargetName : undefined;
-            inputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["assessmentTargetName"] = args ? args.assessmentTargetName : undefined;
+            resourceInputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["assessmentTargetName"] = undefined /*out*/;
-            inputs["resourceGroupArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["assessmentTargetName"] = undefined /*out*/;
+            resourceInputs["resourceGroupArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AssessmentTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AssessmentTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

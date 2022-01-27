@@ -57,34 +57,32 @@ export class UserPoolUser extends pulumi.CustomResource {
     /** @deprecated UserPoolUser is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserPoolUserArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserPoolUser is deprecated: UserPoolUser is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["clientMetadata"] = args ? args.clientMetadata : undefined;
-            inputs["desiredDeliveryMediums"] = args ? args.desiredDeliveryMediums : undefined;
-            inputs["forceAliasCreation"] = args ? args.forceAliasCreation : undefined;
-            inputs["messageAction"] = args ? args.messageAction : undefined;
-            inputs["userAttributes"] = args ? args.userAttributes : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["validationData"] = args ? args.validationData : undefined;
+            resourceInputs["clientMetadata"] = args ? args.clientMetadata : undefined;
+            resourceInputs["desiredDeliveryMediums"] = args ? args.desiredDeliveryMediums : undefined;
+            resourceInputs["forceAliasCreation"] = args ? args.forceAliasCreation : undefined;
+            resourceInputs["messageAction"] = args ? args.messageAction : undefined;
+            resourceInputs["userAttributes"] = args ? args.userAttributes : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["validationData"] = args ? args.validationData : undefined;
         } else {
-            inputs["clientMetadata"] = undefined /*out*/;
-            inputs["desiredDeliveryMediums"] = undefined /*out*/;
-            inputs["forceAliasCreation"] = undefined /*out*/;
-            inputs["messageAction"] = undefined /*out*/;
-            inputs["userAttributes"] = undefined /*out*/;
-            inputs["userPoolId"] = undefined /*out*/;
-            inputs["username"] = undefined /*out*/;
-            inputs["validationData"] = undefined /*out*/;
+            resourceInputs["clientMetadata"] = undefined /*out*/;
+            resourceInputs["desiredDeliveryMediums"] = undefined /*out*/;
+            resourceInputs["forceAliasCreation"] = undefined /*out*/;
+            resourceInputs["messageAction"] = undefined /*out*/;
+            resourceInputs["userAttributes"] = undefined /*out*/;
+            resourceInputs["userPoolId"] = undefined /*out*/;
+            resourceInputs["username"] = undefined /*out*/;
+            resourceInputs["validationData"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserPoolUser.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserPoolUser.__pulumiType, name, resourceInputs, opts);
     }
 }
 

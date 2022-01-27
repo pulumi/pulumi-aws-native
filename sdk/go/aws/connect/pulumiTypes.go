@@ -558,47 +558,6 @@ func (i QuickConnectConfigArgs) ToQuickConnectConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectConfigOutput)
 }
 
-func (i QuickConnectConfigArgs) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
-	return i.ToQuickConnectConfigPtrOutputWithContext(context.Background())
-}
-
-func (i QuickConnectConfigArgs) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectConfigOutput).ToQuickConnectConfigPtrOutputWithContext(ctx)
-}
-
-// QuickConnectConfigPtrInput is an input type that accepts QuickConnectConfigArgs, QuickConnectConfigPtr and QuickConnectConfigPtrOutput values.
-// You can construct a concrete instance of `QuickConnectConfigPtrInput` via:
-//
-//          QuickConnectConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type QuickConnectConfigPtrInput interface {
-	pulumi.Input
-
-	ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput
-	ToQuickConnectConfigPtrOutputWithContext(context.Context) QuickConnectConfigPtrOutput
-}
-
-type quickConnectConfigPtrType QuickConnectConfigArgs
-
-func QuickConnectConfigPtr(v *QuickConnectConfigArgs) QuickConnectConfigPtrInput {
-	return (*quickConnectConfigPtrType)(v)
-}
-
-func (*quickConnectConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QuickConnectConfig)(nil)).Elem()
-}
-
-func (i *quickConnectConfigPtrType) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
-	return i.ToQuickConnectConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *quickConnectConfigPtrType) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectConfigPtrOutput)
-}
-
 // Configuration settings for the quick connect.
 type QuickConnectConfigOutput struct{ *pulumi.OutputState }
 
@@ -612,16 +571,6 @@ func (o QuickConnectConfigOutput) ToQuickConnectConfigOutput() QuickConnectConfi
 
 func (o QuickConnectConfigOutput) ToQuickConnectConfigOutputWithContext(ctx context.Context) QuickConnectConfigOutput {
 	return o
-}
-
-func (o QuickConnectConfigOutput) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
-	return o.ToQuickConnectConfigPtrOutputWithContext(context.Background())
-}
-
-func (o QuickConnectConfigOutput) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickConnectConfig) *QuickConnectConfig {
-		return &v
-	}).(QuickConnectConfigPtrOutput)
 }
 
 func (o QuickConnectConfigOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
@@ -638,66 +587,6 @@ func (o QuickConnectConfigOutput) QuickConnectType() QuickConnectTypeOutput {
 
 func (o QuickConnectConfigOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectUserQuickConnectConfig { return v.UserConfig }).(QuickConnectUserQuickConnectConfigPtrOutput)
-}
-
-type QuickConnectConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (QuickConnectConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QuickConnectConfig)(nil)).Elem()
-}
-
-func (o QuickConnectConfigPtrOutput) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
-	return o
-}
-
-func (o QuickConnectConfigPtrOutput) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
-	return o
-}
-
-func (o QuickConnectConfigPtrOutput) Elem() QuickConnectConfigOutput {
-	return o.ApplyT(func(v *QuickConnectConfig) QuickConnectConfig {
-		if v != nil {
-			return *v
-		}
-		var ret QuickConnectConfig
-		return ret
-	}).(QuickConnectConfigOutput)
-}
-
-func (o QuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
-		if v == nil {
-			return nil
-		}
-		return v.PhoneConfig
-	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
-}
-
-func (o QuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectQueueQuickConnectConfig {
-		if v == nil {
-			return nil
-		}
-		return v.QueueConfig
-	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
-}
-
-func (o QuickConnectConfigPtrOutput) QuickConnectType() QuickConnectTypePtrOutput {
-	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectType {
-		if v == nil {
-			return nil
-		}
-		return &v.QuickConnectType
-	}).(QuickConnectTypePtrOutput)
-}
-
-func (o QuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectUserQuickConnectConfig {
-		if v == nil {
-			return nil
-		}
-		return v.UserConfig
-	}).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
 
 // The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
@@ -1452,47 +1341,6 @@ func (i UserPhoneConfigArgs) ToUserPhoneConfigOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigOutput)
 }
 
-func (i UserPhoneConfigArgs) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
-	return i.ToUserPhoneConfigPtrOutputWithContext(context.Background())
-}
-
-func (i UserPhoneConfigArgs) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigOutput).ToUserPhoneConfigPtrOutputWithContext(ctx)
-}
-
-// UserPhoneConfigPtrInput is an input type that accepts UserPhoneConfigArgs, UserPhoneConfigPtr and UserPhoneConfigPtrOutput values.
-// You can construct a concrete instance of `UserPhoneConfigPtrInput` via:
-//
-//          UserPhoneConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type UserPhoneConfigPtrInput interface {
-	pulumi.Input
-
-	ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput
-	ToUserPhoneConfigPtrOutputWithContext(context.Context) UserPhoneConfigPtrOutput
-}
-
-type userPhoneConfigPtrType UserPhoneConfigArgs
-
-func UserPhoneConfigPtr(v *UserPhoneConfigArgs) UserPhoneConfigPtrInput {
-	return (*userPhoneConfigPtrType)(v)
-}
-
-func (*userPhoneConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPhoneConfig)(nil)).Elem()
-}
-
-func (i *userPhoneConfigPtrType) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
-	return i.ToUserPhoneConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *userPhoneConfigPtrType) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigPtrOutput)
-}
-
 // Contains information about the phone configuration settings for a user.
 type UserPhoneConfigOutput struct{ *pulumi.OutputState }
 
@@ -1506,16 +1354,6 @@ func (o UserPhoneConfigOutput) ToUserPhoneConfigOutput() UserPhoneConfigOutput {
 
 func (o UserPhoneConfigOutput) ToUserPhoneConfigOutputWithContext(ctx context.Context) UserPhoneConfigOutput {
 	return o
-}
-
-func (o UserPhoneConfigOutput) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
-	return o.ToUserPhoneConfigPtrOutputWithContext(context.Background())
-}
-
-func (o UserPhoneConfigOutput) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPhoneConfig) *UserPhoneConfig {
-		return &v
-	}).(UserPhoneConfigPtrOutput)
 }
 
 func (o UserPhoneConfigOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
@@ -1532,66 +1370,6 @@ func (o UserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
 
 func (o UserPhoneConfigOutput) PhoneType() UserPhoneTypeOutput {
 	return o.ApplyT(func(v UserPhoneConfig) UserPhoneType { return v.PhoneType }).(UserPhoneTypeOutput)
-}
-
-type UserPhoneConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (UserPhoneConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPhoneConfig)(nil)).Elem()
-}
-
-func (o UserPhoneConfigPtrOutput) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
-	return o
-}
-
-func (o UserPhoneConfigPtrOutput) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
-	return o
-}
-
-func (o UserPhoneConfigPtrOutput) Elem() UserPhoneConfigOutput {
-	return o.ApplyT(func(v *UserPhoneConfig) UserPhoneConfig {
-		if v != nil {
-			return *v
-		}
-		var ret UserPhoneConfig
-		return ret
-	}).(UserPhoneConfigOutput)
-}
-
-func (o UserPhoneConfigPtrOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *UserPhoneConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AfterContactWorkTimeLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o UserPhoneConfigPtrOutput) AutoAccept() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *UserPhoneConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoAccept
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o UserPhoneConfigPtrOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPhoneConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DeskPhoneNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o UserPhoneConfigPtrOutput) PhoneType() UserPhoneTypePtrOutput {
-	return o.ApplyT(func(v *UserPhoneConfig) *UserPhoneType {
-		if v == nil {
-			return nil
-		}
-		return &v.PhoneType
-	}).(UserPhoneTypePtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1714,7 +1492,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagArrayInput)(nil)).Elem(), HoursOfOperationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTimeSliceInput)(nil)).Elem(), HoursOfOperationTimeSliceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectQueueQuickConnectConfigInput)(nil)).Elem(), QuickConnectQueueQuickConnectConfigArgs{})
@@ -1726,7 +1503,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigPtrInput)(nil)).Elem(), UserPhoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
 	pulumi.RegisterOutputType(ContactFlowModuleTagOutput{})
@@ -1739,7 +1515,6 @@ func init() {
 	pulumi.RegisterOutputType(HoursOfOperationTagArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTimeSliceOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
-	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectQueueQuickConnectConfigOutput{})
@@ -1751,7 +1526,6 @@ func init() {
 	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigOutput{})
-	pulumi.RegisterOutputType(UserPhoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserTagOutput{})
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
 }

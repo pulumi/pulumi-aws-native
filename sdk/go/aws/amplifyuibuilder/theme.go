@@ -93,7 +93,7 @@ type ThemeInput interface {
 }
 
 func (*Theme) ElementType() reflect.Type {
-	return reflect.TypeOf((*Theme)(nil))
+	return reflect.TypeOf((**Theme)(nil)).Elem()
 }
 
 func (i *Theme) ToThemeOutput() ThemeOutput {
@@ -107,7 +107,7 @@ func (i *Theme) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 type ThemeOutput struct{ *pulumi.OutputState }
 
 func (ThemeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Theme)(nil))
+	return reflect.TypeOf((**Theme)(nil)).Elem()
 }
 
 func (o ThemeOutput) ToThemeOutput() ThemeOutput {

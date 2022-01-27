@@ -101,7 +101,7 @@ type ProfilePermissionInput interface {
 }
 
 func (*ProfilePermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfilePermission)(nil))
+	return reflect.TypeOf((**ProfilePermission)(nil)).Elem()
 }
 
 func (i *ProfilePermission) ToProfilePermissionOutput() ProfilePermissionOutput {
@@ -115,7 +115,7 @@ func (i *ProfilePermission) ToProfilePermissionOutputWithContext(ctx context.Con
 type ProfilePermissionOutput struct{ *pulumi.OutputState }
 
 func (ProfilePermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfilePermission)(nil))
+	return reflect.TypeOf((**ProfilePermission)(nil)).Elem()
 }
 
 func (o ProfilePermissionOutput) ToProfilePermissionOutput() ProfilePermissionOutput {

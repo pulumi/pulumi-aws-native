@@ -51,7 +51,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /** @deprecated ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ResourcePolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ResourcePolicy is deprecated: ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
@@ -60,18 +60,16 @@ export class ResourcePolicy extends pulumi.CustomResource {
             if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            inputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
-            inputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            inputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
+            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
+            resourceInputs["secretId"] = args ? args.secretId : undefined;
         } else {
-            inputs["blockPublicPolicy"] = undefined /*out*/;
-            inputs["resourcePolicy"] = undefined /*out*/;
-            inputs["secretId"] = undefined /*out*/;
+            resourceInputs["blockPublicPolicy"] = undefined /*out*/;
+            resourceInputs["resourcePolicy"] = undefined /*out*/;
+            resourceInputs["secretId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourcePolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourcePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

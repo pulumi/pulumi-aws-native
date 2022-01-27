@@ -58,7 +58,7 @@ export class MicrosoftAD extends pulumi.CustomResource {
     /** @deprecated MicrosoftAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MicrosoftADArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MicrosoftAD is deprecated: MicrosoftAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.password === undefined) && !opts.urn) {
@@ -67,30 +67,28 @@ export class MicrosoftAD extends pulumi.CustomResource {
             if ((!args || args.vpcSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSettings'");
             }
-            inputs["createAlias"] = args ? args.createAlias : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["enableSso"] = args ? args.enableSso : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["shortName"] = args ? args.shortName : undefined;
-            inputs["vpcSettings"] = args ? args.vpcSettings : undefined;
-            inputs["alias"] = undefined /*out*/;
-            inputs["dnsIpAddresses"] = undefined /*out*/;
+            resourceInputs["createAlias"] = args ? args.createAlias : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["enableSso"] = args ? args.enableSso : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["shortName"] = args ? args.shortName : undefined;
+            resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["dnsIpAddresses"] = undefined /*out*/;
         } else {
-            inputs["alias"] = undefined /*out*/;
-            inputs["createAlias"] = undefined /*out*/;
-            inputs["dnsIpAddresses"] = undefined /*out*/;
-            inputs["edition"] = undefined /*out*/;
-            inputs["enableSso"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["shortName"] = undefined /*out*/;
-            inputs["vpcSettings"] = undefined /*out*/;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["createAlias"] = undefined /*out*/;
+            resourceInputs["dnsIpAddresses"] = undefined /*out*/;
+            resourceInputs["edition"] = undefined /*out*/;
+            resourceInputs["enableSso"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["shortName"] = undefined /*out*/;
+            resourceInputs["vpcSettings"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MicrosoftAD.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MicrosoftAD.__pulumiType, name, resourceInputs, opts);
     }
 }
 

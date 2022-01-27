@@ -96,7 +96,7 @@ export class Domain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authMode === undefined) && !opts.urn) {
@@ -111,38 +111,36 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
-            inputs["authMode"] = args ? args.authMode : undefined;
-            inputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["domainArn"] = undefined /*out*/;
-            inputs["domainId"] = undefined /*out*/;
-            inputs["homeEfsFileSystemId"] = undefined /*out*/;
-            inputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
+            resourceInputs["authMode"] = args ? args.authMode : undefined;
+            resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["domainArn"] = undefined /*out*/;
+            resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
+            resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         } else {
-            inputs["appNetworkAccessType"] = undefined /*out*/;
-            inputs["authMode"] = undefined /*out*/;
-            inputs["defaultUserSettings"] = undefined /*out*/;
-            inputs["domainArn"] = undefined /*out*/;
-            inputs["domainId"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["homeEfsFileSystemId"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["appNetworkAccessType"] = undefined /*out*/;
+            resourceInputs["authMode"] = undefined /*out*/;
+            resourceInputs["defaultUserSettings"] = undefined /*out*/;
+            resourceInputs["domainArn"] = undefined /*out*/;
+            resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Domain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

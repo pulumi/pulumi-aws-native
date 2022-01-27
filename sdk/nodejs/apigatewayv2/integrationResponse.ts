@@ -55,7 +55,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
     /** @deprecated IntegrationResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: IntegrationResponseArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IntegrationResponse is deprecated: IntegrationResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -67,26 +67,24 @@ export class IntegrationResponse extends pulumi.CustomResource {
             if ((!args || args.integrationResponseKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationResponseKey'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
-            inputs["integrationId"] = args ? args.integrationId : undefined;
-            inputs["integrationResponseKey"] = args ? args.integrationResponseKey : undefined;
-            inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            inputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
+            resourceInputs["integrationId"] = args ? args.integrationId : undefined;
+            resourceInputs["integrationResponseKey"] = args ? args.integrationResponseKey : undefined;
+            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
+            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
+            resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["contentHandlingStrategy"] = undefined /*out*/;
-            inputs["integrationId"] = undefined /*out*/;
-            inputs["integrationResponseKey"] = undefined /*out*/;
-            inputs["responseParameters"] = undefined /*out*/;
-            inputs["responseTemplates"] = undefined /*out*/;
-            inputs["templateSelectionExpression"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["contentHandlingStrategy"] = undefined /*out*/;
+            resourceInputs["integrationId"] = undefined /*out*/;
+            resourceInputs["integrationResponseKey"] = undefined /*out*/;
+            resourceInputs["responseParameters"] = undefined /*out*/;
+            resourceInputs["responseTemplates"] = undefined /*out*/;
+            resourceInputs["templateSelectionExpression"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IntegrationResponse.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IntegrationResponse.__pulumiType, name, resourceInputs, opts);
     }
 }
 

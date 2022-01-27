@@ -74,7 +74,7 @@ export class LaunchProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LaunchProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ec2SubnetIds === undefined) && !opts.urn) {
@@ -92,30 +92,28 @@ export class LaunchProfile extends pulumi.CustomResource {
             if ((!args || args.studioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ec2SubnetIds"] = args ? args.ec2SubnetIds : undefined;
-            inputs["launchProfileProtocolVersions"] = args ? args.launchProfileProtocolVersions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["streamConfiguration"] = args ? args.streamConfiguration : undefined;
-            inputs["studioComponentIds"] = args ? args.studioComponentIds : undefined;
-            inputs["studioId"] = args ? args.studioId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["launchProfileId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ec2SubnetIds"] = args ? args.ec2SubnetIds : undefined;
+            resourceInputs["launchProfileProtocolVersions"] = args ? args.launchProfileProtocolVersions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["streamConfiguration"] = args ? args.streamConfiguration : undefined;
+            resourceInputs["studioComponentIds"] = args ? args.studioComponentIds : undefined;
+            resourceInputs["studioId"] = args ? args.studioId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["launchProfileId"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["ec2SubnetIds"] = undefined /*out*/;
-            inputs["launchProfileId"] = undefined /*out*/;
-            inputs["launchProfileProtocolVersions"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["streamConfiguration"] = undefined /*out*/;
-            inputs["studioComponentIds"] = undefined /*out*/;
-            inputs["studioId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ec2SubnetIds"] = undefined /*out*/;
+            resourceInputs["launchProfileId"] = undefined /*out*/;
+            resourceInputs["launchProfileProtocolVersions"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["streamConfiguration"] = undefined /*out*/;
+            resourceInputs["studioComponentIds"] = undefined /*out*/;
+            resourceInputs["studioId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LaunchProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LaunchProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

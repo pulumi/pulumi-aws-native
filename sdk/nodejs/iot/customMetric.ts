@@ -64,28 +64,26 @@ export class CustomMetric extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomMetricArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.metricType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricType'");
             }
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["metricType"] = args ? args.metricType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["metricArn"] = undefined /*out*/;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["metricType"] = args ? args.metricType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["metricArn"] = undefined /*out*/;
         } else {
-            inputs["displayName"] = undefined /*out*/;
-            inputs["metricArn"] = undefined /*out*/;
-            inputs["metricName"] = undefined /*out*/;
-            inputs["metricType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["metricArn"] = undefined /*out*/;
+            resourceInputs["metricName"] = undefined /*out*/;
+            resourceInputs["metricType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CustomMetric.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CustomMetric.__pulumiType, name, resourceInputs, opts);
     }
 }
 

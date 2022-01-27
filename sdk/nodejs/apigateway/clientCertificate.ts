@@ -56,21 +56,19 @@ export class ClientCertificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ClientCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["clientCertificateId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clientCertificateId"] = undefined /*out*/;
         } else {
-            inputs["clientCertificateId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["clientCertificateId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ClientCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ClientCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

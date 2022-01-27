@@ -110,7 +110,7 @@ type FirewallDomainListInput interface {
 }
 
 func (*FirewallDomainList) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallDomainList)(nil))
+	return reflect.TypeOf((**FirewallDomainList)(nil)).Elem()
 }
 
 func (i *FirewallDomainList) ToFirewallDomainListOutput() FirewallDomainListOutput {
@@ -124,7 +124,7 @@ func (i *FirewallDomainList) ToFirewallDomainListOutputWithContext(ctx context.C
 type FirewallDomainListOutput struct{ *pulumi.OutputState }
 
 func (FirewallDomainListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallDomainList)(nil))
+	return reflect.TypeOf((**FirewallDomainList)(nil)).Elem()
 }
 
 func (o FirewallDomainListOutput) ToFirewallDomainListOutput() FirewallDomainListOutput {

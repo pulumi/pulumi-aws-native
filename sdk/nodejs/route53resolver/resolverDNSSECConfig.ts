@@ -56,21 +56,19 @@ export class ResolverDNSSECConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ResolverDNSSECConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["validationStatus"] = undefined /*out*/;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["validationStatus"] = undefined /*out*/;
         } else {
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["validationStatus"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["validationStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverDNSSECConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverDNSSECConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

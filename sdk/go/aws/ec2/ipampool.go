@@ -171,7 +171,7 @@ type IPAMPoolInput interface {
 }
 
 func (*IPAMPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMPool)(nil))
+	return reflect.TypeOf((**IPAMPool)(nil)).Elem()
 }
 
 func (i *IPAMPool) ToIPAMPoolOutput() IPAMPoolOutput {
@@ -185,7 +185,7 @@ func (i *IPAMPool) ToIPAMPoolOutputWithContext(ctx context.Context) IPAMPoolOutp
 type IPAMPoolOutput struct{ *pulumi.OutputState }
 
 func (IPAMPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMPool)(nil))
+	return reflect.TypeOf((**IPAMPool)(nil)).Elem()
 }
 
 func (o IPAMPoolOutput) ToIPAMPoolOutput() IPAMPoolOutput {

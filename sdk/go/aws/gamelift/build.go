@@ -87,7 +87,7 @@ type BuildInput interface {
 }
 
 func (*Build) ElementType() reflect.Type {
-	return reflect.TypeOf((*Build)(nil))
+	return reflect.TypeOf((**Build)(nil)).Elem()
 }
 
 func (i *Build) ToBuildOutput() BuildOutput {
@@ -101,7 +101,7 @@ func (i *Build) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 type BuildOutput struct{ *pulumi.OutputState }
 
 func (BuildOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Build)(nil))
+	return reflect.TypeOf((**Build)(nil)).Elem()
 }
 
 func (o BuildOutput) ToBuildOutput() BuildOutput {

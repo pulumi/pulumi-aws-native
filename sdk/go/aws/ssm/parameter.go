@@ -109,7 +109,7 @@ type ParameterInput interface {
 }
 
 func (*Parameter) ElementType() reflect.Type {
-	return reflect.TypeOf((*Parameter)(nil))
+	return reflect.TypeOf((**Parameter)(nil)).Elem()
 }
 
 func (i *Parameter) ToParameterOutput() ParameterOutput {
@@ -123,7 +123,7 @@ func (i *Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterO
 type ParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Parameter)(nil))
+	return reflect.TypeOf((**Parameter)(nil)).Elem()
 }
 
 func (o ParameterOutput) ToParameterOutput() ParameterOutput {

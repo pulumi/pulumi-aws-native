@@ -92,7 +92,7 @@ export class Portal extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PortalArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.portalContactEmail === undefined) && !opts.urn) {
@@ -101,36 +101,34 @@ export class Portal extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["alarms"] = args ? args.alarms : undefined;
-            inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            inputs["portalAuthMode"] = args ? args.portalAuthMode : undefined;
-            inputs["portalContactEmail"] = args ? args.portalContactEmail : undefined;
-            inputs["portalDescription"] = args ? args.portalDescription : undefined;
-            inputs["portalName"] = args ? args.portalName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["portalArn"] = undefined /*out*/;
-            inputs["portalClientId"] = undefined /*out*/;
-            inputs["portalId"] = undefined /*out*/;
-            inputs["portalStartUrl"] = undefined /*out*/;
+            resourceInputs["alarms"] = args ? args.alarms : undefined;
+            resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
+            resourceInputs["portalAuthMode"] = args ? args.portalAuthMode : undefined;
+            resourceInputs["portalContactEmail"] = args ? args.portalContactEmail : undefined;
+            resourceInputs["portalDescription"] = args ? args.portalDescription : undefined;
+            resourceInputs["portalName"] = args ? args.portalName : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["portalArn"] = undefined /*out*/;
+            resourceInputs["portalClientId"] = undefined /*out*/;
+            resourceInputs["portalId"] = undefined /*out*/;
+            resourceInputs["portalStartUrl"] = undefined /*out*/;
         } else {
-            inputs["alarms"] = undefined /*out*/;
-            inputs["notificationSenderEmail"] = undefined /*out*/;
-            inputs["portalArn"] = undefined /*out*/;
-            inputs["portalAuthMode"] = undefined /*out*/;
-            inputs["portalClientId"] = undefined /*out*/;
-            inputs["portalContactEmail"] = undefined /*out*/;
-            inputs["portalDescription"] = undefined /*out*/;
-            inputs["portalId"] = undefined /*out*/;
-            inputs["portalName"] = undefined /*out*/;
-            inputs["portalStartUrl"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["alarms"] = undefined /*out*/;
+            resourceInputs["notificationSenderEmail"] = undefined /*out*/;
+            resourceInputs["portalArn"] = undefined /*out*/;
+            resourceInputs["portalAuthMode"] = undefined /*out*/;
+            resourceInputs["portalClientId"] = undefined /*out*/;
+            resourceInputs["portalContactEmail"] = undefined /*out*/;
+            resourceInputs["portalDescription"] = undefined /*out*/;
+            resourceInputs["portalId"] = undefined /*out*/;
+            resourceInputs["portalName"] = undefined /*out*/;
+            resourceInputs["portalStartUrl"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Portal.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Portal.__pulumiType, name, resourceInputs, opts);
     }
 }
 

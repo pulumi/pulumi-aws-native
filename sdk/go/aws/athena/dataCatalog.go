@@ -107,7 +107,7 @@ type DataCatalogInput interface {
 }
 
 func (*DataCatalog) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalog)(nil))
+	return reflect.TypeOf((**DataCatalog)(nil)).Elem()
 }
 
 func (i *DataCatalog) ToDataCatalogOutput() DataCatalogOutput {
@@ -121,7 +121,7 @@ func (i *DataCatalog) ToDataCatalogOutputWithContext(ctx context.Context) DataCa
 type DataCatalogOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalog)(nil))
+	return reflect.TypeOf((**DataCatalog)(nil)).Elem()
 }
 
 func (o DataCatalogOutput) ToDataCatalogOutput() DataCatalogOutput {

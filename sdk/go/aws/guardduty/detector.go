@@ -88,7 +88,7 @@ type DetectorInput interface {
 }
 
 func (*Detector) ElementType() reflect.Type {
-	return reflect.TypeOf((*Detector)(nil))
+	return reflect.TypeOf((**Detector)(nil)).Elem()
 }
 
 func (i *Detector) ToDetectorOutput() DetectorOutput {
@@ -102,7 +102,7 @@ func (i *Detector) ToDetectorOutputWithContext(ctx context.Context) DetectorOutp
 type DetectorOutput struct{ *pulumi.OutputState }
 
 func (DetectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Detector)(nil))
+	return reflect.TypeOf((**Detector)(nil)).Elem()
 }
 
 func (o DetectorOutput) ToDetectorOutput() DetectorOutput {

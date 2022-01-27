@@ -76,7 +76,7 @@ export class AnomalyMonitor extends pulumi.CustomResource {
     /** @deprecated AnomalyMonitor is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AnomalyMonitorArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AnomalyMonitor is deprecated: AnomalyMonitor is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.monitorName === undefined) && !opts.urn) {
@@ -85,30 +85,28 @@ export class AnomalyMonitor extends pulumi.CustomResource {
             if ((!args || args.monitorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorType'");
             }
-            inputs["monitorDimension"] = args ? args.monitorDimension : undefined;
-            inputs["monitorName"] = args ? args.monitorName : undefined;
-            inputs["monitorSpecification"] = args ? args.monitorSpecification : undefined;
-            inputs["monitorType"] = args ? args.monitorType : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["dimensionalValueCount"] = undefined /*out*/;
-            inputs["lastEvaluatedDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["monitorArn"] = undefined /*out*/;
+            resourceInputs["monitorDimension"] = args ? args.monitorDimension : undefined;
+            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
+            resourceInputs["monitorSpecification"] = args ? args.monitorSpecification : undefined;
+            resourceInputs["monitorType"] = args ? args.monitorType : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["dimensionalValueCount"] = undefined /*out*/;
+            resourceInputs["lastEvaluatedDate"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["monitorArn"] = undefined /*out*/;
         } else {
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["dimensionalValueCount"] = undefined /*out*/;
-            inputs["lastEvaluatedDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["monitorArn"] = undefined /*out*/;
-            inputs["monitorDimension"] = undefined /*out*/;
-            inputs["monitorName"] = undefined /*out*/;
-            inputs["monitorSpecification"] = undefined /*out*/;
-            inputs["monitorType"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["dimensionalValueCount"] = undefined /*out*/;
+            resourceInputs["lastEvaluatedDate"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["monitorArn"] = undefined /*out*/;
+            resourceInputs["monitorDimension"] = undefined /*out*/;
+            resourceInputs["monitorName"] = undefined /*out*/;
+            resourceInputs["monitorSpecification"] = undefined /*out*/;
+            resourceInputs["monitorType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AnomalyMonitor.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AnomalyMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

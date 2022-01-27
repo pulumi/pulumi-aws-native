@@ -94,7 +94,7 @@ type AttributeGroupAssociationInput interface {
 }
 
 func (*AttributeGroupAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttributeGroupAssociation)(nil))
+	return reflect.TypeOf((**AttributeGroupAssociation)(nil)).Elem()
 }
 
 func (i *AttributeGroupAssociation) ToAttributeGroupAssociationOutput() AttributeGroupAssociationOutput {
@@ -108,7 +108,7 @@ func (i *AttributeGroupAssociation) ToAttributeGroupAssociationOutputWithContext
 type AttributeGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (AttributeGroupAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttributeGroupAssociation)(nil))
+	return reflect.TypeOf((**AttributeGroupAssociation)(nil)).Elem()
 }
 
 func (o AttributeGroupAssociationOutput) ToAttributeGroupAssociationOutput() AttributeGroupAssociationOutput {

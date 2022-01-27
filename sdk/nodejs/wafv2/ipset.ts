@@ -54,7 +54,7 @@ export class IPSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IPSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.addresses === undefined) && !opts.urn) {
@@ -66,26 +66,24 @@ export class IPSet extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["addresses"] = args ? args.addresses : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["iPAddressVersion"] = args ? args.iPAddressVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["addresses"] = args ? args.addresses : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["iPAddressVersion"] = args ? args.iPAddressVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["addresses"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["iPAddressVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["addresses"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["iPAddressVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IPSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IPSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

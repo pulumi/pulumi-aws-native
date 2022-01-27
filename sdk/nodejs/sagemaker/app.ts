@@ -72,7 +72,7 @@ export class App extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.appType === undefined) && !opts.urn) {
@@ -84,26 +84,24 @@ export class App extends pulumi.CustomResource {
             if ((!args || args.userProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userProfileName'");
             }
-            inputs["appName"] = args ? args.appName : undefined;
-            inputs["appType"] = args ? args.appType : undefined;
-            inputs["domainId"] = args ? args.domainId : undefined;
-            inputs["resourceSpec"] = args ? args.resourceSpec : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userProfileName"] = args ? args.userProfileName : undefined;
-            inputs["appArn"] = undefined /*out*/;
+            resourceInputs["appName"] = args ? args.appName : undefined;
+            resourceInputs["appType"] = args ? args.appType : undefined;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["resourceSpec"] = args ? args.resourceSpec : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
+            resourceInputs["appArn"] = undefined /*out*/;
         } else {
-            inputs["appArn"] = undefined /*out*/;
-            inputs["appName"] = undefined /*out*/;
-            inputs["appType"] = undefined /*out*/;
-            inputs["domainId"] = undefined /*out*/;
-            inputs["resourceSpec"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userProfileName"] = undefined /*out*/;
+            resourceInputs["appArn"] = undefined /*out*/;
+            resourceInputs["appName"] = undefined /*out*/;
+            resourceInputs["appType"] = undefined /*out*/;
+            resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["resourceSpec"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userProfileName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(App.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
 

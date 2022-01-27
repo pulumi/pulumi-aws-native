@@ -57,7 +57,7 @@ export class CustomActionType extends pulumi.CustomResource {
     /** @deprecated CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CustomActionTypeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CustomActionType is deprecated: CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.category === undefined) && !opts.urn) {
@@ -75,28 +75,26 @@ export class CustomActionType extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["category"] = args ? args.category : undefined;
-            inputs["configurationProperties"] = args ? args.configurationProperties : undefined;
-            inputs["inputArtifactDetails"] = args ? args.inputArtifactDetails : undefined;
-            inputs["outputArtifactDetails"] = args ? args.outputArtifactDetails : undefined;
-            inputs["provider"] = args ? args.provider : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["configurationProperties"] = args ? args.configurationProperties : undefined;
+            resourceInputs["inputArtifactDetails"] = args ? args.inputArtifactDetails : undefined;
+            resourceInputs["outputArtifactDetails"] = args ? args.outputArtifactDetails : undefined;
+            resourceInputs["provider"] = args ? args.provider : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
         } else {
-            inputs["category"] = undefined /*out*/;
-            inputs["configurationProperties"] = undefined /*out*/;
-            inputs["inputArtifactDetails"] = undefined /*out*/;
-            inputs["outputArtifactDetails"] = undefined /*out*/;
-            inputs["provider"] = undefined /*out*/;
-            inputs["settings"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["configurationProperties"] = undefined /*out*/;
+            resourceInputs["inputArtifactDetails"] = undefined /*out*/;
+            resourceInputs["outputArtifactDetails"] = undefined /*out*/;
+            resourceInputs["provider"] = undefined /*out*/;
+            resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CustomActionType.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CustomActionType.__pulumiType, name, resourceInputs, opts);
     }
 }
 

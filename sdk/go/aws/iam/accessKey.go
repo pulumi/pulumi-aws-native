@@ -89,7 +89,7 @@ type AccessKeyInput interface {
 }
 
 func (*AccessKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessKey)(nil))
+	return reflect.TypeOf((**AccessKey)(nil)).Elem()
 }
 
 func (i *AccessKey) ToAccessKeyOutput() AccessKeyOutput {
@@ -103,7 +103,7 @@ func (i *AccessKey) ToAccessKeyOutputWithContext(ctx context.Context) AccessKeyO
 type AccessKeyOutput struct{ *pulumi.OutputState }
 
 func (AccessKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessKey)(nil))
+	return reflect.TypeOf((**AccessKey)(nil)).Elem()
 }
 
 func (o AccessKeyOutput) ToAccessKeyOutput() AccessKeyOutput {

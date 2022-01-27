@@ -86,7 +86,7 @@ type SubscriptionDefinitionInput interface {
 }
 
 func (*SubscriptionDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionDefinition)(nil))
+	return reflect.TypeOf((**SubscriptionDefinition)(nil)).Elem()
 }
 
 func (i *SubscriptionDefinition) ToSubscriptionDefinitionOutput() SubscriptionDefinitionOutput {
@@ -100,7 +100,7 @@ func (i *SubscriptionDefinition) ToSubscriptionDefinitionOutputWithContext(ctx c
 type SubscriptionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionDefinition)(nil))
+	return reflect.TypeOf((**SubscriptionDefinition)(nil)).Elem()
 }
 
 func (o SubscriptionDefinitionOutput) ToSubscriptionDefinitionOutput() SubscriptionDefinitionOutput {

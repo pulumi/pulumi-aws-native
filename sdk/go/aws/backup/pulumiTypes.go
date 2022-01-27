@@ -535,47 +535,6 @@ func (i BackupPlanResourceTypeArgs) ToBackupPlanResourceTypeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanResourceTypeOutput)
 }
 
-func (i BackupPlanResourceTypeArgs) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
-	return i.ToBackupPlanResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (i BackupPlanResourceTypeArgs) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanResourceTypeOutput).ToBackupPlanResourceTypePtrOutputWithContext(ctx)
-}
-
-// BackupPlanResourceTypePtrInput is an input type that accepts BackupPlanResourceTypeArgs, BackupPlanResourceTypePtr and BackupPlanResourceTypePtrOutput values.
-// You can construct a concrete instance of `BackupPlanResourceTypePtrInput` via:
-//
-//          BackupPlanResourceTypeArgs{...}
-//
-//  or:
-//
-//          nil
-type BackupPlanResourceTypePtrInput interface {
-	pulumi.Input
-
-	ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput
-	ToBackupPlanResourceTypePtrOutputWithContext(context.Context) BackupPlanResourceTypePtrOutput
-}
-
-type backupPlanResourceTypePtrType BackupPlanResourceTypeArgs
-
-func BackupPlanResourceTypePtr(v *BackupPlanResourceTypeArgs) BackupPlanResourceTypePtrInput {
-	return (*backupPlanResourceTypePtrType)(v)
-}
-
-func (*backupPlanResourceTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPlanResourceType)(nil)).Elem()
-}
-
-func (i *backupPlanResourceTypePtrType) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
-	return i.ToBackupPlanResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (i *backupPlanResourceTypePtrType) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanResourceTypePtrOutput)
-}
-
 type BackupPlanResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanResourceTypeOutput) ElementType() reflect.Type {
@@ -590,16 +549,6 @@ func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypeOutputWithContext(
 	return o
 }
 
-func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
-	return o.ToBackupPlanResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPlanResourceType) *BackupPlanResourceType {
-		return &v
-	}).(BackupPlanResourceTypePtrOutput)
-}
-
 func (o BackupPlanResourceTypeOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
 		return v.AdvancedBackupSettings
@@ -612,57 +561,6 @@ func (o BackupPlanResourceTypeOutput) BackupPlanName() pulumi.StringOutput {
 
 func (o BackupPlanResourceTypeOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanBackupRuleResourceType { return v.BackupPlanRule }).(BackupPlanBackupRuleResourceTypeArrayOutput)
-}
-
-type BackupPlanResourceTypePtrOutput struct{ *pulumi.OutputState }
-
-func (BackupPlanResourceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPlanResourceType)(nil)).Elem()
-}
-
-func (o BackupPlanResourceTypePtrOutput) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
-	return o
-}
-
-func (o BackupPlanResourceTypePtrOutput) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
-	return o
-}
-
-func (o BackupPlanResourceTypePtrOutput) Elem() BackupPlanResourceTypeOutput {
-	return o.ApplyT(func(v *BackupPlanResourceType) BackupPlanResourceType {
-		if v != nil {
-			return *v
-		}
-		var ret BackupPlanResourceType
-		return ret
-	}).(BackupPlanResourceTypeOutput)
-}
-
-func (o BackupPlanResourceTypePtrOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
-	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
-		if v == nil {
-			return nil
-		}
-		return v.AdvancedBackupSettings
-	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
-}
-
-func (o BackupPlanResourceTypePtrOutput) BackupPlanName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupPlanResourceType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BackupPlanName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o BackupPlanResourceTypePtrOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
-	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanBackupRuleResourceType {
-		if v == nil {
-			return nil
-		}
-		return v.BackupPlanRule
-	}).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
 
 type BackupSelectionConditionParameter struct {
@@ -912,47 +810,6 @@ func (i BackupSelectionResourceTypeArgs) ToBackupSelectionResourceTypeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypeOutput)
 }
 
-func (i BackupSelectionResourceTypeArgs) ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput {
-	return i.ToBackupSelectionResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (i BackupSelectionResourceTypeArgs) ToBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypeOutput).ToBackupSelectionResourceTypePtrOutputWithContext(ctx)
-}
-
-// BackupSelectionResourceTypePtrInput is an input type that accepts BackupSelectionResourceTypeArgs, BackupSelectionResourceTypePtr and BackupSelectionResourceTypePtrOutput values.
-// You can construct a concrete instance of `BackupSelectionResourceTypePtrInput` via:
-//
-//          BackupSelectionResourceTypeArgs{...}
-//
-//  or:
-//
-//          nil
-type BackupSelectionResourceTypePtrInput interface {
-	pulumi.Input
-
-	ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput
-	ToBackupSelectionResourceTypePtrOutputWithContext(context.Context) BackupSelectionResourceTypePtrOutput
-}
-
-type backupSelectionResourceTypePtrType BackupSelectionResourceTypeArgs
-
-func BackupSelectionResourceTypePtr(v *BackupSelectionResourceTypeArgs) BackupSelectionResourceTypePtrInput {
-	return (*backupSelectionResourceTypePtrType)(v)
-}
-
-func (*backupSelectionResourceTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupSelectionResourceType)(nil)).Elem()
-}
-
-func (i *backupSelectionResourceTypePtrType) ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput {
-	return i.ToBackupSelectionResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (i *backupSelectionResourceTypePtrType) ToBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypePtrOutput)
-}
-
 type BackupSelectionResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionResourceTypeOutput) ElementType() reflect.Type {
@@ -965,16 +822,6 @@ func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypeOutput()
 
 func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypeOutputWithContext(ctx context.Context) BackupSelectionResourceTypeOutput {
 	return o
-}
-
-func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput {
-	return o.ToBackupSelectionResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupSelectionResourceType) *BackupSelectionResourceType {
-		return &v
-	}).(BackupSelectionResourceTypePtrOutput)
 }
 
 func (o BackupSelectionResourceTypeOutput) Conditions() BackupSelectionResourceTypeConditionsPropertiesPtrOutput {
@@ -1001,84 +848,6 @@ func (o BackupSelectionResourceTypeOutput) Resources() pulumi.StringArrayOutput 
 
 func (o BackupSelectionResourceTypeOutput) SelectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupSelectionResourceType) string { return v.SelectionName }).(pulumi.StringOutput)
-}
-
-type BackupSelectionResourceTypePtrOutput struct{ *pulumi.OutputState }
-
-func (BackupSelectionResourceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupSelectionResourceType)(nil)).Elem()
-}
-
-func (o BackupSelectionResourceTypePtrOutput) ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput {
-	return o
-}
-
-func (o BackupSelectionResourceTypePtrOutput) ToBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypePtrOutput {
-	return o
-}
-
-func (o BackupSelectionResourceTypePtrOutput) Elem() BackupSelectionResourceTypeOutput {
-	return o.ApplyT(func(v *BackupSelectionResourceType) BackupSelectionResourceType {
-		if v != nil {
-			return *v
-		}
-		var ret BackupSelectionResourceType
-		return ret
-	}).(BackupSelectionResourceTypeOutput)
-}
-
-func (o BackupSelectionResourceTypePtrOutput) Conditions() BackupSelectionResourceTypeConditionsPropertiesPtrOutput {
-	return o.ApplyT(func(v *BackupSelectionResourceType) *BackupSelectionResourceTypeConditionsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Conditions
-	}).(BackupSelectionResourceTypeConditionsPropertiesPtrOutput)
-}
-
-func (o BackupSelectionResourceTypePtrOutput) IamRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSelectionResourceType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.IamRoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o BackupSelectionResourceTypePtrOutput) ListOfTags() BackupSelectionConditionResourceTypeArrayOutput {
-	return o.ApplyT(func(v *BackupSelectionResourceType) []BackupSelectionConditionResourceType {
-		if v == nil {
-			return nil
-		}
-		return v.ListOfTags
-	}).(BackupSelectionConditionResourceTypeArrayOutput)
-}
-
-func (o BackupSelectionResourceTypePtrOutput) NotResources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BackupSelectionResourceType) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NotResources
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o BackupSelectionResourceTypePtrOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BackupSelectionResourceType) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Resources
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o BackupSelectionResourceTypePtrOutput) SelectionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSelectionResourceType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SelectionName
-	}).(pulumi.StringPtrOutput)
 }
 
 type BackupSelectionResourceTypeConditionsProperties struct {
@@ -2123,47 +1892,6 @@ func (i ReportDeliveryChannelPropertiesArgs) ToReportDeliveryChannelPropertiesOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryChannelPropertiesOutput)
 }
 
-func (i ReportDeliveryChannelPropertiesArgs) ToReportDeliveryChannelPropertiesPtrOutput() ReportDeliveryChannelPropertiesPtrOutput {
-	return i.ToReportDeliveryChannelPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ReportDeliveryChannelPropertiesArgs) ToReportDeliveryChannelPropertiesPtrOutputWithContext(ctx context.Context) ReportDeliveryChannelPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryChannelPropertiesOutput).ToReportDeliveryChannelPropertiesPtrOutputWithContext(ctx)
-}
-
-// ReportDeliveryChannelPropertiesPtrInput is an input type that accepts ReportDeliveryChannelPropertiesArgs, ReportDeliveryChannelPropertiesPtr and ReportDeliveryChannelPropertiesPtrOutput values.
-// You can construct a concrete instance of `ReportDeliveryChannelPropertiesPtrInput` via:
-//
-//          ReportDeliveryChannelPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ReportDeliveryChannelPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToReportDeliveryChannelPropertiesPtrOutput() ReportDeliveryChannelPropertiesPtrOutput
-	ToReportDeliveryChannelPropertiesPtrOutputWithContext(context.Context) ReportDeliveryChannelPropertiesPtrOutput
-}
-
-type reportDeliveryChannelPropertiesPtrType ReportDeliveryChannelPropertiesArgs
-
-func ReportDeliveryChannelPropertiesPtr(v *ReportDeliveryChannelPropertiesArgs) ReportDeliveryChannelPropertiesPtrInput {
-	return (*reportDeliveryChannelPropertiesPtrType)(v)
-}
-
-func (*reportDeliveryChannelPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryChannelProperties)(nil)).Elem()
-}
-
-func (i *reportDeliveryChannelPropertiesPtrType) ToReportDeliveryChannelPropertiesPtrOutput() ReportDeliveryChannelPropertiesPtrOutput {
-	return i.ToReportDeliveryChannelPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *reportDeliveryChannelPropertiesPtrType) ToReportDeliveryChannelPropertiesPtrOutputWithContext(ctx context.Context) ReportDeliveryChannelPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryChannelPropertiesPtrOutput)
-}
-
 // A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
 type ReportDeliveryChannelPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -2179,16 +1907,6 @@ func (o ReportDeliveryChannelPropertiesOutput) ToReportDeliveryChannelProperties
 	return o
 }
 
-func (o ReportDeliveryChannelPropertiesOutput) ToReportDeliveryChannelPropertiesPtrOutput() ReportDeliveryChannelPropertiesPtrOutput {
-	return o.ToReportDeliveryChannelPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ReportDeliveryChannelPropertiesOutput) ToReportDeliveryChannelPropertiesPtrOutputWithContext(ctx context.Context) ReportDeliveryChannelPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryChannelProperties) *ReportDeliveryChannelProperties {
-		return &v
-	}).(ReportDeliveryChannelPropertiesPtrOutput)
-}
-
 // A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
 func (o ReportDeliveryChannelPropertiesOutput) Formats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportDeliveryChannelProperties) []string { return v.Formats }).(pulumi.StringArrayOutput)
@@ -2202,60 +1920,6 @@ func (o ReportDeliveryChannelPropertiesOutput) S3BucketName() pulumi.StringOutpu
 // The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
 func (o ReportDeliveryChannelPropertiesOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportDeliveryChannelProperties) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
-}
-
-type ReportDeliveryChannelPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportDeliveryChannelPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryChannelProperties)(nil)).Elem()
-}
-
-func (o ReportDeliveryChannelPropertiesPtrOutput) ToReportDeliveryChannelPropertiesPtrOutput() ReportDeliveryChannelPropertiesPtrOutput {
-	return o
-}
-
-func (o ReportDeliveryChannelPropertiesPtrOutput) ToReportDeliveryChannelPropertiesPtrOutputWithContext(ctx context.Context) ReportDeliveryChannelPropertiesPtrOutput {
-	return o
-}
-
-func (o ReportDeliveryChannelPropertiesPtrOutput) Elem() ReportDeliveryChannelPropertiesOutput {
-	return o.ApplyT(func(v *ReportDeliveryChannelProperties) ReportDeliveryChannelProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ReportDeliveryChannelProperties
-		return ret
-	}).(ReportDeliveryChannelPropertiesOutput)
-}
-
-// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
-func (o ReportDeliveryChannelPropertiesPtrOutput) Formats() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ReportDeliveryChannelProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Formats
-	}).(pulumi.StringArrayOutput)
-}
-
-// The unique name of the S3 bucket that receives your reports.
-func (o ReportDeliveryChannelPropertiesPtrOutput) S3BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryChannelProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3BucketName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
-func (o ReportDeliveryChannelPropertiesPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryChannelProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3KeyPrefix
-	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2406,47 +2070,6 @@ func (i ReportSettingPropertiesArgs) ToReportSettingPropertiesOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReportSettingPropertiesOutput)
 }
 
-func (i ReportSettingPropertiesArgs) ToReportSettingPropertiesPtrOutput() ReportSettingPropertiesPtrOutput {
-	return i.ToReportSettingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ReportSettingPropertiesArgs) ToReportSettingPropertiesPtrOutputWithContext(ctx context.Context) ReportSettingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportSettingPropertiesOutput).ToReportSettingPropertiesPtrOutputWithContext(ctx)
-}
-
-// ReportSettingPropertiesPtrInput is an input type that accepts ReportSettingPropertiesArgs, ReportSettingPropertiesPtr and ReportSettingPropertiesPtrOutput values.
-// You can construct a concrete instance of `ReportSettingPropertiesPtrInput` via:
-//
-//          ReportSettingPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ReportSettingPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToReportSettingPropertiesPtrOutput() ReportSettingPropertiesPtrOutput
-	ToReportSettingPropertiesPtrOutputWithContext(context.Context) ReportSettingPropertiesPtrOutput
-}
-
-type reportSettingPropertiesPtrType ReportSettingPropertiesArgs
-
-func ReportSettingPropertiesPtr(v *ReportSettingPropertiesArgs) ReportSettingPropertiesPtrInput {
-	return (*reportSettingPropertiesPtrType)(v)
-}
-
-func (*reportSettingPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportSettingProperties)(nil)).Elem()
-}
-
-func (i *reportSettingPropertiesPtrType) ToReportSettingPropertiesPtrOutput() ReportSettingPropertiesPtrOutput {
-	return i.ToReportSettingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *reportSettingPropertiesPtrType) ToReportSettingPropertiesPtrOutputWithContext(ctx context.Context) ReportSettingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportSettingPropertiesPtrOutput)
-}
-
 // Identifies the report template for the report. Reports are built using a report template.
 type ReportSettingPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -2462,16 +2085,6 @@ func (o ReportSettingPropertiesOutput) ToReportSettingPropertiesOutputWithContex
 	return o
 }
 
-func (o ReportSettingPropertiesOutput) ToReportSettingPropertiesPtrOutput() ReportSettingPropertiesPtrOutput {
-	return o.ToReportSettingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ReportSettingPropertiesOutput) ToReportSettingPropertiesPtrOutputWithContext(ctx context.Context) ReportSettingPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportSettingProperties) *ReportSettingProperties {
-		return &v
-	}).(ReportSettingPropertiesPtrOutput)
-}
-
 // The Amazon Resource Names (ARNs) of the frameworks a report covers.
 func (o ReportSettingPropertiesOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportSettingProperties) []string { return v.FrameworkArns }).(pulumi.StringArrayOutput)
@@ -2480,50 +2093,6 @@ func (o ReportSettingPropertiesOutput) FrameworkArns() pulumi.StringArrayOutput 
 // Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
 func (o ReportSettingPropertiesOutput) ReportTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportSettingProperties) string { return v.ReportTemplate }).(pulumi.StringOutput)
-}
-
-type ReportSettingPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportSettingPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportSettingProperties)(nil)).Elem()
-}
-
-func (o ReportSettingPropertiesPtrOutput) ToReportSettingPropertiesPtrOutput() ReportSettingPropertiesPtrOutput {
-	return o
-}
-
-func (o ReportSettingPropertiesPtrOutput) ToReportSettingPropertiesPtrOutputWithContext(ctx context.Context) ReportSettingPropertiesPtrOutput {
-	return o
-}
-
-func (o ReportSettingPropertiesPtrOutput) Elem() ReportSettingPropertiesOutput {
-	return o.ApplyT(func(v *ReportSettingProperties) ReportSettingProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ReportSettingProperties
-		return ret
-	}).(ReportSettingPropertiesOutput)
-}
-
-// The Amazon Resource Names (ARNs) of the frameworks a report covers.
-func (o ReportSettingPropertiesPtrOutput) FrameworkArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ReportSettingProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.FrameworkArns
-	}).(pulumi.StringArrayOutput)
-}
-
-// Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
-func (o ReportSettingPropertiesPtrOutput) ReportTemplate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportSettingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ReportTemplate
-	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -2536,13 +2105,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanLifecycleResourceTypeInput)(nil)).Elem(), BackupPlanLifecycleResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanLifecycleResourceTypePtrInput)(nil)).Elem(), BackupPlanLifecycleResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanResourceTypeInput)(nil)).Elem(), BackupPlanResourceTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanResourceTypePtrInput)(nil)).Elem(), BackupPlanResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionConditionParameterInput)(nil)).Elem(), BackupSelectionConditionParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionConditionParameterArrayInput)(nil)).Elem(), BackupSelectionConditionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionConditionResourceTypeInput)(nil)).Elem(), BackupSelectionConditionResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionConditionResourceTypeArrayInput)(nil)).Elem(), BackupSelectionConditionResourceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionResourceTypeInput)(nil)).Elem(), BackupSelectionResourceTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionResourceTypePtrInput)(nil)).Elem(), BackupSelectionResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionResourceTypeConditionsPropertiesInput)(nil)).Elem(), BackupSelectionResourceTypeConditionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionResourceTypeConditionsPropertiesPtrInput)(nil)).Elem(), BackupSelectionResourceTypeConditionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultLockConfigurationTypeInput)(nil)).Elem(), BackupVaultLockConfigurationTypeArgs{})
@@ -2558,11 +2125,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkTagInput)(nil)).Elem(), FrameworkTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkTagArrayInput)(nil)).Elem(), FrameworkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportDeliveryChannelPropertiesInput)(nil)).Elem(), ReportDeliveryChannelPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportDeliveryChannelPropertiesPtrInput)(nil)).Elem(), ReportDeliveryChannelPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanTagInput)(nil)).Elem(), ReportPlanTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanTagArrayInput)(nil)).Elem(), ReportPlanTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportSettingPropertiesInput)(nil)).Elem(), ReportSettingPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportSettingPropertiesPtrInput)(nil)).Elem(), ReportSettingPropertiesArgs{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanBackupRuleResourceTypeOutput{})
@@ -2572,13 +2137,11 @@ func init() {
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanResourceTypeOutput{})
-	pulumi.RegisterOutputType(BackupPlanResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionParameterOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionParameterArrayOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupSelectionResourceTypeOutput{})
-	pulumi.RegisterOutputType(BackupSelectionResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupSelectionResourceTypeConditionsPropertiesOutput{})
 	pulumi.RegisterOutputType(BackupSelectionResourceTypeConditionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BackupVaultLockConfigurationTypeOutput{})
@@ -2594,9 +2157,7 @@ func init() {
 	pulumi.RegisterOutputType(FrameworkTagOutput{})
 	pulumi.RegisterOutputType(FrameworkTagArrayOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesOutput{})
-	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ReportPlanTagOutput{})
 	pulumi.RegisterOutputType(ReportPlanTagArrayOutput{})
 	pulumi.RegisterOutputType(ReportSettingPropertiesOutput{})
-	pulumi.RegisterOutputType(ReportSettingPropertiesPtrOutput{})
 }

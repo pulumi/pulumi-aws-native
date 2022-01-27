@@ -97,7 +97,7 @@ type StackUserAssociationInput interface {
 }
 
 func (*StackUserAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackUserAssociation)(nil))
+	return reflect.TypeOf((**StackUserAssociation)(nil)).Elem()
 }
 
 func (i *StackUserAssociation) ToStackUserAssociationOutput() StackUserAssociationOutput {
@@ -111,7 +111,7 @@ func (i *StackUserAssociation) ToStackUserAssociationOutputWithContext(ctx conte
 type StackUserAssociationOutput struct{ *pulumi.OutputState }
 
 func (StackUserAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackUserAssociation)(nil))
+	return reflect.TypeOf((**StackUserAssociation)(nil)).Elem()
 }
 
 func (o StackUserAssociationOutput) ToStackUserAssociationOutput() StackUserAssociationOutput {

@@ -59,35 +59,33 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /** @deprecated GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GameSessionQueue is deprecated: GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["customEventData"] = args ? args.customEventData : undefined;
-            inputs["destinations"] = args ? args.destinations : undefined;
-            inputs["filterConfiguration"] = args ? args.filterConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationTarget"] = args ? args.notificationTarget : undefined;
-            inputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
-            inputs["priorityConfiguration"] = args ? args.priorityConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["customEventData"] = args ? args.customEventData : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["filterConfiguration"] = args ? args.filterConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
+            resourceInputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
+            resourceInputs["priorityConfiguration"] = args ? args.priorityConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["customEventData"] = undefined /*out*/;
-            inputs["destinations"] = undefined /*out*/;
-            inputs["filterConfiguration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationTarget"] = undefined /*out*/;
-            inputs["playerLatencyPolicies"] = undefined /*out*/;
-            inputs["priorityConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeoutInSeconds"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["customEventData"] = undefined /*out*/;
+            resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["filterConfiguration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationTarget"] = undefined /*out*/;
+            resourceInputs["playerLatencyPolicies"] = undefined /*out*/;
+            resourceInputs["priorityConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeoutInSeconds"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GameSessionQueue.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GameSessionQueue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -60,42 +60,40 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
     /** @deprecated SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecurityGroupIngressArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SecurityGroupIngress is deprecated: SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ipProtocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipProtocol'");
             }
-            inputs["cidrIp"] = args ? args.cidrIp : undefined;
-            inputs["cidrIpv6"] = args ? args.cidrIpv6 : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["fromPort"] = args ? args.fromPort : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["ipProtocol"] = args ? args.ipProtocol : undefined;
-            inputs["sourcePrefixListId"] = args ? args.sourcePrefixListId : undefined;
-            inputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
-            inputs["sourceSecurityGroupName"] = args ? args.sourceSecurityGroupName : undefined;
-            inputs["sourceSecurityGroupOwnerId"] = args ? args.sourceSecurityGroupOwnerId : undefined;
-            inputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["cidrIp"] = args ? args.cidrIp : undefined;
+            resourceInputs["cidrIpv6"] = args ? args.cidrIpv6 : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
+            resourceInputs["sourcePrefixListId"] = args ? args.sourcePrefixListId : undefined;
+            resourceInputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
+            resourceInputs["sourceSecurityGroupName"] = args ? args.sourceSecurityGroupName : undefined;
+            resourceInputs["sourceSecurityGroupOwnerId"] = args ? args.sourceSecurityGroupOwnerId : undefined;
+            resourceInputs["toPort"] = args ? args.toPort : undefined;
         } else {
-            inputs["cidrIp"] = undefined /*out*/;
-            inputs["cidrIpv6"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["fromPort"] = undefined /*out*/;
-            inputs["groupId"] = undefined /*out*/;
-            inputs["groupName"] = undefined /*out*/;
-            inputs["ipProtocol"] = undefined /*out*/;
-            inputs["sourcePrefixListId"] = undefined /*out*/;
-            inputs["sourceSecurityGroupId"] = undefined /*out*/;
-            inputs["sourceSecurityGroupName"] = undefined /*out*/;
-            inputs["sourceSecurityGroupOwnerId"] = undefined /*out*/;
-            inputs["toPort"] = undefined /*out*/;
+            resourceInputs["cidrIp"] = undefined /*out*/;
+            resourceInputs["cidrIpv6"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["fromPort"] = undefined /*out*/;
+            resourceInputs["groupId"] = undefined /*out*/;
+            resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["ipProtocol"] = undefined /*out*/;
+            resourceInputs["sourcePrefixListId"] = undefined /*out*/;
+            resourceInputs["sourceSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["sourceSecurityGroupName"] = undefined /*out*/;
+            resourceInputs["sourceSecurityGroupOwnerId"] = undefined /*out*/;
+            resourceInputs["toPort"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecurityGroupIngress.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecurityGroupIngress.__pulumiType, name, resourceInputs, opts);
     }
 }
 

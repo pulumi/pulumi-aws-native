@@ -55,30 +55,28 @@ export class Discoverer extends pulumi.CustomResource {
     /** @deprecated Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DiscovererArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Discoverer is deprecated: Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.sourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            inputs["crossAccount"] = args ? args.crossAccount : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["sourceArn"] = args ? args.sourceArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["discovererArn"] = undefined /*out*/;
-            inputs["discovererId"] = undefined /*out*/;
+            resourceInputs["crossAccount"] = args ? args.crossAccount : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["discovererArn"] = undefined /*out*/;
+            resourceInputs["discovererId"] = undefined /*out*/;
         } else {
-            inputs["crossAccount"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["discovererArn"] = undefined /*out*/;
-            inputs["discovererId"] = undefined /*out*/;
-            inputs["sourceArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["crossAccount"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["discovererArn"] = undefined /*out*/;
+            resourceInputs["discovererId"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Discoverer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Discoverer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

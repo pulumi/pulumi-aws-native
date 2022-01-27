@@ -100,7 +100,7 @@ type VPCPeeringConnectionInput interface {
 }
 
 func (*VPCPeeringConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCPeeringConnection)(nil))
+	return reflect.TypeOf((**VPCPeeringConnection)(nil)).Elem()
 }
 
 func (i *VPCPeeringConnection) ToVPCPeeringConnectionOutput() VPCPeeringConnectionOutput {
@@ -114,7 +114,7 @@ func (i *VPCPeeringConnection) ToVPCPeeringConnectionOutputWithContext(ctx conte
 type VPCPeeringConnectionOutput struct{ *pulumi.OutputState }
 
 func (VPCPeeringConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCPeeringConnection)(nil))
+	return reflect.TypeOf((**VPCPeeringConnection)(nil)).Elem()
 }
 
 func (o VPCPeeringConnectionOutput) ToVPCPeeringConnectionOutput() VPCPeeringConnectionOutput {

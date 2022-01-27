@@ -94,7 +94,7 @@ type UserPoolGroupInput interface {
 }
 
 func (*UserPoolGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolGroup)(nil))
+	return reflect.TypeOf((**UserPoolGroup)(nil)).Elem()
 }
 
 func (i *UserPoolGroup) ToUserPoolGroupOutput() UserPoolGroupOutput {
@@ -108,7 +108,7 @@ func (i *UserPoolGroup) ToUserPoolGroupOutputWithContext(ctx context.Context) Us
 type UserPoolGroupOutput struct{ *pulumi.OutputState }
 
 func (UserPoolGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolGroup)(nil))
+	return reflect.TypeOf((**UserPoolGroup)(nil)).Elem()
 }
 
 func (o UserPoolGroupOutput) ToUserPoolGroupOutput() UserPoolGroupOutput {

@@ -58,7 +58,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.appBlockArn === undefined) && !opts.urn) {
@@ -76,40 +76,38 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.platforms === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platforms'");
             }
-            inputs["appBlockArn"] = args ? args.appBlockArn : undefined;
-            inputs["attributesToDelete"] = args ? args.attributesToDelete : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["iconS3Location"] = args ? args.iconS3Location : undefined;
-            inputs["instanceFamilies"] = args ? args.instanceFamilies : undefined;
-            inputs["launchParameters"] = args ? args.launchParameters : undefined;
-            inputs["launchPath"] = args ? args.launchPath : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platforms"] = args ? args.platforms : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workingDirectory"] = args ? args.workingDirectory : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
+            resourceInputs["appBlockArn"] = args ? args.appBlockArn : undefined;
+            resourceInputs["attributesToDelete"] = args ? args.attributesToDelete : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["iconS3Location"] = args ? args.iconS3Location : undefined;
+            resourceInputs["instanceFamilies"] = args ? args.instanceFamilies : undefined;
+            resourceInputs["launchParameters"] = args ? args.launchParameters : undefined;
+            resourceInputs["launchPath"] = args ? args.launchPath : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platforms"] = args ? args.platforms : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
         } else {
-            inputs["appBlockArn"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["attributesToDelete"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["iconS3Location"] = undefined /*out*/;
-            inputs["instanceFamilies"] = undefined /*out*/;
-            inputs["launchParameters"] = undefined /*out*/;
-            inputs["launchPath"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platforms"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["workingDirectory"] = undefined /*out*/;
+            resourceInputs["appBlockArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["attributesToDelete"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["iconS3Location"] = undefined /*out*/;
+            resourceInputs["instanceFamilies"] = undefined /*out*/;
+            resourceInputs["launchParameters"] = undefined /*out*/;
+            resourceInputs["launchPath"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platforms"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workingDirectory"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

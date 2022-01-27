@@ -56,7 +56,7 @@ export class Logging extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LoggingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -68,18 +68,16 @@ export class Logging extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["defaultLogLevel"] = args ? args.defaultLogLevel : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["defaultLogLevel"] = args ? args.defaultLogLevel : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         } else {
-            inputs["accountId"] = undefined /*out*/;
-            inputs["defaultLogLevel"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["defaultLogLevel"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Logging.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Logging.__pulumiType, name, resourceInputs, opts);
     }
 }
 

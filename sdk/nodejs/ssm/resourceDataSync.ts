@@ -53,33 +53,31 @@ export class ResourceDataSync extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["bucketName"] = args ? args.bucketName : undefined;
-            inputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
-            inputs["bucketRegion"] = args ? args.bucketRegion : undefined;
-            inputs["kMSKeyArn"] = args ? args.kMSKeyArn : undefined;
-            inputs["s3Destination"] = args ? args.s3Destination : undefined;
-            inputs["syncFormat"] = args ? args.syncFormat : undefined;
-            inputs["syncSource"] = args ? args.syncSource : undefined;
-            inputs["syncType"] = args ? args.syncType : undefined;
-            inputs["syncName"] = undefined /*out*/;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
+            resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
+            resourceInputs["kMSKeyArn"] = args ? args.kMSKeyArn : undefined;
+            resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
+            resourceInputs["syncFormat"] = args ? args.syncFormat : undefined;
+            resourceInputs["syncSource"] = args ? args.syncSource : undefined;
+            resourceInputs["syncType"] = args ? args.syncType : undefined;
+            resourceInputs["syncName"] = undefined /*out*/;
         } else {
-            inputs["bucketName"] = undefined /*out*/;
-            inputs["bucketPrefix"] = undefined /*out*/;
-            inputs["bucketRegion"] = undefined /*out*/;
-            inputs["kMSKeyArn"] = undefined /*out*/;
-            inputs["s3Destination"] = undefined /*out*/;
-            inputs["syncFormat"] = undefined /*out*/;
-            inputs["syncName"] = undefined /*out*/;
-            inputs["syncSource"] = undefined /*out*/;
-            inputs["syncType"] = undefined /*out*/;
+            resourceInputs["bucketName"] = undefined /*out*/;
+            resourceInputs["bucketPrefix"] = undefined /*out*/;
+            resourceInputs["bucketRegion"] = undefined /*out*/;
+            resourceInputs["kMSKeyArn"] = undefined /*out*/;
+            resourceInputs["s3Destination"] = undefined /*out*/;
+            resourceInputs["syncFormat"] = undefined /*out*/;
+            resourceInputs["syncName"] = undefined /*out*/;
+            resourceInputs["syncSource"] = undefined /*out*/;
+            resourceInputs["syncType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResourceDataSync.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResourceDataSync.__pulumiType, name, resourceInputs, opts);
     }
 }
 

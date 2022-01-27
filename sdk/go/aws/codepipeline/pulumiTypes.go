@@ -43,47 +43,6 @@ func (i CustomActionTypeArtifactDetailsArgs) ToCustomActionTypeArtifactDetailsOu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeArtifactDetailsOutput)
 }
 
-func (i CustomActionTypeArtifactDetailsArgs) ToCustomActionTypeArtifactDetailsPtrOutput() CustomActionTypeArtifactDetailsPtrOutput {
-	return i.ToCustomActionTypeArtifactDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i CustomActionTypeArtifactDetailsArgs) ToCustomActionTypeArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeArtifactDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeArtifactDetailsOutput).ToCustomActionTypeArtifactDetailsPtrOutputWithContext(ctx)
-}
-
-// CustomActionTypeArtifactDetailsPtrInput is an input type that accepts CustomActionTypeArtifactDetailsArgs, CustomActionTypeArtifactDetailsPtr and CustomActionTypeArtifactDetailsPtrOutput values.
-// You can construct a concrete instance of `CustomActionTypeArtifactDetailsPtrInput` via:
-//
-//          CustomActionTypeArtifactDetailsArgs{...}
-//
-//  or:
-//
-//          nil
-type CustomActionTypeArtifactDetailsPtrInput interface {
-	pulumi.Input
-
-	ToCustomActionTypeArtifactDetailsPtrOutput() CustomActionTypeArtifactDetailsPtrOutput
-	ToCustomActionTypeArtifactDetailsPtrOutputWithContext(context.Context) CustomActionTypeArtifactDetailsPtrOutput
-}
-
-type customActionTypeArtifactDetailsPtrType CustomActionTypeArtifactDetailsArgs
-
-func CustomActionTypeArtifactDetailsPtr(v *CustomActionTypeArtifactDetailsArgs) CustomActionTypeArtifactDetailsPtrInput {
-	return (*customActionTypeArtifactDetailsPtrType)(v)
-}
-
-func (*customActionTypeArtifactDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomActionTypeArtifactDetails)(nil)).Elem()
-}
-
-func (i *customActionTypeArtifactDetailsPtrType) ToCustomActionTypeArtifactDetailsPtrOutput() CustomActionTypeArtifactDetailsPtrOutput {
-	return i.ToCustomActionTypeArtifactDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i *customActionTypeArtifactDetailsPtrType) ToCustomActionTypeArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeArtifactDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeArtifactDetailsPtrOutput)
-}
-
 type CustomActionTypeArtifactDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeArtifactDetailsOutput) ElementType() reflect.Type {
@@ -98,64 +57,12 @@ func (o CustomActionTypeArtifactDetailsOutput) ToCustomActionTypeArtifactDetails
 	return o
 }
 
-func (o CustomActionTypeArtifactDetailsOutput) ToCustomActionTypeArtifactDetailsPtrOutput() CustomActionTypeArtifactDetailsPtrOutput {
-	return o.ToCustomActionTypeArtifactDetailsPtrOutputWithContext(context.Background())
-}
-
-func (o CustomActionTypeArtifactDetailsOutput) ToCustomActionTypeArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeArtifactDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomActionTypeArtifactDetails) *CustomActionTypeArtifactDetails {
-		return &v
-	}).(CustomActionTypeArtifactDetailsPtrOutput)
-}
-
 func (o CustomActionTypeArtifactDetailsOutput) MaximumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeArtifactDetails) int { return v.MaximumCount }).(pulumi.IntOutput)
 }
 
 func (o CustomActionTypeArtifactDetailsOutput) MinimumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeArtifactDetails) int { return v.MinimumCount }).(pulumi.IntOutput)
-}
-
-type CustomActionTypeArtifactDetailsPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomActionTypeArtifactDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomActionTypeArtifactDetails)(nil)).Elem()
-}
-
-func (o CustomActionTypeArtifactDetailsPtrOutput) ToCustomActionTypeArtifactDetailsPtrOutput() CustomActionTypeArtifactDetailsPtrOutput {
-	return o
-}
-
-func (o CustomActionTypeArtifactDetailsPtrOutput) ToCustomActionTypeArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeArtifactDetailsPtrOutput {
-	return o
-}
-
-func (o CustomActionTypeArtifactDetailsPtrOutput) Elem() CustomActionTypeArtifactDetailsOutput {
-	return o.ApplyT(func(v *CustomActionTypeArtifactDetails) CustomActionTypeArtifactDetails {
-		if v != nil {
-			return *v
-		}
-		var ret CustomActionTypeArtifactDetails
-		return ret
-	}).(CustomActionTypeArtifactDetailsOutput)
-}
-
-func (o CustomActionTypeArtifactDetailsPtrOutput) MaximumCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CustomActionTypeArtifactDetails) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaximumCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o CustomActionTypeArtifactDetailsPtrOutput) MinimumCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CustomActionTypeArtifactDetails) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MinimumCount
-	}).(pulumi.IntPtrOutput)
 }
 
 type CustomActionTypeConfigurationProperties struct {
@@ -1813,47 +1720,6 @@ func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthConfigurationOutput)
 }
 
-func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
-	return i.ToWebhookAuthConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthConfigurationOutput).ToWebhookAuthConfigurationPtrOutputWithContext(ctx)
-}
-
-// WebhookAuthConfigurationPtrInput is an input type that accepts WebhookAuthConfigurationArgs, WebhookAuthConfigurationPtr and WebhookAuthConfigurationPtrOutput values.
-// You can construct a concrete instance of `WebhookAuthConfigurationPtrInput` via:
-//
-//          WebhookAuthConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type WebhookAuthConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput
-	ToWebhookAuthConfigurationPtrOutputWithContext(context.Context) WebhookAuthConfigurationPtrOutput
-}
-
-type webhookAuthConfigurationPtrType WebhookAuthConfigurationArgs
-
-func WebhookAuthConfigurationPtr(v *WebhookAuthConfigurationArgs) WebhookAuthConfigurationPtrInput {
-	return (*webhookAuthConfigurationPtrType)(v)
-}
-
-func (*webhookAuthConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebhookAuthConfiguration)(nil)).Elem()
-}
-
-func (i *webhookAuthConfigurationPtrType) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
-	return i.ToWebhookAuthConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *webhookAuthConfigurationPtrType) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthConfigurationPtrOutput)
-}
-
 type WebhookAuthConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebhookAuthConfigurationOutput) ElementType() reflect.Type {
@@ -1868,64 +1734,12 @@ func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationOutputWithCont
 	return o
 }
 
-func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
-	return o.ToWebhookAuthConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookAuthConfiguration) *WebhookAuthConfiguration {
-		return &v
-	}).(WebhookAuthConfigurationPtrOutput)
-}
-
 func (o WebhookAuthConfigurationOutput) AllowedIPRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.AllowedIPRange }).(pulumi.StringPtrOutput)
 }
 
 func (o WebhookAuthConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
-}
-
-type WebhookAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (WebhookAuthConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebhookAuthConfiguration)(nil)).Elem()
-}
-
-func (o WebhookAuthConfigurationPtrOutput) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
-	return o
-}
-
-func (o WebhookAuthConfigurationPtrOutput) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
-	return o
-}
-
-func (o WebhookAuthConfigurationPtrOutput) Elem() WebhookAuthConfigurationOutput {
-	return o.ApplyT(func(v *WebhookAuthConfiguration) WebhookAuthConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret WebhookAuthConfiguration
-		return ret
-	}).(WebhookAuthConfigurationOutput)
-}
-
-func (o WebhookAuthConfigurationPtrOutput) AllowedIPRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedIPRange
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebhookAuthConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretToken
-	}).(pulumi.StringPtrOutput)
 }
 
 type WebhookFilterRule struct {
@@ -2030,7 +1844,6 @@ func (o WebhookFilterRuleArrayOutput) Index(i pulumi.IntInput) WebhookFilterRule
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeArtifactDetailsInput)(nil)).Elem(), CustomActionTypeArtifactDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeArtifactDetailsPtrInput)(nil)).Elem(), CustomActionTypeArtifactDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeConfigurationPropertiesInput)(nil)).Elem(), CustomActionTypeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeConfigurationPropertiesArrayInput)(nil)).Elem(), CustomActionTypeConfigurationPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeSettingsInput)(nil)).Elem(), CustomActionTypeSettingsArgs{})
@@ -2059,11 +1872,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagInput)(nil)).Elem(), PipelineTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthConfigurationInput)(nil)).Elem(), WebhookAuthConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthConfigurationPtrInput)(nil)).Elem(), WebhookAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterRuleInput)(nil)).Elem(), WebhookFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterRuleArrayInput)(nil)).Elem(), WebhookFilterRuleArray{})
 	pulumi.RegisterOutputType(CustomActionTypeArtifactDetailsOutput{})
-	pulumi.RegisterOutputType(CustomActionTypeArtifactDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CustomActionTypeConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(CustomActionTypeConfigurationPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(CustomActionTypeSettingsOutput{})
@@ -2092,7 +1903,6 @@ func init() {
 	pulumi.RegisterOutputType(PipelineTagOutput{})
 	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
 	pulumi.RegisterOutputType(WebhookAuthConfigurationOutput{})
-	pulumi.RegisterOutputType(WebhookAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebhookFilterRuleOutput{})
 	pulumi.RegisterOutputType(WebhookFilterRuleArrayOutput{})
 }

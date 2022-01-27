@@ -108,7 +108,7 @@ type FeatureInput interface {
 }
 
 func (*Feature) ElementType() reflect.Type {
-	return reflect.TypeOf((*Feature)(nil))
+	return reflect.TypeOf((**Feature)(nil)).Elem()
 }
 
 func (i *Feature) ToFeatureOutput() FeatureOutput {
@@ -122,7 +122,7 @@ func (i *Feature) ToFeatureOutputWithContext(ctx context.Context) FeatureOutput 
 type FeatureOutput struct{ *pulumi.OutputState }
 
 func (FeatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Feature)(nil))
+	return reflect.TypeOf((**Feature)(nil)).Elem()
 }
 
 func (o FeatureOutput) ToFeatureOutput() FeatureOutput {

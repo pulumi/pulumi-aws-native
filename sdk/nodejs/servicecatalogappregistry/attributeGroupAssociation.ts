@@ -53,7 +53,7 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AttributeGroupAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.application === undefined) && !opts.urn) {
@@ -62,20 +62,18 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
             if ((!args || args.attributeGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'attributeGroup'");
             }
-            inputs["application"] = args ? args.application : undefined;
-            inputs["attributeGroup"] = args ? args.attributeGroup : undefined;
-            inputs["applicationArn"] = undefined /*out*/;
-            inputs["attributeGroupArn"] = undefined /*out*/;
+            resourceInputs["application"] = args ? args.application : undefined;
+            resourceInputs["attributeGroup"] = args ? args.attributeGroup : undefined;
+            resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["attributeGroupArn"] = undefined /*out*/;
         } else {
-            inputs["application"] = undefined /*out*/;
-            inputs["applicationArn"] = undefined /*out*/;
-            inputs["attributeGroup"] = undefined /*out*/;
-            inputs["attributeGroupArn"] = undefined /*out*/;
+            resourceInputs["application"] = undefined /*out*/;
+            resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["attributeGroup"] = undefined /*out*/;
+            resourceInputs["attributeGroupArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AttributeGroupAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AttributeGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

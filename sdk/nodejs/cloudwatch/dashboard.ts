@@ -50,22 +50,20 @@ export class Dashboard extends pulumi.CustomResource {
     /** @deprecated Dashboard is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Dashboard is deprecated: Dashboard is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dashboardBody === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboardBody'");
             }
-            inputs["dashboardBody"] = args ? args.dashboardBody : undefined;
-            inputs["dashboardName"] = args ? args.dashboardName : undefined;
+            resourceInputs["dashboardBody"] = args ? args.dashboardBody : undefined;
+            resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
         } else {
-            inputs["dashboardBody"] = undefined /*out*/;
-            inputs["dashboardName"] = undefined /*out*/;
+            resourceInputs["dashboardBody"] = undefined /*out*/;
+            resourceInputs["dashboardName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dashboard.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }
 

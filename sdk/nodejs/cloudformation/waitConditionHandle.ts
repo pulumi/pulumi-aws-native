@@ -48,15 +48,13 @@ export class WaitConditionHandle extends pulumi.CustomResource {
     /** @deprecated WaitConditionHandle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: WaitConditionHandleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("WaitConditionHandle is deprecated: WaitConditionHandle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
         } else {
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WaitConditionHandle.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WaitConditionHandle.__pulumiType, name, resourceInputs, opts);
     }
 }
 

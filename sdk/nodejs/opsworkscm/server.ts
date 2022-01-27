@@ -67,7 +67,7 @@ export class Server extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceProfileArn === undefined) && !opts.urn) {
@@ -79,58 +79,56 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
-            inputs["backupId"] = args ? args.backupId : undefined;
-            inputs["backupRetentionCount"] = args ? args.backupRetentionCount : undefined;
-            inputs["customCertificate"] = args ? args.customCertificate : undefined;
-            inputs["customDomain"] = args ? args.customDomain : undefined;
-            inputs["customPrivateKey"] = args ? args.customPrivateKey : undefined;
-            inputs["disableAutomatedBackup"] = args ? args.disableAutomatedBackup : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineAttributes"] = args ? args.engineAttributes : undefined;
-            inputs["engineModel"] = args ? args.engineModel : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["instanceProfileArn"] = args ? args.instanceProfileArn : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["keyPair"] = args ? args.keyPair : undefined;
-            inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
+            resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
+            resourceInputs["backupId"] = args ? args.backupId : undefined;
+            resourceInputs["backupRetentionCount"] = args ? args.backupRetentionCount : undefined;
+            resourceInputs["customCertificate"] = args ? args.customCertificate : undefined;
+            resourceInputs["customDomain"] = args ? args.customDomain : undefined;
+            resourceInputs["customPrivateKey"] = args ? args.customPrivateKey : undefined;
+            resourceInputs["disableAutomatedBackup"] = args ? args.disableAutomatedBackup : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineAttributes"] = args ? args.engineAttributes : undefined;
+            resourceInputs["engineModel"] = args ? args.engineModel : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["instanceProfileArn"] = args ? args.instanceProfileArn : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
+            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
+            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["associatePublicIpAddress"] = undefined /*out*/;
-            inputs["backupId"] = undefined /*out*/;
-            inputs["backupRetentionCount"] = undefined /*out*/;
-            inputs["customCertificate"] = undefined /*out*/;
-            inputs["customDomain"] = undefined /*out*/;
-            inputs["customPrivateKey"] = undefined /*out*/;
-            inputs["disableAutomatedBackup"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["engine"] = undefined /*out*/;
-            inputs["engineAttributes"] = undefined /*out*/;
-            inputs["engineModel"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["instanceProfileArn"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["keyPair"] = undefined /*out*/;
-            inputs["preferredBackupWindow"] = undefined /*out*/;
-            inputs["preferredMaintenanceWindow"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["serverName"] = undefined /*out*/;
-            inputs["serviceRoleArn"] = undefined /*out*/;
-            inputs["subnetIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associatePublicIpAddress"] = undefined /*out*/;
+            resourceInputs["backupId"] = undefined /*out*/;
+            resourceInputs["backupRetentionCount"] = undefined /*out*/;
+            resourceInputs["customCertificate"] = undefined /*out*/;
+            resourceInputs["customDomain"] = undefined /*out*/;
+            resourceInputs["customPrivateKey"] = undefined /*out*/;
+            resourceInputs["disableAutomatedBackup"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["engineAttributes"] = undefined /*out*/;
+            resourceInputs["engineModel"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["instanceProfileArn"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["keyPair"] = undefined /*out*/;
+            resourceInputs["preferredBackupWindow"] = undefined /*out*/;
+            resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["serverName"] = undefined /*out*/;
+            resourceInputs["serviceRoleArn"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Server.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

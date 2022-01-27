@@ -136,7 +136,7 @@ type PortalInput interface {
 }
 
 func (*Portal) ElementType() reflect.Type {
-	return reflect.TypeOf((*Portal)(nil))
+	return reflect.TypeOf((**Portal)(nil)).Elem()
 }
 
 func (i *Portal) ToPortalOutput() PortalOutput {
@@ -150,7 +150,7 @@ func (i *Portal) ToPortalOutputWithContext(ctx context.Context) PortalOutput {
 type PortalOutput struct{ *pulumi.OutputState }
 
 func (PortalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Portal)(nil))
+	return reflect.TypeOf((**Portal)(nil)).Elem()
 }
 
 func (o PortalOutput) ToPortalOutput() PortalOutput {

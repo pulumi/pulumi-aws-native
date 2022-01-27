@@ -88,7 +88,7 @@ type VPCGatewayAttachmentInput interface {
 }
 
 func (*VPCGatewayAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCGatewayAttachment)(nil))
+	return reflect.TypeOf((**VPCGatewayAttachment)(nil)).Elem()
 }
 
 func (i *VPCGatewayAttachment) ToVPCGatewayAttachmentOutput() VPCGatewayAttachmentOutput {
@@ -102,7 +102,7 @@ func (i *VPCGatewayAttachment) ToVPCGatewayAttachmentOutputWithContext(ctx conte
 type VPCGatewayAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VPCGatewayAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VPCGatewayAttachment)(nil))
+	return reflect.TypeOf((**VPCGatewayAttachment)(nil)).Elem()
 }
 
 func (o VPCGatewayAttachmentOutput) ToVPCGatewayAttachmentOutput() VPCGatewayAttachmentOutput {

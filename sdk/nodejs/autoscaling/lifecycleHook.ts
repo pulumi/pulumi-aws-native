@@ -75,7 +75,7 @@ export class LifecycleHook extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LifecycleHookArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
@@ -84,28 +84,26 @@ export class LifecycleHook extends pulumi.CustomResource {
             if ((!args || args.lifecycleTransition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lifecycleTransition'");
             }
-            inputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            inputs["defaultResult"] = args ? args.defaultResult : undefined;
-            inputs["heartbeatTimeout"] = args ? args.heartbeatTimeout : undefined;
-            inputs["lifecycleHookName"] = args ? args.lifecycleHookName : undefined;
-            inputs["lifecycleTransition"] = args ? args.lifecycleTransition : undefined;
-            inputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
-            inputs["notificationTargetARN"] = args ? args.notificationTargetARN : undefined;
-            inputs["roleARN"] = args ? args.roleARN : undefined;
+            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
+            resourceInputs["defaultResult"] = args ? args.defaultResult : undefined;
+            resourceInputs["heartbeatTimeout"] = args ? args.heartbeatTimeout : undefined;
+            resourceInputs["lifecycleHookName"] = args ? args.lifecycleHookName : undefined;
+            resourceInputs["lifecycleTransition"] = args ? args.lifecycleTransition : undefined;
+            resourceInputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
+            resourceInputs["notificationTargetARN"] = args ? args.notificationTargetARN : undefined;
+            resourceInputs["roleARN"] = args ? args.roleARN : undefined;
         } else {
-            inputs["autoScalingGroupName"] = undefined /*out*/;
-            inputs["defaultResult"] = undefined /*out*/;
-            inputs["heartbeatTimeout"] = undefined /*out*/;
-            inputs["lifecycleHookName"] = undefined /*out*/;
-            inputs["lifecycleTransition"] = undefined /*out*/;
-            inputs["notificationMetadata"] = undefined /*out*/;
-            inputs["notificationTargetARN"] = undefined /*out*/;
-            inputs["roleARN"] = undefined /*out*/;
+            resourceInputs["autoScalingGroupName"] = undefined /*out*/;
+            resourceInputs["defaultResult"] = undefined /*out*/;
+            resourceInputs["heartbeatTimeout"] = undefined /*out*/;
+            resourceInputs["lifecycleHookName"] = undefined /*out*/;
+            resourceInputs["lifecycleTransition"] = undefined /*out*/;
+            resourceInputs["notificationMetadata"] = undefined /*out*/;
+            resourceInputs["notificationTargetARN"] = undefined /*out*/;
+            resourceInputs["roleARN"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LifecycleHook.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LifecycleHook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

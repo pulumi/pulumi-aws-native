@@ -208,47 +208,6 @@ func (i MemberConfigurationArgs) ToMemberConfigurationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MemberConfigurationOutput)
 }
 
-func (i MemberConfigurationArgs) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
-	return i.ToMemberConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i MemberConfigurationArgs) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberConfigurationOutput).ToMemberConfigurationPtrOutputWithContext(ctx)
-}
-
-// MemberConfigurationPtrInput is an input type that accepts MemberConfigurationArgs, MemberConfigurationPtr and MemberConfigurationPtrOutput values.
-// You can construct a concrete instance of `MemberConfigurationPtrInput` via:
-//
-//          MemberConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type MemberConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput
-	ToMemberConfigurationPtrOutputWithContext(context.Context) MemberConfigurationPtrOutput
-}
-
-type memberConfigurationPtrType MemberConfigurationArgs
-
-func MemberConfigurationPtr(v *MemberConfigurationArgs) MemberConfigurationPtrInput {
-	return (*memberConfigurationPtrType)(v)
-}
-
-func (*memberConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberConfiguration)(nil)).Elem()
-}
-
-func (i *memberConfigurationPtrType) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
-	return i.ToMemberConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *memberConfigurationPtrType) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberConfigurationPtrOutput)
-}
-
 type MemberConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MemberConfigurationOutput) ElementType() reflect.Type {
@@ -263,16 +222,6 @@ func (o MemberConfigurationOutput) ToMemberConfigurationOutputWithContext(ctx co
 	return o
 }
 
-func (o MemberConfigurationOutput) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
-	return o.ToMemberConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o MemberConfigurationOutput) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberConfiguration) *MemberConfiguration {
-		return &v
-	}).(MemberConfigurationPtrOutput)
-}
-
 func (o MemberConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MemberConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -283,57 +232,6 @@ func (o MemberConfigurationOutput) MemberFrameworkConfiguration() MemberFramewor
 
 func (o MemberConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemberConfiguration) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type MemberConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (MemberConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberConfiguration)(nil)).Elem()
-}
-
-func (o MemberConfigurationPtrOutput) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
-	return o
-}
-
-func (o MemberConfigurationPtrOutput) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
-	return o
-}
-
-func (o MemberConfigurationPtrOutput) Elem() MemberConfigurationOutput {
-	return o.ApplyT(func(v *MemberConfiguration) MemberConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret MemberConfiguration
-		return ret
-	}).(MemberConfigurationOutput)
-}
-
-func (o MemberConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MemberConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MemberConfigurationPtrOutput) MemberFrameworkConfiguration() MemberFrameworkConfigurationPtrOutput {
-	return o.ApplyT(func(v *MemberConfiguration) *MemberFrameworkConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.MemberFrameworkConfiguration
-	}).(MemberFrameworkConfigurationPtrOutput)
-}
-
-func (o MemberConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MemberConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type MemberFabricConfiguration struct {
@@ -1261,47 +1159,6 @@ func (i NodeConfigurationArgs) ToNodeConfigurationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NodeConfigurationOutput)
 }
 
-func (i NodeConfigurationArgs) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
-	return i.ToNodeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i NodeConfigurationArgs) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeConfigurationOutput).ToNodeConfigurationPtrOutputWithContext(ctx)
-}
-
-// NodeConfigurationPtrInput is an input type that accepts NodeConfigurationArgs, NodeConfigurationPtr and NodeConfigurationPtrOutput values.
-// You can construct a concrete instance of `NodeConfigurationPtrInput` via:
-//
-//          NodeConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type NodeConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput
-	ToNodeConfigurationPtrOutputWithContext(context.Context) NodeConfigurationPtrOutput
-}
-
-type nodeConfigurationPtrType NodeConfigurationArgs
-
-func NodeConfigurationPtr(v *NodeConfigurationArgs) NodeConfigurationPtrInput {
-	return (*nodeConfigurationPtrType)(v)
-}
-
-func (*nodeConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NodeConfiguration)(nil)).Elem()
-}
-
-func (i *nodeConfigurationPtrType) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
-	return i.ToNodeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *nodeConfigurationPtrType) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeConfigurationPtrOutput)
-}
-
 type NodeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NodeConfigurationOutput) ElementType() reflect.Type {
@@ -1316,16 +1173,6 @@ func (o NodeConfigurationOutput) ToNodeConfigurationOutputWithContext(ctx contex
 	return o
 }
 
-func (o NodeConfigurationOutput) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
-	return o.ToNodeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o NodeConfigurationOutput) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeConfiguration) *NodeConfiguration {
-		return &v
-	}).(NodeConfigurationPtrOutput)
-}
-
 func (o NodeConfigurationOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeConfiguration) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
@@ -1334,53 +1181,10 @@ func (o NodeConfigurationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeConfiguration) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-type NodeConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (NodeConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NodeConfiguration)(nil)).Elem()
-}
-
-func (o NodeConfigurationPtrOutput) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
-	return o
-}
-
-func (o NodeConfigurationPtrOutput) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
-	return o
-}
-
-func (o NodeConfigurationPtrOutput) Elem() NodeConfigurationOutput {
-	return o.ApplyT(func(v *NodeConfiguration) NodeConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret NodeConfiguration
-		return ret
-	}).(NodeConfigurationOutput)
-}
-
-func (o NodeConfigurationPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NodeConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AvailabilityZone
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NodeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NodeConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberApprovalThresholdPolicyInput)(nil)).Elem(), MemberApprovalThresholdPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberApprovalThresholdPolicyPtrInput)(nil)).Elem(), MemberApprovalThresholdPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberConfigurationInput)(nil)).Elem(), MemberConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MemberConfigurationPtrInput)(nil)).Elem(), MemberConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberFabricConfigurationInput)(nil)).Elem(), MemberFabricConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberFabricConfigurationPtrInput)(nil)).Elem(), MemberFabricConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberFrameworkConfigurationInput)(nil)).Elem(), MemberFrameworkConfigurationArgs{})
@@ -1394,11 +1198,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberVotingPolicyInput)(nil)).Elem(), MemberVotingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberVotingPolicyPtrInput)(nil)).Elem(), MemberVotingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeConfigurationInput)(nil)).Elem(), NodeConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NodeConfigurationPtrInput)(nil)).Elem(), NodeConfigurationArgs{})
 	pulumi.RegisterOutputType(MemberApprovalThresholdPolicyOutput{})
 	pulumi.RegisterOutputType(MemberApprovalThresholdPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MemberConfigurationOutput{})
-	pulumi.RegisterOutputType(MemberConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemberFabricConfigurationOutput{})
 	pulumi.RegisterOutputType(MemberFabricConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemberFrameworkConfigurationOutput{})
@@ -1412,5 +1214,4 @@ func init() {
 	pulumi.RegisterOutputType(MemberVotingPolicyOutput{})
 	pulumi.RegisterOutputType(MemberVotingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(NodeConfigurationOutput{})
-	pulumi.RegisterOutputType(NodeConfigurationPtrOutput{})
 }

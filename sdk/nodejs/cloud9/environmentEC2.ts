@@ -60,40 +60,38 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     /** @deprecated EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EnvironmentEC2 is deprecated: EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;
-            inputs["connectionType"] = args ? args.connectionType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["imageId"] = args ? args.imageId : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerArn"] = args ? args.ownerArn : undefined;
-            inputs["repositories"] = args ? args.repositories : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;
+            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["imageId"] = args ? args.imageId : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerArn"] = args ? args.ownerArn : undefined;
+            resourceInputs["repositories"] = args ? args.repositories : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["automaticStopTimeMinutes"] = undefined /*out*/;
-            inputs["connectionType"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["imageId"] = undefined /*out*/;
-            inputs["instanceType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownerArn"] = undefined /*out*/;
-            inputs["repositories"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["automaticStopTimeMinutes"] = undefined /*out*/;
+            resourceInputs["connectionType"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["imageId"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownerArn"] = undefined /*out*/;
+            resourceInputs["repositories"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EnvironmentEC2.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EnvironmentEC2.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -99,7 +99,7 @@ type CodeSigningConfigInput interface {
 }
 
 func (*CodeSigningConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeSigningConfig)(nil))
+	return reflect.TypeOf((**CodeSigningConfig)(nil)).Elem()
 }
 
 func (i *CodeSigningConfig) ToCodeSigningConfigOutput() CodeSigningConfigOutput {
@@ -113,7 +113,7 @@ func (i *CodeSigningConfig) ToCodeSigningConfigOutputWithContext(ctx context.Con
 type CodeSigningConfigOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeSigningConfig)(nil))
+	return reflect.TypeOf((**CodeSigningConfig)(nil)).Elem()
 }
 
 func (o CodeSigningConfigOutput) ToCodeSigningConfigOutput() CodeSigningConfigOutput {

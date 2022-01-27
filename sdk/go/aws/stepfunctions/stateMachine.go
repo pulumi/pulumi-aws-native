@@ -109,7 +109,7 @@ type StateMachineInput interface {
 }
 
 func (*StateMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachine)(nil))
+	return reflect.TypeOf((**StateMachine)(nil)).Elem()
 }
 
 func (i *StateMachine) ToStateMachineOutput() StateMachineOutput {
@@ -123,7 +123,7 @@ func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) Stat
 type StateMachineOutput struct{ *pulumi.OutputState }
 
 func (StateMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachine)(nil))
+	return reflect.TypeOf((**StateMachine)(nil)).Elem()
 }
 
 func (o StateMachineOutput) ToStateMachineOutput() StateMachineOutput {

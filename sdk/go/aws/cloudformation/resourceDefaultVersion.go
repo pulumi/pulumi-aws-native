@@ -99,7 +99,7 @@ type ResourceDefaultVersionInput interface {
 }
 
 func (*ResourceDefaultVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDefaultVersion)(nil))
+	return reflect.TypeOf((**ResourceDefaultVersion)(nil)).Elem()
 }
 
 func (i *ResourceDefaultVersion) ToResourceDefaultVersionOutput() ResourceDefaultVersionOutput {
@@ -113,7 +113,7 @@ func (i *ResourceDefaultVersion) ToResourceDefaultVersionOutputWithContext(ctx c
 type ResourceDefaultVersionOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefaultVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDefaultVersion)(nil))
+	return reflect.TypeOf((**ResourceDefaultVersion)(nil)).Elem()
 }
 
 func (o ResourceDefaultVersionOutput) ToResourceDefaultVersionOutput() ResourceDefaultVersionOutput {

@@ -55,7 +55,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
     /** @deprecated MaintenanceWindowTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MaintenanceWindowTargetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MaintenanceWindowTarget is deprecated: MaintenanceWindowTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
@@ -67,24 +67,22 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
             if ((!args || args.windowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerInformation"] = args ? args.ownerInformation : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["windowId"] = args ? args.windowId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerInformation"] = args ? args.ownerInformation : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["windowId"] = args ? args.windowId : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownerInformation"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["targets"] = undefined /*out*/;
-            inputs["windowId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownerInformation"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["targets"] = undefined /*out*/;
+            resourceInputs["windowId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MaintenanceWindowTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MaintenanceWindowTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

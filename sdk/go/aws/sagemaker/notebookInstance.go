@@ -127,7 +127,7 @@ type NotebookInstanceInput interface {
 }
 
 func (*NotebookInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookInstance)(nil))
+	return reflect.TypeOf((**NotebookInstance)(nil)).Elem()
 }
 
 func (i *NotebookInstance) ToNotebookInstanceOutput() NotebookInstanceOutput {
@@ -141,7 +141,7 @@ func (i *NotebookInstance) ToNotebookInstanceOutputWithContext(ctx context.Conte
 type NotebookInstanceOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookInstance)(nil))
+	return reflect.TypeOf((**NotebookInstance)(nil)).Elem()
 }
 
 func (o NotebookInstanceOutput) ToNotebookInstanceOutput() NotebookInstanceOutput {

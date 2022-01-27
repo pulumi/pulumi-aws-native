@@ -138,7 +138,7 @@ type CampaignInput interface {
 }
 
 func (*Campaign) ElementType() reflect.Type {
-	return reflect.TypeOf((*Campaign)(nil))
+	return reflect.TypeOf((**Campaign)(nil)).Elem()
 }
 
 func (i *Campaign) ToCampaignOutput() CampaignOutput {
@@ -152,7 +152,7 @@ func (i *Campaign) ToCampaignOutputWithContext(ctx context.Context) CampaignOutp
 type CampaignOutput struct{ *pulumi.OutputState }
 
 func (CampaignOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Campaign)(nil))
+	return reflect.TypeOf((**Campaign)(nil)).Elem()
 }
 
 func (o CampaignOutput) ToCampaignOutput() CampaignOutput {

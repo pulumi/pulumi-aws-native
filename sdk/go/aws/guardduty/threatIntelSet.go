@@ -103,7 +103,7 @@ type ThreatIntelSetInput interface {
 }
 
 func (*ThreatIntelSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreatIntelSet)(nil))
+	return reflect.TypeOf((**ThreatIntelSet)(nil)).Elem()
 }
 
 func (i *ThreatIntelSet) ToThreatIntelSetOutput() ThreatIntelSetOutput {
@@ -117,7 +117,7 @@ func (i *ThreatIntelSet) ToThreatIntelSetOutputWithContext(ctx context.Context) 
 type ThreatIntelSetOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThreatIntelSet)(nil))
+	return reflect.TypeOf((**ThreatIntelSet)(nil)).Elem()
 }
 
 func (o ThreatIntelSetOutput) ToThreatIntelSetOutput() ThreatIntelSetOutput {

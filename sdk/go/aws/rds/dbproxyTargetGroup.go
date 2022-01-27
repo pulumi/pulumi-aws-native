@@ -103,7 +103,7 @@ type DBProxyTargetGroupInput interface {
 }
 
 func (*DBProxyTargetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyTargetGroup)(nil))
+	return reflect.TypeOf((**DBProxyTargetGroup)(nil)).Elem()
 }
 
 func (i *DBProxyTargetGroup) ToDBProxyTargetGroupOutput() DBProxyTargetGroupOutput {
@@ -117,7 +117,7 @@ func (i *DBProxyTargetGroup) ToDBProxyTargetGroupOutputWithContext(ctx context.C
 type DBProxyTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (DBProxyTargetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyTargetGroup)(nil))
+	return reflect.TypeOf((**DBProxyTargetGroup)(nil)).Elem()
 }
 
 func (o DBProxyTargetGroupOutput) ToDBProxyTargetGroupOutput() DBProxyTargetGroupOutput {

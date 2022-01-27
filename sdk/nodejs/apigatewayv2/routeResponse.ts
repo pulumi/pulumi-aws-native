@@ -54,7 +54,7 @@ export class RouteResponse extends pulumi.CustomResource {
     /** @deprecated RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RouteResponseArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RouteResponse is deprecated: RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -66,24 +66,22 @@ export class RouteResponse extends pulumi.CustomResource {
             if ((!args || args.routeResponseKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeResponseKey'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
-            inputs["responseModels"] = args ? args.responseModels : undefined;
-            inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["routeId"] = args ? args.routeId : undefined;
-            inputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
+            resourceInputs["responseModels"] = args ? args.responseModels : undefined;
+            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
+            resourceInputs["routeId"] = args ? args.routeId : undefined;
+            resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["modelSelectionExpression"] = undefined /*out*/;
-            inputs["responseModels"] = undefined /*out*/;
-            inputs["responseParameters"] = undefined /*out*/;
-            inputs["routeId"] = undefined /*out*/;
-            inputs["routeResponseKey"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["modelSelectionExpression"] = undefined /*out*/;
+            resourceInputs["responseModels"] = undefined /*out*/;
+            resourceInputs["responseParameters"] = undefined /*out*/;
+            resourceInputs["routeId"] = undefined /*out*/;
+            resourceInputs["routeResponseKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RouteResponse.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RouteResponse.__pulumiType, name, resourceInputs, opts);
     }
 }
 

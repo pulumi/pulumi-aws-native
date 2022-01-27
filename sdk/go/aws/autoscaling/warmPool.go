@@ -92,7 +92,7 @@ type WarmPoolInput interface {
 }
 
 func (*WarmPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*WarmPool)(nil))
+	return reflect.TypeOf((**WarmPool)(nil)).Elem()
 }
 
 func (i *WarmPool) ToWarmPoolOutput() WarmPoolOutput {
@@ -106,7 +106,7 @@ func (i *WarmPool) ToWarmPoolOutputWithContext(ctx context.Context) WarmPoolOutp
 type WarmPoolOutput struct{ *pulumi.OutputState }
 
 func (WarmPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WarmPool)(nil))
+	return reflect.TypeOf((**WarmPool)(nil)).Elem()
 }
 
 func (o WarmPoolOutput) ToWarmPoolOutput() WarmPoolOutput {

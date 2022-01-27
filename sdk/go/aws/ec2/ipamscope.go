@@ -104,7 +104,7 @@ type IPAMScopeInput interface {
 }
 
 func (*IPAMScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMScope)(nil))
+	return reflect.TypeOf((**IPAMScope)(nil)).Elem()
 }
 
 func (i *IPAMScope) ToIPAMScopeOutput() IPAMScopeOutput {
@@ -118,7 +118,7 @@ func (i *IPAMScope) ToIPAMScopeOutputWithContext(ctx context.Context) IPAMScopeO
 type IPAMScopeOutput struct{ *pulumi.OutputState }
 
 func (IPAMScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAMScope)(nil))
+	return reflect.TypeOf((**IPAMScope)(nil)).Elem()
 }
 
 func (o IPAMScopeOutput) ToIPAMScopeOutput() IPAMScopeOutput {

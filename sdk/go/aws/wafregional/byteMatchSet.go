@@ -81,7 +81,7 @@ type ByteMatchSetInput interface {
 }
 
 func (*ByteMatchSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ByteMatchSet)(nil))
+	return reflect.TypeOf((**ByteMatchSet)(nil)).Elem()
 }
 
 func (i *ByteMatchSet) ToByteMatchSetOutput() ByteMatchSetOutput {
@@ -95,7 +95,7 @@ func (i *ByteMatchSet) ToByteMatchSetOutputWithContext(ctx context.Context) Byte
 type ByteMatchSetOutput struct{ *pulumi.OutputState }
 
 func (ByteMatchSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ByteMatchSet)(nil))
+	return reflect.TypeOf((**ByteMatchSet)(nil)).Elem()
 }
 
 func (o ByteMatchSetOutput) ToByteMatchSetOutput() ByteMatchSetOutput {

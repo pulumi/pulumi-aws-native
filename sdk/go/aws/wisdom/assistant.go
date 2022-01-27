@@ -94,7 +94,7 @@ type AssistantInput interface {
 }
 
 func (*Assistant) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assistant)(nil))
+	return reflect.TypeOf((**Assistant)(nil)).Elem()
 }
 
 func (i *Assistant) ToAssistantOutput() AssistantOutput {
@@ -108,7 +108,7 @@ func (i *Assistant) ToAssistantOutputWithContext(ctx context.Context) AssistantO
 type AssistantOutput struct{ *pulumi.OutputState }
 
 func (AssistantOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assistant)(nil))
+	return reflect.TypeOf((**Assistant)(nil)).Elem()
 }
 
 func (o AssistantOutput) ToAssistantOutput() AssistantOutput {

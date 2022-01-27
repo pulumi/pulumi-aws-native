@@ -88,7 +88,7 @@ type ReplicationSetInput interface {
 }
 
 func (*ReplicationSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationSet)(nil))
+	return reflect.TypeOf((**ReplicationSet)(nil)).Elem()
 }
 
 func (i *ReplicationSet) ToReplicationSetOutput() ReplicationSetOutput {
@@ -102,7 +102,7 @@ func (i *ReplicationSet) ToReplicationSetOutputWithContext(ctx context.Context) 
 type ReplicationSetOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationSet)(nil))
+	return reflect.TypeOf((**ReplicationSet)(nil)).Elem()
 }
 
 func (o ReplicationSetOutput) ToReplicationSetOutput() ReplicationSetOutput {

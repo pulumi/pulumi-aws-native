@@ -95,7 +95,7 @@ type MountTargetInput interface {
 }
 
 func (*MountTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTarget)(nil))
+	return reflect.TypeOf((**MountTarget)(nil)).Elem()
 }
 
 func (i *MountTarget) ToMountTargetOutput() MountTargetOutput {
@@ -109,7 +109,7 @@ func (i *MountTarget) ToMountTargetOutputWithContext(ctx context.Context) MountT
 type MountTargetOutput struct{ *pulumi.OutputState }
 
 func (MountTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTarget)(nil))
+	return reflect.TypeOf((**MountTarget)(nil)).Elem()
 }
 
 func (o MountTargetOutput) ToMountTargetOutput() MountTargetOutput {

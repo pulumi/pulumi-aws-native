@@ -124,7 +124,7 @@ type ContactFlowInput interface {
 }
 
 func (*ContactFlow) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactFlow)(nil))
+	return reflect.TypeOf((**ContactFlow)(nil)).Elem()
 }
 
 func (i *ContactFlow) ToContactFlowOutput() ContactFlowOutput {
@@ -138,7 +138,7 @@ func (i *ContactFlow) ToContactFlowOutputWithContext(ctx context.Context) Contac
 type ContactFlowOutput struct{ *pulumi.OutputState }
 
 func (ContactFlowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactFlow)(nil))
+	return reflect.TypeOf((**ContactFlow)(nil)).Elem()
 }
 
 func (o ContactFlowOutput) ToContactFlowOutput() ContactFlowOutput {

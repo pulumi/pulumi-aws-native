@@ -76,31 +76,29 @@ export class SecurityProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: SecurityProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["additionalMetricsToRetainV2"] = args ? args.additionalMetricsToRetainV2 : undefined;
-            inputs["alertTargets"] = args ? args.alertTargets : undefined;
-            inputs["behaviors"] = args ? args.behaviors : undefined;
-            inputs["securityProfileDescription"] = args ? args.securityProfileDescription : undefined;
-            inputs["securityProfileName"] = args ? args.securityProfileName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetArns"] = args ? args.targetArns : undefined;
-            inputs["securityProfileArn"] = undefined /*out*/;
+            resourceInputs["additionalMetricsToRetainV2"] = args ? args.additionalMetricsToRetainV2 : undefined;
+            resourceInputs["alertTargets"] = args ? args.alertTargets : undefined;
+            resourceInputs["behaviors"] = args ? args.behaviors : undefined;
+            resourceInputs["securityProfileDescription"] = args ? args.securityProfileDescription : undefined;
+            resourceInputs["securityProfileName"] = args ? args.securityProfileName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetArns"] = args ? args.targetArns : undefined;
+            resourceInputs["securityProfileArn"] = undefined /*out*/;
         } else {
-            inputs["additionalMetricsToRetainV2"] = undefined /*out*/;
-            inputs["alertTargets"] = undefined /*out*/;
-            inputs["behaviors"] = undefined /*out*/;
-            inputs["securityProfileArn"] = undefined /*out*/;
-            inputs["securityProfileDescription"] = undefined /*out*/;
-            inputs["securityProfileName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetArns"] = undefined /*out*/;
+            resourceInputs["additionalMetricsToRetainV2"] = undefined /*out*/;
+            resourceInputs["alertTargets"] = undefined /*out*/;
+            resourceInputs["behaviors"] = undefined /*out*/;
+            resourceInputs["securityProfileArn"] = undefined /*out*/;
+            resourceInputs["securityProfileDescription"] = undefined /*out*/;
+            resourceInputs["securityProfileName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetArns"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecurityProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecurityProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

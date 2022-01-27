@@ -54,25 +54,23 @@ export class Workteam extends pulumi.CustomResource {
     /** @deprecated Workteam is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: WorkteamArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Workteam is deprecated: Workteam is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["memberDefinitions"] = args ? args.memberDefinitions : undefined;
-            inputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workteamName"] = args ? args.workteamName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["memberDefinitions"] = args ? args.memberDefinitions : undefined;
+            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workteamName"] = args ? args.workteamName : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["memberDefinitions"] = undefined /*out*/;
-            inputs["notificationConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["workteamName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["memberDefinitions"] = undefined /*out*/;
+            resourceInputs["notificationConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workteamName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Workteam.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Workteam.__pulumiType, name, resourceInputs, opts);
     }
 }
 

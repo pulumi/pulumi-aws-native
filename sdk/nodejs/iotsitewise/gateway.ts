@@ -64,28 +64,26 @@ export class Gateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gatewayPlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayPlatform'");
             }
-            inputs["gatewayCapabilitySummaries"] = args ? args.gatewayCapabilitySummaries : undefined;
-            inputs["gatewayName"] = args ? args.gatewayName : undefined;
-            inputs["gatewayPlatform"] = args ? args.gatewayPlatform : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["gatewayId"] = undefined /*out*/;
+            resourceInputs["gatewayCapabilitySummaries"] = args ? args.gatewayCapabilitySummaries : undefined;
+            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
+            resourceInputs["gatewayPlatform"] = args ? args.gatewayPlatform : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["gatewayId"] = undefined /*out*/;
         } else {
-            inputs["gatewayCapabilitySummaries"] = undefined /*out*/;
-            inputs["gatewayId"] = undefined /*out*/;
-            inputs["gatewayName"] = undefined /*out*/;
-            inputs["gatewayPlatform"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["gatewayCapabilitySummaries"] = undefined /*out*/;
+            resourceInputs["gatewayId"] = undefined /*out*/;
+            resourceInputs["gatewayName"] = undefined /*out*/;
+            resourceInputs["gatewayPlatform"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Gateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

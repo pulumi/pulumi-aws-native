@@ -101,7 +101,7 @@ type PrimaryTaskSetInput interface {
 }
 
 func (*PrimaryTaskSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrimaryTaskSet)(nil))
+	return reflect.TypeOf((**PrimaryTaskSet)(nil)).Elem()
 }
 
 func (i *PrimaryTaskSet) ToPrimaryTaskSetOutput() PrimaryTaskSetOutput {
@@ -115,7 +115,7 @@ func (i *PrimaryTaskSet) ToPrimaryTaskSetOutputWithContext(ctx context.Context) 
 type PrimaryTaskSetOutput struct{ *pulumi.OutputState }
 
 func (PrimaryTaskSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrimaryTaskSet)(nil))
+	return reflect.TypeOf((**PrimaryTaskSet)(nil)).Elem()
 }
 
 func (o PrimaryTaskSetOutput) ToPrimaryTaskSetOutput() PrimaryTaskSetOutput {

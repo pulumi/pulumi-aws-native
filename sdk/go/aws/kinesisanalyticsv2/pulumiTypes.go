@@ -502,47 +502,6 @@ func (i ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs) ToApplica
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput)
 }
 
-func (i ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
-	return i.ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput).ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(ctx)
-}
-
-// ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrInput is an input type that accepts ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs, ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtr and ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput values.
-// You can construct a concrete instance of `ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrInput` via:
-//
-//          ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrInput interface {
-	pulumi.Input
-
-	ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput
-	ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(context.Context) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput
-}
-
-type applicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrType ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs
-
-func ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtr(v *ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrInput {
-	return (*applicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrType)(v)
-}
-
-func (*applicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption)(nil)).Elem()
-}
-
-func (i *applicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrType) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
-	return i.ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrType) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput)
-}
-
 type ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ElementType() reflect.Type {
@@ -557,51 +516,8 @@ func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ToAppli
 	return o
 }
 
-func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
-	return o.ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption) *ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption {
-		return &v
-	}).(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput)
-}
-
 func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) LogStreamARN() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption) string { return v.LogStreamARN }).(pulumi.StringOutput)
-}
-
-type ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption)(nil)).Elem()
-}
-
-func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
-	return o
-}
-
-func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) ToApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {
-	return o
-}
-
-func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) Elem() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput {
-	return o.ApplyT(func(v *ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption) ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption
-		return ret
-	}).(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput)
-}
-
-func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) LogStreamARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LogStreamARN
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationCodeConfiguration struct {
@@ -3301,47 +3217,6 @@ func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResou
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceDestinationSchemaOutput)
 }
 
-func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return i.ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceDestinationSchemaOutput).ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx)
-}
-
-// ApplicationOutputResourceDestinationSchemaPtrInput is an input type that accepts ApplicationOutputResourceDestinationSchemaArgs, ApplicationOutputResourceDestinationSchemaPtr and ApplicationOutputResourceDestinationSchemaPtrOutput values.
-// You can construct a concrete instance of `ApplicationOutputResourceDestinationSchemaPtrInput` via:
-//
-//          ApplicationOutputResourceDestinationSchemaArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationOutputResourceDestinationSchemaPtrInput interface {
-	pulumi.Input
-
-	ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput
-	ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput
-}
-
-type applicationOutputResourceDestinationSchemaPtrType ApplicationOutputResourceDestinationSchemaArgs
-
-func ApplicationOutputResourceDestinationSchemaPtr(v *ApplicationOutputResourceDestinationSchemaArgs) ApplicationOutputResourceDestinationSchemaPtrInput {
-	return (*applicationOutputResourceDestinationSchemaPtrType)(v)
-}
-
-func (*applicationOutputResourceDestinationSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputResourceDestinationSchema)(nil)).Elem()
-}
-
-func (i *applicationOutputResourceDestinationSchemaPtrType) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return i.ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationOutputResourceDestinationSchemaPtrType) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceDestinationSchemaPtrOutput)
-}
-
 type ApplicationOutputResourceDestinationSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceDestinationSchemaOutput) ElementType() reflect.Type {
@@ -3356,51 +3231,8 @@ func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputRes
 	return o
 }
 
-func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return o.ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputResourceDestinationSchema) *ApplicationOutputResourceDestinationSchema {
-		return &v
-	}).(ApplicationOutputResourceDestinationSchemaPtrOutput)
-}
-
 func (o ApplicationOutputResourceDestinationSchemaOutput) RecordFormatType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceDestinationSchema) *string { return v.RecordFormatType }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationOutputResourceDestinationSchemaPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationOutputResourceDestinationSchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputResourceDestinationSchema)(nil)).Elem()
-}
-
-func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return o
-}
-
-func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return o
-}
-
-func (o ApplicationOutputResourceDestinationSchemaPtrOutput) Elem() ApplicationOutputResourceDestinationSchemaOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceDestinationSchema) ApplicationOutputResourceDestinationSchema {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationOutputResourceDestinationSchema
-		return ret
-	}).(ApplicationOutputResourceDestinationSchemaOutput)
-}
-
-func (o ApplicationOutputResourceDestinationSchemaPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceDestinationSchema) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecordFormatType
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationOutputResourceKinesisFirehoseOutput struct {
@@ -3841,47 +3673,6 @@ func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputTypeOutput)
 }
 
-func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
-	return i.ToApplicationOutputResourceOutputTypePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputTypeOutput).ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx)
-}
-
-// ApplicationOutputResourceOutputTypePtrInput is an input type that accepts ApplicationOutputResourceOutputTypeArgs, ApplicationOutputResourceOutputTypePtr and ApplicationOutputResourceOutputTypePtrOutput values.
-// You can construct a concrete instance of `ApplicationOutputResourceOutputTypePtrInput` via:
-//
-//          ApplicationOutputResourceOutputTypeArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationOutputResourceOutputTypePtrInput interface {
-	pulumi.Input
-
-	ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput
-	ToApplicationOutputResourceOutputTypePtrOutputWithContext(context.Context) ApplicationOutputResourceOutputTypePtrOutput
-}
-
-type applicationOutputResourceOutputTypePtrType ApplicationOutputResourceOutputTypeArgs
-
-func ApplicationOutputResourceOutputTypePtr(v *ApplicationOutputResourceOutputTypeArgs) ApplicationOutputResourceOutputTypePtrInput {
-	return (*applicationOutputResourceOutputTypePtrType)(v)
-}
-
-func (*applicationOutputResourceOutputTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputResourceOutputType)(nil)).Elem()
-}
-
-func (i *applicationOutputResourceOutputTypePtrType) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
-	return i.ToApplicationOutputResourceOutputTypePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationOutputResourceOutputTypePtrType) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputTypePtrOutput)
-}
-
 type ApplicationOutputResourceOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutputResourceOutputTypeOutput) ElementType() reflect.Type {
@@ -3894,16 +3685,6 @@ func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOu
 
 func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypeOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypeOutput {
 	return o
-}
-
-func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
-	return o.ToApplicationOutputResourceOutputTypePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputResourceOutputType) *ApplicationOutputResourceOutputType {
-		return &v
-	}).(ApplicationOutputResourceOutputTypePtrOutput)
 }
 
 func (o ApplicationOutputResourceOutputTypeOutput) DestinationSchema() ApplicationOutputResourceDestinationSchemaOutput {
@@ -3932,75 +3713,6 @@ func (o ApplicationOutputResourceOutputTypeOutput) LambdaOutput() ApplicationOut
 
 func (o ApplicationOutputResourceOutputTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceOutputType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationOutputResourceOutputTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationOutputResourceOutputTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputResourceOutputType)(nil)).Elem()
-}
-
-func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
-	return o
-}
-
-func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
-	return o
-}
-
-func (o ApplicationOutputResourceOutputTypePtrOutput) Elem() ApplicationOutputResourceOutputTypeOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) ApplicationOutputResourceOutputType {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationOutputResourceOutputType
-		return ret
-	}).(ApplicationOutputResourceOutputTypeOutput)
-}
-
-func (o ApplicationOutputResourceOutputTypePtrOutput) DestinationSchema() ApplicationOutputResourceDestinationSchemaPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceDestinationSchema {
-		if v == nil {
-			return nil
-		}
-		return &v.DestinationSchema
-	}).(ApplicationOutputResourceDestinationSchemaPtrOutput)
-}
-
-func (o ApplicationOutputResourceOutputTypePtrOutput) KinesisFirehoseOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceKinesisFirehoseOutput {
-		if v == nil {
-			return nil
-		}
-		return v.KinesisFirehoseOutput
-	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
-}
-
-func (o ApplicationOutputResourceOutputTypePtrOutput) KinesisStreamsOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceKinesisStreamsOutput {
-		if v == nil {
-			return nil
-		}
-		return v.KinesisStreamsOutput
-	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
-}
-
-func (o ApplicationOutputResourceOutputTypePtrOutput) LambdaOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceLambdaOutput {
-		if v == nil {
-			return nil
-		}
-		return v.LambdaOutput
-	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
-}
-
-func (o ApplicationOutputResourceOutputTypePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationParallelismConfiguration struct {
@@ -5014,47 +4726,6 @@ func (i ApplicationReferenceDataSourceRecordFormatArgs) ToApplicationReferenceDa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordFormatOutput)
 }
 
-func (i ApplicationReferenceDataSourceRecordFormatArgs) ToApplicationReferenceDataSourceRecordFormatPtrOutput() ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return i.ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationReferenceDataSourceRecordFormatArgs) ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordFormatOutput).ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(ctx)
-}
-
-// ApplicationReferenceDataSourceRecordFormatPtrInput is an input type that accepts ApplicationReferenceDataSourceRecordFormatArgs, ApplicationReferenceDataSourceRecordFormatPtr and ApplicationReferenceDataSourceRecordFormatPtrOutput values.
-// You can construct a concrete instance of `ApplicationReferenceDataSourceRecordFormatPtrInput` via:
-//
-//          ApplicationReferenceDataSourceRecordFormatArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationReferenceDataSourceRecordFormatPtrInput interface {
-	pulumi.Input
-
-	ToApplicationReferenceDataSourceRecordFormatPtrOutput() ApplicationReferenceDataSourceRecordFormatPtrOutput
-	ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(context.Context) ApplicationReferenceDataSourceRecordFormatPtrOutput
-}
-
-type applicationReferenceDataSourceRecordFormatPtrType ApplicationReferenceDataSourceRecordFormatArgs
-
-func ApplicationReferenceDataSourceRecordFormatPtr(v *ApplicationReferenceDataSourceRecordFormatArgs) ApplicationReferenceDataSourceRecordFormatPtrInput {
-	return (*applicationReferenceDataSourceRecordFormatPtrType)(v)
-}
-
-func (*applicationReferenceDataSourceRecordFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceRecordFormat)(nil)).Elem()
-}
-
-func (i *applicationReferenceDataSourceRecordFormatPtrType) ToApplicationReferenceDataSourceRecordFormatPtrOutput() ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return i.ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationReferenceDataSourceRecordFormatPtrType) ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceRecordFormatPtrOutput)
-}
-
 type ApplicationReferenceDataSourceRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceRecordFormatOutput) ElementType() reflect.Type {
@@ -5069,16 +4740,6 @@ func (o ApplicationReferenceDataSourceRecordFormatOutput) ToApplicationReference
 	return o
 }
 
-func (o ApplicationReferenceDataSourceRecordFormatOutput) ToApplicationReferenceDataSourceRecordFormatPtrOutput() ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return o.ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationReferenceDataSourceRecordFormatOutput) ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceRecordFormat) *ApplicationReferenceDataSourceRecordFormat {
-		return &v
-	}).(ApplicationReferenceDataSourceRecordFormatPtrOutput)
-}
-
 func (o ApplicationReferenceDataSourceRecordFormatOutput) MappingParameters() ApplicationReferenceDataSourceMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceRecordFormat) *ApplicationReferenceDataSourceMappingParameters {
 		return v.MappingParameters
@@ -5087,48 +4748,6 @@ func (o ApplicationReferenceDataSourceRecordFormatOutput) MappingParameters() Ap
 
 func (o ApplicationReferenceDataSourceRecordFormatOutput) RecordFormatType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceRecordFormat) string { return v.RecordFormatType }).(pulumi.StringOutput)
-}
-
-type ApplicationReferenceDataSourceRecordFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationReferenceDataSourceRecordFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceRecordFormat)(nil)).Elem()
-}
-
-func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToApplicationReferenceDataSourceRecordFormatPtrOutput() ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return o
-}
-
-func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return o
-}
-
-func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) Elem() ApplicationReferenceDataSourceRecordFormatOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceRecordFormat) ApplicationReferenceDataSourceRecordFormat {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationReferenceDataSourceRecordFormat
-		return ret
-	}).(ApplicationReferenceDataSourceRecordFormatOutput)
-}
-
-func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) MappingParameters() ApplicationReferenceDataSourceMappingParametersPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceRecordFormat) *ApplicationReferenceDataSourceMappingParameters {
-		if v == nil {
-			return nil
-		}
-		return v.MappingParameters
-	}).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
-}
-
-func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceRecordFormat) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RecordFormatType
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationReferenceDataSourceReferenceDataSource struct {
@@ -5166,47 +4785,6 @@ func (i ApplicationReferenceDataSourceReferenceDataSourceArgs) ToApplicationRefe
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceDataSourceOutput)
 }
 
-func (i ApplicationReferenceDataSourceReferenceDataSourceArgs) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutput() ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
-	return i.ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationReferenceDataSourceReferenceDataSourceArgs) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceDataSourceOutput).ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(ctx)
-}
-
-// ApplicationReferenceDataSourceReferenceDataSourcePtrInput is an input type that accepts ApplicationReferenceDataSourceReferenceDataSourceArgs, ApplicationReferenceDataSourceReferenceDataSourcePtr and ApplicationReferenceDataSourceReferenceDataSourcePtrOutput values.
-// You can construct a concrete instance of `ApplicationReferenceDataSourceReferenceDataSourcePtrInput` via:
-//
-//          ApplicationReferenceDataSourceReferenceDataSourceArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationReferenceDataSourceReferenceDataSourcePtrInput interface {
-	pulumi.Input
-
-	ToApplicationReferenceDataSourceReferenceDataSourcePtrOutput() ApplicationReferenceDataSourceReferenceDataSourcePtrOutput
-	ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(context.Context) ApplicationReferenceDataSourceReferenceDataSourcePtrOutput
-}
-
-type applicationReferenceDataSourceReferenceDataSourcePtrType ApplicationReferenceDataSourceReferenceDataSourceArgs
-
-func ApplicationReferenceDataSourceReferenceDataSourcePtr(v *ApplicationReferenceDataSourceReferenceDataSourceArgs) ApplicationReferenceDataSourceReferenceDataSourcePtrInput {
-	return (*applicationReferenceDataSourceReferenceDataSourcePtrType)(v)
-}
-
-func (*applicationReferenceDataSourceReferenceDataSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceReferenceDataSource)(nil)).Elem()
-}
-
-func (i *applicationReferenceDataSourceReferenceDataSourcePtrType) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutput() ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
-	return i.ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationReferenceDataSourceReferenceDataSourcePtrType) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceDataSourcePtrOutput)
-}
-
 type ApplicationReferenceDataSourceReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceReferenceDataSourceOutput) ElementType() reflect.Type {
@@ -5219,16 +4797,6 @@ func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToApplicationRe
 
 func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToApplicationReferenceDataSourceReferenceDataSourceOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourceOutput {
 	return o
-}
-
-func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutput() ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
-	return o.ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceReferenceDataSource) *ApplicationReferenceDataSourceReferenceDataSource {
-		return &v
-	}).(ApplicationReferenceDataSourceReferenceDataSourcePtrOutput)
 }
 
 func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) ReferenceSchema() ApplicationReferenceDataSourceReferenceSchemaOutput {
@@ -5245,57 +4813,6 @@ func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) S3ReferenceData
 
 func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceReferenceDataSource) *string { return v.TableName }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationReferenceDataSourceReferenceDataSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceReferenceDataSource)(nil)).Elem()
-}
-
-func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutput() ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
-	return o
-}
-
-func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
-	return o
-}
-
-func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) Elem() ApplicationReferenceDataSourceReferenceDataSourceOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceDataSource) ApplicationReferenceDataSourceReferenceDataSource {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationReferenceDataSourceReferenceDataSource
-		return ret
-	}).(ApplicationReferenceDataSourceReferenceDataSourceOutput)
-}
-
-func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ReferenceSchema() ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceDataSource) *ApplicationReferenceDataSourceReferenceSchema {
-		if v == nil {
-			return nil
-		}
-		return &v.ReferenceSchema
-	}).(ApplicationReferenceDataSourceReferenceSchemaPtrOutput)
-}
-
-func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) S3ReferenceDataSource() ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceDataSource) *ApplicationReferenceDataSourceS3ReferenceDataSource {
-		if v == nil {
-			return nil
-		}
-		return v.S3ReferenceDataSource
-	}).(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
-}
-
-func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) TableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceDataSource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TableName
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationReferenceDataSourceReferenceSchema struct {
@@ -5333,47 +4850,6 @@ func (i ApplicationReferenceDataSourceReferenceSchemaArgs) ToApplicationReferenc
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceSchemaOutput)
 }
 
-func (i ApplicationReferenceDataSourceReferenceSchemaArgs) ToApplicationReferenceDataSourceReferenceSchemaPtrOutput() ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return i.ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationReferenceDataSourceReferenceSchemaArgs) ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceSchemaOutput).ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx)
-}
-
-// ApplicationReferenceDataSourceReferenceSchemaPtrInput is an input type that accepts ApplicationReferenceDataSourceReferenceSchemaArgs, ApplicationReferenceDataSourceReferenceSchemaPtr and ApplicationReferenceDataSourceReferenceSchemaPtrOutput values.
-// You can construct a concrete instance of `ApplicationReferenceDataSourceReferenceSchemaPtrInput` via:
-//
-//          ApplicationReferenceDataSourceReferenceSchemaArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationReferenceDataSourceReferenceSchemaPtrInput interface {
-	pulumi.Input
-
-	ToApplicationReferenceDataSourceReferenceSchemaPtrOutput() ApplicationReferenceDataSourceReferenceSchemaPtrOutput
-	ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(context.Context) ApplicationReferenceDataSourceReferenceSchemaPtrOutput
-}
-
-type applicationReferenceDataSourceReferenceSchemaPtrType ApplicationReferenceDataSourceReferenceSchemaArgs
-
-func ApplicationReferenceDataSourceReferenceSchemaPtr(v *ApplicationReferenceDataSourceReferenceSchemaArgs) ApplicationReferenceDataSourceReferenceSchemaPtrInput {
-	return (*applicationReferenceDataSourceReferenceSchemaPtrType)(v)
-}
-
-func (*applicationReferenceDataSourceReferenceSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceReferenceSchema)(nil)).Elem()
-}
-
-func (i *applicationReferenceDataSourceReferenceSchemaPtrType) ToApplicationReferenceDataSourceReferenceSchemaPtrOutput() ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return i.ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationReferenceDataSourceReferenceSchemaPtrType) ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceReferenceSchemaPtrOutput)
-}
-
 type ApplicationReferenceDataSourceReferenceSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceReferenceSchemaOutput) ElementType() reflect.Type {
@@ -5386,16 +4862,6 @@ func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToApplicationRefere
 
 func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToApplicationReferenceDataSourceReferenceSchemaOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaOutput {
 	return o
-}
-
-func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToApplicationReferenceDataSourceReferenceSchemaPtrOutput() ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return o.ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationReferenceDataSourceReferenceSchemaOutput) ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationReferenceDataSourceReferenceSchema) *ApplicationReferenceDataSourceReferenceSchema {
-		return &v
-	}).(ApplicationReferenceDataSourceReferenceSchemaPtrOutput)
 }
 
 func (o ApplicationReferenceDataSourceReferenceSchemaOutput) RecordColumns() ApplicationReferenceDataSourceRecordColumnArrayOutput {
@@ -5412,57 +4878,6 @@ func (o ApplicationReferenceDataSourceReferenceSchemaOutput) RecordFormat() Appl
 	return o.ApplyT(func(v ApplicationReferenceDataSourceReferenceSchema) ApplicationReferenceDataSourceRecordFormat {
 		return v.RecordFormat
 	}).(ApplicationReferenceDataSourceRecordFormatOutput)
-}
-
-type ApplicationReferenceDataSourceReferenceSchemaPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationReferenceDataSourceReferenceSchema)(nil)).Elem()
-}
-
-func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationReferenceDataSourceReferenceSchemaPtrOutput() ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return o
-}
-
-func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
-	return o
-}
-
-func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) Elem() ApplicationReferenceDataSourceReferenceSchemaOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceSchema) ApplicationReferenceDataSourceReferenceSchema {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationReferenceDataSourceReferenceSchema
-		return ret
-	}).(ApplicationReferenceDataSourceReferenceSchemaOutput)
-}
-
-func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) RecordColumns() ApplicationReferenceDataSourceRecordColumnArrayOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceSchema) []ApplicationReferenceDataSourceRecordColumn {
-		if v == nil {
-			return nil
-		}
-		return v.RecordColumns
-	}).(ApplicationReferenceDataSourceRecordColumnArrayOutput)
-}
-
-func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) RecordEncoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceSchema) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecordEncoding
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) RecordFormat() ApplicationReferenceDataSourceRecordFormatPtrOutput {
-	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceSchema) *ApplicationReferenceDataSourceRecordFormat {
-		if v == nil {
-			return nil
-		}
-		return &v.RecordFormat
-	}).(ApplicationReferenceDataSourceRecordFormatPtrOutput)
 }
 
 type ApplicationReferenceDataSourceS3ReferenceDataSource struct {
@@ -6617,7 +6032,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCheckpointConfigurationInput)(nil)).Elem(), ApplicationCheckpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCheckpointConfigurationPtrInput)(nil)).Elem(), ApplicationCheckpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionInput)(nil)).Elem(), ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrInput)(nil)).Elem(), ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCodeConfigurationInput)(nil)).Elem(), ApplicationCodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCodeConfigurationPtrInput)(nil)).Elem(), ApplicationCodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCodeContentInput)(nil)).Elem(), ApplicationCodeContentArgs{})
@@ -6656,7 +6070,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceDestinationSchemaInput)(nil)).Elem(), ApplicationOutputResourceDestinationSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceDestinationSchemaPtrInput)(nil)).Elem(), ApplicationOutputResourceDestinationSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceKinesisFirehoseOutputInput)(nil)).Elem(), ApplicationOutputResourceKinesisFirehoseOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceKinesisFirehoseOutputPtrInput)(nil)).Elem(), ApplicationOutputResourceKinesisFirehoseOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceKinesisStreamsOutputInput)(nil)).Elem(), ApplicationOutputResourceKinesisStreamsOutputArgs{})
@@ -6664,7 +6077,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceLambdaOutputInput)(nil)).Elem(), ApplicationOutputResourceLambdaOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceLambdaOutputPtrInput)(nil)).Elem(), ApplicationOutputResourceLambdaOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceOutputTypeInput)(nil)).Elem(), ApplicationOutputResourceOutputTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceOutputTypePtrInput)(nil)).Elem(), ApplicationOutputResourceOutputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationParallelismConfigurationInput)(nil)).Elem(), ApplicationParallelismConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationParallelismConfigurationPtrInput)(nil)).Elem(), ApplicationParallelismConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPropertyGroupInput)(nil)).Elem(), ApplicationPropertyGroupArgs{})
@@ -6681,11 +6093,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceRecordColumnInput)(nil)).Elem(), ApplicationReferenceDataSourceRecordColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceRecordColumnArrayInput)(nil)).Elem(), ApplicationReferenceDataSourceRecordColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceRecordFormatInput)(nil)).Elem(), ApplicationReferenceDataSourceRecordFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceRecordFormatPtrInput)(nil)).Elem(), ApplicationReferenceDataSourceRecordFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceReferenceDataSourceInput)(nil)).Elem(), ApplicationReferenceDataSourceReferenceDataSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceReferenceDataSourcePtrInput)(nil)).Elem(), ApplicationReferenceDataSourceReferenceDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceReferenceSchemaInput)(nil)).Elem(), ApplicationReferenceDataSourceReferenceSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceReferenceSchemaPtrInput)(nil)).Elem(), ApplicationReferenceDataSourceReferenceSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceS3ReferenceDataSourceInput)(nil)).Elem(), ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceS3ReferenceDataSourcePtrInput)(nil)).Elem(), ApplicationReferenceDataSourceS3ReferenceDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3ContentBaseLocationInput)(nil)).Elem(), ApplicationS3ContentBaseLocationArgs{})
@@ -6709,7 +6118,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationCheckpointConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationCheckpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput{})
-	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCodeConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationCodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCodeContentOutput{})
@@ -6748,7 +6156,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceDestinationSchemaOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputResourceDestinationSchemaPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisFirehoseOutputOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisStreamsOutputOutput{})
@@ -6756,7 +6163,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationOutputResourceLambdaOutputOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceLambdaOutputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceOutputTypeOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputResourceOutputTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationParallelismConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationParallelismConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPropertyGroupOutput{})
@@ -6773,11 +6179,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordColumnOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordColumnArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordFormatOutput{})
-	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordFormatPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceDataSourceOutput{})
-	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceSchemaOutput{})
-	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceSchemaPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceS3ReferenceDataSourceOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationS3ContentBaseLocationOutput{})

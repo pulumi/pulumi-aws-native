@@ -68,7 +68,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DataQualityJobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataQualityAppSpecification === undefined) && !opts.urn) {
@@ -86,36 +86,34 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["dataQualityAppSpecification"] = args ? args.dataQualityAppSpecification : undefined;
-            inputs["dataQualityBaselineConfig"] = args ? args.dataQualityBaselineConfig : undefined;
-            inputs["dataQualityJobInput"] = args ? args.dataQualityJobInput : undefined;
-            inputs["dataQualityJobOutputConfig"] = args ? args.dataQualityJobOutputConfig : undefined;
-            inputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            inputs["jobResources"] = args ? args.jobResources : undefined;
-            inputs["networkConfig"] = args ? args.networkConfig : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["jobDefinitionArn"] = undefined /*out*/;
+            resourceInputs["dataQualityAppSpecification"] = args ? args.dataQualityAppSpecification : undefined;
+            resourceInputs["dataQualityBaselineConfig"] = args ? args.dataQualityBaselineConfig : undefined;
+            resourceInputs["dataQualityJobInput"] = args ? args.dataQualityJobInput : undefined;
+            resourceInputs["dataQualityJobOutputConfig"] = args ? args.dataQualityJobOutputConfig : undefined;
+            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
+            resourceInputs["jobResources"] = args ? args.jobResources : undefined;
+            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["dataQualityAppSpecification"] = undefined /*out*/;
-            inputs["dataQualityBaselineConfig"] = undefined /*out*/;
-            inputs["dataQualityJobInput"] = undefined /*out*/;
-            inputs["dataQualityJobOutputConfig"] = undefined /*out*/;
-            inputs["jobDefinitionArn"] = undefined /*out*/;
-            inputs["jobDefinitionName"] = undefined /*out*/;
-            inputs["jobResources"] = undefined /*out*/;
-            inputs["networkConfig"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["stoppingCondition"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["dataQualityAppSpecification"] = undefined /*out*/;
+            resourceInputs["dataQualityBaselineConfig"] = undefined /*out*/;
+            resourceInputs["dataQualityJobInput"] = undefined /*out*/;
+            resourceInputs["dataQualityJobOutputConfig"] = undefined /*out*/;
+            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
+            resourceInputs["jobDefinitionName"] = undefined /*out*/;
+            resourceInputs["jobResources"] = undefined /*out*/;
+            resourceInputs["networkConfig"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["stoppingCondition"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataQualityJobDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataQualityJobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

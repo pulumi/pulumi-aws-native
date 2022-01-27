@@ -109,7 +109,7 @@ export class Instance extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.blueprintId === undefined) && !opts.urn) {
@@ -118,52 +118,50 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            inputs["addOns"] = args ? args.addOns : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["blueprintId"] = args ? args.blueprintId : undefined;
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["hardware"] = args ? args.hardware : undefined;
-            inputs["instanceName"] = args ? args.instanceName : undefined;
-            inputs["keyPairName"] = args ? args.keyPairName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networking"] = args ? args.networking : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userData"] = args ? args.userData : undefined;
-            inputs["instanceArn"] = undefined /*out*/;
-            inputs["isStaticIp"] = undefined /*out*/;
-            inputs["privateIpAddress"] = undefined /*out*/;
-            inputs["publicIpAddress"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["sshKeyName"] = undefined /*out*/;
-            inputs["supportCode"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["addOns"] = args ? args.addOns : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["hardware"] = args ? args.hardware : undefined;
+            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["keyPairName"] = args ? args.keyPairName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networking"] = args ? args.networking : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["isStaticIp"] = undefined /*out*/;
+            resourceInputs["privateIpAddress"] = undefined /*out*/;
+            resourceInputs["publicIpAddress"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["sshKeyName"] = undefined /*out*/;
+            resourceInputs["supportCode"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            inputs["addOns"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["blueprintId"] = undefined /*out*/;
-            inputs["bundleId"] = undefined /*out*/;
-            inputs["hardware"] = undefined /*out*/;
-            inputs["instanceArn"] = undefined /*out*/;
-            inputs["instanceName"] = undefined /*out*/;
-            inputs["isStaticIp"] = undefined /*out*/;
-            inputs["keyPairName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["networking"] = undefined /*out*/;
-            inputs["privateIpAddress"] = undefined /*out*/;
-            inputs["publicIpAddress"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["sshKeyName"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["supportCode"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["userData"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["addOns"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["blueprintId"] = undefined /*out*/;
+            resourceInputs["bundleId"] = undefined /*out*/;
+            resourceInputs["hardware"] = undefined /*out*/;
+            resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["instanceName"] = undefined /*out*/;
+            resourceInputs["isStaticIp"] = undefined /*out*/;
+            resourceInputs["keyPairName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["networking"] = undefined /*out*/;
+            resourceInputs["privateIpAddress"] = undefined /*out*/;
+            resourceInputs["publicIpAddress"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["sshKeyName"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["supportCode"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userData"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Instance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -97,7 +97,7 @@ export class ReportDefinition extends pulumi.CustomResource {
     /** @deprecated ReportDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ReportDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReportDefinition is deprecated: ReportDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.compression === undefined) && !opts.urn) {
@@ -127,36 +127,34 @@ export class ReportDefinition extends pulumi.CustomResource {
             if ((!args || args.timeUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeUnit'");
             }
-            inputs["additionalArtifacts"] = args ? args.additionalArtifacts : undefined;
-            inputs["additionalSchemaElements"] = args ? args.additionalSchemaElements : undefined;
-            inputs["billingViewArn"] = args ? args.billingViewArn : undefined;
-            inputs["compression"] = args ? args.compression : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["refreshClosedReports"] = args ? args.refreshClosedReports : undefined;
-            inputs["reportName"] = args ? args.reportName : undefined;
-            inputs["reportVersioning"] = args ? args.reportVersioning : undefined;
-            inputs["s3Bucket"] = args ? args.s3Bucket : undefined;
-            inputs["s3Prefix"] = args ? args.s3Prefix : undefined;
-            inputs["s3Region"] = args ? args.s3Region : undefined;
-            inputs["timeUnit"] = args ? args.timeUnit : undefined;
+            resourceInputs["additionalArtifacts"] = args ? args.additionalArtifacts : undefined;
+            resourceInputs["additionalSchemaElements"] = args ? args.additionalSchemaElements : undefined;
+            resourceInputs["billingViewArn"] = args ? args.billingViewArn : undefined;
+            resourceInputs["compression"] = args ? args.compression : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["refreshClosedReports"] = args ? args.refreshClosedReports : undefined;
+            resourceInputs["reportName"] = args ? args.reportName : undefined;
+            resourceInputs["reportVersioning"] = args ? args.reportVersioning : undefined;
+            resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
+            resourceInputs["s3Prefix"] = args ? args.s3Prefix : undefined;
+            resourceInputs["s3Region"] = args ? args.s3Region : undefined;
+            resourceInputs["timeUnit"] = args ? args.timeUnit : undefined;
         } else {
-            inputs["additionalArtifacts"] = undefined /*out*/;
-            inputs["additionalSchemaElements"] = undefined /*out*/;
-            inputs["billingViewArn"] = undefined /*out*/;
-            inputs["compression"] = undefined /*out*/;
-            inputs["format"] = undefined /*out*/;
-            inputs["refreshClosedReports"] = undefined /*out*/;
-            inputs["reportName"] = undefined /*out*/;
-            inputs["reportVersioning"] = undefined /*out*/;
-            inputs["s3Bucket"] = undefined /*out*/;
-            inputs["s3Prefix"] = undefined /*out*/;
-            inputs["s3Region"] = undefined /*out*/;
-            inputs["timeUnit"] = undefined /*out*/;
+            resourceInputs["additionalArtifacts"] = undefined /*out*/;
+            resourceInputs["additionalSchemaElements"] = undefined /*out*/;
+            resourceInputs["billingViewArn"] = undefined /*out*/;
+            resourceInputs["compression"] = undefined /*out*/;
+            resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["refreshClosedReports"] = undefined /*out*/;
+            resourceInputs["reportName"] = undefined /*out*/;
+            resourceInputs["reportVersioning"] = undefined /*out*/;
+            resourceInputs["s3Bucket"] = undefined /*out*/;
+            resourceInputs["s3Prefix"] = undefined /*out*/;
+            resourceInputs["s3Region"] = undefined /*out*/;
+            resourceInputs["timeUnit"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReportDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReportDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

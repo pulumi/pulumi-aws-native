@@ -109,7 +109,7 @@ type AnomalyMonitorInput interface {
 }
 
 func (*AnomalyMonitor) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalyMonitor)(nil))
+	return reflect.TypeOf((**AnomalyMonitor)(nil)).Elem()
 }
 
 func (i *AnomalyMonitor) ToAnomalyMonitorOutput() AnomalyMonitorOutput {
@@ -123,7 +123,7 @@ func (i *AnomalyMonitor) ToAnomalyMonitorOutputWithContext(ctx context.Context) 
 type AnomalyMonitorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalyMonitor)(nil))
+	return reflect.TypeOf((**AnomalyMonitor)(nil)).Elem()
 }
 
 func (o AnomalyMonitorOutput) ToAnomalyMonitorOutput() AnomalyMonitorOutput {

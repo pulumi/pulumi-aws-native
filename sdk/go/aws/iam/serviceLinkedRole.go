@@ -88,7 +88,7 @@ type ServiceLinkedRoleInput interface {
 }
 
 func (*ServiceLinkedRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLinkedRole)(nil))
+	return reflect.TypeOf((**ServiceLinkedRole)(nil)).Elem()
 }
 
 func (i *ServiceLinkedRole) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {
@@ -102,7 +102,7 @@ func (i *ServiceLinkedRole) ToServiceLinkedRoleOutputWithContext(ctx context.Con
 type ServiceLinkedRoleOutput struct{ *pulumi.OutputState }
 
 func (ServiceLinkedRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLinkedRole)(nil))
+	return reflect.TypeOf((**ServiceLinkedRole)(nil)).Elem()
 }
 
 func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutput() ServiceLinkedRoleOutput {

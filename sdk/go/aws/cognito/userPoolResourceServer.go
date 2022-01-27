@@ -94,7 +94,7 @@ type UserPoolResourceServerInput interface {
 }
 
 func (*UserPoolResourceServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolResourceServer)(nil))
+	return reflect.TypeOf((**UserPoolResourceServer)(nil)).Elem()
 }
 
 func (i *UserPoolResourceServer) ToUserPoolResourceServerOutput() UserPoolResourceServerOutput {
@@ -108,7 +108,7 @@ func (i *UserPoolResourceServer) ToUserPoolResourceServerOutputWithContext(ctx c
 type UserPoolResourceServerOutput struct{ *pulumi.OutputState }
 
 func (UserPoolResourceServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolResourceServer)(nil))
+	return reflect.TypeOf((**UserPoolResourceServer)(nil)).Elem()
 }
 
 func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutput() UserPoolResourceServerOutput {

@@ -1445,81 +1445,6 @@ type DomainServiceSoftwareOptions struct {
 	UpdateStatus        *string `pulumi:"updateStatus"`
 }
 
-// DomainServiceSoftwareOptionsInput is an input type that accepts DomainServiceSoftwareOptionsArgs and DomainServiceSoftwareOptionsOutput values.
-// You can construct a concrete instance of `DomainServiceSoftwareOptionsInput` via:
-//
-//          DomainServiceSoftwareOptionsArgs{...}
-type DomainServiceSoftwareOptionsInput interface {
-	pulumi.Input
-
-	ToDomainServiceSoftwareOptionsOutput() DomainServiceSoftwareOptionsOutput
-	ToDomainServiceSoftwareOptionsOutputWithContext(context.Context) DomainServiceSoftwareOptionsOutput
-}
-
-type DomainServiceSoftwareOptionsArgs struct {
-	AutomatedUpdateDate pulumi.StringPtrInput `pulumi:"automatedUpdateDate"`
-	Cancellable         pulumi.BoolPtrInput   `pulumi:"cancellable"`
-	CurrentVersion      pulumi.StringPtrInput `pulumi:"currentVersion"`
-	Description         pulumi.StringPtrInput `pulumi:"description"`
-	NewVersion          pulumi.StringPtrInput `pulumi:"newVersion"`
-	OptionalDeployment  pulumi.BoolPtrInput   `pulumi:"optionalDeployment"`
-	UpdateAvailable     pulumi.BoolPtrInput   `pulumi:"updateAvailable"`
-	UpdateStatus        pulumi.StringPtrInput `pulumi:"updateStatus"`
-}
-
-func (DomainServiceSoftwareOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainServiceSoftwareOptions)(nil)).Elem()
-}
-
-func (i DomainServiceSoftwareOptionsArgs) ToDomainServiceSoftwareOptionsOutput() DomainServiceSoftwareOptionsOutput {
-	return i.ToDomainServiceSoftwareOptionsOutputWithContext(context.Background())
-}
-
-func (i DomainServiceSoftwareOptionsArgs) ToDomainServiceSoftwareOptionsOutputWithContext(ctx context.Context) DomainServiceSoftwareOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceSoftwareOptionsOutput)
-}
-
-func (i DomainServiceSoftwareOptionsArgs) ToDomainServiceSoftwareOptionsPtrOutput() DomainServiceSoftwareOptionsPtrOutput {
-	return i.ToDomainServiceSoftwareOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DomainServiceSoftwareOptionsArgs) ToDomainServiceSoftwareOptionsPtrOutputWithContext(ctx context.Context) DomainServiceSoftwareOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceSoftwareOptionsOutput).ToDomainServiceSoftwareOptionsPtrOutputWithContext(ctx)
-}
-
-// DomainServiceSoftwareOptionsPtrInput is an input type that accepts DomainServiceSoftwareOptionsArgs, DomainServiceSoftwareOptionsPtr and DomainServiceSoftwareOptionsPtrOutput values.
-// You can construct a concrete instance of `DomainServiceSoftwareOptionsPtrInput` via:
-//
-//          DomainServiceSoftwareOptionsArgs{...}
-//
-//  or:
-//
-//          nil
-type DomainServiceSoftwareOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDomainServiceSoftwareOptionsPtrOutput() DomainServiceSoftwareOptionsPtrOutput
-	ToDomainServiceSoftwareOptionsPtrOutputWithContext(context.Context) DomainServiceSoftwareOptionsPtrOutput
-}
-
-type domainServiceSoftwareOptionsPtrType DomainServiceSoftwareOptionsArgs
-
-func DomainServiceSoftwareOptionsPtr(v *DomainServiceSoftwareOptionsArgs) DomainServiceSoftwareOptionsPtrInput {
-	return (*domainServiceSoftwareOptionsPtrType)(v)
-}
-
-func (*domainServiceSoftwareOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainServiceSoftwareOptions)(nil)).Elem()
-}
-
-func (i *domainServiceSoftwareOptionsPtrType) ToDomainServiceSoftwareOptionsPtrOutput() DomainServiceSoftwareOptionsPtrOutput {
-	return i.ToDomainServiceSoftwareOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *domainServiceSoftwareOptionsPtrType) ToDomainServiceSoftwareOptionsPtrOutputWithContext(ctx context.Context) DomainServiceSoftwareOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceSoftwareOptionsPtrOutput)
-}
-
 type DomainServiceSoftwareOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceSoftwareOptionsOutput) ElementType() reflect.Type {
@@ -1532,16 +1457,6 @@ func (o DomainServiceSoftwareOptionsOutput) ToDomainServiceSoftwareOptionsOutput
 
 func (o DomainServiceSoftwareOptionsOutput) ToDomainServiceSoftwareOptionsOutputWithContext(ctx context.Context) DomainServiceSoftwareOptionsOutput {
 	return o
-}
-
-func (o DomainServiceSoftwareOptionsOutput) ToDomainServiceSoftwareOptionsPtrOutput() DomainServiceSoftwareOptionsPtrOutput {
-	return o.ToDomainServiceSoftwareOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DomainServiceSoftwareOptionsOutput) ToDomainServiceSoftwareOptionsPtrOutputWithContext(ctx context.Context) DomainServiceSoftwareOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainServiceSoftwareOptions) *DomainServiceSoftwareOptions {
-		return &v
-	}).(DomainServiceSoftwareOptionsPtrOutput)
 }
 
 func (o DomainServiceSoftwareOptionsOutput) AutomatedUpdateDate() pulumi.StringPtrOutput {
@@ -1574,102 +1489,6 @@ func (o DomainServiceSoftwareOptionsOutput) UpdateAvailable() pulumi.BoolPtrOutp
 
 func (o DomainServiceSoftwareOptionsOutput) UpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainServiceSoftwareOptions) *string { return v.UpdateStatus }).(pulumi.StringPtrOutput)
-}
-
-type DomainServiceSoftwareOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainServiceSoftwareOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainServiceSoftwareOptions)(nil)).Elem()
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) ToDomainServiceSoftwareOptionsPtrOutput() DomainServiceSoftwareOptionsPtrOutput {
-	return o
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) ToDomainServiceSoftwareOptionsPtrOutputWithContext(ctx context.Context) DomainServiceSoftwareOptionsPtrOutput {
-	return o
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) Elem() DomainServiceSoftwareOptionsOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) DomainServiceSoftwareOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DomainServiceSoftwareOptions
-		return ret
-	}).(DomainServiceSoftwareOptionsOutput)
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) AutomatedUpdateDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AutomatedUpdateDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) Cancellable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Cancellable
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) CurrentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CurrentVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) NewVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NewVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) OptionalDeployment() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.OptionalDeployment
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) UpdateAvailable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UpdateAvailable
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o DomainServiceSoftwareOptionsPtrOutput) UpdateStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainServiceSoftwareOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UpdateStatus
-	}).(pulumi.StringPtrOutput)
 }
 
 type DomainSnapshotOptions struct {
@@ -2203,8 +2022,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsPtrInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsPtrInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainServiceSoftwareOptionsInput)(nil)).Elem(), DomainServiceSoftwareOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainServiceSoftwareOptionsPtrInput)(nil)).Elem(), DomainServiceSoftwareOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
@@ -2230,7 +2047,6 @@ func init() {
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsOutput{})
-	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagOutput{})

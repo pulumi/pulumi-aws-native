@@ -53,7 +53,7 @@ export class Partition extends pulumi.CustomResource {
     /** @deprecated Partition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PartitionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Partition is deprecated: Partition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.catalogId === undefined) && !opts.urn) {
@@ -68,20 +68,18 @@ export class Partition extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["partitionInput"] = args ? args.partitionInput : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["partitionInput"] = args ? args.partitionInput : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         } else {
-            inputs["catalogId"] = undefined /*out*/;
-            inputs["databaseName"] = undefined /*out*/;
-            inputs["partitionInput"] = undefined /*out*/;
-            inputs["tableName"] = undefined /*out*/;
+            resourceInputs["catalogId"] = undefined /*out*/;
+            resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["partitionInput"] = undefined /*out*/;
+            resourceInputs["tableName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Partition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Partition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

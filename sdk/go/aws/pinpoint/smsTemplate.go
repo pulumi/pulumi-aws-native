@@ -98,7 +98,7 @@ type SmsTemplateInput interface {
 }
 
 func (*SmsTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsTemplate)(nil))
+	return reflect.TypeOf((**SmsTemplate)(nil)).Elem()
 }
 
 func (i *SmsTemplate) ToSmsTemplateOutput() SmsTemplateOutput {
@@ -112,7 +112,7 @@ func (i *SmsTemplate) ToSmsTemplateOutputWithContext(ctx context.Context) SmsTem
 type SmsTemplateOutput struct{ *pulumi.OutputState }
 
 func (SmsTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsTemplate)(nil))
+	return reflect.TypeOf((**SmsTemplate)(nil)).Elem()
 }
 
 func (o SmsTemplateOutput) ToSmsTemplateOutput() SmsTemplateOutput {

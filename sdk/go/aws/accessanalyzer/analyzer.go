@@ -100,7 +100,7 @@ type AnalyzerInput interface {
 }
 
 func (*Analyzer) ElementType() reflect.Type {
-	return reflect.TypeOf((*Analyzer)(nil))
+	return reflect.TypeOf((**Analyzer)(nil)).Elem()
 }
 
 func (i *Analyzer) ToAnalyzerOutput() AnalyzerOutput {
@@ -114,7 +114,7 @@ func (i *Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutp
 type AnalyzerOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Analyzer)(nil))
+	return reflect.TypeOf((**Analyzer)(nil)).Elem()
 }
 
 func (o AnalyzerOutput) ToAnalyzerOutput() AnalyzerOutput {

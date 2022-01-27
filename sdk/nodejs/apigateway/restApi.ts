@@ -65,47 +65,45 @@ export class RestApi extends pulumi.CustomResource {
     /** @deprecated RestApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: RestApiArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RestApi is deprecated: RestApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["apiKeySourceType"] = args ? args.apiKeySourceType : undefined;
-            inputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
-            inputs["body"] = args ? args.body : undefined;
-            inputs["bodyS3Location"] = args ? args.bodyS3Location : undefined;
-            inputs["cloneFrom"] = args ? args.cloneFrom : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
-            inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            inputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
-            inputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["rootResourceId"] = undefined /*out*/;
+            resourceInputs["apiKeySourceType"] = args ? args.apiKeySourceType : undefined;
+            resourceInputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["bodyS3Location"] = args ? args.bodyS3Location : undefined;
+            resourceInputs["cloneFrom"] = args ? args.cloneFrom : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
+            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
+            resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
+            resourceInputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["rootResourceId"] = undefined /*out*/;
         } else {
-            inputs["apiKeySourceType"] = undefined /*out*/;
-            inputs["binaryMediaTypes"] = undefined /*out*/;
-            inputs["body"] = undefined /*out*/;
-            inputs["bodyS3Location"] = undefined /*out*/;
-            inputs["cloneFrom"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["disableExecuteApiEndpoint"] = undefined /*out*/;
-            inputs["endpointConfiguration"] = undefined /*out*/;
-            inputs["failOnWarnings"] = undefined /*out*/;
-            inputs["minimumCompressionSize"] = undefined /*out*/;
-            inputs["mode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["policy"] = undefined /*out*/;
-            inputs["rootResourceId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["apiKeySourceType"] = undefined /*out*/;
+            resourceInputs["binaryMediaTypes"] = undefined /*out*/;
+            resourceInputs["body"] = undefined /*out*/;
+            resourceInputs["bodyS3Location"] = undefined /*out*/;
+            resourceInputs["cloneFrom"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["disableExecuteApiEndpoint"] = undefined /*out*/;
+            resourceInputs["endpointConfiguration"] = undefined /*out*/;
+            resourceInputs["failOnWarnings"] = undefined /*out*/;
+            resourceInputs["minimumCompressionSize"] = undefined /*out*/;
+            resourceInputs["mode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["rootResourceId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RestApi.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RestApi.__pulumiType, name, resourceInputs, opts);
     }
 }
 

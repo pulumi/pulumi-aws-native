@@ -57,7 +57,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     /** @deprecated ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationProfileArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigurationProfile is deprecated: ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -66,28 +66,26 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             if ((!args || args.locationUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationUri'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["locationUri"] = args ? args.locationUri : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["validators"] = args ? args.validators : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["locationUri"] = args ? args.locationUri : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validators"] = args ? args.validators : undefined;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["retrievalRoleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validators"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["retrievalRoleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validators"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConfigurationProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConfigurationProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -109,7 +109,7 @@ type SecurityGroupEgressInput interface {
 }
 
 func (*SecurityGroupEgress) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupEgress)(nil))
+	return reflect.TypeOf((**SecurityGroupEgress)(nil)).Elem()
 }
 
 func (i *SecurityGroupEgress) ToSecurityGroupEgressOutput() SecurityGroupEgressOutput {
@@ -123,7 +123,7 @@ func (i *SecurityGroupEgress) ToSecurityGroupEgressOutputWithContext(ctx context
 type SecurityGroupEgressOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupEgressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupEgress)(nil))
+	return reflect.TypeOf((**SecurityGroupEgress)(nil)).Elem()
 }
 
 func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutput() SecurityGroupEgressOutput {

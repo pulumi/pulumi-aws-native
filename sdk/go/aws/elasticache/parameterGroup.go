@@ -94,7 +94,7 @@ type ParameterGroupInput interface {
 }
 
 func (*ParameterGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterGroup)(nil))
+	return reflect.TypeOf((**ParameterGroup)(nil)).Elem()
 }
 
 func (i *ParameterGroup) ToParameterGroupOutput() ParameterGroupOutput {
@@ -108,7 +108,7 @@ func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) 
 type ParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterGroup)(nil))
+	return reflect.TypeOf((**ParameterGroup)(nil)).Elem()
 }
 
 func (o ParameterGroupOutput) ToParameterGroupOutput() ParameterGroupOutput {

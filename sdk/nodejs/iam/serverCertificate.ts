@@ -54,29 +54,27 @@ export class ServerCertificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ServerCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["certificateBody"] = args ? args.certificateBody : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["serverCertificateName"] = args ? args.serverCertificateName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["serverCertificateName"] = args ? args.serverCertificateName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateBody"] = undefined /*out*/;
-            inputs["certificateChain"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["privateKey"] = undefined /*out*/;
-            inputs["serverCertificateName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateBody"] = undefined /*out*/;
+            resourceInputs["certificateChain"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["privateKey"] = undefined /*out*/;
+            resourceInputs["serverCertificateName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServerCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServerCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

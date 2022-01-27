@@ -56,29 +56,27 @@ export class Topic extends pulumi.CustomResource {
     /** @deprecated Topic is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: TopicArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Topic is deprecated: Topic is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["fifoTopic"] = args ? args.fifoTopic : undefined;
-            inputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            inputs["subscription"] = args ? args.subscription : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
+            resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
+            resourceInputs["subscription"] = args ? args.subscription : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
         } else {
-            inputs["contentBasedDeduplication"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["fifoTopic"] = undefined /*out*/;
-            inputs["kmsMasterKeyId"] = undefined /*out*/;
-            inputs["subscription"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["topicName"] = undefined /*out*/;
+            resourceInputs["contentBasedDeduplication"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["fifoTopic"] = undefined /*out*/;
+            resourceInputs["kmsMasterKeyId"] = undefined /*out*/;
+            resourceInputs["subscription"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["topicName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Topic.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Topic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

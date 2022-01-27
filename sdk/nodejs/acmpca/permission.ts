@@ -59,7 +59,7 @@ export class Permission extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -71,20 +71,18 @@ export class Permission extends pulumi.CustomResource {
             if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["certificateAuthorityArn"] = undefined /*out*/;
-            inputs["principal"] = undefined /*out*/;
-            inputs["sourceAccount"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["certificateAuthorityArn"] = undefined /*out*/;
+            resourceInputs["principal"] = undefined /*out*/;
+            resourceInputs["sourceAccount"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Permission.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Permission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

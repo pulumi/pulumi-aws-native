@@ -142,7 +142,7 @@ type NetworkAclEntryInput interface {
 }
 
 func (*NetworkAclEntry) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAclEntry)(nil))
+	return reflect.TypeOf((**NetworkAclEntry)(nil)).Elem()
 }
 
 func (i *NetworkAclEntry) ToNetworkAclEntryOutput() NetworkAclEntryOutput {
@@ -156,7 +156,7 @@ func (i *NetworkAclEntry) ToNetworkAclEntryOutputWithContext(ctx context.Context
 type NetworkAclEntryOutput struct{ *pulumi.OutputState }
 
 func (NetworkAclEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAclEntry)(nil))
+	return reflect.TypeOf((**NetworkAclEntry)(nil)).Elem()
 }
 
 func (o NetworkAclEntryOutput) ToNetworkAclEntryOutput() NetworkAclEntryOutput {

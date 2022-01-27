@@ -47,7 +47,7 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ClusterCapacityProviderAssociationsArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.capacityProviders === undefined) && !opts.urn) {
@@ -59,18 +59,16 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
             if ((!args || args.defaultCapacityProviderStrategy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultCapacityProviderStrategy'");
             }
-            inputs["capacityProviders"] = args ? args.capacityProviders : undefined;
-            inputs["cluster"] = args ? args.cluster : undefined;
-            inputs["defaultCapacityProviderStrategy"] = args ? args.defaultCapacityProviderStrategy : undefined;
+            resourceInputs["capacityProviders"] = args ? args.capacityProviders : undefined;
+            resourceInputs["cluster"] = args ? args.cluster : undefined;
+            resourceInputs["defaultCapacityProviderStrategy"] = args ? args.defaultCapacityProviderStrategy : undefined;
         } else {
-            inputs["capacityProviders"] = undefined /*out*/;
-            inputs["cluster"] = undefined /*out*/;
-            inputs["defaultCapacityProviderStrategy"] = undefined /*out*/;
+            resourceInputs["capacityProviders"] = undefined /*out*/;
+            resourceInputs["cluster"] = undefined /*out*/;
+            resourceInputs["defaultCapacityProviderStrategy"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ClusterCapacityProviderAssociations.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ClusterCapacityProviderAssociations.__pulumiType, name, resourceInputs, opts);
     }
 }
 

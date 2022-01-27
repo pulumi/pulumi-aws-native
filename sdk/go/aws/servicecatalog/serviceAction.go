@@ -95,7 +95,7 @@ type ServiceActionInput interface {
 }
 
 func (*ServiceAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAction)(nil))
+	return reflect.TypeOf((**ServiceAction)(nil)).Elem()
 }
 
 func (i *ServiceAction) ToServiceActionOutput() ServiceActionOutput {
@@ -109,7 +109,7 @@ func (i *ServiceAction) ToServiceActionOutputWithContext(ctx context.Context) Se
 type ServiceActionOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAction)(nil))
+	return reflect.TypeOf((**ServiceAction)(nil)).Elem()
 }
 
 func (o ServiceActionOutput) ToServiceActionOutput() ServiceActionOutput {

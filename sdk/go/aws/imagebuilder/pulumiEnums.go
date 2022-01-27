@@ -183,42 +183,6 @@ const (
 	ComponentTypeTest  = ComponentType("TEST")
 )
 
-func (ComponentType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentType)(nil)).Elem()
-}
-
-func (e ComponentType) ToComponentTypeOutput() ComponentTypeOutput {
-	return pulumi.ToOutput(e).(ComponentTypeOutput)
-}
-
-func (e ComponentType) ToComponentTypeOutputWithContext(ctx context.Context) ComponentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ComponentTypeOutput)
-}
-
-func (e ComponentType) ToComponentTypePtrOutput() ComponentTypePtrOutput {
-	return e.ToComponentTypePtrOutputWithContext(context.Background())
-}
-
-func (e ComponentType) ToComponentTypePtrOutputWithContext(ctx context.Context) ComponentTypePtrOutput {
-	return ComponentType(e).ToComponentTypeOutputWithContext(ctx).ToComponentTypePtrOutputWithContext(ctx)
-}
-
-func (e ComponentType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ComponentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ComponentType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ComponentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type ComponentTypeOutput struct{ *pulumi.OutputState }
 
 func (ComponentTypeOutput) ElementType() reflect.Type {
@@ -300,44 +264,6 @@ func (o ComponentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// ComponentTypeInput is an input type that accepts ComponentTypeArgs and ComponentTypeOutput values.
-// You can construct a concrete instance of `ComponentTypeInput` via:
-//
-//          ComponentTypeArgs{...}
-type ComponentTypeInput interface {
-	pulumi.Input
-
-	ToComponentTypeOutput() ComponentTypeOutput
-	ToComponentTypeOutputWithContext(context.Context) ComponentTypeOutput
-}
-
-var componentTypePtrType = reflect.TypeOf((**ComponentType)(nil)).Elem()
-
-type ComponentTypePtrInput interface {
-	pulumi.Input
-
-	ToComponentTypePtrOutput() ComponentTypePtrOutput
-	ToComponentTypePtrOutputWithContext(context.Context) ComponentTypePtrOutput
-}
-
-type componentTypePtr string
-
-func ComponentTypePtr(v string) ComponentTypePtrInput {
-	return (*componentTypePtr)(&v)
-}
-
-func (*componentTypePtr) ElementType() reflect.Type {
-	return componentTypePtrType
-}
-
-func (in *componentTypePtr) ToComponentTypePtrOutput() ComponentTypePtrOutput {
-	return pulumi.ToOutput(in).(ComponentTypePtrOutput)
-}
-
-func (in *componentTypePtr) ToComponentTypePtrOutputWithContext(ctx context.Context) ComponentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ComponentTypePtrOutput)
 }
 
 // Specifies the type of container, such as Docker.
@@ -1835,8 +1761,6 @@ func (in *infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr) ToInf
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPlatformInput)(nil)).Elem(), ComponentPlatform("Windows"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPlatformPtrInput)(nil)).Elem(), ComponentPlatform("Windows"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypeInput)(nil)).Elem(), ComponentType("BUILD"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTypePtrInput)(nil)).Elem(), ComponentType("BUILD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeContainerTypeInput)(nil)).Elem(), ContainerRecipeContainerType("DOCKER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeContainerTypePtrInput)(nil)).Elem(), ContainerRecipeContainerType("DOCKER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput)(nil)).Elem(), ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard"))

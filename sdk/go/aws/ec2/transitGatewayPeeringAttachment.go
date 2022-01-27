@@ -130,7 +130,7 @@ type TransitGatewayPeeringAttachmentInput interface {
 }
 
 func (*TransitGatewayPeeringAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayPeeringAttachment)(nil))
+	return reflect.TypeOf((**TransitGatewayPeeringAttachment)(nil)).Elem()
 }
 
 func (i *TransitGatewayPeeringAttachment) ToTransitGatewayPeeringAttachmentOutput() TransitGatewayPeeringAttachmentOutput {
@@ -144,7 +144,7 @@ func (i *TransitGatewayPeeringAttachment) ToTransitGatewayPeeringAttachmentOutpu
 type TransitGatewayPeeringAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPeeringAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayPeeringAttachment)(nil))
+	return reflect.TypeOf((**TransitGatewayPeeringAttachment)(nil)).Elem()
 }
 
 func (o TransitGatewayPeeringAttachmentOutput) ToTransitGatewayPeeringAttachmentOutput() TransitGatewayPeeringAttachmentOutput {

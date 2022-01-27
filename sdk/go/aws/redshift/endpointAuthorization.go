@@ -120,7 +120,7 @@ type EndpointAuthorizationInput interface {
 }
 
 func (*EndpointAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAuthorization)(nil))
+	return reflect.TypeOf((**EndpointAuthorization)(nil)).Elem()
 }
 
 func (i *EndpointAuthorization) ToEndpointAuthorizationOutput() EndpointAuthorizationOutput {
@@ -134,7 +134,7 @@ func (i *EndpointAuthorization) ToEndpointAuthorizationOutputWithContext(ctx con
 type EndpointAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (EndpointAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAuthorization)(nil))
+	return reflect.TypeOf((**EndpointAuthorization)(nil)).Elem()
 }
 
 func (o EndpointAuthorizationOutput) ToEndpointAuthorizationOutput() EndpointAuthorizationOutput {

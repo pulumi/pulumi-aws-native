@@ -72,29 +72,27 @@ export class Connection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["hostArn"] = args ? args.hostArn : undefined;
-            inputs["providerType"] = args ? args.providerType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["connectionArn"] = undefined /*out*/;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
+            resourceInputs["hostArn"] = args ? args.hostArn : undefined;
+            resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionArn"] = undefined /*out*/;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["ownerAccountId"] = undefined /*out*/;
         } else {
-            inputs["connectionArn"] = undefined /*out*/;
-            inputs["connectionName"] = undefined /*out*/;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["hostArn"] = undefined /*out*/;
-            inputs["ownerAccountId"] = undefined /*out*/;
-            inputs["providerType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["connectionArn"] = undefined /*out*/;
+            resourceInputs["connectionName"] = undefined /*out*/;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["hostArn"] = undefined /*out*/;
+            resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["providerType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Connection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

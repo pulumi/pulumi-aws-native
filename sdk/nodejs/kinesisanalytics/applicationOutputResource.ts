@@ -51,7 +51,7 @@ export class ApplicationOutputResource extends pulumi.CustomResource {
     /** @deprecated ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApplicationOutputResourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApplicationOutputResource is deprecated: ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class ApplicationOutputResource extends pulumi.CustomResource {
             if ((!args || args.output === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'output'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["output"] = args ? args.output : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["output"] = args ? args.output : undefined;
         } else {
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["output"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["output"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationOutputResource.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationOutputResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

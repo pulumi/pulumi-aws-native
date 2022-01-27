@@ -49,17 +49,15 @@ export class Hub extends pulumi.CustomResource {
     /** @deprecated Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: HubArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Hub is deprecated: Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Hub.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Hub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

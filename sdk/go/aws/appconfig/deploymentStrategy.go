@@ -109,7 +109,7 @@ type DeploymentStrategyInput interface {
 }
 
 func (*DeploymentStrategy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentStrategy)(nil))
+	return reflect.TypeOf((**DeploymentStrategy)(nil)).Elem()
 }
 
 func (i *DeploymentStrategy) ToDeploymentStrategyOutput() DeploymentStrategyOutput {
@@ -123,7 +123,7 @@ func (i *DeploymentStrategy) ToDeploymentStrategyOutputWithContext(ctx context.C
 type DeploymentStrategyOutput struct{ *pulumi.OutputState }
 
 func (DeploymentStrategyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentStrategy)(nil))
+	return reflect.TypeOf((**DeploymentStrategy)(nil)).Elem()
 }
 
 func (o DeploymentStrategyOutput) ToDeploymentStrategyOutput() DeploymentStrategyOutput {

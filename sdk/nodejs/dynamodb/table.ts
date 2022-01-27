@@ -66,52 +66,50 @@ export class Table extends pulumi.CustomResource {
     /** @deprecated Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Table is deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.keySchema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keySchema'");
             }
-            inputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
-            inputs["billingMode"] = args ? args.billingMode : undefined;
-            inputs["contributorInsightsSpecification"] = args ? args.contributorInsightsSpecification : undefined;
-            inputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
-            inputs["keySchema"] = args ? args.keySchema : undefined;
-            inputs["kinesisStreamSpecification"] = args ? args.kinesisStreamSpecification : undefined;
-            inputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
-            inputs["pointInTimeRecoverySpecification"] = args ? args.pointInTimeRecoverySpecification : undefined;
-            inputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
-            inputs["sSESpecification"] = args ? args.sSESpecification : undefined;
-            inputs["streamSpecification"] = args ? args.streamSpecification : undefined;
-            inputs["tableClass"] = args ? args.tableClass : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["streamArn"] = undefined /*out*/;
+            resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
+            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["contributorInsightsSpecification"] = args ? args.contributorInsightsSpecification : undefined;
+            resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
+            resourceInputs["keySchema"] = args ? args.keySchema : undefined;
+            resourceInputs["kinesisStreamSpecification"] = args ? args.kinesisStreamSpecification : undefined;
+            resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
+            resourceInputs["pointInTimeRecoverySpecification"] = args ? args.pointInTimeRecoverySpecification : undefined;
+            resourceInputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
+            resourceInputs["sSESpecification"] = args ? args.sSESpecification : undefined;
+            resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
+            resourceInputs["tableClass"] = args ? args.tableClass : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["streamArn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["attributeDefinitions"] = undefined /*out*/;
-            inputs["billingMode"] = undefined /*out*/;
-            inputs["contributorInsightsSpecification"] = undefined /*out*/;
-            inputs["globalSecondaryIndexes"] = undefined /*out*/;
-            inputs["keySchema"] = undefined /*out*/;
-            inputs["kinesisStreamSpecification"] = undefined /*out*/;
-            inputs["localSecondaryIndexes"] = undefined /*out*/;
-            inputs["pointInTimeRecoverySpecification"] = undefined /*out*/;
-            inputs["provisionedThroughput"] = undefined /*out*/;
-            inputs["sSESpecification"] = undefined /*out*/;
-            inputs["streamArn"] = undefined /*out*/;
-            inputs["streamSpecification"] = undefined /*out*/;
-            inputs["tableClass"] = undefined /*out*/;
-            inputs["tableName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeToLiveSpecification"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["attributeDefinitions"] = undefined /*out*/;
+            resourceInputs["billingMode"] = undefined /*out*/;
+            resourceInputs["contributorInsightsSpecification"] = undefined /*out*/;
+            resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["keySchema"] = undefined /*out*/;
+            resourceInputs["kinesisStreamSpecification"] = undefined /*out*/;
+            resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["pointInTimeRecoverySpecification"] = undefined /*out*/;
+            resourceInputs["provisionedThroughput"] = undefined /*out*/;
+            resourceInputs["sSESpecification"] = undefined /*out*/;
+            resourceInputs["streamArn"] = undefined /*out*/;
+            resourceInputs["streamSpecification"] = undefined /*out*/;
+            resourceInputs["tableClass"] = undefined /*out*/;
+            resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeToLiveSpecification"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Table.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }
 

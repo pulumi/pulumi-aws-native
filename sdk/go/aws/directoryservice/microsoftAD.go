@@ -105,7 +105,7 @@ type MicrosoftADInput interface {
 }
 
 func (*MicrosoftAD) ElementType() reflect.Type {
-	return reflect.TypeOf((*MicrosoftAD)(nil))
+	return reflect.TypeOf((**MicrosoftAD)(nil)).Elem()
 }
 
 func (i *MicrosoftAD) ToMicrosoftADOutput() MicrosoftADOutput {
@@ -119,7 +119,7 @@ func (i *MicrosoftAD) ToMicrosoftADOutputWithContext(ctx context.Context) Micros
 type MicrosoftADOutput struct{ *pulumi.OutputState }
 
 func (MicrosoftADOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MicrosoftAD)(nil))
+	return reflect.TypeOf((**MicrosoftAD)(nil)).Elem()
 }
 
 func (o MicrosoftADOutput) ToMicrosoftADOutput() MicrosoftADOutput {

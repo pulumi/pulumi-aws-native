@@ -64,7 +64,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.logDestinationConfigs === undefined) && !opts.urn) {
@@ -73,22 +73,20 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            inputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
-            inputs["loggingFilter"] = args ? args.loggingFilter : undefined;
-            inputs["redactedFields"] = args ? args.redactedFields : undefined;
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
-            inputs["managedByFirewallManager"] = undefined /*out*/;
+            resourceInputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
+            resourceInputs["loggingFilter"] = args ? args.loggingFilter : undefined;
+            resourceInputs["redactedFields"] = args ? args.redactedFields : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["managedByFirewallManager"] = undefined /*out*/;
         } else {
-            inputs["logDestinationConfigs"] = undefined /*out*/;
-            inputs["loggingFilter"] = undefined /*out*/;
-            inputs["managedByFirewallManager"] = undefined /*out*/;
-            inputs["redactedFields"] = undefined /*out*/;
-            inputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["logDestinationConfigs"] = undefined /*out*/;
+            resourceInputs["loggingFilter"] = undefined /*out*/;
+            resourceInputs["managedByFirewallManager"] = undefined /*out*/;
+            resourceInputs["redactedFields"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LoggingConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

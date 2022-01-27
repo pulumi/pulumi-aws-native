@@ -52,7 +52,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.capacity === undefined) && !opts.urn) {
@@ -61,28 +61,26 @@ export class RuleGroup extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["capacity"] = args ? args.capacity : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ruleGroup"] = args ? args.ruleGroup : undefined;
-            inputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["ruleGroupArn"] = undefined /*out*/;
-            inputs["ruleGroupId"] = undefined /*out*/;
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ruleGroup"] = args ? args.ruleGroup : undefined;
+            resourceInputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["ruleGroupArn"] = undefined /*out*/;
+            resourceInputs["ruleGroupId"] = undefined /*out*/;
         } else {
-            inputs["capacity"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["ruleGroup"] = undefined /*out*/;
-            inputs["ruleGroupArn"] = undefined /*out*/;
-            inputs["ruleGroupId"] = undefined /*out*/;
-            inputs["ruleGroupName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["capacity"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["ruleGroup"] = undefined /*out*/;
+            resourceInputs["ruleGroupArn"] = undefined /*out*/;
+            resourceInputs["ruleGroupId"] = undefined /*out*/;
+            resourceInputs["ruleGroupName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RuleGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RuleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

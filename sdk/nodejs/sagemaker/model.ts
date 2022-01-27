@@ -57,34 +57,32 @@ export class Model extends pulumi.CustomResource {
     /** @deprecated Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Model is deprecated: Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            inputs["containers"] = args ? args.containers : undefined;
-            inputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["inferenceExecutionConfig"] = args ? args.inferenceExecutionConfig : undefined;
-            inputs["modelName"] = args ? args.modelName : undefined;
-            inputs["primaryContainer"] = args ? args.primaryContainer : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["containers"] = args ? args.containers : undefined;
+            resourceInputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["inferenceExecutionConfig"] = args ? args.inferenceExecutionConfig : undefined;
+            resourceInputs["modelName"] = args ? args.modelName : undefined;
+            resourceInputs["primaryContainer"] = args ? args.primaryContainer : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
         } else {
-            inputs["containers"] = undefined /*out*/;
-            inputs["enableNetworkIsolation"] = undefined /*out*/;
-            inputs["executionRoleArn"] = undefined /*out*/;
-            inputs["inferenceExecutionConfig"] = undefined /*out*/;
-            inputs["modelName"] = undefined /*out*/;
-            inputs["primaryContainer"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcConfig"] = undefined /*out*/;
+            resourceInputs["containers"] = undefined /*out*/;
+            resourceInputs["enableNetworkIsolation"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["inferenceExecutionConfig"] = undefined /*out*/;
+            resourceInputs["modelName"] = undefined /*out*/;
+            resourceInputs["primaryContainer"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcConfig"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Model.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Model.__pulumiType, name, resourceInputs, opts);
     }
 }
 

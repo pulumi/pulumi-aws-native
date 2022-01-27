@@ -136,7 +136,7 @@ type SlackChannelConfigurationInput interface {
 }
 
 func (*SlackChannelConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SlackChannelConfiguration)(nil))
+	return reflect.TypeOf((**SlackChannelConfiguration)(nil)).Elem()
 }
 
 func (i *SlackChannelConfiguration) ToSlackChannelConfigurationOutput() SlackChannelConfigurationOutput {
@@ -150,7 +150,7 @@ func (i *SlackChannelConfiguration) ToSlackChannelConfigurationOutputWithContext
 type SlackChannelConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SlackChannelConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SlackChannelConfiguration)(nil))
+	return reflect.TypeOf((**SlackChannelConfiguration)(nil)).Elem()
 }
 
 func (o SlackChannelConfigurationOutput) ToSlackChannelConfigurationOutput() SlackChannelConfigurationOutput {

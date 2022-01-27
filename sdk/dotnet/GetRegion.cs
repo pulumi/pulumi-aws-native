@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative
     public static class GetRegion
     {
         public static Task<GetRegionResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws-native:index:getRegion", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws-native:index:getRegion", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

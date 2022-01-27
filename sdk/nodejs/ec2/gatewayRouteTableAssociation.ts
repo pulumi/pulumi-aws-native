@@ -55,7 +55,7 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GatewayRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gatewayId === undefined) && !opts.urn) {
@@ -64,18 +64,16 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["associationId"] = undefined /*out*/;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["associationId"] = undefined /*out*/;
         } else {
-            inputs["associationId"] = undefined /*out*/;
-            inputs["gatewayId"] = undefined /*out*/;
-            inputs["routeTableId"] = undefined /*out*/;
+            resourceInputs["associationId"] = undefined /*out*/;
+            resourceInputs["gatewayId"] = undefined /*out*/;
+            resourceInputs["routeTableId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GatewayRouteTableAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GatewayRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

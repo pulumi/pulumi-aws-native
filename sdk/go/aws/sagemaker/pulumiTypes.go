@@ -865,47 +865,6 @@ func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigOutput)
 }
 
-func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
-	return i.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigOutput).ToCodeRepositoryGitConfigPtrOutputWithContext(ctx)
-}
-
-// CodeRepositoryGitConfigPtrInput is an input type that accepts CodeRepositoryGitConfigArgs, CodeRepositoryGitConfigPtr and CodeRepositoryGitConfigPtrOutput values.
-// You can construct a concrete instance of `CodeRepositoryGitConfigPtrInput` via:
-//
-//          CodeRepositoryGitConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type CodeRepositoryGitConfigPtrInput interface {
-	pulumi.Input
-
-	ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput
-	ToCodeRepositoryGitConfigPtrOutputWithContext(context.Context) CodeRepositoryGitConfigPtrOutput
-}
-
-type codeRepositoryGitConfigPtrType CodeRepositoryGitConfigArgs
-
-func CodeRepositoryGitConfigPtr(v *CodeRepositoryGitConfigArgs) CodeRepositoryGitConfigPtrInput {
-	return (*codeRepositoryGitConfigPtrType)(v)
-}
-
-func (*codeRepositoryGitConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeRepositoryGitConfig)(nil)).Elem()
-}
-
-func (i *codeRepositoryGitConfigPtrType) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
-	return i.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *codeRepositoryGitConfigPtrType) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigPtrOutput)
-}
-
 type CodeRepositoryGitConfigOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryGitConfigOutput) ElementType() reflect.Type {
@@ -920,16 +879,6 @@ func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigOutputWithContex
 	return o
 }
 
-func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
-	return o.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepositoryGitConfig) *CodeRepositoryGitConfig {
-		return &v
-	}).(CodeRepositoryGitConfigPtrOutput)
-}
-
 func (o CodeRepositoryGitConfigOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
@@ -940,57 +889,6 @@ func (o CodeRepositoryGitConfigOutput) RepositoryUrl() pulumi.StringOutput {
 
 func (o CodeRepositoryGitConfigOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
-}
-
-type CodeRepositoryGitConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CodeRepositoryGitConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeRepositoryGitConfig)(nil)).Elem()
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
-	return o
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return o
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) Elem() CodeRepositoryGitConfigOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) CodeRepositoryGitConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CodeRepositoryGitConfig
-		return ret
-	}).(CodeRepositoryGitConfigOutput)
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Branch
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RepositoryUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type CodeRepositoryTag struct {
@@ -1140,47 +1038,6 @@ func (i DataQualityJobDefinitionClusterConfigArgs) ToDataQualityJobDefinitionClu
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionClusterConfigOutput)
 }
 
-func (i DataQualityJobDefinitionClusterConfigArgs) ToDataQualityJobDefinitionClusterConfigPtrOutput() DataQualityJobDefinitionClusterConfigPtrOutput {
-	return i.ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionClusterConfigArgs) ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionClusterConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionClusterConfigOutput).ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx)
-}
-
-// DataQualityJobDefinitionClusterConfigPtrInput is an input type that accepts DataQualityJobDefinitionClusterConfigArgs, DataQualityJobDefinitionClusterConfigPtr and DataQualityJobDefinitionClusterConfigPtrOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionClusterConfigPtrInput` via:
-//
-//          DataQualityJobDefinitionClusterConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type DataQualityJobDefinitionClusterConfigPtrInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionClusterConfigPtrOutput() DataQualityJobDefinitionClusterConfigPtrOutput
-	ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(context.Context) DataQualityJobDefinitionClusterConfigPtrOutput
-}
-
-type dataQualityJobDefinitionClusterConfigPtrType DataQualityJobDefinitionClusterConfigArgs
-
-func DataQualityJobDefinitionClusterConfigPtr(v *DataQualityJobDefinitionClusterConfigArgs) DataQualityJobDefinitionClusterConfigPtrInput {
-	return (*dataQualityJobDefinitionClusterConfigPtrType)(v)
-}
-
-func (*dataQualityJobDefinitionClusterConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionClusterConfig)(nil)).Elem()
-}
-
-func (i *dataQualityJobDefinitionClusterConfigPtrType) ToDataQualityJobDefinitionClusterConfigPtrOutput() DataQualityJobDefinitionClusterConfigPtrOutput {
-	return i.ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *dataQualityJobDefinitionClusterConfigPtrType) ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionClusterConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionClusterConfigPtrOutput)
-}
-
 // Configuration for the cluster used to run model monitoring jobs.
 type DataQualityJobDefinitionClusterConfigOutput struct{ *pulumi.OutputState }
 
@@ -1194,16 +1051,6 @@ func (o DataQualityJobDefinitionClusterConfigOutput) ToDataQualityJobDefinitionC
 
 func (o DataQualityJobDefinitionClusterConfigOutput) ToDataQualityJobDefinitionClusterConfigOutputWithContext(ctx context.Context) DataQualityJobDefinitionClusterConfigOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionClusterConfigOutput) ToDataQualityJobDefinitionClusterConfigPtrOutput() DataQualityJobDefinitionClusterConfigPtrOutput {
-	return o.ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DataQualityJobDefinitionClusterConfigOutput) ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionClusterConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionClusterConfig) *DataQualityJobDefinitionClusterConfig {
-		return &v
-	}).(DataQualityJobDefinitionClusterConfigPtrOutput)
 }
 
 // The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -1224,70 +1071,6 @@ func (o DataQualityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.Str
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o DataQualityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
-}
-
-type DataQualityJobDefinitionClusterConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionClusterConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionClusterConfig)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionClusterConfigPtrOutput) ToDataQualityJobDefinitionClusterConfigPtrOutput() DataQualityJobDefinitionClusterConfigPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionClusterConfigPtrOutput) ToDataQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionClusterConfigPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionClusterConfigPtrOutput) Elem() DataQualityJobDefinitionClusterConfigOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) DataQualityJobDefinitionClusterConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DataQualityJobDefinitionClusterConfig
-		return ret
-	}).(DataQualityJobDefinitionClusterConfigOutput)
-}
-
-// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-func (o DataQualityJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ML compute instance type for the processing job.
-func (o DataQualityJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-func (o DataQualityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VolumeKmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o DataQualityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.VolumeSizeInGB
-	}).(pulumi.IntPtrOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -1485,47 +1268,6 @@ func (i DataQualityJobDefinitionDataQualityAppSpecificationArgs) ToDataQualityJo
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityAppSpecificationOutput)
 }
 
-func (i DataQualityJobDefinitionDataQualityAppSpecificationArgs) ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutput() DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput {
-	return i.ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionDataQualityAppSpecificationArgs) ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityAppSpecificationOutput).ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(ctx)
-}
-
-// DataQualityJobDefinitionDataQualityAppSpecificationPtrInput is an input type that accepts DataQualityJobDefinitionDataQualityAppSpecificationArgs, DataQualityJobDefinitionDataQualityAppSpecificationPtr and DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionDataQualityAppSpecificationPtrInput` via:
-//
-//          DataQualityJobDefinitionDataQualityAppSpecificationArgs{...}
-//
-//  or:
-//
-//          nil
-type DataQualityJobDefinitionDataQualityAppSpecificationPtrInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutput() DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput
-	ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(context.Context) DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput
-}
-
-type dataQualityJobDefinitionDataQualityAppSpecificationPtrType DataQualityJobDefinitionDataQualityAppSpecificationArgs
-
-func DataQualityJobDefinitionDataQualityAppSpecificationPtr(v *DataQualityJobDefinitionDataQualityAppSpecificationArgs) DataQualityJobDefinitionDataQualityAppSpecificationPtrInput {
-	return (*dataQualityJobDefinitionDataQualityAppSpecificationPtrType)(v)
-}
-
-func (*dataQualityJobDefinitionDataQualityAppSpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionDataQualityAppSpecification)(nil)).Elem()
-}
-
-func (i *dataQualityJobDefinitionDataQualityAppSpecificationPtrType) ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutput() DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput {
-	return i.ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataQualityJobDefinitionDataQualityAppSpecificationPtrType) ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput)
-}
-
 // Container image configuration object for the monitoring job.
 type DataQualityJobDefinitionDataQualityAppSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -1539,16 +1281,6 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ToDataQuality
 
 func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ToDataQualityJobDefinitionDataQualityAppSpecificationOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityAppSpecificationOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutput() DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput {
-	return o.ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionDataQualityAppSpecification) *DataQualityJobDefinitionDataQualityAppSpecification {
-		return &v
-	}).(DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput)
 }
 
 // An array of arguments for the container used to run the monitoring job.
@@ -1581,90 +1313,6 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) PostAnalytics
 // An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) *string {
-		return v.RecordPreprocessorSourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-type DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionDataQualityAppSpecification)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutput() DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ToDataQualityJobDefinitionDataQualityAppSpecificationPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) Elem() DataQualityJobDefinitionDataQualityAppSpecificationOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) DataQualityJobDefinitionDataQualityAppSpecification {
-		if v != nil {
-			return *v
-		}
-		var ret DataQualityJobDefinitionDataQualityAppSpecification
-		return ret
-	}).(DataQualityJobDefinitionDataQualityAppSpecificationOutput)
-}
-
-// An array of arguments for the container used to run the monitoring job.
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerArguments
-	}).(pulumi.StringArrayOutput)
-}
-
-// Specifies the entrypoint for a container used to run the monitoring job.
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerEntrypoint
-	}).(pulumi.StringArrayOutput)
-}
-
-// Sets the environment variables in the Docker container
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) Environment() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Environment
-	}).(pulumi.AnyOutput)
-}
-
-// The container image to be run by the monitoring job.
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ImageUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PostAnalyticsProcessorSourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
 		return v.RecordPreprocessorSourceUri
 	}).(pulumi.StringPtrOutput)
 }
@@ -1872,47 +1520,6 @@ func (i DataQualityJobDefinitionDataQualityJobInputArgs) ToDataQualityJobDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityJobInputOutput)
 }
 
-func (i DataQualityJobDefinitionDataQualityJobInputArgs) ToDataQualityJobDefinitionDataQualityJobInputPtrOutput() DataQualityJobDefinitionDataQualityJobInputPtrOutput {
-	return i.ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionDataQualityJobInputArgs) ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityJobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityJobInputOutput).ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(ctx)
-}
-
-// DataQualityJobDefinitionDataQualityJobInputPtrInput is an input type that accepts DataQualityJobDefinitionDataQualityJobInputArgs, DataQualityJobDefinitionDataQualityJobInputPtr and DataQualityJobDefinitionDataQualityJobInputPtrOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionDataQualityJobInputPtrInput` via:
-//
-//          DataQualityJobDefinitionDataQualityJobInputArgs{...}
-//
-//  or:
-//
-//          nil
-type DataQualityJobDefinitionDataQualityJobInputPtrInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionDataQualityJobInputPtrOutput() DataQualityJobDefinitionDataQualityJobInputPtrOutput
-	ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(context.Context) DataQualityJobDefinitionDataQualityJobInputPtrOutput
-}
-
-type dataQualityJobDefinitionDataQualityJobInputPtrType DataQualityJobDefinitionDataQualityJobInputArgs
-
-func DataQualityJobDefinitionDataQualityJobInputPtr(v *DataQualityJobDefinitionDataQualityJobInputArgs) DataQualityJobDefinitionDataQualityJobInputPtrInput {
-	return (*dataQualityJobDefinitionDataQualityJobInputPtrType)(v)
-}
-
-func (*dataQualityJobDefinitionDataQualityJobInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionDataQualityJobInput)(nil)).Elem()
-}
-
-func (i *dataQualityJobDefinitionDataQualityJobInputPtrType) ToDataQualityJobDefinitionDataQualityJobInputPtrOutput() DataQualityJobDefinitionDataQualityJobInputPtrOutput {
-	return i.ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i *dataQualityJobDefinitionDataQualityJobInputPtrType) ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityJobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityJobInputPtrOutput)
-}
-
 // The inputs for a monitoring job.
 type DataQualityJobDefinitionDataQualityJobInputOutput struct{ *pulumi.OutputState }
 
@@ -1928,53 +1535,10 @@ func (o DataQualityJobDefinitionDataQualityJobInputOutput) ToDataQualityJobDefin
 	return o
 }
 
-func (o DataQualityJobDefinitionDataQualityJobInputOutput) ToDataQualityJobDefinitionDataQualityJobInputPtrOutput() DataQualityJobDefinitionDataQualityJobInputPtrOutput {
-	return o.ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (o DataQualityJobDefinitionDataQualityJobInputOutput) ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityJobInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionDataQualityJobInput) *DataQualityJobDefinitionDataQualityJobInput {
-		return &v
-	}).(DataQualityJobDefinitionDataQualityJobInputPtrOutput)
-}
-
 func (o DataQualityJobDefinitionDataQualityJobInputOutput) EndpointInput() DataQualityJobDefinitionEndpointInputOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobInput) DataQualityJobDefinitionEndpointInput {
 		return v.EndpointInput
 	}).(DataQualityJobDefinitionEndpointInputOutput)
-}
-
-type DataQualityJobDefinitionDataQualityJobInputPtrOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionDataQualityJobInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionDataQualityJobInput)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionDataQualityJobInputPtrOutput) ToDataQualityJobDefinitionDataQualityJobInputPtrOutput() DataQualityJobDefinitionDataQualityJobInputPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionDataQualityJobInputPtrOutput) ToDataQualityJobDefinitionDataQualityJobInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDataQualityJobInputPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionDataQualityJobInputPtrOutput) Elem() DataQualityJobDefinitionDataQualityJobInputOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityJobInput) DataQualityJobDefinitionDataQualityJobInput {
-		if v != nil {
-			return *v
-		}
-		var ret DataQualityJobDefinitionDataQualityJobInput
-		return ret
-	}).(DataQualityJobDefinitionDataQualityJobInputOutput)
-}
-
-func (o DataQualityJobDefinitionDataQualityJobInputPtrOutput) EndpointInput() DataQualityJobDefinitionEndpointInputPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityJobInput) *DataQualityJobDefinitionEndpointInput {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointInput
-	}).(DataQualityJobDefinitionEndpointInputPtrOutput)
 }
 
 // The endpoint for a monitoring job.
@@ -2022,47 +1586,6 @@ func (i DataQualityJobDefinitionEndpointInputArgs) ToDataQualityJobDefinitionEnd
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEndpointInputOutput)
 }
 
-func (i DataQualityJobDefinitionEndpointInputArgs) ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput {
-	return i.ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionEndpointInputArgs) ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEndpointInputOutput).ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx)
-}
-
-// DataQualityJobDefinitionEndpointInputPtrInput is an input type that accepts DataQualityJobDefinitionEndpointInputArgs, DataQualityJobDefinitionEndpointInputPtr and DataQualityJobDefinitionEndpointInputPtrOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionEndpointInputPtrInput` via:
-//
-//          DataQualityJobDefinitionEndpointInputArgs{...}
-//
-//  or:
-//
-//          nil
-type DataQualityJobDefinitionEndpointInputPtrInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput
-	ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Context) DataQualityJobDefinitionEndpointInputPtrOutput
-}
-
-type dataQualityJobDefinitionEndpointInputPtrType DataQualityJobDefinitionEndpointInputArgs
-
-func DataQualityJobDefinitionEndpointInputPtr(v *DataQualityJobDefinitionEndpointInputArgs) DataQualityJobDefinitionEndpointInputPtrInput {
-	return (*dataQualityJobDefinitionEndpointInputPtrType)(v)
-}
-
-func (*dataQualityJobDefinitionEndpointInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionEndpointInput)(nil)).Elem()
-}
-
-func (i *dataQualityJobDefinitionEndpointInputPtrType) ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput {
-	return i.ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (i *dataQualityJobDefinitionEndpointInputPtrType) ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEndpointInputPtrOutput)
-}
-
 // The endpoint for a monitoring job.
 type DataQualityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -2076,16 +1599,6 @@ func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionE
 
 func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionEndpointInputOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput {
-	return o.ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInput {
-		return &v
-	}).(DataQualityJobDefinitionEndpointInputPtrOutput)
 }
 
 func (o DataQualityJobDefinitionEndpointInputOutput) EndpointName() pulumi.StringOutput {
@@ -2107,69 +1620,6 @@ func (o DataQualityJobDefinitionEndpointInputOutput) S3DataDistributionType() Da
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o DataQualityJobDefinitionEndpointInputOutput) S3InputMode() DataQualityJobDefinitionEndpointInputS3InputModePtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3InputMode {
-		return v.S3InputMode
-	}).(DataQualityJobDefinitionEndpointInputS3InputModePtrOutput)
-}
-
-type DataQualityJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionEndpointInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionEndpointInput)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) Elem() DataQualityJobDefinitionEndpointInputOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) DataQualityJobDefinitionEndpointInput {
-		if v != nil {
-			return *v
-		}
-		var ret DataQualityJobDefinitionEndpointInput
-		return ret
-	}).(DataQualityJobDefinitionEndpointInputOutput)
-}
-
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the filesystem where the endpoint data is available to the container.
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LocalPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3DataDistributionType {
-		if v == nil {
-			return nil
-		}
-		return v.S3DataDistributionType
-	}).(DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
-}
-
-// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() DataQualityJobDefinitionEndpointInputS3InputModePtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3InputMode {
-		if v == nil {
-			return nil
-		}
 		return v.S3InputMode
 	}).(DataQualityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
@@ -2310,47 +1760,6 @@ func (i DataQualityJobDefinitionMonitoringOutputConfigArgs) ToDataQualityJobDefi
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringOutputConfigOutput)
 }
 
-func (i DataQualityJobDefinitionMonitoringOutputConfigArgs) ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutput() DataQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return i.ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionMonitoringOutputConfigArgs) ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringOutputConfigOutput).ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx)
-}
-
-// DataQualityJobDefinitionMonitoringOutputConfigPtrInput is an input type that accepts DataQualityJobDefinitionMonitoringOutputConfigArgs, DataQualityJobDefinitionMonitoringOutputConfigPtr and DataQualityJobDefinitionMonitoringOutputConfigPtrOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionMonitoringOutputConfigPtrInput` via:
-//
-//          DataQualityJobDefinitionMonitoringOutputConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type DataQualityJobDefinitionMonitoringOutputConfigPtrInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutput() DataQualityJobDefinitionMonitoringOutputConfigPtrOutput
-	ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Context) DataQualityJobDefinitionMonitoringOutputConfigPtrOutput
-}
-
-type dataQualityJobDefinitionMonitoringOutputConfigPtrType DataQualityJobDefinitionMonitoringOutputConfigArgs
-
-func DataQualityJobDefinitionMonitoringOutputConfigPtr(v *DataQualityJobDefinitionMonitoringOutputConfigArgs) DataQualityJobDefinitionMonitoringOutputConfigPtrInput {
-	return (*dataQualityJobDefinitionMonitoringOutputConfigPtrType)(v)
-}
-
-func (*dataQualityJobDefinitionMonitoringOutputConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionMonitoringOutputConfig)(nil)).Elem()
-}
-
-func (i *dataQualityJobDefinitionMonitoringOutputConfigPtrType) ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutput() DataQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return i.ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *dataQualityJobDefinitionMonitoringOutputConfigPtrType) ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringOutputConfigPtrOutput)
-}
-
 // The output configuration for monitoring jobs.
 type DataQualityJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
@@ -2366,16 +1775,6 @@ func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) ToDataQualityJobDe
 	return o
 }
 
-func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutput() DataQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o.ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionMonitoringOutputConfig) *DataQualityJobDefinitionMonitoringOutputConfig {
-		return &v
-	}).(DataQualityJobDefinitionMonitoringOutputConfigPtrOutput)
-}
-
 // The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -2384,50 +1783,6 @@ func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.
 // Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() DataQualityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionMonitoringOutputConfig) []DataQualityJobDefinitionMonitoringOutput {
-		return v.MonitoringOutputs
-	}).(DataQualityJobDefinitionMonitoringOutputArrayOutput)
-}
-
-type DataQualityJobDefinitionMonitoringOutputConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionMonitoringOutputConfig)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutput() DataQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) ToDataQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) Elem() DataQualityJobDefinitionMonitoringOutputConfigOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionMonitoringOutputConfig) DataQualityJobDefinitionMonitoringOutputConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DataQualityJobDefinitionMonitoringOutputConfig
-		return ret
-	}).(DataQualityJobDefinitionMonitoringOutputConfigOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionMonitoringOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() DataQualityJobDefinitionMonitoringOutputArrayOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionMonitoringOutputConfig) []DataQualityJobDefinitionMonitoringOutput {
-		if v == nil {
-			return nil
-		}
 		return v.MonitoringOutputs
 	}).(DataQualityJobDefinitionMonitoringOutputArrayOutput)
 }
@@ -2465,47 +1820,6 @@ func (i DataQualityJobDefinitionMonitoringResourcesArgs) ToDataQualityJobDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringResourcesOutput)
 }
 
-func (i DataQualityJobDefinitionMonitoringResourcesArgs) ToDataQualityJobDefinitionMonitoringResourcesPtrOutput() DataQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return i.ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionMonitoringResourcesArgs) ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringResourcesOutput).ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx)
-}
-
-// DataQualityJobDefinitionMonitoringResourcesPtrInput is an input type that accepts DataQualityJobDefinitionMonitoringResourcesArgs, DataQualityJobDefinitionMonitoringResourcesPtr and DataQualityJobDefinitionMonitoringResourcesPtrOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionMonitoringResourcesPtrInput` via:
-//
-//          DataQualityJobDefinitionMonitoringResourcesArgs{...}
-//
-//  or:
-//
-//          nil
-type DataQualityJobDefinitionMonitoringResourcesPtrInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionMonitoringResourcesPtrOutput() DataQualityJobDefinitionMonitoringResourcesPtrOutput
-	ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Context) DataQualityJobDefinitionMonitoringResourcesPtrOutput
-}
-
-type dataQualityJobDefinitionMonitoringResourcesPtrType DataQualityJobDefinitionMonitoringResourcesArgs
-
-func DataQualityJobDefinitionMonitoringResourcesPtr(v *DataQualityJobDefinitionMonitoringResourcesArgs) DataQualityJobDefinitionMonitoringResourcesPtrInput {
-	return (*dataQualityJobDefinitionMonitoringResourcesPtrType)(v)
-}
-
-func (*dataQualityJobDefinitionMonitoringResourcesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionMonitoringResources)(nil)).Elem()
-}
-
-func (i *dataQualityJobDefinitionMonitoringResourcesPtrType) ToDataQualityJobDefinitionMonitoringResourcesPtrOutput() DataQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return i.ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i *dataQualityJobDefinitionMonitoringResourcesPtrType) ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringResourcesPtrOutput)
-}
-
 // Identifies the resources to deploy for a monitoring job.
 type DataQualityJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
@@ -2521,53 +1835,10 @@ func (o DataQualityJobDefinitionMonitoringResourcesOutput) ToDataQualityJobDefin
 	return o
 }
 
-func (o DataQualityJobDefinitionMonitoringResourcesOutput) ToDataQualityJobDefinitionMonitoringResourcesPtrOutput() DataQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return o.ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (o DataQualityJobDefinitionMonitoringResourcesOutput) ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionMonitoringResources) *DataQualityJobDefinitionMonitoringResources {
-		return &v
-	}).(DataQualityJobDefinitionMonitoringResourcesPtrOutput)
-}
-
 func (o DataQualityJobDefinitionMonitoringResourcesOutput) ClusterConfig() DataQualityJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionMonitoringResources) DataQualityJobDefinitionClusterConfig {
 		return v.ClusterConfig
 	}).(DataQualityJobDefinitionClusterConfigOutput)
-}
-
-type DataQualityJobDefinitionMonitoringResourcesPtrOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionMonitoringResourcesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionMonitoringResources)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionMonitoringResourcesPtrOutput) ToDataQualityJobDefinitionMonitoringResourcesPtrOutput() DataQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionMonitoringResourcesPtrOutput) ToDataQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionMonitoringResourcesPtrOutput) Elem() DataQualityJobDefinitionMonitoringResourcesOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionMonitoringResources) DataQualityJobDefinitionMonitoringResources {
-		if v != nil {
-			return *v
-		}
-		var ret DataQualityJobDefinitionMonitoringResources
-		return ret
-	}).(DataQualityJobDefinitionMonitoringResourcesOutput)
-}
-
-func (o DataQualityJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() DataQualityJobDefinitionClusterConfigPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionMonitoringResources) *DataQualityJobDefinitionClusterConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.ClusterConfig
-	}).(DataQualityJobDefinitionClusterConfigPtrOutput)
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
@@ -3582,47 +2853,6 @@ func (i DeviceFleetEdgeOutputConfigArgs) ToDeviceFleetEdgeOutputConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetEdgeOutputConfigOutput)
 }
 
-func (i DeviceFleetEdgeOutputConfigArgs) ToDeviceFleetEdgeOutputConfigPtrOutput() DeviceFleetEdgeOutputConfigPtrOutput {
-	return i.ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DeviceFleetEdgeOutputConfigArgs) ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetEdgeOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetEdgeOutputConfigOutput).ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(ctx)
-}
-
-// DeviceFleetEdgeOutputConfigPtrInput is an input type that accepts DeviceFleetEdgeOutputConfigArgs, DeviceFleetEdgeOutputConfigPtr and DeviceFleetEdgeOutputConfigPtrOutput values.
-// You can construct a concrete instance of `DeviceFleetEdgeOutputConfigPtrInput` via:
-//
-//          DeviceFleetEdgeOutputConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type DeviceFleetEdgeOutputConfigPtrInput interface {
-	pulumi.Input
-
-	ToDeviceFleetEdgeOutputConfigPtrOutput() DeviceFleetEdgeOutputConfigPtrOutput
-	ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(context.Context) DeviceFleetEdgeOutputConfigPtrOutput
-}
-
-type deviceFleetEdgeOutputConfigPtrType DeviceFleetEdgeOutputConfigArgs
-
-func DeviceFleetEdgeOutputConfigPtr(v *DeviceFleetEdgeOutputConfigArgs) DeviceFleetEdgeOutputConfigPtrInput {
-	return (*deviceFleetEdgeOutputConfigPtrType)(v)
-}
-
-func (*deviceFleetEdgeOutputConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceFleetEdgeOutputConfig)(nil)).Elem()
-}
-
-func (i *deviceFleetEdgeOutputConfigPtrType) ToDeviceFleetEdgeOutputConfigPtrOutput() DeviceFleetEdgeOutputConfigPtrOutput {
-	return i.ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *deviceFleetEdgeOutputConfigPtrType) ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetEdgeOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetEdgeOutputConfigPtrOutput)
-}
-
 type DeviceFleetEdgeOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetEdgeOutputConfigOutput) ElementType() reflect.Type {
@@ -3637,16 +2867,6 @@ func (o DeviceFleetEdgeOutputConfigOutput) ToDeviceFleetEdgeOutputConfigOutputWi
 	return o
 }
 
-func (o DeviceFleetEdgeOutputConfigOutput) ToDeviceFleetEdgeOutputConfigPtrOutput() DeviceFleetEdgeOutputConfigPtrOutput {
-	return o.ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DeviceFleetEdgeOutputConfigOutput) ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetEdgeOutputConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceFleetEdgeOutputConfig) *DeviceFleetEdgeOutputConfig {
-		return &v
-	}).(DeviceFleetEdgeOutputConfigPtrOutput)
-}
-
 // The KMS key id used for encryption on the S3 bucket
 func (o DeviceFleetEdgeOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceFleetEdgeOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -3655,50 +2875,6 @@ func (o DeviceFleetEdgeOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The Amazon Simple Storage (S3) bucket URI
 func (o DeviceFleetEdgeOutputConfigOutput) S3OutputLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v DeviceFleetEdgeOutputConfig) string { return v.S3OutputLocation }).(pulumi.StringOutput)
-}
-
-type DeviceFleetEdgeOutputConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DeviceFleetEdgeOutputConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceFleetEdgeOutputConfig)(nil)).Elem()
-}
-
-func (o DeviceFleetEdgeOutputConfigPtrOutput) ToDeviceFleetEdgeOutputConfigPtrOutput() DeviceFleetEdgeOutputConfigPtrOutput {
-	return o
-}
-
-func (o DeviceFleetEdgeOutputConfigPtrOutput) ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetEdgeOutputConfigPtrOutput {
-	return o
-}
-
-func (o DeviceFleetEdgeOutputConfigPtrOutput) Elem() DeviceFleetEdgeOutputConfigOutput {
-	return o.ApplyT(func(v *DeviceFleetEdgeOutputConfig) DeviceFleetEdgeOutputConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DeviceFleetEdgeOutputConfig
-		return ret
-	}).(DeviceFleetEdgeOutputConfigOutput)
-}
-
-// The KMS key id used for encryption on the S3 bucket
-func (o DeviceFleetEdgeOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceFleetEdgeOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon Simple Storage (S3) bucket URI
-func (o DeviceFleetEdgeOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceFleetEdgeOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3OutputLocation
-	}).(pulumi.StringPtrOutput)
 }
 
 // Key-value pair to associate as a tag for the resource
@@ -4835,47 +4011,6 @@ func (i DomainUserSettingsArgs) ToDomainUserSettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainUserSettingsOutput)
 }
 
-func (i DomainUserSettingsArgs) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
-	return i.ToDomainUserSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DomainUserSettingsArgs) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainUserSettingsOutput).ToDomainUserSettingsPtrOutputWithContext(ctx)
-}
-
-// DomainUserSettingsPtrInput is an input type that accepts DomainUserSettingsArgs, DomainUserSettingsPtr and DomainUserSettingsPtrOutput values.
-// You can construct a concrete instance of `DomainUserSettingsPtrInput` via:
-//
-//          DomainUserSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type DomainUserSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput
-	ToDomainUserSettingsPtrOutputWithContext(context.Context) DomainUserSettingsPtrOutput
-}
-
-type domainUserSettingsPtrType DomainUserSettingsArgs
-
-func DomainUserSettingsPtr(v *DomainUserSettingsArgs) DomainUserSettingsPtrInput {
-	return (*domainUserSettingsPtrType)(v)
-}
-
-func (*domainUserSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainUserSettings)(nil)).Elem()
-}
-
-func (i *domainUserSettingsPtrType) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
-	return i.ToDomainUserSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *domainUserSettingsPtrType) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainUserSettingsPtrOutput)
-}
-
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettingsOutput struct{ *pulumi.OutputState }
 
@@ -4889,16 +4024,6 @@ func (o DomainUserSettingsOutput) ToDomainUserSettingsOutput() DomainUserSetting
 
 func (o DomainUserSettingsOutput) ToDomainUserSettingsOutputWithContext(ctx context.Context) DomainUserSettingsOutput {
 	return o
-}
-
-func (o DomainUserSettingsOutput) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
-	return o.ToDomainUserSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DomainUserSettingsOutput) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainUserSettings) *DomainUserSettings {
-		return &v
-	}).(DomainUserSettingsPtrOutput)
 }
 
 // The user profile Amazon Resource Name (ARN).
@@ -4924,80 +4049,6 @@ func (o DomainUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 // The sharing settings.
 func (o DomainUserSettingsOutput) SharingSettings() DomainSharingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainSharingSettings { return v.SharingSettings }).(DomainSharingSettingsPtrOutput)
-}
-
-type DomainUserSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainUserSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainUserSettings)(nil)).Elem()
-}
-
-func (o DomainUserSettingsPtrOutput) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
-	return o
-}
-
-func (o DomainUserSettingsPtrOutput) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
-	return o
-}
-
-func (o DomainUserSettingsPtrOutput) Elem() DomainUserSettingsOutput {
-	return o.ApplyT(func(v *DomainUserSettings) DomainUserSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DomainUserSettings
-		return ret
-	}).(DomainUserSettingsOutput)
-}
-
-// The user profile Amazon Resource Name (ARN).
-func (o DomainUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainUserSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExecutionRole
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Jupyter server's app settings.
-func (o DomainUserSettingsPtrOutput) JupyterServerAppSettings() DomainJupyterServerAppSettingsPtrOutput {
-	return o.ApplyT(func(v *DomainUserSettings) *DomainJupyterServerAppSettings {
-		if v == nil {
-			return nil
-		}
-		return v.JupyterServerAppSettings
-	}).(DomainJupyterServerAppSettingsPtrOutput)
-}
-
-// The kernel gateway app settings.
-func (o DomainUserSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
-	return o.ApplyT(func(v *DomainUserSettings) *DomainKernelGatewayAppSettings {
-		if v == nil {
-			return nil
-		}
-		return v.KernelGatewayAppSettings
-	}).(DomainKernelGatewayAppSettingsPtrOutput)
-}
-
-// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-func (o DomainUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DomainUserSettings) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-// The sharing settings.
-func (o DomainUserSettingsPtrOutput) SharingSettings() DomainSharingSettingsPtrOutput {
-	return o.ApplyT(func(v *DomainUserSettings) *DomainSharingSettings {
-		if v == nil {
-			return nil
-		}
-		return v.SharingSettings
-	}).(DomainSharingSettingsPtrOutput)
 }
 
 type EndpointAlarm struct {
@@ -8291,47 +7342,6 @@ func (i ModelBiasJobDefinitionClusterConfigArgs) ToModelBiasJobDefinitionCluster
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionClusterConfigOutput)
 }
 
-func (i ModelBiasJobDefinitionClusterConfigArgs) ToModelBiasJobDefinitionClusterConfigPtrOutput() ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return i.ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionClusterConfigArgs) ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionClusterConfigOutput).ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(ctx)
-}
-
-// ModelBiasJobDefinitionClusterConfigPtrInput is an input type that accepts ModelBiasJobDefinitionClusterConfigArgs, ModelBiasJobDefinitionClusterConfigPtr and ModelBiasJobDefinitionClusterConfigPtrOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionClusterConfigPtrInput` via:
-//
-//          ModelBiasJobDefinitionClusterConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelBiasJobDefinitionClusterConfigPtrInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionClusterConfigPtrOutput() ModelBiasJobDefinitionClusterConfigPtrOutput
-	ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(context.Context) ModelBiasJobDefinitionClusterConfigPtrOutput
-}
-
-type modelBiasJobDefinitionClusterConfigPtrType ModelBiasJobDefinitionClusterConfigArgs
-
-func ModelBiasJobDefinitionClusterConfigPtr(v *ModelBiasJobDefinitionClusterConfigArgs) ModelBiasJobDefinitionClusterConfigPtrInput {
-	return (*modelBiasJobDefinitionClusterConfigPtrType)(v)
-}
-
-func (*modelBiasJobDefinitionClusterConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionClusterConfig)(nil)).Elem()
-}
-
-func (i *modelBiasJobDefinitionClusterConfigPtrType) ToModelBiasJobDefinitionClusterConfigPtrOutput() ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return i.ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *modelBiasJobDefinitionClusterConfigPtrType) ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionClusterConfigPtrOutput)
-}
-
 // Configuration for the cluster used to run model monitoring jobs.
 type ModelBiasJobDefinitionClusterConfigOutput struct{ *pulumi.OutputState }
 
@@ -8345,16 +7355,6 @@ func (o ModelBiasJobDefinitionClusterConfigOutput) ToModelBiasJobDefinitionClust
 
 func (o ModelBiasJobDefinitionClusterConfigOutput) ToModelBiasJobDefinitionClusterConfigOutputWithContext(ctx context.Context) ModelBiasJobDefinitionClusterConfigOutput {
 	return o
-}
-
-func (o ModelBiasJobDefinitionClusterConfigOutput) ToModelBiasJobDefinitionClusterConfigPtrOutput() ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return o.ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ModelBiasJobDefinitionClusterConfigOutput) ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionClusterConfig) *ModelBiasJobDefinitionClusterConfig {
-		return &v
-	}).(ModelBiasJobDefinitionClusterConfigPtrOutput)
 }
 
 // The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -8375,70 +7375,6 @@ func (o ModelBiasJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.Strin
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelBiasJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
-}
-
-type ModelBiasJobDefinitionClusterConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionClusterConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionClusterConfig)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionClusterConfigPtrOutput) ToModelBiasJobDefinitionClusterConfigPtrOutput() ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionClusterConfigPtrOutput) ToModelBiasJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionClusterConfigPtrOutput) Elem() ModelBiasJobDefinitionClusterConfigOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) ModelBiasJobDefinitionClusterConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ModelBiasJobDefinitionClusterConfig
-		return ret
-	}).(ModelBiasJobDefinitionClusterConfigOutput)
-}
-
-// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-func (o ModelBiasJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ML compute instance type for the processing job.
-func (o ModelBiasJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-func (o ModelBiasJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VolumeKmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o ModelBiasJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.VolumeSizeInGB
-	}).(pulumi.IntPtrOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -8648,47 +7584,6 @@ func (i ModelBiasJobDefinitionEndpointInputArgs) ToModelBiasJobDefinitionEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEndpointInputOutput)
 }
 
-func (i ModelBiasJobDefinitionEndpointInputArgs) ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return i.ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionEndpointInputArgs) ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEndpointInputOutput).ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx)
-}
-
-// ModelBiasJobDefinitionEndpointInputPtrInput is an input type that accepts ModelBiasJobDefinitionEndpointInputArgs, ModelBiasJobDefinitionEndpointInputPtr and ModelBiasJobDefinitionEndpointInputPtrOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionEndpointInputPtrInput` via:
-//
-//          ModelBiasJobDefinitionEndpointInputArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelBiasJobDefinitionEndpointInputPtrInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput
-	ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput
-}
-
-type modelBiasJobDefinitionEndpointInputPtrType ModelBiasJobDefinitionEndpointInputArgs
-
-func ModelBiasJobDefinitionEndpointInputPtr(v *ModelBiasJobDefinitionEndpointInputArgs) ModelBiasJobDefinitionEndpointInputPtrInput {
-	return (*modelBiasJobDefinitionEndpointInputPtrType)(v)
-}
-
-func (*modelBiasJobDefinitionEndpointInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionEndpointInput)(nil)).Elem()
-}
-
-func (i *modelBiasJobDefinitionEndpointInputPtrType) ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return i.ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (i *modelBiasJobDefinitionEndpointInputPtrType) ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEndpointInputPtrOutput)
-}
-
 // The endpoint for a monitoring job.
 type ModelBiasJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -8702,16 +7597,6 @@ func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpo
 
 func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpointInputOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputOutput {
 	return o
-}
-
-func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return o.ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInput {
-		return &v
-	}).(ModelBiasJobDefinitionEndpointInputPtrOutput)
 }
 
 // Monitoring end time offset, e.g. PT0H
@@ -8766,128 +7651,6 @@ func (o ModelBiasJobDefinitionEndpointInputOutput) StartTimeOffset() pulumi.Stri
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.StartTimeOffset }).(pulumi.StringPtrOutput)
 }
 
-type ModelBiasJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionEndpointInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionEndpointInput)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) Elem() ModelBiasJobDefinitionEndpointInputOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) ModelBiasJobDefinitionEndpointInput {
-		if v != nil {
-			return *v
-		}
-		var ret ModelBiasJobDefinitionEndpointInput
-		return ret
-	}).(ModelBiasJobDefinitionEndpointInputOutput)
-}
-
-// Monitoring end time offset, e.g. PT0H
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndTimeOffset
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointName
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSONpath to locate features in JSONlines dataset
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FeaturesAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index or JSONpath to locate predicted label(s)
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InferenceAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the filesystem where the endpoint data is available to the container.
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LocalPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index or JSONpath to locate probabilities
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProbabilityAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ProbabilityThresholdAttribute
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInputS3DataDistributionType {
-		if v == nil {
-			return nil
-		}
-		return v.S3DataDistributionType
-	}).(ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
-}
-
-// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInputS3InputMode {
-		if v == nil {
-			return nil
-		}
-		return v.S3InputMode
-	}).(ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput)
-}
-
-// Monitoring start time offset, e.g. -PT1H
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTimeOffset
-	}).(pulumi.StringPtrOutput)
-}
-
 // Container image configuration object for the monitoring job.
 type ModelBiasJobDefinitionModelBiasAppSpecification struct {
 	// The S3 URI to an analysis configuration file
@@ -8931,47 +7694,6 @@ func (i ModelBiasJobDefinitionModelBiasAppSpecificationArgs) ToModelBiasJobDefin
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasAppSpecificationOutput)
 }
 
-func (i ModelBiasJobDefinitionModelBiasAppSpecificationArgs) ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput() ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput {
-	return i.ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionModelBiasAppSpecificationArgs) ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasAppSpecificationOutput).ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(ctx)
-}
-
-// ModelBiasJobDefinitionModelBiasAppSpecificationPtrInput is an input type that accepts ModelBiasJobDefinitionModelBiasAppSpecificationArgs, ModelBiasJobDefinitionModelBiasAppSpecificationPtr and ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionModelBiasAppSpecificationPtrInput` via:
-//
-//          ModelBiasJobDefinitionModelBiasAppSpecificationArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelBiasJobDefinitionModelBiasAppSpecificationPtrInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput() ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput
-	ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(context.Context) ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput
-}
-
-type modelBiasJobDefinitionModelBiasAppSpecificationPtrType ModelBiasJobDefinitionModelBiasAppSpecificationArgs
-
-func ModelBiasJobDefinitionModelBiasAppSpecificationPtr(v *ModelBiasJobDefinitionModelBiasAppSpecificationArgs) ModelBiasJobDefinitionModelBiasAppSpecificationPtrInput {
-	return (*modelBiasJobDefinitionModelBiasAppSpecificationPtrType)(v)
-}
-
-func (*modelBiasJobDefinitionModelBiasAppSpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionModelBiasAppSpecification)(nil)).Elem()
-}
-
-func (i *modelBiasJobDefinitionModelBiasAppSpecificationPtrType) ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput() ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput {
-	return i.ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i *modelBiasJobDefinitionModelBiasAppSpecificationPtrType) ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput)
-}
-
 // Container image configuration object for the monitoring job.
 type ModelBiasJobDefinitionModelBiasAppSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -8987,16 +7709,6 @@ func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ToModelBiasJobDef
 	return o
 }
 
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput() ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput {
-	return o.ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionModelBiasAppSpecification) *ModelBiasJobDefinitionModelBiasAppSpecification {
-		return &v
-	}).(ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput)
-}
-
 // The S3 URI to an analysis configuration file
 func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ConfigUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasAppSpecification) string { return v.ConfigUri }).(pulumi.StringOutput)
@@ -9010,60 +7722,6 @@ func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) Environment() pul
 // The container image to be run by the monitoring job.
 func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasAppSpecification) string { return v.ImageUri }).(pulumi.StringOutput)
-}
-
-type ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionModelBiasAppSpecification)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput() ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ToModelBiasJobDefinitionModelBiasAppSpecificationPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) Elem() ModelBiasJobDefinitionModelBiasAppSpecificationOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) ModelBiasJobDefinitionModelBiasAppSpecification {
-		if v != nil {
-			return *v
-		}
-		var ret ModelBiasJobDefinitionModelBiasAppSpecification
-		return ret
-	}).(ModelBiasJobDefinitionModelBiasAppSpecificationOutput)
-}
-
-// The S3 URI to an analysis configuration file
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ConfigUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ConfigUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Sets the environment variables in the Docker container
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) Environment() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Environment
-	}).(pulumi.AnyOutput)
-}
-
-// The container image to be run by the monitoring job.
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ImageUri
-	}).(pulumi.StringPtrOutput)
 }
 
 // Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
@@ -9254,47 +7912,6 @@ func (i ModelBiasJobDefinitionModelBiasJobInputArgs) ToModelBiasJobDefinitionMod
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasJobInputOutput)
 }
 
-func (i ModelBiasJobDefinitionModelBiasJobInputArgs) ToModelBiasJobDefinitionModelBiasJobInputPtrOutput() ModelBiasJobDefinitionModelBiasJobInputPtrOutput {
-	return i.ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionModelBiasJobInputArgs) ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionModelBiasJobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasJobInputOutput).ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(ctx)
-}
-
-// ModelBiasJobDefinitionModelBiasJobInputPtrInput is an input type that accepts ModelBiasJobDefinitionModelBiasJobInputArgs, ModelBiasJobDefinitionModelBiasJobInputPtr and ModelBiasJobDefinitionModelBiasJobInputPtrOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionModelBiasJobInputPtrInput` via:
-//
-//          ModelBiasJobDefinitionModelBiasJobInputArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelBiasJobDefinitionModelBiasJobInputPtrInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionModelBiasJobInputPtrOutput() ModelBiasJobDefinitionModelBiasJobInputPtrOutput
-	ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(context.Context) ModelBiasJobDefinitionModelBiasJobInputPtrOutput
-}
-
-type modelBiasJobDefinitionModelBiasJobInputPtrType ModelBiasJobDefinitionModelBiasJobInputArgs
-
-func ModelBiasJobDefinitionModelBiasJobInputPtr(v *ModelBiasJobDefinitionModelBiasJobInputArgs) ModelBiasJobDefinitionModelBiasJobInputPtrInput {
-	return (*modelBiasJobDefinitionModelBiasJobInputPtrType)(v)
-}
-
-func (*modelBiasJobDefinitionModelBiasJobInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionModelBiasJobInput)(nil)).Elem()
-}
-
-func (i *modelBiasJobDefinitionModelBiasJobInputPtrType) ToModelBiasJobDefinitionModelBiasJobInputPtrOutput() ModelBiasJobDefinitionModelBiasJobInputPtrOutput {
-	return i.ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i *modelBiasJobDefinitionModelBiasJobInputPtrType) ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionModelBiasJobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasJobInputPtrOutput)
-}
-
 // The inputs for a monitoring job.
 type ModelBiasJobDefinitionModelBiasJobInputOutput struct{ *pulumi.OutputState }
 
@@ -9310,16 +7927,6 @@ func (o ModelBiasJobDefinitionModelBiasJobInputOutput) ToModelBiasJobDefinitionM
 	return o
 }
 
-func (o ModelBiasJobDefinitionModelBiasJobInputOutput) ToModelBiasJobDefinitionModelBiasJobInputPtrOutput() ModelBiasJobDefinitionModelBiasJobInputPtrOutput {
-	return o.ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(context.Background())
-}
-
-func (o ModelBiasJobDefinitionModelBiasJobInputOutput) ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionModelBiasJobInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionModelBiasJobInput) *ModelBiasJobDefinitionModelBiasJobInput {
-		return &v
-	}).(ModelBiasJobDefinitionModelBiasJobInputPtrOutput)
-}
-
 func (o ModelBiasJobDefinitionModelBiasJobInputOutput) EndpointInput() ModelBiasJobDefinitionEndpointInputOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasJobInput) ModelBiasJobDefinitionEndpointInput {
 		return v.EndpointInput
@@ -9330,48 +7937,6 @@ func (o ModelBiasJobDefinitionModelBiasJobInputOutput) GroundTruthS3Input() Mode
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasJobInput) ModelBiasJobDefinitionMonitoringGroundTruthS3Input {
 		return v.GroundTruthS3Input
 	}).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput)
-}
-
-type ModelBiasJobDefinitionModelBiasJobInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionModelBiasJobInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionModelBiasJobInput)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) ToModelBiasJobDefinitionModelBiasJobInputPtrOutput() ModelBiasJobDefinitionModelBiasJobInputPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) ToModelBiasJobDefinitionModelBiasJobInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionModelBiasJobInputPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) Elem() ModelBiasJobDefinitionModelBiasJobInputOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasJobInput) ModelBiasJobDefinitionModelBiasJobInput {
-		if v != nil {
-			return *v
-		}
-		var ret ModelBiasJobDefinitionModelBiasJobInput
-		return ret
-	}).(ModelBiasJobDefinitionModelBiasJobInputOutput)
-}
-
-func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) EndpointInput() ModelBiasJobDefinitionEndpointInputPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasJobInput) *ModelBiasJobDefinitionEndpointInput {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointInput
-	}).(ModelBiasJobDefinitionEndpointInputPtrOutput)
-}
-
-func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) GroundTruthS3Input() ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasJobInput) *ModelBiasJobDefinitionMonitoringGroundTruthS3Input {
-		if v == nil {
-			return nil
-		}
-		return &v.GroundTruthS3Input
-	}).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
 }
 
 // Ground truth input provided in S3
@@ -9409,47 +7974,6 @@ func (i ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs) ToModelBiasJobDe
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput)
 }
 
-func (i ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs) ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return i.ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs) ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput).ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx)
-}
-
-// ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrInput is an input type that accepts ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs, ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtr and ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrInput` via:
-//
-//          ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput
-	ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(context.Context) ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput
-}
-
-type modelBiasJobDefinitionMonitoringGroundTruthS3InputPtrType ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs
-
-func ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtr(v *ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs) ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrInput {
-	return (*modelBiasJobDefinitionMonitoringGroundTruthS3InputPtrType)(v)
-}
-
-func (*modelBiasJobDefinitionMonitoringGroundTruthS3InputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionMonitoringGroundTruthS3Input)(nil)).Elem()
-}
-
-func (i *modelBiasJobDefinitionMonitoringGroundTruthS3InputPtrType) ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return i.ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(context.Background())
-}
-
-func (i *modelBiasJobDefinitionMonitoringGroundTruthS3InputPtrType) ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
-}
-
 // Ground truth input provided in S3
 type ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput struct{ *pulumi.OutputState }
 
@@ -9465,53 +7989,9 @@ func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput) ToModelBiasJob
 	return o
 }
 
-func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput) ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o.ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(context.Background())
-}
-
-func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput) ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionMonitoringGroundTruthS3Input) *ModelBiasJobDefinitionMonitoringGroundTruthS3Input {
-		return &v
-	}).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
-}
-
 // A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringGroundTruthS3Input) string { return v.S3Uri }).(pulumi.StringOutput)
-}
-
-type ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionMonitoringGroundTruthS3Input)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput) ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput) ToModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput) Elem() ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringGroundTruthS3Input) ModelBiasJobDefinitionMonitoringGroundTruthS3Input {
-		if v != nil {
-			return *v
-		}
-		var ret ModelBiasJobDefinitionMonitoringGroundTruthS3Input
-		return ret
-	}).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput)
-}
-
-// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput) S3Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringGroundTruthS3Input) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Uri
-	}).(pulumi.StringPtrOutput)
 }
 
 // The output object for a monitoring job.
@@ -9650,47 +8130,6 @@ func (i ModelBiasJobDefinitionMonitoringOutputConfigArgs) ToModelBiasJobDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringOutputConfigOutput)
 }
 
-func (i ModelBiasJobDefinitionMonitoringOutputConfigArgs) ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutput() ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput {
-	return i.ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionMonitoringOutputConfigArgs) ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringOutputConfigOutput).ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx)
-}
-
-// ModelBiasJobDefinitionMonitoringOutputConfigPtrInput is an input type that accepts ModelBiasJobDefinitionMonitoringOutputConfigArgs, ModelBiasJobDefinitionMonitoringOutputConfigPtr and ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionMonitoringOutputConfigPtrInput` via:
-//
-//          ModelBiasJobDefinitionMonitoringOutputConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelBiasJobDefinitionMonitoringOutputConfigPtrInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutput() ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput
-	ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Context) ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput
-}
-
-type modelBiasJobDefinitionMonitoringOutputConfigPtrType ModelBiasJobDefinitionMonitoringOutputConfigArgs
-
-func ModelBiasJobDefinitionMonitoringOutputConfigPtr(v *ModelBiasJobDefinitionMonitoringOutputConfigArgs) ModelBiasJobDefinitionMonitoringOutputConfigPtrInput {
-	return (*modelBiasJobDefinitionMonitoringOutputConfigPtrType)(v)
-}
-
-func (*modelBiasJobDefinitionMonitoringOutputConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionMonitoringOutputConfig)(nil)).Elem()
-}
-
-func (i *modelBiasJobDefinitionMonitoringOutputConfigPtrType) ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutput() ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput {
-	return i.ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *modelBiasJobDefinitionMonitoringOutputConfigPtrType) ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput)
-}
-
 // The output configuration for monitoring jobs.
 type ModelBiasJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
@@ -9706,16 +8145,6 @@ func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) ToModelBiasJobDefini
 	return o
 }
 
-func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutput() ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o.ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionMonitoringOutputConfig) *ModelBiasJobDefinitionMonitoringOutputConfig {
-		return &v
-	}).(ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput)
-}
-
 // The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -9724,50 +8153,6 @@ func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.St
 // Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() ModelBiasJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringOutputConfig) []ModelBiasJobDefinitionMonitoringOutput {
-		return v.MonitoringOutputs
-	}).(ModelBiasJobDefinitionMonitoringOutputArrayOutput)
-}
-
-type ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionMonitoringOutputConfig)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutput() ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) ToModelBiasJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) Elem() ModelBiasJobDefinitionMonitoringOutputConfigOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringOutputConfig) ModelBiasJobDefinitionMonitoringOutputConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ModelBiasJobDefinitionMonitoringOutputConfig
-		return ret
-	}).(ModelBiasJobDefinitionMonitoringOutputConfigOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() ModelBiasJobDefinitionMonitoringOutputArrayOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringOutputConfig) []ModelBiasJobDefinitionMonitoringOutput {
-		if v == nil {
-			return nil
-		}
 		return v.MonitoringOutputs
 	}).(ModelBiasJobDefinitionMonitoringOutputArrayOutput)
 }
@@ -9805,47 +8190,6 @@ func (i ModelBiasJobDefinitionMonitoringResourcesArgs) ToModelBiasJobDefinitionM
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringResourcesOutput)
 }
 
-func (i ModelBiasJobDefinitionMonitoringResourcesArgs) ToModelBiasJobDefinitionMonitoringResourcesPtrOutput() ModelBiasJobDefinitionMonitoringResourcesPtrOutput {
-	return i.ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionMonitoringResourcesArgs) ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringResourcesOutput).ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx)
-}
-
-// ModelBiasJobDefinitionMonitoringResourcesPtrInput is an input type that accepts ModelBiasJobDefinitionMonitoringResourcesArgs, ModelBiasJobDefinitionMonitoringResourcesPtr and ModelBiasJobDefinitionMonitoringResourcesPtrOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionMonitoringResourcesPtrInput` via:
-//
-//          ModelBiasJobDefinitionMonitoringResourcesArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelBiasJobDefinitionMonitoringResourcesPtrInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionMonitoringResourcesPtrOutput() ModelBiasJobDefinitionMonitoringResourcesPtrOutput
-	ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Context) ModelBiasJobDefinitionMonitoringResourcesPtrOutput
-}
-
-type modelBiasJobDefinitionMonitoringResourcesPtrType ModelBiasJobDefinitionMonitoringResourcesArgs
-
-func ModelBiasJobDefinitionMonitoringResourcesPtr(v *ModelBiasJobDefinitionMonitoringResourcesArgs) ModelBiasJobDefinitionMonitoringResourcesPtrInput {
-	return (*modelBiasJobDefinitionMonitoringResourcesPtrType)(v)
-}
-
-func (*modelBiasJobDefinitionMonitoringResourcesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionMonitoringResources)(nil)).Elem()
-}
-
-func (i *modelBiasJobDefinitionMonitoringResourcesPtrType) ToModelBiasJobDefinitionMonitoringResourcesPtrOutput() ModelBiasJobDefinitionMonitoringResourcesPtrOutput {
-	return i.ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i *modelBiasJobDefinitionMonitoringResourcesPtrType) ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringResourcesPtrOutput)
-}
-
 // Identifies the resources to deploy for a monitoring job.
 type ModelBiasJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
@@ -9861,53 +8205,10 @@ func (o ModelBiasJobDefinitionMonitoringResourcesOutput) ToModelBiasJobDefinitio
 	return o
 }
 
-func (o ModelBiasJobDefinitionMonitoringResourcesOutput) ToModelBiasJobDefinitionMonitoringResourcesPtrOutput() ModelBiasJobDefinitionMonitoringResourcesPtrOutput {
-	return o.ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (o ModelBiasJobDefinitionMonitoringResourcesOutput) ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringResourcesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionMonitoringResources) *ModelBiasJobDefinitionMonitoringResources {
-		return &v
-	}).(ModelBiasJobDefinitionMonitoringResourcesPtrOutput)
-}
-
 func (o ModelBiasJobDefinitionMonitoringResourcesOutput) ClusterConfig() ModelBiasJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringResources) ModelBiasJobDefinitionClusterConfig {
 		return v.ClusterConfig
 	}).(ModelBiasJobDefinitionClusterConfigOutput)
-}
-
-type ModelBiasJobDefinitionMonitoringResourcesPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionMonitoringResourcesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionMonitoringResources)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionMonitoringResourcesPtrOutput) ToModelBiasJobDefinitionMonitoringResourcesPtrOutput() ModelBiasJobDefinitionMonitoringResourcesPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionMonitoringResourcesPtrOutput) ToModelBiasJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionMonitoringResourcesPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionMonitoringResourcesPtrOutput) Elem() ModelBiasJobDefinitionMonitoringResourcesOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringResources) ModelBiasJobDefinitionMonitoringResources {
-		if v != nil {
-			return *v
-		}
-		var ret ModelBiasJobDefinitionMonitoringResources
-		return ret
-	}).(ModelBiasJobDefinitionMonitoringResourcesOutput)
-}
-
-func (o ModelBiasJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() ModelBiasJobDefinitionClusterConfigPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringResources) *ModelBiasJobDefinitionClusterConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.ClusterConfig
-	}).(ModelBiasJobDefinitionClusterConfigPtrOutput)
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
@@ -10912,47 +9213,6 @@ func (i ModelExplainabilityJobDefinitionClusterConfigArgs) ToModelExplainability
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionClusterConfigOutput)
 }
 
-func (i ModelExplainabilityJobDefinitionClusterConfigArgs) ToModelExplainabilityJobDefinitionClusterConfigPtrOutput() ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionClusterConfigArgs) ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionClusterConfigOutput).ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(ctx)
-}
-
-// ModelExplainabilityJobDefinitionClusterConfigPtrInput is an input type that accepts ModelExplainabilityJobDefinitionClusterConfigArgs, ModelExplainabilityJobDefinitionClusterConfigPtr and ModelExplainabilityJobDefinitionClusterConfigPtrOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionClusterConfigPtrInput` via:
-//
-//          ModelExplainabilityJobDefinitionClusterConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelExplainabilityJobDefinitionClusterConfigPtrInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionClusterConfigPtrOutput() ModelExplainabilityJobDefinitionClusterConfigPtrOutput
-	ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionClusterConfigPtrOutput
-}
-
-type modelExplainabilityJobDefinitionClusterConfigPtrType ModelExplainabilityJobDefinitionClusterConfigArgs
-
-func ModelExplainabilityJobDefinitionClusterConfigPtr(v *ModelExplainabilityJobDefinitionClusterConfigArgs) ModelExplainabilityJobDefinitionClusterConfigPtrInput {
-	return (*modelExplainabilityJobDefinitionClusterConfigPtrType)(v)
-}
-
-func (*modelExplainabilityJobDefinitionClusterConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionClusterConfig)(nil)).Elem()
-}
-
-func (i *modelExplainabilityJobDefinitionClusterConfigPtrType) ToModelExplainabilityJobDefinitionClusterConfigPtrOutput() ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *modelExplainabilityJobDefinitionClusterConfigPtrType) ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionClusterConfigPtrOutput)
-}
-
 // Configuration for the cluster used to run model monitoring jobs.
 type ModelExplainabilityJobDefinitionClusterConfigOutput struct{ *pulumi.OutputState }
 
@@ -10966,16 +9226,6 @@ func (o ModelExplainabilityJobDefinitionClusterConfigOutput) ToModelExplainabili
 
 func (o ModelExplainabilityJobDefinitionClusterConfigOutput) ToModelExplainabilityJobDefinitionClusterConfigOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionClusterConfigOutput {
 	return o
-}
-
-func (o ModelExplainabilityJobDefinitionClusterConfigOutput) ToModelExplainabilityJobDefinitionClusterConfigPtrOutput() ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return o.ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ModelExplainabilityJobDefinitionClusterConfigOutput) ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionClusterConfig) *ModelExplainabilityJobDefinitionClusterConfig {
-		return &v
-	}).(ModelExplainabilityJobDefinitionClusterConfigPtrOutput)
 }
 
 // The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -10996,70 +9246,6 @@ func (o ModelExplainabilityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pu
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelExplainabilityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
-}
-
-type ModelExplainabilityJobDefinitionClusterConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionClusterConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionClusterConfig)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) ToModelExplainabilityJobDefinitionClusterConfigPtrOutput() ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) ToModelExplainabilityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) Elem() ModelExplainabilityJobDefinitionClusterConfigOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) ModelExplainabilityJobDefinitionClusterConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ModelExplainabilityJobDefinitionClusterConfig
-		return ret
-	}).(ModelExplainabilityJobDefinitionClusterConfigOutput)
-}
-
-// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ML compute instance type for the processing job.
-func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VolumeKmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.VolumeSizeInGB
-	}).(pulumi.IntPtrOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -11259,47 +9445,6 @@ func (i ModelExplainabilityJobDefinitionEndpointInputArgs) ToModelExplainability
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEndpointInputOutput)
 }
 
-func (i ModelExplainabilityJobDefinitionEndpointInputArgs) ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionEndpointInputArgs) ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEndpointInputOutput).ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx)
-}
-
-// ModelExplainabilityJobDefinitionEndpointInputPtrInput is an input type that accepts ModelExplainabilityJobDefinitionEndpointInputArgs, ModelExplainabilityJobDefinitionEndpointInputPtr and ModelExplainabilityJobDefinitionEndpointInputPtrOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionEndpointInputPtrInput` via:
-//
-//          ModelExplainabilityJobDefinitionEndpointInputArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelExplainabilityJobDefinitionEndpointInputPtrInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput
-	ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput
-}
-
-type modelExplainabilityJobDefinitionEndpointInputPtrType ModelExplainabilityJobDefinitionEndpointInputArgs
-
-func ModelExplainabilityJobDefinitionEndpointInputPtr(v *ModelExplainabilityJobDefinitionEndpointInputArgs) ModelExplainabilityJobDefinitionEndpointInputPtrInput {
-	return (*modelExplainabilityJobDefinitionEndpointInputPtrType)(v)
-}
-
-func (*modelExplainabilityJobDefinitionEndpointInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionEndpointInput)(nil)).Elem()
-}
-
-func (i *modelExplainabilityJobDefinitionEndpointInputPtrType) ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (i *modelExplainabilityJobDefinitionEndpointInputPtrType) ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
-}
-
 // The endpoint for a monitoring job.
 type ModelExplainabilityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -11313,16 +9458,6 @@ func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabili
 
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabilityJobDefinitionEndpointInputOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputOutput {
 	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return o.ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInput {
-		return &v
-	}).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
 }
 
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) EndpointName() pulumi.StringOutput {
@@ -11359,99 +9494,6 @@ func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3DataDistributionT
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3InputMode() ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3InputMode {
-		return v.S3InputMode
-	}).(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput)
-}
-
-type ModelExplainabilityJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionEndpointInput)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) Elem() ModelExplainabilityJobDefinitionEndpointInputOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) ModelExplainabilityJobDefinitionEndpointInput {
-		if v != nil {
-			return *v
-		}
-		var ret ModelExplainabilityJobDefinitionEndpointInput
-		return ret
-	}).(ModelExplainabilityJobDefinitionEndpointInputOutput)
-}
-
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointName
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSONpath to locate features in JSONlines dataset
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FeaturesAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index or JSONpath to locate predicted label(s)
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InferenceAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the filesystem where the endpoint data is available to the container.
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LocalPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index or JSONpath to locate probabilities
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProbabilityAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType {
-		if v == nil {
-			return nil
-		}
-		return v.S3DataDistributionType
-	}).(ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
-}
-
-// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3InputMode {
-		if v == nil {
-			return nil
-		}
 		return v.S3InputMode
 	}).(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
@@ -11499,47 +9541,6 @@ func (i ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput)
 }
 
-func (i ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput).ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(ctx)
-}
-
-// ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrInput is an input type that accepts ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs, ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtr and ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrInput` via:
-//
-//          ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput
-	ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput
-}
-
-type modelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrType ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs
-
-func ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtr(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrInput {
-	return (*modelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrType)(v)
-}
-
-func (*modelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification)(nil)).Elem()
-}
-
-func (i *modelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrType) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i *modelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrType) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput)
-}
-
 // Container image configuration object for the monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -11553,16 +9554,6 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutpu
 
 func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput {
 	return o
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput {
-	return o.ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification {
-		return &v
-	}).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput)
 }
 
 // The S3 URI to an analysis configuration file
@@ -11580,60 +9571,6 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutpu
 // The container image to be run by the monitoring job.
 func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) string { return v.ImageUri }).(pulumi.StringOutput)
-}
-
-type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) Elem() ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification {
-		if v != nil {
-			return *v
-		}
-		var ret ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification
-		return ret
-	}).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput)
-}
-
-// The S3 URI to an analysis configuration file
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) ConfigUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ConfigUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Sets the environment variables in the Docker container
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) Environment() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Environment
-	}).(pulumi.AnyOutput)
-}
-
-// The container image to be run by the monitoring job.
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ImageUri
-	}).(pulumi.StringPtrOutput)
 }
 
 // Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
@@ -11824,47 +9761,6 @@ func (i ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs) ToModel
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput)
 }
 
-func (i ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs) ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs) ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput).ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(ctx)
-}
-
-// ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrInput is an input type that accepts ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs, ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtr and ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrInput` via:
-//
-//          ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput
-	ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput
-}
-
-type modelExplainabilityJobDefinitionModelExplainabilityJobInputPtrType ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs
-
-func ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtr(v *ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs) ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrInput {
-	return (*modelExplainabilityJobDefinitionModelExplainabilityJobInputPtrType)(v)
-}
-
-func (*modelExplainabilityJobDefinitionModelExplainabilityJobInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionModelExplainabilityJobInput)(nil)).Elem()
-}
-
-func (i *modelExplainabilityJobDefinitionModelExplainabilityJobInputPtrType) ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i *modelExplainabilityJobDefinitionModelExplainabilityJobInputPtrType) ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput)
-}
-
 // The inputs for a monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput struct{ *pulumi.OutputState }
 
@@ -11880,53 +9776,10 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) ToMod
 	return o
 }
 
-func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput {
-	return o.ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionModelExplainabilityJobInput) *ModelExplainabilityJobDefinitionModelExplainabilityJobInput {
-		return &v
-	}).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput)
-}
-
 func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) EndpointInput() ModelExplainabilityJobDefinitionEndpointInputOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityJobInput) ModelExplainabilityJobDefinitionEndpointInput {
 		return v.EndpointInput
 	}).(ModelExplainabilityJobDefinitionEndpointInputOutput)
-}
-
-type ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionModelExplainabilityJobInput)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput) ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput() ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput) ToModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput) Elem() ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityJobInput) ModelExplainabilityJobDefinitionModelExplainabilityJobInput {
-		if v != nil {
-			return *v
-		}
-		var ret ModelExplainabilityJobDefinitionModelExplainabilityJobInput
-		return ret
-	}).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput)
-}
-
-func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput) EndpointInput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityJobInput) *ModelExplainabilityJobDefinitionEndpointInput {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointInput
-	}).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
 }
 
 // The output object for a monitoring job.
@@ -12067,47 +9920,6 @@ func (i ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs) ToModelExpla
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput)
 }
 
-func (i ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs) ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput() ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs) ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput).ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx)
-}
-
-// ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrInput is an input type that accepts ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs, ModelExplainabilityJobDefinitionMonitoringOutputConfigPtr and ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrInput` via:
-//
-//          ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput() ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput
-	ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput
-}
-
-type modelExplainabilityJobDefinitionMonitoringOutputConfigPtrType ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs
-
-func ModelExplainabilityJobDefinitionMonitoringOutputConfigPtr(v *ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs) ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrInput {
-	return (*modelExplainabilityJobDefinitionMonitoringOutputConfigPtrType)(v)
-}
-
-func (*modelExplainabilityJobDefinitionMonitoringOutputConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionMonitoringOutputConfig)(nil)).Elem()
-}
-
-func (i *modelExplainabilityJobDefinitionMonitoringOutputConfigPtrType) ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput() ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *modelExplainabilityJobDefinitionMonitoringOutputConfigPtrType) ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput)
-}
-
 // The output configuration for monitoring jobs.
 type ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
@@ -12123,16 +9935,6 @@ func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) ToModelExp
 	return o
 }
 
-func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput() ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o.ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionMonitoringOutputConfig) *ModelExplainabilityJobDefinitionMonitoringOutputConfig {
-		return &v
-	}).(ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput)
-}
-
 // The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -12141,50 +9943,6 @@ func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId()
 // Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionMonitoringOutputConfig) []ModelExplainabilityJobDefinitionMonitoringOutput {
-		return v.MonitoringOutputs
-	}).(ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput)
-}
-
-type ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionMonitoringOutputConfig)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput() ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) ToModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) Elem() ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionMonitoringOutputConfig) ModelExplainabilityJobDefinitionMonitoringOutputConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ModelExplainabilityJobDefinitionMonitoringOutputConfig
-		return ret
-	}).(ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionMonitoringOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionMonitoringOutputConfig) []ModelExplainabilityJobDefinitionMonitoringOutput {
-		if v == nil {
-			return nil
-		}
 		return v.MonitoringOutputs
 	}).(ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput)
 }
@@ -12222,47 +9980,6 @@ func (i ModelExplainabilityJobDefinitionMonitoringResourcesArgs) ToModelExplaina
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringResourcesOutput)
 }
 
-func (i ModelExplainabilityJobDefinitionMonitoringResourcesArgs) ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput() ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionMonitoringResourcesArgs) ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringResourcesOutput).ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx)
-}
-
-// ModelExplainabilityJobDefinitionMonitoringResourcesPtrInput is an input type that accepts ModelExplainabilityJobDefinitionMonitoringResourcesArgs, ModelExplainabilityJobDefinitionMonitoringResourcesPtr and ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionMonitoringResourcesPtrInput` via:
-//
-//          ModelExplainabilityJobDefinitionMonitoringResourcesArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelExplainabilityJobDefinitionMonitoringResourcesPtrInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput() ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput
-	ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput
-}
-
-type modelExplainabilityJobDefinitionMonitoringResourcesPtrType ModelExplainabilityJobDefinitionMonitoringResourcesArgs
-
-func ModelExplainabilityJobDefinitionMonitoringResourcesPtr(v *ModelExplainabilityJobDefinitionMonitoringResourcesArgs) ModelExplainabilityJobDefinitionMonitoringResourcesPtrInput {
-	return (*modelExplainabilityJobDefinitionMonitoringResourcesPtrType)(v)
-}
-
-func (*modelExplainabilityJobDefinitionMonitoringResourcesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionMonitoringResources)(nil)).Elem()
-}
-
-func (i *modelExplainabilityJobDefinitionMonitoringResourcesPtrType) ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput() ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i *modelExplainabilityJobDefinitionMonitoringResourcesPtrType) ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput)
-}
-
 // Identifies the resources to deploy for a monitoring job.
 type ModelExplainabilityJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
@@ -12278,53 +9995,10 @@ func (o ModelExplainabilityJobDefinitionMonitoringResourcesOutput) ToModelExplai
 	return o
 }
 
-func (o ModelExplainabilityJobDefinitionMonitoringResourcesOutput) ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput() ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput {
-	return o.ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringResourcesOutput) ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionMonitoringResources) *ModelExplainabilityJobDefinitionMonitoringResources {
-		return &v
-	}).(ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput)
-}
-
 func (o ModelExplainabilityJobDefinitionMonitoringResourcesOutput) ClusterConfig() ModelExplainabilityJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionMonitoringResources) ModelExplainabilityJobDefinitionClusterConfig {
 		return v.ClusterConfig
 	}).(ModelExplainabilityJobDefinitionClusterConfigOutput)
-}
-
-type ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionMonitoringResources)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput) ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput() ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput) ToModelExplainabilityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput) Elem() ModelExplainabilityJobDefinitionMonitoringResourcesOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionMonitoringResources) ModelExplainabilityJobDefinitionMonitoringResources {
-		if v != nil {
-			return *v
-		}
-		var ret ModelExplainabilityJobDefinitionMonitoringResources
-		return ret
-	}).(ModelExplainabilityJobDefinitionMonitoringResourcesOutput)
-}
-
-func (o ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionMonitoringResources) *ModelExplainabilityJobDefinitionClusterConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.ClusterConfig
-	}).(ModelExplainabilityJobDefinitionClusterConfigPtrOutput)
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
@@ -13558,47 +11232,6 @@ func (i ModelQualityJobDefinitionClusterConfigArgs) ToModelQualityJobDefinitionC
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionClusterConfigOutput)
 }
 
-func (i ModelQualityJobDefinitionClusterConfigArgs) ToModelQualityJobDefinitionClusterConfigPtrOutput() ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return i.ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionClusterConfigArgs) ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionClusterConfigOutput).ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx)
-}
-
-// ModelQualityJobDefinitionClusterConfigPtrInput is an input type that accepts ModelQualityJobDefinitionClusterConfigArgs, ModelQualityJobDefinitionClusterConfigPtr and ModelQualityJobDefinitionClusterConfigPtrOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionClusterConfigPtrInput` via:
-//
-//          ModelQualityJobDefinitionClusterConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelQualityJobDefinitionClusterConfigPtrInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionClusterConfigPtrOutput() ModelQualityJobDefinitionClusterConfigPtrOutput
-	ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(context.Context) ModelQualityJobDefinitionClusterConfigPtrOutput
-}
-
-type modelQualityJobDefinitionClusterConfigPtrType ModelQualityJobDefinitionClusterConfigArgs
-
-func ModelQualityJobDefinitionClusterConfigPtr(v *ModelQualityJobDefinitionClusterConfigArgs) ModelQualityJobDefinitionClusterConfigPtrInput {
-	return (*modelQualityJobDefinitionClusterConfigPtrType)(v)
-}
-
-func (*modelQualityJobDefinitionClusterConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionClusterConfig)(nil)).Elem()
-}
-
-func (i *modelQualityJobDefinitionClusterConfigPtrType) ToModelQualityJobDefinitionClusterConfigPtrOutput() ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return i.ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *modelQualityJobDefinitionClusterConfigPtrType) ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionClusterConfigPtrOutput)
-}
-
 // Configuration for the cluster used to run model monitoring jobs.
 type ModelQualityJobDefinitionClusterConfigOutput struct{ *pulumi.OutputState }
 
@@ -13612,16 +11245,6 @@ func (o ModelQualityJobDefinitionClusterConfigOutput) ToModelQualityJobDefinitio
 
 func (o ModelQualityJobDefinitionClusterConfigOutput) ToModelQualityJobDefinitionClusterConfigOutputWithContext(ctx context.Context) ModelQualityJobDefinitionClusterConfigOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionClusterConfigOutput) ToModelQualityJobDefinitionClusterConfigPtrOutput() ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return o.ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ModelQualityJobDefinitionClusterConfigOutput) ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionClusterConfig) *ModelQualityJobDefinitionClusterConfig {
-		return &v
-	}).(ModelQualityJobDefinitionClusterConfigPtrOutput)
 }
 
 // The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -13642,70 +11265,6 @@ func (o ModelQualityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.St
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelQualityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
-}
-
-type ModelQualityJobDefinitionClusterConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionClusterConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionClusterConfig)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionClusterConfigPtrOutput) ToModelQualityJobDefinitionClusterConfigPtrOutput() ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionClusterConfigPtrOutput) ToModelQualityJobDefinitionClusterConfigPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionClusterConfigPtrOutput) Elem() ModelQualityJobDefinitionClusterConfigOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) ModelQualityJobDefinitionClusterConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ModelQualityJobDefinitionClusterConfig
-		return ret
-	}).(ModelQualityJobDefinitionClusterConfigOutput)
-}
-
-// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-func (o ModelQualityJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ML compute instance type for the processing job.
-func (o ModelQualityJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-func (o ModelQualityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VolumeKmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o ModelQualityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.VolumeSizeInGB
-	}).(pulumi.IntPtrOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -13911,47 +11470,6 @@ func (i ModelQualityJobDefinitionEndpointInputArgs) ToModelQualityJobDefinitionE
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEndpointInputOutput)
 }
 
-func (i ModelQualityJobDefinitionEndpointInputArgs) ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return i.ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionEndpointInputArgs) ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEndpointInputOutput).ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx)
-}
-
-// ModelQualityJobDefinitionEndpointInputPtrInput is an input type that accepts ModelQualityJobDefinitionEndpointInputArgs, ModelQualityJobDefinitionEndpointInputPtr and ModelQualityJobDefinitionEndpointInputPtrOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionEndpointInputPtrInput` via:
-//
-//          ModelQualityJobDefinitionEndpointInputArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelQualityJobDefinitionEndpointInputPtrInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput
-	ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput
-}
-
-type modelQualityJobDefinitionEndpointInputPtrType ModelQualityJobDefinitionEndpointInputArgs
-
-func ModelQualityJobDefinitionEndpointInputPtr(v *ModelQualityJobDefinitionEndpointInputArgs) ModelQualityJobDefinitionEndpointInputPtrInput {
-	return (*modelQualityJobDefinitionEndpointInputPtrType)(v)
-}
-
-func (*modelQualityJobDefinitionEndpointInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionEndpointInput)(nil)).Elem()
-}
-
-func (i *modelQualityJobDefinitionEndpointInputPtrType) ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return i.ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (i *modelQualityJobDefinitionEndpointInputPtrType) ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEndpointInputPtrOutput)
-}
-
 // The endpoint for a monitoring job.
 type ModelQualityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -13965,16 +11483,6 @@ func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitio
 
 func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitionEndpointInputOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return o.ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
-}
-
-func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInput {
-		return &v
-	}).(ModelQualityJobDefinitionEndpointInputPtrOutput)
 }
 
 // Monitoring end time offset, e.g. PT0H
@@ -14022,118 +11530,6 @@ func (o ModelQualityJobDefinitionEndpointInputOutput) S3InputMode() ModelQuality
 // Monitoring start time offset, e.g. -PT1H
 func (o ModelQualityJobDefinitionEndpointInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.StartTimeOffset }).(pulumi.StringPtrOutput)
-}
-
-type ModelQualityJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionEndpointInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionEndpointInput)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) Elem() ModelQualityJobDefinitionEndpointInputOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) ModelQualityJobDefinitionEndpointInput {
-		if v != nil {
-			return *v
-		}
-		var ret ModelQualityJobDefinitionEndpointInput
-		return ret
-	}).(ModelQualityJobDefinitionEndpointInputOutput)
-}
-
-// Monitoring end time offset, e.g. PT0H
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndTimeOffset
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index or JSONpath to locate predicted label(s)
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InferenceAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the filesystem where the endpoint data is available to the container.
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LocalPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index or JSONpath to locate probabilities
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProbabilityAttribute
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ProbabilityThresholdAttribute
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInputS3DataDistributionType {
-		if v == nil {
-			return nil
-		}
-		return v.S3DataDistributionType
-	}).(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
-}
-
-// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInputS3InputMode {
-		if v == nil {
-			return nil
-		}
-		return v.S3InputMode
-	}).(ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput)
-}
-
-// Monitoring start time offset, e.g. -PT1H
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTimeOffset
-	}).(pulumi.StringPtrOutput)
 }
 
 // Container image configuration object for the monitoring job.
@@ -14193,47 +11589,6 @@ func (i ModelQualityJobDefinitionModelQualityAppSpecificationArgs) ToModelQualit
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityAppSpecificationOutput)
 }
 
-func (i ModelQualityJobDefinitionModelQualityAppSpecificationArgs) ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput() ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput {
-	return i.ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionModelQualityAppSpecificationArgs) ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityAppSpecificationOutput).ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(ctx)
-}
-
-// ModelQualityJobDefinitionModelQualityAppSpecificationPtrInput is an input type that accepts ModelQualityJobDefinitionModelQualityAppSpecificationArgs, ModelQualityJobDefinitionModelQualityAppSpecificationPtr and ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionModelQualityAppSpecificationPtrInput` via:
-//
-//          ModelQualityJobDefinitionModelQualityAppSpecificationArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelQualityJobDefinitionModelQualityAppSpecificationPtrInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput() ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput
-	ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(context.Context) ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput
-}
-
-type modelQualityJobDefinitionModelQualityAppSpecificationPtrType ModelQualityJobDefinitionModelQualityAppSpecificationArgs
-
-func ModelQualityJobDefinitionModelQualityAppSpecificationPtr(v *ModelQualityJobDefinitionModelQualityAppSpecificationArgs) ModelQualityJobDefinitionModelQualityAppSpecificationPtrInput {
-	return (*modelQualityJobDefinitionModelQualityAppSpecificationPtrType)(v)
-}
-
-func (*modelQualityJobDefinitionModelQualityAppSpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionModelQualityAppSpecification)(nil)).Elem()
-}
-
-func (i *modelQualityJobDefinitionModelQualityAppSpecificationPtrType) ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput() ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput {
-	return i.ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i *modelQualityJobDefinitionModelQualityAppSpecificationPtrType) ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput)
-}
-
 // Container image configuration object for the monitoring job.
 type ModelQualityJobDefinitionModelQualityAppSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -14247,16 +11602,6 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ToModelQual
 
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ToModelQualityJobDefinitionModelQualityAppSpecificationOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityAppSpecificationOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput() ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput {
-	return o.ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionModelQualityAppSpecification) *ModelQualityJobDefinitionModelQualityAppSpecification {
-		return &v
-	}).(ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput)
 }
 
 // An array of arguments for the container used to run the monitoring job.
@@ -14295,99 +11640,6 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ProblemType
 // An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) *string {
-		return v.RecordPreprocessorSourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-type ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionModelQualityAppSpecification)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput() ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ToModelQualityJobDefinitionModelQualityAppSpecificationPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Elem() ModelQualityJobDefinitionModelQualityAppSpecificationOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) ModelQualityJobDefinitionModelQualityAppSpecification {
-		if v != nil {
-			return *v
-		}
-		var ret ModelQualityJobDefinitionModelQualityAppSpecification
-		return ret
-	}).(ModelQualityJobDefinitionModelQualityAppSpecificationOutput)
-}
-
-// An array of arguments for the container used to run the monitoring job.
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerArguments
-	}).(pulumi.StringArrayOutput)
-}
-
-// Specifies the entrypoint for a container used to run the monitoring job.
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerEntrypoint
-	}).(pulumi.StringArrayOutput)
-}
-
-// Sets the environment variables in the Docker container
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Environment() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Environment
-	}).(pulumi.AnyOutput)
-}
-
-// The container image to be run by the monitoring job.
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ImageUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PostAnalyticsProcessorSourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ProblemType() ModelQualityJobDefinitionProblemTypePtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *ModelQualityJobDefinitionProblemType {
-		if v == nil {
-			return nil
-		}
-		return &v.ProblemType
-	}).(ModelQualityJobDefinitionProblemTypePtrOutput)
-}
-
-// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *string {
-		if v == nil {
-			return nil
-		}
 		return v.RecordPreprocessorSourceUri
 	}).(pulumi.StringPtrOutput)
 }
@@ -14580,47 +11832,6 @@ func (i ModelQualityJobDefinitionModelQualityJobInputArgs) ToModelQualityJobDefi
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityJobInputOutput)
 }
 
-func (i ModelQualityJobDefinitionModelQualityJobInputArgs) ToModelQualityJobDefinitionModelQualityJobInputPtrOutput() ModelQualityJobDefinitionModelQualityJobInputPtrOutput {
-	return i.ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionModelQualityJobInputArgs) ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityJobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityJobInputOutput).ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(ctx)
-}
-
-// ModelQualityJobDefinitionModelQualityJobInputPtrInput is an input type that accepts ModelQualityJobDefinitionModelQualityJobInputArgs, ModelQualityJobDefinitionModelQualityJobInputPtr and ModelQualityJobDefinitionModelQualityJobInputPtrOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionModelQualityJobInputPtrInput` via:
-//
-//          ModelQualityJobDefinitionModelQualityJobInputArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelQualityJobDefinitionModelQualityJobInputPtrInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionModelQualityJobInputPtrOutput() ModelQualityJobDefinitionModelQualityJobInputPtrOutput
-	ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(context.Context) ModelQualityJobDefinitionModelQualityJobInputPtrOutput
-}
-
-type modelQualityJobDefinitionModelQualityJobInputPtrType ModelQualityJobDefinitionModelQualityJobInputArgs
-
-func ModelQualityJobDefinitionModelQualityJobInputPtr(v *ModelQualityJobDefinitionModelQualityJobInputArgs) ModelQualityJobDefinitionModelQualityJobInputPtrInput {
-	return (*modelQualityJobDefinitionModelQualityJobInputPtrType)(v)
-}
-
-func (*modelQualityJobDefinitionModelQualityJobInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionModelQualityJobInput)(nil)).Elem()
-}
-
-func (i *modelQualityJobDefinitionModelQualityJobInputPtrType) ToModelQualityJobDefinitionModelQualityJobInputPtrOutput() ModelQualityJobDefinitionModelQualityJobInputPtrOutput {
-	return i.ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i *modelQualityJobDefinitionModelQualityJobInputPtrType) ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityJobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityJobInputPtrOutput)
-}
-
 // The inputs for a monitoring job.
 type ModelQualityJobDefinitionModelQualityJobInputOutput struct{ *pulumi.OutputState }
 
@@ -14636,16 +11847,6 @@ func (o ModelQualityJobDefinitionModelQualityJobInputOutput) ToModelQualityJobDe
 	return o
 }
 
-func (o ModelQualityJobDefinitionModelQualityJobInputOutput) ToModelQualityJobDefinitionModelQualityJobInputPtrOutput() ModelQualityJobDefinitionModelQualityJobInputPtrOutput {
-	return o.ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(context.Background())
-}
-
-func (o ModelQualityJobDefinitionModelQualityJobInputOutput) ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityJobInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionModelQualityJobInput) *ModelQualityJobDefinitionModelQualityJobInput {
-		return &v
-	}).(ModelQualityJobDefinitionModelQualityJobInputPtrOutput)
-}
-
 func (o ModelQualityJobDefinitionModelQualityJobInputOutput) EndpointInput() ModelQualityJobDefinitionEndpointInputOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityJobInput) ModelQualityJobDefinitionEndpointInput {
 		return v.EndpointInput
@@ -14656,48 +11857,6 @@ func (o ModelQualityJobDefinitionModelQualityJobInputOutput) GroundTruthS3Input(
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityJobInput) ModelQualityJobDefinitionMonitoringGroundTruthS3Input {
 		return v.GroundTruthS3Input
 	}).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput)
-}
-
-type ModelQualityJobDefinitionModelQualityJobInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionModelQualityJobInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionModelQualityJobInput)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) ToModelQualityJobDefinitionModelQualityJobInputPtrOutput() ModelQualityJobDefinitionModelQualityJobInputPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) ToModelQualityJobDefinitionModelQualityJobInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionModelQualityJobInputPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) Elem() ModelQualityJobDefinitionModelQualityJobInputOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityJobInput) ModelQualityJobDefinitionModelQualityJobInput {
-		if v != nil {
-			return *v
-		}
-		var ret ModelQualityJobDefinitionModelQualityJobInput
-		return ret
-	}).(ModelQualityJobDefinitionModelQualityJobInputOutput)
-}
-
-func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) EndpointInput() ModelQualityJobDefinitionEndpointInputPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityJobInput) *ModelQualityJobDefinitionEndpointInput {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointInput
-	}).(ModelQualityJobDefinitionEndpointInputPtrOutput)
-}
-
-func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) GroundTruthS3Input() ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityJobInput) *ModelQualityJobDefinitionMonitoringGroundTruthS3Input {
-		if v == nil {
-			return nil
-		}
-		return &v.GroundTruthS3Input
-	}).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
 }
 
 // Ground truth input provided in S3
@@ -14735,47 +11894,6 @@ func (i ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs) ToModelQualit
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput)
 }
 
-func (i ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs) ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return i.ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs) ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput).ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx)
-}
-
-// ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrInput is an input type that accepts ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs, ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtr and ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrInput` via:
-//
-//          ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput
-	ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(context.Context) ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput
-}
-
-type modelQualityJobDefinitionMonitoringGroundTruthS3InputPtrType ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs
-
-func ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtr(v *ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs) ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrInput {
-	return (*modelQualityJobDefinitionMonitoringGroundTruthS3InputPtrType)(v)
-}
-
-func (*modelQualityJobDefinitionMonitoringGroundTruthS3InputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionMonitoringGroundTruthS3Input)(nil)).Elem()
-}
-
-func (i *modelQualityJobDefinitionMonitoringGroundTruthS3InputPtrType) ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return i.ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(context.Background())
-}
-
-func (i *modelQualityJobDefinitionMonitoringGroundTruthS3InputPtrType) ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
-}
-
 // Ground truth input provided in S3
 type ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput struct{ *pulumi.OutputState }
 
@@ -14791,53 +11909,9 @@ func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput) ToModelQual
 	return o
 }
 
-func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput) ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o.ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(context.Background())
-}
-
-func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput) ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionMonitoringGroundTruthS3Input) *ModelQualityJobDefinitionMonitoringGroundTruthS3Input {
-		return &v
-	}).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
-}
-
 // A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringGroundTruthS3Input) string { return v.S3Uri }).(pulumi.StringOutput)
-}
-
-type ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionMonitoringGroundTruthS3Input)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput) ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput() ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput) ToModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput) Elem() ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringGroundTruthS3Input) ModelQualityJobDefinitionMonitoringGroundTruthS3Input {
-		if v != nil {
-			return *v
-		}
-		var ret ModelQualityJobDefinitionMonitoringGroundTruthS3Input
-		return ret
-	}).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput)
-}
-
-// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput) S3Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringGroundTruthS3Input) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Uri
-	}).(pulumi.StringPtrOutput)
 }
 
 // The output object for a monitoring job.
@@ -14976,47 +12050,6 @@ func (i ModelQualityJobDefinitionMonitoringOutputConfigArgs) ToModelQualityJobDe
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringOutputConfigOutput)
 }
 
-func (i ModelQualityJobDefinitionMonitoringOutputConfigArgs) ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutput() ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return i.ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionMonitoringOutputConfigArgs) ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringOutputConfigOutput).ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx)
-}
-
-// ModelQualityJobDefinitionMonitoringOutputConfigPtrInput is an input type that accepts ModelQualityJobDefinitionMonitoringOutputConfigArgs, ModelQualityJobDefinitionMonitoringOutputConfigPtr and ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionMonitoringOutputConfigPtrInput` via:
-//
-//          ModelQualityJobDefinitionMonitoringOutputConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelQualityJobDefinitionMonitoringOutputConfigPtrInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutput() ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput
-	ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Context) ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput
-}
-
-type modelQualityJobDefinitionMonitoringOutputConfigPtrType ModelQualityJobDefinitionMonitoringOutputConfigArgs
-
-func ModelQualityJobDefinitionMonitoringOutputConfigPtr(v *ModelQualityJobDefinitionMonitoringOutputConfigArgs) ModelQualityJobDefinitionMonitoringOutputConfigPtrInput {
-	return (*modelQualityJobDefinitionMonitoringOutputConfigPtrType)(v)
-}
-
-func (*modelQualityJobDefinitionMonitoringOutputConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionMonitoringOutputConfig)(nil)).Elem()
-}
-
-func (i *modelQualityJobDefinitionMonitoringOutputConfigPtrType) ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutput() ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return i.ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *modelQualityJobDefinitionMonitoringOutputConfigPtrType) ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput)
-}
-
 // The output configuration for monitoring jobs.
 type ModelQualityJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
@@ -15032,16 +12065,6 @@ func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) ToModelQualityJob
 	return o
 }
 
-func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutput() ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o.ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionMonitoringOutputConfig) *ModelQualityJobDefinitionMonitoringOutputConfig {
-		return &v
-	}).(ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput)
-}
-
 // The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -15050,50 +12073,6 @@ func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi
 // Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() ModelQualityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringOutputConfig) []ModelQualityJobDefinitionMonitoringOutput {
-		return v.MonitoringOutputs
-	}).(ModelQualityJobDefinitionMonitoringOutputArrayOutput)
-}
-
-type ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionMonitoringOutputConfig)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutput() ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) ToModelQualityJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) Elem() ModelQualityJobDefinitionMonitoringOutputConfigOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringOutputConfig) ModelQualityJobDefinitionMonitoringOutputConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ModelQualityJobDefinitionMonitoringOutputConfig
-		return ret
-	}).(ModelQualityJobDefinitionMonitoringOutputConfigOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() ModelQualityJobDefinitionMonitoringOutputArrayOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringOutputConfig) []ModelQualityJobDefinitionMonitoringOutput {
-		if v == nil {
-			return nil
-		}
 		return v.MonitoringOutputs
 	}).(ModelQualityJobDefinitionMonitoringOutputArrayOutput)
 }
@@ -15131,47 +12110,6 @@ func (i ModelQualityJobDefinitionMonitoringResourcesArgs) ToModelQualityJobDefin
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringResourcesOutput)
 }
 
-func (i ModelQualityJobDefinitionMonitoringResourcesArgs) ToModelQualityJobDefinitionMonitoringResourcesPtrOutput() ModelQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return i.ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionMonitoringResourcesArgs) ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringResourcesOutput).ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx)
-}
-
-// ModelQualityJobDefinitionMonitoringResourcesPtrInput is an input type that accepts ModelQualityJobDefinitionMonitoringResourcesArgs, ModelQualityJobDefinitionMonitoringResourcesPtr and ModelQualityJobDefinitionMonitoringResourcesPtrOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionMonitoringResourcesPtrInput` via:
-//
-//          ModelQualityJobDefinitionMonitoringResourcesArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelQualityJobDefinitionMonitoringResourcesPtrInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionMonitoringResourcesPtrOutput() ModelQualityJobDefinitionMonitoringResourcesPtrOutput
-	ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Context) ModelQualityJobDefinitionMonitoringResourcesPtrOutput
-}
-
-type modelQualityJobDefinitionMonitoringResourcesPtrType ModelQualityJobDefinitionMonitoringResourcesArgs
-
-func ModelQualityJobDefinitionMonitoringResourcesPtr(v *ModelQualityJobDefinitionMonitoringResourcesArgs) ModelQualityJobDefinitionMonitoringResourcesPtrInput {
-	return (*modelQualityJobDefinitionMonitoringResourcesPtrType)(v)
-}
-
-func (*modelQualityJobDefinitionMonitoringResourcesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionMonitoringResources)(nil)).Elem()
-}
-
-func (i *modelQualityJobDefinitionMonitoringResourcesPtrType) ToModelQualityJobDefinitionMonitoringResourcesPtrOutput() ModelQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return i.ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i *modelQualityJobDefinitionMonitoringResourcesPtrType) ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringResourcesPtrOutput)
-}
-
 // Identifies the resources to deploy for a monitoring job.
 type ModelQualityJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
@@ -15187,53 +12125,10 @@ func (o ModelQualityJobDefinitionMonitoringResourcesOutput) ToModelQualityJobDef
 	return o
 }
 
-func (o ModelQualityJobDefinitionMonitoringResourcesOutput) ToModelQualityJobDefinitionMonitoringResourcesPtrOutput() ModelQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return o.ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
-}
-
-func (o ModelQualityJobDefinitionMonitoringResourcesOutput) ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionMonitoringResources) *ModelQualityJobDefinitionMonitoringResources {
-		return &v
-	}).(ModelQualityJobDefinitionMonitoringResourcesPtrOutput)
-}
-
 func (o ModelQualityJobDefinitionMonitoringResourcesOutput) ClusterConfig() ModelQualityJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringResources) ModelQualityJobDefinitionClusterConfig {
 		return v.ClusterConfig
 	}).(ModelQualityJobDefinitionClusterConfigOutput)
-}
-
-type ModelQualityJobDefinitionMonitoringResourcesPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionMonitoringResourcesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionMonitoringResources)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionMonitoringResourcesPtrOutput) ToModelQualityJobDefinitionMonitoringResourcesPtrOutput() ModelQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionMonitoringResourcesPtrOutput) ToModelQualityJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionMonitoringResourcesPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionMonitoringResourcesPtrOutput) Elem() ModelQualityJobDefinitionMonitoringResourcesOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringResources) ModelQualityJobDefinitionMonitoringResources {
-		if v != nil {
-			return *v
-		}
-		var ret ModelQualityJobDefinitionMonitoringResources
-		return ret
-	}).(ModelQualityJobDefinitionMonitoringResourcesOutput)
-}
-
-func (o ModelQualityJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() ModelQualityJobDefinitionClusterConfigPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringResources) *ModelQualityJobDefinitionClusterConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.ClusterConfig
-	}).(ModelQualityJobDefinitionClusterConfigPtrOutput)
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
@@ -16667,47 +13562,6 @@ func (i MonitoringScheduleConfigArgs) ToMonitoringScheduleConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleConfigOutput)
 }
 
-func (i MonitoringScheduleConfigArgs) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
-	return i.ToMonitoringScheduleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i MonitoringScheduleConfigArgs) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleConfigOutput).ToMonitoringScheduleConfigPtrOutputWithContext(ctx)
-}
-
-// MonitoringScheduleConfigPtrInput is an input type that accepts MonitoringScheduleConfigArgs, MonitoringScheduleConfigPtr and MonitoringScheduleConfigPtrOutput values.
-// You can construct a concrete instance of `MonitoringScheduleConfigPtrInput` via:
-//
-//          MonitoringScheduleConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type MonitoringScheduleConfigPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput
-	ToMonitoringScheduleConfigPtrOutputWithContext(context.Context) MonitoringScheduleConfigPtrOutput
-}
-
-type monitoringScheduleConfigPtrType MonitoringScheduleConfigArgs
-
-func MonitoringScheduleConfigPtr(v *MonitoringScheduleConfigArgs) MonitoringScheduleConfigPtrInput {
-	return (*monitoringScheduleConfigPtrType)(v)
-}
-
-func (*monitoringScheduleConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleConfig)(nil)).Elem()
-}
-
-func (i *monitoringScheduleConfigPtrType) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
-	return i.ToMonitoringScheduleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *monitoringScheduleConfigPtrType) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleConfigPtrOutput)
-}
-
 // The configuration object that specifies the monitoring schedule and defines the monitoring job.
 type MonitoringScheduleConfigOutput struct{ *pulumi.OutputState }
 
@@ -16721,16 +13575,6 @@ func (o MonitoringScheduleConfigOutput) ToMonitoringScheduleConfigOutput() Monit
 
 func (o MonitoringScheduleConfigOutput) ToMonitoringScheduleConfigOutputWithContext(ctx context.Context) MonitoringScheduleConfigOutput {
 	return o
-}
-
-func (o MonitoringScheduleConfigOutput) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
-	return o.ToMonitoringScheduleConfigPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringScheduleConfigOutput) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleConfig) *MonitoringScheduleConfig {
-		return &v
-	}).(MonitoringScheduleConfigPtrOutput)
 }
 
 func (o MonitoringScheduleConfigOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
@@ -16750,67 +13594,6 @@ func (o MonitoringScheduleConfigOutput) MonitoringType() MonitoringScheduleMonit
 
 func (o MonitoringScheduleConfigOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleConfig) *MonitoringScheduleScheduleConfig { return v.ScheduleConfig }).(MonitoringScheduleScheduleConfigPtrOutput)
-}
-
-type MonitoringScheduleConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleConfig)(nil)).Elem()
-}
-
-func (o MonitoringScheduleConfigPtrOutput) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleConfigPtrOutput) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleConfigPtrOutput) Elem() MonitoringScheduleConfigOutput {
-	return o.ApplyT(func(v *MonitoringScheduleConfig) MonitoringScheduleConfig {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringScheduleConfig
-		return ret
-	}).(MonitoringScheduleConfigOutput)
-}
-
-func (o MonitoringScheduleConfigPtrOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleMonitoringJobDefinition {
-		if v == nil {
-			return nil
-		}
-		return v.MonitoringJobDefinition
-	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
-}
-
-// Name of the job definition
-func (o MonitoringScheduleConfigPtrOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MonitoringJobDefinitionName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MonitoringScheduleConfigPtrOutput) MonitoringType() MonitoringScheduleMonitoringTypePtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleMonitoringType {
-		if v == nil {
-			return nil
-		}
-		return v.MonitoringType
-	}).(MonitoringScheduleMonitoringTypePtrOutput)
-}
-
-func (o MonitoringScheduleConfigPtrOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleScheduleConfig {
-		if v == nil {
-			return nil
-		}
-		return v.ScheduleConfig
-	}).(MonitoringScheduleScheduleConfigPtrOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -20189,76 +16972,6 @@ type ServiceCatalogProvisionedProductDetailsProperties struct {
 	ProvisionedProductStatusMessage *string `pulumi:"provisionedProductStatusMessage"`
 }
 
-// ServiceCatalogProvisionedProductDetailsPropertiesInput is an input type that accepts ServiceCatalogProvisionedProductDetailsPropertiesArgs and ServiceCatalogProvisionedProductDetailsPropertiesOutput values.
-// You can construct a concrete instance of `ServiceCatalogProvisionedProductDetailsPropertiesInput` via:
-//
-//          ServiceCatalogProvisionedProductDetailsPropertiesArgs{...}
-type ServiceCatalogProvisionedProductDetailsPropertiesInput interface {
-	pulumi.Input
-
-	ToServiceCatalogProvisionedProductDetailsPropertiesOutput() ServiceCatalogProvisionedProductDetailsPropertiesOutput
-	ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(context.Context) ServiceCatalogProvisionedProductDetailsPropertiesOutput
-}
-
-// Provisioned ServiceCatalog  Details
-type ServiceCatalogProvisionedProductDetailsPropertiesArgs struct {
-	ProvisionedProductId            pulumi.StringPtrInput `pulumi:"provisionedProductId"`
-	ProvisionedProductStatusMessage pulumi.StringPtrInput `pulumi:"provisionedProductStatusMessage"`
-}
-
-func (ServiceCatalogProvisionedProductDetailsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
-}
-
-func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesOutput() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
-	return i.ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(context.Background())
-}
-
-func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesOutput)
-}
-
-func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
-	return i.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesOutput).ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx)
-}
-
-// ServiceCatalogProvisionedProductDetailsPropertiesPtrInput is an input type that accepts ServiceCatalogProvisionedProductDetailsPropertiesArgs, ServiceCatalogProvisionedProductDetailsPropertiesPtr and ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput values.
-// You can construct a concrete instance of `ServiceCatalogProvisionedProductDetailsPropertiesPtrInput` via:
-//
-//          ServiceCatalogProvisionedProductDetailsPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceCatalogProvisionedProductDetailsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput
-	ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput
-}
-
-type serviceCatalogProvisionedProductDetailsPropertiesPtrType ServiceCatalogProvisionedProductDetailsPropertiesArgs
-
-func ServiceCatalogProvisionedProductDetailsPropertiesPtr(v *ServiceCatalogProvisionedProductDetailsPropertiesArgs) ServiceCatalogProvisionedProductDetailsPropertiesPtrInput {
-	return (*serviceCatalogProvisionedProductDetailsPropertiesPtrType)(v)
-}
-
-func (*serviceCatalogProvisionedProductDetailsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
-}
-
-func (i *serviceCatalogProvisionedProductDetailsPropertiesPtrType) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
-	return i.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceCatalogProvisionedProductDetailsPropertiesPtrType) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput)
-}
-
 // Provisioned ServiceCatalog  Details
 type ServiceCatalogProvisionedProductDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -20274,64 +16987,12 @@ func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalo
 	return o
 }
 
-func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
-	return o.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCatalogProvisionedProductDetailsProperties) *ServiceCatalogProvisionedProductDetailsProperties {
-		return &v
-	}).(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput)
-}
-
 func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ProvisionedProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceCatalogProvisionedProductDetailsProperties) *string { return v.ProvisionedProductId }).(pulumi.StringPtrOutput)
 }
 
 func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ProvisionedProductStatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceCatalogProvisionedProductDetailsProperties) *string {
-		return v.ProvisionedProductStatusMessage
-	}).(pulumi.StringPtrOutput)
-}
-
-type ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
-}
-
-func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
-	return o
-}
-
-func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
-	return o
-}
-
-func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) Elem() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
-	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) ServiceCatalogProvisionedProductDetailsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceCatalogProvisionedProductDetailsProperties
-		return ret
-	}).(ServiceCatalogProvisionedProductDetailsPropertiesOutput)
-}
-
-func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ProvisionedProductId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisionedProductId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ProvisionedProductStatusMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
 		return v.ProvisionedProductStatusMessage
 	}).(pulumi.StringPtrOutput)
 }
@@ -20377,47 +17038,6 @@ func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesOutput)
 }
 
-func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
-	return i.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesOutput).ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx)
-}
-
-// ServiceCatalogProvisioningDetailsPropertiesPtrInput is an input type that accepts ServiceCatalogProvisioningDetailsPropertiesArgs, ServiceCatalogProvisioningDetailsPropertiesPtr and ServiceCatalogProvisioningDetailsPropertiesPtrOutput values.
-// You can construct a concrete instance of `ServiceCatalogProvisioningDetailsPropertiesPtrInput` via:
-//
-//          ServiceCatalogProvisioningDetailsPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceCatalogProvisioningDetailsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput
-	ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput
-}
-
-type serviceCatalogProvisioningDetailsPropertiesPtrType ServiceCatalogProvisioningDetailsPropertiesArgs
-
-func ServiceCatalogProvisioningDetailsPropertiesPtr(v *ServiceCatalogProvisioningDetailsPropertiesArgs) ServiceCatalogProvisioningDetailsPropertiesPtrInput {
-	return (*serviceCatalogProvisioningDetailsPropertiesPtrType)(v)
-}
-
-func (*serviceCatalogProvisioningDetailsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceCatalogProvisioningDetailsProperties)(nil)).Elem()
-}
-
-func (i *serviceCatalogProvisioningDetailsPropertiesPtrType) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
-	return i.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceCatalogProvisioningDetailsPropertiesPtrType) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesPtrOutput)
-}
-
 // Input ServiceCatalog Provisioning Details
 type ServiceCatalogProvisioningDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -20431,16 +17051,6 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvi
 
 func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesOutput {
 	return o
-}
-
-func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
-	return o.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCatalogProvisioningDetailsProperties) *ServiceCatalogProvisioningDetailsProperties {
-		return &v
-	}).(ServiceCatalogProvisioningDetailsPropertiesPtrOutput)
 }
 
 func (o ServiceCatalogProvisioningDetailsPropertiesOutput) PathId() pulumi.StringPtrOutput {
@@ -20458,67 +17068,6 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningArtifactI
 // Parameters specified by the administrator that are required for provisioning the product.
 func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningParameters() ProjectProvisioningParameterArrayOutput {
 	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) []ProjectProvisioningParameter {
-		return v.ProvisioningParameters
-	}).(ProjectProvisioningParameterArrayOutput)
-}
-
-type ServiceCatalogProvisioningDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceCatalogProvisioningDetailsProperties)(nil)).Elem()
-}
-
-func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
-	return o
-}
-
-func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
-	return o
-}
-
-func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) Elem() ServiceCatalogProvisioningDetailsPropertiesOutput {
-	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) ServiceCatalogProvisioningDetailsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceCatalogProvisioningDetailsProperties
-		return ret
-	}).(ServiceCatalogProvisioningDetailsPropertiesOutput)
-}
-
-func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) PathId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PathId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProductId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProductId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningArtifactId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Parameters specified by the administrator that are required for provisioning the product.
-func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProvisioningParameters() ProjectProvisioningParameterArrayOutput {
-	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) []ProjectProvisioningParameter {
-		if v == nil {
-			return nil
-		}
 		return v.ProvisioningParameters
 	}).(ProjectProvisioningParameterArrayOutput)
 }
@@ -22013,27 +18562,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTagInput)(nil)).Elem(), AppTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTagArrayInput)(nil)).Elem(), AppTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigPtrInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryTagInput)(nil)).Elem(), CodeRepositoryTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryTagArrayInput)(nil)).Elem(), CodeRepositoryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionClusterConfigInput)(nil)).Elem(), DataQualityJobDefinitionClusterConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionClusterConfigPtrInput)(nil)).Elem(), DataQualityJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionConstraintsResourceInput)(nil)).Elem(), DataQualityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), DataQualityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityAppSpecificationInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityAppSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityAppSpecificationPtrInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityBaselineConfigInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityBaselineConfigPtrInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityJobInputInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityJobInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityJobInputPtrInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityJobInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionEndpointInputInput)(nil)).Elem(), DataQualityJobDefinitionEndpointInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionEndpointInputPtrInput)(nil)).Elem(), DataQualityJobDefinitionEndpointInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringOutputInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringOutputArrayInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringOutputConfigInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringOutputConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringOutputConfigPtrInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringResourcesInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringResourcesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringResourcesPtrInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionNetworkConfigInput)(nil)).Elem(), DataQualityJobDefinitionNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionNetworkConfigPtrInput)(nil)).Elem(), DataQualityJobDefinitionNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionS3OutputInput)(nil)).Elem(), DataQualityJobDefinitionS3OutputArgs{})
@@ -22048,7 +18590,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTypeInput)(nil)).Elem(), DeviceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTypePtrInput)(nil)).Elem(), DeviceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetEdgeOutputConfigInput)(nil)).Elem(), DeviceFleetEdgeOutputConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetEdgeOutputConfigPtrInput)(nil)).Elem(), DeviceFleetEdgeOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetTagInput)(nil)).Elem(), DeviceFleetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetTagArrayInput)(nil)).Elem(), DeviceFleetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagInput)(nil)).Elem(), DeviceTagArgs{})
@@ -22066,7 +18607,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagArrayInput)(nil)).Elem(), DomainTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsInput)(nil)).Elem(), DomainUserSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsPtrInput)(nil)).Elem(), DomainUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAlarmInput)(nil)).Elem(), EndpointAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAlarmArrayInput)(nil)).Elem(), EndpointAlarmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAutoRollbackConfigInput)(nil)).Elem(), EndpointAutoRollbackConfigArgs{})
@@ -22116,25 +18656,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTagInput)(nil)).Elem(), ImageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTagArrayInput)(nil)).Elem(), ImageTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionClusterConfigInput)(nil)).Elem(), ModelBiasJobDefinitionClusterConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionClusterConfigPtrInput)(nil)).Elem(), ModelBiasJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionConstraintsResourceInput)(nil)).Elem(), ModelBiasJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), ModelBiasJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputPtrInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasAppSpecificationInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasAppSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasAppSpecificationPtrInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasBaselineConfigInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasBaselineConfigPtrInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasJobInputInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasJobInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasJobInputPtrInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasJobInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionMonitoringGroundTruthS3InputInput)(nil)).Elem(), ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrInput)(nil)).Elem(), ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionMonitoringOutputInput)(nil)).Elem(), ModelBiasJobDefinitionMonitoringOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionMonitoringOutputArrayInput)(nil)).Elem(), ModelBiasJobDefinitionMonitoringOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionMonitoringOutputConfigInput)(nil)).Elem(), ModelBiasJobDefinitionMonitoringOutputConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionMonitoringOutputConfigPtrInput)(nil)).Elem(), ModelBiasJobDefinitionMonitoringOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionMonitoringResourcesInput)(nil)).Elem(), ModelBiasJobDefinitionMonitoringResourcesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionMonitoringResourcesPtrInput)(nil)).Elem(), ModelBiasJobDefinitionMonitoringResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionNetworkConfigInput)(nil)).Elem(), ModelBiasJobDefinitionNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionNetworkConfigPtrInput)(nil)).Elem(), ModelBiasJobDefinitionNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionS3OutputInput)(nil)).Elem(), ModelBiasJobDefinitionS3OutputArgs{})
@@ -22148,23 +18681,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionPtrInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionArrayInput)(nil)).Elem(), ModelContainerDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionClusterConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionClusterConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionClusterConfigPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionConstraintsResourceInput)(nil)).Elem(), ModelExplainabilityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityJobInputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionMonitoringOutputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionMonitoringOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionMonitoringOutputArrayInput)(nil)).Elem(), ModelExplainabilityJobDefinitionMonitoringOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionMonitoringOutputConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionMonitoringResourcesInput)(nil)).Elem(), ModelExplainabilityJobDefinitionMonitoringResourcesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionMonitoringResourcesPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionMonitoringResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionNetworkConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionNetworkConfigPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionS3OutputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionS3OutputArgs{})
@@ -22183,25 +18710,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupTagInput)(nil)).Elem(), ModelPackageGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupTagArrayInput)(nil)).Elem(), ModelPackageGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionClusterConfigInput)(nil)).Elem(), ModelQualityJobDefinitionClusterConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionClusterConfigPtrInput)(nil)).Elem(), ModelQualityJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionConstraintsResourceInput)(nil)).Elem(), ModelQualityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), ModelQualityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputPtrInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityAppSpecificationInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityAppSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityAppSpecificationPtrInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityBaselineConfigInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityBaselineConfigPtrInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityJobInputInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityJobInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityJobInputPtrInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityJobInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionMonitoringGroundTruthS3InputInput)(nil)).Elem(), ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrInput)(nil)).Elem(), ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionMonitoringOutputInput)(nil)).Elem(), ModelQualityJobDefinitionMonitoringOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionMonitoringOutputArrayInput)(nil)).Elem(), ModelQualityJobDefinitionMonitoringOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionMonitoringOutputConfigInput)(nil)).Elem(), ModelQualityJobDefinitionMonitoringOutputConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionMonitoringOutputConfigPtrInput)(nil)).Elem(), ModelQualityJobDefinitionMonitoringOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionMonitoringResourcesInput)(nil)).Elem(), ModelQualityJobDefinitionMonitoringResourcesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionMonitoringResourcesPtrInput)(nil)).Elem(), ModelQualityJobDefinitionMonitoringResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionNetworkConfigInput)(nil)).Elem(), ModelQualityJobDefinitionNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionNetworkConfigPtrInput)(nil)).Elem(), ModelQualityJobDefinitionNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionS3OutputInput)(nil)).Elem(), ModelQualityJobDefinitionS3OutputArgs{})
@@ -22222,7 +18742,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleClusterConfigInput)(nil)).Elem(), MonitoringScheduleClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleClusterConfigPtrInput)(nil)).Elem(), MonitoringScheduleClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleConfigInput)(nil)).Elem(), MonitoringScheduleConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleConfigPtrInput)(nil)).Elem(), MonitoringScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleConstraintsResourceInput)(nil)).Elem(), MonitoringScheduleConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleConstraintsResourcePtrInput)(nil)).Elem(), MonitoringScheduleConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleEndpointInputInput)(nil)).Elem(), MonitoringScheduleEndpointInputArgs{})
@@ -22269,10 +18788,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProvisioningParameterArrayInput)(nil)).Elem(), ProjectProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesPtrInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesPtrInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileCustomImageInput)(nil)).Elem(), UserProfileCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileCustomImageArrayInput)(nil)).Elem(), UserProfileCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileJupyterServerAppSettingsArgs{})
@@ -22307,27 +18823,20 @@ func init() {
 	pulumi.RegisterOutputType(AppTagOutput{})
 	pulumi.RegisterOutputType(AppTagArrayOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
-	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryTagOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryTagArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityAppSpecificationOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityBaselineConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityJobInputOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityJobInputPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputConfigOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringResourcesOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringResourcesPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionNetworkConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionS3OutputOutput{})
@@ -22342,7 +18851,6 @@ func init() {
 	pulumi.RegisterOutputType(DeviceTypeOutput{})
 	pulumi.RegisterOutputType(DeviceTypePtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigOutput{})
-	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetTagOutput{})
 	pulumi.RegisterOutputType(DeviceFleetTagArrayOutput{})
 	pulumi.RegisterOutputType(DeviceTagOutput{})
@@ -22360,7 +18868,6 @@ func init() {
 	pulumi.RegisterOutputType(DomainTagOutput{})
 	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsOutput{})
-	pulumi.RegisterOutputType(DomainUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointAlarmOutput{})
 	pulumi.RegisterOutputType(EndpointAlarmArrayOutput{})
 	pulumi.RegisterOutputType(EndpointAutoRollbackConfigOutput{})
@@ -22410,25 +18917,18 @@ func init() {
 	pulumi.RegisterOutputType(ImageTagOutput{})
 	pulumi.RegisterOutputType(ImageTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasAppSpecificationOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasBaselineConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasJobInputOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasJobInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionMonitoringOutputOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionMonitoringOutputArrayOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionMonitoringOutputConfigOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionMonitoringResourcesOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionMonitoringResourcesPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputOutput{})
@@ -22442,23 +18942,17 @@ func init() {
 	pulumi.RegisterOutputType(ModelContainerDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionClusterConfigOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionMonitoringOutputOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionMonitoringResourcesOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionS3OutputOutput{})
@@ -22477,25 +18971,18 @@ func init() {
 	pulumi.RegisterOutputType(ModelPackageGroupTagOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionClusterConfigOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityAppSpecificationOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityBaselineConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityJobInputOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityJobInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionMonitoringOutputOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionMonitoringOutputArrayOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionMonitoringOutputConfigOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionMonitoringResourcesOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionMonitoringResourcesPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionS3OutputOutput{})
@@ -22516,7 +19003,6 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleClusterConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConfigOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputOutput{})
@@ -22564,9 +19050,7 @@ func init() {
 	pulumi.RegisterOutputType(ProjectTagOutput{})
 	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesOutput{})
-	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesOutput{})
-	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterServerAppSettingsOutput{})

@@ -55,30 +55,28 @@ export class DeliveryChannel extends pulumi.CustomResource {
     /** @deprecated DeliveryChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DeliveryChannelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DeliveryChannel is deprecated: DeliveryChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.s3BucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
-            inputs["configSnapshotDeliveryProperties"] = args ? args.configSnapshotDeliveryProperties : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["s3BucketName"] = args ? args.s3BucketName : undefined;
-            inputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
-            inputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
-            inputs["snsTopicARN"] = args ? args.snsTopicARN : undefined;
+            resourceInputs["configSnapshotDeliveryProperties"] = args ? args.configSnapshotDeliveryProperties : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
+            resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
+            resourceInputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
+            resourceInputs["snsTopicARN"] = args ? args.snsTopicARN : undefined;
         } else {
-            inputs["configSnapshotDeliveryProperties"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["s3BucketName"] = undefined /*out*/;
-            inputs["s3KeyPrefix"] = undefined /*out*/;
-            inputs["s3KmsKeyArn"] = undefined /*out*/;
-            inputs["snsTopicARN"] = undefined /*out*/;
+            resourceInputs["configSnapshotDeliveryProperties"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["s3BucketName"] = undefined /*out*/;
+            resourceInputs["s3KeyPrefix"] = undefined /*out*/;
+            resourceInputs["s3KmsKeyArn"] = undefined /*out*/;
+            resourceInputs["snsTopicARN"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DeliveryChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DeliveryChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

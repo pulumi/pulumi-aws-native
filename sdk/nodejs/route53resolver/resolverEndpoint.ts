@@ -58,7 +58,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     /** @deprecated ResolverEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ResolverEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ResolverEndpoint is deprecated: ResolverEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.direction === undefined) && !opts.urn) {
@@ -70,30 +70,28 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             if ((!args || args.securityGroupIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
-            inputs["direction"] = args ? args.direction : undefined;
-            inputs["ipAddresses"] = args ? args.ipAddresses : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["hostVPCId"] = undefined /*out*/;
-            inputs["ipAddressCount"] = undefined /*out*/;
-            inputs["resolverEndpointId"] = undefined /*out*/;
+            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["hostVPCId"] = undefined /*out*/;
+            resourceInputs["ipAddressCount"] = undefined /*out*/;
+            resourceInputs["resolverEndpointId"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["direction"] = undefined /*out*/;
-            inputs["hostVPCId"] = undefined /*out*/;
-            inputs["ipAddressCount"] = undefined /*out*/;
-            inputs["ipAddresses"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resolverEndpointId"] = undefined /*out*/;
-            inputs["securityGroupIds"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["direction"] = undefined /*out*/;
+            resourceInputs["hostVPCId"] = undefined /*out*/;
+            resourceInputs["ipAddressCount"] = undefined /*out*/;
+            resourceInputs["ipAddresses"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resolverEndpointId"] = undefined /*out*/;
+            resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResolverEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResolverEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

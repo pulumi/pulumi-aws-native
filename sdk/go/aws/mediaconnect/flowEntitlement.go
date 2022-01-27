@@ -127,7 +127,7 @@ type FlowEntitlementInput interface {
 }
 
 func (*FlowEntitlement) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowEntitlement)(nil))
+	return reflect.TypeOf((**FlowEntitlement)(nil)).Elem()
 }
 
 func (i *FlowEntitlement) ToFlowEntitlementOutput() FlowEntitlementOutput {
@@ -141,7 +141,7 @@ func (i *FlowEntitlement) ToFlowEntitlementOutputWithContext(ctx context.Context
 type FlowEntitlementOutput struct{ *pulumi.OutputState }
 
 func (FlowEntitlementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowEntitlement)(nil))
+	return reflect.TypeOf((**FlowEntitlement)(nil)).Elem()
 }
 
 func (o FlowEntitlementOutput) ToFlowEntitlementOutput() FlowEntitlementOutput {

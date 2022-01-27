@@ -49,30 +49,28 @@ export class Archive extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ArchiveArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.sourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventPattern"] = args ? args.eventPattern : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
-            inputs["sourceArn"] = args ? args.sourceArn : undefined;
-            inputs["archiveName"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["archiveName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["archiveName"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["eventPattern"] = undefined /*out*/;
-            inputs["retentionDays"] = undefined /*out*/;
-            inputs["sourceArn"] = undefined /*out*/;
+            resourceInputs["archiveName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["eventPattern"] = undefined /*out*/;
+            resourceInputs["retentionDays"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Archive.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Archive.__pulumiType, name, resourceInputs, opts);
     }
 }
 

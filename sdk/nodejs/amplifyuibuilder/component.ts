@@ -58,43 +58,41 @@ export class Component extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["bindingProperties"] = args ? args.bindingProperties : undefined;
-            inputs["children"] = args ? args.children : undefined;
-            inputs["collectionProperties"] = args ? args.collectionProperties : undefined;
-            inputs["componentType"] = args ? args.componentType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["overrides"] = args ? args.overrides : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["sourceId"] = args ? args.sourceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["variants"] = args ? args.variants : undefined;
-            inputs["appId"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["environmentName"] = undefined /*out*/;
-            inputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["bindingProperties"] = args ? args.bindingProperties : undefined;
+            resourceInputs["children"] = args ? args.children : undefined;
+            resourceInputs["collectionProperties"] = args ? args.collectionProperties : undefined;
+            resourceInputs["componentType"] = args ? args.componentType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overrides"] = args ? args.overrides : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["variants"] = args ? args.variants : undefined;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["environmentName"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
-            inputs["appId"] = undefined /*out*/;
-            inputs["bindingProperties"] = undefined /*out*/;
-            inputs["children"] = undefined /*out*/;
-            inputs["collectionProperties"] = undefined /*out*/;
-            inputs["componentType"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["environmentName"] = undefined /*out*/;
-            inputs["modifiedAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["overrides"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sourceId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["variants"] = undefined /*out*/;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["bindingProperties"] = undefined /*out*/;
+            resourceInputs["children"] = undefined /*out*/;
+            resourceInputs["collectionProperties"] = undefined /*out*/;
+            resourceInputs["componentType"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["environmentName"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["overrides"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sourceId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["variants"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Component.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Component.__pulumiType, name, resourceInputs, opts);
     }
 }
 

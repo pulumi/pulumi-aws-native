@@ -49,28 +49,26 @@ export class BackupPlan extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackupPlanArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.backupPlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupPlan'");
             }
-            inputs["backupPlan"] = args ? args.backupPlan : undefined;
-            inputs["backupPlanTags"] = args ? args.backupPlanTags : undefined;
-            inputs["backupPlanArn"] = undefined /*out*/;
-            inputs["backupPlanId"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
+            resourceInputs["backupPlan"] = args ? args.backupPlan : undefined;
+            resourceInputs["backupPlanTags"] = args ? args.backupPlanTags : undefined;
+            resourceInputs["backupPlanArn"] = undefined /*out*/;
+            resourceInputs["backupPlanId"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
         } else {
-            inputs["backupPlan"] = undefined /*out*/;
-            inputs["backupPlanArn"] = undefined /*out*/;
-            inputs["backupPlanId"] = undefined /*out*/;
-            inputs["backupPlanTags"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
+            resourceInputs["backupPlan"] = undefined /*out*/;
+            resourceInputs["backupPlanArn"] = undefined /*out*/;
+            resourceInputs["backupPlanId"] = undefined /*out*/;
+            resourceInputs["backupPlanTags"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BackupPlan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BackupPlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

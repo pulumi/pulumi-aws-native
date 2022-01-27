@@ -76,34 +76,32 @@ export class Agent extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AgentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.activationKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'activationKey'");
             }
-            inputs["activationKey"] = args ? args.activationKey : undefined;
-            inputs["agentName"] = args ? args.agentName : undefined;
-            inputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            inputs["subnetArns"] = args ? args.subnetArns : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            inputs["agentArn"] = undefined /*out*/;
-            inputs["endpointType"] = undefined /*out*/;
+            resourceInputs["activationKey"] = args ? args.activationKey : undefined;
+            resourceInputs["agentName"] = args ? args.agentName : undefined;
+            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
+            resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["agentArn"] = undefined /*out*/;
+            resourceInputs["endpointType"] = undefined /*out*/;
         } else {
-            inputs["activationKey"] = undefined /*out*/;
-            inputs["agentArn"] = undefined /*out*/;
-            inputs["agentName"] = undefined /*out*/;
-            inputs["endpointType"] = undefined /*out*/;
-            inputs["securityGroupArns"] = undefined /*out*/;
-            inputs["subnetArns"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["vpcEndpointId"] = undefined /*out*/;
+            resourceInputs["activationKey"] = undefined /*out*/;
+            resourceInputs["agentArn"] = undefined /*out*/;
+            resourceInputs["agentName"] = undefined /*out*/;
+            resourceInputs["endpointType"] = undefined /*out*/;
+            resourceInputs["securityGroupArns"] = undefined /*out*/;
+            resourceInputs["subnetArns"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcEndpointId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Agent.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Agent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

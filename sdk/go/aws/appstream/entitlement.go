@@ -100,7 +100,7 @@ type EntitlementInput interface {
 }
 
 func (*Entitlement) ElementType() reflect.Type {
-	return reflect.TypeOf((*Entitlement)(nil))
+	return reflect.TypeOf((**Entitlement)(nil)).Elem()
 }
 
 func (i *Entitlement) ToEntitlementOutput() EntitlementOutput {
@@ -114,7 +114,7 @@ func (i *Entitlement) ToEntitlementOutputWithContext(ctx context.Context) Entitl
 type EntitlementOutput struct{ *pulumi.OutputState }
 
 func (EntitlementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Entitlement)(nil))
+	return reflect.TypeOf((**Entitlement)(nil)).Elem()
 }
 
 func (o EntitlementOutput) ToEntitlementOutput() EntitlementOutput {

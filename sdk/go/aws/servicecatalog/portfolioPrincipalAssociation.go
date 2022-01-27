@@ -97,7 +97,7 @@ type PortfolioPrincipalAssociationInput interface {
 }
 
 func (*PortfolioPrincipalAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioPrincipalAssociation)(nil))
+	return reflect.TypeOf((**PortfolioPrincipalAssociation)(nil)).Elem()
 }
 
 func (i *PortfolioPrincipalAssociation) ToPortfolioPrincipalAssociationOutput() PortfolioPrincipalAssociationOutput {
@@ -111,7 +111,7 @@ func (i *PortfolioPrincipalAssociation) ToPortfolioPrincipalAssociationOutputWit
 type PortfolioPrincipalAssociationOutput struct{ *pulumi.OutputState }
 
 func (PortfolioPrincipalAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortfolioPrincipalAssociation)(nil))
+	return reflect.TypeOf((**PortfolioPrincipalAssociation)(nil)).Elem()
 }
 
 func (o PortfolioPrincipalAssociationOutput) ToPortfolioPrincipalAssociationOutput() PortfolioPrincipalAssociationOutput {

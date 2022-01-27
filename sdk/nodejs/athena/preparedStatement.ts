@@ -59,7 +59,7 @@ export class PreparedStatement extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PreparedStatementArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.queryStatement === undefined) && !opts.urn) {
@@ -71,20 +71,18 @@ export class PreparedStatement extends pulumi.CustomResource {
             if ((!args || args.workGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workGroup'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["queryStatement"] = args ? args.queryStatement : undefined;
-            inputs["statementName"] = args ? args.statementName : undefined;
-            inputs["workGroup"] = args ? args.workGroup : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["queryStatement"] = args ? args.queryStatement : undefined;
+            resourceInputs["statementName"] = args ? args.statementName : undefined;
+            resourceInputs["workGroup"] = args ? args.workGroup : undefined;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["queryStatement"] = undefined /*out*/;
-            inputs["statementName"] = undefined /*out*/;
-            inputs["workGroup"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["queryStatement"] = undefined /*out*/;
+            resourceInputs["statementName"] = undefined /*out*/;
+            resourceInputs["workGroup"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PreparedStatement.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PreparedStatement.__pulumiType, name, resourceInputs, opts);
     }
 }
 

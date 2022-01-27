@@ -72,32 +72,30 @@ export class TaskDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TaskDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoCreateTasks === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoCreateTasks'");
             }
-            inputs["autoCreateTasks"] = args ? args.autoCreateTasks : undefined;
-            inputs["loRaWANUpdateGatewayTaskEntry"] = args ? args.loRaWANUpdateGatewayTaskEntry : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taskDefinitionType"] = args ? args.taskDefinitionType : undefined;
-            inputs["update"] = args ? args.update : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["autoCreateTasks"] = args ? args.autoCreateTasks : undefined;
+            resourceInputs["loRaWANUpdateGatewayTaskEntry"] = args ? args.loRaWANUpdateGatewayTaskEntry : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskDefinitionType"] = args ? args.taskDefinitionType : undefined;
+            resourceInputs["update"] = args ? args.update : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoCreateTasks"] = undefined /*out*/;
-            inputs["loRaWANUpdateGatewayTaskEntry"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["taskDefinitionType"] = undefined /*out*/;
-            inputs["update"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoCreateTasks"] = undefined /*out*/;
+            resourceInputs["loRaWANUpdateGatewayTaskEntry"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["taskDefinitionType"] = undefined /*out*/;
+            resourceInputs["update"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TaskDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TaskDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -97,46 +97,44 @@ export class FleetMetric extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FleetMetricArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            inputs["aggregationField"] = args ? args.aggregationField : undefined;
-            inputs["aggregationType"] = args ? args.aggregationType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["indexName"] = args ? args.indexName : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["period"] = args ? args.period : undefined;
-            inputs["queryString"] = args ? args.queryString : undefined;
-            inputs["queryVersion"] = args ? args.queryVersion : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["unit"] = args ? args.unit : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["lastModifiedDate"] = undefined /*out*/;
-            inputs["metricArn"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["aggregationField"] = args ? args.aggregationField : undefined;
+            resourceInputs["aggregationType"] = args ? args.aggregationType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["indexName"] = args ? args.indexName : undefined;
+            resourceInputs["metricName"] = args ? args.metricName : undefined;
+            resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["queryVersion"] = args ? args.queryVersion : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["lastModifiedDate"] = undefined /*out*/;
+            resourceInputs["metricArn"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["aggregationField"] = undefined /*out*/;
-            inputs["aggregationType"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["indexName"] = undefined /*out*/;
-            inputs["lastModifiedDate"] = undefined /*out*/;
-            inputs["metricArn"] = undefined /*out*/;
-            inputs["metricName"] = undefined /*out*/;
-            inputs["period"] = undefined /*out*/;
-            inputs["queryString"] = undefined /*out*/;
-            inputs["queryVersion"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["unit"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["aggregationField"] = undefined /*out*/;
+            resourceInputs["aggregationType"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["indexName"] = undefined /*out*/;
+            resourceInputs["lastModifiedDate"] = undefined /*out*/;
+            resourceInputs["metricArn"] = undefined /*out*/;
+            resourceInputs["metricName"] = undefined /*out*/;
+            resourceInputs["period"] = undefined /*out*/;
+            resourceInputs["queryString"] = undefined /*out*/;
+            resourceInputs["queryVersion"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["unit"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FleetMetric.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FleetMetric.__pulumiType, name, resourceInputs, opts);
     }
 }
 

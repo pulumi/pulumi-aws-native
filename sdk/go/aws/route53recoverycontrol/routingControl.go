@@ -95,7 +95,7 @@ type RoutingControlInput interface {
 }
 
 func (*RoutingControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingControl)(nil))
+	return reflect.TypeOf((**RoutingControl)(nil)).Elem()
 }
 
 func (i *RoutingControl) ToRoutingControlOutput() RoutingControlOutput {
@@ -109,7 +109,7 @@ func (i *RoutingControl) ToRoutingControlOutputWithContext(ctx context.Context) 
 type RoutingControlOutput struct{ *pulumi.OutputState }
 
 func (RoutingControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingControl)(nil))
+	return reflect.TypeOf((**RoutingControl)(nil)).Elem()
 }
 
 func (o RoutingControlOutput) ToRoutingControlOutput() RoutingControlOutput {

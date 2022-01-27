@@ -88,7 +88,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocationObjectStorageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.agentArns === undefined) && !opts.urn) {
@@ -100,34 +100,32 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             if ((!args || args.serverHostname === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverHostname'");
             }
-            inputs["accessKey"] = args ? args.accessKey : undefined;
-            inputs["agentArns"] = args ? args.agentArns : undefined;
-            inputs["bucketName"] = args ? args.bucketName : undefined;
-            inputs["secretKey"] = args ? args.secretKey : undefined;
-            inputs["serverHostname"] = args ? args.serverHostname : undefined;
-            inputs["serverPort"] = args ? args.serverPort : undefined;
-            inputs["serverProtocol"] = args ? args.serverProtocol : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
+            resourceInputs["accessKey"] = args ? args.accessKey : undefined;
+            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
+            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
+            resourceInputs["serverPort"] = args ? args.serverPort : undefined;
+            resourceInputs["serverProtocol"] = args ? args.serverProtocol : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
         } else {
-            inputs["accessKey"] = undefined /*out*/;
-            inputs["agentArns"] = undefined /*out*/;
-            inputs["bucketName"] = undefined /*out*/;
-            inputs["locationArn"] = undefined /*out*/;
-            inputs["locationUri"] = undefined /*out*/;
-            inputs["secretKey"] = undefined /*out*/;
-            inputs["serverHostname"] = undefined /*out*/;
-            inputs["serverPort"] = undefined /*out*/;
-            inputs["serverProtocol"] = undefined /*out*/;
-            inputs["subdirectory"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["accessKey"] = undefined /*out*/;
+            resourceInputs["agentArns"] = undefined /*out*/;
+            resourceInputs["bucketName"] = undefined /*out*/;
+            resourceInputs["locationArn"] = undefined /*out*/;
+            resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["secretKey"] = undefined /*out*/;
+            resourceInputs["serverHostname"] = undefined /*out*/;
+            resourceInputs["serverPort"] = undefined /*out*/;
+            resourceInputs["serverProtocol"] = undefined /*out*/;
+            resourceInputs["subdirectory"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocationObjectStorage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocationObjectStorage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

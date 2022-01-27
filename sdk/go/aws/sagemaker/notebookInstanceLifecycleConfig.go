@@ -84,7 +84,7 @@ type NotebookInstanceLifecycleConfigInput interface {
 }
 
 func (*NotebookInstanceLifecycleConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookInstanceLifecycleConfig)(nil))
+	return reflect.TypeOf((**NotebookInstanceLifecycleConfig)(nil)).Elem()
 }
 
 func (i *NotebookInstanceLifecycleConfig) ToNotebookInstanceLifecycleConfigOutput() NotebookInstanceLifecycleConfigOutput {
@@ -98,7 +98,7 @@ func (i *NotebookInstanceLifecycleConfig) ToNotebookInstanceLifecycleConfigOutpu
 type NotebookInstanceLifecycleConfigOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceLifecycleConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookInstanceLifecycleConfig)(nil))
+	return reflect.TypeOf((**NotebookInstanceLifecycleConfig)(nil)).Elem()
 }
 
 func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfigOutput() NotebookInstanceLifecycleConfigOutput {

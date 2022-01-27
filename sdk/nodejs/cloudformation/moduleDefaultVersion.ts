@@ -55,21 +55,19 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ModuleDefaultVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["moduleName"] = args ? args.moduleName : undefined;
-            inputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["moduleName"] = args ? args.moduleName : undefined;
+            resourceInputs["versionId"] = args ? args.versionId : undefined;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["moduleName"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["moduleName"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ModuleDefaultVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ModuleDefaultVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

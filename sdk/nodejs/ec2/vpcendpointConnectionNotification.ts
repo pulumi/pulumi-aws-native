@@ -52,7 +52,7 @@ export class VPCEndpointConnectionNotification extends pulumi.CustomResource {
     /** @deprecated VPCEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCEndpointConnectionNotificationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VPCEndpointConnectionNotification is deprecated: VPCEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.connectionEvents === undefined) && !opts.urn) {
@@ -61,20 +61,18 @@ export class VPCEndpointConnectionNotification extends pulumi.CustomResource {
             if ((!args || args.connectionNotificationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionNotificationArn'");
             }
-            inputs["connectionEvents"] = args ? args.connectionEvents : undefined;
-            inputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
-            inputs["serviceId"] = args ? args.serviceId : undefined;
-            inputs["vPCEndpointId"] = args ? args.vPCEndpointId : undefined;
+            resourceInputs["connectionEvents"] = args ? args.connectionEvents : undefined;
+            resourceInputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
+            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
+            resourceInputs["vPCEndpointId"] = args ? args.vPCEndpointId : undefined;
         } else {
-            inputs["connectionEvents"] = undefined /*out*/;
-            inputs["connectionNotificationArn"] = undefined /*out*/;
-            inputs["serviceId"] = undefined /*out*/;
-            inputs["vPCEndpointId"] = undefined /*out*/;
+            resourceInputs["connectionEvents"] = undefined /*out*/;
+            resourceInputs["connectionNotificationArn"] = undefined /*out*/;
+            resourceInputs["serviceId"] = undefined /*out*/;
+            resourceInputs["vPCEndpointId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VPCEndpointConnectionNotification.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VPCEndpointConnectionNotification.__pulumiType, name, resourceInputs, opts);
     }
 }
 

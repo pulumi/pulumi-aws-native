@@ -99,7 +99,7 @@ type ResolverQueryLoggingConfigInput interface {
 }
 
 func (*ResolverQueryLoggingConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLoggingConfig)(nil))
+	return reflect.TypeOf((**ResolverQueryLoggingConfig)(nil)).Elem()
 }
 
 func (i *ResolverQueryLoggingConfig) ToResolverQueryLoggingConfigOutput() ResolverQueryLoggingConfigOutput {
@@ -113,7 +113,7 @@ func (i *ResolverQueryLoggingConfig) ToResolverQueryLoggingConfigOutputWithConte
 type ResolverQueryLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverQueryLoggingConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverQueryLoggingConfig)(nil))
+	return reflect.TypeOf((**ResolverQueryLoggingConfig)(nil)).Elem()
 }
 
 func (o ResolverQueryLoggingConfigOutput) ToResolverQueryLoggingConfigOutput() ResolverQueryLoggingConfigOutput {

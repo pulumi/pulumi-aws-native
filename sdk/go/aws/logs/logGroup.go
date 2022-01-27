@@ -99,7 +99,7 @@ type LogGroupInput interface {
 }
 
 func (*LogGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogGroup)(nil))
+	return reflect.TypeOf((**LogGroup)(nil)).Elem()
 }
 
 func (i *LogGroup) ToLogGroupOutput() LogGroupOutput {
@@ -113,7 +113,7 @@ func (i *LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutp
 type LogGroupOutput struct{ *pulumi.OutputState }
 
 func (LogGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogGroup)(nil))
+	return reflect.TypeOf((**LogGroup)(nil)).Elem()
 }
 
 func (o LogGroupOutput) ToLogGroupOutput() LogGroupOutput {

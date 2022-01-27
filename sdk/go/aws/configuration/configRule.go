@@ -102,7 +102,7 @@ type ConfigRuleInput interface {
 }
 
 func (*ConfigRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigRule)(nil))
+	return reflect.TypeOf((**ConfigRule)(nil)).Elem()
 }
 
 func (i *ConfigRule) ToConfigRuleOutput() ConfigRuleOutput {
@@ -116,7 +116,7 @@ func (i *ConfigRule) ToConfigRuleOutputWithContext(ctx context.Context) ConfigRu
 type ConfigRuleOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigRule)(nil))
+	return reflect.TypeOf((**ConfigRule)(nil)).Elem()
 }
 
 func (o ConfigRuleOutput) ToConfigRuleOutput() ConfigRuleOutput {

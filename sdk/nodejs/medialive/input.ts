@@ -60,37 +60,35 @@ export class Input extends pulumi.CustomResource {
     /** @deprecated Input is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: InputArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Input is deprecated: Input is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["destinations"] = args ? args.destinations : undefined;
-            inputs["inputDevices"] = args ? args.inputDevices : undefined;
-            inputs["inputSecurityGroups"] = args ? args.inputSecurityGroups : undefined;
-            inputs["mediaConnectFlows"] = args ? args.mediaConnectFlows : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["sources"] = args ? args.sources : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpc"] = args ? args.vpc : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["inputDevices"] = args ? args.inputDevices : undefined;
+            resourceInputs["inputSecurityGroups"] = args ? args.inputSecurityGroups : undefined;
+            resourceInputs["mediaConnectFlows"] = args ? args.mediaConnectFlows : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpc"] = args ? args.vpc : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["destinations"] = undefined /*out*/;
-            inputs["inputDevices"] = undefined /*out*/;
-            inputs["inputSecurityGroups"] = undefined /*out*/;
-            inputs["mediaConnectFlows"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["sources"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vpc"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["inputDevices"] = undefined /*out*/;
+            resourceInputs["inputSecurityGroups"] = undefined /*out*/;
+            resourceInputs["mediaConnectFlows"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpc"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Input.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Input.__pulumiType, name, resourceInputs, opts);
     }
 }
 

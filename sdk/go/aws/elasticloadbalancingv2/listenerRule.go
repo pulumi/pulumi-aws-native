@@ -100,7 +100,7 @@ type ListenerRuleInput interface {
 }
 
 func (*ListenerRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerRule)(nil))
+	return reflect.TypeOf((**ListenerRule)(nil)).Elem()
 }
 
 func (i *ListenerRule) ToListenerRuleOutput() ListenerRuleOutput {
@@ -114,7 +114,7 @@ func (i *ListenerRule) ToListenerRuleOutputWithContext(ctx context.Context) List
 type ListenerRuleOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerRule)(nil))
+	return reflect.TypeOf((**ListenerRule)(nil)).Elem()
 }
 
 func (o ListenerRuleOutput) ToListenerRuleOutput() ListenerRuleOutput {

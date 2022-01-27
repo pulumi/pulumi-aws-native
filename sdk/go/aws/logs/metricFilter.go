@@ -94,7 +94,7 @@ type MetricFilterInput interface {
 }
 
 func (*MetricFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricFilter)(nil))
+	return reflect.TypeOf((**MetricFilter)(nil)).Elem()
 }
 
 func (i *MetricFilter) ToMetricFilterOutput() MetricFilterOutput {
@@ -108,7 +108,7 @@ func (i *MetricFilter) ToMetricFilterOutputWithContext(ctx context.Context) Metr
 type MetricFilterOutput struct{ *pulumi.OutputState }
 
 func (MetricFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricFilter)(nil))
+	return reflect.TypeOf((**MetricFilter)(nil)).Elem()
 }
 
 func (o MetricFilterOutput) ToMetricFilterOutput() MetricFilterOutput {

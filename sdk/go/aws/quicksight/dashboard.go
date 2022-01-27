@@ -161,7 +161,7 @@ type DashboardInput interface {
 }
 
 func (*Dashboard) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dashboard)(nil))
+	return reflect.TypeOf((**Dashboard)(nil)).Elem()
 }
 
 func (i *Dashboard) ToDashboardOutput() DashboardOutput {
@@ -175,7 +175,7 @@ func (i *Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardO
 type DashboardOutput struct{ *pulumi.OutputState }
 
 func (DashboardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dashboard)(nil))
+	return reflect.TypeOf((**Dashboard)(nil)).Elem()
 }
 
 func (o DashboardOutput) ToDashboardOutput() DashboardOutput {

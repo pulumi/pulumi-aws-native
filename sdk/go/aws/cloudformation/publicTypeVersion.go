@@ -115,7 +115,7 @@ type PublicTypeVersionInput interface {
 }
 
 func (*PublicTypeVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicTypeVersion)(nil))
+	return reflect.TypeOf((**PublicTypeVersion)(nil)).Elem()
 }
 
 func (i *PublicTypeVersion) ToPublicTypeVersionOutput() PublicTypeVersionOutput {
@@ -129,7 +129,7 @@ func (i *PublicTypeVersion) ToPublicTypeVersionOutputWithContext(ctx context.Con
 type PublicTypeVersionOutput struct{ *pulumi.OutputState }
 
 func (PublicTypeVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicTypeVersion)(nil))
+	return reflect.TypeOf((**PublicTypeVersion)(nil)).Elem()
 }
 
 func (o PublicTypeVersionOutput) ToPublicTypeVersionOutput() PublicTypeVersionOutput {

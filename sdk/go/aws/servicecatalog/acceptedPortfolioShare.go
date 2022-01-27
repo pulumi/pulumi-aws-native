@@ -85,7 +85,7 @@ type AcceptedPortfolioShareInput interface {
 }
 
 func (*AcceptedPortfolioShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*AcceptedPortfolioShare)(nil))
+	return reflect.TypeOf((**AcceptedPortfolioShare)(nil)).Elem()
 }
 
 func (i *AcceptedPortfolioShare) ToAcceptedPortfolioShareOutput() AcceptedPortfolioShareOutput {
@@ -99,7 +99,7 @@ func (i *AcceptedPortfolioShare) ToAcceptedPortfolioShareOutputWithContext(ctx c
 type AcceptedPortfolioShareOutput struct{ *pulumi.OutputState }
 
 func (AcceptedPortfolioShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AcceptedPortfolioShare)(nil))
+	return reflect.TypeOf((**AcceptedPortfolioShare)(nil)).Elem()
 }
 
 func (o AcceptedPortfolioShareOutput) ToAcceptedPortfolioShareOutput() AcceptedPortfolioShareOutput {

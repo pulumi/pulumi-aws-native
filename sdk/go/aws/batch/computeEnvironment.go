@@ -100,7 +100,7 @@ type ComputeEnvironmentInput interface {
 }
 
 func (*ComputeEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeEnvironment)(nil))
+	return reflect.TypeOf((**ComputeEnvironment)(nil)).Elem()
 }
 
 func (i *ComputeEnvironment) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {
@@ -114,7 +114,7 @@ func (i *ComputeEnvironment) ToComputeEnvironmentOutputWithContext(ctx context.C
 type ComputeEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeEnvironment)(nil))
+	return reflect.TypeOf((**ComputeEnvironment)(nil)).Elem()
 }
 
 func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutput() ComputeEnvironmentOutput {

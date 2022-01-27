@@ -117,7 +117,7 @@ type NotificationRuleInput interface {
 }
 
 func (*NotificationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRule)(nil))
+	return reflect.TypeOf((**NotificationRule)(nil)).Elem()
 }
 
 func (i *NotificationRule) ToNotificationRuleOutput() NotificationRuleOutput {
@@ -131,7 +131,7 @@ func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Conte
 type NotificationRuleOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRule)(nil))
+	return reflect.TypeOf((**NotificationRule)(nil)).Elem()
 }
 
 func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutput {

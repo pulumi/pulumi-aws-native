@@ -164,7 +164,7 @@ type AutoScalingGroupInput interface {
 }
 
 func (*AutoScalingGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingGroup)(nil))
+	return reflect.TypeOf((**AutoScalingGroup)(nil)).Elem()
 }
 
 func (i *AutoScalingGroup) ToAutoScalingGroupOutput() AutoScalingGroupOutput {
@@ -178,7 +178,7 @@ func (i *AutoScalingGroup) ToAutoScalingGroupOutputWithContext(ctx context.Conte
 type AutoScalingGroupOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingGroup)(nil))
+	return reflect.TypeOf((**AutoScalingGroup)(nil)).Elem()
 }
 
 func (o AutoScalingGroupOutput) ToAutoScalingGroupOutput() AutoScalingGroupOutput {

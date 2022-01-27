@@ -101,7 +101,7 @@ type AccountAuditConfigurationInput interface {
 }
 
 func (*AccountAuditConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountAuditConfiguration)(nil))
+	return reflect.TypeOf((**AccountAuditConfiguration)(nil)).Elem()
 }
 
 func (i *AccountAuditConfiguration) ToAccountAuditConfigurationOutput() AccountAuditConfigurationOutput {
@@ -115,7 +115,7 @@ func (i *AccountAuditConfiguration) ToAccountAuditConfigurationOutputWithContext
 type AccountAuditConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccountAuditConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountAuditConfiguration)(nil))
+	return reflect.TypeOf((**AccountAuditConfiguration)(nil)).Elem()
 }
 
 func (o AccountAuditConfigurationOutput) ToAccountAuditConfigurationOutput() AccountAuditConfigurationOutput {

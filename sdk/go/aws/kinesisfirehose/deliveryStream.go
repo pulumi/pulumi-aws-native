@@ -110,7 +110,7 @@ type DeliveryStreamInput interface {
 }
 
 func (*DeliveryStream) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStream)(nil))
+	return reflect.TypeOf((**DeliveryStream)(nil)).Elem()
 }
 
 func (i *DeliveryStream) ToDeliveryStreamOutput() DeliveryStreamOutput {
@@ -124,7 +124,7 @@ func (i *DeliveryStream) ToDeliveryStreamOutputWithContext(ctx context.Context) 
 type DeliveryStreamOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStream)(nil))
+	return reflect.TypeOf((**DeliveryStream)(nil)).Elem()
 }
 
 func (o DeliveryStreamOutput) ToDeliveryStreamOutput() DeliveryStreamOutput {

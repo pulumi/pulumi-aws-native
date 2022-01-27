@@ -51,7 +51,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
     /** @deprecated VolumeAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VolumeAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VolumeAttachment is deprecated: VolumeAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.device === undefined) && !opts.urn) {
@@ -63,18 +63,16 @@ export class VolumeAttachment extends pulumi.CustomResource {
             if ((!args || args.volumeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            inputs["device"] = args ? args.device : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["device"] = args ? args.device : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
         } else {
-            inputs["device"] = undefined /*out*/;
-            inputs["instanceId"] = undefined /*out*/;
-            inputs["volumeId"] = undefined /*out*/;
+            resourceInputs["device"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["volumeId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VolumeAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VolumeAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

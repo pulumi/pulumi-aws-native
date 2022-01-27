@@ -77,36 +77,34 @@ export class AccessPoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["policyStatus"] = args ? args.policyStatus : undefined;
-            inputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
-            inputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
-            inputs["alias"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkOrigin"] = undefined /*out*/;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["policyStatus"] = args ? args.policyStatus : undefined;
+            resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
+            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkOrigin"] = undefined /*out*/;
         } else {
-            inputs["alias"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["bucket"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkOrigin"] = undefined /*out*/;
-            inputs["policy"] = undefined /*out*/;
-            inputs["policyStatus"] = undefined /*out*/;
-            inputs["publicAccessBlockConfiguration"] = undefined /*out*/;
-            inputs["vpcConfiguration"] = undefined /*out*/;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bucket"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkOrigin"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["policyStatus"] = undefined /*out*/;
+            resourceInputs["publicAccessBlockConfiguration"] = undefined /*out*/;
+            resourceInputs["vpcConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccessPoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

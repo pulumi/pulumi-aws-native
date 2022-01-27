@@ -88,7 +88,7 @@ type UserToGroupAdditionInput interface {
 }
 
 func (*UserToGroupAddition) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserToGroupAddition)(nil))
+	return reflect.TypeOf((**UserToGroupAddition)(nil)).Elem()
 }
 
 func (i *UserToGroupAddition) ToUserToGroupAdditionOutput() UserToGroupAdditionOutput {
@@ -102,7 +102,7 @@ func (i *UserToGroupAddition) ToUserToGroupAdditionOutputWithContext(ctx context
 type UserToGroupAdditionOutput struct{ *pulumi.OutputState }
 
 func (UserToGroupAdditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserToGroupAddition)(nil))
+	return reflect.TypeOf((**UserToGroupAddition)(nil)).Elem()
 }
 
 func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutput() UserToGroupAdditionOutput {

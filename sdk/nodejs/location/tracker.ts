@@ -54,35 +54,33 @@ export class Tracker extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: TrackerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["positionFiltering"] = args ? args.positionFiltering : undefined;
-            inputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            inputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
-            inputs["trackerName"] = args ? args.trackerName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["trackerArn"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["positionFiltering"] = args ? args.positionFiltering : undefined;
+            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
+            resourceInputs["trackerName"] = args ? args.trackerName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["trackerArn"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["createTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["positionFiltering"] = undefined /*out*/;
-            inputs["pricingPlan"] = undefined /*out*/;
-            inputs["pricingPlanDataSource"] = undefined /*out*/;
-            inputs["trackerArn"] = undefined /*out*/;
-            inputs["trackerName"] = undefined /*out*/;
-            inputs["updateTime"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["positionFiltering"] = undefined /*out*/;
+            resourceInputs["pricingPlan"] = undefined /*out*/;
+            resourceInputs["pricingPlanDataSource"] = undefined /*out*/;
+            resourceInputs["trackerArn"] = undefined /*out*/;
+            resourceInputs["trackerName"] = undefined /*out*/;
+            resourceInputs["updateTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Tracker.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Tracker.__pulumiType, name, resourceInputs, opts);
     }
 }
 

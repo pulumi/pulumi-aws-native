@@ -105,7 +105,7 @@ type LocalGatewayRouteInput interface {
 }
 
 func (*LocalGatewayRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGatewayRoute)(nil))
+	return reflect.TypeOf((**LocalGatewayRoute)(nil)).Elem()
 }
 
 func (i *LocalGatewayRoute) ToLocalGatewayRouteOutput() LocalGatewayRouteOutput {
@@ -119,7 +119,7 @@ func (i *LocalGatewayRoute) ToLocalGatewayRouteOutputWithContext(ctx context.Con
 type LocalGatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (LocalGatewayRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGatewayRoute)(nil))
+	return reflect.TypeOf((**LocalGatewayRoute)(nil)).Elem()
 }
 
 func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutput() LocalGatewayRouteOutput {

@@ -60,7 +60,7 @@ export class Cluster extends pulumi.CustomResource {
     /** @deprecated Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Cluster is deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.brokerNodeGroupInfo === undefined) && !opts.urn) {
@@ -72,34 +72,32 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.numberOfBrokerNodes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
-            inputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
-            inputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            inputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
-            inputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
-            inputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
-            inputs["loggingInfo"] = args ? args.loggingInfo : undefined;
-            inputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
-            inputs["openMonitoring"] = args ? args.openMonitoring : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
+            resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
+            resourceInputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
+            resourceInputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
+            resourceInputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
+            resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
+            resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
+            resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["brokerNodeGroupInfo"] = undefined /*out*/;
-            inputs["clientAuthentication"] = undefined /*out*/;
-            inputs["clusterName"] = undefined /*out*/;
-            inputs["configurationInfo"] = undefined /*out*/;
-            inputs["encryptionInfo"] = undefined /*out*/;
-            inputs["enhancedMonitoring"] = undefined /*out*/;
-            inputs["kafkaVersion"] = undefined /*out*/;
-            inputs["loggingInfo"] = undefined /*out*/;
-            inputs["numberOfBrokerNodes"] = undefined /*out*/;
-            inputs["openMonitoring"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["brokerNodeGroupInfo"] = undefined /*out*/;
+            resourceInputs["clientAuthentication"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["configurationInfo"] = undefined /*out*/;
+            resourceInputs["encryptionInfo"] = undefined /*out*/;
+            resourceInputs["enhancedMonitoring"] = undefined /*out*/;
+            resourceInputs["kafkaVersion"] = undefined /*out*/;
+            resourceInputs["loggingInfo"] = undefined /*out*/;
+            resourceInputs["numberOfBrokerNodes"] = undefined /*out*/;
+            resourceInputs["openMonitoring"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

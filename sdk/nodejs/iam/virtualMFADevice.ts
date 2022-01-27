@@ -49,28 +49,26 @@ export class VirtualMFADevice extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualMFADeviceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.users === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
-            inputs["path"] = args ? args.path : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["users"] = args ? args.users : undefined;
-            inputs["virtualMfaDeviceName"] = args ? args.virtualMfaDeviceName : undefined;
-            inputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["virtualMfaDeviceName"] = args ? args.virtualMfaDeviceName : undefined;
+            resourceInputs["serialNumber"] = undefined /*out*/;
         } else {
-            inputs["path"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
-            inputs["virtualMfaDeviceName"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
+            resourceInputs["virtualMfaDeviceName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualMFADevice.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualMFADevice.__pulumiType, name, resourceInputs, opts);
     }
 }
 

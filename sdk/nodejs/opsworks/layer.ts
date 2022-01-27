@@ -68,7 +68,7 @@ export class Layer extends pulumi.CustomResource {
     /** @deprecated Layer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LayerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Layer is deprecated: Layer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoAssignElasticIps === undefined) && !opts.urn) {
@@ -89,50 +89,48 @@ export class Layer extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
-            inputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
-            inputs["customJson"] = args ? args.customJson : undefined;
-            inputs["customRecipes"] = args ? args.customRecipes : undefined;
-            inputs["customSecurityGroupIds"] = args ? args.customSecurityGroupIds : undefined;
-            inputs["enableAutoHealing"] = args ? args.enableAutoHealing : undefined;
-            inputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
-            inputs["lifecycleEventConfiguration"] = args ? args.lifecycleEventConfiguration : undefined;
-            inputs["loadBasedAutoScaling"] = args ? args.loadBasedAutoScaling : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["packages"] = args ? args.packages : undefined;
-            inputs["shortname"] = args ? args.shortname : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
-            inputs["volumeConfigurations"] = args ? args.volumeConfigurations : undefined;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
+            resourceInputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
+            resourceInputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
+            resourceInputs["customJson"] = args ? args.customJson : undefined;
+            resourceInputs["customRecipes"] = args ? args.customRecipes : undefined;
+            resourceInputs["customSecurityGroupIds"] = args ? args.customSecurityGroupIds : undefined;
+            resourceInputs["enableAutoHealing"] = args ? args.enableAutoHealing : undefined;
+            resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
+            resourceInputs["lifecycleEventConfiguration"] = args ? args.lifecycleEventConfiguration : undefined;
+            resourceInputs["loadBasedAutoScaling"] = args ? args.loadBasedAutoScaling : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["packages"] = args ? args.packages : undefined;
+            resourceInputs["shortname"] = args ? args.shortname : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
+            resourceInputs["volumeConfigurations"] = args ? args.volumeConfigurations : undefined;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["autoAssignElasticIps"] = undefined /*out*/;
-            inputs["autoAssignPublicIps"] = undefined /*out*/;
-            inputs["customInstanceProfileArn"] = undefined /*out*/;
-            inputs["customJson"] = undefined /*out*/;
-            inputs["customRecipes"] = undefined /*out*/;
-            inputs["customSecurityGroupIds"] = undefined /*out*/;
-            inputs["enableAutoHealing"] = undefined /*out*/;
-            inputs["installUpdatesOnBoot"] = undefined /*out*/;
-            inputs["lifecycleEventConfiguration"] = undefined /*out*/;
-            inputs["loadBasedAutoScaling"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packages"] = undefined /*out*/;
-            inputs["shortname"] = undefined /*out*/;
-            inputs["stackId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["useEbsOptimizedInstances"] = undefined /*out*/;
-            inputs["volumeConfigurations"] = undefined /*out*/;
+            resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["autoAssignElasticIps"] = undefined /*out*/;
+            resourceInputs["autoAssignPublicIps"] = undefined /*out*/;
+            resourceInputs["customInstanceProfileArn"] = undefined /*out*/;
+            resourceInputs["customJson"] = undefined /*out*/;
+            resourceInputs["customRecipes"] = undefined /*out*/;
+            resourceInputs["customSecurityGroupIds"] = undefined /*out*/;
+            resourceInputs["enableAutoHealing"] = undefined /*out*/;
+            resourceInputs["installUpdatesOnBoot"] = undefined /*out*/;
+            resourceInputs["lifecycleEventConfiguration"] = undefined /*out*/;
+            resourceInputs["loadBasedAutoScaling"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packages"] = undefined /*out*/;
+            resourceInputs["shortname"] = undefined /*out*/;
+            resourceInputs["stackId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useEbsOptimizedInstances"] = undefined /*out*/;
+            resourceInputs["volumeConfigurations"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Layer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Layer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

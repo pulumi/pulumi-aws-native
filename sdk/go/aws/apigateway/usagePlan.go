@@ -109,7 +109,7 @@ type UsagePlanInput interface {
 }
 
 func (*UsagePlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlan)(nil))
+	return reflect.TypeOf((**UsagePlan)(nil)).Elem()
 }
 
 func (i *UsagePlan) ToUsagePlanOutput() UsagePlanOutput {
@@ -123,7 +123,7 @@ func (i *UsagePlan) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanO
 type UsagePlanOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UsagePlan)(nil))
+	return reflect.TypeOf((**UsagePlan)(nil)).Elem()
 }
 
 func (o UsagePlanOutput) ToUsagePlanOutput() UsagePlanOutput {

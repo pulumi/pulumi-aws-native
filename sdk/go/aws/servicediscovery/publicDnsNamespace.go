@@ -89,7 +89,7 @@ type PublicDnsNamespaceInput interface {
 }
 
 func (*PublicDnsNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicDnsNamespace)(nil))
+	return reflect.TypeOf((**PublicDnsNamespace)(nil)).Elem()
 }
 
 func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
@@ -103,7 +103,7 @@ func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.C
 type PublicDnsNamespaceOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicDnsNamespace)(nil))
+	return reflect.TypeOf((**PublicDnsNamespace)(nil)).Elem()
 }
 
 func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {

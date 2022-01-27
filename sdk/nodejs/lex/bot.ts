@@ -73,7 +73,7 @@ export class Bot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataPrivacy === undefined) && !opts.urn) {
@@ -85,34 +85,32 @@ export class Bot extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["autoBuildBotLocales"] = args ? args.autoBuildBotLocales : undefined;
-            inputs["botFileS3Location"] = args ? args.botFileS3Location : undefined;
-            inputs["botLocales"] = args ? args.botLocales : undefined;
-            inputs["botTags"] = args ? args.botTags : undefined;
-            inputs["dataPrivacy"] = args ? args.dataPrivacy : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["idleSessionTTLInSeconds"] = args ? args.idleSessionTTLInSeconds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["testBotAliasTags"] = args ? args.testBotAliasTags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["autoBuildBotLocales"] = args ? args.autoBuildBotLocales : undefined;
+            resourceInputs["botFileS3Location"] = args ? args.botFileS3Location : undefined;
+            resourceInputs["botLocales"] = args ? args.botLocales : undefined;
+            resourceInputs["botTags"] = args ? args.botTags : undefined;
+            resourceInputs["dataPrivacy"] = args ? args.dataPrivacy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["idleSessionTTLInSeconds"] = args ? args.idleSessionTTLInSeconds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["testBotAliasTags"] = args ? args.testBotAliasTags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["autoBuildBotLocales"] = undefined /*out*/;
-            inputs["botFileS3Location"] = undefined /*out*/;
-            inputs["botLocales"] = undefined /*out*/;
-            inputs["botTags"] = undefined /*out*/;
-            inputs["dataPrivacy"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["idleSessionTTLInSeconds"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["testBotAliasTags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoBuildBotLocales"] = undefined /*out*/;
+            resourceInputs["botFileS3Location"] = undefined /*out*/;
+            resourceInputs["botLocales"] = undefined /*out*/;
+            resourceInputs["botTags"] = undefined /*out*/;
+            resourceInputs["dataPrivacy"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["idleSessionTTLInSeconds"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["testBotAliasTags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Bot.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Bot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

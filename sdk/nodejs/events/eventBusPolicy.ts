@@ -55,30 +55,28 @@ export class EventBusPolicy extends pulumi.CustomResource {
     /** @deprecated EventBusPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EventBusPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventBusPolicy is deprecated: EventBusPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.statementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["condition"] = args ? args.condition : undefined;
-            inputs["eventBusName"] = args ? args.eventBusName : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["statement"] = args ? args.statement : undefined;
-            inputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["statement"] = args ? args.statement : undefined;
+            resourceInputs["statementId"] = args ? args.statementId : undefined;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["condition"] = undefined /*out*/;
-            inputs["eventBusName"] = undefined /*out*/;
-            inputs["principal"] = undefined /*out*/;
-            inputs["statement"] = undefined /*out*/;
-            inputs["statementId"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["condition"] = undefined /*out*/;
+            resourceInputs["eventBusName"] = undefined /*out*/;
+            resourceInputs["principal"] = undefined /*out*/;
+            resourceInputs["statement"] = undefined /*out*/;
+            resourceInputs["statementId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventBusPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventBusPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

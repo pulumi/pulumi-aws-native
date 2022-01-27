@@ -68,7 +68,7 @@ export class ModelBiasJobDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ModelBiasJobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.jobResources === undefined) && !opts.urn) {
@@ -86,36 +86,34 @@ export class ModelBiasJobDefinition extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            inputs["jobResources"] = args ? args.jobResources : undefined;
-            inputs["modelBiasAppSpecification"] = args ? args.modelBiasAppSpecification : undefined;
-            inputs["modelBiasBaselineConfig"] = args ? args.modelBiasBaselineConfig : undefined;
-            inputs["modelBiasJobInput"] = args ? args.modelBiasJobInput : undefined;
-            inputs["modelBiasJobOutputConfig"] = args ? args.modelBiasJobOutputConfig : undefined;
-            inputs["networkConfig"] = args ? args.networkConfig : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["jobDefinitionArn"] = undefined /*out*/;
+            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
+            resourceInputs["jobResources"] = args ? args.jobResources : undefined;
+            resourceInputs["modelBiasAppSpecification"] = args ? args.modelBiasAppSpecification : undefined;
+            resourceInputs["modelBiasBaselineConfig"] = args ? args.modelBiasBaselineConfig : undefined;
+            resourceInputs["modelBiasJobInput"] = args ? args.modelBiasJobInput : undefined;
+            resourceInputs["modelBiasJobOutputConfig"] = args ? args.modelBiasJobOutputConfig : undefined;
+            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["jobDefinitionArn"] = undefined /*out*/;
-            inputs["jobDefinitionName"] = undefined /*out*/;
-            inputs["jobResources"] = undefined /*out*/;
-            inputs["modelBiasAppSpecification"] = undefined /*out*/;
-            inputs["modelBiasBaselineConfig"] = undefined /*out*/;
-            inputs["modelBiasJobInput"] = undefined /*out*/;
-            inputs["modelBiasJobOutputConfig"] = undefined /*out*/;
-            inputs["networkConfig"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["stoppingCondition"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
+            resourceInputs["jobDefinitionName"] = undefined /*out*/;
+            resourceInputs["jobResources"] = undefined /*out*/;
+            resourceInputs["modelBiasAppSpecification"] = undefined /*out*/;
+            resourceInputs["modelBiasBaselineConfig"] = undefined /*out*/;
+            resourceInputs["modelBiasJobInput"] = undefined /*out*/;
+            resourceInputs["modelBiasJobOutputConfig"] = undefined /*out*/;
+            resourceInputs["networkConfig"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["stoppingCondition"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ModelBiasJobDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ModelBiasJobDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

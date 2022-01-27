@@ -73,7 +73,7 @@ export class DetectorModel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DetectorModelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.detectorModelDefinition === undefined) && !opts.urn) {
@@ -82,26 +82,24 @@ export class DetectorModel extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["detectorModelDefinition"] = args ? args.detectorModelDefinition : undefined;
-            inputs["detectorModelDescription"] = args ? args.detectorModelDescription : undefined;
-            inputs["detectorModelName"] = args ? args.detectorModelName : undefined;
-            inputs["evaluationMethod"] = args ? args.evaluationMethod : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["detectorModelDefinition"] = args ? args.detectorModelDefinition : undefined;
+            resourceInputs["detectorModelDescription"] = args ? args.detectorModelDescription : undefined;
+            resourceInputs["detectorModelName"] = args ? args.detectorModelName : undefined;
+            resourceInputs["evaluationMethod"] = args ? args.evaluationMethod : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["detectorModelDefinition"] = undefined /*out*/;
-            inputs["detectorModelDescription"] = undefined /*out*/;
-            inputs["detectorModelName"] = undefined /*out*/;
-            inputs["evaluationMethod"] = undefined /*out*/;
-            inputs["key"] = undefined /*out*/;
-            inputs["roleArn"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["detectorModelDefinition"] = undefined /*out*/;
+            resourceInputs["detectorModelDescription"] = undefined /*out*/;
+            resourceInputs["detectorModelName"] = undefined /*out*/;
+            resourceInputs["evaluationMethod"] = undefined /*out*/;
+            resourceInputs["key"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DetectorModel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DetectorModel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

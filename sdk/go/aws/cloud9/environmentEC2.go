@@ -110,7 +110,7 @@ type EnvironmentEC2Input interface {
 }
 
 func (*EnvironmentEC2) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2)(nil))
+	return reflect.TypeOf((**EnvironmentEC2)(nil)).Elem()
 }
 
 func (i *EnvironmentEC2) ToEnvironmentEC2Output() EnvironmentEC2Output {
@@ -124,7 +124,7 @@ func (i *EnvironmentEC2) ToEnvironmentEC2OutputWithContext(ctx context.Context) 
 type EnvironmentEC2Output struct{ *pulumi.OutputState }
 
 func (EnvironmentEC2Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentEC2)(nil))
+	return reflect.TypeOf((**EnvironmentEC2)(nil)).Elem()
 }
 
 func (o EnvironmentEC2Output) ToEnvironmentEC2Output() EnvironmentEC2Output {

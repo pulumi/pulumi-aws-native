@@ -83,7 +83,7 @@ type EgressOnlyInternetGatewayInput interface {
 }
 
 func (*EgressOnlyInternetGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil))
+	return reflect.TypeOf((**EgressOnlyInternetGateway)(nil)).Elem()
 }
 
 func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {
@@ -97,7 +97,7 @@ func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext
 type EgressOnlyInternetGatewayOutput struct{ *pulumi.OutputState }
 
 func (EgressOnlyInternetGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil))
+	return reflect.TypeOf((**EgressOnlyInternetGateway)(nil)).Elem()
 }
 
 func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutput() EgressOnlyInternetGatewayOutput {

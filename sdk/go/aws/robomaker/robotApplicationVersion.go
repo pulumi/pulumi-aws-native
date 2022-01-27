@@ -88,7 +88,7 @@ type RobotApplicationVersionInput interface {
 }
 
 func (*RobotApplicationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*RobotApplicationVersion)(nil))
+	return reflect.TypeOf((**RobotApplicationVersion)(nil)).Elem()
 }
 
 func (i *RobotApplicationVersion) ToRobotApplicationVersionOutput() RobotApplicationVersionOutput {
@@ -102,7 +102,7 @@ func (i *RobotApplicationVersion) ToRobotApplicationVersionOutputWithContext(ctx
 type RobotApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (RobotApplicationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RobotApplicationVersion)(nil))
+	return reflect.TypeOf((**RobotApplicationVersion)(nil)).Elem()
 }
 
 func (o RobotApplicationVersionOutput) ToRobotApplicationVersionOutput() RobotApplicationVersionOutput {

@@ -1909,47 +1909,6 @@ func (i ServiceSourceConfigurationArgs) ToServiceSourceConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSourceConfigurationOutput)
 }
 
-func (i ServiceSourceConfigurationArgs) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
-	return i.ToServiceSourceConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceSourceConfigurationArgs) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSourceConfigurationOutput).ToServiceSourceConfigurationPtrOutputWithContext(ctx)
-}
-
-// ServiceSourceConfigurationPtrInput is an input type that accepts ServiceSourceConfigurationArgs, ServiceSourceConfigurationPtr and ServiceSourceConfigurationPtrOutput values.
-// You can construct a concrete instance of `ServiceSourceConfigurationPtrInput` via:
-//
-//          ServiceSourceConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceSourceConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput
-	ToServiceSourceConfigurationPtrOutputWithContext(context.Context) ServiceSourceConfigurationPtrOutput
-}
-
-type serviceSourceConfigurationPtrType ServiceSourceConfigurationArgs
-
-func ServiceSourceConfigurationPtr(v *ServiceSourceConfigurationArgs) ServiceSourceConfigurationPtrInput {
-	return (*serviceSourceConfigurationPtrType)(v)
-}
-
-func (*serviceSourceConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSourceConfiguration)(nil)).Elem()
-}
-
-func (i *serviceSourceConfigurationPtrType) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
-	return i.ToServiceSourceConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceSourceConfigurationPtrType) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSourceConfigurationPtrOutput)
-}
-
 // Source Code configuration
 type ServiceSourceConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1963,16 +1922,6 @@ func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationOutput() S
 
 func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationOutputWithContext(ctx context.Context) ServiceSourceConfigurationOutput {
 	return o
-}
-
-func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
-	return o.ToServiceSourceConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfiguration) *ServiceSourceConfiguration {
-		return &v
-	}).(ServiceSourceConfigurationPtrOutput)
 }
 
 func (o ServiceSourceConfigurationOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationPtrOutput {
@@ -1992,67 +1941,6 @@ func (o ServiceSourceConfigurationOutput) CodeRepository() ServiceCodeRepository
 
 func (o ServiceSourceConfigurationOutput) ImageRepository() ServiceImageRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceImageRepository { return v.ImageRepository }).(ServiceImageRepositoryPtrOutput)
-}
-
-type ServiceSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceSourceConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSourceConfiguration)(nil)).Elem()
-}
-
-func (o ServiceSourceConfigurationPtrOutput) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
-	return o
-}
-
-func (o ServiceSourceConfigurationPtrOutput) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return o
-}
-
-func (o ServiceSourceConfigurationPtrOutput) Elem() ServiceSourceConfigurationOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) ServiceSourceConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceSourceConfiguration
-		return ret
-	}).(ServiceSourceConfigurationOutput)
-}
-
-func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceAuthenticationConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.AuthenticationConfiguration
-	}).(ServiceAuthenticationConfigurationPtrOutput)
-}
-
-// Auto Deployment enabled
-func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoDeploymentsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceCodeRepositoryPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceCodeRepository {
-		if v == nil {
-			return nil
-		}
-		return v.CodeRepository
-	}).(ServiceCodeRepositoryPtrOutput)
-}
-
-func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceImageRepositoryPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceImageRepository {
-		if v == nil {
-			return nil
-		}
-		return v.ImageRepository
-	}).(ServiceImageRepositoryPtrOutput)
 }
 
 type ServiceTag struct {
@@ -2179,7 +2067,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionInput)(nil)).Elem(), ServiceSourceCodeVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionPtrInput)(nil)).Elem(), ServiceSourceCodeVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationPtrInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagInput)(nil)).Elem(), ServiceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagArrayInput)(nil)).Elem(), ServiceTagArray{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationOutput{})
@@ -2205,7 +2092,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionOutput{})
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationOutput{})
-	pulumi.RegisterOutputType(ServiceSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceTagOutput{})
 	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
 }

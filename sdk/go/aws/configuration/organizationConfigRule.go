@@ -87,7 +87,7 @@ type OrganizationConfigRuleInput interface {
 }
 
 func (*OrganizationConfigRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationConfigRule)(nil))
+	return reflect.TypeOf((**OrganizationConfigRule)(nil)).Elem()
 }
 
 func (i *OrganizationConfigRule) ToOrganizationConfigRuleOutput() OrganizationConfigRuleOutput {
@@ -101,7 +101,7 @@ func (i *OrganizationConfigRule) ToOrganizationConfigRuleOutputWithContext(ctx c
 type OrganizationConfigRuleOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationConfigRule)(nil))
+	return reflect.TypeOf((**OrganizationConfigRule)(nil)).Elem()
 }
 
 func (o OrganizationConfigRuleOutput) ToOrganizationConfigRuleOutput() OrganizationConfigRuleOutput {

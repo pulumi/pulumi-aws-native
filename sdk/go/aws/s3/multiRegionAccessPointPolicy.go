@@ -94,7 +94,7 @@ type MultiRegionAccessPointPolicyInput interface {
 }
 
 func (*MultiRegionAccessPointPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiRegionAccessPointPolicy)(nil))
+	return reflect.TypeOf((**MultiRegionAccessPointPolicy)(nil)).Elem()
 }
 
 func (i *MultiRegionAccessPointPolicy) ToMultiRegionAccessPointPolicyOutput() MultiRegionAccessPointPolicyOutput {
@@ -108,7 +108,7 @@ func (i *MultiRegionAccessPointPolicy) ToMultiRegionAccessPointPolicyOutputWithC
 type MultiRegionAccessPointPolicyOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiRegionAccessPointPolicy)(nil))
+	return reflect.TypeOf((**MultiRegionAccessPointPolicy)(nil)).Elem()
 }
 
 func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutput() MultiRegionAccessPointPolicyOutput {

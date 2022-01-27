@@ -52,24 +52,22 @@ export class CodeRepository extends pulumi.CustomResource {
     /** @deprecated CodeRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CodeRepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CodeRepository is deprecated: CodeRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gitConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gitConfig'");
             }
-            inputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;
-            inputs["gitConfig"] = args ? args.gitConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;
+            resourceInputs["gitConfig"] = args ? args.gitConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["codeRepositoryName"] = undefined /*out*/;
-            inputs["gitConfig"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["codeRepositoryName"] = undefined /*out*/;
+            resourceInputs["gitConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CodeRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CodeRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

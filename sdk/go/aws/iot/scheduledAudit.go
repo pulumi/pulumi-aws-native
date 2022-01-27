@@ -118,7 +118,7 @@ type ScheduledAuditInput interface {
 }
 
 func (*ScheduledAudit) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAudit)(nil))
+	return reflect.TypeOf((**ScheduledAudit)(nil)).Elem()
 }
 
 func (i *ScheduledAudit) ToScheduledAuditOutput() ScheduledAuditOutput {
@@ -132,7 +132,7 @@ func (i *ScheduledAudit) ToScheduledAuditOutputWithContext(ctx context.Context) 
 type ScheduledAuditOutput struct{ *pulumi.OutputState }
 
 func (ScheduledAuditOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledAudit)(nil))
+	return reflect.TypeOf((**ScheduledAudit)(nil)).Elem()
 }
 
 func (o ScheduledAuditOutput) ToScheduledAuditOutput() ScheduledAuditOutput {

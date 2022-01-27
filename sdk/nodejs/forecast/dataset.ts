@@ -64,7 +64,7 @@ export class Dataset extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.datasetType === undefined) && !opts.urn) {
@@ -76,28 +76,26 @@ export class Dataset extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["dataFrequency"] = args ? args.dataFrequency : undefined;
-            inputs["datasetName"] = args ? args.datasetName : undefined;
-            inputs["datasetType"] = args ? args.datasetType : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["dataFrequency"] = args ? args.dataFrequency : undefined;
+            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
+            resourceInputs["datasetType"] = args ? args.datasetType : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["dataFrequency"] = undefined /*out*/;
-            inputs["datasetName"] = undefined /*out*/;
-            inputs["datasetType"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["encryptionConfig"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dataFrequency"] = undefined /*out*/;
+            resourceInputs["datasetName"] = undefined /*out*/;
+            resourceInputs["datasetType"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["encryptionConfig"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dataset.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dataset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

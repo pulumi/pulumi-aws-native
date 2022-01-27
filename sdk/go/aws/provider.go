@@ -30,25 +30,25 @@ func NewProvider(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Profile == nil {
+	if isZero(args.Profile) {
 		args.Profile = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_PROFILE").(string))
 	}
-	if args.Region == nil {
+	if isZero(args.Region) {
 		args.Region = pulumi.String(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string))
 	}
-	if args.SharedCredentialsFile == nil {
+	if isZero(args.SharedCredentialsFile) {
 		args.SharedCredentialsFile = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_SHARED_CREDENTIALS_FILE").(string))
 	}
-	if args.SkipCredentialsValidation == nil {
+	if isZero(args.SkipCredentialsValidation) {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(true)
 	}
-	if args.SkipGetEc2Platforms == nil {
+	if isZero(args.SkipGetEc2Platforms) {
 		args.SkipGetEc2Platforms = pulumi.BoolPtr(true)
 	}
-	if args.SkipMetadataApiCheck == nil {
+	if isZero(args.SkipMetadataApiCheck) {
 		args.SkipMetadataApiCheck = pulumi.BoolPtr(true)
 	}
-	if args.SkipRegionValidation == nil {
+	if isZero(args.SkipRegionValidation) {
 		args.SkipRegionValidation = pulumi.BoolPtr(true)
 	}
 	var resource Provider
@@ -158,7 +158,7 @@ type ProviderInput interface {
 }
 
 func (*Provider) ElementType() reflect.Type {
-	return reflect.TypeOf((*Provider)(nil))
+	return reflect.TypeOf((**Provider)(nil)).Elem()
 }
 
 func (i *Provider) ToProviderOutput() ProviderOutput {
@@ -172,7 +172,7 @@ func (i *Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutp
 type ProviderOutput struct{ *pulumi.OutputState }
 
 func (ProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Provider)(nil))
+	return reflect.TypeOf((**Provider)(nil)).Elem()
 }
 
 func (o ProviderOutput) ToProviderOutput() ProviderOutput {

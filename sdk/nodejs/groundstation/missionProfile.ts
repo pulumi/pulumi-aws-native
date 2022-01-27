@@ -65,7 +65,7 @@ export class MissionProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MissionProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataflowEdges === undefined) && !opts.urn) {
@@ -77,30 +77,28 @@ export class MissionProfile extends pulumi.CustomResource {
             if ((!args || args.trackingConfigArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trackingConfigArn'");
             }
-            inputs["contactPostPassDurationSeconds"] = args ? args.contactPostPassDurationSeconds : undefined;
-            inputs["contactPrePassDurationSeconds"] = args ? args.contactPrePassDurationSeconds : undefined;
-            inputs["dataflowEdges"] = args ? args.dataflowEdges : undefined;
-            inputs["minimumViableContactDurationSeconds"] = args ? args.minimumViableContactDurationSeconds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trackingConfigArn"] = args ? args.trackingConfigArn : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
+            resourceInputs["contactPostPassDurationSeconds"] = args ? args.contactPostPassDurationSeconds : undefined;
+            resourceInputs["contactPrePassDurationSeconds"] = args ? args.contactPrePassDurationSeconds : undefined;
+            resourceInputs["dataflowEdges"] = args ? args.dataflowEdges : undefined;
+            resourceInputs["minimumViableContactDurationSeconds"] = args ? args.minimumViableContactDurationSeconds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trackingConfigArn"] = args ? args.trackingConfigArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
         } else {
-            inputs["arn"] = undefined /*out*/;
-            inputs["contactPostPassDurationSeconds"] = undefined /*out*/;
-            inputs["contactPrePassDurationSeconds"] = undefined /*out*/;
-            inputs["dataflowEdges"] = undefined /*out*/;
-            inputs["minimumViableContactDurationSeconds"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trackingConfigArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["contactPostPassDurationSeconds"] = undefined /*out*/;
+            resourceInputs["contactPrePassDurationSeconds"] = undefined /*out*/;
+            resourceInputs["dataflowEdges"] = undefined /*out*/;
+            resourceInputs["minimumViableContactDurationSeconds"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trackingConfigArn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MissionProfile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MissionProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

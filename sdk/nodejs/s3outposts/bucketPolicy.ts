@@ -51,7 +51,7 @@ export class BucketPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BucketPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -60,16 +60,14 @@ export class BucketPolicy extends pulumi.CustomResource {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
         } else {
-            inputs["bucket"] = undefined /*out*/;
-            inputs["policyDocument"] = undefined /*out*/;
+            resourceInputs["bucket"] = undefined /*out*/;
+            resourceInputs["policyDocument"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BucketPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BucketPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -50,7 +50,7 @@ export class UserToGroupAddition extends pulumi.CustomResource {
     /** @deprecated UserToGroupAddition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: UserToGroupAdditionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserToGroupAddition is deprecated: UserToGroupAddition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupName === undefined) && !opts.urn) {
@@ -59,16 +59,14 @@ export class UserToGroupAddition extends pulumi.CustomResource {
             if ((!args || args.users === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["users"] = args ? args.users : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
         } else {
-            inputs["groupName"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
+            resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserToGroupAddition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserToGroupAddition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

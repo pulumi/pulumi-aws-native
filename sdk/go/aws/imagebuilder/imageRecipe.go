@@ -139,7 +139,7 @@ type ImageRecipeInput interface {
 }
 
 func (*ImageRecipe) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageRecipe)(nil))
+	return reflect.TypeOf((**ImageRecipe)(nil)).Elem()
 }
 
 func (i *ImageRecipe) ToImageRecipeOutput() ImageRecipeOutput {
@@ -153,7 +153,7 @@ func (i *ImageRecipe) ToImageRecipeOutputWithContext(ctx context.Context) ImageR
 type ImageRecipeOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageRecipe)(nil))
+	return reflect.TypeOf((**ImageRecipe)(nil)).Elem()
 }
 
 func (o ImageRecipeOutput) ToImageRecipeOutput() ImageRecipeOutput {

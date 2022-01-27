@@ -94,7 +94,7 @@ type NetworkInterfacePermissionInput interface {
 }
 
 func (*NetworkInterfacePermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfacePermission)(nil))
+	return reflect.TypeOf((**NetworkInterfacePermission)(nil)).Elem()
 }
 
 func (i *NetworkInterfacePermission) ToNetworkInterfacePermissionOutput() NetworkInterfacePermissionOutput {
@@ -108,7 +108,7 @@ func (i *NetworkInterfacePermission) ToNetworkInterfacePermissionOutputWithConte
 type NetworkInterfacePermissionOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfacePermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfacePermission)(nil))
+	return reflect.TypeOf((**NetworkInterfacePermission)(nil)).Elem()
 }
 
 func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutput() NetworkInterfacePermissionOutput {
