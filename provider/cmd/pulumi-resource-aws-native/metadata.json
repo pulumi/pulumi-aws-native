@@ -2040,6 +2040,86 @@
                 "kMSArn"
             ]
         },
+        "aws-native:appintegrations:DataIntegration": {
+            "cf": "AWS::AppIntegrations::DataIntegration",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The data integration description."
+                },
+                "kmsKey": {
+                    "type": "string",
+                    "description": "The KMS key of the data integration."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the data integration."
+                },
+                "scheduleConfig": {
+                    "$ref": "#/types/aws-native:appintegrations:DataIntegrationScheduleConfig",
+                    "description": "The name of the data and how often it should be pulled from the source."
+                },
+                "sourceURI": {
+                    "type": "string",
+                    "description": "The URI of the data source."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appintegrations:DataIntegrationTag"
+                    },
+                    "description": "The tags (keys and values) associated with the data integration."
+                }
+            },
+            "outputs": {
+                "dataIntegrationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the data integration."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The data integration description."
+                },
+                "kmsKey": {
+                    "type": "string",
+                    "description": "The KMS key of the data integration."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the data integration."
+                },
+                "scheduleConfig": {
+                    "$ref": "#/types/aws-native:appintegrations:DataIntegrationScheduleConfig",
+                    "description": "The name of the data and how often it should be pulled from the source."
+                },
+                "sourceURI": {
+                    "type": "string",
+                    "description": "The URI of the data source."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appintegrations:DataIntegrationTag"
+                    },
+                    "description": "The tags (keys and values) associated with the data integration."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
+            "required": [
+                "kmsKey",
+                "scheduleConfig",
+                "sourceURI"
+            ],
+            "createOnly": [
+                "kmsKey",
+                "scheduleConfig",
+                "sourceURI"
+            ]
+        },
         "aws-native:appintegrations:EventIntegration": {
             "cf": "AWS::AppIntegrations::EventIntegration",
             "inputs": {
@@ -20031,6 +20111,9 @@
                         "$ref": "#/types/aws-native:ivs:RecordingConfigurationTag"
                     },
                     "description": "A list of key-value pairs that contain metadata for the asset model."
+                },
+                "thumbnailConfiguration": {
+                    "$ref": "#/types/aws-native:ivs:RecordingConfigurationThumbnailConfiguration"
                 }
             },
             "outputs": {
@@ -20055,6 +20138,9 @@
                         "$ref": "#/types/aws-native:ivs:RecordingConfigurationTag"
                     },
                     "description": "A list of key-value pairs that contain metadata for the asset model."
+                },
+                "thumbnailConfiguration": {
+                    "$ref": "#/types/aws-native:ivs:RecordingConfigurationThumbnailConfiguration"
                 }
             },
             "autoNamingSpec": {
@@ -20068,7 +20154,10 @@
                 "destinationConfiguration",
                 "destinationConfiguration/S3",
                 "destinationConfiguration/S3/BucketName",
-                "name"
+                "name",
+                "thumbnailConfiguration",
+                "thumbnailConfiguration/RecordingMode",
+                "thumbnailConfiguration/TargetIntervalSeconds"
             ]
         },
         "aws-native:ivs:StreamKey": {
@@ -29581,6 +29670,63 @@
                 "name"
             ]
         },
+        "aws-native:robomaker:RobotApplication": {
+            "cf": "AWS::RoboMaker::RobotApplication",
+            "inputs": {
+                "currentRevisionId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "robotSoftwareSuite": {
+                    "$ref": "#/types/aws-native:robomaker:RobotApplicationRobotSoftwareSuite"
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:robomaker:RobotApplicationSourceConfig"
+                    }
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "currentRevisionId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "robotSoftwareSuite": {
+                    "$ref": "#/types/aws-native:robomaker:RobotApplicationRobotSoftwareSuite"
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:robomaker:RobotApplicationSourceConfig"
+                    }
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "robotSoftwareSuite",
+                "sources"
+            ],
+            "createOnly": [
+                "name",
+                "robotSoftwareSuite"
+            ]
+        },
         "aws-native:robomaker:RobotApplicationVersion": {
             "cf": "AWS::RoboMaker::RobotApplicationVersion",
             "inputs": {
@@ -34872,6 +35018,10 @@
                     "type": "string",
                     "description": "The name for the database which the table to be created belongs to."
                 },
+                "magneticStoreWriteProperties": {
+                    "$ref": "#/types/aws-native:timestream:MagneticStoreWritePropertiesProperties",
+                    "description": "The properties that determine whether magnetic store writes are enabled."
+                },
                 "retentionProperties": {
                     "$ref": "#/types/aws-native:timestream:RetentionPropertiesProperties",
                     "description": "The retention duration of the memory store and the magnetic store."
@@ -34895,6 +35045,10 @@
                 "databaseName": {
                     "type": "string",
                     "description": "The name for the database which the table to be created belongs to."
+                },
+                "magneticStoreWriteProperties": {
+                    "$ref": "#/types/aws-native:timestream:MagneticStoreWritePropertiesProperties",
+                    "description": "The properties that determine whether magnetic store writes are enabled."
                 },
                 "name": {
                     "type": "string",
@@ -38304,6 +38458,36 @@
             "properties": {
                 "object": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:appintegrations:DataIntegrationScheduleConfig": {
+            "type": "object",
+            "properties": {
+                "firstExecutionFrom": {
+                    "type": "string",
+                    "description": "The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported."
+                },
+                "object": {
+                    "type": "string",
+                    "description": "The name of the object to pull from the data source."
+                },
+                "scheduleExpression": {
+                    "type": "string",
+                    "description": "How often the data should be pulled from data source."
+                }
+            }
+        },
+        "aws-native:appintegrations:DataIntegrationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "A key to identify the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Corresponding tag value for the key."
                 }
             }
         },
@@ -53946,6 +54130,22 @@
                 }
             }
         },
+        "aws-native:ivs:RecordingConfigurationThumbnailConfiguration": {
+            "type": "object",
+            "properties": {
+                "recordingMode": {
+                    "$ref": "#/types/aws-native:ivs:RecordingConfigurationThumbnailConfigurationRecordingMode",
+                    "description": "Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled."
+                },
+                "targetIntervalSeconds": {
+                    "type": "integer",
+                    "description": "Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL."
+                }
+            }
+        },
+        "aws-native:ivs:RecordingConfigurationThumbnailConfigurationRecordingMode": {
+            "type": "string"
+        },
         "aws-native:ivs:StreamKeyTag": {
             "type": "object",
             "properties": {
@@ -62799,6 +62999,31 @@
         "aws-native:robomaker:FleetTags": {
             "type": "object"
         },
+        "aws-native:robomaker:RobotApplicationRobotSoftwareSuite": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:robomaker:RobotApplicationSourceConfig": {
+            "type": "object",
+            "properties": {
+                "architecture": {
+                    "type": "string"
+                },
+                "s3Bucket": {
+                    "type": "string"
+                },
+                "s3Key": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:robomaker:RobotArchitecture": {
             "type": "string"
         },
@@ -63718,6 +63943,15 @@
                 }
             }
         },
+        "aws-native:s3:BucketEventBridgeConfiguration": {
+            "type": "object",
+            "properties": {
+                "eventBridgeEnabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket."
+                }
+            }
+        },
         "aws-native:s3:BucketFilterRule": {
             "type": "object",
             "properties": {
@@ -63882,9 +64116,26 @@
         "aws-native:s3:BucketMetricsStatus": {
             "type": "string"
         },
+        "aws-native:s3:BucketNoncurrentVersionExpiration": {
+            "type": "object",
+            "properties": {
+                "newerNoncurrentVersions": {
+                    "type": "integer",
+                    "description": "Specified the number of newer noncurrent and current versions that must exists before performing the associated action"
+                },
+                "noncurrentDays": {
+                    "type": "integer",
+                    "description": "Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action"
+                }
+            }
+        },
         "aws-native:s3:BucketNoncurrentVersionTransition": {
             "type": "object",
             "properties": {
+                "newerNoncurrentVersions": {
+                    "type": "integer",
+                    "description": "Specified the number of newer noncurrent and current versions that must exists before performing the associated action"
+                },
                 "storageClass": {
                     "$ref": "#/types/aws-native:s3:BucketNoncurrentVersionTransitionStorageClass",
                     "description": "The class of storage used to store the object."
@@ -63901,6 +64152,9 @@
         "aws-native:s3:BucketNotificationConfiguration": {
             "type": "object",
             "properties": {
+                "eventBridgeConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketEventBridgeConfiguration"
+                },
                 "lambdaConfigurations": {
                     "type": "array",
                     "items": {
@@ -64239,6 +64493,9 @@
                 "id": {
                     "type": "string"
                 },
+                "noncurrentVersionExpiration": {
+                    "$ref": "#/types/aws-native:s3:BucketNoncurrentVersionExpiration"
+                },
                 "noncurrentVersionExpirationInDays": {
                     "type": "integer"
                 },
@@ -64250,6 +64507,12 @@
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketNoncurrentVersionTransition"
                     }
+                },
+                "objectSizeGreaterThan": {
+                    "type": "string"
+                },
+                "objectSizeLessThan": {
+                    "type": "string"
                 },
                 "prefix": {
                     "type": "string"
@@ -67496,6 +67759,49 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:timestream:MagneticStoreWritePropertiesProperties": {
+            "type": "object",
+            "properties": {
+                "enableMagneticStoreWrites": {
+                    "type": "boolean",
+                    "description": "Boolean flag indicating whether magnetic store writes are enabled."
+                },
+                "magneticStoreRejectedDataLocation": {
+                    "$ref": "#/types/aws-native:timestream:MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties",
+                    "description": "Location to store information about records that were asynchronously rejected during magnetic store writes."
+                }
+            }
+        },
+        "aws-native:timestream:MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties": {
+            "type": "object",
+            "properties": {
+                "s3Configuration": {
+                    "$ref": "#/types/aws-native:timestream:MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties",
+                    "description": "S3 configuration for location to store rejections from magnetic store writes"
+                }
+            }
+        },
+        "aws-native:timestream:MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "The bucket name used to store the data."
+                },
+                "encryptionOption": {
+                    "type": "string",
+                    "description": "Either SSE_KMS or SSE_S3."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "Must be provided if SSE_KMS is specified as the encryption option"
+                },
+                "objectKeyPrefix": {
+                    "type": "string",
+                    "description": "String used to prefix all data in the bucket."
                 }
             }
         },
