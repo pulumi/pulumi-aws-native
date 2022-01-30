@@ -244,7 +244,13 @@
       "$ref" : "#/definitions/DestinationNetworkInterfaceArns"
     }
   },
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "DestinationLocationArn", "SourceLocationArn" ],
   "readOnlyProperties" : [ "/properties/TaskArn", "/properties/ErrorCode", "/properties/ErrorDetail", "/properties/Status", "/properties/SourceNetworkInterfaceArns", "/properties/DestinationNetworkInterfaceArns" ],
