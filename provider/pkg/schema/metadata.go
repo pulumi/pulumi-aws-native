@@ -8,16 +8,17 @@ import pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 type CloudAPIMetadata struct {
 	Resources map[string]CloudAPIResource `json:"resources"`
 	Types     map[string]CloudAPIType     `json:"types"`
+	Functions map[string]CloudAPIFunction `json:"functions"`
 }
 
 // CloudAPIResource contains metadata for a single AWS Resource.
 type CloudAPIResource struct {
-	CfType          string                          `json:"cf"`
-	Inputs          map[string]pschema.PropertySpec `json:"inputs"`
-	Outputs         map[string]pschema.PropertySpec `json:"outputs"`
-	AutoNamingSpec  *AutoNamingSpec                 `json:"autoNamingSpec,omitempty"`
-	Required        []string                        `json:"required,omitempty"`
-	CreateOnly      []string                        `json:"createOnly,omitempty"`
+	CfType         string                          `json:"cf"`
+	Inputs         map[string]pschema.PropertySpec `json:"inputs"`
+	Outputs        map[string]pschema.PropertySpec `json:"outputs"`
+	AutoNamingSpec *AutoNamingSpec                 `json:"autoNamingSpec,omitempty"`
+	Required       []string                        `json:"required,omitempty"`
+	CreateOnly     []string                        `json:"createOnly,omitempty"`
 }
 
 type AutoNamingSpec struct {
@@ -30,6 +31,11 @@ type AutoNamingSpec struct {
 type CloudAPIType struct {
 	Type       string                          `json:"type"`
 	Properties map[string]pschema.PropertySpec `json:"properties,omitempty"`
+}
+
+type CloudAPIFunction struct {
+	CfType      string   `json:"cf"`
+	Identifiers []string `json:"ids"`
 }
 
 // ExtensionResourceToken is a Pulumi token for the resource to deploy

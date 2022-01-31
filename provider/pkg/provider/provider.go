@@ -416,6 +416,8 @@ var functions = map[string]func(*cfnProvider, context.Context, resource.Property
 	"aws-native:index:importValue":           (*cfnProvider).importValue,
 }
 
+type invokeFunc func(p *cfnProvider, ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error)
+
 // Invoke dynamically executes a built-in function in the provider.
 func (p *cfnProvider) Invoke(ctx context.Context,
 	req *pulumirpc.InvokeRequest) (*pulumirpc.InvokeResponse, error) {
@@ -433,11 +435,15 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	}
 
 	// Process Invoke call.
+	var result resource.PropertyMap
 	fn, ok := functions[tok]
+	if !ok {
+		fn, ok = p.getInvokeFunc(ctx, tok)
+	}
 	if !ok {
 		return nil, fmt.Errorf("unknown function '%s'", tok)
 	}
-	result, err := fn(p, ctx, inputs)
+	result, err = fn(p, ctx, inputs)
 	if err != nil {
 		return nil, err
 	}
@@ -451,6 +457,35 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 		return nil, err
 	}
 	return &pulumirpc.InvokeResponse{Return: res}, nil
+}
+
+func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc, bool) {
+	cf, ok := p.resourceMap.Functions[tok]
+	if !ok {
+		return nil, false
+	}
+	return func(p *cfnProvider, ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+		idParts := make([]string, len(cf.Identifiers))
+		for i, v := range cf.Identifiers {
+			pv, ok := inputs[resource.PropertyKey(v)]
+			if !ok {
+				return nil, errors.Errorf("missing identifier property '%s'", v)
+			}
+			if !pv.IsString() {
+				return nil, errors.Errorf("identifier property '%s', expected type string, found %s", v, pv.TypeString())
+			}
+			idParts[i] = pv.StringValue()
+		}
+		identifier := strings.Join(idParts, "|")
+		fmt.Printf("Invoking %s", cf.CfType)
+		outputs, err := p.readResourceState(ctx, cf.CfType, identifier)
+		if err != nil {
+			return nil, err
+		}
+		sdkOutput := schema.CfnToSdk(outputs)
+
+		return resource.NewPropertyMapFromMap(sdkOutput), nil
+	}, true
 }
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
