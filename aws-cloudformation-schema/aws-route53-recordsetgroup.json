@@ -3,13 +3,10 @@
   "description" : "Resource Type definition for AWS::Route53::RecordSetGroup",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "Comment" : {
       "type" : "string"
     },
-    "HostedZoneId" : {
+    "Id" : {
       "type" : "string"
     },
     "HostedZoneName" : {
@@ -21,41 +18,39 @@
       "items" : {
         "$ref" : "#/definitions/RecordSet"
       }
+    },
+    "HostedZoneId" : {
+      "type" : "string"
     }
   },
   "definitions" : {
-    "RecordSet" : {
+    "AliasTarget" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "AliasTarget" : {
-          "$ref" : "#/definitions/AliasTarget"
-        },
-        "Comment" : {
-          "type" : "string"
-        },
-        "Failover" : {
-          "type" : "string"
-        },
-        "GeoLocation" : {
-          "$ref" : "#/definitions/GeoLocation"
-        },
-        "HealthCheckId" : {
+        "DNSName" : {
           "type" : "string"
         },
         "HostedZoneId" : {
           "type" : "string"
         },
-        "HostedZoneName" : {
-          "type" : "string"
-        },
-        "MultiValueAnswer" : {
+        "EvaluateTargetHealth" : {
           "type" : "boolean"
-        },
-        "Name" : {
+        }
+      },
+      "required" : [ "HostedZoneId", "DNSName" ]
+    },
+    "RecordSet" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "HealthCheckId" : {
           "type" : "string"
         },
-        "Region" : {
+        "AliasTarget" : {
+          "$ref" : "#/definitions/AliasTarget"
+        },
+        "HostedZoneName" : {
           "type" : "string"
         },
         "ResourceRecords" : {
@@ -65,36 +60,38 @@
             "type" : "string"
           }
         },
+        "HostedZoneId" : {
+          "type" : "string"
+        },
         "SetIdentifier" : {
           "type" : "string"
         },
         "TTL" : {
           "type" : "string"
         },
+        "Weight" : {
+          "type" : "integer"
+        },
+        "Name" : {
+          "type" : "string"
+        },
         "Type" : {
           "type" : "string"
         },
-        "Weight" : {
-          "type" : "integer"
+        "Failover" : {
+          "type" : "string"
+        },
+        "Region" : {
+          "type" : "string"
+        },
+        "GeoLocation" : {
+          "$ref" : "#/definitions/GeoLocation"
+        },
+        "MultiValueAnswer" : {
+          "type" : "boolean"
         }
       },
       "required" : [ "Type", "Name" ]
-    },
-    "AliasTarget" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "DNSName" : {
-          "type" : "string"
-        },
-        "EvaluateTargetHealth" : {
-          "type" : "boolean"
-        },
-        "HostedZoneId" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "DNSName", "HostedZoneId" ]
     },
     "GeoLocation" : {
       "type" : "object",
