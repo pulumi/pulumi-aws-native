@@ -19,6 +19,15 @@ func TestSimpleTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestGetTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "get-ts"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestUpdate(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
