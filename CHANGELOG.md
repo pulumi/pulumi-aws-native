@@ -1,6 +1,8 @@
 ## HEAD (Unreleased)
 
 - Update Pulumi dependencies to v3.23.0
+- Use sequence numbers to generate deterministic autonames.
+  [#341](https://github.com/pulumi/pulumi-aws-native/pull/341)
 
 ---
 
