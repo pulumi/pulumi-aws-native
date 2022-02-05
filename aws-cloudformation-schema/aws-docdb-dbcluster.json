@@ -65,6 +65,9 @@
     "DBClusterParameterGroupName" : {
       "type" : "string"
     },
+    "CopyTagsToSnapshot" : {
+      "type" : "boolean"
+    },
     "BackupRetentionPeriod" : {
       "type" : "integer"
     },
