@@ -44,6 +44,25 @@
         }
       },
       "required" : [ "BucketName" ]
+    },
+    "ThumbnailConfiguration" : {
+      "description" : "Recording Thumbnail Configuration.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RecordingMode" : {
+          "description" : "Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.",
+          "type" : "string",
+          "enum" : [ "INTERVAL", "DISABLED" ]
+        },
+        "TargetIntervalSeconds" : {
+          "description" : "Thumbnail recording Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.",
+          "type" : "integer",
+          "minimum" : 5,
+          "maximum" : 60
+        }
+      },
+      "required" : [ "RecordingMode" ]
     }
   },
   "properties" : {
@@ -78,13 +97,16 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "ThumbnailConfiguration" : {
+      "$ref" : "#/definitions/ThumbnailConfiguration"
     }
   },
   "additionalProperties" : false,
   "required" : [ "DestinationConfiguration" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/State" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/DestinationConfiguration", "/properties/DestinationConfiguration/S3", "/properties/DestinationConfiguration/S3/BucketName" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/DestinationConfiguration", "/properties/DestinationConfiguration/S3", "/properties/DestinationConfiguration/S3/BucketName", "/properties/ThumbnailConfiguration", "/properties/ThumbnailConfiguration/RecordingMode", "/properties/ThumbnailConfiguration/TargetIntervalSeconds" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ivs:CreateRecordingConfiguration", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "s3:ListBucket", "s3:GetBucketLocation", "cloudformation:ListExports" ]

@@ -41,18 +41,6 @@
     }
   },
   "definitions" : {
-    "Sasl" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Iam" : {
-          "$ref" : "#/definitions/Iam"
-        },
-        "Scram" : {
-          "$ref" : "#/definitions/Scram"
-        }
-      }
-    },
     "S3" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -93,6 +81,151 @@
         }
       },
       "required" : [ "Enabled" ]
+    },
+    "OpenMonitoring" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Prometheus" : {
+          "$ref" : "#/definitions/Prometheus"
+        }
+      },
+      "required" : [ "Prometheus" ]
+    },
+    "Prometheus" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "JmxExporter" : {
+          "$ref" : "#/definitions/JmxExporter"
+        },
+        "NodeExporter" : {
+          "$ref" : "#/definitions/NodeExporter"
+        }
+      }
+    },
+    "CloudWatchLogs" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "LogGroup" : {
+          "type" : "string"
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
+    "ProvisionedThroughput" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "VolumeThroughput" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "BrokerNodeGroupInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SecurityGroups" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "ClientSubnets" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "ConnectivityInfo" : {
+          "$ref" : "#/definitions/ConnectivityInfo"
+        },
+        "StorageInfo" : {
+          "$ref" : "#/definitions/StorageInfo"
+        },
+        "BrokerAZDistribution" : {
+          "type" : "string"
+        },
+        "InstanceType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ClientSubnets", "InstanceType" ]
+    },
+    "Tls" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "CertificateAuthorityArnList" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "ClientAuthentication" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Sasl" : {
+          "$ref" : "#/definitions/Sasl"
+        },
+        "Tls" : {
+          "$ref" : "#/definitions/Tls"
+        },
+        "Unauthenticated" : {
+          "$ref" : "#/definitions/Unauthenticated"
+        }
+      }
+    },
+    "LoggingInfo" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "BrokerLogs" : {
+          "$ref" : "#/definitions/BrokerLogs"
+        }
+      },
+      "required" : [ "BrokerLogs" ]
+    },
+    "EncryptionInTransit" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "InCluster" : {
+          "type" : "boolean"
+        },
+        "ClientBroker" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Sasl" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Iam" : {
+          "$ref" : "#/definitions/Iam"
+        },
+        "Scram" : {
+          "$ref" : "#/definitions/Scram"
+        }
+      }
     },
     "NodeExporter" : {
       "type" : "object",
@@ -138,47 +271,15 @@
       },
       "required" : [ "Enabled" ]
     },
-    "OpenMonitoring" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Prometheus" : {
-          "$ref" : "#/definitions/Prometheus"
-        }
-      },
-      "required" : [ "Prometheus" ]
-    },
-    "Prometheus" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "JmxExporter" : {
-          "$ref" : "#/definitions/JmxExporter"
-        },
-        "NodeExporter" : {
-          "$ref" : "#/definitions/NodeExporter"
-        }
-      }
-    },
-    "CloudWatchLogs" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "LogGroup" : {
-          "type" : "string"
-        },
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      },
-      "required" : [ "Enabled" ]
-    },
     "EBSStorageInfo" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "VolumeSize" : {
           "type" : "integer"
+        },
+        "ProvisionedThroughput" : {
+          "$ref" : "#/definitions/ProvisionedThroughput"
         }
       }
     },
@@ -204,39 +305,6 @@
         }
       },
       "required" : [ "Revision", "Arn" ]
-    },
-    "BrokerNodeGroupInfo" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "SecurityGroups" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "ClientSubnets" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "ConnectivityInfo" : {
-          "$ref" : "#/definitions/ConnectivityInfo"
-        },
-        "StorageInfo" : {
-          "$ref" : "#/definitions/StorageInfo"
-        },
-        "BrokerAZDistribution" : {
-          "type" : "string"
-        },
-        "InstanceType" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "ClientSubnets", "InstanceType" ]
     },
     "EncryptionAtRest" : {
       "type" : "object",
@@ -277,64 +345,11 @@
         }
       }
     },
-    "Tls" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
-        "CertificateAuthorityArnList" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
-    },
     "PublicAccess" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Type" : {
-          "type" : "string"
-        }
-      }
-    },
-    "ClientAuthentication" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Sasl" : {
-          "$ref" : "#/definitions/Sasl"
-        },
-        "Tls" : {
-          "$ref" : "#/definitions/Tls"
-        },
-        "Unauthenticated" : {
-          "$ref" : "#/definitions/Unauthenticated"
-        }
-      }
-    },
-    "LoggingInfo" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "BrokerLogs" : {
-          "$ref" : "#/definitions/BrokerLogs"
-        }
-      },
-      "required" : [ "BrokerLogs" ]
-    },
-    "EncryptionInTransit" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "InCluster" : {
-          "type" : "boolean"
-        },
-        "ClientBroker" : {
           "type" : "string"
         }
       }

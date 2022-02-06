@@ -119,6 +119,9 @@
         "CpuOptions" : {
           "$ref" : "#/definitions/CpuOptions"
         },
+        "PrivateDnsNameOptions" : {
+          "$ref" : "#/definitions/PrivateDnsNameOptions"
+        },
         "SecurityGroupIds" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -342,6 +345,9 @@
         "HttpProtocolIpv6" : {
           "type" : "string"
         },
+        "InstanceMetadataTags" : {
+          "type" : "string"
+        },
         "HttpEndpoint" : {
           "type" : "string"
         }
@@ -451,6 +457,21 @@
           }
         },
         "DeleteOnTermination" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "PrivateDnsNameOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "HostnameType" : {
+          "type" : "string"
+        },
+        "EnableResourceNameDnsAAAARecord" : {
+          "type" : "boolean"
+        },
+        "EnableResourceNameDnsARecord" : {
           "type" : "boolean"
         }
       }
