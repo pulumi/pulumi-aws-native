@@ -7,6 +7,13 @@ import typing
 # Export this package's modules as members:
 from .app import *
 from .elastic_load_balancer_attachment import *
+from .get_app import *
+from .get_elastic_load_balancer_attachment import *
+from .get_instance import *
+from .get_layer import *
+from .get_stack import *
+from .get_user_profile import *
+from .get_volume import *
 from .instance import *
 from .layer import *
 from .stack import *

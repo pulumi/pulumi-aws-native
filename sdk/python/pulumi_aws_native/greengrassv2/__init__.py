@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .component_version import *
+from .get_component_version import *
 from ._inputs import *
 from . import outputs

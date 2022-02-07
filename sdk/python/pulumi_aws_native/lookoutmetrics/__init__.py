@@ -8,5 +8,7 @@ import typing
 from ._enums import *
 from .alert import *
 from .anomaly_detector import *
+from .get_alert import *
+from .get_anomaly_detector import *
 from ._inputs import *
 from . import outputs

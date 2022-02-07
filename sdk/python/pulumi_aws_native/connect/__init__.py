@@ -8,6 +8,12 @@ import typing
 from ._enums import *
 from .contact_flow import *
 from .contact_flow_module import *
+from .get_contact_flow import *
+from .get_contact_flow_module import *
+from .get_hours_of_operation import *
+from .get_quick_connect import *
+from .get_user import *
+from .get_user_hierarchy_group import *
 from .hours_of_operation import *
 from .quick_connect import *
 from .user import *

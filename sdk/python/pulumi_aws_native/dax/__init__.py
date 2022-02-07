@@ -6,6 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .cluster import *
+from .get_cluster import *
+from .get_parameter_group import *
+from .get_subnet_group import *
 from .parameter_group import *
 from .subnet_group import *
 from ._inputs import *

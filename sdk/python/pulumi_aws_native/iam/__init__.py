@@ -6,6 +6,19 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .access_key import *
+from .get_access_key import *
+from .get_group import *
+from .get_instance_profile import *
+from .get_managed_policy import *
+from .get_oidc_provider import *
+from .get_policy import *
+from .get_role import *
+from .get_saml_provider import *
+from .get_server_certificate import *
+from .get_service_linked_role import *
+from .get_user import *
+from .get_user_to_group_addition import *
+from .get_virtual_mfa_device import *
 from .group import *
 from .instance_profile import *
 from .managed_policy import *

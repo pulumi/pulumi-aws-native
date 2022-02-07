@@ -5,6 +5,9 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_project import *
+from .get_report_group import *
+from .get_source_credential import *
 from .project import *
 from .report_group import *
 from .source_credential import *

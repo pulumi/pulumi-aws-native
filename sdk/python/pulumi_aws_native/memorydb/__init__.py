@@ -8,6 +8,11 @@ import typing
 from ._enums import *
 from .acl import *
 from .cluster import *
+from .get_acl import *
+from .get_cluster import *
+from .get_parameter_group import *
+from .get_subnet_group import *
+from .get_user import *
 from .parameter_group import *
 from .subnet_group import *
 from .user import *

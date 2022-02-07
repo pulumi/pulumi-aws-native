@@ -7,6 +7,12 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .device_pool import *
+from .get_device_pool import *
+from .get_instance_profile import *
+from .get_network_profile import *
+from .get_project import *
+from .get_test_grid_project import *
+from .get_vpce_configuration import *
 from .instance_profile import *
 from .network_profile import *
 from .project import *

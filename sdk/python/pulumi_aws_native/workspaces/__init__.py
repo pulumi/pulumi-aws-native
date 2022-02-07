@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .connection_alias import *
+from .get_connection_alias import *
+from .get_workspace import *
 from .workspace import *
 from ._inputs import *
 from . import outputs

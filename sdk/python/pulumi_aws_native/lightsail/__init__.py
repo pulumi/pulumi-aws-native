@@ -13,6 +13,17 @@ from .container import *
 from .database import *
 from .disk import *
 from .distribution import *
+from .get_alarm import *
+from .get_bucket import *
+from .get_certificate import *
+from .get_container import *
+from .get_database import *
+from .get_disk import *
+from .get_distribution import *
+from .get_instance import *
+from .get_load_balancer import *
+from .get_load_balancer_tls_certificate import *
+from .get_static_ip import *
 from .instance import *
 from .load_balancer import *
 from .load_balancer_tls_certificate import *

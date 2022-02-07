@@ -6,6 +6,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_ip_set import *
+from .get_logging_configuration import *
+from .get_regex_pattern_set import *
+from .get_rule_group import *
+from .get_web_acl import *
+from .get_web_aclassociation import *
 from .ip_set import *
 from .logging_configuration import *
 from .regex_pattern_set import *

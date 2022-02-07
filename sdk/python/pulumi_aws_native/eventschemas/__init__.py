@@ -6,6 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .discoverer import *
+from .get_discoverer import *
+from .get_registry import *
+from .get_registry_policy import *
+from .get_schema import *
 from .registry import *
 from .registry_policy import *
 from .schema import *

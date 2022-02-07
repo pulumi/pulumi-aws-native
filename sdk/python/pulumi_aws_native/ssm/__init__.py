@@ -8,6 +8,14 @@ import typing
 from ._enums import *
 from .association import *
 from .document import *
+from .get_association import *
+from .get_document import *
+from .get_maintenance_window import *
+from .get_maintenance_window_target import *
+from .get_maintenance_window_task import *
+from .get_parameter import *
+from .get_patch_baseline import *
+from .get_resource_data_sync import *
 from .maintenance_window import *
 from .maintenance_window_target import *
 from .maintenance_window_task import *

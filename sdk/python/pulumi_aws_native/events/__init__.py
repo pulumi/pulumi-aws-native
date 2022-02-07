@@ -11,6 +11,12 @@ from .archive import *
 from .connection import *
 from .event_bus import *
 from .event_bus_policy import *
+from .get_api_destination import *
+from .get_archive import *
+from .get_connection import *
+from .get_event_bus import *
+from .get_event_bus_policy import *
+from .get_rule import *
 from .rule import *
 from ._inputs import *
 from . import outputs

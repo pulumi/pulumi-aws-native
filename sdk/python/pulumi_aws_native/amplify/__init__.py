@@ -9,5 +9,8 @@ from ._enums import *
 from .app import *
 from .branch import *
 from .domain import *
+from .get_app import *
+from .get_branch import *
+from .get_domain import *
 from ._inputs import *
 from . import outputs

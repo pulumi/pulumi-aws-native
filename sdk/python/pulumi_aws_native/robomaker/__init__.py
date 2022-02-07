@@ -7,6 +7,12 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .fleet import *
+from .get_fleet import *
+from .get_robot import *
+from .get_robot_application import *
+from .get_robot_application_version import *
+from .get_simulation_application import *
+from .get_simulation_application_version import *
 from .robot import *
 from .robot_application import *
 from .robot_application_version import *

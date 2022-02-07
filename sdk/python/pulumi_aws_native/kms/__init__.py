@@ -7,6 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .alias import *
+from .get_alias import *
+from .get_key import *
+from .get_replica_key import *
 from .key import *
 from .replica_key import *
 from ._inputs import *

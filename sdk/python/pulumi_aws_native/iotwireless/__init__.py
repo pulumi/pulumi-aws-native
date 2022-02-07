@@ -9,6 +9,15 @@ from ._enums import *
 from .destination import *
 from .device_profile import *
 from .fuota_task import *
+from .get_destination import *
+from .get_device_profile import *
+from .get_fuota_task import *
+from .get_multicast_group import *
+from .get_partner_account import *
+from .get_service_profile import *
+from .get_task_definition import *
+from .get_wireless_device import *
+from .get_wireless_gateway import *
 from .multicast_group import *
 from .partner_account import *
 from .service_profile import *

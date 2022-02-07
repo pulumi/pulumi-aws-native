@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .assessment import *
+from .get_assessment import *
 from ._inputs import *
 from . import outputs

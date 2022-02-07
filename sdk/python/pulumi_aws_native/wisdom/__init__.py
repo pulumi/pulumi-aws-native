@@ -8,6 +8,9 @@ import typing
 from ._enums import *
 from .assistant import *
 from .assistant_association import *
+from .get_assistant import *
+from .get_assistant_association import *
+from .get_knowledge_base import *
 from .knowledge_base import *
 from ._inputs import *
 from . import outputs

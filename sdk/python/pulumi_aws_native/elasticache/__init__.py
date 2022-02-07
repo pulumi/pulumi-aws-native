@@ -7,6 +7,15 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .cache_cluster import *
+from .get_cache_cluster import *
+from .get_global_replication_group import *
+from .get_parameter_group import *
+from .get_replication_group import *
+from .get_security_group import *
+from .get_security_group_ingress import *
+from .get_subnet_group import *
+from .get_user import *
+from .get_user_group import *
 from .global_replication_group import *
 from .parameter_group import *
 from .replication_group import *

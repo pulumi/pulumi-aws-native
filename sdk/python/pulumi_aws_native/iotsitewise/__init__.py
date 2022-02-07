@@ -11,6 +11,13 @@ from .asset import *
 from .asset_model import *
 from .dashboard import *
 from .gateway import *
+from .get_access_policy import *
+from .get_asset import *
+from .get_asset_model import *
+from .get_dashboard import *
+from .get_gateway import *
+from .get_portal import *
+from .get_project import *
 from .portal import *
 from .project import *
 from ._inputs import *

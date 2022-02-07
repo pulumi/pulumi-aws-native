@@ -9,6 +9,12 @@ from .alarm import *
 from .anomaly_detector import *
 from .composite_alarm import *
 from .dashboard import *
+from .get_alarm import *
+from .get_anomaly_detector import *
+from .get_composite_alarm import *
+from .get_dashboard import *
+from .get_insight_rule import *
+from .get_metric_stream import *
 from .insight_rule import *
 from .metric_stream import *
 from ._inputs import *

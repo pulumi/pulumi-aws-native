@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_microsoft_ad import *
+from .get_simple_ad import *
 from .microsoft_ad import *
 from .simple_ad import *
 from ._inputs import *

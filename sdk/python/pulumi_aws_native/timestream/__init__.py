@@ -7,6 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .database import *
+from .get_database import *
+from .get_scheduled_query import *
+from .get_table import *
 from .scheduled_query import *
 from .table import *
 from ._inputs import *

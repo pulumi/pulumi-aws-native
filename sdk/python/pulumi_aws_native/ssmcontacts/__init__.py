@@ -8,5 +8,7 @@ import typing
 from ._enums import *
 from .contact import *
 from .contact_channel import *
+from .get_contact import *
+from .get_contact_channel import *
 from ._inputs import *
 from . import outputs
