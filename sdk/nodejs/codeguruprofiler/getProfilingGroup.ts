@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
  */
-export function getProfilingGroup(args?: GetProfilingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProfilingGroupResult> {
-    args = args || {};
+export function getProfilingGroup(args: GetProfilingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProfilingGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetProfilingGroupArgs {
     /**
      * The name of the profiling group.
      */
-    profilingGroupName?: string;
+    profilingGroupName: string;
 }
 
 export interface GetProfilingGroupResult {
@@ -46,7 +45,7 @@ export interface GetProfilingGroupResult {
     readonly tags?: outputs.codeguruprofiler.ProfilingGroupTag[];
 }
 
-export function getProfilingGroupOutput(args?: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilingGroupResult> {
+export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilingGroupResult> {
     return pulumi.output(args).apply(a => getProfilingGroup(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetProfilingGroupOutputArgs {
     /**
      * The name of the profiling group.
      */
-    profilingGroupName?: pulumi.Input<string>;
+    profilingGroupName: pulumi.Input<string>;
 }

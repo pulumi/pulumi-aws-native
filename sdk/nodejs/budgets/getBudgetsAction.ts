@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getBudgetsAction(args?: GetBudgetsActionArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetsActionResult> {
-    args = args || {};
+export function getBudgetsAction(args: GetBudgetsActionArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetsActionResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getBudgetsAction(args?: GetBudgetsActionArgs, opts?: pulumi.Invo
 }
 
 export interface GetBudgetsActionArgs {
-    actionId?: string;
-    budgetName?: string;
+    actionId: string;
+    budgetName: string;
 }
 
 export interface GetBudgetsActionResult {
@@ -36,11 +35,11 @@ export interface GetBudgetsActionResult {
     readonly subscribers?: outputs.budgets.BudgetsActionSubscriber[];
 }
 
-export function getBudgetsActionOutput(args?: GetBudgetsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetsActionResult> {
+export function getBudgetsActionOutput(args: GetBudgetsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetsActionResult> {
     return pulumi.output(args).apply(a => getBudgetsAction(a, opts))
 }
 
 export interface GetBudgetsActionOutputArgs {
-    actionId?: pulumi.Input<string>;
-    budgetName?: pulumi.Input<string>;
+    actionId: pulumi.Input<string>;
+    budgetName: pulumi.Input<string>;
 }

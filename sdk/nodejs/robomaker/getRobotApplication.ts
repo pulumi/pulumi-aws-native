@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RoboMaker::RobotApplication
  */
-export function getRobotApplication(args?: GetRobotApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotApplicationResult> {
-    args = args || {};
+export function getRobotApplication(args: GetRobotApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotApplicationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRobotApplication(args?: GetRobotApplicationArgs, opts?: pulum
 }
 
 export interface GetRobotApplicationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRobotApplicationResult {
@@ -32,10 +31,10 @@ export interface GetRobotApplicationResult {
     readonly tags?: any;
 }
 
-export function getRobotApplicationOutput(args?: GetRobotApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotApplicationResult> {
+export function getRobotApplicationOutput(args: GetRobotApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotApplicationResult> {
     return pulumi.output(args).apply(a => getRobotApplication(a, opts))
 }
 
 export interface GetRobotApplicationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

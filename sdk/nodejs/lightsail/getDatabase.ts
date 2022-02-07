@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::Database
  */
-export function getDatabase(args?: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
-    args = args || {};
+export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDatabaseArgs {
     /**
      * The name to use for your new Lightsail database resource.
      */
-    relationalDatabaseName?: string;
+    relationalDatabaseName: string;
 }
 
 export interface GetDatabaseResult {
@@ -55,7 +54,7 @@ export interface GetDatabaseResult {
     readonly tags?: outputs.lightsail.DatabaseTag[];
 }
 
-export function getDatabaseOutput(args?: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
+export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply(a => getDatabase(a, opts))
 }
 
@@ -63,5 +62,5 @@ export interface GetDatabaseOutputArgs {
     /**
      * The name to use for your new Lightsail database resource.
      */
-    relationalDatabaseName?: pulumi.Input<string>;
+    relationalDatabaseName: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Used to install the certificate authority certificate and update the certificate authority status.
  */
-export function getCertificateAuthorityActivation(args?: GetCertificateAuthorityActivationArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityActivationResult> {
-    args = args || {};
+export function getCertificateAuthorityActivation(args: GetCertificateAuthorityActivationArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityActivationResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetCertificateAuthorityActivationArgs {
     /**
      * Arn of the Certificate Authority.
      */
-    certificateAuthorityArn?: string;
+    certificateAuthorityArn: string;
 }
 
 export interface GetCertificateAuthorityActivationResult {
@@ -37,7 +36,7 @@ export interface GetCertificateAuthorityActivationResult {
     readonly status?: string;
 }
 
-export function getCertificateAuthorityActivationOutput(args?: GetCertificateAuthorityActivationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateAuthorityActivationResult> {
+export function getCertificateAuthorityActivationOutput(args: GetCertificateAuthorityActivationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateAuthorityActivationResult> {
     return pulumi.output(args).apply(a => getCertificateAuthorityActivation(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetCertificateAuthorityActivationOutputArgs {
     /**
      * Arn of the Certificate Authority.
      */
-    certificateAuthorityArn?: pulumi.Input<string>;
+    certificateAuthorityArn: pulumi.Input<string>;
 }

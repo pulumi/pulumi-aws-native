@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::Table
  */
-export function getTable(args?: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    args = args || {};
+export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTable(args?: GetTableArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetTableArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTableResult {
@@ -29,10 +28,10 @@ export interface GetTableResult {
     readonly tableInput?: outputs.glue.TableInput;
 }
 
-export function getTableOutput(args?: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
+export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply(a => getTable(a, opts))
 }
 
 export interface GetTableOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

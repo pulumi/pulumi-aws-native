@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodePipeline::Pipeline
  */
-export function getPipeline(args?: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    args = args || {};
+export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPipeline(args?: GetPipelineArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetPipelineArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPipelineResult {
@@ -36,10 +35,10 @@ export interface GetPipelineResult {
     readonly version?: string;
 }
 
-export function getPipelineOutput(args?: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply(a => getPipeline(a, opts))
 }
 
 export interface GetPipelineOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

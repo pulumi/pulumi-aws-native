@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
  */
-export function getResourceSet(args?: GetResourceSetArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSetResult> {
-    args = args || {};
+export function getResourceSet(args: GetResourceSetArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResourceSetArgs {
     /**
      * The name of the resource set to create.
      */
-    resourceSetName?: string;
+    resourceSetName: string;
 }
 
 export interface GetResourceSetResult {
@@ -42,7 +41,7 @@ export interface GetResourceSetResult {
     readonly tags?: outputs.route53recoveryreadiness.ResourceSetTag[];
 }
 
-export function getResourceSetOutput(args?: GetResourceSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSetResult> {
+export function getResourceSetOutput(args: GetResourceSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSetResult> {
     return pulumi.output(args).apply(a => getResourceSet(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetResourceSetOutputArgs {
     /**
      * The name of the resource set to create.
      */
-    resourceSetName?: pulumi.Input<string>;
+    resourceSetName: pulumi.Input<string>;
 }

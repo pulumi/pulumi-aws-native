@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
  */
-export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    args = args || {};
+export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetDomainArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetDomainResult {
@@ -35,10 +34,10 @@ export interface GetDomainResult {
     readonly subDomainSettings?: outputs.amplify.DomainSubDomainSetting[];
 }
 
-export function getDomainOutput(args?: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply(a => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

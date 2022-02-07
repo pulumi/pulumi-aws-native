@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An ObjectType resource of Amazon Connect Customer Profiles
  */
-export function getObjectType(args?: GetObjectTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectTypeResult> {
-    args = args || {};
+export function getObjectType(args: GetObjectTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectTypeResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetObjectTypeArgs {
     /**
      * The unique name of the domain.
      */
-    domainName?: string;
+    domainName: string;
     /**
      * The name of the profile object type.
      */
-    objectTypeName?: string;
+    objectTypeName: string;
 }
 
 export interface GetObjectTypeResult {
@@ -75,7 +74,7 @@ export interface GetObjectTypeResult {
     readonly templateId?: string;
 }
 
-export function getObjectTypeOutput(args?: GetObjectTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectTypeResult> {
+export function getObjectTypeOutput(args: GetObjectTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectTypeResult> {
     return pulumi.output(args).apply(a => getObjectType(a, opts))
 }
 
@@ -83,9 +82,9 @@ export interface GetObjectTypeOutputArgs {
     /**
      * The unique name of the domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * The name of the profile object type.
      */
-    objectTypeName?: pulumi.Input<string>;
+    objectTypeName: pulumi.Input<string>;
 }

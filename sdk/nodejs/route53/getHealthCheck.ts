@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Route53::HealthCheck.
  */
-export function getHealthCheck(args?: GetHealthCheckArgs, opts?: pulumi.InvokeOptions): Promise<GetHealthCheckResult> {
-    args = args || {};
+export function getHealthCheck(args: GetHealthCheckArgs, opts?: pulumi.InvokeOptions): Promise<GetHealthCheckResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getHealthCheck(args?: GetHealthCheckArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetHealthCheckArgs {
-    healthCheckId?: string;
+    healthCheckId: string;
 }
 
 export interface GetHealthCheckResult {
@@ -36,10 +35,10 @@ export interface GetHealthCheckResult {
     readonly healthCheckTags?: outputs.route53.HealthCheckTag[];
 }
 
-export function getHealthCheckOutput(args?: GetHealthCheckOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHealthCheckResult> {
+export function getHealthCheckOutput(args: GetHealthCheckOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHealthCheckResult> {
     return pulumi.output(args).apply(a => getHealthCheck(a, opts))
 }
 
 export interface GetHealthCheckOutputArgs {
-    healthCheckId?: pulumi.Input<string>;
+    healthCheckId: pulumi.Input<string>;
 }

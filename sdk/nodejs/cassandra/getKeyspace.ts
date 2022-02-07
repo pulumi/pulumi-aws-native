@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Cassandra::Keyspace
  */
-export function getKeyspace(args?: GetKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyspaceResult> {
-    args = args || {};
+export function getKeyspace(args: GetKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyspaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,14 +23,14 @@ export interface GetKeyspaceArgs {
     /**
      * Name for Cassandra keyspace
      */
-    keyspaceName?: string;
+    keyspaceName: string;
 }
 
 export interface GetKeyspaceResult {
     readonly tags?: outputs.cassandra.KeyspaceTag[];
 }
 
-export function getKeyspaceOutput(args?: GetKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyspaceResult> {
+export function getKeyspaceOutput(args: GetKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyspaceResult> {
     return pulumi.output(args).apply(a => getKeyspace(a, opts))
 }
 
@@ -39,5 +38,5 @@ export interface GetKeyspaceOutputArgs {
     /**
      * Name for Cassandra keyspace
      */
-    keyspaceName?: pulumi.Input<string>;
+    keyspaceName: pulumi.Input<string>;
 }

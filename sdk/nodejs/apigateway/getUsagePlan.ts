@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::UsagePlan
  */
-export function getUsagePlan(args?: GetUsagePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetUsagePlanResult> {
-    args = args || {};
+export function getUsagePlan(args: GetUsagePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetUsagePlanResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetUsagePlanArgs {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetUsagePlanResult {
@@ -58,7 +57,7 @@ export interface GetUsagePlanResult {
     readonly usagePlanName?: string;
 }
 
-export function getUsagePlanOutput(args?: GetUsagePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsagePlanResult> {
+export function getUsagePlanOutput(args: GetUsagePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsagePlanResult> {
     return pulumi.output(args).apply(a => getUsagePlan(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetUsagePlanOutputArgs {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  */
-export function getResourcePolicy(args?: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
-    args = args || {};
+export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getResourcePolicy(args?: GetResourcePolicyArgs, opts?: pulumi.In
 }
 
 export interface GetResourcePolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResourcePolicyResult {
@@ -31,10 +30,10 @@ export interface GetResourcePolicyResult {
     readonly revisionId?: string;
 }
 
-export function getResourcePolicyOutput(args?: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
+export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
     return pulumi.output(args).apply(a => getResourcePolicy(a, opts))
 }
 
 export interface GetResourcePolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

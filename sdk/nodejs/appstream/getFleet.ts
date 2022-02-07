@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppStream::Fleet
  */
-export function getFleet(args?: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
-    args = args || {};
+export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFleet(args?: GetFleetArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetFleetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetFleetResult {
@@ -46,10 +45,10 @@ export interface GetFleetResult {
     readonly vpcConfig?: outputs.appstream.FleetVpcConfig;
 }
 
-export function getFleetOutput(args?: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
+export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
     return pulumi.output(args).apply(a => getFleet(a, opts))
 }
 
 export interface GetFleetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

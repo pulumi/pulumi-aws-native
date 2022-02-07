@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::DirectoryService::SimpleAD
  */
-export function getSimpleAD(args?: GetSimpleADArgs, opts?: pulumi.InvokeOptions): Promise<GetSimpleADResult> {
-    args = args || {};
+export function getSimpleAD(args: GetSimpleADArgs, opts?: pulumi.InvokeOptions): Promise<GetSimpleADResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getSimpleAD(args?: GetSimpleADArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetSimpleADArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSimpleADResult {
@@ -30,10 +29,10 @@ export interface GetSimpleADResult {
     readonly id?: string;
 }
 
-export function getSimpleADOutput(args?: GetSimpleADOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimpleADResult> {
+export function getSimpleADOutput(args: GetSimpleADOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimpleADResult> {
     return pulumi.output(args).apply(a => getSimpleAD(a, opts))
 }
 
 export interface GetSimpleADOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::InAppTemplate
  */
-export function getInAppTemplate(args?: GetInAppTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetInAppTemplateResult> {
-    args = args || {};
+export function getInAppTemplate(args: GetInAppTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetInAppTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getInAppTemplate(args?: GetInAppTemplateArgs, opts?: pulumi.Invo
 }
 
 export interface GetInAppTemplateArgs {
-    templateName?: string;
+    templateName: string;
 }
 
 export interface GetInAppTemplateResult {
@@ -33,10 +32,10 @@ export interface GetInAppTemplateResult {
     readonly templateDescription?: string;
 }
 
-export function getInAppTemplateOutput(args?: GetInAppTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInAppTemplateResult> {
+export function getInAppTemplateOutput(args: GetInAppTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInAppTemplateResult> {
     return pulumi.output(args).apply(a => getInAppTemplate(a, opts))
 }
 
 export interface GetInAppTemplateOutputArgs {
-    templateName?: pulumi.Input<string>;
+    templateName: pulumi.Input<string>;
 }

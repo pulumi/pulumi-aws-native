@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::KeyGroup
  */
-export function getKeyGroup(args?: GetKeyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyGroupResult> {
-    args = args || {};
+export function getKeyGroup(args: GetKeyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getKeyGroup(args?: GetKeyGroupArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetKeyGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetKeyGroupResult {
@@ -30,10 +29,10 @@ export interface GetKeyGroupResult {
     readonly lastModifiedTime?: string;
 }
 
-export function getKeyGroupOutput(args?: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyGroupResult> {
+export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyGroupResult> {
     return pulumi.output(args).apply(a => getKeyGroup(a, opts))
 }
 
 export interface GetKeyGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

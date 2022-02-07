@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WAFRegional::WebACLAssociation
  */
-export function getWebACLAssociation(args?: GetWebACLAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLAssociationResult> {
-    args = args || {};
+export function getWebACLAssociation(args: GetWebACLAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getWebACLAssociation(args?: GetWebACLAssociationArgs, opts?: pul
 }
 
 export interface GetWebACLAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetWebACLAssociationResult {
     readonly id?: string;
 }
 
-export function getWebACLAssociationOutput(args?: GetWebACLAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLAssociationResult> {
+export function getWebACLAssociationOutput(args: GetWebACLAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLAssociationResult> {
     return pulumi.output(args).apply(a => getWebACLAssociation(a, opts))
 }
 
 export interface GetWebACLAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

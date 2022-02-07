@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::RefactorSpaces::Service Resource Type
  */
-export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    args = args || {};
+export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,9 +22,9 @@ export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetServiceArgs {
-    applicationIdentifier?: string;
-    environmentIdentifier?: string;
-    serviceIdentifier?: string;
+    applicationIdentifier: string;
+    environmentIdentifier: string;
+    serviceIdentifier: string;
 }
 
 export interface GetServiceResult {
@@ -37,12 +36,12 @@ export interface GetServiceResult {
     readonly tags?: outputs.refactorspaces.ServiceTag[];
 }
 
-export function getServiceOutput(args?: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply(a => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {
-    applicationIdentifier?: pulumi.Input<string>;
-    environmentIdentifier?: pulumi.Input<string>;
-    serviceIdentifier?: pulumi.Input<string>;
+    applicationIdentifier: pulumi.Input<string>;
+    environmentIdentifier: pulumi.Input<string>;
+    serviceIdentifier: pulumi.Input<string>;
 }

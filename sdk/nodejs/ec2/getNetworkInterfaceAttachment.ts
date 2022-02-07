@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
  */
-export function getNetworkInterfaceAttachment(args?: GetNetworkInterfaceAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceAttachmentResult> {
-    args = args || {};
+export function getNetworkInterfaceAttachment(args: GetNetworkInterfaceAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceAttachmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getNetworkInterfaceAttachment(args?: GetNetworkInterfaceAttachme
 }
 
 export interface GetNetworkInterfaceAttachmentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetNetworkInterfaceAttachmentResult {
@@ -31,10 +30,10 @@ export interface GetNetworkInterfaceAttachmentResult {
     readonly networkInterfaceId?: string;
 }
 
-export function getNetworkInterfaceAttachmentOutput(args?: GetNetworkInterfaceAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceAttachmentResult> {
+export function getNetworkInterfaceAttachmentOutput(args: GetNetworkInterfaceAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceAttachmentResult> {
     return pulumi.output(args).apply(a => getNetworkInterfaceAttachment(a, opts))
 }
 
 export interface GetNetworkInterfaceAttachmentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

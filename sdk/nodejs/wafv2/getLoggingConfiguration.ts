@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A WAFv2 Logging Configuration Resource Provider
  */
-export function getLoggingConfiguration(args?: GetLoggingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggingConfigurationResult> {
-    args = args || {};
+export function getLoggingConfiguration(args: GetLoggingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggingConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLoggingConfigurationArgs {
     /**
      * The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
      */
-    resourceArn?: string;
+    resourceArn: string;
 }
 
 export interface GetLoggingConfigurationResult {
@@ -46,7 +45,7 @@ export interface GetLoggingConfigurationResult {
     readonly redactedFields?: outputs.wafv2.LoggingConfigurationFieldToMatch[];
 }
 
-export function getLoggingConfigurationOutput(args?: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingConfigurationResult> {
+export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingConfigurationResult> {
     return pulumi.output(args).apply(a => getLoggingConfiguration(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetLoggingConfigurationOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
 }

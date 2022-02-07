@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::CapacityReservationFleet
  */
-export function getCapacityReservationFleet(args?: GetCapacityReservationFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationFleetResult> {
-    args = args || {};
+export function getCapacityReservationFleet(args: GetCapacityReservationFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationFleetResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getCapacityReservationFleet(args?: GetCapacityReservationFleetAr
 }
 
 export interface GetCapacityReservationFleetArgs {
-    capacityReservationFleetId?: string;
+    capacityReservationFleetId: string;
 }
 
 export interface GetCapacityReservationFleetResult {
@@ -30,10 +29,10 @@ export interface GetCapacityReservationFleetResult {
     readonly totalTargetCapacity?: number;
 }
 
-export function getCapacityReservationFleetOutput(args?: GetCapacityReservationFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationFleetResult> {
+export function getCapacityReservationFleetOutput(args: GetCapacityReservationFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationFleetResult> {
     return pulumi.output(args).apply(a => getCapacityReservationFleet(a, opts))
 }
 
 export interface GetCapacityReservationFleetOutputArgs {
-    capacityReservationFleetId?: pulumi.Input<string>;
+    capacityReservationFleetId: pulumi.Input<string>;
 }

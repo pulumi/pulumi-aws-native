@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::APNSVoipSandboxChannel
  */
-export function getAPNSVoipSandboxChannel(args?: GetAPNSVoipSandboxChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAPNSVoipSandboxChannelResult> {
-    args = args || {};
+export function getAPNSVoipSandboxChannel(args: GetAPNSVoipSandboxChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAPNSVoipSandboxChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAPNSVoipSandboxChannel(args?: GetAPNSVoipSandboxChannelArgs, 
 }
 
 export interface GetAPNSVoipSandboxChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAPNSVoipSandboxChannelResult {
@@ -35,10 +34,10 @@ export interface GetAPNSVoipSandboxChannelResult {
     readonly tokenKeyId?: string;
 }
 
-export function getAPNSVoipSandboxChannelOutput(args?: GetAPNSVoipSandboxChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPNSVoipSandboxChannelResult> {
+export function getAPNSVoipSandboxChannelOutput(args: GetAPNSVoipSandboxChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPNSVoipSandboxChannelResult> {
     return pulumi.output(args).apply(a => getAPNSVoipSandboxChannel(a, opts))
 }
 
 export interface GetAPNSVoipSandboxChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

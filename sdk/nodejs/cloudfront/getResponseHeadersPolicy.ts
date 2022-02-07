@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
  */
-export function getResponseHeadersPolicy(args?: GetResponseHeadersPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResponseHeadersPolicyResult> {
-    args = args || {};
+export function getResponseHeadersPolicy(args: GetResponseHeadersPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResponseHeadersPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getResponseHeadersPolicy(args?: GetResponseHeadersPolicyArgs, op
 }
 
 export interface GetResponseHeadersPolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResponseHeadersPolicyResult {
@@ -30,10 +29,10 @@ export interface GetResponseHeadersPolicyResult {
     readonly responseHeadersPolicyConfig?: outputs.cloudfront.ResponseHeadersPolicyConfig;
 }
 
-export function getResponseHeadersPolicyOutput(args?: GetResponseHeadersPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponseHeadersPolicyResult> {
+export function getResponseHeadersPolicyOutput(args: GetResponseHeadersPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponseHeadersPolicyResult> {
     return pulumi.output(args).apply(a => getResponseHeadersPolicy(a, opts))
 }
 
 export interface GetResponseHeadersPolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

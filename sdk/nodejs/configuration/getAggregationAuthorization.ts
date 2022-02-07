@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Config::AggregationAuthorization
  */
-export function getAggregationAuthorization(args?: GetAggregationAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAggregationAuthorizationResult> {
-    args = args || {};
+export function getAggregationAuthorization(args: GetAggregationAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAggregationAuthorizationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAggregationAuthorizationArgs {
     /**
      * The ARN of the AggregationAuthorization.
      */
-    aggregationAuthorizationArn?: string;
+    aggregationAuthorizationArn: string;
 }
 
 export interface GetAggregationAuthorizationResult {
@@ -38,7 +37,7 @@ export interface GetAggregationAuthorizationResult {
     readonly tags?: outputs.configuration.AggregationAuthorizationTag[];
 }
 
-export function getAggregationAuthorizationOutput(args?: GetAggregationAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAggregationAuthorizationResult> {
+export function getAggregationAuthorizationOutput(args: GetAggregationAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAggregationAuthorizationResult> {
     return pulumi.output(args).apply(a => getAggregationAuthorization(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetAggregationAuthorizationOutputArgs {
     /**
      * The ARN of the AggregationAuthorization.
      */
-    aggregationAuthorizationArn?: pulumi.Input<string>;
+    aggregationAuthorizationArn: pulumi.Input<string>;
 }

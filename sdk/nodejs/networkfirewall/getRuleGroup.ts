@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource type definition for AWS::NetworkFirewall::RuleGroup
  */
-export function getRuleGroup(args?: GetRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleGroupResult> {
-    args = args || {};
+export function getRuleGroup(args: GetRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRuleGroup(args?: GetRuleGroupArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetRuleGroupArgs {
-    ruleGroupArn?: string;
+    ruleGroupArn: string;
 }
 
 export interface GetRuleGroupResult {
@@ -32,10 +31,10 @@ export interface GetRuleGroupResult {
     readonly tags?: outputs.networkfirewall.RuleGroupTag[];
 }
 
-export function getRuleGroupOutput(args?: GetRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupResult> {
+export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupResult> {
     return pulumi.output(args).apply(a => getRuleGroup(a, opts))
 }
 
 export interface GetRuleGroupOutputArgs {
-    ruleGroupArn?: pulumi.Input<string>;
+    ruleGroupArn: pulumi.Input<string>;
 }

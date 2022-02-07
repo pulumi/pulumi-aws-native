@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Test and Publish a resource that has been registered in the CloudFormation Registry.
  */
-export function getPublicTypeVersion(args?: GetPublicTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicTypeVersionResult> {
-    args = args || {};
+export function getPublicTypeVersion(args: GetPublicTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicTypeVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetPublicTypeVersionArgs {
     /**
      * The Amazon Resource Number (ARN) assigned to the public extension upon publication
      */
-    publicTypeArn?: string;
+    publicTypeArn: string;
 }
 
 export interface GetPublicTypeVersionResult {
@@ -41,7 +40,7 @@ export interface GetPublicTypeVersionResult {
     readonly typeVersionArn?: string;
 }
 
-export function getPublicTypeVersionOutput(args?: GetPublicTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicTypeVersionResult> {
+export function getPublicTypeVersionOutput(args: GetPublicTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicTypeVersionResult> {
     return pulumi.output(args).apply(a => getPublicTypeVersion(a, opts))
 }
 
@@ -49,5 +48,5 @@ export interface GetPublicTypeVersionOutputArgs {
     /**
      * The Amazon Resource Number (ARN) assigned to the public extension upon publication
      */
-    publicTypeArn?: pulumi.Input<string>;
+    publicTypeArn: pulumi.Input<string>;
 }

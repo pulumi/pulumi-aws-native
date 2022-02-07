@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::CachePolicy
  */
-export function getCachePolicy(args?: GetCachePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCachePolicyResult> {
-    args = args || {};
+export function getCachePolicy(args: GetCachePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCachePolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCachePolicy(args?: GetCachePolicyArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetCachePolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCachePolicyResult {
@@ -30,10 +29,10 @@ export interface GetCachePolicyResult {
     readonly lastModifiedTime?: string;
 }
 
-export function getCachePolicyOutput(args?: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCachePolicyResult> {
+export function getCachePolicyOutput(args: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCachePolicyResult> {
     return pulumi.output(args).apply(a => getCachePolicy(a, opts))
 }
 
 export interface GetCachePolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

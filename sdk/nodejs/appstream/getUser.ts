@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppStream::User
  */
-export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    args = args || {};
+export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promis
 }
 
 export interface GetUserArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetUserResult {
     readonly id?: string;
 }
 
-export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply(a => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
  */
-export function getStudioComponent(args?: GetStudioComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioComponentResult> {
-    args = args || {};
+export function getStudioComponent(args: GetStudioComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioComponentResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,11 +21,11 @@ export function getStudioComponent(args?: GetStudioComponentArgs, opts?: pulumi.
 }
 
 export interface GetStudioComponentArgs {
-    studioComponentId?: string;
+    studioComponentId: string;
     /**
      * <p>The studioId. </p>
      */
-    studioId?: string;
+    studioId: string;
 }
 
 export interface GetStudioComponentResult {
@@ -55,14 +54,14 @@ export interface GetStudioComponentResult {
     readonly type?: enums.nimblestudio.StudioComponentType;
 }
 
-export function getStudioComponentOutput(args?: GetStudioComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioComponentResult> {
+export function getStudioComponentOutput(args: GetStudioComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioComponentResult> {
     return pulumi.output(args).apply(a => getStudioComponent(a, opts))
 }
 
 export interface GetStudioComponentOutputArgs {
-    studioComponentId?: pulumi.Input<string>;
+    studioComponentId: pulumi.Input<string>;
     /**
      * <p>The studioId. </p>
      */
-    studioId?: pulumi.Input<string>;
+    studioId: pulumi.Input<string>;
 }

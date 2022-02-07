@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaConnect::FlowEntitlement
  */
-export function getFlowEntitlement(args?: GetFlowEntitlementArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowEntitlementResult> {
-    args = args || {};
+export function getFlowEntitlement(args: GetFlowEntitlementArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowEntitlementResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFlowEntitlementArgs {
     /**
      * The ARN of the entitlement.
      */
-    entitlementArn?: string;
+    entitlementArn: string;
 }
 
 export interface GetFlowEntitlementResult {
@@ -54,7 +53,7 @@ export interface GetFlowEntitlementResult {
     readonly subscribers?: string[];
 }
 
-export function getFlowEntitlementOutput(args?: GetFlowEntitlementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowEntitlementResult> {
+export function getFlowEntitlementOutput(args: GetFlowEntitlementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowEntitlementResult> {
     return pulumi.output(args).apply(a => getFlowEntitlement(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetFlowEntitlementOutputArgs {
     /**
      * The ARN of the entitlement.
      */
-    entitlementArn?: pulumi.Input<string>;
+    entitlementArn: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GuardDuty::Master
  */
-export function getMaster(args?: GetMasterArgs, opts?: pulumi.InvokeOptions): Promise<GetMasterResult> {
-    args = args || {};
+export function getMaster(args: GetMasterArgs, opts?: pulumi.InvokeOptions): Promise<GetMasterResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,16 +19,16 @@ export function getMaster(args?: GetMasterArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetMasterArgs {
-    masterId?: string;
+    masterId: string;
 }
 
 export interface GetMasterResult {
 }
 
-export function getMasterOutput(args?: GetMasterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMasterResult> {
+export function getMasterOutput(args: GetMasterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMasterResult> {
     return pulumi.output(args).apply(a => getMaster(a, opts))
 }
 
 export interface GetMasterOutputArgs {
-    masterId?: pulumi.Input<string>;
+    masterId: pulumi.Input<string>;
 }

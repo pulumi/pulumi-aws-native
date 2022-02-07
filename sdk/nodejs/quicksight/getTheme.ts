@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of the AWS::QuickSight::Theme Resource Type.
  */
-export function getTheme(args?: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
-    args = args || {};
+export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getTheme(args?: GetThemeArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetThemeArgs {
-    awsAccountId?: string;
-    themeId?: string;
+    awsAccountId: string;
+    themeId: string;
 }
 
 export interface GetThemeResult {
@@ -57,11 +56,11 @@ export interface GetThemeResult {
     readonly version?: outputs.quicksight.ThemeVersion;
 }
 
-export function getThemeOutput(args?: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
+export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
     return pulumi.output(args).apply(a => getTheme(a, opts))
 }
 
 export interface GetThemeOutputArgs {
-    awsAccountId?: pulumi.Input<string>;
-    themeId?: pulumi.Input<string>;
+    awsAccountId: pulumi.Input<string>;
+    themeId: pulumi.Input<string>;
 }

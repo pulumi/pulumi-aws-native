@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::LoadBalancer
  */
-export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    args = args || {};
+export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLoadBalancerArgs {
     /**
      * The name of your load balancer.
      */
-    loadBalancerName?: string;
+    loadBalancerName: string;
 }
 
 export interface GetLoadBalancerResult {
@@ -51,7 +50,7 @@ export interface GetLoadBalancerResult {
     readonly tags?: outputs.lightsail.LoadBalancerTag[];
 }
 
-export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
+export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
 }
 
@@ -59,5 +58,5 @@ export interface GetLoadBalancerOutputArgs {
     /**
      * The name of your load balancer.
      */
-    loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodeDeploy::DeploymentConfig
  */
-export function getDeploymentConfig(args?: GetDeploymentConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentConfigResult> {
-    args = args || {};
+export function getDeploymentConfig(args: GetDeploymentConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getDeploymentConfig(args?: GetDeploymentConfigArgs, opts?: pulum
 }
 
 export interface GetDeploymentConfigArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDeploymentConfigResult {
     readonly id?: string;
 }
 
-export function getDeploymentConfigOutput(args?: GetDeploymentConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentConfigResult> {
+export function getDeploymentConfigOutput(args: GetDeploymentConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentConfigResult> {
     return pulumi.output(args).apply(a => getDeploymentConfig(a, opts))
 }
 
 export interface GetDeploymentConfigOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

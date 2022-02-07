@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::SubscriptionDefinition
  */
-export function getSubscriptionDefinition(args?: GetSubscriptionDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDefinitionResult> {
-    args = args || {};
+export function getSubscriptionDefinition(args: GetSubscriptionDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getSubscriptionDefinition(args?: GetSubscriptionDefinitionArgs, 
 }
 
 export interface GetSubscriptionDefinitionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSubscriptionDefinitionResult {
@@ -31,10 +30,10 @@ export interface GetSubscriptionDefinitionResult {
     readonly tags?: any;
 }
 
-export function getSubscriptionDefinitionOutput(args?: GetSubscriptionDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDefinitionResult> {
+export function getSubscriptionDefinitionOutput(args: GetSubscriptionDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDefinitionResult> {
     return pulumi.output(args).apply(a => getSubscriptionDefinition(a, opts))
 }
 
 export interface GetSubscriptionDefinitionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

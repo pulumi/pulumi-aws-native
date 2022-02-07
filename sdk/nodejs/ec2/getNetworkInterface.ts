@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::EC2::NetworkInterface resource creates network interface
  */
-export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
-    args = args || {};
+export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetNetworkInterfaceArgs {
     /**
      * Network interface id.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetNetworkInterfaceResult {
@@ -74,7 +73,7 @@ export interface GetNetworkInterfaceResult {
     readonly tags?: outputs.ec2.NetworkInterfaceTag[];
 }
 
-export function getNetworkInterfaceOutput(args?: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
+export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
     return pulumi.output(args).apply(a => getNetworkInterface(a, opts))
 }
 
@@ -82,5 +81,5 @@ export interface GetNetworkInterfaceOutputArgs {
     /**
      * Network interface id.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

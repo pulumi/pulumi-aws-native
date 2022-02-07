@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for SSO PermissionSet
  */
-export function getPermissionSet(args?: GetPermissionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionSetResult> {
-    args = args || {};
+export function getPermissionSet(args: GetPermissionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetPermissionSetArgs {
     /**
      * The sso instance arn that the permission set is owned.
      */
-    instanceArn?: string;
+    instanceArn: string;
     /**
      * The permission set that the policy will be attached to
      */
-    permissionSetArn?: string;
+    permissionSetArn: string;
 }
 
 export interface GetPermissionSetResult {
@@ -57,7 +56,7 @@ export interface GetPermissionSetResult {
     readonly tags?: outputs.sso.PermissionSetTag[];
 }
 
-export function getPermissionSetOutput(args?: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionSetResult> {
+export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionSetResult> {
     return pulumi.output(args).apply(a => getPermissionSet(a, opts))
 }
 
@@ -65,9 +64,9 @@ export interface GetPermissionSetOutputArgs {
     /**
      * The sso instance arn that the permission set is owned.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn: pulumi.Input<string>;
     /**
      * The permission set that the policy will be attached to
      */
-    permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::EIP
  */
-export function getEIP(args?: GetEIPArgs, opts?: pulumi.InvokeOptions): Promise<GetEIPResult> {
-    args = args || {};
+export function getEIP(args: GetEIPArgs, opts?: pulumi.InvokeOptions): Promise<GetEIPResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getEIP(args?: GetEIPArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetEIPArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEIPResult {
@@ -32,10 +31,10 @@ export interface GetEIPResult {
     readonly tags?: outputs.ec2.EIPTag[];
 }
 
-export function getEIPOutput(args?: GetEIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEIPResult> {
+export function getEIPOutput(args: GetEIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEIPResult> {
     return pulumi.output(args).apply(a => getEIP(a, opts))
 }
 
 export interface GetEIPOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

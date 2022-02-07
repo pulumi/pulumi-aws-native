@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
  */
-export function getCostCategory(args?: GetCostCategoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCostCategoryResult> {
-    args = args || {};
+export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCostCategoryResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetCostCategoryArgs {
     /**
      * Cost category ARN
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetCostCategoryResult {
@@ -48,7 +47,7 @@ export interface GetCostCategoryResult {
     readonly splitChargeRules?: string;
 }
 
-export function getCostCategoryOutput(args?: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
+export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
     return pulumi.output(args).apply(a => getCostCategory(a, opts))
 }
 
@@ -56,5 +55,5 @@ export interface GetCostCategoryOutputArgs {
     /**
      * Cost category ARN
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

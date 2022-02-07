@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
  */
-export function getCloudFormationProduct(args?: GetCloudFormationProductArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationProductResult> {
-    args = args || {};
+export function getCloudFormationProduct(args: GetCloudFormationProductArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationProductResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCloudFormationProduct(args?: GetCloudFormationProductArgs, op
 }
 
 export interface GetCloudFormationProductArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCloudFormationProductResult {
@@ -42,10 +41,10 @@ export interface GetCloudFormationProductResult {
     readonly tags?: outputs.servicecatalog.CloudFormationProductTag[];
 }
 
-export function getCloudFormationProductOutput(args?: GetCloudFormationProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationProductResult> {
+export function getCloudFormationProductOutput(args: GetCloudFormationProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationProductResult> {
     return pulumi.output(args).apply(a => getCloudFormationProduct(a, opts))
 }
 
 export interface GetCloudFormationProductOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

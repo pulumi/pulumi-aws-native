@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The default version of a resource that has been registered in the CloudFormation Registry.
  */
-export function getResourceDefaultVersion(args?: GetResourceDefaultVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceDefaultVersionResult> {
-    args = args || {};
+export function getResourceDefaultVersion(args: GetResourceDefaultVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceDefaultVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetResourceDefaultVersionArgs {
     /**
      * The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetResourceDefaultVersionResult {
@@ -47,7 +46,7 @@ export interface GetResourceDefaultVersionResult {
     readonly versionId?: string;
 }
 
-export function getResourceDefaultVersionOutput(args?: GetResourceDefaultVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefaultVersionResult> {
+export function getResourceDefaultVersionOutput(args: GetResourceDefaultVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefaultVersionResult> {
     return pulumi.output(args).apply(a => getResourceDefaultVersion(a, opts))
 }
 
@@ -55,5 +54,5 @@ export interface GetResourceDefaultVersionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

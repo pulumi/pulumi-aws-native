@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Macie FindingsFilter resource schema.
  */
-export function getFindingsFilter(args?: GetFindingsFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFindingsFilterResult> {
-    args = args || {};
+export function getFindingsFilter(args: GetFindingsFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFindingsFilterResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFindingsFilterArgs {
     /**
      * Findings filter ID.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetFindingsFilterResult {
@@ -62,7 +61,7 @@ export interface GetFindingsFilterResult {
     readonly position?: number;
 }
 
-export function getFindingsFilterOutput(args?: GetFindingsFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingsFilterResult> {
+export function getFindingsFilterOutput(args: GetFindingsFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingsFilterResult> {
     return pulumi.output(args).apply(a => getFindingsFilter(a, opts))
 }
 
@@ -70,5 +69,5 @@ export interface GetFindingsFilterOutputArgs {
     /**
      * Findings filter ID.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

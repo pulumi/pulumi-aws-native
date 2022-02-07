@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource type definition for AWS::NetworkFirewall::Firewall
  */
-export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
-    args = args || {};
+export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetFirewallArgs {
-    firewallArn?: string;
+    firewallArn: string;
 }
 
 export interface GetFirewallResult {
@@ -37,10 +36,10 @@ export interface GetFirewallResult {
     readonly tags?: outputs.networkfirewall.FirewallTag[];
 }
 
-export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
+export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
     return pulumi.output(args).apply(a => getFirewall(a, opts))
 }
 
 export interface GetFirewallOutputArgs {
-    firewallArn?: pulumi.Input<string>;
+    firewallArn: pulumi.Input<string>;
 }

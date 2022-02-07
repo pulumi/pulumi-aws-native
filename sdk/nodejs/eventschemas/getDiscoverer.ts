@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EventSchemas::Discoverer
  */
-export function getDiscoverer(args?: GetDiscovererArgs, opts?: pulumi.InvokeOptions): Promise<GetDiscovererResult> {
-    args = args || {};
+export function getDiscoverer(args: GetDiscovererArgs, opts?: pulumi.InvokeOptions): Promise<GetDiscovererResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDiscoverer(args?: GetDiscovererArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetDiscovererArgs {
-    discovererId?: string;
+    discovererId: string;
 }
 
 export interface GetDiscovererResult {
@@ -32,10 +31,10 @@ export interface GetDiscovererResult {
     readonly tags?: outputs.eventschemas.DiscovererTagsEntry[];
 }
 
-export function getDiscovererOutput(args?: GetDiscovererOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiscovererResult> {
+export function getDiscovererOutput(args: GetDiscovererOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiscovererResult> {
     return pulumi.output(args).apply(a => getDiscoverer(a, opts))
 }
 
 export interface GetDiscovererOutputArgs {
-    discovererId?: pulumi.Input<string>;
+    discovererId: pulumi.Input<string>;
 }

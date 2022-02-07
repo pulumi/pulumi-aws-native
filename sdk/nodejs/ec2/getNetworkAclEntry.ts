@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::NetworkAclEntry
  */
-export function getNetworkAclEntry(args?: GetNetworkAclEntryArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclEntryResult> {
-    args = args || {};
+export function getNetworkAclEntry(args: GetNetworkAclEntryArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclEntryResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNetworkAclEntry(args?: GetNetworkAclEntryArgs, opts?: pulumi.
 }
 
 export interface GetNetworkAclEntryArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetNetworkAclEntryResult {
@@ -52,10 +51,10 @@ export interface GetNetworkAclEntryResult {
     readonly ruleAction?: string;
 }
 
-export function getNetworkAclEntryOutput(args?: GetNetworkAclEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAclEntryResult> {
+export function getNetworkAclEntryOutput(args: GetNetworkAclEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAclEntryResult> {
     return pulumi.output(args).apply(a => getNetworkAclEntry(a, opts))
 }
 
 export interface GetNetworkAclEntryOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

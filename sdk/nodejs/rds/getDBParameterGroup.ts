@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RDS::DBParameterGroup
  */
-export function getDBParameterGroup(args?: GetDBParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBParameterGroupResult> {
-    args = args || {};
+export function getDBParameterGroup(args: GetDBParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBParameterGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDBParameterGroup(args?: GetDBParameterGroupArgs, opts?: pulum
 }
 
 export interface GetDBParameterGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDBParameterGroupResult {
@@ -32,10 +31,10 @@ export interface GetDBParameterGroupResult {
     readonly tags?: outputs.rds.DBParameterGroupTag[];
 }
 
-export function getDBParameterGroupOutput(args?: GetDBParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBParameterGroupResult> {
+export function getDBParameterGroupOutput(args: GetDBParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBParameterGroupResult> {
     return pulumi.output(args).apply(a => getDBParameterGroup(a, opts))
 }
 
 export interface GetDBParameterGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::LocationNFS
  */
-export function getLocationNFS(args?: GetLocationNFSArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationNFSResult> {
-    args = args || {};
+export function getLocationNFS(args: GetLocationNFSArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationNFSResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLocationNFSArgs {
     /**
      * The Amazon Resource Name (ARN) of the NFS location.
      */
-    locationArn?: string;
+    locationArn: string;
 }
 
 export interface GetLocationNFSResult {
@@ -44,7 +43,7 @@ export interface GetLocationNFSResult {
     readonly tags?: outputs.datasync.LocationNFSTag[];
 }
 
-export function getLocationNFSOutput(args?: GetLocationNFSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationNFSResult> {
+export function getLocationNFSOutput(args: GetLocationNFSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationNFSResult> {
     return pulumi.output(args).apply(a => getLocationNFS(a, opts))
 }
 
@@ -52,5 +51,5 @@ export interface GetLocationNFSOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the NFS location.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn: pulumi.Input<string>;
 }

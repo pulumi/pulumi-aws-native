@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppStream::AppBlock
  */
-export function getAppBlock(args?: GetAppBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetAppBlockResult> {
-    args = args || {};
+export function getAppBlock(args: GetAppBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetAppBlockResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAppBlock(args?: GetAppBlockArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetAppBlockArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetAppBlockResult {
@@ -28,10 +27,10 @@ export interface GetAppBlockResult {
     readonly createdTime?: string;
 }
 
-export function getAppBlockOutput(args?: GetAppBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppBlockResult> {
+export function getAppBlockOutput(args: GetAppBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppBlockResult> {
     return pulumi.output(args).apply(a => getAppBlock(a, opts))
 }
 
 export interface GetAppBlockOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

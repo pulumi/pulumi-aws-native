@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
  */
-export function getSafetyRule(args?: GetSafetyRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSafetyRuleResult> {
-    args = args || {};
+export function getSafetyRule(args: GetSafetyRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSafetyRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetSafetyRuleArgs {
     /**
      * The Amazon Resource Name (ARN) of the safety rule.
      */
-    safetyRuleArn?: string;
+    safetyRuleArn: string;
 }
 
 export interface GetSafetyRuleResult {
@@ -41,7 +40,7 @@ export interface GetSafetyRuleResult {
     readonly status?: enums.route53recoverycontrol.SafetyRuleStatus;
 }
 
-export function getSafetyRuleOutput(args?: GetSafetyRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSafetyRuleResult> {
+export function getSafetyRuleOutput(args: GetSafetyRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSafetyRuleResult> {
     return pulumi.output(args).apply(a => getSafetyRule(a, opts))
 }
 
@@ -49,5 +48,5 @@ export interface GetSafetyRuleOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the safety rule.
      */
-    safetyRuleArn?: pulumi.Input<string>;
+    safetyRuleArn: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type Definition for AWS::S3Outposts::BucketPolicy
  */
-export function getBucketPolicy(args?: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
-    args = args || {};
+export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetBucketPolicyArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified bucket.
      */
-    bucket?: string;
+    bucket: string;
 }
 
 export interface GetBucketPolicyResult {
@@ -33,7 +32,7 @@ export interface GetBucketPolicyResult {
     readonly policyDocument?: any;
 }
 
-export function getBucketPolicyOutput(args?: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
+export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
     return pulumi.output(args).apply(a => getBucketPolicy(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetBucketPolicyOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified bucket.
      */
-    bucket?: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
 }

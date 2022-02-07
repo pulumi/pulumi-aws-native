@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * A pseudo-resource that manages which of your ECS task sets is primary.
  */
-export function getPrimaryTaskSet(args?: GetPrimaryTaskSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryTaskSetResult> {
-    args = args || {};
+export function getPrimaryTaskSet(args: GetPrimaryTaskSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryTaskSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetPrimaryTaskSetArgs {
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
-    cluster?: string;
+    cluster: string;
     /**
      * The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
      */
-    service?: string;
+    service: string;
 }
 
 export interface GetPrimaryTaskSetResult {
@@ -38,7 +37,7 @@ export interface GetPrimaryTaskSetResult {
     readonly taskSetId?: string;
 }
 
-export function getPrimaryTaskSetOutput(args?: GetPrimaryTaskSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryTaskSetResult> {
+export function getPrimaryTaskSetOutput(args: GetPrimaryTaskSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryTaskSetResult> {
     return pulumi.output(args).apply(a => getPrimaryTaskSet(a, opts))
 }
 
@@ -46,9 +45,9 @@ export interface GetPrimaryTaskSetOutputArgs {
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
-    cluster?: pulumi.Input<string>;
+    cluster: pulumi.Input<string>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
      */
-    service?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
 }

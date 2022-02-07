@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ECS::CapacityProvider.
  */
-export function getCapacityProvider(args?: GetCapacityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityProviderResult> {
-    args = args || {};
+export function getCapacityProvider(args: GetCapacityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityProviderResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCapacityProvider(args?: GetCapacityProviderArgs, opts?: pulum
 }
 
 export interface GetCapacityProviderArgs {
-    name?: string;
+    name: string;
 }
 
 export interface GetCapacityProviderResult {
@@ -29,10 +28,10 @@ export interface GetCapacityProviderResult {
     readonly tags?: outputs.ecs.CapacityProviderTag[];
 }
 
-export function getCapacityProviderOutput(args?: GetCapacityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityProviderResult> {
+export function getCapacityProviderOutput(args: GetCapacityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityProviderResult> {
     return pulumi.output(args).apply(a => getCapacityProvider(a, opts))
 }
 
 export interface GetCapacityProviderOutputArgs {
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

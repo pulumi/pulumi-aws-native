@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SSM::Parameter
  */
-export function getParameter(args?: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> {
-    args = args || {};
+export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getParameter(args?: GetParameterArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetParameterArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetParameterResult {
@@ -35,10 +34,10 @@ export interface GetParameterResult {
     readonly value?: string;
 }
 
-export function getParameterOutput(args?: GetParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterResult> {
+export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterResult> {
     return pulumi.output(args).apply(a => getParameter(a, opts))
 }
 
 export interface GetParameterOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

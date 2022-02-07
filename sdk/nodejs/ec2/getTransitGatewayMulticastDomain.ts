@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::EC2::TransitGatewayMulticastDomain type
  */
-export function getTransitGatewayMulticastDomain(args?: GetTransitGatewayMulticastDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastDomainResult> {
-    args = args || {};
+export function getTransitGatewayMulticastDomain(args: GetTransitGatewayMulticastDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastDomainResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetTransitGatewayMulticastDomainArgs {
     /**
      * The ID of the transit gateway multicast domain.
      */
-    transitGatewayMulticastDomainId?: string;
+    transitGatewayMulticastDomainId: string;
 }
 
 export interface GetTransitGatewayMulticastDomainResult {
@@ -54,7 +53,7 @@ export interface GetTransitGatewayMulticastDomainResult {
     readonly transitGatewayMulticastDomainId?: string;
 }
 
-export function getTransitGatewayMulticastDomainOutput(args?: GetTransitGatewayMulticastDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastDomainResult> {
+export function getTransitGatewayMulticastDomainOutput(args: GetTransitGatewayMulticastDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastDomainResult> {
     return pulumi.output(args).apply(a => getTransitGatewayMulticastDomain(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetTransitGatewayMulticastDomainOutputArgs {
     /**
      * The ID of the transit gateway multicast domain.
      */
-    transitGatewayMulticastDomainId?: pulumi.Input<string>;
+    transitGatewayMulticastDomainId: pulumi.Input<string>;
 }

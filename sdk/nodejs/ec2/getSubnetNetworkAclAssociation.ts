@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
  */
-export function getSubnetNetworkAclAssociation(args?: GetSubnetNetworkAclAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetNetworkAclAssociationResult> {
-    args = args || {};
+export function getSubnetNetworkAclAssociation(args: GetSubnetNetworkAclAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetNetworkAclAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getSubnetNetworkAclAssociation(args?: GetSubnetNetworkAclAssocia
 }
 
 export interface GetSubnetNetworkAclAssociationArgs {
-    associationId?: string;
+    associationId: string;
 }
 
 export interface GetSubnetNetworkAclAssociationResult {
     readonly associationId?: string;
 }
 
-export function getSubnetNetworkAclAssociationOutput(args?: GetSubnetNetworkAclAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetNetworkAclAssociationResult> {
+export function getSubnetNetworkAclAssociationOutput(args: GetSubnetNetworkAclAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetNetworkAclAssociationResult> {
     return pulumi.output(args).apply(a => getSubnetNetworkAclAssociation(a, opts))
 }
 
 export interface GetSubnetNetworkAclAssociationOutputArgs {
-    associationId?: pulumi.Input<string>;
+    associationId: pulumi.Input<string>;
 }

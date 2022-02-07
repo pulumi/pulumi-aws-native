@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::Trigger
  */
-export function getTrigger(args?: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
-    args = args || {};
+export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTrigger(args?: GetTriggerArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetTriggerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTriggerResult {
@@ -35,10 +34,10 @@ export interface GetTriggerResult {
     readonly type?: string;
 }
 
-export function getTriggerOutput(args?: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
+export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
     return pulumi.output(args).apply(a => getTrigger(a, opts))
 }
 
 export interface GetTriggerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

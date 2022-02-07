@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::ApiMapping
  */
-export function getApiMapping(args?: GetApiMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetApiMappingResult> {
-    args = args || {};
+export function getApiMapping(args: GetApiMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetApiMappingResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getApiMapping(args?: GetApiMappingArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetApiMappingArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApiMappingResult {
@@ -29,10 +28,10 @@ export interface GetApiMappingResult {
     readonly stage?: string;
 }
 
-export function getApiMappingOutput(args?: GetApiMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiMappingResult> {
+export function getApiMappingOutput(args: GetApiMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiMappingResult> {
     return pulumi.output(args).apply(a => getApiMapping(a, opts))
 }
 
 export interface GetApiMappingOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

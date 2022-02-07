@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::Segment
  */
-export function getSegment(args?: GetSegmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSegmentResult> {
-    args = args || {};
+export function getSegment(args: GetSegmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSegmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSegment(args?: GetSegmentArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetSegmentArgs {
-    segmentId?: string;
+    segmentId: string;
 }
 
 export interface GetSegmentResult {
@@ -33,10 +32,10 @@ export interface GetSegmentResult {
     readonly tags?: any;
 }
 
-export function getSegmentOutput(args?: GetSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSegmentResult> {
+export function getSegmentOutput(args: GetSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSegmentResult> {
     return pulumi.output(args).apply(a => getSegment(a, opts))
 }
 
 export interface GetSegmentOutputArgs {
-    segmentId?: pulumi.Input<string>;
+    segmentId: pulumi.Input<string>;
 }

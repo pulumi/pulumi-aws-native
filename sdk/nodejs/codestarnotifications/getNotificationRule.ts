@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodeStarNotifications::NotificationRule
  */
-export function getNotificationRule(args?: GetNotificationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRuleResult> {
-    args = args || {};
+export function getNotificationRule(args: GetNotificationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNotificationRule(args?: GetNotificationRuleArgs, opts?: pulum
 }
 
 export interface GetNotificationRuleArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetNotificationRuleResult {
@@ -36,10 +35,10 @@ export interface GetNotificationRuleResult {
     readonly targets?: outputs.codestarnotifications.NotificationRuleTarget[];
 }
 
-export function getNotificationRuleOutput(args?: GetNotificationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRuleResult> {
+export function getNotificationRuleOutput(args: GetNotificationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRuleResult> {
     return pulumi.output(args).apply(a => getNotificationRule(a, opts))
 }
 
 export interface GetNotificationRuleOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

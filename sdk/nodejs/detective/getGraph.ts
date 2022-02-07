@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Detective::Graph
  */
-export function getGraph(args?: GetGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphResult> {
-    args = args || {};
+export function getGraph(args: GetGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetGraphArgs {
     /**
      * The Detective graph ARN
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetGraphResult {
@@ -35,7 +34,7 @@ export interface GetGraphResult {
     readonly tags?: outputs.detective.GraphTag[];
 }
 
-export function getGraphOutput(args?: GetGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResult> {
+export function getGraphOutput(args: GetGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResult> {
     return pulumi.output(args).apply(a => getGraph(a, opts))
 }
 
@@ -43,5 +42,5 @@ export interface GetGraphOutputArgs {
     /**
      * The Detective graph ARN
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

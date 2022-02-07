@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AmazonMQ::Configuration
  */
-export function getConfiguration(args?: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
-    args = args || {};
+export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConfiguration(args?: GetConfigurationArgs, opts?: pulumi.Invo
 }
 
 export interface GetConfigurationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetConfigurationResult {
@@ -33,10 +32,10 @@ export interface GetConfigurationResult {
     readonly tags?: outputs.amazonmq.ConfigurationTagsEntry[];
 }
 
-export function getConfigurationOutput(args?: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
+export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply(a => getConfiguration(a, opts))
 }
 
 export interface GetConfigurationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

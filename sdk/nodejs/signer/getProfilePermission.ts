@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getProfilePermission(args?: GetProfilePermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetProfilePermissionResult> {
-    args = args || {};
+export function getProfilePermission(args: GetProfilePermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetProfilePermissionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,18 +20,18 @@ export function getProfilePermission(args?: GetProfilePermissionArgs, opts?: pul
 }
 
 export interface GetProfilePermissionArgs {
-    profileName?: string;
-    statementId?: string;
+    profileName: string;
+    statementId: string;
 }
 
 export interface GetProfilePermissionResult {
 }
 
-export function getProfilePermissionOutput(args?: GetProfilePermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilePermissionResult> {
+export function getProfilePermissionOutput(args: GetProfilePermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilePermissionResult> {
     return pulumi.output(args).apply(a => getProfilePermission(a, opts))
 }
 
 export interface GetProfilePermissionOutputArgs {
-    profileName?: pulumi.Input<string>;
-    statementId?: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
+    statementId: pulumi.Input<string>;
 }

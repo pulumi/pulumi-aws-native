@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
  */
-export function getLaunchTemplateConstraint(args?: GetLaunchTemplateConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateConstraintResult> {
-    args = args || {};
+export function getLaunchTemplateConstraint(args: GetLaunchTemplateConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateConstraintResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getLaunchTemplateConstraint(args?: GetLaunchTemplateConstraintAr
 }
 
 export interface GetLaunchTemplateConstraintArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLaunchTemplateConstraintResult {
@@ -30,10 +29,10 @@ export interface GetLaunchTemplateConstraintResult {
     readonly rules?: string;
 }
 
-export function getLaunchTemplateConstraintOutput(args?: GetLaunchTemplateConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateConstraintResult> {
+export function getLaunchTemplateConstraintOutput(args: GetLaunchTemplateConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateConstraintResult> {
     return pulumi.output(args).apply(a => getLaunchTemplateConstraint(a, opts))
 }
 
 export interface GetLaunchTemplateConstraintOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

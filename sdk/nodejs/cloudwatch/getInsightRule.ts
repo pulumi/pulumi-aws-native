@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudWatch::InsightRule
  */
-export function getInsightRule(args?: GetInsightRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightRuleResult> {
-    args = args || {};
+export function getInsightRule(args: GetInsightRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getInsightRule(args?: GetInsightRuleArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetInsightRuleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetInsightRuleResult {
@@ -32,10 +31,10 @@ export interface GetInsightRuleResult {
     readonly tags?: outputs.cloudwatch.InsightRuleTags;
 }
 
-export function getInsightRuleOutput(args?: GetInsightRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightRuleResult> {
+export function getInsightRuleOutput(args: GetInsightRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightRuleResult> {
     return pulumi.output(args).apply(a => getInsightRule(a, opts))
 }
 
 export interface GetInsightRuleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

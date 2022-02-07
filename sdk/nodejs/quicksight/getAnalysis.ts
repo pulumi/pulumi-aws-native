@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of the AWS::QuickSight::Analysis Resource Type.
  */
-export function getAnalysis(args?: GetAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalysisResult> {
-    args = args || {};
+export function getAnalysis(args: GetAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalysisResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getAnalysis(args?: GetAnalysisArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetAnalysisArgs {
-    analysisId?: string;
-    awsAccountId?: string;
+    analysisId: string;
+    awsAccountId: string;
 }
 
 export interface GetAnalysisResult {
@@ -67,11 +66,11 @@ export interface GetAnalysisResult {
     readonly themeArn?: string;
 }
 
-export function getAnalysisOutput(args?: GetAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalysisResult> {
+export function getAnalysisOutput(args: GetAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalysisResult> {
     return pulumi.output(args).apply(a => getAnalysis(a, opts))
 }
 
 export interface GetAnalysisOutputArgs {
-    analysisId?: pulumi.Input<string>;
-    awsAccountId?: pulumi.Input<string>;
+    analysisId: pulumi.Input<string>;
+    awsAccountId: pulumi.Input<string>;
 }

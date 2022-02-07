@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The resource schema to create a CodeArtifact repository.
  */
-export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
-    args = args || {};
+export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRepositoryArgs {
     /**
      * The ARN of the repository.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetRepositoryResult {
@@ -58,7 +57,7 @@ export interface GetRepositoryResult {
     readonly upstreams?: string[];
 }
 
-export function getRepositoryOutput(args?: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
+export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
     return pulumi.output(args).apply(a => getRepository(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetRepositoryOutputArgs {
     /**
      * The ARN of the repository.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

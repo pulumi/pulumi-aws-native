@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::Bucket
  */
-export function getBucket(args?: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
-    args = args || {};
+export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetBucketArgs {
     /**
      * The name for the bucket.
      */
-    bucketName?: string;
+    bucketName: string;
 }
 
 export interface GetBucketResult {
@@ -60,7 +59,7 @@ export interface GetBucketResult {
     readonly url?: string;
 }
 
-export function getBucketOutput(args?: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
+export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
     return pulumi.output(args).apply(a => getBucket(a, opts))
 }
 
@@ -68,5 +67,5 @@ export interface GetBucketOutputArgs {
     /**
      * The name for the bucket.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName: pulumi.Input<string>;
 }

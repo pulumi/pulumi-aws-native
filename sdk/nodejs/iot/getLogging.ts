@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
  */
-export function getLogging(args?: GetLoggingArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggingResult> {
-    args = args || {};
+export function getLogging(args: GetLoggingArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggingResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLoggingArgs {
     /**
      * Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
      */
-    accountId?: string;
+    accountId: string;
 }
 
 export interface GetLoggingResult {
@@ -38,7 +37,7 @@ export interface GetLoggingResult {
     readonly roleArn?: string;
 }
 
-export function getLoggingOutput(args?: GetLoggingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingResult> {
+export function getLoggingOutput(args: GetLoggingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingResult> {
     return pulumi.output(args).apply(a => getLogging(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetLoggingOutputArgs {
     /**
      * Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
      */
-    accountId?: pulumi.Input<string>;
+    accountId: pulumi.Input<string>;
 }

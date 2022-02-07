@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoT::Thing
  */
-export function getThing(args?: GetThingArgs, opts?: pulumi.InvokeOptions): Promise<GetThingResult> {
-    args = args || {};
+export function getThing(args: GetThingArgs, opts?: pulumi.InvokeOptions): Promise<GetThingResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getThing(args?: GetThingArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetThingArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetThingResult {
@@ -29,10 +28,10 @@ export interface GetThingResult {
     readonly id?: string;
 }
 
-export function getThingOutput(args?: GetThingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThingResult> {
+export function getThingOutput(args: GetThingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThingResult> {
     return pulumi.output(args).apply(a => getThing(a, opts))
 }
 
 export interface GetThingOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

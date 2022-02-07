@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource
  */
-export function getApplicationReferenceDataSource(args?: GetApplicationReferenceDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationReferenceDataSourceResult> {
-    args = args || {};
+export function getApplicationReferenceDataSource(args: GetApplicationReferenceDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationReferenceDataSourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApplicationReferenceDataSource(args?: GetApplicationReference
 }
 
 export interface GetApplicationReferenceDataSourceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApplicationReferenceDataSourceResult {
@@ -29,10 +28,10 @@ export interface GetApplicationReferenceDataSourceResult {
     readonly referenceDataSource?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceReferenceDataSource;
 }
 
-export function getApplicationReferenceDataSourceOutput(args?: GetApplicationReferenceDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationReferenceDataSourceResult> {
+export function getApplicationReferenceDataSourceOutput(args: GetApplicationReferenceDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationReferenceDataSourceResult> {
     return pulumi.output(args).apply(a => getApplicationReferenceDataSource(a, opts))
 }
 
 export interface GetApplicationReferenceDataSourceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

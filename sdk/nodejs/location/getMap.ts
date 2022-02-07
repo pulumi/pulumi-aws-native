@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::Location::Map Resource Type
  */
-export function getMap(args?: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMapResult> {
-    args = args || {};
+export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMapResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getMap(args?: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetMapArgs {
-    mapName?: string;
+    mapName: string;
 }
 
 export interface GetMapResult {
@@ -31,10 +30,10 @@ export interface GetMapResult {
     readonly updateTime?: string;
 }
 
-export function getMapOutput(args?: GetMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMapResult> {
+export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMapResult> {
     return pulumi.output(args).apply(a => getMap(a, opts))
 }
 
 export interface GetMapOutputArgs {
-    mapName?: pulumi.Input<string>;
+    mapName: pulumi.Input<string>;
 }

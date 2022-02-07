@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema for AWS::EKS::Addon
  */
-export function getAddon(args?: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
-    args = args || {};
+export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetAddonArgs {
     /**
      * Name of Addon
      */
-    addonName?: string;
+    addonName: string;
     /**
      * Name of Cluster
      */
-    clusterName?: string;
+    clusterName: string;
 }
 
 export interface GetAddonResult {
@@ -51,7 +50,7 @@ export interface GetAddonResult {
     readonly tags?: outputs.eks.AddonTag[];
 }
 
-export function getAddonOutput(args?: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
+export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
     return pulumi.output(args).apply(a => getAddon(a, opts))
 }
 
@@ -59,9 +58,9 @@ export interface GetAddonOutputArgs {
     /**
      * Name of Addon
      */
-    addonName?: pulumi.Input<string>;
+    addonName: pulumi.Input<string>;
     /**
      * Name of Cluster
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
 }

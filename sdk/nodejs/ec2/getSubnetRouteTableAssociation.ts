@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
  */
-export function getSubnetRouteTableAssociation(args?: GetSubnetRouteTableAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetRouteTableAssociationResult> {
-    args = args || {};
+export function getSubnetRouteTableAssociation(args: GetSubnetRouteTableAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetRouteTableAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getSubnetRouteTableAssociation(args?: GetSubnetRouteTableAssocia
 }
 
 export interface GetSubnetRouteTableAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSubnetRouteTableAssociationResult {
     readonly id?: string;
 }
 
-export function getSubnetRouteTableAssociationOutput(args?: GetSubnetRouteTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetRouteTableAssociationResult> {
+export function getSubnetRouteTableAssociationOutput(args: GetSubnetRouteTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetRouteTableAssociationResult> {
     return pulumi.output(args).apply(a => getSubnetRouteTableAssociation(a, opts))
 }
 
 export interface GetSubnetRouteTableAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

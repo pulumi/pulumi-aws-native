@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::KMS::Alias resource specifies a display name for a customer master key (CMK) in AWS Key Management Service (AWS KMS). You can use an alias to identify a CMK in cryptographic operations.
  */
-export function getAlias(args?: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-    args = args || {};
+export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetAliasArgs {
     /**
      * Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
      */
-    aliasName?: string;
+    aliasName: string;
 }
 
 export interface GetAliasResult {
@@ -33,7 +32,7 @@ export interface GetAliasResult {
     readonly targetKeyId?: string;
 }
 
-export function getAliasOutput(args?: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
     return pulumi.output(args).apply(a => getAlias(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetAliasOutputArgs {
     /**
      * Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
      */
-    aliasName?: pulumi.Input<string>;
+    aliasName: pulumi.Input<string>;
 }

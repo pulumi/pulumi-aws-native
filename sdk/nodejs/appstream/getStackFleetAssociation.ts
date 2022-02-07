@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppStream::StackFleetAssociation
  */
-export function getStackFleetAssociation(args?: GetStackFleetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetStackFleetAssociationResult> {
-    args = args || {};
+export function getStackFleetAssociation(args: GetStackFleetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetStackFleetAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getStackFleetAssociation(args?: GetStackFleetAssociationArgs, op
 }
 
 export interface GetStackFleetAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetStackFleetAssociationResult {
@@ -29,10 +28,10 @@ export interface GetStackFleetAssociationResult {
     readonly stackName?: string;
 }
 
-export function getStackFleetAssociationOutput(args?: GetStackFleetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackFleetAssociationResult> {
+export function getStackFleetAssociationOutput(args: GetStackFleetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackFleetAssociationResult> {
     return pulumi.output(args).apply(a => getStackFleetAssociation(a, opts))
 }
 
 export interface GetStackFleetAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

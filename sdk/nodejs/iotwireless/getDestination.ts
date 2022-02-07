@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Destination's resource schema demonstrating some basic constructs and validation rules.
  */
-export function getDestination(args?: GetDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetDestinationResult> {
-    args = args || {};
+export function getDestination(args: GetDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetDestinationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDestinationArgs {
     /**
      * Unique name of destination
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetDestinationResult {
@@ -54,7 +53,7 @@ export interface GetDestinationResult {
     readonly tags?: outputs.iotwireless.DestinationTag[];
 }
 
-export function getDestinationOutput(args?: GetDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDestinationResult> {
+export function getDestinationOutput(args: GetDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDestinationResult> {
     return pulumi.output(args).apply(a => getDestination(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetDestinationOutputArgs {
     /**
      * Unique name of destination
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

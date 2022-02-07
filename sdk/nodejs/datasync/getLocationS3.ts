@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::LocationS3
  */
-export function getLocationS3(args?: GetLocationS3Args, opts?: pulumi.InvokeOptions): Promise<GetLocationS3Result> {
-    args = args || {};
+export function getLocationS3(args: GetLocationS3Args, opts?: pulumi.InvokeOptions): Promise<GetLocationS3Result> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLocationS3Args {
     /**
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
      */
-    locationArn?: string;
+    locationArn: string;
 }
 
 export interface GetLocationS3Result {
@@ -42,7 +41,7 @@ export interface GetLocationS3Result {
     readonly tags?: outputs.datasync.LocationS3Tag[];
 }
 
-export function getLocationS3Output(args?: GetLocationS3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationS3Result> {
+export function getLocationS3Output(args: GetLocationS3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationS3Result> {
     return pulumi.output(args).apply(a => getLocationS3(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetLocationS3OutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn: pulumi.Input<string>;
 }

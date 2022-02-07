@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::LocationObjectStorage.
  */
-export function getLocationObjectStorage(args?: GetLocationObjectStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationObjectStorageResult> {
-    args = args || {};
+export function getLocationObjectStorage(args: GetLocationObjectStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationObjectStorageResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLocationObjectStorageArgs {
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
      */
-    locationArn?: string;
+    locationArn: string;
 }
 
 export interface GetLocationObjectStorageResult {
@@ -58,7 +57,7 @@ export interface GetLocationObjectStorageResult {
     readonly tags?: outputs.datasync.LocationObjectStorageTag[];
 }
 
-export function getLocationObjectStorageOutput(args?: GetLocationObjectStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationObjectStorageResult> {
+export function getLocationObjectStorageOutput(args: GetLocationObjectStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationObjectStorageResult> {
     return pulumi.output(args).apply(a => getLocationObjectStorage(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetLocationObjectStorageOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn: pulumi.Input<string>;
 }

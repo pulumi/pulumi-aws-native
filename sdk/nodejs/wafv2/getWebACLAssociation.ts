@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
  */
-export function getWebACLAssociation(args?: GetWebACLAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLAssociationResult> {
-    args = args || {};
+export function getWebACLAssociation(args: GetWebACLAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,18 +20,18 @@ export function getWebACLAssociation(args?: GetWebACLAssociationArgs, opts?: pul
 }
 
 export interface GetWebACLAssociationArgs {
-    resourceArn?: string;
-    webACLArn?: string;
+    resourceArn: string;
+    webACLArn: string;
 }
 
 export interface GetWebACLAssociationResult {
 }
 
-export function getWebACLAssociationOutput(args?: GetWebACLAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLAssociationResult> {
+export function getWebACLAssociationOutput(args: GetWebACLAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLAssociationResult> {
     return pulumi.output(args).apply(a => getWebACLAssociation(a, opts))
 }
 
 export interface GetWebACLAssociationOutputArgs {
-    resourceArn?: pulumi.Input<string>;
-    webACLArn?: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
+    webACLArn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
  */
-export function getApplicationCloudWatchLoggingOption(args?: GetApplicationCloudWatchLoggingOptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationCloudWatchLoggingOptionResult> {
-    args = args || {};
+export function getApplicationCloudWatchLoggingOption(args: GetApplicationCloudWatchLoggingOptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationCloudWatchLoggingOptionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApplicationCloudWatchLoggingOption(args?: GetApplicationCloud
 }
 
 export interface GetApplicationCloudWatchLoggingOptionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApplicationCloudWatchLoggingOptionResult {
@@ -29,10 +28,10 @@ export interface GetApplicationCloudWatchLoggingOptionResult {
     readonly id?: string;
 }
 
-export function getApplicationCloudWatchLoggingOptionOutput(args?: GetApplicationCloudWatchLoggingOptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationCloudWatchLoggingOptionResult> {
+export function getApplicationCloudWatchLoggingOptionOutput(args: GetApplicationCloudWatchLoggingOptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationCloudWatchLoggingOptionResult> {
     return pulumi.output(args).apply(a => getApplicationCloudWatchLoggingOption(a, opts))
 }
 
 export interface GetApplicationCloudWatchLoggingOptionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

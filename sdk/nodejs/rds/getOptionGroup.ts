@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RDS::OptionGroup
  */
-export function getOptionGroup(args?: GetOptionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOptionGroupResult> {
-    args = args || {};
+export function getOptionGroup(args: GetOptionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOptionGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getOptionGroup(args?: GetOptionGroupArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetOptionGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetOptionGroupResult {
@@ -29,10 +28,10 @@ export interface GetOptionGroupResult {
     readonly tags?: outputs.rds.OptionGroupTag[];
 }
 
-export function getOptionGroupOutput(args?: GetOptionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOptionGroupResult> {
+export function getOptionGroupOutput(args: GetOptionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOptionGroupResult> {
     return pulumi.output(args).apply(a => getOptionGroup(a, opts))
 }
 
 export interface GetOptionGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

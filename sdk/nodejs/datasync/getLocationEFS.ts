@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::LocationEFS.
  */
-export function getLocationEFS(args?: GetLocationEFSArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationEFSResult> {
-    args = args || {};
+export function getLocationEFS(args: GetLocationEFSArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationEFSResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLocationEFSArgs {
     /**
      * The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
      */
-    locationArn?: string;
+    locationArn: string;
 }
 
 export interface GetLocationEFSResult {
@@ -42,7 +41,7 @@ export interface GetLocationEFSResult {
     readonly tags?: outputs.datasync.LocationEFSTag[];
 }
 
-export function getLocationEFSOutput(args?: GetLocationEFSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationEFSResult> {
+export function getLocationEFSOutput(args: GetLocationEFSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationEFSResult> {
     return pulumi.output(args).apply(a => getLocationEFS(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetLocationEFSOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn: pulumi.Input<string>;
 }

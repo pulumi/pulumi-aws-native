@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataBrew::Dataset.
  */
-export function getDataset(args?: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-    args = args || {};
+export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDatasetArgs {
     /**
      * Dataset name
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetDatasetResult {
@@ -46,7 +45,7 @@ export interface GetDatasetResult {
     readonly pathOptions?: outputs.databrew.DatasetPathOptions;
 }
 
-export function getDatasetOutput(args?: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
+export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
     return pulumi.output(args).apply(a => getDataset(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetDatasetOutputArgs {
     /**
      * Dataset name
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::Permission
  */
-export function getPermission(args?: GetPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionResult> {
-    args = args || {};
+export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getPermission(args?: GetPermissionArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetPermissionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPermissionResult {
     readonly id?: string;
 }
 
-export function getPermissionOutput(args?: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
+export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
     return pulumi.output(args).apply(a => getPermission(a, opts))
 }
 
 export interface GetPermissionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

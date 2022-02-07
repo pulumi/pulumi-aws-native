@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayRouteTablePropagation
  */
-export function getTransitGatewayRouteTablePropagation(args?: GetTransitGatewayRouteTablePropagationArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablePropagationResult> {
-    args = args || {};
+export function getTransitGatewayRouteTablePropagation(args: GetTransitGatewayRouteTablePropagationArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablePropagationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getTransitGatewayRouteTablePropagation(args?: GetTransitGatewayR
 }
 
 export interface GetTransitGatewayRouteTablePropagationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTransitGatewayRouteTablePropagationResult {
     readonly id?: string;
 }
 
-export function getTransitGatewayRouteTablePropagationOutput(args?: GetTransitGatewayRouteTablePropagationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablePropagationResult> {
+export function getTransitGatewayRouteTablePropagationOutput(args: GetTransitGatewayRouteTablePropagationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablePropagationResult> {
     return pulumi.output(args).apply(a => getTransitGatewayRouteTablePropagation(a, opts))
 }
 
 export interface GetTransitGatewayRouteTablePropagationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

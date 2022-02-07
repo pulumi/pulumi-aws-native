@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElastiCache::CacheCluster
  */
-export function getCacheCluster(args?: GetCacheClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheClusterResult> {
-    args = args || {};
+export function getCacheCluster(args: GetCacheClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCacheCluster(args?: GetCacheClusterArgs, opts?: pulumi.Invoke
 }
 
 export interface GetCacheClusterArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCacheClusterResult {
@@ -48,10 +47,10 @@ export interface GetCacheClusterResult {
     readonly vpcSecurityGroupIds?: string[];
 }
 
-export function getCacheClusterOutput(args?: GetCacheClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheClusterResult> {
+export function getCacheClusterOutput(args: GetCacheClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheClusterResult> {
     return pulumi.output(args).apply(a => getCacheCluster(a, opts))
 }
 
 export interface GetCacheClusterOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

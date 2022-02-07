@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
  */
-export function getGatewayRouteTableAssociation(args?: GetGatewayRouteTableAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteTableAssociationResult> {
-    args = args || {};
+export function getGatewayRouteTableAssociation(args: GetGatewayRouteTableAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteTableAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetGatewayRouteTableAssociationArgs {
     /**
      * The ID of the gateway.
      */
-    gatewayId?: string;
+    gatewayId: string;
 }
 
 export interface GetGatewayRouteTableAssociationResult {
@@ -37,7 +36,7 @@ export interface GetGatewayRouteTableAssociationResult {
     readonly routeTableId?: string;
 }
 
-export function getGatewayRouteTableAssociationOutput(args?: GetGatewayRouteTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteTableAssociationResult> {
+export function getGatewayRouteTableAssociationOutput(args: GetGatewayRouteTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteTableAssociationResult> {
     return pulumi.output(args).apply(a => getGatewayRouteTableAssociation(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetGatewayRouteTableAssociationOutputArgs {
     /**
      * The ID of the gateway.
      */
-    gatewayId?: pulumi.Input<string>;
+    gatewayId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Schema for Package CloudFormation Resource
  */
-export function getPackage(args?: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
-    args = args || {};
+export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPackage(args?: GetPackageArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetPackageArgs {
-    packageId?: string;
+    packageId: string;
 }
 
 export interface GetPackageResult {
@@ -32,10 +31,10 @@ export interface GetPackageResult {
     readonly tags?: outputs.panorama.PackageTag[];
 }
 
-export function getPackageOutput(args?: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
+export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
     return pulumi.output(args).apply(a => getPackage(a, opts))
 }
 
 export interface GetPackageOutputArgs {
-    packageId?: pulumi.Input<string>;
+    packageId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoTAnalytics::Pipeline
  */
-export function getPipeline(args?: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    args = args || {};
+export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPipeline(args?: GetPipelineArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetPipelineArgs {
-    pipelineName?: string;
+    pipelineName: string;
 }
 
 export interface GetPipelineResult {
@@ -30,10 +29,10 @@ export interface GetPipelineResult {
     readonly tags?: outputs.iotanalytics.PipelineTag[];
 }
 
-export function getPipelineOutput(args?: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply(a => getPipeline(a, opts))
 }
 
 export interface GetPipelineOutputArgs {
-    pipelineName?: pulumi.Input<string>;
+    pipelineName: pulumi.Input<string>;
 }

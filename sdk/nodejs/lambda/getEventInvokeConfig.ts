@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::EventInvokeConfig
  */
-export function getEventInvokeConfig(args?: GetEventInvokeConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetEventInvokeConfigResult> {
-    args = args || {};
+export function getEventInvokeConfig(args: GetEventInvokeConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetEventInvokeConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getEventInvokeConfig(args?: GetEventInvokeConfigArgs, opts?: pul
 }
 
 export interface GetEventInvokeConfigArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEventInvokeConfigResult {
@@ -31,10 +30,10 @@ export interface GetEventInvokeConfigResult {
     readonly maximumRetryAttempts?: number;
 }
 
-export function getEventInvokeConfigOutput(args?: GetEventInvokeConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventInvokeConfigResult> {
+export function getEventInvokeConfigOutput(args: GetEventInvokeConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventInvokeConfigResult> {
     return pulumi.output(args).apply(a => getEventInvokeConfig(a, opts))
 }
 
 export interface GetEventInvokeConfigOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

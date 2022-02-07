@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
  */
-export function getNotebookInstanceLifecycleConfig(args?: GetNotebookInstanceLifecycleConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookInstanceLifecycleConfigResult> {
-    args = args || {};
+export function getNotebookInstanceLifecycleConfig(args: GetNotebookInstanceLifecycleConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookInstanceLifecycleConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNotebookInstanceLifecycleConfig(args?: GetNotebookInstanceLif
 }
 
 export interface GetNotebookInstanceLifecycleConfigArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetNotebookInstanceLifecycleConfigResult {
@@ -30,10 +29,10 @@ export interface GetNotebookInstanceLifecycleConfigResult {
     readonly onStart?: outputs.sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook[];
 }
 
-export function getNotebookInstanceLifecycleConfigOutput(args?: GetNotebookInstanceLifecycleConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookInstanceLifecycleConfigResult> {
+export function getNotebookInstanceLifecycleConfigOutput(args: GetNotebookInstanceLifecycleConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookInstanceLifecycleConfigResult> {
     return pulumi.output(args).apply(a => getNotebookInstanceLifecycleConfig(a, opts))
 }
 
 export interface GetNotebookInstanceLifecycleConfigOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

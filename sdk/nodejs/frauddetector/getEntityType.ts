@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An entity type for fraud detector.
  */
-export function getEntityType(args?: GetEntityTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityTypeResult> {
-    args = args || {};
+export function getEntityType(args: GetEntityTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityTypeResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetEntityTypeArgs {
     /**
      * The entity type ARN.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetEntityTypeResult {
@@ -50,7 +49,7 @@ export interface GetEntityTypeResult {
     readonly tags?: outputs.frauddetector.EntityTypeTag[];
 }
 
-export function getEntityTypeOutput(args?: GetEntityTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityTypeResult> {
+export function getEntityTypeOutput(args: GetEntityTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityTypeResult> {
     return pulumi.output(args).apply(a => getEntityType(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetEntityTypeOutputArgs {
     /**
      * The entity type ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
  */
-export function getRobot(args?: GetRobotArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotResult> {
-    args = args || {};
+export function getRobot(args: GetRobotArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRobot(args?: GetRobotArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetRobotArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetRobotResult {
@@ -29,10 +28,10 @@ export interface GetRobotResult {
     readonly tags?: outputs.robomaker.RobotTags;
 }
 
-export function getRobotOutput(args?: GetRobotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotResult> {
+export function getRobotOutput(args: GetRobotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotResult> {
     return pulumi.output(args).apply(a => getRobot(a, opts))
 }
 
 export interface GetRobotOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

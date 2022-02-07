@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::ImageBuilder::Component
  */
-export function getComponent(args?: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
-    args = args || {};
+export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetComponentArgs {
     /**
      * The Amazon Resource Name (ARN) of the component.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetComponentResult {
@@ -42,7 +41,7 @@ export interface GetComponentResult {
     readonly type?: enums.imagebuilder.ComponentType;
 }
 
-export function getComponentOutput(args?: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
+export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
     return pulumi.output(args).apply(a => getComponent(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetComponentOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the component.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

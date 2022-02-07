@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Redshift::ClusterSecurityGroupIngress
  */
-export function getClusterSecurityGroupIngress(args?: GetClusterSecurityGroupIngressArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSecurityGroupIngressResult> {
-    args = args || {};
+export function getClusterSecurityGroupIngress(args: GetClusterSecurityGroupIngressArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSecurityGroupIngressResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getClusterSecurityGroupIngress(args?: GetClusterSecurityGroupIng
 }
 
 export interface GetClusterSecurityGroupIngressArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetClusterSecurityGroupIngressResult {
     readonly id?: string;
 }
 
-export function getClusterSecurityGroupIngressOutput(args?: GetClusterSecurityGroupIngressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSecurityGroupIngressResult> {
+export function getClusterSecurityGroupIngressOutput(args: GetClusterSecurityGroupIngressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSecurityGroupIngressResult> {
     return pulumi.output(args).apply(a => getClusterSecurityGroupIngress(a, opts))
 }
 
 export interface GetClusterSecurityGroupIngressOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

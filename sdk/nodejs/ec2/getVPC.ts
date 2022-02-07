@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPC
  */
-export function getVPC(args?: GetVPCArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCResult> {
-    args = args || {};
+export function getVPC(args: GetVPCArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetVPCArgs {
     /**
      * The Id for the model.
      */
-    vpcId?: string;
+    vpcId: string;
 }
 
 export interface GetVPCResult {
@@ -72,7 +71,7 @@ export interface GetVPCResult {
     readonly vpcId?: string;
 }
 
-export function getVPCOutput(args?: GetVPCOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCResult> {
+export function getVPCOutput(args: GetVPCOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCResult> {
     return pulumi.output(args).apply(a => getVPC(a, opts))
 }
 
@@ -80,5 +79,5 @@ export interface GetVPCOutputArgs {
     /**
      * The Id for the model.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EMR::InstanceFleetConfig
  */
-export function getInstanceFleetConfig(args?: GetInstanceFleetConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFleetConfigResult> {
-    args = args || {};
+export function getInstanceFleetConfig(args: GetInstanceFleetConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFleetConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getInstanceFleetConfig(args?: GetInstanceFleetConfigArgs, opts?:
 }
 
 export interface GetInstanceFleetConfigArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetInstanceFleetConfigResult {
@@ -29,10 +28,10 @@ export interface GetInstanceFleetConfigResult {
     readonly targetSpotCapacity?: number;
 }
 
-export function getInstanceFleetConfigOutput(args?: GetInstanceFleetConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceFleetConfigResult> {
+export function getInstanceFleetConfigOutput(args: GetInstanceFleetConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceFleetConfigResult> {
     return pulumi.output(args).apply(a => getInstanceFleetConfig(a, opts))
 }
 
 export interface GetInstanceFleetConfigOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

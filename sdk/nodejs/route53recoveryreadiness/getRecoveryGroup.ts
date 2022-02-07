@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
  */
-export function getRecoveryGroup(args?: GetRecoveryGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRecoveryGroupResult> {
-    args = args || {};
+export function getRecoveryGroup(args: GetRecoveryGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRecoveryGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRecoveryGroupArgs {
     /**
      * The name of the recovery group to create.
      */
-    recoveryGroupName?: string;
+    recoveryGroupName: string;
 }
 
 export interface GetRecoveryGroupResult {
@@ -42,7 +41,7 @@ export interface GetRecoveryGroupResult {
     readonly tags?: outputs.route53recoveryreadiness.RecoveryGroupTag[];
 }
 
-export function getRecoveryGroupOutput(args?: GetRecoveryGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryGroupResult> {
+export function getRecoveryGroupOutput(args: GetRecoveryGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryGroupResult> {
     return pulumi.output(args).apply(a => getRecoveryGroup(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetRecoveryGroupOutputArgs {
     /**
      * The name of the recovery group to create.
      */
-    recoveryGroupName?: pulumi.Input<string>;
+    recoveryGroupName: pulumi.Input<string>;
 }

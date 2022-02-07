@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type Definition for AWS::S3Outposts::AccessPoint
  */
-export function getAccessPoint(args?: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-    args = args || {};
+export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetAccessPointArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified AccessPoint.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetAccessPointResult {
@@ -37,7 +36,7 @@ export interface GetAccessPointResult {
     readonly policy?: any;
 }
 
-export function getAccessPointOutput(args?: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
+export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
     return pulumi.output(args).apply(a => getAccessPoint(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetAccessPointOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified AccessPoint.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

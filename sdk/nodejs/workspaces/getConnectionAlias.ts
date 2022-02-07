@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WorkSpaces::ConnectionAlias
  */
-export function getConnectionAlias(args?: GetConnectionAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionAliasResult> {
-    args = args || {};
+export function getConnectionAlias(args: GetConnectionAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionAliasResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConnectionAlias(args?: GetConnectionAliasArgs, opts?: pulumi.
 }
 
 export interface GetConnectionAliasArgs {
-    aliasId?: string;
+    aliasId: string;
 }
 
 export interface GetConnectionAliasResult {
@@ -30,10 +29,10 @@ export interface GetConnectionAliasResult {
     readonly connectionAliasState?: enums.workspaces.ConnectionAliasState;
 }
 
-export function getConnectionAliasOutput(args?: GetConnectionAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionAliasResult> {
+export function getConnectionAliasOutput(args: GetConnectionAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionAliasResult> {
     return pulumi.output(args).apply(a => getConnectionAlias(a, opts))
 }
 
 export interface GetConnectionAliasOutputArgs {
-    aliasId?: pulumi.Input<string>;
+    aliasId: pulumi.Input<string>;
 }

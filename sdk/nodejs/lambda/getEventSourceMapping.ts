@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::EventSourceMapping
  */
-export function getEventSourceMapping(args?: GetEventSourceMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceMappingResult> {
-    args = args || {};
+export function getEventSourceMapping(args: GetEventSourceMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceMappingResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetEventSourceMappingArgs {
     /**
      * Event Source Mapping Identifier UUID.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetEventSourceMappingResult {
@@ -98,7 +97,7 @@ export interface GetEventSourceMappingResult {
     readonly tumblingWindowInSeconds?: number;
 }
 
-export function getEventSourceMappingOutput(args?: GetEventSourceMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceMappingResult> {
+export function getEventSourceMappingOutput(args: GetEventSourceMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceMappingResult> {
     return pulumi.output(args).apply(a => getEventSourceMapping(a, opts))
 }
 
@@ -106,5 +105,5 @@ export interface GetEventSourceMappingOutputArgs {
     /**
      * Event Source Mapping Identifier UUID.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
  */
-export function getCluster(args?: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    args = args || {};
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetClusterArgs {
     /**
      * The name of the cluster. This value must be unique as it also serves as the cluster identifier.
      */
-    clusterName?: string;
+    clusterName: string;
 }
 
 export interface GetClusterResult {
@@ -116,7 +115,7 @@ export interface GetClusterResult {
     readonly tags?: outputs.memorydb.ClusterTag[];
 }
 
-export function getClusterOutput(args?: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply(a => getCluster(a, opts))
 }
 
@@ -124,5 +123,5 @@ export interface GetClusterOutputArgs {
     /**
      * The name of the cluster. This value must be unique as it also serves as the cluster identifier.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
 }

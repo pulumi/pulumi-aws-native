@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EventSchemas::Registry
  */
-export function getRegistry(args?: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
-    args = args || {};
+export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRegistry(args?: GetRegistryArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetRegistryArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRegistryResult {
@@ -31,10 +30,10 @@ export interface GetRegistryResult {
     readonly tags?: outputs.eventschemas.RegistryTagsEntry[];
 }
 
-export function getRegistryOutput(args?: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
+export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
     return pulumi.output(args).apply(a => getRegistry(a, opts))
 }
 
 export interface GetRegistryOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::Domain
  */
-export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    args = args || {};
+export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDomainArgs {
     /**
      * The domain name.
      */
-    domainId?: string;
+    domainId: string;
 }
 
 export interface GetDomainResult {
@@ -54,7 +53,7 @@ export interface GetDomainResult {
     readonly url?: string;
 }
 
-export function getDomainOutput(args?: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply(a => getDomain(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetDomainOutputArgs {
     /**
      * The domain name.
      */
-    domainId?: pulumi.Input<string>;
+    domainId: pulumi.Input<string>;
 }

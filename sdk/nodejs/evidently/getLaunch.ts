@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Evidently::Launch.
  */
-export function getLaunch(args?: GetLaunchArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchResult> {
-    args = args || {};
+export function getLaunch(args: GetLaunchArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getLaunch(args?: GetLaunchArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetLaunchArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetLaunchResult {
@@ -37,10 +36,10 @@ export interface GetLaunchResult {
     readonly tags?: outputs.evidently.LaunchTag[];
 }
 
-export function getLaunchOutput(args?: GetLaunchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchResult> {
+export function getLaunchOutput(args: GetLaunchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchResult> {
     return pulumi.output(args).apply(a => getLaunch(a, opts))
 }
 
 export interface GetLaunchOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

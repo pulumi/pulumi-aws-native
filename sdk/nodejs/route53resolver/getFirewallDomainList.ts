@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Route53Resolver::FirewallDomainList.
  */
-export function getFirewallDomainList(args?: GetFirewallDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallDomainListResult> {
-    args = args || {};
+export function getFirewallDomainList(args: GetFirewallDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallDomainListResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFirewallDomainListArgs {
     /**
      * ResourceId
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetFirewallDomainListResult {
@@ -70,7 +69,7 @@ export interface GetFirewallDomainListResult {
     readonly tags?: outputs.route53resolver.FirewallDomainListTag[];
 }
 
-export function getFirewallDomainListOutput(args?: GetFirewallDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallDomainListResult> {
+export function getFirewallDomainListOutput(args: GetFirewallDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallDomainListResult> {
     return pulumi.output(args).apply(a => getFirewallDomainList(a, opts))
 }
 
@@ -78,5 +77,5 @@ export interface GetFirewallDomainListOutputArgs {
     /**
      * ResourceId
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

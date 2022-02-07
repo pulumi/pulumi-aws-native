@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Config::DeliveryChannel
  */
-export function getDeliveryChannel(args?: GetDeliveryChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryChannelResult> {
-    args = args || {};
+export function getDeliveryChannel(args: GetDeliveryChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDeliveryChannel(args?: GetDeliveryChannelArgs, opts?: pulumi.
 }
 
 export interface GetDeliveryChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDeliveryChannelResult {
@@ -33,10 +32,10 @@ export interface GetDeliveryChannelResult {
     readonly snsTopicARN?: string;
 }
 
-export function getDeliveryChannelOutput(args?: GetDeliveryChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryChannelResult> {
+export function getDeliveryChannelOutput(args: GetDeliveryChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryChannelResult> {
     return pulumi.output(args).apply(a => getDeliveryChannel(a, opts))
 }
 
 export interface GetDeliveryChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

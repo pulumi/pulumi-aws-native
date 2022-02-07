@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::ADMChannel
  */
-export function getADMChannel(args?: GetADMChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetADMChannelResult> {
-    args = args || {};
+export function getADMChannel(args: GetADMChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetADMChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getADMChannel(args?: GetADMChannelArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetADMChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetADMChannelResult {
@@ -30,10 +29,10 @@ export interface GetADMChannelResult {
     readonly id?: string;
 }
 
-export function getADMChannelOutput(args?: GetADMChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADMChannelResult> {
+export function getADMChannelOutput(args: GetADMChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADMChannelResult> {
     return pulumi.output(args).apply(a => getADMChannel(a, opts))
 }
 
 export interface GetADMChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

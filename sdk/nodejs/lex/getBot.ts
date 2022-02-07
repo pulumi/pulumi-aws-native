@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
  */
-export function getBot(args?: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
-    args = args || {};
+export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getBot(args?: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetBotArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetBotResult {
@@ -40,10 +39,10 @@ export interface GetBotResult {
     readonly roleArn?: string;
 }
 
-export function getBotOutput(args?: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
+export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
     return pulumi.output(args).apply(a => getBot(a, opts))
 }
 
 export interface GetBotOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

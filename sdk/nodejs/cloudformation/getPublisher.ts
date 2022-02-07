@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Register as a publisher in the CloudFormation Registry.
  */
-export function getPublisher(args?: GetPublisherArgs, opts?: pulumi.InvokeOptions): Promise<GetPublisherResult> {
-    args = args || {};
+export function getPublisher(args: GetPublisherArgs, opts?: pulumi.InvokeOptions): Promise<GetPublisherResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetPublisherArgs {
     /**
      * The publisher id assigned by CloudFormation for publishing in this region.
      */
-    publisherId?: string;
+    publisherId: string;
 }
 
 export interface GetPublisherResult {
@@ -46,7 +45,7 @@ export interface GetPublisherResult {
     readonly publisherStatus?: enums.cloudformation.PublisherStatus;
 }
 
-export function getPublisherOutput(args?: GetPublisherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublisherResult> {
+export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublisherResult> {
     return pulumi.output(args).apply(a => getPublisher(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetPublisherOutputArgs {
     /**
      * The publisher id assigned by CloudFormation for publishing in this region.
      */
-    publisherId?: pulumi.Input<string>;
+    publisherId: pulumi.Input<string>;
 }

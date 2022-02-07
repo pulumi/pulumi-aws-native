@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::PublicKey
  */
-export function getPublicKey(args?: GetPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicKeyResult> {
-    args = args || {};
+export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPublicKey(args?: GetPublicKeyArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetPublicKeyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPublicKeyResult {
@@ -30,10 +29,10 @@ export interface GetPublicKeyResult {
     readonly publicKeyConfig?: outputs.cloudfront.PublicKeyConfig;
 }
 
-export function getPublicKeyOutput(args?: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicKeyResult> {
+export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicKeyResult> {
     return pulumi.output(args).apply(a => getPublicKey(a, opts))
 }
 
 export interface GetPublicKeyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

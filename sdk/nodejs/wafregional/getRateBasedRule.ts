@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WAFRegional::RateBasedRule
  */
-export function getRateBasedRule(args?: GetRateBasedRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedRuleResult> {
-    args = args || {};
+export function getRateBasedRule(args: GetRateBasedRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRateBasedRule(args?: GetRateBasedRuleArgs, opts?: pulumi.Invo
 }
 
 export interface GetRateBasedRuleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRateBasedRuleResult {
@@ -30,10 +29,10 @@ export interface GetRateBasedRuleResult {
     readonly rateLimit?: number;
 }
 
-export function getRateBasedRuleOutput(args?: GetRateBasedRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedRuleResult> {
+export function getRateBasedRuleOutput(args: GetRateBasedRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedRuleResult> {
     return pulumi.output(args).apply(a => getRateBasedRule(a, opts))
 }
 
 export interface GetRateBasedRuleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

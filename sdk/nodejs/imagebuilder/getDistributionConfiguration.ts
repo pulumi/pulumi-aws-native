@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::ImageBuilder::DistributionConfiguration
  */
-export function getDistributionConfiguration(args?: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
-    args = args || {};
+export function getDistributionConfiguration(args: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDistributionConfigurationArgs {
     /**
      * The Amazon Resource Name (ARN) of the distribution configuration.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetDistributionConfigurationResult {
@@ -46,7 +45,7 @@ export interface GetDistributionConfigurationResult {
     readonly tags?: any;
 }
 
-export function getDistributionConfigurationOutput(args?: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
+export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
     return pulumi.output(args).apply(a => getDistributionConfiguration(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetDistributionConfigurationOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the distribution configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

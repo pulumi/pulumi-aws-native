@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodeCommit::Repository
  */
-export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
-    args = args || {};
+export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRepository(args?: GetRepositoryArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetRepositoryArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRepositoryResult {
@@ -37,10 +36,10 @@ export interface GetRepositoryResult {
     readonly triggers?: outputs.codecommit.RepositoryTrigger[];
 }
 
-export function getRepositoryOutput(args?: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
+export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
     return pulumi.output(args).apply(a => getRepository(a, opts))
 }
 
 export interface GetRepositoryOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

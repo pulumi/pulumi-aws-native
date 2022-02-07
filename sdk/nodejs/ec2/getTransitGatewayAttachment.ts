@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayAttachment
  */
-export function getTransitGatewayAttachment(args?: GetTransitGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayAttachmentResult> {
-    args = args || {};
+export function getTransitGatewayAttachment(args: GetTransitGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayAttachmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getTransitGatewayAttachment(args?: GetTransitGatewayAttachmentAr
 }
 
 export interface GetTransitGatewayAttachmentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTransitGatewayAttachmentResult {
     readonly id?: string;
 }
 
-export function getTransitGatewayAttachmentOutput(args?: GetTransitGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayAttachmentResult> {
+export function getTransitGatewayAttachmentOutput(args: GetTransitGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayAttachmentResult> {
     return pulumi.output(args).apply(a => getTransitGatewayAttachment(a, opts))
 }
 
 export interface GetTransitGatewayAttachmentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

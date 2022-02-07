@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
  */
-export function getAuthorizer(args?: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
-    args = args || {};
+export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,11 +20,11 @@ export function getAuthorizer(args?: GetAuthorizerArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetAuthorizerArgs {
-    authorizerId?: string;
+    authorizerId: string;
     /**
      * The identifier of the API.
      */
-    restApiId?: string;
+    restApiId: string;
 }
 
 export interface GetAuthorizerResult {
@@ -68,14 +67,14 @@ export interface GetAuthorizerResult {
     readonly type?: string;
 }
 
-export function getAuthorizerOutput(args?: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
+export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
     return pulumi.output(args).apply(a => getAuthorizer(a, opts))
 }
 
 export interface GetAuthorizerOutputArgs {
-    authorizerId?: pulumi.Input<string>;
+    authorizerId: pulumi.Input<string>;
     /**
      * The identifier of the API.
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
 }

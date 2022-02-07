@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for a Redshift-managed VPC endpoint.
  */
-export function getEndpointAccess(args?: GetEndpointAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAccessResult> {
-    args = args || {};
+export function getEndpointAccess(args: GetEndpointAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAccessResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetEndpointAccessArgs {
     /**
      * The name of the endpoint.
      */
-    endpointName?: string;
+    endpointName: string;
 }
 
 export interface GetEndpointAccessResult {
@@ -58,7 +57,7 @@ export interface GetEndpointAccessResult {
     readonly vpcSecurityGroups?: outputs.redshift.EndpointAccessVpcSecurityGroup[];
 }
 
-export function getEndpointAccessOutput(args?: GetEndpointAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointAccessResult> {
+export function getEndpointAccessOutput(args: GetEndpointAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointAccessResult> {
     return pulumi.output(args).apply(a => getEndpointAccess(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetEndpointAccessOutputArgs {
     /**
      * The name of the endpoint.
      */
-    endpointName?: pulumi.Input<string>;
+    endpointName: pulumi.Input<string>;
 }

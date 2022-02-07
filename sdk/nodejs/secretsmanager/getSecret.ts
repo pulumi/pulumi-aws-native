@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SecretsManager::Secret
  */
-export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    args = args || {};
+export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetSecretArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSecretResult {
@@ -34,10 +33,10 @@ export interface GetSecretResult {
     readonly tags?: outputs.secretsmanager.SecretTag[];
 }
 
-export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply(a => getSecret(a, opts))
 }
 
 export interface GetSecretOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

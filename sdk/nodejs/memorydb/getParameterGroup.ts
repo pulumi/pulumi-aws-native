@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
  */
-export function getParameterGroup(args?: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
-    args = args || {};
+export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetParameterGroupArgs {
     /**
      * The name of the parameter group.
      */
-    parameterGroupName?: string;
+    parameterGroupName: string;
 }
 
 export interface GetParameterGroupResult {
@@ -38,7 +37,7 @@ export interface GetParameterGroupResult {
     readonly tags?: outputs.memorydb.ParameterGroupTag[];
 }
 
-export function getParameterGroupOutput(args?: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
+export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
     return pulumi.output(args).apply(a => getParameterGroup(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetParameterGroupOutputArgs {
     /**
      * The name of the parameter group.
      */
-    parameterGroupName?: pulumi.Input<string>;
+    parameterGroupName: pulumi.Input<string>;
 }

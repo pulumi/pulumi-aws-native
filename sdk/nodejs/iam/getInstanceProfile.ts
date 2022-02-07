@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::InstanceProfile
  */
-export function getInstanceProfile(args?: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
-    args = args || {};
+export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getInstanceProfile(args?: GetInstanceProfileArgs, opts?: pulumi.
 }
 
 export interface GetInstanceProfileArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetInstanceProfileResult {
@@ -29,10 +28,10 @@ export interface GetInstanceProfileResult {
     readonly roles?: string[];
 }
 
-export function getInstanceProfileOutput(args?: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
+export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
     return pulumi.output(args).apply(a => getInstanceProfile(a, opts))
 }
 
 export interface GetInstanceProfileOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

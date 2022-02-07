@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaPackage::OriginEndpoint
  */
-export function getOriginEndpoint(args?: GetOriginEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginEndpointResult> {
-    args = args || {};
+export function getOriginEndpoint(args: GetOriginEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginEndpointResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetOriginEndpointArgs {
     /**
      * The ID of the OriginEndpoint.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetOriginEndpointResult {
@@ -75,7 +74,7 @@ export interface GetOriginEndpointResult {
     readonly whitelist?: string[];
 }
 
-export function getOriginEndpointOutput(args?: GetOriginEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointResult> {
+export function getOriginEndpointOutput(args: GetOriginEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointResult> {
     return pulumi.output(args).apply(a => getOriginEndpoint(a, opts))
 }
 
@@ -83,5 +82,5 @@ export interface GetOriginEndpointOutputArgs {
     /**
      * The ID of the OriginEndpoint.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

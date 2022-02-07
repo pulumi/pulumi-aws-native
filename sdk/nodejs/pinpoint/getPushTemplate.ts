@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::PushTemplate
  */
-export function getPushTemplate(args?: GetPushTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetPushTemplateResult> {
-    args = args || {};
+export function getPushTemplate(args: GetPushTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetPushTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPushTemplate(args?: GetPushTemplateArgs, opts?: pulumi.Invoke
 }
 
 export interface GetPushTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPushTemplateResult {
@@ -37,10 +36,10 @@ export interface GetPushTemplateResult {
     readonly templateDescription?: string;
 }
 
-export function getPushTemplateOutput(args?: GetPushTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPushTemplateResult> {
+export function getPushTemplateOutput(args: GetPushTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPushTemplateResult> {
     return pulumi.output(args).apply(a => getPushTemplate(a, opts))
 }
 
 export interface GetPushTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

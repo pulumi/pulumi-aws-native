@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::EC2::TransitGatewayMulticastDomainAssociation type
  */
-export function getTransitGatewayMulticastDomainAssociation(args?: GetTransitGatewayMulticastDomainAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastDomainAssociationResult> {
-    args = args || {};
+export function getTransitGatewayMulticastDomainAssociation(args: GetTransitGatewayMulticastDomainAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastDomainAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,15 +24,15 @@ export interface GetTransitGatewayMulticastDomainAssociationArgs {
     /**
      * The IDs of the subnets to associate with the transit gateway multicast domain.
      */
-    subnetId?: string;
+    subnetId: string;
     /**
      * The ID of the transit gateway attachment.
      */
-    transitGatewayAttachmentId?: string;
+    transitGatewayAttachmentId: string;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    transitGatewayMulticastDomainId?: string;
+    transitGatewayMulticastDomainId: string;
 }
 
 export interface GetTransitGatewayMulticastDomainAssociationResult {
@@ -51,7 +50,7 @@ export interface GetTransitGatewayMulticastDomainAssociationResult {
     readonly state?: string;
 }
 
-export function getTransitGatewayMulticastDomainAssociationOutput(args?: GetTransitGatewayMulticastDomainAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastDomainAssociationResult> {
+export function getTransitGatewayMulticastDomainAssociationOutput(args: GetTransitGatewayMulticastDomainAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastDomainAssociationResult> {
     return pulumi.output(args).apply(a => getTransitGatewayMulticastDomainAssociation(a, opts))
 }
 
@@ -59,13 +58,13 @@ export interface GetTransitGatewayMulticastDomainAssociationOutputArgs {
     /**
      * The IDs of the subnets to associate with the transit gateway multicast domain.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * The ID of the transit gateway attachment.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId: pulumi.Input<string>;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    transitGatewayMulticastDomainId?: pulumi.Input<string>;
+    transitGatewayMulticastDomainId: pulumi.Input<string>;
 }

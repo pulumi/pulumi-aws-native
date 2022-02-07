@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::CodeSigningConfig.
  */
-export function getCodeSigningConfig(args?: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
-    args = args || {};
+export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetCodeSigningConfigArgs {
     /**
      * A unique Arn for CodeSigningConfig resource
      */
-    codeSigningConfigArn?: string;
+    codeSigningConfigArn: string;
 }
 
 export interface GetCodeSigningConfigResult {
@@ -50,7 +49,7 @@ export interface GetCodeSigningConfigResult {
     readonly description?: string;
 }
 
-export function getCodeSigningConfigOutput(args?: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
+export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
     return pulumi.output(args).apply(a => getCodeSigningConfig(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetCodeSigningConfigOutputArgs {
     /**
      * A unique Arn for CodeSigningConfig resource
      */
-    codeSigningConfigArn?: pulumi.Input<string>;
+    codeSigningConfigArn: pulumi.Input<string>;
 }

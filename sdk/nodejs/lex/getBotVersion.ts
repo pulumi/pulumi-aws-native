@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
  */
-export function getBotVersion(args?: GetBotVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotVersionResult> {
-    args = args || {};
+export function getBotVersion(args: GetBotVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,8 +20,8 @@ export function getBotVersion(args?: GetBotVersionArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetBotVersionArgs {
-    botId?: string;
-    botVersion?: string;
+    botId: string;
+    botVersion: string;
 }
 
 export interface GetBotVersionResult {
@@ -30,11 +29,11 @@ export interface GetBotVersionResult {
     readonly description?: string;
 }
 
-export function getBotVersionOutput(args?: GetBotVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotVersionResult> {
+export function getBotVersionOutput(args: GetBotVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotVersionResult> {
     return pulumi.output(args).apply(a => getBotVersion(a, opts))
 }
 
 export interface GetBotVersionOutputArgs {
-    botId?: pulumi.Input<string>;
-    botVersion?: pulumi.Input<string>;
+    botId: pulumi.Input<string>;
+    botVersion: pulumi.Input<string>;
 }

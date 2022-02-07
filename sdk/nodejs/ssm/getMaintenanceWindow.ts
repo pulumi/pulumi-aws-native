@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SSM::MaintenanceWindow
  */
-export function getMaintenanceWindow(args?: GetMaintenanceWindowArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowResult> {
-    args = args || {};
+export function getMaintenanceWindow(args: GetMaintenanceWindowArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getMaintenanceWindow(args?: GetMaintenanceWindowArgs, opts?: pul
 }
 
 export interface GetMaintenanceWindowArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMaintenanceWindowResult {
@@ -39,10 +38,10 @@ export interface GetMaintenanceWindowResult {
     readonly tags?: outputs.ssm.MaintenanceWindowTag[];
 }
 
-export function getMaintenanceWindowOutput(args?: GetMaintenanceWindowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceWindowResult> {
+export function getMaintenanceWindowOutput(args: GetMaintenanceWindowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceWindowResult> {
     return pulumi.output(args).apply(a => getMaintenanceWindow(a, opts))
 }
 
 export interface GetMaintenanceWindowOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

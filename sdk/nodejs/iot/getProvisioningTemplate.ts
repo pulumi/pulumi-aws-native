@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Creates a fleet provisioning template.
  */
-export function getProvisioningTemplate(args?: GetProvisioningTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisioningTemplateResult> {
-    args = args || {};
+export function getProvisioningTemplate(args: GetProvisioningTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisioningTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getProvisioningTemplate(args?: GetProvisioningTemplateArgs, opts
 }
 
 export interface GetProvisioningTemplateArgs {
-    templateName?: string;
+    templateName: string;
 }
 
 export interface GetProvisioningTemplateResult {
@@ -34,10 +33,10 @@ export interface GetProvisioningTemplateResult {
     readonly templateBody?: string;
 }
 
-export function getProvisioningTemplateOutput(args?: GetProvisioningTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisioningTemplateResult> {
+export function getProvisioningTemplateOutput(args: GetProvisioningTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisioningTemplateResult> {
     return pulumi.output(args).apply(a => getProvisioningTemplate(a, opts))
 }
 
 export interface GetProvisioningTemplateOutputArgs {
-    templateName?: pulumi.Input<string>;
+    templateName: pulumi.Input<string>;
 }

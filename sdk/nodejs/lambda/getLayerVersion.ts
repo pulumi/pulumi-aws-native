@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::LayerVersion
  */
-export function getLayerVersion(args?: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
-    args = args || {};
+export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getLayerVersion(args?: GetLayerVersionArgs, opts?: pulumi.Invoke
 }
 
 export interface GetLayerVersionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLayerVersionResult {
     readonly id?: string;
 }
 
-export function getLayerVersionOutput(args?: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionResult> {
+export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionResult> {
     return pulumi.output(args).apply(a => getLayerVersion(a, opts))
 }
 
 export interface GetLayerVersionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

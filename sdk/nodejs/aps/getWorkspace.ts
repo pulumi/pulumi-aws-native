@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::APS::Workspace
  */
-export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    args = args || {};
+export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetWorkspaceArgs {
     /**
      * Workspace arn.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetWorkspaceResult {
@@ -54,7 +53,7 @@ export interface GetWorkspaceResult {
     readonly workspaceId?: string;
 }
 
-export function getWorkspaceOutput(args?: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply(a => getWorkspace(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetWorkspaceOutputArgs {
     /**
      * Workspace arn.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

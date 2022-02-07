@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Describes an association between a local gateway route table and a VPC.
  */
-export function getLocalGatewayRouteTableVPCAssociation(args?: GetLocalGatewayRouteTableVPCAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableVPCAssociationResult> {
-    args = args || {};
+export function getLocalGatewayRouteTableVPCAssociation(args: GetLocalGatewayRouteTableVPCAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableVPCAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLocalGatewayRouteTableVPCAssociationArgs {
     /**
      * The ID of the association.
      */
-    localGatewayRouteTableVpcAssociationId?: string;
+    localGatewayRouteTableVpcAssociationId: string;
 }
 
 export interface GetLocalGatewayRouteTableVPCAssociationResult {
@@ -46,7 +45,7 @@ export interface GetLocalGatewayRouteTableVPCAssociationResult {
     readonly tags?: outputs.ec2.LocalGatewayRouteTableVPCAssociationTag[];
 }
 
-export function getLocalGatewayRouteTableVPCAssociationOutput(args?: GetLocalGatewayRouteTableVPCAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTableVPCAssociationResult> {
+export function getLocalGatewayRouteTableVPCAssociationOutput(args: GetLocalGatewayRouteTableVPCAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTableVPCAssociationResult> {
     return pulumi.output(args).apply(a => getLocalGatewayRouteTableVPCAssociation(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetLocalGatewayRouteTableVPCAssociationOutputArgs {
     /**
      * The ID of the association.
      */
-    localGatewayRouteTableVpcAssociationId?: pulumi.Input<string>;
+    localGatewayRouteTableVpcAssociationId: pulumi.Input<string>;
 }

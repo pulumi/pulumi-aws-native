@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppSync::DomainName
  */
-export function getDomainName(args?: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
-    args = args || {};
+export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDomainName(args?: GetDomainNameArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetDomainNameArgs {
-    domainName?: string;
+    domainName: string;
 }
 
 export interface GetDomainNameResult {
@@ -29,10 +28,10 @@ export interface GetDomainNameResult {
     readonly hostedZoneId?: string;
 }
 
-export function getDomainNameOutput(args?: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
+export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
     return pulumi.output(args).apply(a => getDomainName(a, opts))
 }
 
 export interface GetDomainNameOutputArgs {
-    domainName?: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
 }

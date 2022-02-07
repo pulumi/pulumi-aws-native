@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::StreamingDistribution
  */
-export function getStreamingDistribution(args?: GetStreamingDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingDistributionResult> {
-    args = args || {};
+export function getStreamingDistribution(args: GetStreamingDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingDistributionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getStreamingDistribution(args?: GetStreamingDistributionArgs, op
 }
 
 export interface GetStreamingDistributionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetStreamingDistributionResult {
@@ -31,10 +30,10 @@ export interface GetStreamingDistributionResult {
     readonly tags?: outputs.cloudfront.StreamingDistributionTag[];
 }
 
-export function getStreamingDistributionOutput(args?: GetStreamingDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingDistributionResult> {
+export function getStreamingDistributionOutput(args: GetStreamingDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingDistributionResult> {
     return pulumi.output(args).apply(a => getStreamingDistribution(a, opts))
 }
 
 export interface GetStreamingDistributionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

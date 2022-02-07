@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::UserToGroupAddition
  */
-export function getUserToGroupAddition(args?: GetUserToGroupAdditionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserToGroupAdditionResult> {
-    args = args || {};
+export function getUserToGroupAddition(args: GetUserToGroupAdditionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserToGroupAdditionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getUserToGroupAddition(args?: GetUserToGroupAdditionArgs, opts?:
 }
 
 export interface GetUserToGroupAdditionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetUserToGroupAdditionResult {
@@ -29,10 +28,10 @@ export interface GetUserToGroupAdditionResult {
     readonly users?: string[];
 }
 
-export function getUserToGroupAdditionOutput(args?: GetUserToGroupAdditionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserToGroupAdditionResult> {
+export function getUserToGroupAdditionOutput(args: GetUserToGroupAdditionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserToGroupAdditionResult> {
     return pulumi.output(args).apply(a => getUserToGroupAddition(a, opts))
 }
 
 export interface GetUserToGroupAdditionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
  */
-export function getNetworkInsightsAccessScopeAnalysis(args?: GetNetworkInsightsAccessScopeAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsAccessScopeAnalysisResult> {
-    args = args || {};
+export function getNetworkInsightsAccessScopeAnalysis(args: GetNetworkInsightsAccessScopeAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsAccessScopeAnalysisResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNetworkInsightsAccessScopeAnalysis(args?: GetNetworkInsightsA
 }
 
 export interface GetNetworkInsightsAccessScopeAnalysisArgs {
-    networkInsightsAccessScopeAnalysisId?: string;
+    networkInsightsAccessScopeAnalysisId: string;
 }
 
 export interface GetNetworkInsightsAccessScopeAnalysisResult {
@@ -36,10 +35,10 @@ export interface GetNetworkInsightsAccessScopeAnalysisResult {
     readonly tags?: outputs.ec2.NetworkInsightsAccessScopeAnalysisTag[];
 }
 
-export function getNetworkInsightsAccessScopeAnalysisOutput(args?: GetNetworkInsightsAccessScopeAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsAccessScopeAnalysisResult> {
+export function getNetworkInsightsAccessScopeAnalysisOutput(args: GetNetworkInsightsAccessScopeAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsAccessScopeAnalysisResult> {
     return pulumi.output(args).apply(a => getNetworkInsightsAccessScopeAnalysis(a, opts))
 }
 
 export interface GetNetworkInsightsAccessScopeAnalysisOutputArgs {
-    networkInsightsAccessScopeAnalysisId?: pulumi.Input<string>;
+    networkInsightsAccessScopeAnalysisId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::RealtimeLogConfig
  */
-export function getRealtimeLogConfig(args?: GetRealtimeLogConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetRealtimeLogConfigResult> {
-    args = args || {};
+export function getRealtimeLogConfig(args: GetRealtimeLogConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetRealtimeLogConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRealtimeLogConfig(args?: GetRealtimeLogConfigArgs, opts?: pul
 }
 
 export interface GetRealtimeLogConfigArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetRealtimeLogConfigResult {
@@ -31,10 +30,10 @@ export interface GetRealtimeLogConfigResult {
     readonly samplingRate?: number;
 }
 
-export function getRealtimeLogConfigOutput(args?: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRealtimeLogConfigResult> {
+export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRealtimeLogConfigResult> {
     return pulumi.output(args).apply(a => getRealtimeLogConfig(a, opts))
 }
 
 export interface GetRealtimeLogConfigOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

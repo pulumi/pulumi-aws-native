@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of the AWS::QuickSight::DataSet Resource Type.
  */
-export function getDataSet(args?: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
-    args = args || {};
+export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getDataSet(args?: GetDataSetArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetDataSetArgs {
-    awsAccountId?: string;
-    dataSetId?: string;
+    awsAccountId: string;
+    dataSetId: string;
 }
 
 export interface GetDataSetResult {
@@ -72,11 +71,11 @@ export interface GetDataSetResult {
     readonly tags?: outputs.quicksight.DataSetTag[];
 }
 
-export function getDataSetOutput(args?: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {
+export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {
     return pulumi.output(args).apply(a => getDataSet(a, opts))
 }
 
 export interface GetDataSetOutputArgs {
-    awsAccountId?: pulumi.Input<string>;
-    dataSetId?: pulumi.Input<string>;
+    awsAccountId: pulumi.Input<string>;
+    dataSetId: pulumi.Input<string>;
 }

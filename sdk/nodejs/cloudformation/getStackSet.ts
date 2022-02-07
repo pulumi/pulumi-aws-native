@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
  */
-export function getStackSet(args?: GetStackSetArgs, opts?: pulumi.InvokeOptions): Promise<GetStackSetResult> {
-    args = args || {};
+export function getStackSet(args: GetStackSetArgs, opts?: pulumi.InvokeOptions): Promise<GetStackSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetStackSetArgs {
     /**
      * The ID of the stack set that you're creating.
      */
-    stackSetId?: string;
+    stackSetId: string;
 }
 
 export interface GetStackSetResult {
@@ -74,7 +73,7 @@ export interface GetStackSetResult {
     readonly templateBody?: string;
 }
 
-export function getStackSetOutput(args?: GetStackSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackSetResult> {
+export function getStackSetOutput(args: GetStackSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackSetResult> {
     return pulumi.output(args).apply(a => getStackSet(a, opts))
 }
 
@@ -82,5 +81,5 @@ export interface GetStackSetOutputArgs {
     /**
      * The ID of the stack set that you're creating.
      */
-    stackSetId?: pulumi.Input<string>;
+    stackSetId: pulumi.Input<string>;
 }

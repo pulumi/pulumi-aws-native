@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoT::TopicRule
  */
-export function getTopicRule(args?: GetTopicRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicRuleResult> {
-    args = args || {};
+export function getTopicRule(args: GetTopicRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTopicRule(args?: GetTopicRuleArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetTopicRuleArgs {
-    ruleName?: string;
+    ruleName: string;
 }
 
 export interface GetTopicRuleResult {
@@ -30,10 +29,10 @@ export interface GetTopicRuleResult {
     readonly topicRulePayload?: outputs.iot.TopicRulePayload;
 }
 
-export function getTopicRuleOutput(args?: GetTopicRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicRuleResult> {
+export function getTopicRuleOutput(args: GetTopicRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicRuleResult> {
     return pulumi.output(args).apply(a => getTopicRule(a, opts))
 }
 
 export interface GetTopicRuleOutputArgs {
-    ruleName?: pulumi.Input<string>;
+    ruleName: pulumi.Input<string>;
 }

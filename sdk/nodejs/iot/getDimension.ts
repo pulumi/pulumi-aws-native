@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
  */
-export function getDimension(args?: GetDimensionArgs, opts?: pulumi.InvokeOptions): Promise<GetDimensionResult> {
-    args = args || {};
+export function getDimension(args: GetDimensionArgs, opts?: pulumi.InvokeOptions): Promise<GetDimensionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDimensionArgs {
     /**
      * A unique identifier for the dimension.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetDimensionResult {
@@ -42,7 +41,7 @@ export interface GetDimensionResult {
     readonly tags?: outputs.iot.DimensionTag[];
 }
 
-export function getDimensionOutput(args?: GetDimensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDimensionResult> {
+export function getDimensionOutput(args: GetDimensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDimensionResult> {
     return pulumi.output(args).apply(a => getDimension(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetDimensionOutputArgs {
     /**
      * A unique identifier for the dimension.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Config::OrganizationConformancePack.
  */
-export function getOrganizationConformancePack(args?: GetOrganizationConformancePackArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationConformancePackResult> {
-    args = args || {};
+export function getOrganizationConformancePack(args: GetOrganizationConformancePackArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationConformancePackResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetOrganizationConformancePackArgs {
     /**
      * The name of the organization conformance pack.
      */
-    organizationConformancePackName?: string;
+    organizationConformancePackName: string;
 }
 
 export interface GetOrganizationConformancePackResult {
@@ -46,7 +45,7 @@ export interface GetOrganizationConformancePackResult {
     readonly excludedAccounts?: string[];
 }
 
-export function getOrganizationConformancePackOutput(args?: GetOrganizationConformancePackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationConformancePackResult> {
+export function getOrganizationConformancePackOutput(args: GetOrganizationConformancePackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationConformancePackResult> {
     return pulumi.output(args).apply(a => getOrganizationConformancePack(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetOrganizationConformancePackOutputArgs {
     /**
      * The name of the organization conformance pack.
      */
-    organizationConformancePackName?: pulumi.Input<string>;
+    organizationConformancePackName: pulumi.Input<string>;
 }

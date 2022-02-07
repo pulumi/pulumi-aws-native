@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A custom metric published by your devices to Device Defender.
  */
-export function getCustomMetric(args?: GetCustomMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomMetricResult> {
-    args = args || {};
+export function getCustomMetric(args: GetCustomMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomMetricResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetCustomMetricArgs {
     /**
      * The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
      */
-    metricName?: string;
+    metricName: string;
 }
 
 export interface GetCustomMetricResult {
@@ -42,7 +41,7 @@ export interface GetCustomMetricResult {
     readonly tags?: outputs.iot.CustomMetricTag[];
 }
 
-export function getCustomMetricOutput(args?: GetCustomMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomMetricResult> {
+export function getCustomMetricOutput(args: GetCustomMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomMetricResult> {
     return pulumi.output(args).apply(a => getCustomMetric(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetCustomMetricOutputArgs {
     /**
      * The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
      */
-    metricName?: pulumi.Input<string>;
+    metricName: pulumi.Input<string>;
 }

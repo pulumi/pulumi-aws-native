@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::LoggerDefinition
  */
-export function getLoggerDefinition(args?: GetLoggerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerDefinitionResult> {
-    args = args || {};
+export function getLoggerDefinition(args: GetLoggerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getLoggerDefinition(args?: GetLoggerDefinitionArgs, opts?: pulum
 }
 
 export interface GetLoggerDefinitionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLoggerDefinitionResult {
@@ -31,10 +30,10 @@ export interface GetLoggerDefinitionResult {
     readonly tags?: any;
 }
 
-export function getLoggerDefinitionOutput(args?: GetLoggerDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerDefinitionResult> {
+export function getLoggerDefinitionOutput(args: GetLoggerDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerDefinitionResult> {
     return pulumi.output(args).apply(a => getLoggerDefinition(a, opts))
 }
 
 export interface GetLoggerDefinitionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

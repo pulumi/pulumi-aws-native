@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::LicenseManager::License
  */
-export function getLicense(args?: GetLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseResult> {
-    args = args || {};
+export function getLicense(args: GetLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLicenseArgs {
     /**
      * Amazon Resource Name is a unique name for each resource.
      */
-    licenseArn?: string;
+    licenseArn: string;
 }
 
 export interface GetLicenseResult {
@@ -63,7 +62,7 @@ export interface GetLicenseResult {
     readonly version?: string;
 }
 
-export function getLicenseOutput(args?: GetLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseResult> {
+export function getLicenseOutput(args: GetLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseResult> {
     return pulumi.output(args).apply(a => getLicense(a, opts))
 }
 
@@ -71,5 +70,5 @@ export interface GetLicenseOutputArgs {
     /**
      * Amazon Resource Name is a unique name for each resource.
      */
-    licenseArn?: pulumi.Input<string>;
+    licenseArn: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::ResourceDefinition
  */
-export function getResourceDefinition(args?: GetResourceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceDefinitionResult> {
-    args = args || {};
+export function getResourceDefinition(args: GetResourceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getResourceDefinition(args?: GetResourceDefinitionArgs, opts?: p
 }
 
 export interface GetResourceDefinitionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResourceDefinitionResult {
@@ -31,10 +30,10 @@ export interface GetResourceDefinitionResult {
     readonly tags?: any;
 }
 
-export function getResourceDefinitionOutput(args?: GetResourceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefinitionResult> {
+export function getResourceDefinitionOutput(args: GetResourceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefinitionResult> {
     return pulumi.output(args).apply(a => getResourceDefinition(a, opts))
 }
 
 export interface GetResourceDefinitionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

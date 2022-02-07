@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::DocDB::DBCluster
  */
-export function getDBCluster(args?: GetDBClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterResult> {
-    args = args || {};
+export function getDBCluster(args: GetDBClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDBCluster(args?: GetDBClusterArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetDBClusterArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDBClusterResult {
@@ -41,10 +40,10 @@ export interface GetDBClusterResult {
     readonly vpcSecurityGroupIds?: string[];
 }
 
-export function getDBClusterOutput(args?: GetDBClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBClusterResult> {
+export function getDBClusterOutput(args: GetDBClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBClusterResult> {
     return pulumi.output(args).apply(a => getDBCluster(a, opts))
 }
 
 export interface GetDBClusterOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

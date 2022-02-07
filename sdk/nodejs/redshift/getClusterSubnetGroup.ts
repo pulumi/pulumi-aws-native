@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Redshift::ClusterSubnetGroup
  */
-export function getClusterSubnetGroup(args?: GetClusterSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSubnetGroupResult> {
-    args = args || {};
+export function getClusterSubnetGroup(args: GetClusterSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSubnetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getClusterSubnetGroup(args?: GetClusterSubnetGroupArgs, opts?: p
 }
 
 export interface GetClusterSubnetGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetClusterSubnetGroupResult {
@@ -31,10 +30,10 @@ export interface GetClusterSubnetGroupResult {
     readonly tags?: outputs.redshift.ClusterSubnetGroupTag[];
 }
 
-export function getClusterSubnetGroupOutput(args?: GetClusterSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSubnetGroupResult> {
+export function getClusterSubnetGroupOutput(args: GetClusterSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSubnetGroupResult> {
     return pulumi.output(args).apply(a => getClusterSubnetGroup(a, opts))
 }
 
 export interface GetClusterSubnetGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

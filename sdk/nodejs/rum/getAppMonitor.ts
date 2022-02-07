@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RUM::AppMonitor
  */
-export function getAppMonitor(args?: GetAppMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetAppMonitorResult> {
-    args = args || {};
+export function getAppMonitor(args: GetAppMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetAppMonitorResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAppMonitorArgs {
     /**
      * A name for the app monitor
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetAppMonitorResult {
@@ -40,7 +39,7 @@ export interface GetAppMonitorResult {
     readonly tags?: outputs.rum.AppMonitorTag[];
 }
 
-export function getAppMonitorOutput(args?: GetAppMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppMonitorResult> {
+export function getAppMonitorOutput(args: GetAppMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppMonitorResult> {
     return pulumi.output(args).apply(a => getAppMonitor(a, opts))
 }
 
@@ -48,5 +47,5 @@ export interface GetAppMonitorOutputArgs {
     /**
      * A name for the app monitor
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

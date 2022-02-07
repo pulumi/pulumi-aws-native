@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::QLDB::Stream.
  */
-export function getStream(args?: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
-    args = args || {};
+export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getStream(args?: GetStreamArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetStreamArgs {
-    id?: string;
-    ledgerName?: string;
+    id: string;
+    ledgerName: string;
 }
 
 export interface GetStreamResult {
@@ -35,11 +34,11 @@ export interface GetStreamResult {
     readonly tags?: outputs.qldb.StreamTag[];
 }
 
-export function getStreamOutput(args?: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
+export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
     return pulumi.output(args).apply(a => getStream(a, opts))
 }
 
 export interface GetStreamOutputArgs {
-    id?: pulumi.Input<string>;
-    ledgerName?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
+    ledgerName: pulumi.Input<string>;
 }

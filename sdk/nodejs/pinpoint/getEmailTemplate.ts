@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::EmailTemplate
  */
-export function getEmailTemplate(args?: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
-    args = args || {};
+export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getEmailTemplate(args?: GetEmailTemplateArgs, opts?: pulumi.Invo
 }
 
 export interface GetEmailTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEmailTemplateResult {
@@ -34,10 +33,10 @@ export interface GetEmailTemplateResult {
     readonly textPart?: string;
 }
 
-export function getEmailTemplateOutput(args?: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
+export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
     return pulumi.output(args).apply(a => getEmailTemplate(a, opts))
 }
 
 export interface GetEmailTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

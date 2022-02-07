@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EKS::Nodegroup
  */
-export function getNodegroup(args?: GetNodegroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNodegroupResult> {
-    args = args || {};
+export function getNodegroup(args: GetNodegroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNodegroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNodegroup(args?: GetNodegroupArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetNodegroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetNodegroupResult {
@@ -38,10 +37,10 @@ export interface GetNodegroupResult {
     readonly version?: string;
 }
 
-export function getNodegroupOutput(args?: GetNodegroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodegroupResult> {
+export function getNodegroupOutput(args: GetNodegroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodegroupResult> {
     return pulumi.output(args).apply(a => getNodegroup(a, opts))
 }
 
 export interface GetNodegroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

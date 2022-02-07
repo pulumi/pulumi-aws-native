@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema of AWS::EC2::PrefixList Type
  */
-export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
-    args = args || {};
+export function getPrefixList(args: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetPrefixListArgs {
     /**
      * Id of Prefix List.
      */
-    prefixListId?: string;
+    prefixListId: string;
 }
 
 export interface GetPrefixListResult {
@@ -66,7 +65,7 @@ export interface GetPrefixListResult {
     readonly version?: number;
 }
 
-export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListResult> {
+export function getPrefixListOutput(args: GetPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListResult> {
     return pulumi.output(args).apply(a => getPrefixList(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetPrefixListOutputArgs {
     /**
      * Id of Prefix List.
      */
-    prefixListId?: pulumi.Input<string>;
+    prefixListId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataBrew::Recipe.
  */
-export function getRecipe(args?: GetRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetRecipeResult> {
-    args = args || {};
+export function getRecipe(args: GetRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetRecipeResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRecipeArgs {
     /**
      * Recipe name
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetRecipeResult {
@@ -35,7 +34,7 @@ export interface GetRecipeResult {
     readonly steps?: outputs.databrew.RecipeStep[];
 }
 
-export function getRecipeOutput(args?: GetRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecipeResult> {
+export function getRecipeOutput(args: GetRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecipeResult> {
     return pulumi.output(args).apply(a => getRecipe(a, opts))
 }
 
@@ -43,5 +42,5 @@ export interface GetRecipeOutputArgs {
     /**
      * Recipe name
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodePipeline::Webhook
  */
-export function getWebhook(args?: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
-    args = args || {};
+export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getWebhook(args?: GetWebhookArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetWebhookArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetWebhookResult {
@@ -36,10 +35,10 @@ export interface GetWebhookResult {
     readonly url?: string;
 }
 
-export function getWebhookOutput(args?: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
+export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
     return pulumi.output(args).apply(a => getWebhook(a, opts))
 }
 
 export interface GetWebhookOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

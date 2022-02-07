@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Evidently::Feature.
  */
-export function getFeature(args?: GetFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetFeatureResult> {
-    args = args || {};
+export function getFeature(args: GetFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetFeatureResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFeature(args?: GetFeatureArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetFeatureArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetFeatureResult {
@@ -37,10 +36,10 @@ export interface GetFeatureResult {
     readonly variations?: outputs.evidently.FeatureVariationObject[];
 }
 
-export function getFeatureOutput(args?: GetFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeatureResult> {
+export function getFeatureOutput(args: GetFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeatureResult> {
     return pulumi.output(args).apply(a => getFeature(a, opts))
 }
 
 export interface GetFeatureOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

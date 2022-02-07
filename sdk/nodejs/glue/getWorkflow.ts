@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::Workflow
  */
-export function getWorkflow(args?: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
-    args = args || {};
+export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getWorkflow(args?: GetWorkflowArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetWorkflowArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetWorkflowResult {
@@ -30,10 +29,10 @@ export interface GetWorkflowResult {
     readonly tags?: any;
 }
 
-export function getWorkflowOutput(args?: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
     return pulumi.output(args).apply(a => getWorkflow(a, opts))
 }
 
 export interface GetWorkflowOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

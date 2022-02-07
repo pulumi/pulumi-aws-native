@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
  */
-export function getPrivateDnsNamespace(args?: GetPrivateDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsNamespaceResult> {
-    args = args || {};
+export function getPrivateDnsNamespace(args: GetPrivateDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsNamespaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPrivateDnsNamespace(args?: GetPrivateDnsNamespaceArgs, opts?:
 }
 
 export interface GetPrivateDnsNamespaceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPrivateDnsNamespaceResult {
@@ -33,10 +32,10 @@ export interface GetPrivateDnsNamespaceResult {
     readonly tags?: outputs.servicediscovery.PrivateDnsNamespaceTag[];
 }
 
-export function getPrivateDnsNamespaceOutput(args?: GetPrivateDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsNamespaceResult> {
+export function getPrivateDnsNamespaceOutput(args: GetPrivateDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsNamespaceResult> {
     return pulumi.output(args).apply(a => getPrivateDnsNamespace(a, opts))
 }
 
 export interface GetPrivateDnsNamespaceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

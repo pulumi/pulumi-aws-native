@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::LocationHDFS.
  */
-export function getLocationHDFS(args?: GetLocationHDFSArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationHDFSResult> {
-    args = args || {};
+export function getLocationHDFS(args: GetLocationHDFSArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationHDFSResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLocationHDFSArgs {
     /**
      * The Amazon Resource Name (ARN) of the HDFS location.
      */
-    locationArn?: string;
+    locationArn: string;
 }
 
 export interface GetLocationHDFSResult {
@@ -75,7 +74,7 @@ export interface GetLocationHDFSResult {
     readonly tags?: outputs.datasync.LocationHDFSTag[];
 }
 
-export function getLocationHDFSOutput(args?: GetLocationHDFSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationHDFSResult> {
+export function getLocationHDFSOutput(args: GetLocationHDFSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationHDFSResult> {
     return pulumi.output(args).apply(a => getLocationHDFS(a, opts))
 }
 
@@ -83,5 +82,5 @@ export interface GetLocationHDFSOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the HDFS location.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn: pulumi.Input<string>;
 }

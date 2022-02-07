@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
  */
-export function getKeySigningKey(args?: GetKeySigningKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeySigningKeyResult> {
-    args = args || {};
+export function getKeySigningKey(args: GetKeySigningKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeySigningKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetKeySigningKeyArgs {
     /**
      * The unique string (ID) used to identify a hosted zone.
      */
-    hostedZoneId?: string;
+    hostedZoneId: string;
     /**
      * An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetKeySigningKeyResult {
@@ -39,7 +38,7 @@ export interface GetKeySigningKeyResult {
     readonly status?: enums.route53.KeySigningKeyStatus;
 }
 
-export function getKeySigningKeyOutput(args?: GetKeySigningKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeySigningKeyResult> {
+export function getKeySigningKeyOutput(args: GetKeySigningKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeySigningKeyResult> {
     return pulumi.output(args).apply(a => getKeySigningKey(a, opts))
 }
 
@@ -47,9 +46,9 @@ export interface GetKeySigningKeyOutputArgs {
     /**
      * The unique string (ID) used to identify a hosted zone.
      */
-    hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId: pulumi.Input<string>;
     /**
      * An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

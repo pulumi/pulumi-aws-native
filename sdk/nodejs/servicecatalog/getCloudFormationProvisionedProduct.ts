@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
  */
-export function getCloudFormationProvisionedProduct(args?: GetCloudFormationProvisionedProductArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationProvisionedProductResult> {
-    args = args || {};
+export function getCloudFormationProvisionedProduct(args: GetCloudFormationProvisionedProductArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationProvisionedProductResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCloudFormationProvisionedProduct(args?: GetCloudFormationProv
 }
 
 export interface GetCloudFormationProvisionedProductArgs {
-    provisionedProductId?: string;
+    provisionedProductId: string;
 }
 
 export interface GetCloudFormationProvisionedProductResult {
@@ -44,10 +43,10 @@ export interface GetCloudFormationProvisionedProductResult {
     readonly tags?: outputs.servicecatalog.CloudFormationProvisionedProductTag[];
 }
 
-export function getCloudFormationProvisionedProductOutput(args?: GetCloudFormationProvisionedProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationProvisionedProductResult> {
+export function getCloudFormationProvisionedProductOutput(args: GetCloudFormationProvisionedProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationProvisionedProductResult> {
     return pulumi.output(args).apply(a => getCloudFormationProvisionedProduct(a, opts))
 }
 
 export interface GetCloudFormationProvisionedProductOutputArgs {
-    provisionedProductId?: pulumi.Input<string>;
+    provisionedProductId: pulumi.Input<string>;
 }

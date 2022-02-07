@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::Workteam
  */
-export function getWorkteam(args?: GetWorkteamArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkteamResult> {
-    args = args || {};
+export function getWorkteam(args: GetWorkteamArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkteamResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getWorkteam(args?: GetWorkteamArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetWorkteamArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetWorkteamResult {
@@ -32,10 +31,10 @@ export interface GetWorkteamResult {
     readonly tags?: outputs.sagemaker.WorkteamTag[];
 }
 
-export function getWorkteamOutput(args?: GetWorkteamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkteamResult> {
+export function getWorkteamOutput(args: GetWorkteamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkteamResult> {
     return pulumi.output(args).apply(a => getWorkteam(a, opts))
 }
 
 export interface GetWorkteamOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

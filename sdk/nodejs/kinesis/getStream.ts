@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Kinesis::Stream
  */
-export function getStream(args?: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
-    args = args || {};
+export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetStreamArgs {
     /**
      * The name of the Kinesis stream.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetStreamResult {
@@ -54,7 +53,7 @@ export interface GetStreamResult {
     readonly tags?: outputs.kinesis.StreamTag[];
 }
 
-export function getStreamOutput(args?: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
+export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
     return pulumi.output(args).apply(a => getStream(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetStreamOutputArgs {
     /**
      * The name of the Kinesis stream.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

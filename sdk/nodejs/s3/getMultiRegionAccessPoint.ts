@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
  */
-export function getMultiRegionAccessPoint(args?: GetMultiRegionAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetMultiRegionAccessPointResult> {
-    args = args || {};
+export function getMultiRegionAccessPoint(args: GetMultiRegionAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetMultiRegionAccessPointResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetMultiRegionAccessPointArgs {
     /**
      * The name you want to assign to this Multi Region Access Point.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetMultiRegionAccessPointResult {
@@ -37,7 +36,7 @@ export interface GetMultiRegionAccessPointResult {
     readonly createdAt?: string;
 }
 
-export function getMultiRegionAccessPointOutput(args?: GetMultiRegionAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointResult> {
+export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointResult> {
     return pulumi.output(args).apply(a => getMultiRegionAccessPoint(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetMultiRegionAccessPointOutputArgs {
     /**
      * The name you want to assign to this Multi Region Access Point.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

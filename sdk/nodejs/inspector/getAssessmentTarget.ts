@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Inspector::AssessmentTarget
  */
-export function getAssessmentTarget(args?: GetAssessmentTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentTargetResult> {
-    args = args || {};
+export function getAssessmentTarget(args: GetAssessmentTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentTargetResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAssessmentTarget(args?: GetAssessmentTargetArgs, opts?: pulum
 }
 
 export interface GetAssessmentTargetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAssessmentTargetResult {
@@ -29,10 +28,10 @@ export interface GetAssessmentTargetResult {
     readonly resourceGroupArn?: string;
 }
 
-export function getAssessmentTargetOutput(args?: GetAssessmentTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTargetResult> {
+export function getAssessmentTargetOutput(args: GetAssessmentTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTargetResult> {
     return pulumi.output(args).apply(a => getAssessmentTarget(a, opts))
 }
 
 export interface GetAssessmentTargetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

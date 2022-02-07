@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a studio that contains other Nimble Studio resources
  */
-export function getStudio(args?: GetStudioArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioResult> {
-    args = args || {};
+export function getStudio(args: GetStudioArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getStudio(args?: GetStudioArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetStudioArgs {
-    studioId?: string;
+    studioId: string;
 }
 
 export interface GetStudioResult {
@@ -53,10 +52,10 @@ export interface GetStudioResult {
     readonly userRoleArn?: string;
 }
 
-export function getStudioOutput(args?: GetStudioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioResult> {
+export function getStudioOutput(args: GetStudioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioResult> {
     return pulumi.output(args).apply(a => getStudio(a, opts))
 }
 
 export interface GetStudioOutputArgs {
-    studioId?: pulumi.Input<string>;
+    studioId: pulumi.Input<string>;
 }

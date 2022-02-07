@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The API Schema for AWS Route53 Recovery Readiness Cells.
  */
-export function getCell(args?: GetCellArgs, opts?: pulumi.InvokeOptions): Promise<GetCellResult> {
-    args = args || {};
+export function getCell(args: GetCellArgs, opts?: pulumi.InvokeOptions): Promise<GetCellResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetCellArgs {
     /**
      * The name of the cell to create.
      */
-    cellName?: string;
+    cellName: string;
 }
 
 export interface GetCellResult {
@@ -46,7 +45,7 @@ export interface GetCellResult {
     readonly tags?: outputs.route53recoveryreadiness.CellTag[];
 }
 
-export function getCellOutput(args?: GetCellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCellResult> {
+export function getCellOutput(args: GetCellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCellResult> {
     return pulumi.output(args).apply(a => getCell(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetCellOutputArgs {
     /**
      * The name of the cell to create.
      */
-    cellName?: pulumi.Input<string>;
+    cellName: pulumi.Input<string>;
 }

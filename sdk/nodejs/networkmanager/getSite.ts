@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::NetworkManager::Site type describes a site.
  */
-export function getSite(args?: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
-    args = args || {};
+export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetSiteArgs {
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: string;
+    globalNetworkId: string;
     /**
      * The ID of the site.
      */
-    siteId?: string;
+    siteId: string;
 }
 
 export interface GetSiteResult {
@@ -55,7 +54,7 @@ export interface GetSiteResult {
     readonly tags?: outputs.networkmanager.SiteTag[];
 }
 
-export function getSiteOutput(args?: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
+export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply(a => getSite(a, opts))
 }
 
@@ -63,9 +62,9 @@ export interface GetSiteOutputArgs {
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId: pulumi.Input<string>;
     /**
      * The ID of the site.
      */
-    siteId?: pulumi.Input<string>;
+    siteId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RDS::DBInstance
  */
-export function getDBInstance(args?: GetDBInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetDBInstanceResult> {
-    args = args || {};
+export function getDBInstance(args: GetDBInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetDBInstanceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDBInstance(args?: GetDBInstanceArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetDBInstanceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDBInstanceResult {
@@ -67,10 +66,10 @@ export interface GetDBInstanceResult {
     readonly vPCSecurityGroups?: string[];
 }
 
-export function getDBInstanceOutput(args?: GetDBInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBInstanceResult> {
+export function getDBInstanceOutput(args: GetDBInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBInstanceResult> {
     return pulumi.output(args).apply(a => getDBInstance(a, opts))
 }
 
 export interface GetDBInstanceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

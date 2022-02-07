@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Ground Station Mission Profile resource type for CloudFormation.
  */
-export function getMissionProfile(args?: GetMissionProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetMissionProfileResult> {
-    args = args || {};
+export function getMissionProfile(args: GetMissionProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetMissionProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getMissionProfile(args?: GetMissionProfileArgs, opts?: pulumi.In
 }
 
 export interface GetMissionProfileArgs {
-    arn?: string;
-    id?: string;
+    arn: string;
+    id: string;
 }
 
 export interface GetMissionProfileResult {
@@ -51,11 +50,11 @@ export interface GetMissionProfileResult {
     readonly trackingConfigArn?: string;
 }
 
-export function getMissionProfileOutput(args?: GetMissionProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMissionProfileResult> {
+export function getMissionProfileOutput(args: GetMissionProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMissionProfileResult> {
     return pulumi.output(args).apply(a => getMissionProfile(a, opts))
 }
 
 export interface GetMissionProfileOutputArgs {
-    arn?: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

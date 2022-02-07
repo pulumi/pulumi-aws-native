@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppMesh::Route
  */
-export function getRoute(args?: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
-    args = args || {};
+export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRoute(args?: GetRouteArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetRouteArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRouteResult {
@@ -33,10 +32,10 @@ export interface GetRouteResult {
     readonly uid?: string;
 }
 
-export function getRouteOutput(args?: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
+export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply(a => getRoute(a, opts))
 }
 
 export interface GetRouteOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

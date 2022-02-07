@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFormation::CustomResource
  */
-export function getCustomResource(args?: GetCustomResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceResult> {
-    args = args || {};
+export function getCustomResource(args: GetCustomResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getCustomResource(args?: GetCustomResourceArgs, opts?: pulumi.In
 }
 
 export interface GetCustomResourceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCustomResourceResult {
     readonly id?: string;
 }
 
-export function getCustomResourceOutput(args?: GetCustomResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceResult> {
+export function getCustomResourceOutput(args: GetCustomResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceResult> {
     return pulumi.output(args).apply(a => getCustomResource(a, opts))
 }
 
 export interface GetCustomResourceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

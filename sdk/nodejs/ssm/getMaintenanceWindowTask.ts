@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SSM::MaintenanceWindowTask
  */
-export function getMaintenanceWindowTask(args?: GetMaintenanceWindowTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowTaskResult> {
-    args = args || {};
+export function getMaintenanceWindowTask(args: GetMaintenanceWindowTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowTaskResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getMaintenanceWindowTask(args?: GetMaintenanceWindowTaskArgs, op
 }
 
 export interface GetMaintenanceWindowTaskArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMaintenanceWindowTaskResult {
@@ -40,10 +39,10 @@ export interface GetMaintenanceWindowTaskResult {
     readonly taskParameters?: any;
 }
 
-export function getMaintenanceWindowTaskOutput(args?: GetMaintenanceWindowTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceWindowTaskResult> {
+export function getMaintenanceWindowTaskOutput(args: GetMaintenanceWindowTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceWindowTaskResult> {
     return pulumi.output(args).apply(a => getMaintenanceWindowTask(a, opts))
 }
 
 export interface GetMaintenanceWindowTaskOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Route53 Recovery Control Cluster resource schema
  */
-export function getCluster(args?: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    args = args || {};
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetClusterArgs {
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    clusterArn?: string;
+    clusterArn: string;
 }
 
 export interface GetClusterResult {
@@ -42,7 +41,7 @@ export interface GetClusterResult {
     readonly status?: enums.route53recoverycontrol.ClusterStatus;
 }
 
-export function getClusterOutput(args?: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply(a => getCluster(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetClusterOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    clusterArn?: pulumi.Input<string>;
+    clusterArn: pulumi.Input<string>;
 }

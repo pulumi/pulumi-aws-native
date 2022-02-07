@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A resource that has been registered in the CloudFormation Registry.
  */
-export function getResourceVersion(args?: GetResourceVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceVersionResult> {
-    args = args || {};
+export function getResourceVersion(args: GetResourceVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResourceVersionArgs {
     /**
      * The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetResourceVersionResult {
@@ -60,7 +59,7 @@ export interface GetResourceVersionResult {
     readonly visibility?: enums.cloudformation.ResourceVersionVisibility;
 }
 
-export function getResourceVersionOutput(args?: GetResourceVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceVersionResult> {
+export function getResourceVersionOutput(args: GetResourceVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceVersionResult> {
     return pulumi.output(args).apply(a => getResourceVersion(a, opts))
 }
 
@@ -68,5 +67,5 @@ export interface GetResourceVersionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

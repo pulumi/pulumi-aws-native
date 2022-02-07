@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::Subnet
  */
-export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
-    args = args || {};
+export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetSubnetArgs {
-    subnetId?: string;
+    subnetId: string;
 }
 
 export interface GetSubnetResult {
@@ -34,10 +33,10 @@ export interface GetSubnetResult {
     readonly tags?: outputs.ec2.SubnetTag[];
 }
 
-export function getSubnetOutput(args?: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
+export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
     return pulumi.output(args).apply(a => getSubnet(a, opts))
 }
 
 export interface GetSubnetOutputArgs {
-    subnetId?: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
  */
-export function getAccessPointPolicy(args?: GetAccessPointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointPolicyResult> {
-    args = args || {};
+export function getAccessPointPolicy(args: GetAccessPointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetAccessPointPolicyArgs {
     /**
      * The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
      */
-    objectLambdaAccessPoint?: string;
+    objectLambdaAccessPoint: string;
 }
 
 export interface GetAccessPointPolicyResult {
@@ -33,7 +32,7 @@ export interface GetAccessPointPolicyResult {
     readonly policyDocument?: any;
 }
 
-export function getAccessPointPolicyOutput(args?: GetAccessPointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointPolicyResult> {
+export function getAccessPointPolicyOutput(args: GetAccessPointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointPolicyResult> {
     return pulumi.output(args).apply(a => getAccessPointPolicy(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetAccessPointPolicyOutputArgs {
     /**
      * The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
      */
-    objectLambdaAccessPoint?: pulumi.Input<string>;
+    objectLambdaAccessPoint: pulumi.Input<string>;
 }

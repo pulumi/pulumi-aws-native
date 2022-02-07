@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
  */
-export function getEndpointAuthorization(args?: GetEndpointAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAuthorizationResult> {
-    args = args || {};
+export function getEndpointAuthorization(args: GetEndpointAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAuthorizationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetEndpointAuthorizationArgs {
     /**
      * The target AWS account ID to grant or revoke access for.
      */
-    account?: string;
+    account: string;
     /**
      * The cluster identifier.
      */
-    clusterIdentifier?: string;
+    clusterIdentifier: string;
 }
 
 export interface GetEndpointAuthorizationResult {
@@ -70,7 +69,7 @@ export interface GetEndpointAuthorizationResult {
     readonly vpcIds?: string[];
 }
 
-export function getEndpointAuthorizationOutput(args?: GetEndpointAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointAuthorizationResult> {
+export function getEndpointAuthorizationOutput(args: GetEndpointAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointAuthorizationResult> {
     return pulumi.output(args).apply(a => getEndpointAuthorization(a, opts))
 }
 
@@ -78,9 +77,9 @@ export interface GetEndpointAuthorizationOutputArgs {
     /**
      * The target AWS account ID to grant or revoke access for.
      */
-    account?: pulumi.Input<string>;
+    account: pulumi.Input<string>;
     /**
      * The cluster identifier.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier: pulumi.Input<string>;
 }

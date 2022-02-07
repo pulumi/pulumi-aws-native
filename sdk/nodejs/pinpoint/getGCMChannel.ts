@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::GCMChannel
  */
-export function getGCMChannel(args?: GetGCMChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetGCMChannelResult> {
-    args = args || {};
+export function getGCMChannel(args: GetGCMChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetGCMChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getGCMChannel(args?: GetGCMChannelArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetGCMChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetGCMChannelResult {
@@ -29,10 +28,10 @@ export interface GetGCMChannelResult {
     readonly id?: string;
 }
 
-export function getGCMChannelOutput(args?: GetGCMChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGCMChannelResult> {
+export function getGCMChannelOutput(args: GetGCMChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGCMChannelResult> {
     return pulumi.output(args).apply(a => getGCMChannel(a, opts))
 }
 
 export interface GetGCMChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

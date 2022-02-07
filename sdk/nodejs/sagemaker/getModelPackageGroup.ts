@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::ModelPackageGroup
  */
-export function getModelPackageGroup(args?: GetModelPackageGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetModelPackageGroupResult> {
-    args = args || {};
+export function getModelPackageGroup(args: GetModelPackageGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetModelPackageGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getModelPackageGroup(args?: GetModelPackageGroupArgs, opts?: pul
 }
 
 export interface GetModelPackageGroupArgs {
-    modelPackageGroupArn?: string;
+    modelPackageGroupArn: string;
 }
 
 export interface GetModelPackageGroupResult {
@@ -41,10 +40,10 @@ export interface GetModelPackageGroupResult {
     readonly tags?: outputs.sagemaker.ModelPackageGroupTag[];
 }
 
-export function getModelPackageGroupOutput(args?: GetModelPackageGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelPackageGroupResult> {
+export function getModelPackageGroupOutput(args: GetModelPackageGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelPackageGroupResult> {
     return pulumi.output(args).apply(a => getModelPackageGroup(a, opts))
 }
 
 export interface GetModelPackageGroupOutputArgs {
-    modelPackageGroupArn?: pulumi.Input<string>;
+    modelPackageGroupArn: pulumi.Input<string>;
 }

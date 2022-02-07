@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::ApplicationSettings
  */
-export function getApplicationSettings(args?: GetApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSettingsResult> {
-    args = args || {};
+export function getApplicationSettings(args: GetApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSettingsResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApplicationSettings(args?: GetApplicationSettingsArgs, opts?:
 }
 
 export interface GetApplicationSettingsArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApplicationSettingsResult {
@@ -32,10 +31,10 @@ export interface GetApplicationSettingsResult {
     readonly quietTime?: outputs.pinpoint.ApplicationSettingsQuietTime;
 }
 
-export function getApplicationSettingsOutput(args?: GetApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSettingsResult> {
+export function getApplicationSettingsOutput(args: GetApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSettingsResult> {
     return pulumi.output(args).apply(a => getApplicationSettings(a, opts))
 }
 
 export interface GetApplicationSettingsOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

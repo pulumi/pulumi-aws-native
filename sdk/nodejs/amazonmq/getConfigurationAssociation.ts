@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
  */
-export function getConfigurationAssociation(args?: GetConfigurationAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssociationResult> {
-    args = args || {};
+export function getConfigurationAssociation(args: GetConfigurationAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConfigurationAssociation(args?: GetConfigurationAssociationAr
 }
 
 export interface GetConfigurationAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetConfigurationAssociationResult {
@@ -29,10 +28,10 @@ export interface GetConfigurationAssociationResult {
     readonly id?: string;
 }
 
-export function getConfigurationAssociationOutput(args?: GetConfigurationAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssociationResult> {
+export function getConfigurationAssociationOutput(args: GetConfigurationAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssociationResult> {
     return pulumi.output(args).apply(a => getConfigurationAssociation(a, opts))
 }
 
 export interface GetConfigurationAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

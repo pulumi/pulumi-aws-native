@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SQS::QueuePolicy
  */
-export function getQueuePolicy(args?: GetQueuePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetQueuePolicyResult> {
-    args = args || {};
+export function getQueuePolicy(args: GetQueuePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetQueuePolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetQueuePolicyArgs {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetQueuePolicyResult {
@@ -41,7 +40,7 @@ export interface GetQueuePolicyResult {
     readonly queues?: string[];
 }
 
-export function getQueuePolicyOutput(args?: GetQueuePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueuePolicyResult> {
+export function getQueuePolicyOutput(args: GetQueuePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueuePolicyResult> {
     return pulumi.output(args).apply(a => getQueuePolicy(a, opts))
 }
 
@@ -49,5 +48,5 @@ export interface GetQueuePolicyOutputArgs {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

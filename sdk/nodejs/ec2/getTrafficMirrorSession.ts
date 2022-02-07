@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::TrafficMirrorSession
  */
-export function getTrafficMirrorSession(args?: GetTrafficMirrorSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficMirrorSessionResult> {
-    args = args || {};
+export function getTrafficMirrorSession(args: GetTrafficMirrorSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficMirrorSessionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTrafficMirrorSession(args?: GetTrafficMirrorSessionArgs, opts
 }
 
 export interface GetTrafficMirrorSessionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTrafficMirrorSessionResult {
@@ -35,10 +34,10 @@ export interface GetTrafficMirrorSessionResult {
     readonly virtualNetworkId?: number;
 }
 
-export function getTrafficMirrorSessionOutput(args?: GetTrafficMirrorSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficMirrorSessionResult> {
+export function getTrafficMirrorSessionOutput(args: GetTrafficMirrorSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficMirrorSessionResult> {
     return pulumi.output(args).apply(a => getTrafficMirrorSession(a, opts))
 }
 
 export interface GetTrafficMirrorSessionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

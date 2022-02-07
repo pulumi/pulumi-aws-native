@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Backup::BackupPlan
  */
-export function getBackupPlan(args?: GetBackupPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPlanResult> {
-    args = args || {};
+export function getBackupPlan(args: GetBackupPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPlanResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getBackupPlan(args?: GetBackupPlanArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetBackupPlanArgs {
-    backupPlanId?: string;
+    backupPlanId: string;
 }
 
 export interface GetBackupPlanResult {
@@ -32,10 +31,10 @@ export interface GetBackupPlanResult {
     readonly versionId?: string;
 }
 
-export function getBackupPlanOutput(args?: GetBackupPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPlanResult> {
+export function getBackupPlanOutput(args: GetBackupPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPlanResult> {
     return pulumi.output(args).apply(a => getBackupPlan(a, opts))
 }
 
 export interface GetBackupPlanOutputArgs {
-    backupPlanId?: pulumi.Input<string>;
+    backupPlanId: pulumi.Input<string>;
 }

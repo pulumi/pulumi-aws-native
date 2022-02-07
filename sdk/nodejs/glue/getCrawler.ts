@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::Crawler
  */
-export function getCrawler(args?: GetCrawlerArgs, opts?: pulumi.InvokeOptions): Promise<GetCrawlerResult> {
-    args = args || {};
+export function getCrawler(args: GetCrawlerArgs, opts?: pulumi.InvokeOptions): Promise<GetCrawlerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCrawler(args?: GetCrawlerArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetCrawlerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCrawlerResult {
@@ -40,10 +39,10 @@ export interface GetCrawlerResult {
     readonly targets?: outputs.glue.CrawlerTargets;
 }
 
-export function getCrawlerOutput(args?: GetCrawlerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCrawlerResult> {
+export function getCrawlerOutput(args: GetCrawlerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCrawlerResult> {
     return pulumi.output(args).apply(a => getCrawler(a, opts))
 }
 
 export interface GetCrawlerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

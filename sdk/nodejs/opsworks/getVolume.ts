@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::OpsWorks::Volume
  */
-export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-    args = args || {};
+export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetVolumeArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVolumeResult {
@@ -29,10 +28,10 @@ export interface GetVolumeResult {
     readonly name?: string;
 }
 
-export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply(a => getVolume(a, opts))
 }
 
 export interface GetVolumeOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Authorizer
  */
-export function getAuthorizer(args?: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
-    args = args || {};
+export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAuthorizer(args?: GetAuthorizerArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetAuthorizerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAuthorizerResult {
@@ -38,10 +37,10 @@ export interface GetAuthorizerResult {
     readonly name?: string;
 }
 
-export function getAuthorizerOutput(args?: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
+export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
     return pulumi.output(args).apply(a => getAuthorizer(a, opts))
 }
 
 export interface GetAuthorizerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

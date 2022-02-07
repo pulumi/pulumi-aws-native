@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of the AWS::QuickSight::Dashboard Resource Type.
  */
-export function getDashboard(args?: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
-    args = args || {};
+export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getDashboard(args?: GetDashboardArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetDashboardArgs {
-    awsAccountId?: string;
-    dashboardId?: string;
+    awsAccountId: string;
+    dashboardId: string;
 }
 
 export interface GetDashboardResult {
@@ -54,11 +53,11 @@ export interface GetDashboardResult {
     readonly tags?: outputs.quicksight.DashboardTag[];
 }
 
-export function getDashboardOutput(args?: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
     return pulumi.output(args).apply(a => getDashboard(a, opts))
 }
 
 export interface GetDashboardOutputArgs {
-    awsAccountId?: pulumi.Input<string>;
-    dashboardId?: pulumi.Input<string>;
+    awsAccountId: pulumi.Input<string>;
+    dashboardId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type schema for AWS::Batch::SchedulingPolicy
  */
-export function getSchedulingPolicy(args?: GetSchedulingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulingPolicyResult> {
-    args = args || {};
+export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulingPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSchedulingPolicy(args?: GetSchedulingPolicyArgs, opts?: pulum
 }
 
 export interface GetSchedulingPolicyArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetSchedulingPolicyResult {
@@ -29,10 +28,10 @@ export interface GetSchedulingPolicyResult {
     readonly fairsharePolicy?: outputs.batch.SchedulingPolicyFairsharePolicy;
 }
 
-export function getSchedulingPolicyOutput(args?: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulingPolicyResult> {
+export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulingPolicyResult> {
     return pulumi.output(args).apply(a => getSchedulingPolicy(a, opts))
 }
 
 export interface GetSchedulingPolicyOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

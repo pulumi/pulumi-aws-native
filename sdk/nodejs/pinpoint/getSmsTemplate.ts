@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::SmsTemplate
  */
-export function getSmsTemplate(args?: GetSmsTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetSmsTemplateResult> {
-    args = args || {};
+export function getSmsTemplate(args: GetSmsTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetSmsTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getSmsTemplate(args?: GetSmsTemplateArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetSmsTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSmsTemplateResult {
@@ -32,10 +31,10 @@ export interface GetSmsTemplateResult {
     readonly templateDescription?: string;
 }
 
-export function getSmsTemplateOutput(args?: GetSmsTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmsTemplateResult> {
+export function getSmsTemplateOutput(args: GetSmsTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmsTemplateResult> {
     return pulumi.output(args).apply(a => getSmsTemplate(a, opts))
 }
 
 export interface GetSmsTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

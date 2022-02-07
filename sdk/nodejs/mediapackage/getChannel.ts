@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaPackage::Channel
  */
-export function getChannel(args?: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
-    args = args || {};
+export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetChannelArgs {
     /**
      * The ID of the Channel.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetChannelResult {
@@ -50,7 +49,7 @@ export interface GetChannelResult {
     readonly ingressAccessLogs?: outputs.mediapackage.ChannelLogConfiguration;
 }
 
-export function getChannelOutput(args?: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
+export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
     return pulumi.output(args).apply(a => getChannel(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetChannelOutputArgs {
     /**
      * The ID of the Channel.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

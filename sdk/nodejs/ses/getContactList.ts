@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::SES::ContactList.
  */
-export function getContactList(args?: GetContactListArgs, opts?: pulumi.InvokeOptions): Promise<GetContactListResult> {
-    args = args || {};
+export function getContactList(args: GetContactListArgs, opts?: pulumi.InvokeOptions): Promise<GetContactListResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetContactListArgs {
     /**
      * The name of the contact list.
      */
-    contactListName?: string;
+    contactListName: string;
 }
 
 export interface GetContactListResult {
@@ -42,7 +41,7 @@ export interface GetContactListResult {
     readonly topics?: outputs.ses.ContactListTopic[];
 }
 
-export function getContactListOutput(args?: GetContactListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactListResult> {
+export function getContactListOutput(args: GetContactListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactListResult> {
     return pulumi.output(args).apply(a => getContactList(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetContactListOutputArgs {
     /**
      * The name of the contact list.
      */
-    contactListName?: pulumi.Input<string>;
+    contactListName: pulumi.Input<string>;
 }

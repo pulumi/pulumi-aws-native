@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodePipeline::CustomActionType
  */
-export function getCustomActionType(args?: GetCustomActionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomActionTypeResult> {
-    args = args || {};
+export function getCustomActionType(args: GetCustomActionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomActionTypeResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCustomActionType(args?: GetCustomActionTypeArgs, opts?: pulum
 }
 
 export interface GetCustomActionTypeArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCustomActionTypeResult {
@@ -29,10 +28,10 @@ export interface GetCustomActionTypeResult {
     readonly tags?: outputs.codepipeline.CustomActionTypeTag[];
 }
 
-export function getCustomActionTypeOutput(args?: GetCustomActionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomActionTypeResult> {
+export function getCustomActionTypeOutput(args: GetCustomActionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomActionTypeResult> {
     return pulumi.output(args).apply(a => getCustomActionType(a, opts))
 }
 
 export interface GetCustomActionTypeOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

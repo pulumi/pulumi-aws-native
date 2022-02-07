@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Describes a route for a local gateway route table.
  */
-export function getLocalGatewayRoute(args?: GetLocalGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteResult> {
-    args = args || {};
+export function getLocalGatewayRoute(args: GetLocalGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetLocalGatewayRouteArgs {
     /**
      * The CIDR block used for destination matches.
      */
-    destinationCidrBlock?: string;
+    destinationCidrBlock: string;
     /**
      * The ID of the local gateway route table.
      */
-    localGatewayRouteTableId?: string;
+    localGatewayRouteTableId: string;
 }
 
 export interface GetLocalGatewayRouteResult {
@@ -42,7 +41,7 @@ export interface GetLocalGatewayRouteResult {
     readonly type?: string;
 }
 
-export function getLocalGatewayRouteOutput(args?: GetLocalGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteResult> {
+export function getLocalGatewayRouteOutput(args: GetLocalGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteResult> {
     return pulumi.output(args).apply(a => getLocalGatewayRoute(a, opts))
 }
 
@@ -50,9 +49,9 @@ export interface GetLocalGatewayRouteOutputArgs {
     /**
      * The CIDR block used for destination matches.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock: pulumi.Input<string>;
     /**
      * The ID of the local gateway route table.
      */
-    localGatewayRouteTableId?: pulumi.Input<string>;
+    localGatewayRouteTableId: pulumi.Input<string>;
 }

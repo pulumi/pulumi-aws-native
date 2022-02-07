@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Athena::NamedQuery
  */
-export function getNamedQuery(args?: GetNamedQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedQueryResult> {
-    args = args || {};
+export function getNamedQuery(args: GetNamedQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedQueryResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetNamedQueryArgs {
     /**
      * The unique ID of the query.
      */
-    namedQueryId?: string;
+    namedQueryId: string;
 }
 
 export interface GetNamedQueryResult {
@@ -33,7 +32,7 @@ export interface GetNamedQueryResult {
     readonly namedQueryId?: string;
 }
 
-export function getNamedQueryOutput(args?: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedQueryResult> {
+export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedQueryResult> {
     return pulumi.output(args).apply(a => getNamedQuery(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetNamedQueryOutputArgs {
     /**
      * The unique ID of the query.
      */
-    namedQueryId?: pulumi.Input<string>;
+    namedQueryId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::CodeRepository
  */
-export function getCodeRepository(args?: GetCodeRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeRepositoryResult> {
-    args = args || {};
+export function getCodeRepository(args: GetCodeRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeRepositoryResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCodeRepository(args?: GetCodeRepositoryArgs, opts?: pulumi.In
 }
 
 export interface GetCodeRepositoryArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCodeRepositoryResult {
@@ -30,10 +29,10 @@ export interface GetCodeRepositoryResult {
     readonly tags?: outputs.sagemaker.CodeRepositoryTag[];
 }
 
-export function getCodeRepositoryOutput(args?: GetCodeRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeRepositoryResult> {
+export function getCodeRepositoryOutput(args: GetCodeRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeRepositoryResult> {
     return pulumi.output(args).apply(a => getCodeRepository(a, opts))
 }
 
 export interface GetCodeRepositoryOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

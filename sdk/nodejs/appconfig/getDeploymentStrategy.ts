@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppConfig::DeploymentStrategy
  */
-export function getDeploymentStrategy(args?: GetDeploymentStrategyArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStrategyResult> {
-    args = args || {};
+export function getDeploymentStrategy(args: GetDeploymentStrategyArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStrategyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDeploymentStrategy(args?: GetDeploymentStrategyArgs, opts?: p
 }
 
 export interface GetDeploymentStrategyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDeploymentStrategyResult {
@@ -34,10 +33,10 @@ export interface GetDeploymentStrategyResult {
     readonly tags?: outputs.appconfig.DeploymentStrategyTags[];
 }
 
-export function getDeploymentStrategyOutput(args?: GetDeploymentStrategyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStrategyResult> {
+export function getDeploymentStrategyOutput(args: GetDeploymentStrategyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStrategyResult> {
     return pulumi.output(args).apply(a => getDeploymentStrategy(a, opts))
 }
 
 export interface GetDeploymentStrategyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

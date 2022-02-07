@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Private certificate authority.
  */
-export function getCertificateAuthority(args?: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> {
-    args = args || {};
+export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetCertificateAuthorityArgs {
     /**
      * The Amazon Resource Name (ARN) of the certificate authority.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetCertificateAuthorityResult {
@@ -43,7 +42,7 @@ export interface GetCertificateAuthorityResult {
     readonly tags?: outputs.acmpca.CertificateAuthorityTag[];
 }
 
-export function getCertificateAuthorityOutput(args?: GetCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateAuthorityResult> {
+export function getCertificateAuthorityOutput(args: GetCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateAuthorityResult> {
     return pulumi.output(args).apply(a => getCertificateAuthority(a, opts))
 }
 
@@ -51,5 +50,5 @@ export interface GetCertificateAuthorityOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the certificate authority.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

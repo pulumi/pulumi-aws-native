@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RDS::EventSubscription
  */
-export function getEventSubscription(args?: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
-    args = args || {};
+export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getEventSubscription(args?: GetEventSubscriptionArgs, opts?: pul
 }
 
 export interface GetEventSubscriptionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEventSubscriptionResult {
@@ -31,10 +30,10 @@ export interface GetEventSubscriptionResult {
     readonly sourceType?: string;
 }
 
-export function getEventSubscriptionOutput(args?: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
+export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
     return pulumi.output(args).apply(a => getEventSubscription(a, opts))
 }
 
 export interface GetEventSubscriptionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

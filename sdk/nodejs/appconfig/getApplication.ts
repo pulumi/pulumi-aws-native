@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppConfig::Application
  */
-export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    args = args || {};
+export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetApplicationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApplicationResult {
@@ -31,10 +30,10 @@ export interface GetApplicationResult {
     readonly tags?: outputs.appconfig.ApplicationTags[];
 }
 
-export function getApplicationOutput(args?: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply(a => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

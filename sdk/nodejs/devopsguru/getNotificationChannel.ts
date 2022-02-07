@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
  */
-export function getNotificationChannel(args?: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
-    args = args || {};
+export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetNotificationChannelArgs {
     /**
      * The ID of a notification channel.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetNotificationChannelResult {
@@ -33,7 +32,7 @@ export interface GetNotificationChannelResult {
     readonly id?: string;
 }
 
-export function getNotificationChannelOutput(args?: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
+export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
     return pulumi.output(args).apply(a => getNotificationChannel(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * The ID of a notification channel.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Route53Resolver::ResolverEndpoint
  */
-export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverEndpointResult> {
-    args = args || {};
+export function getResolverEndpoint(args: GetResolverEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverEndpointResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulum
 }
 
 export interface GetResolverEndpointArgs {
-    resolverEndpointId?: string;
+    resolverEndpointId: string;
 }
 
 export interface GetResolverEndpointResult {
@@ -34,10 +33,10 @@ export interface GetResolverEndpointResult {
     readonly tags?: outputs.route53resolver.ResolverEndpointTag[];
 }
 
-export function getResolverEndpointOutput(args?: GetResolverEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverEndpointResult> {
+export function getResolverEndpointOutput(args: GetResolverEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverEndpointResult> {
     return pulumi.output(args).apply(a => getResolverEndpoint(a, opts))
 }
 
 export interface GetResolverEndpointOutputArgs {
-    resolverEndpointId?: pulumi.Input<string>;
+    resolverEndpointId: pulumi.Input<string>;
 }

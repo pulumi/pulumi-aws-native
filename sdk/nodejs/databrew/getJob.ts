@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataBrew::Job.
  */
-export function getJob(args?: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    args = args || {};
+export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetJobArgs {
     /**
      * Job name
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetJobResult {
@@ -86,7 +85,7 @@ export interface GetJobResult {
     readonly validationConfigurations?: outputs.databrew.JobValidationConfiguration[];
 }
 
-export function getJobOutput(args?: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply(a => getJob(a, opts))
 }
 
@@ -94,5 +93,5 @@ export interface GetJobOutputArgs {
     /**
      * Job name
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

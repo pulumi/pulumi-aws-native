@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Route53 Recovery Control Routing Control resource schema .
  */
-export function getRoutingControl(args?: GetRoutingControlArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingControlResult> {
-    args = args || {};
+export function getRoutingControl(args: GetRoutingControlArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingControlResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRoutingControlArgs {
     /**
      * The Amazon Resource Name (ARN) of the routing control.
      */
-    routingControlArn?: string;
+    routingControlArn: string;
 }
 
 export interface GetRoutingControlResult {
@@ -42,7 +41,7 @@ export interface GetRoutingControlResult {
     readonly status?: enums.route53recoverycontrol.RoutingControlStatus;
 }
 
-export function getRoutingControlOutput(args?: GetRoutingControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingControlResult> {
+export function getRoutingControlOutput(args: GetRoutingControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingControlResult> {
     return pulumi.output(args).apply(a => getRoutingControl(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetRoutingControlOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the routing control.
      */
-    routingControlArn?: pulumi.Input<string>;
+    routingControlArn: pulumi.Input<string>;
 }

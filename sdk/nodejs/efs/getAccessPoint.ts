@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EFS::AccessPoint
  */
-export function getAccessPoint(args?: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-    args = args || {};
+export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAccessPoint(args?: GetAccessPointArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetAccessPointArgs {
-    accessPointId?: string;
+    accessPointId: string;
 }
 
 export interface GetAccessPointResult {
@@ -30,10 +29,10 @@ export interface GetAccessPointResult {
     readonly arn?: string;
 }
 
-export function getAccessPointOutput(args?: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
+export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
     return pulumi.output(args).apply(a => getAccessPoint(a, opts))
 }
 
 export interface GetAccessPointOutputArgs {
-    accessPointId?: pulumi.Input<string>;
+    accessPointId: pulumi.Input<string>;
 }

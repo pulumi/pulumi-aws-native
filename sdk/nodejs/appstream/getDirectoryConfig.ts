@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppStream::DirectoryConfig
  */
-export function getDirectoryConfig(args?: GetDirectoryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryConfigResult> {
-    args = args || {};
+export function getDirectoryConfig(args: GetDirectoryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDirectoryConfig(args?: GetDirectoryConfigArgs, opts?: pulumi.
 }
 
 export interface GetDirectoryConfigArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDirectoryConfigResult {
@@ -30,10 +29,10 @@ export interface GetDirectoryConfigResult {
     readonly serviceAccountCredentials?: outputs.appstream.DirectoryConfigServiceAccountCredentials;
 }
 
-export function getDirectoryConfigOutput(args?: GetDirectoryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryConfigResult> {
+export function getDirectoryConfigOutput(args: GetDirectoryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryConfigResult> {
     return pulumi.output(args).apply(a => getDirectoryConfig(a, opts))
 }
 
 export interface GetDirectoryConfigOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

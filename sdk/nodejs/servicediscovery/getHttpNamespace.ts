@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
  */
-export function getHttpNamespace(args?: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
-    args = args || {};
+export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getHttpNamespace(args?: GetHttpNamespaceArgs, opts?: pulumi.Invo
 }
 
 export interface GetHttpNamespaceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetHttpNamespaceResult {
@@ -31,10 +30,10 @@ export interface GetHttpNamespaceResult {
     readonly tags?: outputs.servicediscovery.HttpNamespaceTag[];
 }
 
-export function getHttpNamespaceOutput(args?: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpNamespaceResult> {
+export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpNamespaceResult> {
     return pulumi.output(args).apply(a => getHttpNamespace(a, opts))
 }
 
 export interface GetHttpNamespaceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

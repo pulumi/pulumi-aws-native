@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Inspector::AssessmentTemplate
  */
-export function getAssessmentTemplate(args?: GetAssessmentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentTemplateResult> {
-    args = args || {};
+export function getAssessmentTemplate(args: GetAssessmentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAssessmentTemplate(args?: GetAssessmentTemplateArgs, opts?: p
 }
 
 export interface GetAssessmentTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAssessmentTemplateResult {
@@ -28,10 +27,10 @@ export interface GetAssessmentTemplateResult {
     readonly id?: string;
 }
 
-export function getAssessmentTemplateOutput(args?: GetAssessmentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTemplateResult> {
+export function getAssessmentTemplateOutput(args: GetAssessmentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTemplateResult> {
     return pulumi.output(args).apply(a => getAssessmentTemplate(a, opts))
 }
 
 export interface GetAssessmentTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

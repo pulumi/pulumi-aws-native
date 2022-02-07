@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CertificateManager::Certificate
  */
-export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    args = args || {};
+export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetCertificateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCertificateResult {
@@ -30,10 +29,10 @@ export interface GetCertificateResult {
     readonly tags?: outputs.certificatemanager.CertificateTag[];
 }
 
-export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply(a => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

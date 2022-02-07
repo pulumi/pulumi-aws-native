@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema for AWS::ServiceCatalog::ServiceAction
  */
-export function getServiceAction(args?: GetServiceActionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceActionResult> {
-    args = args || {};
+export function getServiceAction(args: GetServiceActionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceActionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getServiceAction(args?: GetServiceActionArgs, opts?: pulumi.Invo
 }
 
 export interface GetServiceActionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetServiceActionResult {
@@ -33,10 +32,10 @@ export interface GetServiceActionResult {
     readonly name?: string;
 }
 
-export function getServiceActionOutput(args?: GetServiceActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceActionResult> {
+export function getServiceActionOutput(args: GetServiceActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceActionResult> {
     return pulumi.output(args).apply(a => getServiceAction(a, opts))
 }
 
 export interface GetServiceActionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

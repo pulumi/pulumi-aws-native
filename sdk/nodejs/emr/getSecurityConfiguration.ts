@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EMR::SecurityConfiguration
  */
-export function getSecurityConfiguration(args?: GetSecurityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConfigurationResult> {
-    args = args || {};
+export function getSecurityConfiguration(args: GetSecurityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getSecurityConfiguration(args?: GetSecurityConfigurationArgs, op
 }
 
 export interface GetSecurityConfigurationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSecurityConfigurationResult {
     readonly id?: string;
 }
 
-export function getSecurityConfigurationOutput(args?: GetSecurityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConfigurationResult> {
+export function getSecurityConfigurationOutput(args: GetSecurityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConfigurationResult> {
     return pulumi.output(args).apply(a => getSecurityConfiguration(a, opts))
 }
 
 export interface GetSecurityConfigurationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

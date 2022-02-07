@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::RefactorSpaces::Route Resource Type
  */
-export function getRoute(args?: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
-    args = args || {};
+export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,9 +22,9 @@ export function getRoute(args?: GetRouteArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetRouteArgs {
-    applicationIdentifier?: string;
-    environmentIdentifier?: string;
-    routeIdentifier?: string;
+    applicationIdentifier: string;
+    environmentIdentifier: string;
+    routeIdentifier: string;
 }
 
 export interface GetRouteResult {
@@ -38,12 +37,12 @@ export interface GetRouteResult {
     readonly tags?: outputs.refactorspaces.RouteTag[];
 }
 
-export function getRouteOutput(args?: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
+export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply(a => getRoute(a, opts))
 }
 
 export interface GetRouteOutputArgs {
-    applicationIdentifier?: pulumi.Input<string>;
-    environmentIdentifier?: pulumi.Input<string>;
-    routeIdentifier?: pulumi.Input<string>;
+    applicationIdentifier: pulumi.Input<string>;
+    environmentIdentifier: pulumi.Input<string>;
+    routeIdentifier: pulumi.Input<string>;
 }

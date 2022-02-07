@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
  */
-export function getCloudFrontOriginAccessIdentity(args?: GetCloudFrontOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFrontOriginAccessIdentityResult> {
-    args = args || {};
+export function getCloudFrontOriginAccessIdentity(args: GetCloudFrontOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFrontOriginAccessIdentityResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCloudFrontOriginAccessIdentity(args?: GetCloudFrontOriginAcce
 }
 
 export interface GetCloudFrontOriginAccessIdentityArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCloudFrontOriginAccessIdentityResult {
@@ -30,10 +29,10 @@ export interface GetCloudFrontOriginAccessIdentityResult {
     readonly s3CanonicalUserId?: string;
 }
 
-export function getCloudFrontOriginAccessIdentityOutput(args?: GetCloudFrontOriginAccessIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFrontOriginAccessIdentityResult> {
+export function getCloudFrontOriginAccessIdentityOutput(args: GetCloudFrontOriginAccessIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFrontOriginAccessIdentityResult> {
     return pulumi.output(args).apply(a => getCloudFrontOriginAccessIdentity(a, opts))
 }
 
 export interface GetCloudFrontOriginAccessIdentityOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
  */
-export function getVPCEConfiguration(args?: GetVPCEConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEConfigurationResult> {
-    args = args || {};
+export function getVPCEConfiguration(args: GetVPCEConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVPCEConfiguration(args?: GetVPCEConfigurationArgs, opts?: pul
 }
 
 export interface GetVPCEConfigurationArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetVPCEConfigurationResult {
@@ -33,10 +32,10 @@ export interface GetVPCEConfigurationResult {
     readonly vpceServiceName?: string;
 }
 
-export function getVPCEConfigurationOutput(args?: GetVPCEConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEConfigurationResult> {
+export function getVPCEConfigurationOutput(args: GetVPCEConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEConfigurationResult> {
     return pulumi.output(args).apply(a => getVPCEConfiguration(a, opts))
 }
 
 export interface GetVPCEConfigurationOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

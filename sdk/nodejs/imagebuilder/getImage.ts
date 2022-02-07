@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::ImageBuilder::Image
  */
-export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-    args = args || {};
+export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetImageArgs {
     /**
      * The Amazon Resource Name (ARN) of the image.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetImageResult {
@@ -45,7 +44,7 @@ export interface GetImageResult {
     readonly name?: string;
 }
 
-export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
+export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply(a => getImage(a, opts))
 }
 
@@ -53,5 +52,5 @@ export interface GetImageOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the image.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

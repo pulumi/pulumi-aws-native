@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Enable a resource that has been published in the CloudFormation Registry.
  */
-export function getTypeActivation(args?: GetTypeActivationArgs, opts?: pulumi.InvokeOptions): Promise<GetTypeActivationResult> {
-    args = args || {};
+export function getTypeActivation(args: GetTypeActivationArgs, opts?: pulumi.InvokeOptions): Promise<GetTypeActivationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetTypeActivationArgs {
     /**
      * The Amazon Resource Name (ARN) of the extension.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetTypeActivationResult {
@@ -46,7 +45,7 @@ export interface GetTypeActivationResult {
     readonly versionBump?: enums.cloudformation.TypeActivationVersionBump;
 }
 
-export function getTypeActivationOutput(args?: GetTypeActivationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTypeActivationResult> {
+export function getTypeActivationOutput(args: GetTypeActivationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTypeActivationResult> {
     return pulumi.output(args).apply(a => getTypeActivation(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetTypeActivationOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the extension.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

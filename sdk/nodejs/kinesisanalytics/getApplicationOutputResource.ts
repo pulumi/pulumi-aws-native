@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput
  */
-export function getApplicationOutputResource(args?: GetApplicationOutputResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationOutputResourceResult> {
-    args = args || {};
+export function getApplicationOutputResource(args: GetApplicationOutputResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationOutputResourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApplicationOutputResource(args?: GetApplicationOutputResource
 }
 
 export interface GetApplicationOutputResourceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApplicationOutputResourceResult {
@@ -29,10 +28,10 @@ export interface GetApplicationOutputResourceResult {
     readonly output?: outputs.kinesisanalytics.ApplicationOutputResourceOutput;
 }
 
-export function getApplicationOutputResourceOutput(args?: GetApplicationOutputResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationOutputResourceResult> {
+export function getApplicationOutputResourceOutput(args: GetApplicationOutputResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationOutputResourceResult> {
     return pulumi.output(args).apply(a => getApplicationOutputResource(a, opts))
 }
 
 export interface GetApplicationOutputResourceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

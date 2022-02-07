@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::Location::GeofenceCollection Resource Type
  */
-export function getGeofenceCollection(args?: GetGeofenceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGeofenceCollectionResult> {
-    args = args || {};
+export function getGeofenceCollection(args: GetGeofenceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGeofenceCollectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getGeofenceCollection(args?: GetGeofenceCollectionArgs, opts?: p
 }
 
 export interface GetGeofenceCollectionArgs {
-    collectionName?: string;
+    collectionName: string;
 }
 
 export interface GetGeofenceCollectionResult {
@@ -31,10 +30,10 @@ export interface GetGeofenceCollectionResult {
     readonly updateTime?: string;
 }
 
-export function getGeofenceCollectionOutput(args?: GetGeofenceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeofenceCollectionResult> {
+export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeofenceCollectionResult> {
     return pulumi.output(args).apply(a => getGeofenceCollection(a, opts))
 }
 
 export interface GetGeofenceCollectionOutputArgs {
-    collectionName?: pulumi.Input<string>;
+    collectionName: pulumi.Input<string>;
 }

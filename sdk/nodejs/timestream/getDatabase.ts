@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::Timestream::Database resource creates a Timestream database.
  */
-export function getDatabase(args?: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
-    args = args || {};
+export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDatabaseArgs {
     /**
      * The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
      */
-    databaseName?: string;
+    databaseName: string;
 }
 
 export interface GetDatabaseResult {
@@ -39,7 +38,7 @@ export interface GetDatabaseResult {
     readonly tags?: outputs.timestream.DatabaseTag[];
 }
 
-export function getDatabaseOutput(args?: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
+export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply(a => getDatabase(a, opts))
 }
 
@@ -47,5 +46,5 @@ export interface GetDatabaseOutputArgs {
     /**
      * The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
 }

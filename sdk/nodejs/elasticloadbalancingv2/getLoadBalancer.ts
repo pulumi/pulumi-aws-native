@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
  */
-export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    args = args || {};
+export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
 }
 
 export interface GetLoadBalancerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLoadBalancerResult {
@@ -38,10 +37,10 @@ export interface GetLoadBalancerResult {
     readonly tags?: outputs.elasticloadbalancingv2.LoadBalancerTag[];
 }
 
-export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
+export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
 }
 
 export interface GetLoadBalancerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

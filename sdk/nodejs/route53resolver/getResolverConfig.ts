@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Route53Resolver::ResolverConfig.
  */
-export function getResolverConfig(args?: GetResolverConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverConfigResult> {
-    args = args || {};
+export function getResolverConfig(args: GetResolverConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResolverConfigArgs {
     /**
      * Id
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetResolverConfigResult {
@@ -42,7 +41,7 @@ export interface GetResolverConfigResult {
     readonly ownerId?: string;
 }
 
-export function getResolverConfigOutput(args?: GetResolverConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverConfigResult> {
+export function getResolverConfigOutput(args: GetResolverConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverConfigResult> {
     return pulumi.output(args).apply(a => getResolverConfig(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetResolverConfigOutputArgs {
     /**
      * Id
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

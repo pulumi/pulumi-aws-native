@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::Connection
  */
-export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
-    args = args || {};
+export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetConnectionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetConnectionResult {
@@ -29,10 +28,10 @@ export interface GetConnectionResult {
     readonly id?: string;
 }
 
-export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply(a => getConnection(a, opts))
 }
 
 export interface GetConnectionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

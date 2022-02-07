@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
  */
-export function getDNSSEC(args?: GetDNSSECArgs, opts?: pulumi.InvokeOptions): Promise<GetDNSSECResult> {
-    args = args || {};
+export function getDNSSEC(args: GetDNSSECArgs, opts?: pulumi.InvokeOptions): Promise<GetDNSSECResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,13 +22,13 @@ export interface GetDNSSECArgs {
     /**
      * The unique string (ID) used to identify a hosted zone.
      */
-    hostedZoneId?: string;
+    hostedZoneId: string;
 }
 
 export interface GetDNSSECResult {
 }
 
-export function getDNSSECOutput(args?: GetDNSSECOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDNSSECResult> {
+export function getDNSSECOutput(args: GetDNSSECOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDNSSECResult> {
     return pulumi.output(args).apply(a => getDNSSEC(a, opts))
 }
 
@@ -37,5 +36,5 @@ export interface GetDNSSECOutputArgs {
     /**
      * The unique string (ID) used to identify a hosted zone.
      */
-    hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::LakeFormation::Resource
  */
-export function getResource(args?: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-    args = args || {};
+export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getResource(args?: GetResourceArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetResourceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResourceResult {
@@ -30,10 +29,10 @@ export interface GetResourceResult {
     readonly useServiceLinkedRole?: boolean;
 }
 
-export function getResourceOutput(args?: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
+export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply(a => getResource(a, opts))
 }
 
 export interface GetResourceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

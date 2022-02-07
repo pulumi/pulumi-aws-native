@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SecretsManager::RotationSchedule
  */
-export function getRotationSchedule(args?: GetRotationScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetRotationScheduleResult> {
-    args = args || {};
+export function getRotationSchedule(args: GetRotationScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetRotationScheduleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRotationSchedule(args?: GetRotationScheduleArgs, opts?: pulum
 }
 
 export interface GetRotationScheduleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRotationScheduleResult {
@@ -31,10 +30,10 @@ export interface GetRotationScheduleResult {
     readonly rotationRules?: outputs.secretsmanager.RotationScheduleRotationRules;
 }
 
-export function getRotationScheduleOutput(args?: GetRotationScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRotationScheduleResult> {
+export function getRotationScheduleOutput(args: GetRotationScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRotationScheduleResult> {
     return pulumi.output(args).apply(a => getRotationSchedule(a, opts))
 }
 
 export interface GetRotationScheduleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

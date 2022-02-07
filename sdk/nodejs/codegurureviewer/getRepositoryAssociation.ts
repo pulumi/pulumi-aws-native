@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
  */
-export function getRepositoryAssociation(args?: GetRepositoryAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryAssociationResult> {
-    args = args || {};
+export function getRepositoryAssociation(args: GetRepositoryAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetRepositoryAssociationArgs {
     /**
      * The Amazon Resource Name (ARN) of the repository association.
      */
-    associationArn?: string;
+    associationArn: string;
 }
 
 export interface GetRepositoryAssociationResult {
@@ -33,7 +32,7 @@ export interface GetRepositoryAssociationResult {
     readonly associationArn?: string;
 }
 
-export function getRepositoryAssociationOutput(args?: GetRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryAssociationResult> {
+export function getRepositoryAssociationOutput(args: GetRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryAssociationResult> {
     return pulumi.output(args).apply(a => getRepositoryAssociation(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetRepositoryAssociationOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the repository association.
      */
-    associationArn?: pulumi.Input<string>;
+    associationArn: pulumi.Input<string>;
 }

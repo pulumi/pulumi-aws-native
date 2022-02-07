@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppSync::GraphQLApi
  */
-export function getGraphQLApi(args?: GetGraphQLApiArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResult> {
-    args = args || {};
+export function getGraphQLApi(args: GetGraphQLApiArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getGraphQLApi(args?: GetGraphQLApiArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetGraphQLApiArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetGraphQLApiResult {
@@ -40,10 +39,10 @@ export interface GetGraphQLApiResult {
     readonly xrayEnabled?: boolean;
 }
 
-export function getGraphQLApiOutput(args?: GetGraphQLApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResult> {
+export function getGraphQLApiOutput(args: GetGraphQLApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResult> {
     return pulumi.output(args).apply(a => getGraphQLApi(a, opts))
 }
 
 export interface GetGraphQLApiOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceCatalog::Portfolio
  */
-export function getPortfolio(args?: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
-    args = args || {};
+export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPortfolio(args?: GetPortfolioArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetPortfolioArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPortfolioResult {
@@ -34,10 +33,10 @@ export interface GetPortfolioResult {
     readonly tags?: outputs.servicecatalog.PortfolioTag[];
 }
 
-export function getPortfolioOutput(args?: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
+export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
     return pulumi.output(args).apply(a => getPortfolio(a, opts))
 }
 
 export interface GetPortfolioOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

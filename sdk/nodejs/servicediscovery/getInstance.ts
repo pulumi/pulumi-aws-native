@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceDiscovery::Instance
  */
-export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-    args = args || {};
+export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetInstanceArgs {
-    instanceId?: string;
+    instanceId: string;
 }
 
 export interface GetInstanceResult {
     readonly instanceAttributes?: any;
 }
 
-export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply(a => getInstance(a, opts))
 }
 
 export interface GetInstanceOutputArgs {
-    instanceId?: pulumi.Input<string>;
+    instanceId: pulumi.Input<string>;
 }

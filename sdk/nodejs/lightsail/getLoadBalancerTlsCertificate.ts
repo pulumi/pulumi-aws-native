@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
  */
-export function getLoadBalancerTlsCertificate(args?: GetLoadBalancerTlsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerTlsCertificateResult> {
-    args = args || {};
+export function getLoadBalancerTlsCertificate(args: GetLoadBalancerTlsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerTlsCertificateResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetLoadBalancerTlsCertificateArgs {
     /**
      * The SSL/TLS certificate name.
      */
-    certificateName?: string;
+    certificateName: string;
     /**
      * The name of your load balancer.
      */
-    loadBalancerName?: string;
+    loadBalancerName: string;
 }
 
 export interface GetLoadBalancerTlsCertificateResult {
@@ -43,7 +42,7 @@ export interface GetLoadBalancerTlsCertificateResult {
     readonly status?: string;
 }
 
-export function getLoadBalancerTlsCertificateOutput(args?: GetLoadBalancerTlsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerTlsCertificateResult> {
+export function getLoadBalancerTlsCertificateOutput(args: GetLoadBalancerTlsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerTlsCertificateResult> {
     return pulumi.output(args).apply(a => getLoadBalancerTlsCertificate(a, opts))
 }
 
@@ -51,9 +50,9 @@ export interface GetLoadBalancerTlsCertificateOutputArgs {
     /**
      * The SSL/TLS certificate name.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName: pulumi.Input<string>;
     /**
      * The name of your load balancer.
      */
-    loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName: pulumi.Input<string>;
 }

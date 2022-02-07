@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Athena::WorkGroup
  */
-export function getWorkGroup(args?: GetWorkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkGroupResult> {
-    args = args || {};
+export function getWorkGroup(args: GetWorkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetWorkGroupArgs {
     /**
      * The workGroup name.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetWorkGroupResult {
@@ -58,7 +57,7 @@ export interface GetWorkGroupResult {
     readonly workGroupConfigurationUpdates?: outputs.athena.WorkGroupConfigurationUpdates;
 }
 
-export function getWorkGroupOutput(args?: GetWorkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkGroupResult> {
+export function getWorkGroupOutput(args: GetWorkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkGroupResult> {
     return pulumi.output(args).apply(a => getWorkGroup(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetWorkGroupOutputArgs {
     /**
      * The workGroup name.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

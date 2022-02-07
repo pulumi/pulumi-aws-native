@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource-specific logging allows you to specify a logging level for a specific thing group.
  */
-export function getResourceSpecificLogging(args?: GetResourceSpecificLoggingArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSpecificLoggingResult> {
-    args = args || {};
+export function getResourceSpecificLogging(args: GetResourceSpecificLoggingArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSpecificLoggingResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResourceSpecificLoggingArgs {
     /**
      * Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
      */
-    targetId?: string;
+    targetId: string;
 }
 
 export interface GetResourceSpecificLoggingResult {
@@ -38,7 +37,7 @@ export interface GetResourceSpecificLoggingResult {
     readonly targetId?: string;
 }
 
-export function getResourceSpecificLoggingOutput(args?: GetResourceSpecificLoggingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSpecificLoggingResult> {
+export function getResourceSpecificLoggingOutput(args: GetResourceSpecificLoggingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSpecificLoggingResult> {
     return pulumi.output(args).apply(a => getResourceSpecificLogging(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetResourceSpecificLoggingOutputArgs {
     /**
      * Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
      */
-    targetId?: pulumi.Input<string>;
+    targetId: pulumi.Input<string>;
 }

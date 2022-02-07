@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoT1Click::Placement
  */
-export function getPlacement(args?: GetPlacementArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementResult> {
-    args = args || {};
+export function getPlacement(args: GetPlacementArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getPlacement(args?: GetPlacementArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetPlacementArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPlacementResult {
@@ -28,10 +27,10 @@ export interface GetPlacementResult {
     readonly id?: string;
 }
 
-export function getPlacementOutput(args?: GetPlacementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementResult> {
+export function getPlacementOutput(args: GetPlacementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementResult> {
     return pulumi.output(args).apply(a => getPlacement(a, opts))
 }
 
 export interface GetPlacementOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

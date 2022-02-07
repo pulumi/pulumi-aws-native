@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The resource schema for creating an Amazon Connect Customer Profiles Integration.
  */
-export function getIntegration(args?: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
-    args = args || {};
+export function getIntegration(args: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetIntegrationArgs {
     /**
      * The unique name of the domain.
      */
-    domainName?: string;
+    domainName: string;
     /**
      * The URI of the S3 bucket or any other type of data source.
      */
-    uri?: string;
+    uri: string;
 }
 
 export interface GetIntegrationResult {
@@ -51,7 +50,7 @@ export interface GetIntegrationResult {
     readonly tags?: outputs.customerprofiles.IntegrationTag[];
 }
 
-export function getIntegrationOutput(args?: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
+export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
     return pulumi.output(args).apply(a => getIntegration(a, opts))
 }
 
@@ -59,9 +58,9 @@ export interface GetIntegrationOutputArgs {
     /**
      * The unique name of the domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * The URI of the S3 bucket or any other type of data source.
      */
-    uri?: pulumi.Input<string>;
+    uri: pulumi.Input<string>;
 }

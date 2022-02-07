@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Cognito::IdentityPool
  */
-export function getIdentityPool(args?: GetIdentityPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolResult> {
-    args = args || {};
+export function getIdentityPool(args: GetIdentityPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getIdentityPool(args?: GetIdentityPoolArgs, opts?: pulumi.Invoke
 }
 
 export interface GetIdentityPoolArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetIdentityPoolResult {
@@ -40,10 +39,10 @@ export interface GetIdentityPoolResult {
     readonly supportedLoginProviders?: any;
 }
 
-export function getIdentityPoolOutput(args?: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
+export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
     return pulumi.output(args).apply(a => getIdentityPool(a, opts))
 }
 
 export interface GetIdentityPoolOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

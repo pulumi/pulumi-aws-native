@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SES::ReceiptRule
  */
-export function getReceiptRule(args?: GetReceiptRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetReceiptRuleResult> {
-    args = args || {};
+export function getReceiptRule(args: GetReceiptRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetReceiptRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getReceiptRule(args?: GetReceiptRuleArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetReceiptRuleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetReceiptRuleResult {
@@ -30,10 +29,10 @@ export interface GetReceiptRuleResult {
     readonly rule?: outputs.ses.ReceiptRuleRule;
 }
 
-export function getReceiptRuleOutput(args?: GetReceiptRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceiptRuleResult> {
+export function getReceiptRuleOutput(args: GetReceiptRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceiptRuleResult> {
     return pulumi.output(args).apply(a => getReceiptRule(a, opts))
 }
 
 export interface GetReceiptRuleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

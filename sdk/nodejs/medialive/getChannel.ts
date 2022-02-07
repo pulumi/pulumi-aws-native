@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MediaLive::Channel
  */
-export function getChannel(args?: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
-    args = args || {};
+export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getChannel(args?: GetChannelArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetChannelResult {
@@ -40,10 +39,10 @@ export interface GetChannelResult {
     readonly tags?: any;
 }
 
-export function getChannelOutput(args?: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
+export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
     return pulumi.output(args).apply(a => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

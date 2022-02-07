@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource for Greengrass component version.
  */
-export function getComponentVersion(args?: GetComponentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentVersionResult> {
-    args = args || {};
+export function getComponentVersion(args: GetComponentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getComponentVersion(args?: GetComponentVersionArgs, opts?: pulum
 }
 
 export interface GetComponentVersionArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetComponentVersionResult {
@@ -30,10 +29,10 @@ export interface GetComponentVersionResult {
     readonly tags?: any;
 }
 
-export function getComponentVersionOutput(args?: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentVersionResult> {
+export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentVersionResult> {
     return pulumi.output(args).apply(a => getComponentVersion(a, opts))
 }
 
 export interface GetComponentVersionOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

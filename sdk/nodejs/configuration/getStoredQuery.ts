@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Config::StoredQuery
  */
-export function getStoredQuery(args?: GetStoredQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetStoredQueryResult> {
-    args = args || {};
+export function getStoredQuery(args: GetStoredQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetStoredQueryResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getStoredQuery(args?: GetStoredQueryArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetStoredQueryArgs {
-    queryName?: string;
+    queryName: string;
 }
 
 export interface GetStoredQueryResult {
@@ -35,10 +34,10 @@ export interface GetStoredQueryResult {
     readonly tags?: outputs.configuration.StoredQueryTag[];
 }
 
-export function getStoredQueryOutput(args?: GetStoredQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStoredQueryResult> {
+export function getStoredQueryOutput(args: GetStoredQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStoredQueryResult> {
     return pulumi.output(args).apply(a => getStoredQuery(a, opts))
 }
 
 export interface GetStoredQueryOutputArgs {
-    queryName?: pulumi.Input<string>;
+    queryName: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::DMS::ReplicationInstance
  */
-export function getReplicationInstance(args?: GetReplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationInstanceResult> {
-    args = args || {};
+export function getReplicationInstance(args: GetReplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationInstanceResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getReplicationInstance(args?: GetReplicationInstanceArgs, opts?:
 }
 
 export interface GetReplicationInstanceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetReplicationInstanceResult {
@@ -39,10 +38,10 @@ export interface GetReplicationInstanceResult {
     readonly vpcSecurityGroupIds?: string[];
 }
 
-export function getReplicationInstanceOutput(args?: GetReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationInstanceResult> {
+export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationInstanceResult> {
     return pulumi.output(args).apply(a => getReplicationInstance(a, opts))
 }
 
 export interface GetReplicationInstanceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Logs::LogStream
  */
-export function getLogStream(args?: GetLogStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetLogStreamResult> {
-    args = args || {};
+export function getLogStream(args: GetLogStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetLogStreamResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getLogStream(args?: GetLogStreamArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetLogStreamArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLogStreamResult {
     readonly id?: string;
 }
 
-export function getLogStreamOutput(args?: GetLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogStreamResult> {
+export function getLogStreamOutput(args: GetLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogStreamResult> {
     return pulumi.output(args).apply(a => getLogStream(a, opts))
 }
 
 export interface GetLogStreamOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SES::ConfigurationSetEventDestination
  */
-export function getConfigurationSetEventDestination(args?: GetConfigurationSetEventDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetEventDestinationResult> {
-    args = args || {};
+export function getConfigurationSetEventDestination(args: GetConfigurationSetEventDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetEventDestinationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConfigurationSetEventDestination(args?: GetConfigurationSetEv
 }
 
 export interface GetConfigurationSetEventDestinationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetConfigurationSetEventDestinationResult {
@@ -29,10 +28,10 @@ export interface GetConfigurationSetEventDestinationResult {
     readonly id?: string;
 }
 
-export function getConfigurationSetEventDestinationOutput(args?: GetConfigurationSetEventDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetEventDestinationResult> {
+export function getConfigurationSetEventDestinationOutput(args: GetConfigurationSetEventDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetEventDestinationResult> {
     return pulumi.output(args).apply(a => getConfigurationSetEventDestination(a, opts))
 }
 
 export interface GetConfigurationSetEventDestinationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

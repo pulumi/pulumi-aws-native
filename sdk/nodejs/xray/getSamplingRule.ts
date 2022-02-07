@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
  */
-export function getSamplingRule(args?: GetSamplingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSamplingRuleResult> {
-    args = args || {};
+export function getSamplingRule(args: GetSamplingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSamplingRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSamplingRule(args?: GetSamplingRuleArgs, opts?: pulumi.Invoke
 }
 
 export interface GetSamplingRuleArgs {
-    ruleARN?: string;
+    ruleARN: string;
 }
 
 export interface GetSamplingRuleResult {
@@ -33,10 +32,10 @@ export interface GetSamplingRuleResult {
     readonly tags?: outputs.xray.TagsItemProperties[];
 }
 
-export function getSamplingRuleOutput(args?: GetSamplingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamplingRuleResult> {
+export function getSamplingRuleOutput(args: GetSamplingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamplingRuleResult> {
     return pulumi.output(args).apply(a => getSamplingRule(a, opts))
 }
 
 export interface GetSamplingRuleOutputArgs {
-    ruleARN?: pulumi.Input<string>;
+    ruleARN: pulumi.Input<string>;
 }

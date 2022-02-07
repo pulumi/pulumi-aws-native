@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema of AWS::EMRContainers::VirtualCluster Type
  */
-export function getVirtualCluster(args?: GetVirtualClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualClusterResult> {
-    args = args || {};
+export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetVirtualClusterArgs {
     /**
      * Id of the virtual cluster.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetVirtualClusterResult {
@@ -39,7 +38,7 @@ export interface GetVirtualClusterResult {
     readonly tags?: outputs.emrcontainers.VirtualClusterTag[];
 }
 
-export function getVirtualClusterOutput(args?: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualClusterResult> {
+export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualClusterResult> {
     return pulumi.output(args).apply(a => getVirtualCluster(a, opts))
 }
 
@@ -47,5 +46,5 @@ export interface GetVirtualClusterOutputArgs {
     /**
      * Id of the virtual cluster.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

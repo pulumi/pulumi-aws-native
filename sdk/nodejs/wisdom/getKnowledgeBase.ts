@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::Wisdom::KnowledgeBase Resource Type
  */
-export function getKnowledgeBase(args?: GetKnowledgeBaseArgs, opts?: pulumi.InvokeOptions): Promise<GetKnowledgeBaseResult> {
-    args = args || {};
+export function getKnowledgeBase(args: GetKnowledgeBaseArgs, opts?: pulumi.InvokeOptions): Promise<GetKnowledgeBaseResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getKnowledgeBase(args?: GetKnowledgeBaseArgs, opts?: pulumi.Invo
 }
 
 export interface GetKnowledgeBaseArgs {
-    knowledgeBaseId?: string;
+    knowledgeBaseId: string;
 }
 
 export interface GetKnowledgeBaseResult {
@@ -30,10 +29,10 @@ export interface GetKnowledgeBaseResult {
     readonly renderingConfiguration?: outputs.wisdom.KnowledgeBaseRenderingConfiguration;
 }
 
-export function getKnowledgeBaseOutput(args?: GetKnowledgeBaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKnowledgeBaseResult> {
+export function getKnowledgeBaseOutput(args: GetKnowledgeBaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKnowledgeBaseResult> {
     return pulumi.output(args).apply(a => getKnowledgeBase(a, opts))
 }
 
 export interface GetKnowledgeBaseOutputArgs {
-    knowledgeBaseId?: pulumi.Input<string>;
+    knowledgeBaseId: pulumi.Input<string>;
 }

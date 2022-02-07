@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
  */
-export function getTransitGatewayRegistration(args?: GetTransitGatewayRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRegistrationResult> {
-    args = args || {};
+export function getTransitGatewayRegistration(args: GetTransitGatewayRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRegistrationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,17 +23,17 @@ export interface GetTransitGatewayRegistrationArgs {
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: string;
+    globalNetworkId: string;
     /**
      * The Amazon Resource Name (ARN) of the transit gateway.
      */
-    transitGatewayArn?: string;
+    transitGatewayArn: string;
 }
 
 export interface GetTransitGatewayRegistrationResult {
 }
 
-export function getTransitGatewayRegistrationOutput(args?: GetTransitGatewayRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRegistrationResult> {
+export function getTransitGatewayRegistrationOutput(args: GetTransitGatewayRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRegistrationResult> {
     return pulumi.output(args).apply(a => getTransitGatewayRegistration(a, opts))
 }
 
@@ -42,9 +41,9 @@ export interface GetTransitGatewayRegistrationOutputArgs {
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the transit gateway.
      */
-    transitGatewayArn?: pulumi.Input<string>;
+    transitGatewayArn: pulumi.Input<string>;
 }

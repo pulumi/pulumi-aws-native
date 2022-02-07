@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
  */
-export function getModelQualityJobDefinition(args?: GetModelQualityJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelQualityJobDefinitionResult> {
-    args = args || {};
+export function getModelQualityJobDefinition(args: GetModelQualityJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelQualityJobDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetModelQualityJobDefinitionArgs {
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    jobDefinitionArn?: string;
+    jobDefinitionArn: string;
 }
 
 export interface GetModelQualityJobDefinitionResult {
@@ -37,7 +36,7 @@ export interface GetModelQualityJobDefinitionResult {
     readonly jobDefinitionArn?: string;
 }
 
-export function getModelQualityJobDefinitionOutput(args?: GetModelQualityJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelQualityJobDefinitionResult> {
+export function getModelQualityJobDefinitionOutput(args: GetModelQualityJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelQualityJobDefinitionResult> {
     return pulumi.output(args).apply(a => getModelQualityJobDefinition(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetModelQualityJobDefinitionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    jobDefinitionArn?: pulumi.Input<string>;
+    jobDefinitionArn: pulumi.Input<string>;
 }

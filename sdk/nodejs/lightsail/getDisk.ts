@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::Disk
  */
-export function getDisk(args?: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    args = args || {};
+export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDiskArgs {
     /**
      * The names to use for your new Lightsail disk.
      */
-    diskName?: string;
+    diskName: string;
 }
 
 export interface GetDiskResult {
@@ -72,7 +71,7 @@ export interface GetDiskResult {
     readonly tags?: outputs.lightsail.DiskTag[];
 }
 
-export function getDiskOutput(args?: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
+export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
     return pulumi.output(args).apply(a => getDisk(a, opts))
 }
 
@@ -80,5 +79,5 @@ export interface GetDiskOutputArgs {
     /**
      * The names to use for your new Lightsail disk.
      */
-    diskName?: pulumi.Input<string>;
+    diskName: pulumi.Input<string>;
 }

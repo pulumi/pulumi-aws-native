@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Config::RemediationConfiguration
  */
-export function getRemediationConfiguration(args?: GetRemediationConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationConfigurationResult> {
-    args = args || {};
+export function getRemediationConfiguration(args: GetRemediationConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRemediationConfiguration(args?: GetRemediationConfigurationAr
 }
 
 export interface GetRemediationConfigurationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRemediationConfigurationResult {
@@ -37,10 +36,10 @@ export interface GetRemediationConfigurationResult {
     readonly targetVersion?: string;
 }
 
-export function getRemediationConfigurationOutput(args?: GetRemediationConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationConfigurationResult> {
+export function getRemediationConfigurationOutput(args: GetRemediationConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationConfigurationResult> {
     return pulumi.output(args).apply(a => getRemediationConfiguration(a, opts))
 }
 
 export interface GetRemediationConfigurationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

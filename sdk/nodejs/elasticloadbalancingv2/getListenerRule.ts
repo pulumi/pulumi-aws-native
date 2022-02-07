@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
  */
-export function getListenerRule(args?: GetListenerRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerRuleResult> {
-    args = args || {};
+export function getListenerRule(args: GetListenerRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getListenerRule(args?: GetListenerRuleArgs, opts?: pulumi.Invoke
 }
 
 export interface GetListenerRuleArgs {
-    ruleArn?: string;
+    ruleArn: string;
 }
 
 export interface GetListenerRuleResult {
@@ -32,10 +31,10 @@ export interface GetListenerRuleResult {
     readonly ruleArn?: string;
 }
 
-export function getListenerRuleOutput(args?: GetListenerRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerRuleResult> {
+export function getListenerRuleOutput(args: GetListenerRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerRuleResult> {
     return pulumi.output(args).apply(a => getListenerRule(a, opts))
 }
 
 export interface GetListenerRuleOutputArgs {
-    ruleArn?: pulumi.Input<string>;
+    ruleArn: pulumi.Input<string>;
 }

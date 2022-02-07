@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::FIS::ExperimentTemplate
  */
-export function getExperimentTemplate(args?: GetExperimentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentTemplateResult> {
-    args = args || {};
+export function getExperimentTemplate(args: GetExperimentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getExperimentTemplate(args?: GetExperimentTemplateArgs, opts?: p
 }
 
 export interface GetExperimentTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetExperimentTemplateResult {
@@ -33,10 +32,10 @@ export interface GetExperimentTemplateResult {
     readonly targets?: outputs.fis.ExperimentTemplateTargetMap;
 }
 
-export function getExperimentTemplateOutput(args?: GetExperimentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentTemplateResult> {
+export function getExperimentTemplateOutput(args: GetExperimentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentTemplateResult> {
     return pulumi.output(args).apply(a => getExperimentTemplate(a, opts))
 }
 
 export interface GetExperimentTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

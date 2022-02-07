@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An object representing an Amazon EKS cluster.
  */
-export function getCluster(args?: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    args = args || {};
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetClusterArgs {
     /**
      * The unique name to give to your cluster.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetClusterResult {
@@ -64,7 +63,7 @@ export interface GetClusterResult {
     readonly version?: string;
 }
 
-export function getClusterOutput(args?: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply(a => getCluster(a, opts))
 }
 
@@ -72,5 +71,5 @@ export interface GetClusterOutputArgs {
     /**
      * The unique name to give to your cluster.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

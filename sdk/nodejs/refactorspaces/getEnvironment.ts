@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::RefactorSpaces::Environment Resource Type
  */
-export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    args = args || {};
+export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetEnvironmentArgs {
-    environmentIdentifier?: string;
+    environmentIdentifier: string;
 }
 
 export interface GetEnvironmentResult {
@@ -34,10 +33,10 @@ export interface GetEnvironmentResult {
     readonly transitGatewayId?: string;
 }
 
-export function getEnvironmentOutput(args?: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
+export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply(a => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {
-    environmentIdentifier?: pulumi.Input<string>;
+    environmentIdentifier: pulumi.Input<string>;
 }

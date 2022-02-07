@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A Kendra index
  */
-export function getIndex(args?: GetIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetIndexResult> {
-    args = args || {};
+export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetIndexResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getIndex(args?: GetIndexArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetIndexArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetIndexResult {
@@ -49,10 +48,10 @@ export interface GetIndexResult {
     readonly userTokenConfigurations?: outputs.kendra.IndexUserTokenConfiguration[];
 }
 
-export function getIndexOutput(args?: GetIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIndexResult> {
+export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIndexResult> {
     return pulumi.output(args).apply(a => getIndex(a, opts))
 }
 
 export interface GetIndexOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

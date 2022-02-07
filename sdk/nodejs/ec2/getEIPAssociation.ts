@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::EIPAssociation
  */
-export function getEIPAssociation(args?: GetEIPAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetEIPAssociationResult> {
-    args = args || {};
+export function getEIPAssociation(args: GetEIPAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetEIPAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getEIPAssociation(args?: GetEIPAssociationArgs, opts?: pulumi.In
 }
 
 export interface GetEIPAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEIPAssociationResult {
@@ -32,10 +31,10 @@ export interface GetEIPAssociationResult {
     readonly privateIpAddress?: string;
 }
 
-export function getEIPAssociationOutput(args?: GetEIPAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEIPAssociationResult> {
+export function getEIPAssociationOutput(args: GetEIPAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEIPAssociationResult> {
     return pulumi.output(args).apply(a => getEIPAssociation(a, opts))
 }
 
 export interface GetEIPAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

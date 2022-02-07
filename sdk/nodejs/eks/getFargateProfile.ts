@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema for AWS::EKS::FargateProfile
  */
-export function getFargateProfile(args?: GetFargateProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFargateProfileResult> {
-    args = args || {};
+export function getFargateProfile(args: GetFargateProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFargateProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetFargateProfileArgs {
     /**
      * Name of the Cluster
      */
-    clusterName?: string;
+    clusterName: string;
     /**
      * Name of FargateProfile
      */
-    fargateProfileName?: string;
+    fargateProfileName: string;
 }
 
 export interface GetFargateProfileResult {
@@ -40,7 +39,7 @@ export interface GetFargateProfileResult {
     readonly tags?: outputs.eks.FargateProfileTag[];
 }
 
-export function getFargateProfileOutput(args?: GetFargateProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFargateProfileResult> {
+export function getFargateProfileOutput(args: GetFargateProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFargateProfileResult> {
     return pulumi.output(args).apply(a => getFargateProfile(a, opts))
 }
 
@@ -48,9 +47,9 @@ export interface GetFargateProfileOutputArgs {
     /**
      * Name of the Cluster
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Name of FargateProfile
      */
-    fargateProfileName?: pulumi.Input<string>;
+    fargateProfileName: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::SageMaker::DeviceFleet
  */
-export function getDeviceFleet(args?: GetDeviceFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceFleetResult> {
-    args = args || {};
+export function getDeviceFleet(args: GetDeviceFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceFleetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDeviceFleetArgs {
     /**
      * The name of the edge device fleet
      */
-    deviceFleetName?: string;
+    deviceFleetName: string;
 }
 
 export interface GetDeviceFleetResult {
@@ -46,7 +45,7 @@ export interface GetDeviceFleetResult {
     readonly tags?: outputs.sagemaker.DeviceFleetTag[];
 }
 
-export function getDeviceFleetOutput(args?: GetDeviceFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceFleetResult> {
+export function getDeviceFleetOutput(args: GetDeviceFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceFleetResult> {
     return pulumi.output(args).apply(a => getDeviceFleet(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetDeviceFleetOutputArgs {
     /**
      * The name of the edge device fleet
      */
-    deviceFleetName?: pulumi.Input<string>;
+    deviceFleetName: pulumi.Input<string>;
 }

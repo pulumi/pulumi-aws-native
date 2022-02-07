@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPCCidrBlock
  */
-export function getVPCCidrBlock(args?: GetVPCCidrBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCCidrBlockResult> {
-    args = args || {};
+export function getVPCCidrBlock(args: GetVPCCidrBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCCidrBlockResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getVPCCidrBlock(args?: GetVPCCidrBlockArgs, opts?: pulumi.Invoke
 }
 
 export interface GetVPCCidrBlockArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVPCCidrBlockResult {
     readonly id?: string;
 }
 
-export function getVPCCidrBlockOutput(args?: GetVPCCidrBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCCidrBlockResult> {
+export function getVPCCidrBlockOutput(args: GetVPCCidrBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCCidrBlockResult> {
     return pulumi.output(args).apply(a => getVPCCidrBlock(a, opts))
 }
 
 export interface GetVPCCidrBlockOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

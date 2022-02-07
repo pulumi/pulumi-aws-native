@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Cognito::UserPoolClient
  */
-export function getUserPoolClient(args?: GetUserPoolClientArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientResult> {
-    args = args || {};
+export function getUserPoolClient(args: GetUserPoolClientArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getUserPoolClient(args?: GetUserPoolClientArgs, opts?: pulumi.In
 }
 
 export interface GetUserPoolClientArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetUserPoolClientResult {
@@ -48,10 +47,10 @@ export interface GetUserPoolClientResult {
     readonly writeAttributes?: string[];
 }
 
-export function getUserPoolClientOutput(args?: GetUserPoolClientOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolClientResult> {
+export function getUserPoolClientOutput(args: GetUserPoolClientOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolClientResult> {
     return pulumi.output(args).apply(a => getUserPoolClient(a, opts))
 }
 
 export interface GetUserPoolClientOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::DMS::ReplicationSubnetGroup
  */
-export function getReplicationSubnetGroup(args?: GetReplicationSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSubnetGroupResult> {
-    args = args || {};
+export function getReplicationSubnetGroup(args: GetReplicationSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSubnetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getReplicationSubnetGroup(args?: GetReplicationSubnetGroupArgs, 
 }
 
 export interface GetReplicationSubnetGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetReplicationSubnetGroupResult {
@@ -29,10 +28,10 @@ export interface GetReplicationSubnetGroupResult {
     readonly subnetIds?: string[];
 }
 
-export function getReplicationSubnetGroupOutput(args?: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSubnetGroupResult> {
+export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSubnetGroupResult> {
     return pulumi.output(args).apply(a => getReplicationSubnetGroup(a, opts))
 }
 
 export interface GetReplicationSubnetGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

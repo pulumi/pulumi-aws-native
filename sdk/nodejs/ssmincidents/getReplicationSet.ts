@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource type definition for AWS::SSMIncidents::ReplicationSet
  */
-export function getReplicationSet(args?: GetReplicationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSetResult> {
-    args = args || {};
+export function getReplicationSet(args: GetReplicationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetReplicationSetArgs {
     /**
      * The ARN of the ReplicationSet.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetReplicationSetResult {
@@ -39,7 +38,7 @@ export interface GetReplicationSetResult {
     readonly regions?: outputs.ssmincidents.ReplicationSetReplicationRegion[];
 }
 
-export function getReplicationSetOutput(args?: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSetResult> {
+export function getReplicationSetOutput(args: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSetResult> {
     return pulumi.output(args).apply(a => getReplicationSet(a, opts))
 }
 
@@ -47,5 +46,5 @@ export interface GetReplicationSetOutputArgs {
     /**
      * The ARN of the ReplicationSet.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

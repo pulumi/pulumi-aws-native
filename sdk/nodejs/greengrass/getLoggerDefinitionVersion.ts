@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::LoggerDefinitionVersion
  */
-export function getLoggerDefinitionVersion(args?: GetLoggerDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerDefinitionVersionResult> {
-    args = args || {};
+export function getLoggerDefinitionVersion(args: GetLoggerDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerDefinitionVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getLoggerDefinitionVersion(args?: GetLoggerDefinitionVersionArgs
 }
 
 export interface GetLoggerDefinitionVersionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLoggerDefinitionVersionResult {
     readonly id?: string;
 }
 
-export function getLoggerDefinitionVersionOutput(args?: GetLoggerDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerDefinitionVersionResult> {
+export function getLoggerDefinitionVersionOutput(args: GetLoggerDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerDefinitionVersionResult> {
     return pulumi.output(args).apply(a => getLoggerDefinitionVersion(a, opts))
 }
 
 export interface GetLoggerDefinitionVersionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

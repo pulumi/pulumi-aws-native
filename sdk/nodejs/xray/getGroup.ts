@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * This schema provides construct and validation rules for AWS-XRay Group resource parameters.
  */
-export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-    args = args || {};
+export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetGroupArgs {
     /**
      * The ARN of the group that was generated on creation.
      */
-    groupARN?: string;
+    groupARN: string;
 }
 
 export interface GetGroupResult {
@@ -44,7 +43,7 @@ export interface GetGroupResult {
     readonly tags?: outputs.xray.TagsItemProperties[];
 }
 
-export function getGroupOutput(args?: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply(a => getGroup(a, opts))
 }
 
@@ -52,5 +51,5 @@ export interface GetGroupOutputArgs {
     /**
      * The ARN of the group that was generated on creation.
      */
-    groupARN?: pulumi.Input<string>;
+    groupARN: pulumi.Input<string>;
 }

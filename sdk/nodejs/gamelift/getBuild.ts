@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GameLift::Build
  */
-export function getBuild(args?: GetBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildResult> {
-    args = args || {};
+export function getBuild(args: GetBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getBuild(args?: GetBuildArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetBuildArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetBuildResult {
@@ -29,10 +28,10 @@ export interface GetBuildResult {
     readonly version?: string;
 }
 
-export function getBuildOutput(args?: GetBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildResult> {
+export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildResult> {
     return pulumi.output(args).apply(a => getBuild(a, opts))
 }
 
 export interface GetBuildOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

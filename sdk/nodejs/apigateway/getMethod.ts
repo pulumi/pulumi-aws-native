@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::Method
  */
-export function getMethod(args?: GetMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetMethodResult> {
-    args = args || {};
+export function getMethod(args: GetMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetMethodResult> {
     if (!opts) {
         opts = {}
     }
@@ -26,15 +25,15 @@ export interface GetMethodArgs {
     /**
      * The backend system that the method calls when it receives a request.
      */
-    httpMethod?: string;
+    httpMethod: string;
     /**
      * The ID of an API Gateway resource.
      */
-    resourceId?: string;
+    resourceId: string;
     /**
      * The ID of the RestApi resource in which API Gateway creates the method.
      */
-    restApiId?: string;
+    restApiId: string;
 }
 
 export interface GetMethodResult {
@@ -80,7 +79,7 @@ export interface GetMethodResult {
     readonly requestValidatorId?: string;
 }
 
-export function getMethodOutput(args?: GetMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMethodResult> {
+export function getMethodOutput(args: GetMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMethodResult> {
     return pulumi.output(args).apply(a => getMethod(a, opts))
 }
 
@@ -88,13 +87,13 @@ export interface GetMethodOutputArgs {
     /**
      * The backend system that the method calls when it receives a request.
      */
-    httpMethod?: pulumi.Input<string>;
+    httpMethod: pulumi.Input<string>;
     /**
      * The ID of an API Gateway resource.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
     /**
      * The ID of the RestApi resource in which API Gateway creates the method.
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
 }

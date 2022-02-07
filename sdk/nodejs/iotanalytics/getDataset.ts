@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoTAnalytics::Dataset
  */
-export function getDataset(args?: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-    args = args || {};
+export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDataset(args?: GetDatasetArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetDatasetArgs {
-    datasetName?: string;
+    datasetName: string;
 }
 
 export interface GetDatasetResult {
@@ -35,10 +34,10 @@ export interface GetDatasetResult {
     readonly versioningConfiguration?: outputs.iotanalytics.DatasetVersioningConfiguration;
 }
 
-export function getDatasetOutput(args?: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
+export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
     return pulumi.output(args).apply(a => getDataset(a, opts))
 }
 
 export interface GetDatasetOutputArgs {
-    datasetName?: pulumi.Input<string>;
+    datasetName: pulumi.Input<string>;
 }

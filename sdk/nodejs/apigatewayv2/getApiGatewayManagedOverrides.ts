@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
  */
-export function getApiGatewayManagedOverrides(args?: GetApiGatewayManagedOverridesArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayManagedOverridesResult> {
-    args = args || {};
+export function getApiGatewayManagedOverrides(args: GetApiGatewayManagedOverridesArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayManagedOverridesResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApiGatewayManagedOverrides(args?: GetApiGatewayManagedOverrid
 }
 
 export interface GetApiGatewayManagedOverridesArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApiGatewayManagedOverridesResult {
@@ -31,10 +30,10 @@ export interface GetApiGatewayManagedOverridesResult {
     readonly stage?: outputs.apigatewayv2.ApiGatewayManagedOverridesStageOverrides;
 }
 
-export function getApiGatewayManagedOverridesOutput(args?: GetApiGatewayManagedOverridesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayManagedOverridesResult> {
+export function getApiGatewayManagedOverridesOutput(args: GetApiGatewayManagedOverridesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayManagedOverridesResult> {
     return pulumi.output(args).apply(a => getApiGatewayManagedOverrides(a, opts))
 }
 
 export interface GetApiGatewayManagedOverridesOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

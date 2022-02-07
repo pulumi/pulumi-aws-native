@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Redshift::ClusterParameterGroup
  */
-export function getClusterParameterGroup(args?: GetClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterParameterGroupResult> {
-    args = args || {};
+export function getClusterParameterGroup(args: GetClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterParameterGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getClusterParameterGroup(args?: GetClusterParameterGroupArgs, op
 }
 
 export interface GetClusterParameterGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetClusterParameterGroupResult {
@@ -30,10 +29,10 @@ export interface GetClusterParameterGroupResult {
     readonly tags?: outputs.redshift.ClusterParameterGroupTag[];
 }
 
-export function getClusterParameterGroupOutput(args?: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterParameterGroupResult> {
+export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterParameterGroupResult> {
     return pulumi.output(args).apply(a => getClusterParameterGroup(a, opts))
 }
 
 export interface GetClusterParameterGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

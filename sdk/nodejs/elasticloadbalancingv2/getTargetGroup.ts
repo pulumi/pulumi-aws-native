@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
  */
-export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
-    args = args || {};
+export function getTargetGroup(args: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetTargetGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTargetGroupResult {
@@ -43,10 +42,10 @@ export interface GetTargetGroupResult {
     readonly unhealthyThresholdCount?: number;
 }
 
-export function getTargetGroupOutput(args?: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
+export function getTargetGroupOutput(args: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
     return pulumi.output(args).apply(a => getTargetGroup(a, opts))
 }
 
 export interface GetTargetGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

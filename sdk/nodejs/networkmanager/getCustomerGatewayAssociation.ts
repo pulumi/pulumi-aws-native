@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
  */
-export function getCustomerGatewayAssociation(args?: GetCustomerGatewayAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayAssociationResult> {
-    args = args || {};
+export function getCustomerGatewayAssociation(args: GetCustomerGatewayAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,17 +23,17 @@ export interface GetCustomerGatewayAssociationArgs {
     /**
      * The Amazon Resource Name (ARN) of the customer gateway.
      */
-    customerGatewayArn?: string;
+    customerGatewayArn: string;
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: string;
+    globalNetworkId: string;
 }
 
 export interface GetCustomerGatewayAssociationResult {
 }
 
-export function getCustomerGatewayAssociationOutput(args?: GetCustomerGatewayAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayAssociationResult> {
+export function getCustomerGatewayAssociationOutput(args: GetCustomerGatewayAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayAssociationResult> {
     return pulumi.output(args).apply(a => getCustomerGatewayAssociation(a, opts))
 }
 
@@ -42,9 +41,9 @@ export interface GetCustomerGatewayAssociationOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the customer gateway.
      */
-    customerGatewayArn?: pulumi.Input<string>;
+    customerGatewayArn: pulumi.Input<string>;
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId: pulumi.Input<string>;
 }

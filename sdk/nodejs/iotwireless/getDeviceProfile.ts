@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Device Profile's resource schema demonstrating some basic constructs and validation rules.
  */
-export function getDeviceProfile(args?: GetDeviceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceProfileResult> {
-    args = args || {};
+export function getDeviceProfile(args: GetDeviceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDeviceProfileArgs {
     /**
      * Service profile Id. Returned after successful create.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetDeviceProfileResult {
@@ -50,7 +49,7 @@ export interface GetDeviceProfileResult {
     readonly tags?: outputs.iotwireless.DeviceProfileTag[];
 }
 
-export function getDeviceProfileOutput(args?: GetDeviceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceProfileResult> {
+export function getDeviceProfileOutput(args: GetDeviceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceProfileResult> {
     return pulumi.output(args).apply(a => getDeviceProfile(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetDeviceProfileOutputArgs {
     /**
      * Service profile Id. Returned after successful create.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

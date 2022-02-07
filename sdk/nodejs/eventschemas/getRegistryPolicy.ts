@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EventSchemas::RegistryPolicy
  */
-export function getRegistryPolicy(args?: GetRegistryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryPolicyResult> {
-    args = args || {};
+export function getRegistryPolicy(args: GetRegistryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getRegistryPolicy(args?: GetRegistryPolicyArgs, opts?: pulumi.In
 }
 
 export interface GetRegistryPolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRegistryPolicyResult {
@@ -30,10 +29,10 @@ export interface GetRegistryPolicyResult {
     readonly revisionId?: string;
 }
 
-export function getRegistryPolicyOutput(args?: GetRegistryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryPolicyResult> {
+export function getRegistryPolicyOutput(args: GetRegistryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryPolicyResult> {
     return pulumi.output(args).apply(a => getRegistryPolicy(a, opts))
 }
 
 export interface GetRegistryPolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

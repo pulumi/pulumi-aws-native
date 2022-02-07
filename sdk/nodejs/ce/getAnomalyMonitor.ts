@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
  */
-export function getAnomalyMonitor(args?: GetAnomalyMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalyMonitorResult> {
-    args = args || {};
+export function getAnomalyMonitor(args: GetAnomalyMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalyMonitorResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAnomalyMonitor(args?: GetAnomalyMonitorArgs, opts?: pulumi.In
 }
 
 export interface GetAnomalyMonitorArgs {
-    monitorArn?: string;
+    monitorArn: string;
 }
 
 export interface GetAnomalyMonitorResult {
@@ -47,10 +46,10 @@ export interface GetAnomalyMonitorResult {
     readonly monitorName?: string;
 }
 
-export function getAnomalyMonitorOutput(args?: GetAnomalyMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyMonitorResult> {
+export function getAnomalyMonitorOutput(args: GetAnomalyMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyMonitorResult> {
     return pulumi.output(args).apply(a => getAnomalyMonitor(a, opts))
 }
 
 export interface GetAnomalyMonitorOutputArgs {
-    monitorArn?: pulumi.Input<string>;
+    monitorArn: pulumi.Input<string>;
 }

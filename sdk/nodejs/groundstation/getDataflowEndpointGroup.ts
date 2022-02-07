@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Ground Station DataflowEndpointGroup schema for CloudFormation
  */
-export function getDataflowEndpointGroup(args?: GetDataflowEndpointGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDataflowEndpointGroupResult> {
-    args = args || {};
+export function getDataflowEndpointGroup(args: GetDataflowEndpointGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDataflowEndpointGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDataflowEndpointGroup(args?: GetDataflowEndpointGroupArgs, op
 }
 
 export interface GetDataflowEndpointGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDataflowEndpointGroupResult {
@@ -31,10 +30,10 @@ export interface GetDataflowEndpointGroupResult {
     readonly tags?: outputs.groundstation.DataflowEndpointGroupTag[];
 }
 
-export function getDataflowEndpointGroupOutput(args?: GetDataflowEndpointGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataflowEndpointGroupResult> {
+export function getDataflowEndpointGroupOutput(args: GetDataflowEndpointGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataflowEndpointGroupResult> {
     return pulumi.output(args).apply(a => getDataflowEndpointGroup(a, opts))
 }
 
 export interface GetDataflowEndpointGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

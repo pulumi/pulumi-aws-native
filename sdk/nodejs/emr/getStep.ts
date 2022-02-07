@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EMR::Step
  */
-export function getStep(args?: GetStepArgs, opts?: pulumi.InvokeOptions): Promise<GetStepResult> {
-    args = args || {};
+export function getStep(args: GetStepArgs, opts?: pulumi.InvokeOptions): Promise<GetStepResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getStep(args?: GetStepArgs, opts?: pulumi.InvokeOptions): Promis
 }
 
 export interface GetStepArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetStepResult {
     readonly id?: string;
 }
 
-export function getStepOutput(args?: GetStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStepResult> {
+export function getStepOutput(args: GetStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStepResult> {
     return pulumi.output(args).apply(a => getStep(a, opts))
 }
 
 export interface GetStepOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

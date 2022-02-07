@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::EmailChannel
  */
-export function getEmailChannel(args?: GetEmailChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailChannelResult> {
-    args = args || {};
+export function getEmailChannel(args: GetEmailChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getEmailChannel(args?: GetEmailChannelArgs, opts?: pulumi.Invoke
 }
 
 export interface GetEmailChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEmailChannelResult {
@@ -32,10 +31,10 @@ export interface GetEmailChannelResult {
     readonly roleArn?: string;
 }
 
-export function getEmailChannelOutput(args?: GetEmailChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailChannelResult> {
+export function getEmailChannelOutput(args: GetEmailChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailChannelResult> {
     return pulumi.output(args).apply(a => getEmailChannel(a, opts))
 }
 
 export interface GetEmailChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

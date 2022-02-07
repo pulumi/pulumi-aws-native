@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Logs::LogGroup
  */
-export function getLogGroup(args?: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
-    args = args || {};
+export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLogGroupArgs {
     /**
      * The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
      */
-    logGroupName?: string;
+    logGroupName: string;
 }
 
 export interface GetLogGroupResult {
@@ -46,7 +45,7 @@ export interface GetLogGroupResult {
     readonly tags?: outputs.logs.LogGroupTag[];
 }
 
-export function getLogGroupOutput(args?: GetLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupResult> {
+export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupResult> {
     return pulumi.output(args).apply(a => getLogGroup(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetLogGroupOutputArgs {
     /**
      * The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
      */
-    logGroupName?: pulumi.Input<string>;
+    logGroupName: pulumi.Input<string>;
 }

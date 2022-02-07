@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::Partition
  */
-export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
-    args = args || {};
+export function getPartition(args: GetPartitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetPartitionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPartitionResult {
@@ -29,10 +28,10 @@ export interface GetPartitionResult {
     readonly partitionInput?: outputs.glue.PartitionInput;
 }
 
-export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
+export function getPartitionOutput(args: GetPartitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
     return pulumi.output(args).apply(a => getPartition(a, opts))
 }
 
 export interface GetPartitionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
  */
-export function getJobTemplate(args?: GetJobTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTemplateResult> {
-    args = args || {};
+export function getJobTemplate(args: GetJobTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getJobTemplate(args?: GetJobTemplateArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetJobTemplateArgs {
-    jobTemplateId?: string;
+    jobTemplateId: string;
 }
 
 export interface GetJobTemplateResult {
@@ -29,10 +28,10 @@ export interface GetJobTemplateResult {
     readonly jobExecutionsRetryConfig?: outputs.iot.JobExecutionsRetryConfigProperties;
 }
 
-export function getJobTemplateOutput(args?: GetJobTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTemplateResult> {
+export function getJobTemplateOutput(args: GetJobTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTemplateResult> {
     return pulumi.output(args).apply(a => getJobTemplate(a, opts))
 }
 
 export interface GetJobTemplateOutputArgs {
-    jobTemplateId?: pulumi.Input<string>;
+    jobTemplateId: pulumi.Input<string>;
 }

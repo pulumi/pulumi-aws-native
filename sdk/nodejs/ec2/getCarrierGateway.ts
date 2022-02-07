@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getCarrierGateway(args?: GetCarrierGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCarrierGatewayResult> {
-    args = args || {};
+export function getCarrierGateway(args: GetCarrierGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCarrierGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetCarrierGatewayArgs {
     /**
      * The ID of the carrier gateway.
      */
-    carrierGatewayId?: string;
+    carrierGatewayId: string;
 }
 
 export interface GetCarrierGatewayResult {
@@ -46,7 +45,7 @@ export interface GetCarrierGatewayResult {
     readonly tags?: outputs.ec2.CarrierGatewayTag[];
 }
 
-export function getCarrierGatewayOutput(args?: GetCarrierGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCarrierGatewayResult> {
+export function getCarrierGatewayOutput(args: GetCarrierGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCarrierGatewayResult> {
     return pulumi.output(args).apply(a => getCarrierGateway(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetCarrierGatewayOutputArgs {
     /**
      * The ID of the carrier gateway.
      */
-    carrierGatewayId?: pulumi.Input<string>;
+    carrierGatewayId: pulumi.Input<string>;
 }

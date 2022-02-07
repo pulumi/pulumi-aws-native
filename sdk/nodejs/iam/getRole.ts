@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::Role
  */
-export function getRole(args?: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
-    args = args || {};
+export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRoleArgs {
     /**
      * A name for the IAM role, up to 64 characters in length.
      */
-    roleName?: string;
+    roleName: string;
 }
 
 export interface GetRoleResult {
@@ -66,7 +65,7 @@ export interface GetRoleResult {
     readonly tags?: outputs.iam.RoleTag[];
 }
 
-export function getRoleOutput(args?: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
+export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
     return pulumi.output(args).apply(a => getRole(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetRoleOutputArgs {
     /**
      * A name for the IAM role, up to 64 characters in length.
      */
-    roleName?: pulumi.Input<string>;
+    roleName: pulumi.Input<string>;
 }

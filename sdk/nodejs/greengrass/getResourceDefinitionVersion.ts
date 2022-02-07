@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::ResourceDefinitionVersion
  */
-export function getResourceDefinitionVersion(args?: GetResourceDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceDefinitionVersionResult> {
-    args = args || {};
+export function getResourceDefinitionVersion(args: GetResourceDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceDefinitionVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getResourceDefinitionVersion(args?: GetResourceDefinitionVersion
 }
 
 export interface GetResourceDefinitionVersionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResourceDefinitionVersionResult {
     readonly id?: string;
 }
 
-export function getResourceDefinitionVersionOutput(args?: GetResourceDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefinitionVersionResult> {
+export function getResourceDefinitionVersionOutput(args: GetResourceDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefinitionVersionResult> {
     return pulumi.output(args).apply(a => getResourceDefinitionVersion(a, opts))
 }
 
 export interface GetResourceDefinitionVersionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

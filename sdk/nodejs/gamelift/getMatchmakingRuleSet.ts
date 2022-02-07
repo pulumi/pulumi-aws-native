@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GameLift::MatchmakingRuleSet
  */
-export function getMatchmakingRuleSet(args?: GetMatchmakingRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetMatchmakingRuleSetResult> {
-    args = args || {};
+export function getMatchmakingRuleSet(args: GetMatchmakingRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetMatchmakingRuleSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getMatchmakingRuleSet(args?: GetMatchmakingRuleSetArgs, opts?: p
 }
 
 export interface GetMatchmakingRuleSetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMatchmakingRuleSetResult {
@@ -30,10 +29,10 @@ export interface GetMatchmakingRuleSetResult {
     readonly tags?: outputs.gamelift.MatchmakingRuleSetTag[];
 }
 
-export function getMatchmakingRuleSetOutput(args?: GetMatchmakingRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchmakingRuleSetResult> {
+export function getMatchmakingRuleSetOutput(args: GetMatchmakingRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchmakingRuleSetResult> {
     return pulumi.output(args).apply(a => getMatchmakingRuleSet(a, opts))
 }
 
 export interface GetMatchmakingRuleSetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
  */
-export function getAccessPoint(args?: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-    args = args || {};
+export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAccessPointArgs {
     /**
      * The name you want to assign to this Object lambda Access Point.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetAccessPointResult {
@@ -44,7 +43,7 @@ export interface GetAccessPointResult {
     readonly publicAccessBlockConfiguration?: outputs.s3objectlambda.AccessPointPublicAccessBlockConfiguration;
 }
 
-export function getAccessPointOutput(args?: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
+export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
     return pulumi.output(args).apply(a => getAccessPoint(a, opts))
 }
 
@@ -52,5 +51,5 @@ export interface GetAccessPointOutputArgs {
     /**
      * The name you want to assign to this Object lambda Access Point.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

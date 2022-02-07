@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::APNSChannel
  */
-export function getAPNSChannel(args?: GetAPNSChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAPNSChannelResult> {
-    args = args || {};
+export function getAPNSChannel(args: GetAPNSChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAPNSChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAPNSChannel(args?: GetAPNSChannelArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetAPNSChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAPNSChannelResult {
@@ -35,10 +34,10 @@ export interface GetAPNSChannelResult {
     readonly tokenKeyId?: string;
 }
 
-export function getAPNSChannelOutput(args?: GetAPNSChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPNSChannelResult> {
+export function getAPNSChannelOutput(args: GetAPNSChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPNSChannelResult> {
     return pulumi.output(args).apply(a => getAPNSChannel(a, opts))
 }
 
 export interface GetAPNSChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

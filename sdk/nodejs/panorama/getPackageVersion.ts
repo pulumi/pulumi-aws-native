@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Schema for PackageVersion Resource Type
  */
-export function getPackageVersion(args?: GetPackageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageVersionResult> {
-    args = args || {};
+export function getPackageVersion(args: GetPackageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,9 +22,9 @@ export function getPackageVersion(args?: GetPackageVersionArgs, opts?: pulumi.In
 }
 
 export interface GetPackageVersionArgs {
-    packageId?: string;
-    packageVersion?: string;
-    patchVersion?: string;
+    packageId: string;
+    packageVersion: string;
+    patchVersion: string;
 }
 
 export interface GetPackageVersionResult {
@@ -39,12 +38,12 @@ export interface GetPackageVersionResult {
     readonly updatedLatestPatchVersion?: string;
 }
 
-export function getPackageVersionOutput(args?: GetPackageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageVersionResult> {
+export function getPackageVersionOutput(args: GetPackageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageVersionResult> {
     return pulumi.output(args).apply(a => getPackageVersion(a, opts))
 }
 
 export interface GetPackageVersionOutputArgs {
-    packageId?: pulumi.Input<string>;
-    packageVersion?: pulumi.Input<string>;
-    patchVersion?: pulumi.Input<string>;
+    packageId: pulumi.Input<string>;
+    packageVersion: pulumi.Input<string>;
+    patchVersion: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
  */
-export function getIPSet(args?: GetIPSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIPSetResult> {
-    args = args || {};
+export function getIPSet(args: GetIPSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIPSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,9 +22,9 @@ export function getIPSet(args?: GetIPSetArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetIPSetArgs {
-    id?: string;
-    name?: string;
-    scope?: enums.wafv2.IPSetScope;
+    id: string;
+    name: string;
+    scope: enums.wafv2.IPSetScope;
 }
 
 export interface GetIPSetResult {
@@ -40,12 +39,12 @@ export interface GetIPSetResult {
     readonly tags?: outputs.wafv2.IPSetTag[];
 }
 
-export function getIPSetOutput(args?: GetIPSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSetResult> {
+export function getIPSetOutput(args: GetIPSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSetResult> {
     return pulumi.output(args).apply(a => getIPSet(a, opts))
 }
 
 export interface GetIPSetOutputArgs {
-    id?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    scope?: pulumi.Input<enums.wafv2.IPSetScope>;
+    id: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    scope: pulumi.Input<enums.wafv2.IPSetScope>;
 }

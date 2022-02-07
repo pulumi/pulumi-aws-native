@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
  */
-export function getEnclaveCertificateIamRoleAssociation(args?: GetEnclaveCertificateIamRoleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetEnclaveCertificateIamRoleAssociationResult> {
-    args = args || {};
+export function getEnclaveCertificateIamRoleAssociation(args: GetEnclaveCertificateIamRoleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetEnclaveCertificateIamRoleAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetEnclaveCertificateIamRoleAssociationArgs {
     /**
      * The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
      */
-    certificateArn?: string;
+    certificateArn: string;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
      */
-    roleArn?: string;
+    roleArn: string;
 }
 
 export interface GetEnclaveCertificateIamRoleAssociationResult {
@@ -46,7 +45,7 @@ export interface GetEnclaveCertificateIamRoleAssociationResult {
     readonly encryptionKmsKeyId?: string;
 }
 
-export function getEnclaveCertificateIamRoleAssociationOutput(args?: GetEnclaveCertificateIamRoleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnclaveCertificateIamRoleAssociationResult> {
+export function getEnclaveCertificateIamRoleAssociationOutput(args: GetEnclaveCertificateIamRoleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnclaveCertificateIamRoleAssociationResult> {
     return pulumi.output(args).apply(a => getEnclaveCertificateIamRoleAssociation(a, opts))
 }
 
@@ -54,9 +53,9 @@ export interface GetEnclaveCertificateIamRoleAssociationOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
 }

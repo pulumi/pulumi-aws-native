@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
  */
-export function getAccountAuditConfiguration(args?: GetAccountAuditConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountAuditConfigurationResult> {
-    args = args || {};
+export function getAccountAuditConfiguration(args: GetAccountAuditConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountAuditConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAccountAuditConfigurationArgs {
     /**
      * Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
      */
-    accountId?: string;
+    accountId: string;
 }
 
 export interface GetAccountAuditConfigurationResult {
@@ -36,7 +35,7 @@ export interface GetAccountAuditConfigurationResult {
     readonly roleArn?: string;
 }
 
-export function getAccountAuditConfigurationOutput(args?: GetAccountAuditConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountAuditConfigurationResult> {
+export function getAccountAuditConfigurationOutput(args: GetAccountAuditConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountAuditConfigurationResult> {
     return pulumi.output(args).apply(a => getAccountAuditConfiguration(a, opts))
 }
 
@@ -44,5 +43,5 @@ export interface GetAccountAuditConfigurationOutputArgs {
     /**
      * Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
      */
-    accountId?: pulumi.Input<string>;
+    accountId: pulumi.Input<string>;
 }

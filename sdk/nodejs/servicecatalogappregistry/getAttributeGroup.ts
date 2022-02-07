@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
  */
-export function getAttributeGroup(args?: GetAttributeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAttributeGroupResult> {
-    args = args || {};
+export function getAttributeGroup(args: GetAttributeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAttributeGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAttributeGroup(args?: GetAttributeGroupArgs, opts?: pulumi.In
 }
 
 export interface GetAttributeGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAttributeGroupResult {
@@ -39,10 +38,10 @@ export interface GetAttributeGroupResult {
     readonly tags?: outputs.servicecatalogappregistry.AttributeGroupTags;
 }
 
-export function getAttributeGroupOutput(args?: GetAttributeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttributeGroupResult> {
+export function getAttributeGroupOutput(args: GetAttributeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttributeGroupResult> {
     return pulumi.output(args).apply(a => getAttributeGroup(a, opts))
 }
 
 export interface GetAttributeGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

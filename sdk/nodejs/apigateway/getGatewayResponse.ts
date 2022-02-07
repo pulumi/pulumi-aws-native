@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::GatewayResponse
  */
-export function getGatewayResponse(args?: GetGatewayResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResponseResult> {
-    args = args || {};
+export function getGatewayResponse(args: GetGatewayResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResponseResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetGatewayResponseArgs {
     /**
      * A Cloudformation auto generated ID.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetGatewayResponseResult {
@@ -45,7 +44,7 @@ export interface GetGatewayResponseResult {
     readonly statusCode?: string;
 }
 
-export function getGatewayResponseOutput(args?: GetGatewayResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResponseResult> {
+export function getGatewayResponseOutput(args: GetGatewayResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResponseResult> {
     return pulumi.output(args).apply(a => getGatewayResponse(a, opts))
 }
 
@@ -53,5 +52,5 @@ export interface GetGatewayResponseOutputArgs {
     /**
      * A Cloudformation auto generated ID.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

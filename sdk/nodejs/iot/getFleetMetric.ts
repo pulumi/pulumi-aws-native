@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An aggregated metric of certain devices in your fleet
  */
-export function getFleetMetric(args?: GetFleetMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetMetricResult> {
-    args = args || {};
+export function getFleetMetric(args: GetFleetMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetMetricResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFleetMetricArgs {
     /**
      * The name of the fleet metric
      */
-    metricName?: string;
+    metricName: string;
 }
 
 export interface GetFleetMetricResult {
@@ -79,7 +78,7 @@ export interface GetFleetMetricResult {
     readonly version?: number;
 }
 
-export function getFleetMetricOutput(args?: GetFleetMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetMetricResult> {
+export function getFleetMetricOutput(args: GetFleetMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetMetricResult> {
     return pulumi.output(args).apply(a => getFleetMetric(a, opts))
 }
 
@@ -87,5 +86,5 @@ export interface GetFleetMetricOutputArgs {
     /**
      * The name of the fleet metric
      */
-    metricName?: pulumi.Input<string>;
+    metricName: pulumi.Input<string>;
 }

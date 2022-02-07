@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::Agent.
  */
-export function getAgent(args?: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
-    args = args || {};
+export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAgentArgs {
     /**
      * The DataSync Agent ARN.
      */
-    agentArn?: string;
+    agentArn: string;
 }
 
 export interface GetAgentResult {
@@ -46,7 +45,7 @@ export interface GetAgentResult {
     readonly tags?: outputs.datasync.AgentTag[];
 }
 
-export function getAgentOutput(args?: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
+export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
     return pulumi.output(args).apply(a => getAgent(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetAgentOutputArgs {
     /**
      * The DataSync Agent ARN.
      */
-    agentArn?: pulumi.Input<string>;
+    agentArn: pulumi.Input<string>;
 }

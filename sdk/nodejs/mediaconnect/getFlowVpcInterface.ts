@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaConnect::FlowVpcInterface
  */
-export function getFlowVpcInterface(args?: GetFlowVpcInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowVpcInterfaceResult> {
-    args = args || {};
+export function getFlowVpcInterface(args: GetFlowVpcInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowVpcInterfaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetFlowVpcInterfaceArgs {
     /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
-    flowArn?: string;
+    flowArn: string;
     /**
      * Immutable and has to be a unique against other VpcInterfaces in this Flow.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetFlowVpcInterfaceResult {
@@ -50,7 +49,7 @@ export interface GetFlowVpcInterfaceResult {
     readonly subnetId?: string;
 }
 
-export function getFlowVpcInterfaceOutput(args?: GetFlowVpcInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowVpcInterfaceResult> {
+export function getFlowVpcInterfaceOutput(args: GetFlowVpcInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowVpcInterfaceResult> {
     return pulumi.output(args).apply(a => getFlowVpcInterface(a, opts))
 }
 
@@ -58,9 +57,9 @@ export interface GetFlowVpcInterfaceOutputArgs {
     /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
-    flowArn?: pulumi.Input<string>;
+    flowArn: pulumi.Input<string>;
     /**
      * Immutable and has to be a unique against other VpcInterfaces in this Flow.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

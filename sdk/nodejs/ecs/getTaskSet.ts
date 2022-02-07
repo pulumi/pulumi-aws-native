@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
  */
-export function getTaskSet(args?: GetTaskSetArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskSetResult> {
-    args = args || {};
+export function getTaskSet(args: GetTaskSetArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -26,15 +25,15 @@ export interface GetTaskSetArgs {
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
-    cluster?: string;
+    cluster: string;
     /**
      * The ID of the task set.
      */
-    id?: string;
+    id: string;
     /**
      * The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
      */
-    service?: string;
+    service: string;
 }
 
 export interface GetTaskSetResult {
@@ -48,7 +47,7 @@ export interface GetTaskSetResult {
     readonly scale?: outputs.ecs.TaskSetScale;
 }
 
-export function getTaskSetOutput(args?: GetTaskSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskSetResult> {
+export function getTaskSetOutput(args: GetTaskSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskSetResult> {
     return pulumi.output(args).apply(a => getTaskSet(a, opts))
 }
 
@@ -56,13 +55,13 @@ export interface GetTaskSetOutputArgs {
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
-    cluster?: pulumi.Input<string>;
+    cluster: pulumi.Input<string>;
     /**
      * The ID of the task set.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
      */
-    service?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
 }

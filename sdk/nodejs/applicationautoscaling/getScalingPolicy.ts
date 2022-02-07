@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
  */
-export function getScalingPolicy(args?: GetScalingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPolicyResult> {
-    args = args || {};
+export function getScalingPolicy(args: GetScalingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getScalingPolicy(args?: GetScalingPolicyArgs, opts?: pulumi.Invo
 }
 
 export interface GetScalingPolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetScalingPolicyResult {
@@ -31,10 +30,10 @@ export interface GetScalingPolicyResult {
     readonly targetTrackingScalingPolicyConfiguration?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingScalingPolicyConfiguration;
 }
 
-export function getScalingPolicyOutput(args?: GetScalingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPolicyResult> {
+export function getScalingPolicyOutput(args: GetScalingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPolicyResult> {
     return pulumi.output(args).apply(a => getScalingPolicy(a, opts))
 }
 
 export interface GetScalingPolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

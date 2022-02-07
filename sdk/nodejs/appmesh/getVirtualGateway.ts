@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppMesh::VirtualGateway
  */
-export function getVirtualGateway(args?: GetVirtualGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGatewayResult> {
-    args = args || {};
+export function getVirtualGateway(args: GetVirtualGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVirtualGateway(args?: GetVirtualGatewayArgs, opts?: pulumi.In
 }
 
 export interface GetVirtualGatewayArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVirtualGatewayResult {
@@ -33,10 +32,10 @@ export interface GetVirtualGatewayResult {
     readonly uid?: string;
 }
 
-export function getVirtualGatewayOutput(args?: GetVirtualGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGatewayResult> {
+export function getVirtualGatewayOutput(args: GetVirtualGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGatewayResult> {
     return pulumi.output(args).apply(a => getVirtualGateway(a, opts))
 }
 
 export interface GetVirtualGatewayOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

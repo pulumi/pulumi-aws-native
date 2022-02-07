@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataBrew::Project.
  */
-export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    args = args || {};
+export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetProjectArgs {
     /**
      * Project name
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetProjectResult {
@@ -46,7 +45,7 @@ export interface GetProjectResult {
     readonly sample?: outputs.databrew.ProjectSample;
 }
 
-export function getProjectOutput(args?: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetProjectOutputArgs {
     /**
      * Project name
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

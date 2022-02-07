@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::RouteTable
  */
-export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
-    args = args || {};
+export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRouteTableArgs {
     /**
      * The route table ID.
      */
-    routeTableId?: string;
+    routeTableId: string;
 }
 
 export interface GetRouteTableResult {
@@ -38,7 +37,7 @@ export interface GetRouteTableResult {
     readonly tags?: outputs.ec2.RouteTableTag[];
 }
 
-export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
+export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply(a => getRouteTable(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetRouteTableOutputArgs {
     /**
      * The route table ID.
      */
-    routeTableId?: pulumi.Input<string>;
+    routeTableId: pulumi.Input<string>;
 }

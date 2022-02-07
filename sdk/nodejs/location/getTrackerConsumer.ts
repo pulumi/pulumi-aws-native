@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::Location::TrackerConsumer Resource Type
  */
-export function getTrackerConsumer(args?: GetTrackerConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerConsumerResult> {
-    args = args || {};
+export function getTrackerConsumer(args: GetTrackerConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerConsumerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,18 +20,18 @@ export function getTrackerConsumer(args?: GetTrackerConsumerArgs, opts?: pulumi.
 }
 
 export interface GetTrackerConsumerArgs {
-    consumerArn?: string;
-    trackerName?: string;
+    consumerArn: string;
+    trackerName: string;
 }
 
 export interface GetTrackerConsumerResult {
 }
 
-export function getTrackerConsumerOutput(args?: GetTrackerConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerConsumerResult> {
+export function getTrackerConsumerOutput(args: GetTrackerConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerConsumerResult> {
     return pulumi.output(args).apply(a => getTrackerConsumer(a, opts))
 }
 
 export interface GetTrackerConsumerOutputArgs {
-    consumerArn?: pulumi.Input<string>;
-    trackerName?: pulumi.Input<string>;
+    consumerArn: pulumi.Input<string>;
+    trackerName: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for StateMachine
  */
-export function getStateMachine(args?: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
-    args = args || {};
+export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getStateMachine(args?: GetStateMachineArgs, opts?: pulumi.Invoke
 }
 
 export interface GetStateMachineArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetStateMachineResult {
@@ -35,10 +34,10 @@ export interface GetStateMachineResult {
     readonly tracingConfiguration?: outputs.stepfunctions.StateMachineTracingConfiguration;
 }
 
-export function getStateMachineOutput(args?: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
+export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
     return pulumi.output(args).apply(a => getStateMachine(a, opts))
 }
 
 export interface GetStateMachineOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

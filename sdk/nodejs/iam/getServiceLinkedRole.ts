@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::ServiceLinkedRole
  */
-export function getServiceLinkedRole(args?: GetServiceLinkedRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLinkedRoleResult> {
-    args = args || {};
+export function getServiceLinkedRole(args: GetServiceLinkedRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLinkedRoleResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getServiceLinkedRole(args?: GetServiceLinkedRoleArgs, opts?: pul
 }
 
 export interface GetServiceLinkedRoleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetServiceLinkedRoleResult {
@@ -28,10 +27,10 @@ export interface GetServiceLinkedRoleResult {
     readonly id?: string;
 }
 
-export function getServiceLinkedRoleOutput(args?: GetServiceLinkedRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLinkedRoleResult> {
+export function getServiceLinkedRoleOutput(args: GetServiceLinkedRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLinkedRoleResult> {
     return pulumi.output(args).apply(a => getServiceLinkedRole(a, opts))
 }
 
 export interface GetServiceLinkedRoleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

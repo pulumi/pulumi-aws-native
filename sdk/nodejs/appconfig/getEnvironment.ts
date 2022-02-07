@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppConfig::Environment
  */
-export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    args = args || {};
+export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetEnvironmentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEnvironmentResult {
@@ -32,10 +31,10 @@ export interface GetEnvironmentResult {
     readonly tags?: outputs.appconfig.EnvironmentTags[];
 }
 
-export function getEnvironmentOutput(args?: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
+export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply(a => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppStream::ApplicationFleetAssociation
  */
-export function getApplicationFleetAssociation(args?: GetApplicationFleetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationFleetAssociationResult> {
-    args = args || {};
+export function getApplicationFleetAssociation(args: GetApplicationFleetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationFleetAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,18 +20,18 @@ export function getApplicationFleetAssociation(args?: GetApplicationFleetAssocia
 }
 
 export interface GetApplicationFleetAssociationArgs {
-    applicationArn?: string;
-    fleetName?: string;
+    applicationArn: string;
+    fleetName: string;
 }
 
 export interface GetApplicationFleetAssociationResult {
 }
 
-export function getApplicationFleetAssociationOutput(args?: GetApplicationFleetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationFleetAssociationResult> {
+export function getApplicationFleetAssociationOutput(args: GetApplicationFleetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationFleetAssociationResult> {
     return pulumi.output(args).apply(a => getApplicationFleetAssociation(a, opts))
 }
 
 export interface GetApplicationFleetAssociationOutputArgs {
-    applicationArn?: pulumi.Input<string>;
-    fleetName?: pulumi.Input<string>;
+    applicationArn: pulumi.Input<string>;
+    fleetName: pulumi.Input<string>;
 }

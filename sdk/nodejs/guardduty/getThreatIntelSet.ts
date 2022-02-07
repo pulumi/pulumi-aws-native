@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GuardDuty::ThreatIntelSet
  */
-export function getThreatIntelSet(args?: GetThreatIntelSetArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelSetResult> {
-    args = args || {};
+export function getThreatIntelSet(args: GetThreatIntelSetArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getThreatIntelSet(args?: GetThreatIntelSetArgs, opts?: pulumi.In
 }
 
 export interface GetThreatIntelSetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetThreatIntelSetResult {
@@ -30,10 +29,10 @@ export interface GetThreatIntelSetResult {
     readonly name?: string;
 }
 
-export function getThreatIntelSetOutput(args?: GetThreatIntelSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelSetResult> {
+export function getThreatIntelSetOutput(args: GetThreatIntelSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelSetResult> {
     return pulumi.output(args).apply(a => getThreatIntelSet(a, opts))
 }
 
 export interface GetThreatIntelSetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

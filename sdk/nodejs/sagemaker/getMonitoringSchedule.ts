@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::MonitoringSchedule
  */
-export function getMonitoringSchedule(args?: GetMonitoringScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringScheduleResult> {
-    args = args || {};
+export function getMonitoringSchedule(args: GetMonitoringScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringScheduleResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetMonitoringScheduleArgs {
     /**
      * The Amazon Resource Name (ARN) of the monitoring schedule.
      */
-    monitoringScheduleArn?: string;
+    monitoringScheduleArn: string;
 }
 
 export interface GetMonitoringScheduleResult {
@@ -60,7 +59,7 @@ export interface GetMonitoringScheduleResult {
     readonly tags?: outputs.sagemaker.MonitoringScheduleTag[];
 }
 
-export function getMonitoringScheduleOutput(args?: GetMonitoringScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringScheduleResult> {
+export function getMonitoringScheduleOutput(args: GetMonitoringScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringScheduleResult> {
     return pulumi.output(args).apply(a => getMonitoringSchedule(a, opts))
 }
 
@@ -68,5 +67,5 @@ export interface GetMonitoringScheduleOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the monitoring schedule.
      */
-    monitoringScheduleArn?: pulumi.Input<string>;
+    monitoringScheduleArn: pulumi.Input<string>;
 }

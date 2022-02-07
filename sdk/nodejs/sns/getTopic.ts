@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SNS::Topic
  */
-export function getTopic(args?: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    args = args || {};
+export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTopic(args?: GetTopicArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetTopicArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTopicResult {
@@ -33,10 +32,10 @@ export interface GetTopicResult {
     readonly tags?: outputs.sns.TopicTag[];
 }
 
-export function getTopicOutput(args?: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
+export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
     return pulumi.output(args).apply(a => getTopic(a, opts))
 }
 
 export interface GetTopicOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

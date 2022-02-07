@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::Version
  */
-export function getVersion(args?: GetVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetVersionResult> {
-    args = args || {};
+export function getVersion(args: GetVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVersion(args?: GetVersionArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetVersionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVersionResult {
@@ -32,10 +31,10 @@ export interface GetVersionResult {
     readonly version?: string;
 }
 
-export function getVersionOutput(args?: GetVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVersionResult> {
+export function getVersionOutput(args: GetVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVersionResult> {
     return pulumi.output(args).apply(a => getVersion(a, opts))
 }
 
 export interface GetVersionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

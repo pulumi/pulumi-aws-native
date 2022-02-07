@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Batch::JobDefinition
  */
-export function getJobDefinition(args?: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
-    args = args || {};
+export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getJobDefinition(args?: GetJobDefinitionArgs, opts?: pulumi.Invo
 }
 
 export interface GetJobDefinitionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetJobDefinitionResult {
@@ -37,10 +36,10 @@ export interface GetJobDefinitionResult {
     readonly type?: string;
 }
 
-export function getJobDefinitionOutput(args?: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
+export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
     return pulumi.output(args).apply(a => getJobDefinition(a, opts))
 }
 
 export interface GetJobDefinitionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

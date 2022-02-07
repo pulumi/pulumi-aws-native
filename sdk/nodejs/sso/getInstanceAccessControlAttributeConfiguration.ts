@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
  */
-export function getInstanceAccessControlAttributeConfiguration(args?: GetInstanceAccessControlAttributeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceAccessControlAttributeConfigurationResult> {
-    args = args || {};
+export function getInstanceAccessControlAttributeConfiguration(args: GetInstanceAccessControlAttributeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceAccessControlAttributeConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetInstanceAccessControlAttributeConfigurationArgs {
     /**
      * The ARN of the AWS SSO instance under which the operation will be executed.
      */
-    instanceArn?: string;
+    instanceArn: string;
 }
 
 export interface GetInstanceAccessControlAttributeConfigurationResult {
@@ -35,7 +34,7 @@ export interface GetInstanceAccessControlAttributeConfigurationResult {
     readonly instanceAccessControlAttributeConfiguration?: outputs.sso.InstanceAccessControlAttributeConfigurationProperties;
 }
 
-export function getInstanceAccessControlAttributeConfigurationOutput(args?: GetInstanceAccessControlAttributeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceAccessControlAttributeConfigurationResult> {
+export function getInstanceAccessControlAttributeConfigurationOutput(args: GetInstanceAccessControlAttributeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceAccessControlAttributeConfigurationResult> {
     return pulumi.output(args).apply(a => getInstanceAccessControlAttributeConfiguration(a, opts))
 }
 
@@ -43,5 +42,5 @@ export interface GetInstanceAccessControlAttributeConfigurationOutputArgs {
     /**
      * The ARN of the AWS SSO instance under which the operation will be executed.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn: pulumi.Input<string>;
 }

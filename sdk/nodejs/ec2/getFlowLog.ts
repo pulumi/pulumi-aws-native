@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
  */
-export function getFlowLog(args?: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
-    args = args || {};
+export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFlowLogArgs {
     /**
      * The Flow Log ID
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetFlowLogResult {
@@ -38,7 +37,7 @@ export interface GetFlowLogResult {
     readonly tags?: outputs.ec2.FlowLogTag[];
 }
 
-export function getFlowLogOutput(args?: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {
+export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {
     return pulumi.output(args).apply(a => getFlowLog(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetFlowLogOutputArgs {
     /**
      * The Flow Log ID
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

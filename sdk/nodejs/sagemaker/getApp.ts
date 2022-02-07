@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::App
  */
-export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    args = args || {};
+export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     if (!opts) {
         opts = {}
     }
@@ -27,19 +26,19 @@ export interface GetAppArgs {
     /**
      * The name of the app.
      */
-    appName?: string;
+    appName: string;
     /**
      * The type of app.
      */
-    appType?: enums.sagemaker.AppType;
+    appType: enums.sagemaker.AppType;
     /**
      * The domain ID.
      */
-    domainId?: string;
+    domainId: string;
     /**
      * The user profile name.
      */
-    userProfileName?: string;
+    userProfileName: string;
 }
 
 export interface GetAppResult {
@@ -53,7 +52,7 @@ export interface GetAppResult {
     readonly resourceSpec?: outputs.sagemaker.AppResourceSpec;
 }
 
-export function getAppOutput(args?: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
+export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply(a => getApp(a, opts))
 }
 
@@ -61,17 +60,17 @@ export interface GetAppOutputArgs {
     /**
      * The name of the app.
      */
-    appName?: pulumi.Input<string>;
+    appName: pulumi.Input<string>;
     /**
      * The type of app.
      */
-    appType?: pulumi.Input<enums.sagemaker.AppType>;
+    appType: pulumi.Input<enums.sagemaker.AppType>;
     /**
      * The domain ID.
      */
-    domainId?: pulumi.Input<string>;
+    domainId: pulumi.Input<string>;
     /**
      * The user profile name.
      */
-    userProfileName?: pulumi.Input<string>;
+    userProfileName: pulumi.Input<string>;
 }

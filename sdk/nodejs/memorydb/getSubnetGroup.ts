@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
  */
-export function getSubnetGroup(args?: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
-    args = args || {};
+export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetSubnetGroupArgs {
     /**
      * The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
      */
-    subnetGroupName?: string;
+    subnetGroupName: string;
 }
 
 export interface GetSubnetGroupResult {
@@ -46,7 +45,7 @@ export interface GetSubnetGroupResult {
     readonly tags?: outputs.memorydb.SubnetGroupTag[];
 }
 
-export function getSubnetGroupOutput(args?: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
+export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
     return pulumi.output(args).apply(a => getSubnetGroup(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetSubnetGroupOutputArgs {
     /**
      * The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
      */
-    subnetGroupName?: pulumi.Input<string>;
+    subnetGroupName: pulumi.Input<string>;
 }

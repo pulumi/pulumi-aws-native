@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::CertificateManager::Account.
  */
-export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    args = args || {};
+export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetAccountArgs {
-    accountId?: string;
+    accountId: string;
 }
 
 export interface GetAccountResult {
@@ -29,10 +28,10 @@ export interface GetAccountResult {
     readonly expiryEventsConfiguration?: outputs.certificatemanager.AccountExpiryEventsConfiguration;
 }
 
-export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply(a => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {
-    accountId?: pulumi.Input<string>;
+    accountId: pulumi.Input<string>;
 }

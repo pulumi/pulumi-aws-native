@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SSM::PatchBaseline
  */
-export function getPatchBaseline(args?: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
-    args = args || {};
+export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPatchBaseline(args?: GetPatchBaselineArgs, opts?: pulumi.Invo
 }
 
 export interface GetPatchBaselineArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPatchBaselineResult {
@@ -40,10 +39,10 @@ export interface GetPatchBaselineResult {
     readonly tags?: outputs.ssm.PatchBaselineTag[];
 }
 
-export function getPatchBaselineOutput(args?: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
+export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
     return pulumi.output(args).apply(a => getPatchBaseline(a, opts))
 }
 
 export interface GetPatchBaselineOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

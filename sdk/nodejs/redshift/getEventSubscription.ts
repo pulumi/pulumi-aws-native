@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
  */
-export function getEventSubscription(args?: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
-    args = args || {};
+export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetEventSubscriptionArgs {
     /**
      * The name of the Amazon Redshift event notification subscription
      */
-    subscriptionName?: string;
+    subscriptionName: string;
 }
 
 export interface GetEventSubscriptionResult {
@@ -82,7 +81,7 @@ export interface GetEventSubscriptionResult {
     readonly tags?: outputs.redshift.EventSubscriptionTag[];
 }
 
-export function getEventSubscriptionOutput(args?: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
+export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
     return pulumi.output(args).apply(a => getEventSubscription(a, opts))
 }
 
@@ -90,5 +89,5 @@ export interface GetEventSubscriptionOutputArgs {
     /**
      * The name of the Amazon Redshift event notification subscription
      */
-    subscriptionName?: pulumi.Input<string>;
+    subscriptionName: pulumi.Input<string>;
 }

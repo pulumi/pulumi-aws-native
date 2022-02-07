@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
  */
-export function getNetworkProfile(args?: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
-    args = args || {};
+export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNetworkProfile(args?: GetNetworkProfileArgs, opts?: pulumi.In
 }
 
 export interface GetNetworkProfileArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetNetworkProfileResult {
@@ -39,10 +38,10 @@ export interface GetNetworkProfileResult {
     readonly uplinkLossPercent?: number;
 }
 
-export function getNetworkProfileOutput(args?: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
+export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
     return pulumi.output(args).apply(a => getNetworkProfile(a, opts))
 }
 
 export interface GetNetworkProfileOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

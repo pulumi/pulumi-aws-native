@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
  */
-export function getReplicaKey(args?: GetReplicaKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaKeyResult> {
-    args = args || {};
+export function getReplicaKey(args: GetReplicaKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getReplicaKey(args?: GetReplicaKeyArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetReplicaKeyArgs {
-    keyId?: string;
+    keyId: string;
 }
 
 export interface GetReplicaKeyResult {
@@ -45,10 +44,10 @@ export interface GetReplicaKeyResult {
     readonly tags?: outputs.kms.ReplicaKeyTag[];
 }
 
-export function getReplicaKeyOutput(args?: GetReplicaKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaKeyResult> {
+export function getReplicaKeyOutput(args: GetReplicaKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaKeyResult> {
     return pulumi.output(args).apply(a => getReplicaKey(a, opts))
 }
 
 export interface GetReplicaKeyOutputArgs {
-    keyId?: pulumi.Input<string>;
+    keyId: pulumi.Input<string>;
 }

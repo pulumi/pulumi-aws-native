@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
  */
-export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    args = args || {};
+export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetProjectArgs {
-    projectName?: string;
+    projectName: string;
 }
 
 export interface GetProjectResult {
     readonly arn?: string;
 }
 
-export function getProjectOutput(args?: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {
-    projectName?: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::KinesisFirehose::DeliveryStream
  */
-export function getDeliveryStream(args?: GetDeliveryStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryStreamResult> {
-    args = args || {};
+export function getDeliveryStream(args: GetDeliveryStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryStreamResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDeliveryStream(args?: GetDeliveryStreamArgs, opts?: pulumi.In
 }
 
 export interface GetDeliveryStreamArgs {
-    deliveryStreamName?: string;
+    deliveryStreamName: string;
 }
 
 export interface GetDeliveryStreamResult {
@@ -37,10 +36,10 @@ export interface GetDeliveryStreamResult {
     readonly tags?: outputs.kinesisfirehose.DeliveryStreamTag[];
 }
 
-export function getDeliveryStreamOutput(args?: GetDeliveryStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryStreamResult> {
+export function getDeliveryStreamOutput(args: GetDeliveryStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryStreamResult> {
     return pulumi.output(args).apply(a => getDeliveryStream(a, opts))
 }
 
 export interface GetDeliveryStreamOutputArgs {
-    deliveryStreamName?: pulumi.Input<string>;
+    deliveryStreamName: pulumi.Input<string>;
 }

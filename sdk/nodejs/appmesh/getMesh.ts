@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppMesh::Mesh
  */
-export function getMesh(args?: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise<GetMeshResult> {
-    args = args || {};
+export function getMesh(args: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise<GetMeshResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getMesh(args?: GetMeshArgs, opts?: pulumi.InvokeOptions): Promis
 }
 
 export interface GetMeshArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMeshResult {
@@ -34,10 +33,10 @@ export interface GetMeshResult {
     readonly uid?: string;
 }
 
-export function getMeshOutput(args?: GetMeshOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeshResult> {
+export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeshResult> {
     return pulumi.output(args).apply(a => getMesh(a, opts))
 }
 
 export interface GetMeshOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

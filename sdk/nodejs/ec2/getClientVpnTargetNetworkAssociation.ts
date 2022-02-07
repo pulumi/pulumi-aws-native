@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
  */
-export function getClientVpnTargetNetworkAssociation(args?: GetClientVpnTargetNetworkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnTargetNetworkAssociationResult> {
-    args = args || {};
+export function getClientVpnTargetNetworkAssociation(args: GetClientVpnTargetNetworkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnTargetNetworkAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getClientVpnTargetNetworkAssociation(args?: GetClientVpnTargetNe
 }
 
 export interface GetClientVpnTargetNetworkAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetClientVpnTargetNetworkAssociationResult {
     readonly id?: string;
 }
 
-export function getClientVpnTargetNetworkAssociationOutput(args?: GetClientVpnTargetNetworkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnTargetNetworkAssociationResult> {
+export function getClientVpnTargetNetworkAssociationOutput(args: GetClientVpnTargetNetworkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnTargetNetworkAssociationResult> {
     return pulumi.output(args).apply(a => getClientVpnTargetNetworkAssociation(a, opts))
 }
 
 export interface GetClientVpnTargetNetworkAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

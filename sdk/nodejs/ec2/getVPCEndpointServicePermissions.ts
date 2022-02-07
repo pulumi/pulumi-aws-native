@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
  */
-export function getVPCEndpointServicePermissions(args?: GetVPCEndpointServicePermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointServicePermissionsResult> {
-    args = args || {};
+export function getVPCEndpointServicePermissions(args: GetVPCEndpointServicePermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointServicePermissionsResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getVPCEndpointServicePermissions(args?: GetVPCEndpointServicePer
 }
 
 export interface GetVPCEndpointServicePermissionsArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVPCEndpointServicePermissionsResult {
@@ -28,10 +27,10 @@ export interface GetVPCEndpointServicePermissionsResult {
     readonly id?: string;
 }
 
-export function getVPCEndpointServicePermissionsOutput(args?: GetVPCEndpointServicePermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointServicePermissionsResult> {
+export function getVPCEndpointServicePermissionsOutput(args: GetVPCEndpointServicePermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointServicePermissionsResult> {
     return pulumi.output(args).apply(a => getVPCEndpointServicePermissions(a, opts))
 }
 
 export interface GetVPCEndpointServicePermissionsOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

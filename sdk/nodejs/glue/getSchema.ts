@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * This resource represents a schema of Glue Schema Registry.
  */
-export function getSchema(args?: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
-    args = args || {};
+export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetSchemaArgs {
     /**
      * Amazon Resource Name for the Schema.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetSchemaResult {
@@ -51,7 +50,7 @@ export interface GetSchemaResult {
     readonly tags?: outputs.glue.SchemaTag[];
 }
 
-export function getSchemaOutput(args?: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
+export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
     return pulumi.output(args).apply(a => getSchema(a, opts))
 }
 
@@ -59,5 +58,5 @@ export interface GetSchemaOutputArgs {
     /**
      * Amazon Resource Name for the Schema.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Config::ConfigRule
  */
-export function getConfigRule(args?: GetConfigRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigRuleResult> {
-    args = args || {};
+export function getConfigRule(args: GetConfigRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConfigRule(args?: GetConfigRuleArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetConfigRuleArgs {
-    configRuleId?: string;
+    configRuleId: string;
 }
 
 export interface GetConfigRuleResult {
@@ -35,10 +34,10 @@ export interface GetConfigRuleResult {
     readonly source?: outputs.configuration.ConfigRuleSource;
 }
 
-export function getConfigRuleOutput(args?: GetConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigRuleResult> {
+export function getConfigRuleOutput(args: GetConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigRuleResult> {
     return pulumi.output(args).apply(a => getConfigRule(a, opts))
 }
 
 export interface GetConfigRuleOutputArgs {
-    configRuleId?: pulumi.Input<string>;
+    configRuleId: pulumi.Input<string>;
 }

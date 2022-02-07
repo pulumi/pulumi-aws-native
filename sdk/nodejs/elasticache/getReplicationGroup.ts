@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElastiCache::ReplicationGroup
  */
-export function getReplicationGroup(args?: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
-    args = args || {};
+export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getReplicationGroup(args?: GetReplicationGroupArgs, opts?: pulum
 }
 
 export interface GetReplicationGroupArgs {
-    replicationGroupId?: string;
+    replicationGroupId: string;
 }
 
 export interface GetReplicationGroupResult {
@@ -59,10 +58,10 @@ export interface GetReplicationGroupResult {
     readonly userGroupIds?: string[];
 }
 
-export function getReplicationGroupOutput(args?: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationGroupResult> {
+export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationGroupResult> {
     return pulumi.output(args).apply(a => getReplicationGroup(a, opts))
 }
 
 export interface GetReplicationGroupOutputArgs {
-    replicationGroupId?: pulumi.Input<string>;
+    replicationGroupId: pulumi.Input<string>;
 }

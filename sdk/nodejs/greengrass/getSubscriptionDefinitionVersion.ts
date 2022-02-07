@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::SubscriptionDefinitionVersion
  */
-export function getSubscriptionDefinitionVersion(args?: GetSubscriptionDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDefinitionVersionResult> {
-    args = args || {};
+export function getSubscriptionDefinitionVersion(args: GetSubscriptionDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDefinitionVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getSubscriptionDefinitionVersion(args?: GetSubscriptionDefinitio
 }
 
 export interface GetSubscriptionDefinitionVersionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSubscriptionDefinitionVersionResult {
     readonly id?: string;
 }
 
-export function getSubscriptionDefinitionVersionOutput(args?: GetSubscriptionDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDefinitionVersionResult> {
+export function getSubscriptionDefinitionVersionOutput(args: GetSubscriptionDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDefinitionVersionResult> {
     return pulumi.output(args).apply(a => getSubscriptionDefinitionVersion(a, opts))
 }
 
 export interface GetSubscriptionDefinitionVersionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

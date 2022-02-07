@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getStudioSessionMapping(args?: GetStudioSessionMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioSessionMappingResult> {
-    args = args || {};
+export function getStudioSessionMapping(args: GetStudioSessionMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioSessionMappingResult> {
     if (!opts) {
         opts = {}
     }
@@ -26,15 +25,15 @@ export interface GetStudioSessionMappingArgs {
     /**
      * The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
      */
-    identityName?: string;
+    identityName: string;
     /**
      * Specifies whether the identity to map to the Studio is a user or a group.
      */
-    identityType?: enums.emr.StudioSessionMappingIdentityType;
+    identityType: enums.emr.StudioSessionMappingIdentityType;
     /**
      * The ID of the Amazon EMR Studio to which the user or group will be mapped.
      */
-    studioId?: string;
+    studioId: string;
 }
 
 export interface GetStudioSessionMappingResult {
@@ -44,7 +43,7 @@ export interface GetStudioSessionMappingResult {
     readonly sessionPolicyArn?: string;
 }
 
-export function getStudioSessionMappingOutput(args?: GetStudioSessionMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioSessionMappingResult> {
+export function getStudioSessionMappingOutput(args: GetStudioSessionMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioSessionMappingResult> {
     return pulumi.output(args).apply(a => getStudioSessionMapping(a, opts))
 }
 
@@ -52,13 +51,13 @@ export interface GetStudioSessionMappingOutputArgs {
     /**
      * The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
      */
-    identityName?: pulumi.Input<string>;
+    identityName: pulumi.Input<string>;
     /**
      * Specifies whether the identity to map to the Studio is a user or a group.
      */
-    identityType?: pulumi.Input<enums.emr.StudioSessionMappingIdentityType>;
+    identityType: pulumi.Input<enums.emr.StudioSessionMappingIdentityType>;
     /**
      * The ID of the Amazon EMR Studio to which the user or group will be mapped.
      */
-    studioId?: pulumi.Input<string>;
+    studioId: pulumi.Input<string>;
 }

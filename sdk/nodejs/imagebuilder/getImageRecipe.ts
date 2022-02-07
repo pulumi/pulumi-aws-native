@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::ImageBuilder::ImageRecipe
  */
-export function getImageRecipe(args?: GetImageRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipeResult> {
-    args = args || {};
+export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipeResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetImageRecipeArgs {
     /**
      * The Amazon Resource Name (ARN) of the image recipe.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetImageRecipeResult {
@@ -38,7 +37,7 @@ export interface GetImageRecipeResult {
     readonly arn?: string;
 }
 
-export function getImageRecipeOutput(args?: GetImageRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipeResult> {
+export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipeResult> {
     return pulumi.output(args).apply(a => getImageRecipe(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetImageRecipeOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the image recipe.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

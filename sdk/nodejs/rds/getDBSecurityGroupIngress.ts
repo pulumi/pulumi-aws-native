@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RDS::DBSecurityGroupIngress
  */
-export function getDBSecurityGroupIngress(args?: GetDBSecurityGroupIngressArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSecurityGroupIngressResult> {
-    args = args || {};
+export function getDBSecurityGroupIngress(args: GetDBSecurityGroupIngressArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSecurityGroupIngressResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDBSecurityGroupIngress(args?: GetDBSecurityGroupIngressArgs, 
 }
 
 export interface GetDBSecurityGroupIngressArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDBSecurityGroupIngressResult {
@@ -32,10 +31,10 @@ export interface GetDBSecurityGroupIngressResult {
     readonly id?: string;
 }
 
-export function getDBSecurityGroupIngressOutput(args?: GetDBSecurityGroupIngressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSecurityGroupIngressResult> {
+export function getDBSecurityGroupIngressOutput(args: GetDBSecurityGroupIngressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSecurityGroupIngressResult> {
     return pulumi.output(args).apply(a => getDBSecurityGroupIngress(a, opts))
 }
 
 export interface GetDBSecurityGroupIngressOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppSync::ApiCache
  */
-export function getApiCache(args?: GetApiCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetApiCacheResult> {
-    args = args || {};
+export function getApiCache(args: GetApiCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetApiCacheResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getApiCache(args?: GetApiCacheArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetApiCacheArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApiCacheResult {
@@ -32,10 +31,10 @@ export interface GetApiCacheResult {
     readonly type?: string;
 }
 
-export function getApiCacheOutput(args?: GetApiCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiCacheResult> {
+export function getApiCacheOutput(args: GetApiCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiCacheResult> {
     return pulumi.output(args).apply(a => getApiCache(a, opts))
 }
 
 export interface GetApiCacheOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

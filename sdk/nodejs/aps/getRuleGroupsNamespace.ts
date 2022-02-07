@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * RuleGroupsNamespace schema for cloudformation.
  */
-export function getRuleGroupsNamespace(args?: GetRuleGroupsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleGroupsNamespaceResult> {
-    args = args || {};
+export function getRuleGroupsNamespace(args: GetRuleGroupsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleGroupsNamespaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRuleGroupsNamespaceArgs {
     /**
      * The RuleGroupsNamespace ARN.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetRuleGroupsNamespaceResult {
@@ -46,7 +45,7 @@ export interface GetRuleGroupsNamespaceResult {
     readonly workspace?: string;
 }
 
-export function getRuleGroupsNamespaceOutput(args?: GetRuleGroupsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupsNamespaceResult> {
+export function getRuleGroupsNamespaceOutput(args: GetRuleGroupsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupsNamespaceResult> {
     return pulumi.output(args).apply(a => getRuleGroupsNamespace(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetRuleGroupsNamespaceOutputArgs {
     /**
      * The RuleGroupsNamespace ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

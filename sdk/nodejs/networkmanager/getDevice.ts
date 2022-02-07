@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::NetworkManager::Device type describes a device.
  */
-export function getDevice(args?: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-    args = args || {};
+export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetDeviceArgs {
     /**
      * The ID of the device.
      */
-    deviceId?: string;
+    deviceId: string;
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: string;
+    globalNetworkId: string;
 }
 
 export interface GetDeviceResult {
@@ -75,7 +74,7 @@ export interface GetDeviceResult {
     readonly vendor?: string;
 }
 
-export function getDeviceOutput(args?: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
+export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply(a => getDevice(a, opts))
 }
 
@@ -83,9 +82,9 @@ export interface GetDeviceOutputArgs {
     /**
      * The ID of the device.
      */
-    deviceId?: pulumi.Input<string>;
+    deviceId: pulumi.Input<string>;
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId: pulumi.Input<string>;
 }

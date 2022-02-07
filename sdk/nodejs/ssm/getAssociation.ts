@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
  */
-export function getAssociation(args?: GetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationResult> {
-    args = args || {};
+export function getAssociation(args: GetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAssociationArgs {
     /**
      * Unique identifier of the association.
      */
-    associationId?: string;
+    associationId: string;
 }
 
 export interface GetAssociationResult {
@@ -71,7 +70,7 @@ export interface GetAssociationResult {
     readonly waitForSuccessTimeoutSeconds?: number;
 }
 
-export function getAssociationOutput(args?: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
+export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
     return pulumi.output(args).apply(a => getAssociation(a, opts))
 }
 
@@ -79,5 +78,5 @@ export interface GetAssociationOutputArgs {
     /**
      * Unique identifier of the association.
      */
-    associationId?: pulumi.Input<string>;
+    associationId: pulumi.Input<string>;
 }

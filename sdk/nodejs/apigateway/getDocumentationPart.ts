@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::DocumentationPart
  */
-export function getDocumentationPart(args?: GetDocumentationPartArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationPartResult> {
-    args = args || {};
+export function getDocumentationPart(args: GetDocumentationPartArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationPartResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDocumentationPart(args?: GetDocumentationPartArgs, opts?: pul
 }
 
 export interface GetDocumentationPartArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDocumentationPartResult {
@@ -28,10 +27,10 @@ export interface GetDocumentationPartResult {
     readonly properties?: string;
 }
 
-export function getDocumentationPartOutput(args?: GetDocumentationPartOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationPartResult> {
+export function getDocumentationPartOutput(args: GetDocumentationPartOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationPartResult> {
     return pulumi.output(args).apply(a => getDocumentationPart(a, opts))
 }
 
 export interface GetDocumentationPartOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

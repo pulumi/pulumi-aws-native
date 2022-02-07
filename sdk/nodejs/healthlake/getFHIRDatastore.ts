@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * HealthLake FHIR Datastore
  */
-export function getFHIRDatastore(args?: GetFHIRDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetFHIRDatastoreResult> {
-    args = args || {};
+export function getFHIRDatastore(args: GetFHIRDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetFHIRDatastoreResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFHIRDatastore(args?: GetFHIRDatastoreArgs, opts?: pulumi.Invo
 }
 
 export interface GetFHIRDatastoreArgs {
-    datastoreId?: string;
+    datastoreId: string;
 }
 
 export interface GetFHIRDatastoreResult {
@@ -33,10 +32,10 @@ export interface GetFHIRDatastoreResult {
     readonly tags?: outputs.healthlake.FHIRDatastoreTag[];
 }
 
-export function getFHIRDatastoreOutput(args?: GetFHIRDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFHIRDatastoreResult> {
+export function getFHIRDatastoreOutput(args: GetFHIRDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFHIRDatastoreResult> {
     return pulumi.output(args).apply(a => getFHIRDatastore(a, opts))
 }
 
 export interface GetFHIRDatastoreOutputArgs {
-    datastoreId?: pulumi.Input<string>;
+    datastoreId: pulumi.Input<string>;
 }

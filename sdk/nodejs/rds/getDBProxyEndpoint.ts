@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::RDS::DBProxyEndpoint.
  */
-export function getDBProxyEndpoint(args?: GetDBProxyEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDBProxyEndpointResult> {
-    args = args || {};
+export function getDBProxyEndpoint(args: GetDBProxyEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDBProxyEndpointResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDBProxyEndpointArgs {
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    dBProxyEndpointName?: string;
+    dBProxyEndpointName: string;
 }
 
 export interface GetDBProxyEndpointResult {
@@ -54,7 +53,7 @@ export interface GetDBProxyEndpointResult {
     readonly vpcSecurityGroupIds?: string[];
 }
 
-export function getDBProxyEndpointOutput(args?: GetDBProxyEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBProxyEndpointResult> {
+export function getDBProxyEndpointOutput(args: GetDBProxyEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBProxyEndpointResult> {
     return pulumi.output(args).apply(a => getDBProxyEndpoint(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetDBProxyEndpointOutputArgs {
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    dBProxyEndpointName?: pulumi.Input<string>;
+    dBProxyEndpointName: pulumi.Input<string>;
 }

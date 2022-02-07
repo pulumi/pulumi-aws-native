@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
  */
-export function getScheduledAudit(args?: GetScheduledAuditArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAuditResult> {
-    args = args || {};
+export function getScheduledAudit(args: GetScheduledAuditArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAuditResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetScheduledAuditArgs {
     /**
      * The name you want to give to the scheduled audit.
      */
-    scheduledAuditName?: string;
+    scheduledAuditName: string;
 }
 
 export interface GetScheduledAuditResult {
@@ -54,7 +53,7 @@ export interface GetScheduledAuditResult {
     readonly targetCheckNames?: string[];
 }
 
-export function getScheduledAuditOutput(args?: GetScheduledAuditOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAuditResult> {
+export function getScheduledAuditOutput(args: GetScheduledAuditOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAuditResult> {
     return pulumi.output(args).apply(a => getScheduledAudit(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetScheduledAuditOutputArgs {
     /**
      * The name you want to give to the scheduled audit.
      */
-    scheduledAuditName?: pulumi.Input<string>;
+    scheduledAuditName: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFormation::Macro
  */
-export function getMacro(args?: GetMacroArgs, opts?: pulumi.InvokeOptions): Promise<GetMacroResult> {
-    args = args || {};
+export function getMacro(args: GetMacroArgs, opts?: pulumi.InvokeOptions): Promise<GetMacroResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getMacro(args?: GetMacroArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetMacroArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMacroResult {
@@ -31,10 +30,10 @@ export interface GetMacroResult {
     readonly logRoleARN?: string;
 }
 
-export function getMacroOutput(args?: GetMacroOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacroResult> {
+export function getMacroOutput(args: GetMacroOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacroResult> {
     return pulumi.output(args).apply(a => getMacro(a, opts))
 }
 
 export interface GetMacroOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

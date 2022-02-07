@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
  */
-export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
-    args = args || {};
+export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetConnectionArgs {
     /**
      * The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
      */
-    connectionArn?: string;
+    connectionArn: string;
 }
 
 export interface GetConnectionResult {
@@ -46,7 +45,7 @@ export interface GetConnectionResult {
     readonly tags?: outputs.codestarconnections.ConnectionTag[];
 }
 
-export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply(a => getConnection(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetConnectionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
      */
-    connectionArn?: pulumi.Input<string>;
+    connectionArn: pulumi.Input<string>;
 }

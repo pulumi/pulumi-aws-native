@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
  */
-export function getScalableTarget(args?: GetScalableTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetScalableTargetResult> {
-    args = args || {};
+export function getScalableTarget(args: GetScalableTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetScalableTargetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getScalableTarget(args?: GetScalableTargetArgs, opts?: pulumi.In
 }
 
 export interface GetScalableTargetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetScalableTargetResult {
@@ -33,10 +32,10 @@ export interface GetScalableTargetResult {
     readonly suspendedState?: outputs.applicationautoscaling.ScalableTargetSuspendedState;
 }
 
-export function getScalableTargetOutput(args?: GetScalableTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalableTargetResult> {
+export function getScalableTargetOutput(args: GetScalableTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalableTargetResult> {
     return pulumi.output(args).apply(a => getScalableTarget(a, opts))
 }
 
 export interface GetScalableTargetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

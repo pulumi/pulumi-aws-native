@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Neptune::DBClusterParameterGroup
  */
-export function getDBClusterParameterGroup(args?: GetDBClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterParameterGroupResult> {
-    args = args || {};
+export function getDBClusterParameterGroup(args: GetDBClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterParameterGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDBClusterParameterGroup(args?: GetDBClusterParameterGroupArgs
 }
 
 export interface GetDBClusterParameterGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDBClusterParameterGroupResult {
@@ -30,10 +29,10 @@ export interface GetDBClusterParameterGroupResult {
     readonly tags?: outputs.neptune.DBClusterParameterGroupTag[];
 }
 
-export function getDBClusterParameterGroupOutput(args?: GetDBClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBClusterParameterGroupResult> {
+export function getDBClusterParameterGroupOutput(args: GetDBClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBClusterParameterGroupResult> {
     return pulumi.output(args).apply(a => getDBClusterParameterGroup(a, opts))
 }
 
 export interface GetDBClusterParameterGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

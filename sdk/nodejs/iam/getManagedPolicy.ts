@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::ManagedPolicy
  */
-export function getManagedPolicy(args?: GetManagedPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPolicyResult> {
-    args = args || {};
+export function getManagedPolicy(args: GetManagedPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getManagedPolicy(args?: GetManagedPolicyArgs, opts?: pulumi.Invo
 }
 
 export interface GetManagedPolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetManagedPolicyResult {
@@ -31,10 +30,10 @@ export interface GetManagedPolicyResult {
     readonly users?: string[];
 }
 
-export function getManagedPolicyOutput(args?: GetManagedPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPolicyResult> {
+export function getManagedPolicyOutput(args: GetManagedPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPolicyResult> {
     return pulumi.output(args).apply(a => getManagedPolicy(a, opts))
 }
 
 export interface GetManagedPolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
  */
-export function getLoggingConfiguration(args?: GetLoggingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggingConfigurationResult> {
-    args = args || {};
+export function getLoggingConfiguration(args: GetLoggingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggingConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,17 +20,17 @@ export function getLoggingConfiguration(args?: GetLoggingConfigurationArgs, opts
 }
 
 export interface GetLoggingConfigurationArgs {
-    firewallArn?: string;
+    firewallArn: string;
 }
 
 export interface GetLoggingConfigurationResult {
     readonly loggingConfiguration?: outputs.networkfirewall.LoggingConfiguration;
 }
 
-export function getLoggingConfigurationOutput(args?: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingConfigurationResult> {
+export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingConfigurationResult> {
     return pulumi.output(args).apply(a => getLoggingConfiguration(a, opts))
 }
 
 export interface GetLoggingConfigurationOutputArgs {
-    firewallArn?: pulumi.Input<string>;
+    firewallArn: pulumi.Input<string>;
 }

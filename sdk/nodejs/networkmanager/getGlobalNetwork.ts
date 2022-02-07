@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
  */
-export function getGlobalNetwork(args?: GetGlobalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworkResult> {
-    args = args || {};
+export function getGlobalNetwork(args: GetGlobalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworkResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetGlobalNetworkArgs {
     /**
      * The ID of the global network.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetGlobalNetworkResult {
@@ -46,7 +45,7 @@ export interface GetGlobalNetworkResult {
     readonly tags?: outputs.networkmanager.GlobalNetworkTag[];
 }
 
-export function getGlobalNetworkOutput(args?: GetGlobalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworkResult> {
+export function getGlobalNetworkOutput(args: GetGlobalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworkResult> {
     return pulumi.output(args).apply(a => getGlobalNetwork(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetGlobalNetworkOutputArgs {
     /**
      * The ID of the global network.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

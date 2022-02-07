@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElastiCache::ParameterGroup
  */
-export function getParameterGroup(args?: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
-    args = args || {};
+export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getParameterGroup(args?: GetParameterGroupArgs, opts?: pulumi.In
 }
 
 export interface GetParameterGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetParameterGroupResult {
@@ -31,10 +30,10 @@ export interface GetParameterGroupResult {
     readonly tags?: outputs.elasticache.ParameterGroupTag[];
 }
 
-export function getParameterGroupOutput(args?: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
+export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
     return pulumi.output(args).apply(a => getParameterGroup(a, opts))
 }
 
 export interface GetParameterGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

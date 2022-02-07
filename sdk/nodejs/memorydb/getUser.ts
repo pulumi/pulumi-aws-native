@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MemoryDB::User
  */
-export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    args = args || {};
+export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetUserArgs {
     /**
      * The name of the user.
      */
-    userName?: string;
+    userName: string;
 }
 
 export interface GetUserResult {
@@ -42,7 +41,7 @@ export interface GetUserResult {
     readonly tags?: outputs.memorydb.UserTag[];
 }
 
-export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply(a => getUser(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetUserOutputArgs {
     /**
      * The name of the user.
      */
-    userName?: pulumi.Input<string>;
+    userName: pulumi.Input<string>;
 }

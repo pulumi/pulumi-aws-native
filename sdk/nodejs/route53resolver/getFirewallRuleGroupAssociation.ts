@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
  */
-export function getFirewallRuleGroupAssociation(args?: GetFirewallRuleGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleGroupAssociationResult> {
-    args = args || {};
+export function getFirewallRuleGroupAssociation(args: GetFirewallRuleGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleGroupAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFirewallRuleGroupAssociationArgs {
     /**
      * Id
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetFirewallRuleGroupAssociationResult {
@@ -78,7 +77,7 @@ export interface GetFirewallRuleGroupAssociationResult {
     readonly tags?: outputs.route53resolver.FirewallRuleGroupAssociationTag[];
 }
 
-export function getFirewallRuleGroupAssociationOutput(args?: GetFirewallRuleGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleGroupAssociationResult> {
+export function getFirewallRuleGroupAssociationOutput(args: GetFirewallRuleGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleGroupAssociationResult> {
     return pulumi.output(args).apply(a => getFirewallRuleGroupAssociation(a, opts))
 }
 
@@ -86,5 +85,5 @@ export interface GetFirewallRuleGroupAssociationOutputArgs {
     /**
      * Id
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

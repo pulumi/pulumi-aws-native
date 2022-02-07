@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getSimulationApplication(args?: GetSimulationApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationResult> {
-    args = args || {};
+export function getSimulationApplication(args: GetSimulationApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSimulationApplication(args?: GetSimulationApplicationArgs, op
 }
 
 export interface GetSimulationApplicationArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetSimulationApplicationResult {
@@ -53,10 +52,10 @@ export interface GetSimulationApplicationResult {
     readonly tags?: outputs.robomaker.SimulationApplicationTags;
 }
 
-export function getSimulationApplicationOutput(args?: GetSimulationApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationResult> {
+export function getSimulationApplicationOutput(args: GetSimulationApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationResult> {
     return pulumi.output(args).apply(a => getSimulationApplication(a, opts))
 }
 
 export interface GetSimulationApplicationOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

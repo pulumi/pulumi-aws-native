@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::PinpointEmail::Identity
  */
-export function getIdentity(args?: GetIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityResult> {
-    args = args || {};
+export function getIdentity(args: GetIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getIdentity(args?: GetIdentityArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetIdentityArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetIdentityResult {
@@ -38,10 +37,10 @@ export interface GetIdentityResult {
     readonly tags?: outputs.pinpointemail.IdentityTags[];
 }
 
-export function getIdentityOutput(args?: GetIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityResult> {
+export function getIdentityOutput(args: GetIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityResult> {
     return pulumi.output(args).apply(a => getIdentity(a, opts))
 }
 
 export interface GetIdentityOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

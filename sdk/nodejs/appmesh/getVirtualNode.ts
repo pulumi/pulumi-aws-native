@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppMesh::VirtualNode
  */
-export function getVirtualNode(args?: GetVirtualNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNodeResult> {
-    args = args || {};
+export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNodeResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVirtualNode(args?: GetVirtualNodeArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetVirtualNodeArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVirtualNodeResult {
@@ -33,10 +32,10 @@ export interface GetVirtualNodeResult {
     readonly uid?: string;
 }
 
-export function getVirtualNodeOutput(args?: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNodeResult> {
+export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNodeResult> {
     return pulumi.output(args).apply(a => getVirtualNode(a, opts))
 }
 
 export interface GetVirtualNodeOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

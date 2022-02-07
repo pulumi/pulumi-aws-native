@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema of AWS::EC2::IPAM Type
  */
-export function getIPAM(args?: GetIPAMArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMResult> {
-    args = args || {};
+export function getIPAM(args: GetIPAMArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetIPAMArgs {
     /**
      * Id of the IPAM.
      */
-    ipamId?: string;
+    ipamId: string;
 }
 
 export interface GetIPAMResult {
@@ -59,7 +58,7 @@ export interface GetIPAMResult {
     readonly tags?: outputs.ec2.IPAMTag[];
 }
 
-export function getIPAMOutput(args?: GetIPAMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMResult> {
+export function getIPAMOutput(args: GetIPAMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMResult> {
     return pulumi.output(args).apply(a => getIPAM(a, opts))
 }
 
@@ -67,5 +66,5 @@ export interface GetIPAMOutputArgs {
     /**
      * Id of the IPAM.
      */
-    ipamId?: pulumi.Input<string>;
+    ipamId: pulumi.Input<string>;
 }

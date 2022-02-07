@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
  */
-export function getResolverRuleAssociation(args?: GetResolverRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleAssociationResult> {
-    args = args || {};
+export function getResolverRuleAssociation(args: GetResolverRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetResolverRuleAssociationArgs {
     /**
      * Primary Identifier for Resolver Rule Association
      */
-    resolverRuleAssociationId?: string;
+    resolverRuleAssociationId: string;
 }
 
 export interface GetResolverRuleAssociationResult {
@@ -33,7 +32,7 @@ export interface GetResolverRuleAssociationResult {
     readonly resolverRuleAssociationId?: string;
 }
 
-export function getResolverRuleAssociationOutput(args?: GetResolverRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleAssociationResult> {
+export function getResolverRuleAssociationOutput(args: GetResolverRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleAssociationResult> {
     return pulumi.output(args).apply(a => getResolverRuleAssociation(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetResolverRuleAssociationOutputArgs {
     /**
      * Primary Identifier for Resolver Rule Association
      */
-    resolverRuleAssociationId?: pulumi.Input<string>;
+    resolverRuleAssociationId: pulumi.Input<string>;
 }

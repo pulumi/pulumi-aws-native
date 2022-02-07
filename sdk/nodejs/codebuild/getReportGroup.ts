@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodeBuild::ReportGroup
  */
-export function getReportGroup(args?: GetReportGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReportGroupResult> {
-    args = args || {};
+export function getReportGroup(args: GetReportGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReportGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getReportGroup(args?: GetReportGroupArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetReportGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetReportGroupResult {
@@ -32,10 +31,10 @@ export interface GetReportGroupResult {
     readonly tags?: outputs.codebuild.ReportGroupTag[];
 }
 
-export function getReportGroupOutput(args?: GetReportGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportGroupResult> {
+export function getReportGroupOutput(args: GetReportGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportGroupResult> {
     return pulumi.output(args).apply(a => getReportGroup(a, opts))
 }
 
 export interface GetReportGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

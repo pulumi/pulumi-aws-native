@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Transfer::Workflow
  */
-export function getWorkflow(args?: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
-    args = args || {};
+export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetWorkflowArgs {
     /**
      * A unique identifier for the workflow.
      */
-    workflowId?: string;
+    workflowId: string;
 }
 
 export interface GetWorkflowResult {
@@ -42,7 +41,7 @@ export interface GetWorkflowResult {
     readonly workflowId?: string;
 }
 
-export function getWorkflowOutput(args?: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
     return pulumi.output(args).apply(a => getWorkflow(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetWorkflowOutputArgs {
     /**
      * A unique identifier for the workflow.
      */
-    workflowId?: pulumi.Input<string>;
+    workflowId: pulumi.Input<string>;
 }

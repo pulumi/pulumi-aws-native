@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataBrew::Schedule.
  */
-export function getSchedule(args?: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
-    args = args || {};
+export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetScheduleArgs {
     /**
      * Schedule Name
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetScheduleResult {
@@ -34,7 +33,7 @@ export interface GetScheduleResult {
     readonly jobNames?: string[];
 }
 
-export function getScheduleOutput(args?: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply(a => getSchedule(a, opts))
 }
 
@@ -42,5 +41,5 @@ export interface GetScheduleOutputArgs {
     /**
      * Schedule Name
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

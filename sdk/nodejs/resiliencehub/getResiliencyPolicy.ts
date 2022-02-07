@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type Definition for Resiliency Policy.
  */
-export function getResiliencyPolicy(args?: GetResiliencyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResiliencyPolicyResult> {
-    args = args || {};
+export function getResiliencyPolicy(args: GetResiliencyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResiliencyPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResiliencyPolicyArgs {
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
-    policyArn?: string;
+    policyArn: string;
 }
 
 export interface GetResiliencyPolicyResult {
@@ -52,7 +51,7 @@ export interface GetResiliencyPolicyResult {
     readonly tier?: enums.resiliencehub.ResiliencyPolicyTier;
 }
 
-export function getResiliencyPolicyOutput(args?: GetResiliencyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResiliencyPolicyResult> {
+export function getResiliencyPolicyOutput(args: GetResiliencyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResiliencyPolicyResult> {
     return pulumi.output(args).apply(a => getResiliencyPolicy(a, opts))
 }
 
@@ -60,5 +59,5 @@ export interface GetResiliencyPolicyOutputArgs {
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A signing profile is a signing template that can be used to carry out a pre-defined signing job.
  */
-export function getSigningProfile(args?: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
-    args = args || {};
+export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetSigningProfileArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified signing profile.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetSigningProfileResult {
@@ -50,7 +49,7 @@ export interface GetSigningProfileResult {
     readonly tags?: outputs.signer.SigningProfileTag[];
 }
 
-export function getSigningProfileOutput(args?: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningProfileResult> {
+export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningProfileResult> {
     return pulumi.output(args).apply(a => getSigningProfile(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetSigningProfileOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified signing profile.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

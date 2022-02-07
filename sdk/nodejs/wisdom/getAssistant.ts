@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::Wisdom::Assistant Resource Type
  */
-export function getAssistant(args?: GetAssistantArgs, opts?: pulumi.InvokeOptions): Promise<GetAssistantResult> {
-    args = args || {};
+export function getAssistant(args: GetAssistantArgs, opts?: pulumi.InvokeOptions): Promise<GetAssistantResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAssistant(args?: GetAssistantArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetAssistantArgs {
-    assistantId?: string;
+    assistantId: string;
 }
 
 export interface GetAssistantResult {
@@ -28,10 +27,10 @@ export interface GetAssistantResult {
     readonly assistantId?: string;
 }
 
-export function getAssistantOutput(args?: GetAssistantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssistantResult> {
+export function getAssistantOutput(args: GetAssistantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssistantResult> {
     return pulumi.output(args).apply(a => getAssistant(a, opts))
 }
 
 export interface GetAssistantOutputArgs {
-    assistantId?: pulumi.Input<string>;
+    assistantId: pulumi.Input<string>;
 }

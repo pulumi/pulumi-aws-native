@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::CoreDefinitionVersion
  */
-export function getCoreDefinitionVersion(args?: GetCoreDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetCoreDefinitionVersionResult> {
-    args = args || {};
+export function getCoreDefinitionVersion(args: GetCoreDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetCoreDefinitionVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getCoreDefinitionVersion(args?: GetCoreDefinitionVersionArgs, op
 }
 
 export interface GetCoreDefinitionVersionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCoreDefinitionVersionResult {
     readonly id?: string;
 }
 
-export function getCoreDefinitionVersionOutput(args?: GetCoreDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoreDefinitionVersionResult> {
+export function getCoreDefinitionVersionOutput(args: GetCoreDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoreDefinitionVersionResult> {
     return pulumi.output(args).apply(a => getCoreDefinitionVersion(a, opts))
 }
 
 export interface GetCoreDefinitionVersionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

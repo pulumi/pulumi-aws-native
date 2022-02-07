@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Associate a set of ECS Capacity Providers with a specified ECS Cluster
  */
-export function getClusterCapacityProviderAssociations(args?: GetClusterCapacityProviderAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterCapacityProviderAssociationsResult> {
-    args = args || {};
+export function getClusterCapacityProviderAssociations(args: GetClusterCapacityProviderAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterCapacityProviderAssociationsResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getClusterCapacityProviderAssociations(args?: GetClusterCapacity
 }
 
 export interface GetClusterCapacityProviderAssociationsArgs {
-    cluster?: string;
+    cluster: string;
 }
 
 export interface GetClusterCapacityProviderAssociationsResult {
@@ -29,10 +28,10 @@ export interface GetClusterCapacityProviderAssociationsResult {
     readonly defaultCapacityProviderStrategy?: outputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategy[];
 }
 
-export function getClusterCapacityProviderAssociationsOutput(args?: GetClusterCapacityProviderAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterCapacityProviderAssociationsResult> {
+export function getClusterCapacityProviderAssociationsOutput(args: GetClusterCapacityProviderAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterCapacityProviderAssociationsResult> {
     return pulumi.output(args).apply(a => getClusterCapacityProviderAssociations(a, opts))
 }
 
 export interface GetClusterCapacityProviderAssociationsOutputArgs {
-    cluster?: pulumi.Input<string>;
+    cluster: pulumi.Input<string>;
 }

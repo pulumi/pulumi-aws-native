@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Athena::PreparedStatement
  */
-export function getPreparedStatement(args?: GetPreparedStatementArgs, opts?: pulumi.InvokeOptions): Promise<GetPreparedStatementResult> {
-    args = args || {};
+export function getPreparedStatement(args: GetPreparedStatementArgs, opts?: pulumi.InvokeOptions): Promise<GetPreparedStatementResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetPreparedStatementArgs {
     /**
      * The name of the prepared statement.
      */
-    statementName?: string;
+    statementName: string;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */
-    workGroup?: string;
+    workGroup: string;
 }
 
 export interface GetPreparedStatementResult {
@@ -42,7 +41,7 @@ export interface GetPreparedStatementResult {
     readonly queryStatement?: string;
 }
 
-export function getPreparedStatementOutput(args?: GetPreparedStatementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreparedStatementResult> {
+export function getPreparedStatementOutput(args: GetPreparedStatementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreparedStatementResult> {
     return pulumi.output(args).apply(a => getPreparedStatement(a, opts))
 }
 
@@ -50,9 +49,9 @@ export interface GetPreparedStatementOutputArgs {
     /**
      * The name of the prepared statement.
      */
-    statementName?: pulumi.Input<string>;
+    statementName: pulumi.Input<string>;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */
-    workGroup?: pulumi.Input<string>;
+    workGroup: pulumi.Input<string>;
 }

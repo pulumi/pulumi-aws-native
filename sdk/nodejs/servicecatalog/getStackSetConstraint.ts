@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
  */
-export function getStackSetConstraint(args?: GetStackSetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetStackSetConstraintResult> {
-    args = args || {};
+export function getStackSetConstraint(args: GetStackSetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetStackSetConstraintResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getStackSetConstraint(args?: GetStackSetConstraintArgs, opts?: p
 }
 
 export interface GetStackSetConstraintArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetStackSetConstraintResult {
@@ -34,10 +33,10 @@ export interface GetStackSetConstraintResult {
     readonly stackInstanceControl?: string;
 }
 
-export function getStackSetConstraintOutput(args?: GetStackSetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackSetConstraintResult> {
+export function getStackSetConstraintOutput(args: GetStackSetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackSetConstraintResult> {
     return pulumi.output(args).apply(a => getStackSetConstraint(a, opts))
 }
 
 export interface GetStackSetConstraintOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

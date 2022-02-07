@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::OIDCProvider
  */
-export function getOIDCProvider(args?: GetOIDCProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOIDCProviderResult> {
-    args = args || {};
+export function getOIDCProvider(args: GetOIDCProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOIDCProviderResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetOIDCProviderArgs {
     /**
      * Amazon Resource Name (ARN) of the OIDC provider
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetOIDCProviderResult {
@@ -37,7 +36,7 @@ export interface GetOIDCProviderResult {
     readonly thumbprintList?: string[];
 }
 
-export function getOIDCProviderOutput(args?: GetOIDCProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOIDCProviderResult> {
+export function getOIDCProviderOutput(args: GetOIDCProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOIDCProviderResult> {
     return pulumi.output(args).apply(a => getOIDCProvider(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetOIDCProviderOutputArgs {
     /**
      * Amazon Resource Name (ARN) of the OIDC provider
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

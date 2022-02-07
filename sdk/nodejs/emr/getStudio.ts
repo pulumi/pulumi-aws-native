@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::EMR::Studio
  */
-export function getStudio(args?: GetStudioArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioResult> {
-    args = args || {};
+export function getStudio(args: GetStudioArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetStudioArgs {
     /**
      * The ID of the EMR Studio.
      */
-    studioId?: string;
+    studioId: string;
 }
 
 export interface GetStudioResult {
@@ -70,7 +69,7 @@ export interface GetStudioResult {
     readonly url?: string;
 }
 
-export function getStudioOutput(args?: GetStudioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioResult> {
+export function getStudioOutput(args: GetStudioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioResult> {
     return pulumi.output(args).apply(a => getStudio(a, opts))
 }
 
@@ -78,5 +77,5 @@ export interface GetStudioOutputArgs {
     /**
      * The ID of the EMR Studio.
      */
-    studioId?: pulumi.Input<string>;
+    studioId: pulumi.Input<string>;
 }

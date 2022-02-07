@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::IoTSiteWise::Asset
  */
-export function getAsset(args?: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
-    args = args || {};
+export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAssetArgs {
     /**
      * The ID of the asset
      */
-    assetId?: string;
+    assetId: string;
 }
 
 export interface GetAssetResult {
@@ -52,7 +51,7 @@ export interface GetAssetResult {
     readonly tags?: outputs.iotsitewise.AssetTag[];
 }
 
-export function getAssetOutput(args?: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
+export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     return pulumi.output(args).apply(a => getAsset(a, opts))
 }
 
@@ -60,5 +59,5 @@ export interface GetAssetOutputArgs {
     /**
      * The ID of the asset
      */
-    assetId?: pulumi.Input<string>;
+    assetId: pulumi.Input<string>;
 }

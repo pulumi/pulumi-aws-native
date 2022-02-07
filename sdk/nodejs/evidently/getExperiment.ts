@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Evidently::Experiment.
  */
-export function getExperiment(args?: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
-    args = args || {};
+export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getExperiment(args?: GetExperimentArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetExperimentArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetExperimentResult {
@@ -38,10 +37,10 @@ export interface GetExperimentResult {
     readonly treatments?: outputs.evidently.ExperimentTreatmentObject[];
 }
 
-export function getExperimentOutput(args?: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
+export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
     return pulumi.output(args).apply(a => getExperiment(a, opts))
 }
 
 export interface GetExperimentOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::RestApi
  */
-export function getRestApi(args?: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
-    args = args || {};
+export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRestApi(args?: GetRestApiArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetRestApiArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRestApiResult {
@@ -44,10 +43,10 @@ export interface GetRestApiResult {
     readonly tags?: outputs.apigateway.RestApiTag[];
 }
 
-export function getRestApiOutput(args?: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
+export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
     return pulumi.output(args).apply(a => getRestApi(a, opts))
 }
 
 export interface GetRestApiOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

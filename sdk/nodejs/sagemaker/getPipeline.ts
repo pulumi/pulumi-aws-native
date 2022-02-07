@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::Pipeline
  */
-export function getPipeline(args?: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    args = args || {};
+export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetPipelineArgs {
     /**
      * The name of the Pipeline.
      */
-    pipelineName?: string;
+    pipelineName: string;
 }
 
 export interface GetPipelineResult {
@@ -45,7 +44,7 @@ export interface GetPipelineResult {
     readonly tags?: outputs.sagemaker.PipelineTag[];
 }
 
-export function getPipelineOutput(args?: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply(a => getPipeline(a, opts))
 }
 
@@ -53,5 +52,5 @@ export interface GetPipelineOutputArgs {
     /**
      * The name of the Pipeline.
      */
-    pipelineName?: pulumi.Input<string>;
+    pipelineName: pulumi.Input<string>;
 }

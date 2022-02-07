@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::OriginRequestPolicy
  */
-export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginRequestPolicyResult> {
-    args = args || {};
+export function getOriginRequestPolicy(args: GetOriginRequestPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginRequestPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?:
 }
 
 export interface GetOriginRequestPolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetOriginRequestPolicyResult {
@@ -30,10 +29,10 @@ export interface GetOriginRequestPolicyResult {
     readonly originRequestPolicyConfig?: outputs.cloudfront.OriginRequestPolicyConfig;
 }
 
-export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
+export function getOriginRequestPolicyOutput(args: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
     return pulumi.output(args).apply(a => getOriginRequestPolicy(a, opts))
 }
 
 export interface GetOriginRequestPolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

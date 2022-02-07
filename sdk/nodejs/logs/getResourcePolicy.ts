@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The resource schema for AWSLogs ResourcePolicy
  */
-export function getResourcePolicy(args?: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
-    args = args || {};
+export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetResourcePolicyArgs {
     /**
      * A name for resource policy
      */
-    policyName?: string;
+    policyName: string;
 }
 
 export interface GetResourcePolicyResult {
@@ -33,7 +32,7 @@ export interface GetResourcePolicyResult {
     readonly policyDocument?: string;
 }
 
-export function getResourcePolicyOutput(args?: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
+export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
     return pulumi.output(args).apply(a => getResourcePolicy(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetResourcePolicyOutputArgs {
     /**
      * A name for resource policy
      */
-    policyName?: pulumi.Input<string>;
+    policyName: pulumi.Input<string>;
 }

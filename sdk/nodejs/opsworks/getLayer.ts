@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::OpsWorks::Layer
  */
-export function getLayer(args?: GetLayerArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerResult> {
-    args = args || {};
+export function getLayer(args: GetLayerArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getLayer(args?: GetLayerArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetLayerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLayerResult {
@@ -45,10 +44,10 @@ export interface GetLayerResult {
     readonly volumeConfigurations?: outputs.opsworks.LayerVolumeConfiguration[];
 }
 
-export function getLayerOutput(args?: GetLayerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerResult> {
+export function getLayerOutput(args: GetLayerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerResult> {
     return pulumi.output(args).apply(a => getLayer(a, opts))
 }
 
 export interface GetLayerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

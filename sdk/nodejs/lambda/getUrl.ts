@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::Url
  */
-export function getUrl(args?: GetUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetUrlResult> {
-    args = args || {};
+export function getUrl(args: GetUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetUrlResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetUrlArgs {
     /**
      * The Amazon Resource Name (ARN) of the Function URL.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetUrlResult {
@@ -43,7 +42,7 @@ export interface GetUrlResult {
     readonly functionUrl?: string;
 }
 
-export function getUrlOutput(args?: GetUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUrlResult> {
+export function getUrlOutput(args: GetUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUrlResult> {
     return pulumi.output(args).apply(a => getUrl(a, opts))
 }
 
@@ -51,5 +50,5 @@ export interface GetUrlOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the Function URL.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

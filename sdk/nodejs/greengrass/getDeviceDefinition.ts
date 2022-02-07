@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::DeviceDefinition
  */
-export function getDeviceDefinition(args?: GetDeviceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceDefinitionResult> {
-    args = args || {};
+export function getDeviceDefinition(args: GetDeviceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDeviceDefinition(args?: GetDeviceDefinitionArgs, opts?: pulum
 }
 
 export interface GetDeviceDefinitionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDeviceDefinitionResult {
@@ -31,10 +30,10 @@ export interface GetDeviceDefinitionResult {
     readonly tags?: any;
 }
 
-export function getDeviceDefinitionOutput(args?: GetDeviceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceDefinitionResult> {
+export function getDeviceDefinitionOutput(args: GetDeviceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceDefinitionResult> {
     return pulumi.output(args).apply(a => getDeviceDefinition(a, opts))
 }
 
 export interface GetDeviceDefinitionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

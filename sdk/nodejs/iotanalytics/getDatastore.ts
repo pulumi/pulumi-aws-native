@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoTAnalytics::Datastore
  */
-export function getDatastore(args?: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
-    args = args || {};
+export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDatastore(args?: GetDatastoreArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetDatastoreArgs {
-    datastoreName?: string;
+    datastoreName: string;
 }
 
 export interface GetDatastoreResult {
@@ -33,10 +32,10 @@ export interface GetDatastoreResult {
     readonly tags?: outputs.iotanalytics.DatastoreTag[];
 }
 
-export function getDatastoreOutput(args?: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
+export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
     return pulumi.output(args).apply(a => getDatastore(a, opts))
 }
 
 export interface GetDatastoreOutputArgs {
-    datastoreName?: pulumi.Input<string>;
+    datastoreName: pulumi.Input<string>;
 }

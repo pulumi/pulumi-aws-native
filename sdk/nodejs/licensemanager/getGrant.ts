@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getGrant(args?: GetGrantArgs, opts?: pulumi.InvokeOptions): Promise<GetGrantResult> {
-    args = args || {};
+export function getGrant(args: GetGrantArgs, opts?: pulumi.InvokeOptions): Promise<GetGrantResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetGrantArgs {
     /**
      * Arn of the grant.
      */
-    grantArn?: string;
+    grantArn: string;
 }
 
 export interface GetGrantResult {
@@ -50,7 +49,7 @@ export interface GetGrantResult {
     readonly version?: string;
 }
 
-export function getGrantOutput(args?: GetGrantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrantResult> {
+export function getGrantOutput(args: GetGrantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrantResult> {
     return pulumi.output(args).apply(a => getGrant(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetGrantOutputArgs {
     /**
      * Arn of the grant.
      */
-    grantArn?: pulumi.Input<string>;
+    grantArn: pulumi.Input<string>;
 }

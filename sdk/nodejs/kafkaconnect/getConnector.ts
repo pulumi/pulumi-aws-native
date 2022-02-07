@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::KafkaConnect::Connector
  */
-export function getConnector(args?: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-    args = args || {};
+export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetConnectorArgs {
     /**
      * Amazon Resource Name for the created Connector.
      */
-    connectorArn?: string;
+    connectorArn: string;
 }
 
 export interface GetConnectorResult {
@@ -35,7 +34,7 @@ export interface GetConnectorResult {
     readonly connectorArn?: string;
 }
 
-export function getConnectorOutput(args?: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
+export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
     return pulumi.output(args).apply(a => getConnector(a, opts))
 }
 
@@ -43,5 +42,5 @@ export interface GetConnectorOutputArgs {
     /**
      * Amazon Resource Name for the created Connector.
      */
-    connectorArn?: pulumi.Input<string>;
+    connectorArn: pulumi.Input<string>;
 }

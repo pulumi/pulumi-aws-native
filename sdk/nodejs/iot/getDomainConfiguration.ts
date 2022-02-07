@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Create and manage a Domain Configuration
  */
-export function getDomainConfiguration(args?: GetDomainConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainConfigurationResult> {
-    args = args || {};
+export function getDomainConfiguration(args: GetDomainConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDomainConfiguration(args?: GetDomainConfigurationArgs, opts?:
 }
 
 export interface GetDomainConfigurationArgs {
-    domainConfigurationName?: string;
+    domainConfigurationName: string;
 }
 
 export interface GetDomainConfigurationResult {
@@ -33,10 +32,10 @@ export interface GetDomainConfigurationResult {
     readonly tags?: outputs.iot.DomainConfigurationTag[];
 }
 
-export function getDomainConfigurationOutput(args?: GetDomainConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainConfigurationResult> {
+export function getDomainConfigurationOutput(args: GetDomainConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainConfigurationResult> {
     return pulumi.output(args).apply(a => getDomainConfiguration(a, opts))
 }
 
 export interface GetDomainConfigurationOutputArgs {
-    domainConfigurationName?: pulumi.Input<string>;
+    domainConfigurationName: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::Location::PlaceIndex Resource Type
  */
-export function getPlaceIndex(args?: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
-    args = args || {};
+export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getPlaceIndex(args?: GetPlaceIndexArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetPlaceIndexArgs {
-    indexName?: string;
+    indexName: string;
 }
 
 export interface GetPlaceIndexResult {
@@ -30,10 +29,10 @@ export interface GetPlaceIndexResult {
     readonly updateTime?: string;
 }
 
-export function getPlaceIndexOutput(args?: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
+export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
     return pulumi.output(args).apply(a => getPlaceIndex(a, opts))
 }
 
 export interface GetPlaceIndexOutputArgs {
-    indexName?: pulumi.Input<string>;
+    indexName: pulumi.Input<string>;
 }

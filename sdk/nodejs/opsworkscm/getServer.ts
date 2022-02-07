@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::OpsWorksCM::Server
  */
-export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-    args = args || {};
+export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetServerArgs {
-    serverName?: string;
+    serverName: string;
 }
 
 export interface GetServerResult {
@@ -35,10 +34,10 @@ export interface GetServerResult {
     readonly tags?: outputs.opsworkscm.ServerTag[];
 }
 
-export function getServerOutput(args?: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply(a => getServer(a, opts))
 }
 
 export interface GetServerOutputArgs {
-    serverName?: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

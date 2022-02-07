@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::IoTSiteWise::Project
  */
-export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    args = args || {};
+export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetProjectArgs {
     /**
      * The ID of the project.
      */
-    projectId?: string;
+    projectId: string;
 }
 
 export interface GetProjectResult {
@@ -54,7 +53,7 @@ export interface GetProjectResult {
     readonly tags?: outputs.iotsitewise.ProjectTag[];
 }
 
-export function getProjectOutput(args?: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetProjectOutputArgs {
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
 }

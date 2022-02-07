@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoT::Policy
  */
-export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    args = args || {};
+export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetPolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPolicyResult {
@@ -28,10 +27,10 @@ export interface GetPolicyResult {
     readonly id?: string;
 }
 
-export function getPolicyOutput(args?: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
+export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply(a => getPolicy(a, opts))
 }
 
 export interface GetPolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

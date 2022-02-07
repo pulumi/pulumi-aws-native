@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IVS::PlaybackKeyPair
  */
-export function getPlaybackKeyPair(args?: GetPlaybackKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaybackKeyPairResult> {
-    args = args || {};
+export function getPlaybackKeyPair(args: GetPlaybackKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaybackKeyPairResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetPlaybackKeyPairArgs {
     /**
      * Key-pair identifier.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetPlaybackKeyPairResult {
@@ -42,7 +41,7 @@ export interface GetPlaybackKeyPairResult {
     readonly tags?: outputs.ivs.PlaybackKeyPairTag[];
 }
 
-export function getPlaybackKeyPairOutput(args?: GetPlaybackKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaybackKeyPairResult> {
+export function getPlaybackKeyPairOutput(args: GetPlaybackKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaybackKeyPairResult> {
     return pulumi.output(args).apply(a => getPlaybackKeyPair(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetPlaybackKeyPairOutputArgs {
     /**
      * Key-pair identifier.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

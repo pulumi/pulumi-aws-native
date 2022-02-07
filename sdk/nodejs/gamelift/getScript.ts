@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GameLift::Script
  */
-export function getScript(args?: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
-    args = args || {};
+export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getScript(args?: GetScriptArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetScriptArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetScriptResult {
@@ -33,10 +32,10 @@ export interface GetScriptResult {
     readonly version?: string;
 }
 
-export function getScriptOutput(args?: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
+export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
     return pulumi.output(args).apply(a => getScript(a, opts))
 }
 
 export interface GetScriptOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

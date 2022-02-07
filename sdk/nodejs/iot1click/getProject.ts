@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoT1Click::Project
  */
-export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    args = args || {};
+export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetProjectArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetProjectResult {
@@ -31,10 +30,10 @@ export interface GetProjectResult {
     readonly placementTemplate?: outputs.iot1click.ProjectPlacementTemplate;
 }
 
-export function getProjectOutput(args?: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

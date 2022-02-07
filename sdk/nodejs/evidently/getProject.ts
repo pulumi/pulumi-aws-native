@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Evidently::Project
  */
-export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    args = args || {};
+export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetProjectArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetProjectResult {
@@ -34,10 +33,10 @@ export interface GetProjectResult {
     readonly tags?: outputs.evidently.ProjectTag[];
 }
 
-export function getProjectOutput(args?: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply(a => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

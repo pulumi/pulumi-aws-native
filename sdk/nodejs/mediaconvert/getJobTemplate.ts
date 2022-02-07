@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MediaConvert::JobTemplate
  */
-export function getJobTemplate(args?: GetJobTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTemplateResult> {
-    args = args || {};
+export function getJobTemplate(args: GetJobTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getJobTemplate(args?: GetJobTemplateArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetJobTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetJobTemplateResult {
@@ -38,10 +37,10 @@ export interface GetJobTemplateResult {
     readonly tags?: any;
 }
 
-export function getJobTemplateOutput(args?: GetJobTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTemplateResult> {
+export function getJobTemplateOutput(args: GetJobTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTemplateResult> {
     return pulumi.output(args).apply(a => getJobTemplate(a, opts))
 }
 
 export interface GetJobTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

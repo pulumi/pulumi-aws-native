@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AutoScaling::ScheduledAction
  */
-export function getScheduledAction(args?: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
-    args = args || {};
+export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getScheduledAction(args?: GetScheduledActionArgs, opts?: pulumi.
 }
 
 export interface GetScheduledActionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetScheduledActionResult {
@@ -34,10 +33,10 @@ export interface GetScheduledActionResult {
     readonly timeZone?: string;
 }
 
-export function getScheduledActionOutput(args?: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
+export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
     return pulumi.output(args).apply(a => getScheduledAction(a, opts))
 }
 
 export interface GetScheduledActionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::Job
  */
-export function getJob(args?: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    args = args || {};
+export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getJob(args?: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetJobArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetJobResult {
@@ -45,10 +44,10 @@ export interface GetJobResult {
     readonly workerType?: string;
 }
 
-export function getJobOutput(args?: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply(a => getJob(a, opts))
 }
 
 export interface GetJobOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

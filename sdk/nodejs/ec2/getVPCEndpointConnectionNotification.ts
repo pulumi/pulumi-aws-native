@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
  */
-export function getVPCEndpointConnectionNotification(args?: GetVPCEndpointConnectionNotificationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointConnectionNotificationResult> {
-    args = args || {};
+export function getVPCEndpointConnectionNotification(args: GetVPCEndpointConnectionNotificationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointConnectionNotificationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getVPCEndpointConnectionNotification(args?: GetVPCEndpointConnec
 }
 
 export interface GetVPCEndpointConnectionNotificationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVPCEndpointConnectionNotificationResult {
@@ -29,10 +28,10 @@ export interface GetVPCEndpointConnectionNotificationResult {
     readonly id?: string;
 }
 
-export function getVPCEndpointConnectionNotificationOutput(args?: GetVPCEndpointConnectionNotificationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointConnectionNotificationResult> {
+export function getVPCEndpointConnectionNotificationOutput(args: GetVPCEndpointConnectionNotificationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointConnectionNotificationResult> {
     return pulumi.output(args).apply(a => getVPCEndpointConnectionNotification(a, opts))
 }
 
 export interface GetVPCEndpointConnectionNotificationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

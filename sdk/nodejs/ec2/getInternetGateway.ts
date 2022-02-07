@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::InternetGateway
  */
-export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
-    args = args || {};
+export function getInternetGateway(args: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetInternetGatewayArgs {
     /**
      * ID of internet gateway.
      */
-    internetGatewayId?: string;
+    internetGatewayId: string;
 }
 
 export interface GetInternetGatewayResult {
@@ -38,7 +37,7 @@ export interface GetInternetGatewayResult {
     readonly tags?: outputs.ec2.InternetGatewayTag[];
 }
 
-export function getInternetGatewayOutput(args?: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
+export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
     return pulumi.output(args).apply(a => getInternetGateway(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetInternetGatewayOutputArgs {
     /**
      * ID of internet gateway.
      */
-    internetGatewayId?: pulumi.Input<string>;
+    internetGatewayId: pulumi.Input<string>;
 }

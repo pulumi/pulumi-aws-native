@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::DHCPOptions
  */
-export function getDHCPOptions(args?: GetDHCPOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetDHCPOptionsResult> {
-    args = args || {};
+export function getDHCPOptions(args: GetDHCPOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetDHCPOptionsResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDHCPOptions(args?: GetDHCPOptionsArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetDHCPOptionsArgs {
-    dhcpOptionsId?: string;
+    dhcpOptionsId: string;
 }
 
 export interface GetDHCPOptionsResult {
@@ -32,10 +31,10 @@ export interface GetDHCPOptionsResult {
     readonly tags?: outputs.ec2.DHCPOptionsTag[];
 }
 
-export function getDHCPOptionsOutput(args?: GetDHCPOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDHCPOptionsResult> {
+export function getDHCPOptionsOutput(args: GetDHCPOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDHCPOptionsResult> {
     return pulumi.output(args).apply(a => getDHCPOptions(a, opts))
 }
 
 export interface GetDHCPOptionsOutputArgs {
-    dhcpOptionsId?: pulumi.Input<string>;
+    dhcpOptionsId: pulumi.Input<string>;
 }

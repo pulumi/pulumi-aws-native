@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::IoTSiteWise::Gateway
  */
-export function getGateway(args?: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
-    args = args || {};
+export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetGatewayArgs {
     /**
      * The ID of the gateway device.
      */
-    gatewayId?: string;
+    gatewayId: string;
 }
 
 export interface GetGatewayResult {
@@ -46,7 +45,7 @@ export interface GetGatewayResult {
     readonly tags?: outputs.iotsitewise.GatewayTag[];
 }
 
-export function getGatewayOutput(args?: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
     return pulumi.output(args).apply(a => getGateway(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetGatewayOutputArgs {
     /**
      * The ID of the gateway device.
      */
-    gatewayId?: pulumi.Input<string>;
+    gatewayId: pulumi.Input<string>;
 }

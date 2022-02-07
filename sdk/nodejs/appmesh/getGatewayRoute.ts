@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppMesh::GatewayRoute
  */
-export function getGatewayRoute(args?: GetGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteResult> {
-    args = args || {};
+export function getGatewayRoute(args: GetGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getGatewayRoute(args?: GetGatewayRouteArgs, opts?: pulumi.Invoke
 }
 
 export interface GetGatewayRouteArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetGatewayRouteResult {
@@ -33,10 +32,10 @@ export interface GetGatewayRouteResult {
     readonly uid?: string;
 }
 
-export function getGatewayRouteOutput(args?: GetGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteResult> {
+export function getGatewayRouteOutput(args: GetGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteResult> {
     return pulumi.output(args).apply(a => getGatewayRoute(a, opts))
 }
 
 export interface GetGatewayRouteOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

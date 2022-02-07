@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Cassandra::Table
  */
-export function getTable(args?: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    args = args || {};
+export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetTableArgs {
     /**
      * Name for Cassandra keyspace
      */
-    keyspaceName?: string;
+    keyspaceName: string;
     /**
      * Name for Cassandra table
      */
-    tableName?: string;
+    tableName: string;
 }
 
 export interface GetTableResult {
@@ -53,7 +52,7 @@ export interface GetTableResult {
     readonly tags?: outputs.cassandra.TableTag[];
 }
 
-export function getTableOutput(args?: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
+export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply(a => getTable(a, opts))
 }
 
@@ -61,9 +60,9 @@ export interface GetTableOutputArgs {
     /**
      * Name for Cassandra keyspace
      */
-    keyspaceName?: pulumi.Input<string>;
+    keyspaceName: pulumi.Input<string>;
     /**
      * Name for Cassandra table
      */
-    tableName?: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
 }

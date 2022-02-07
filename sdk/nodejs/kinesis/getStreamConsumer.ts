@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Kinesis::StreamConsumer
  */
-export function getStreamConsumer(args?: GetStreamConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamConsumerResult> {
-    args = args || {};
+export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamConsumerResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getStreamConsumer(args?: GetStreamConsumerArgs, opts?: pulumi.In
 }
 
 export interface GetStreamConsumerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetStreamConsumerResult {
@@ -30,10 +29,10 @@ export interface GetStreamConsumerResult {
     readonly id?: string;
 }
 
-export function getStreamConsumerOutput(args?: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamConsumerResult> {
+export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamConsumerResult> {
     return pulumi.output(args).apply(a => getStreamConsumer(a, opts))
 }
 
 export interface GetStreamConsumerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

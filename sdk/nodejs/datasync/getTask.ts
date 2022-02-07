@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::Task.
  */
-export function getTask(args?: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
-    args = args || {};
+export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetTaskArgs {
     /**
      * The ARN of the task.
      */
-    taskArn?: string;
+    taskArn: string;
 }
 
 export interface GetTaskResult {
@@ -64,7 +63,7 @@ export interface GetTaskResult {
     readonly taskArn?: string;
 }
 
-export function getTaskOutput(args?: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
+export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
     return pulumi.output(args).apply(a => getTask(a, opts))
 }
 
@@ -72,5 +71,5 @@ export interface GetTaskOutputArgs {
     /**
      * The ARN of the task.
      */
-    taskArn?: pulumi.Input<string>;
+    taskArn: pulumi.Input<string>;
 }

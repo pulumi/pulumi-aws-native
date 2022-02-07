@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::SES::ConfigurationSet.
  */
-export function getConfigurationSet(args?: GetConfigurationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetResult> {
-    args = args || {};
+export function getConfigurationSet(args: GetConfigurationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,13 +22,13 @@ export interface GetConfigurationSetArgs {
     /**
      * The name of the configuration set.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetConfigurationSetResult {
 }
 
-export function getConfigurationSetOutput(args?: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
+export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
     return pulumi.output(args).apply(a => getConfigurationSet(a, opts))
 }
 
@@ -37,5 +36,5 @@ export interface GetConfigurationSetOutputArgs {
     /**
      * The name of the configuration set.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

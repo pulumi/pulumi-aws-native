@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource type definition for AWS::SSMIncidents::ResponsePlan
  */
-export function getResponsePlan(args?: GetResponsePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetResponsePlanResult> {
-    args = args || {};
+export function getResponsePlan(args: GetResponsePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetResponsePlanResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResponsePlanArgs {
     /**
      * The ARN of the response plan.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetResponsePlanResult {
@@ -52,7 +51,7 @@ export interface GetResponsePlanResult {
     readonly tags?: outputs.ssmincidents.ResponsePlanTag[];
 }
 
-export function getResponsePlanOutput(args?: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponsePlanResult> {
+export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponsePlanResult> {
     return pulumi.output(args).apply(a => getResponsePlan(a, opts))
 }
 
@@ -60,5 +59,5 @@ export interface GetResponsePlanOutputArgs {
     /**
      * The ARN of the response plan.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

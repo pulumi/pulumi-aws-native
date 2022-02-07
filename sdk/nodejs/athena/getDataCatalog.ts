@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Athena::DataCatalog
  */
-export function getDataCatalog(args?: GetDataCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogResult> {
-    args = args || {};
+export function getDataCatalog(args: GetDataCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDataCatalogArgs {
     /**
      * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetDataCatalogResult {
@@ -46,7 +45,7 @@ export interface GetDataCatalogResult {
     readonly type?: enums.athena.DataCatalogType;
 }
 
-export function getDataCatalogOutput(args?: GetDataCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogResult> {
+export function getDataCatalogOutput(args: GetDataCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogResult> {
     return pulumi.output(args).apply(a => getDataCatalog(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetDataCatalogOutputArgs {
     /**
      * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

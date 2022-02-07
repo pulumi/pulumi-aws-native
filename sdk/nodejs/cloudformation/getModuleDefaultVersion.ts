@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * A module that has been registered in the CloudFormation registry as the default version
  */
-export function getModuleDefaultVersion(args?: GetModuleDefaultVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleDefaultVersionResult> {
-    args = args || {};
+export function getModuleDefaultVersion(args: GetModuleDefaultVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleDefaultVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,13 +22,13 @@ export interface GetModuleDefaultVersionArgs {
     /**
      * The Amazon Resource Name (ARN) of the module version to set as the default version.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetModuleDefaultVersionResult {
 }
 
-export function getModuleDefaultVersionOutput(args?: GetModuleDefaultVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleDefaultVersionResult> {
+export function getModuleDefaultVersionOutput(args: GetModuleDefaultVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleDefaultVersionResult> {
     return pulumi.output(args).apply(a => getModuleDefaultVersion(a, opts))
 }
 
@@ -37,5 +36,5 @@ export interface GetModuleDefaultVersionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the module version to set as the default version.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

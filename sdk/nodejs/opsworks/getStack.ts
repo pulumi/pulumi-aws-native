@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::OpsWorks::Stack
  */
-export function getStack(args?: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
-    args = args || {};
+export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getStack(args?: GetStackArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetStackArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetStackResult {
@@ -48,10 +47,10 @@ export interface GetStackResult {
     readonly useOpsworksSecurityGroups?: boolean;
 }
 
-export function getStackOutput(args?: GetStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackResult> {
+export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackResult> {
     return pulumi.output(args).apply(a => getStack(a, opts))
 }
 
 export interface GetStackOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

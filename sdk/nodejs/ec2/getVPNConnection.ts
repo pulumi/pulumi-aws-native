@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPNConnection
  */
-export function getVPNConnection(args?: GetVPNConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVPNConnectionResult> {
-    args = args || {};
+export function getVPNConnection(args: GetVPNConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVPNConnectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVPNConnection(args?: GetVPNConnectionArgs, opts?: pulumi.Invo
 }
 
 export interface GetVPNConnectionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVPNConnectionResult {
@@ -29,10 +28,10 @@ export interface GetVPNConnectionResult {
     readonly tags?: outputs.ec2.VPNConnectionTag[];
 }
 
-export function getVPNConnectionOutput(args?: GetVPNConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPNConnectionResult> {
+export function getVPNConnectionOutput(args: GetVPNConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPNConnectionResult> {
     return pulumi.output(args).apply(a => getVPNConnection(a, opts))
 }
 
 export interface GetVPNConnectionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

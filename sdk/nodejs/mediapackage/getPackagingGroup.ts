@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaPackage::PackagingGroup
  */
-export function getPackagingGroup(args?: GetPackagingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPackagingGroupResult> {
-    args = args || {};
+export function getPackagingGroup(args: GetPackagingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPackagingGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetPackagingGroupArgs {
     /**
      * The ID of the PackagingGroup.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetPackagingGroupResult {
@@ -46,7 +45,7 @@ export interface GetPackagingGroupResult {
     readonly egressAccessLogs?: outputs.mediapackage.PackagingGroupLogConfiguration;
 }
 
-export function getPackagingGroupOutput(args?: GetPackagingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackagingGroupResult> {
+export function getPackagingGroupOutput(args: GetPackagingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackagingGroupResult> {
     return pulumi.output(args).apply(a => getPackagingGroup(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetPackagingGroupOutputArgs {
     /**
      * The ID of the PackagingGroup.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

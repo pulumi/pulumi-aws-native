@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::Deployment
  */
-export function getDeployment(args?: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
-    args = args || {};
+export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetDeploymentArgs {
     /**
      * Primary Id for this resource
      */
-    deploymentId?: string;
+    deploymentId: string;
     /**
      * The ID of the RestApi resource to deploy. 
      */
-    restApiId?: string;
+    restApiId: string;
 }
 
 export interface GetDeploymentResult {
@@ -42,7 +41,7 @@ export interface GetDeploymentResult {
     readonly description?: string;
 }
 
-export function getDeploymentOutput(args?: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply(a => getDeployment(a, opts))
 }
 
@@ -50,9 +49,9 @@ export interface GetDeploymentOutputArgs {
     /**
      * Primary Id for this resource
      */
-    deploymentId?: pulumi.Input<string>;
+    deploymentId: pulumi.Input<string>;
     /**
      * The ID of the RestApi resource to deploy. 
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
 }

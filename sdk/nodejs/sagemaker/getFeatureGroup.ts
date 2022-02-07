@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::FeatureGroup
  */
-export function getFeatureGroup(args?: GetFeatureGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFeatureGroupResult> {
-    args = args || {};
+export function getFeatureGroup(args: GetFeatureGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFeatureGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,13 +22,13 @@ export interface GetFeatureGroupArgs {
     /**
      * The Name of the FeatureGroup.
      */
-    featureGroupName?: string;
+    featureGroupName: string;
 }
 
 export interface GetFeatureGroupResult {
 }
 
-export function getFeatureGroupOutput(args?: GetFeatureGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeatureGroupResult> {
+export function getFeatureGroupOutput(args: GetFeatureGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeatureGroupResult> {
     return pulumi.output(args).apply(a => getFeatureGroup(a, opts))
 }
 
@@ -37,5 +36,5 @@ export interface GetFeatureGroupOutputArgs {
     /**
      * The Name of the FeatureGroup.
      */
-    featureGroupName?: pulumi.Input<string>;
+    featureGroupName: pulumi.Input<string>;
 }

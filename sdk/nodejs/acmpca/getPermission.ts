@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Permission set on private certificate authority
  */
-export function getPermission(args?: GetPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionResult> {
-    args = args || {};
+export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,17 +23,17 @@ export interface GetPermissionArgs {
     /**
      * The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
      */
-    certificateAuthorityArn?: string;
+    certificateAuthorityArn: string;
     /**
      * The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
      */
-    principal?: string;
+    principal: string;
 }
 
 export interface GetPermissionResult {
 }
 
-export function getPermissionOutput(args?: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
+export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
     return pulumi.output(args).apply(a => getPermission(a, opts))
 }
 
@@ -42,9 +41,9 @@ export interface GetPermissionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
      */
-    certificateAuthorityArn?: pulumi.Input<string>;
+    certificateAuthorityArn: pulumi.Input<string>;
     /**
      * The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
      */
-    principal?: pulumi.Input<string>;
+    principal: pulumi.Input<string>;
 }

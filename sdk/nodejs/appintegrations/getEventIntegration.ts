@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppIntegrations::EventIntegration
  */
-export function getEventIntegration(args?: GetEventIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventIntegrationResult> {
-    args = args || {};
+export function getEventIntegration(args: GetEventIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventIntegrationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetEventIntegrationArgs {
     /**
      * The name of the event integration.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetEventIntegrationResult {
@@ -46,7 +45,7 @@ export interface GetEventIntegrationResult {
     readonly tags?: outputs.appintegrations.EventIntegrationTag[];
 }
 
-export function getEventIntegrationOutput(args?: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventIntegrationResult> {
+export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventIntegrationResult> {
     return pulumi.output(args).apply(a => getEventIntegration(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetEventIntegrationOutputArgs {
     /**
      * The name of the event integration.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

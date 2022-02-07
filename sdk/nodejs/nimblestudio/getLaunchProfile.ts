@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a launch profile which delegates access to a collection of studio components to studio users
  */
-export function getLaunchProfile(args?: GetLaunchProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchProfileResult> {
-    args = args || {};
+export function getLaunchProfile(args: GetLaunchProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,11 +21,11 @@ export function getLaunchProfile(args?: GetLaunchProfileArgs, opts?: pulumi.Invo
 }
 
 export interface GetLaunchProfileArgs {
-    launchProfileId?: string;
+    launchProfileId: string;
     /**
      * <p>The studio ID. </p>
      */
-    studioId?: string;
+    studioId: string;
 }
 
 export interface GetLaunchProfileResult {
@@ -52,14 +51,14 @@ export interface GetLaunchProfileResult {
     readonly studioComponentIds?: string[];
 }
 
-export function getLaunchProfileOutput(args?: GetLaunchProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchProfileResult> {
+export function getLaunchProfileOutput(args: GetLaunchProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchProfileResult> {
     return pulumi.output(args).apply(a => getLaunchProfile(a, opts))
 }
 
 export interface GetLaunchProfileOutputArgs {
-    launchProfileId?: pulumi.Input<string>;
+    launchProfileId: pulumi.Input<string>;
     /**
      * <p>The studio ID. </p>
      */
-    studioId?: pulumi.Input<string>;
+    studioId: pulumi.Input<string>;
 }

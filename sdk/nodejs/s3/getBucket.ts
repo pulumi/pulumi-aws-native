@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::S3::Bucket
  */
-export function getBucket(args?: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
-    args = args || {};
+export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetBucketArgs {
     /**
      * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
      */
-    bucketName?: string;
+    bucketName: string;
 }
 
 export interface GetBucketResult {
@@ -110,7 +109,7 @@ export interface GetBucketResult {
     readonly websiteURL?: string;
 }
 
-export function getBucketOutput(args?: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
+export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
     return pulumi.output(args).apply(a => getBucket(a, opts))
 }
 
@@ -118,5 +117,5 @@ export interface GetBucketOutputArgs {
     /**
      * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName: pulumi.Input<string>;
 }

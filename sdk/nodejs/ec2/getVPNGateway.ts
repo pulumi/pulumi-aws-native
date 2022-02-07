@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPNGateway
  */
-export function getVPNGateway(args?: GetVPNGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVPNGatewayResult> {
-    args = args || {};
+export function getVPNGateway(args: GetVPNGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVPNGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVPNGateway(args?: GetVPNGatewayArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetVPNGatewayArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVPNGatewayResult {
@@ -29,10 +28,10 @@ export interface GetVPNGatewayResult {
     readonly tags?: outputs.ec2.VPNGatewayTag[];
 }
 
-export function getVPNGatewayOutput(args?: GetVPNGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPNGatewayResult> {
+export function getVPNGatewayOutput(args: GetVPNGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPNGatewayResult> {
     return pulumi.output(args).apply(a => getVPNGateway(a, opts))
 }
 
 export interface GetVPNGatewayOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

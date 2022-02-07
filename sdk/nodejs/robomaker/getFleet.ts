@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::RoboMaker::Fleet resource creates an AWS RoboMaker fleet. Fleets contain robots and can receive deployments.
  */
-export function getFleet(args?: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
-    args = args || {};
+export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFleet(args?: GetFleetArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetFleetArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetFleetResult {
@@ -29,10 +28,10 @@ export interface GetFleetResult {
     readonly tags?: outputs.robomaker.FleetTags;
 }
 
-export function getFleetOutput(args?: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
+export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
     return pulumi.output(args).apply(a => getFleet(a, opts))
 }
 
 export interface GetFleetOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

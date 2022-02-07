@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::RequestValidator
  */
-export function getRequestValidator(args?: GetRequestValidatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRequestValidatorResult> {
-    args = args || {};
+export function getRequestValidator(args: GetRequestValidatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRequestValidatorResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetRequestValidatorArgs {
     /**
      * ID of the request validator.
      */
-    requestValidatorId?: string;
+    requestValidatorId: string;
     /**
      * The identifier of the targeted API entity.
      */
-    restApiId?: string;
+    restApiId: string;
 }
 
 export interface GetRequestValidatorResult {
@@ -46,7 +45,7 @@ export interface GetRequestValidatorResult {
     readonly validateRequestParameters?: boolean;
 }
 
-export function getRequestValidatorOutput(args?: GetRequestValidatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequestValidatorResult> {
+export function getRequestValidatorOutput(args: GetRequestValidatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequestValidatorResult> {
     return pulumi.output(args).apply(a => getRequestValidator(a, opts))
 }
 
@@ -54,9 +53,9 @@ export interface GetRequestValidatorOutputArgs {
     /**
      * ID of the request validator.
      */
-    requestValidatorId?: pulumi.Input<string>;
+    requestValidatorId: pulumi.Input<string>;
     /**
      * The identifier of the targeted API entity.
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
 }

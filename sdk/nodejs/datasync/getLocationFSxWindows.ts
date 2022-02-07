@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::LocationFSxWindows.
  */
-export function getLocationFSxWindows(args?: GetLocationFSxWindowsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationFSxWindowsResult> {
-    args = args || {};
+export function getLocationFSxWindows(args: GetLocationFSxWindowsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationFSxWindowsResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLocationFSxWindowsArgs {
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
      */
-    locationArn?: string;
+    locationArn: string;
 }
 
 export interface GetLocationFSxWindowsResult {
@@ -42,7 +41,7 @@ export interface GetLocationFSxWindowsResult {
     readonly tags?: outputs.datasync.LocationFSxWindowsTag[];
 }
 
-export function getLocationFSxWindowsOutput(args?: GetLocationFSxWindowsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationFSxWindowsResult> {
+export function getLocationFSxWindowsOutput(args: GetLocationFSxWindowsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationFSxWindowsResult> {
     return pulumi.output(args).apply(a => getLocationFSxWindows(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetLocationFSxWindowsOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn: pulumi.Input<string>;
 }

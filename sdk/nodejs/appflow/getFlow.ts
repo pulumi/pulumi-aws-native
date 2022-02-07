@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::AppFlow::Flow.
  */
-export function getFlow(args?: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
-    args = args || {};
+export function getFlow(args: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFlowArgs {
     /**
      * Name of the flow.
      */
-    flowName?: string;
+    flowName: string;
 }
 
 export interface GetFlowResult {
@@ -58,7 +57,7 @@ export interface GetFlowResult {
     readonly triggerConfig?: outputs.appflow.FlowTriggerConfig;
 }
 
-export function getFlowOutput(args?: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
+export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
     return pulumi.output(args).apply(a => getFlow(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetFlowOutputArgs {
     /**
      * Name of the flow.
      */
-    flowName?: pulumi.Input<string>;
+    flowName: pulumi.Input<string>;
 }

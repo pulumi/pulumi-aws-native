@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaPackage::PackagingConfiguration
  */
-export function getPackagingConfiguration(args?: GetPackagingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPackagingConfigurationResult> {
-    args = args || {};
+export function getPackagingConfiguration(args: GetPackagingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPackagingConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetPackagingConfigurationArgs {
     /**
      * The ID of the PackagingConfiguration.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetPackagingConfigurationResult {
@@ -58,7 +57,7 @@ export interface GetPackagingConfigurationResult {
     readonly tags?: outputs.mediapackage.PackagingConfigurationTag[];
 }
 
-export function getPackagingConfigurationOutput(args?: GetPackagingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackagingConfigurationResult> {
+export function getPackagingConfigurationOutput(args: GetPackagingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackagingConfigurationResult> {
     return pulumi.output(args).apply(a => getPackagingConfiguration(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetPackagingConfigurationOutputArgs {
     /**
      * The ID of the PackagingConfiguration.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

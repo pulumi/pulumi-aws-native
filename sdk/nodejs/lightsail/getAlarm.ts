@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::Alarm
  */
-export function getAlarm(args?: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmResult> {
-    args = args || {};
+export function getAlarm(args: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetAlarmArgs {
     /**
      * The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
      */
-    alarmName?: string;
+    alarmName: string;
 }
 
 export interface GetAlarmResult {
@@ -66,7 +65,7 @@ export interface GetAlarmResult {
     readonly treatMissingData?: string;
 }
 
-export function getAlarmOutput(args?: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
+export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
     return pulumi.output(args).apply(a => getAlarm(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetAlarmOutputArgs {
     /**
      * The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
      */
-    alarmName?: pulumi.Input<string>;
+    alarmName: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::Account
  */
-export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    args = args || {};
+export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetAccountArgs {
     /**
      * Primary identifier which is manually generated.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetAccountResult {
@@ -37,7 +36,7 @@ export interface GetAccountResult {
     readonly id?: string;
 }
 
-export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply(a => getAccount(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetAccountOutputArgs {
     /**
      * Primary identifier which is manually generated.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

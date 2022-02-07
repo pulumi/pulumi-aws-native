@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::LakeFormation::DataLakeSettings
  */
-export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeSettingsResult> {
-    args = args || {};
+export function getDataLakeSettings(args: GetDataLakeSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeSettingsResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulum
 }
 
 export interface GetDataLakeSettingsArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDataLakeSettingsResult {
@@ -30,10 +29,10 @@ export interface GetDataLakeSettingsResult {
     readonly trustedResourceOwners?: string[];
 }
 
-export function getDataLakeSettingsOutput(args?: GetDataLakeSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeSettingsResult> {
+export function getDataLakeSettingsOutput(args: GetDataLakeSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeSettingsResult> {
     return pulumi.output(args).apply(a => getDataLakeSettings(a, opts))
 }
 
 export interface GetDataLakeSettingsOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

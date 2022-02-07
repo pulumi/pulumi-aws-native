@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
  */
-export function getAccessPoint(args?: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-    args = args || {};
+export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAccessPointArgs {
     /**
      * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetAccessPointResult {
@@ -47,7 +46,7 @@ export interface GetAccessPointResult {
     readonly policyStatus?: outputs.s3.PolicyStatusProperties;
 }
 
-export function getAccessPointOutput(args?: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
+export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
     return pulumi.output(args).apply(a => getAccessPoint(a, opts))
 }
 
@@ -55,5 +54,5 @@ export interface GetAccessPointOutputArgs {
     /**
      * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

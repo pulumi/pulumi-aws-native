@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::Function
  */
-export function getFunction(args?: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
-    args = args || {};
+export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFunctionArgs {
     /**
      * The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
      */
-    functionName?: string;
+    functionName: string;
 }
 
 export interface GetFunctionResult {
@@ -107,7 +106,7 @@ export interface GetFunctionResult {
     readonly vpcConfig?: outputs.lambda.FunctionVpcConfig;
 }
 
-export function getFunctionOutput(args?: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
+export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
     return pulumi.output(args).apply(a => getFunction(a, opts))
 }
 
@@ -115,5 +114,5 @@ export interface GetFunctionOutputArgs {
     /**
      * The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
      */
-    functionName?: pulumi.Input<string>;
+    functionName: pulumi.Input<string>;
 }

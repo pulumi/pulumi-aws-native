@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SSMContacts::ContactChannel
  */
-export function getContactChannel(args?: GetContactChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetContactChannelResult> {
-    args = args || {};
+export function getContactChannel(args: GetContactChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetContactChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetContactChannelArgs {
     /**
      * The Amazon Resource Name (ARN) of the engagement to a contact channel.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetContactChannelResult {
@@ -45,7 +44,7 @@ export interface GetContactChannelResult {
     readonly deferActivation?: boolean;
 }
 
-export function getContactChannelOutput(args?: GetContactChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactChannelResult> {
+export function getContactChannelOutput(args: GetContactChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactChannelResult> {
     return pulumi.output(args).apply(a => getContactChannel(a, opts))
 }
 
@@ -53,5 +52,5 @@ export interface GetContactChannelOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the engagement to a contact channel.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

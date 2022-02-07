@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElastiCache::SubnetGroup
  */
-export function getSubnetGroup(args?: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
-    args = args || {};
+export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSubnetGroup(args?: GetSubnetGroupArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetSubnetGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSubnetGroupResult {
@@ -31,10 +30,10 @@ export interface GetSubnetGroupResult {
     readonly tags?: outputs.elasticache.SubnetGroupTag[];
 }
 
-export function getSubnetGroupOutput(args?: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
+export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
     return pulumi.output(args).apply(a => getSubnetGroup(a, opts))
 }
 
 export interface GetSubnetGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

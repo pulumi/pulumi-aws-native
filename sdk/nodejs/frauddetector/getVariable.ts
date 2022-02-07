@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A resource schema for a Variable in Amazon Fraud Detector.
  */
-export function getVariable(args?: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
-    args = args || {};
+export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetVariableArgs {
     /**
      * The ARN of the variable.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetVariableResult {
@@ -66,7 +65,7 @@ export interface GetVariableResult {
     readonly variableType?: enums.frauddetector.VariableType;
 }
 
-export function getVariableOutput(args?: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
+export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
     return pulumi.output(args).apply(a => getVariable(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetVariableOutputArgs {
     /**
      * The ARN of the variable.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

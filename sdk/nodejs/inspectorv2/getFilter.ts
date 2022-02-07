@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Inspector Filter resource schema
  */
-export function getFilter(args?: GetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFilterResult> {
-    args = args || {};
+export function getFilter(args: GetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFilterResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFilterArgs {
     /**
      * Findings filter ARN.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetFilterResult {
@@ -50,7 +49,7 @@ export interface GetFilterResult {
     readonly name?: string;
 }
 
-export function getFilterOutput(args?: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {
+export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {
     return pulumi.output(args).apply(a => getFilter(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetFilterOutputArgs {
     /**
      * Findings filter ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

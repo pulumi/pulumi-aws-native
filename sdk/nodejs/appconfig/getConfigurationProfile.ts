@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppConfig::ConfigurationProfile
  */
-export function getConfigurationProfile(args?: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
-    args = args || {};
+export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConfigurationProfile(args?: GetConfigurationProfileArgs, opts
 }
 
 export interface GetConfigurationProfileArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetConfigurationProfileResult {
@@ -33,10 +32,10 @@ export interface GetConfigurationProfileResult {
     readonly validators?: outputs.appconfig.ConfigurationProfileValidators[];
 }
 
-export function getConfigurationProfileOutput(args?: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
+export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
     return pulumi.output(args).apply(a => getConfigurationProfile(a, opts))
 }
 
 export interface GetConfigurationProfileOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

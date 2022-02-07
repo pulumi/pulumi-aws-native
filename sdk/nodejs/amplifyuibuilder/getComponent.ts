@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::AmplifyUIBuilder::Component Resource Type
  */
-export function getComponent(args?: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
-    args = args || {};
+export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,9 +22,9 @@ export function getComponent(args?: GetComponentArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetComponentArgs {
-    appId?: string;
-    environmentName?: string;
-    id?: string;
+    appId: string;
+    environmentName: string;
+    id: string;
 }
 
 export interface GetComponentResult {
@@ -45,12 +44,12 @@ export interface GetComponentResult {
     readonly variants?: outputs.amplifyuibuilder.ComponentVariant[];
 }
 
-export function getComponentOutput(args?: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
+export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
     return pulumi.output(args).apply(a => getComponent(a, opts))
 }
 
 export interface GetComponentOutputArgs {
-    appId?: pulumi.Input<string>;
-    environmentName?: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

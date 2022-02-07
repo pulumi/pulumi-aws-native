@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Events::ApiDestination.
  */
-export function getApiDestination(args?: GetApiDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDestinationResult> {
-    args = args || {};
+export function getApiDestination(args: GetApiDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDestinationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetApiDestinationArgs {
     /**
      * Name of the apiDestination.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetApiDestinationResult {
@@ -45,7 +44,7 @@ export interface GetApiDestinationResult {
     readonly invocationRateLimitPerSecond?: number;
 }
 
-export function getApiDestinationOutput(args?: GetApiDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDestinationResult> {
+export function getApiDestinationOutput(args: GetApiDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDestinationResult> {
     return pulumi.output(args).apply(a => getApiDestination(a, opts))
 }
 
@@ -53,5 +52,5 @@ export interface GetApiDestinationOutputArgs {
     /**
      * Name of the apiDestination.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

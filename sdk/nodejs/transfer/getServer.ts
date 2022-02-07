@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Transfer::Server
  */
-export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-    args = args || {};
+export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getServer(args?: GetServerArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetServerArgs {
-    serverId?: string;
+    serverId: string;
 }
 
 export interface GetServerResult {
@@ -39,10 +38,10 @@ export interface GetServerResult {
     readonly workflowDetails?: outputs.transfer.ServerWorkflowDetails;
 }
 
-export function getServerOutput(args?: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply(a => getServer(a, opts))
 }
 
 export interface GetServerOutputArgs {
-    serverId?: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
 }

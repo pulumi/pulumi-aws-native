@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
  */
-export function getGlobalTable(args?: GetGlobalTableArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalTableResult> {
-    args = args || {};
+export function getGlobalTable(args: GetGlobalTableArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalTableResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getGlobalTable(args?: GetGlobalTableArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetGlobalTableArgs {
-    tableName?: string;
+    tableName: string;
 }
 
 export interface GetGlobalTableResult {
@@ -38,10 +37,10 @@ export interface GetGlobalTableResult {
     readonly writeProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableWriteProvisionedThroughputSettings;
 }
 
-export function getGlobalTableOutput(args?: GetGlobalTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalTableResult> {
+export function getGlobalTableOutput(args: GetGlobalTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalTableResult> {
     return pulumi.output(args).apply(a => getGlobalTable(a, opts))
 }
 
 export interface GetGlobalTableOutputArgs {
-    tableName?: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
 }

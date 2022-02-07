@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
  */
-export function getModelExplainabilityJobDefinition(args?: GetModelExplainabilityJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelExplainabilityJobDefinitionResult> {
-    args = args || {};
+export function getModelExplainabilityJobDefinition(args: GetModelExplainabilityJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelExplainabilityJobDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetModelExplainabilityJobDefinitionArgs {
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    jobDefinitionArn?: string;
+    jobDefinitionArn: string;
 }
 
 export interface GetModelExplainabilityJobDefinitionResult {
@@ -37,7 +36,7 @@ export interface GetModelExplainabilityJobDefinitionResult {
     readonly jobDefinitionArn?: string;
 }
 
-export function getModelExplainabilityJobDefinitionOutput(args?: GetModelExplainabilityJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelExplainabilityJobDefinitionResult> {
+export function getModelExplainabilityJobDefinitionOutput(args: GetModelExplainabilityJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelExplainabilityJobDefinitionResult> {
     return pulumi.output(args).apply(a => getModelExplainabilityJobDefinition(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetModelExplainabilityJobDefinitionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    jobDefinitionArn?: pulumi.Input<string>;
+    jobDefinitionArn: pulumi.Input<string>;
 }

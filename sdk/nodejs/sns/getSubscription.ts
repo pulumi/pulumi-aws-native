@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SNS::Subscription
  */
-export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
-    args = args || {};
+export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.Invoke
 }
 
 export interface GetSubscriptionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSubscriptionResult {
@@ -33,10 +32,10 @@ export interface GetSubscriptionResult {
     readonly subscriptionRoleArn?: string;
 }
 
-export function getSubscriptionOutput(args?: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
+export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
     return pulumi.output(args).apply(a => getSubscription(a, opts))
 }
 
 export interface GetSubscriptionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

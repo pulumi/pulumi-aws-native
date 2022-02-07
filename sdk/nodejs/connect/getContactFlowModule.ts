@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Connect::ContactFlowModule.
  */
-export function getContactFlowModule(args?: GetContactFlowModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowModuleResult> {
-    args = args || {};
+export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowModuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetContactFlowModuleArgs {
     /**
      * The identifier of the contact flow module (ARN).
      */
-    contactFlowModuleArn?: string;
+    contactFlowModuleArn: string;
 }
 
 export interface GetContactFlowModuleResult {
@@ -62,7 +61,7 @@ export interface GetContactFlowModuleResult {
     readonly tags?: outputs.connect.ContactFlowModuleTag[];
 }
 
-export function getContactFlowModuleOutput(args?: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowModuleResult> {
+export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowModuleResult> {
     return pulumi.output(args).apply(a => getContactFlowModule(a, opts))
 }
 
@@ -70,5 +69,5 @@ export interface GetContactFlowModuleOutputArgs {
     /**
      * The identifier of the contact flow module (ARN).
      */
-    contactFlowModuleArn?: pulumi.Input<string>;
+    contactFlowModuleArn: pulumi.Input<string>;
 }

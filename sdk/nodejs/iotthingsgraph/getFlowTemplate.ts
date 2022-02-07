@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
  */
-export function getFlowTemplate(args?: GetFlowTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowTemplateResult> {
-    args = args || {};
+export function getFlowTemplate(args: GetFlowTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFlowTemplate(args?: GetFlowTemplateArgs, opts?: pulumi.Invoke
 }
 
 export interface GetFlowTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetFlowTemplateResult {
@@ -30,10 +29,10 @@ export interface GetFlowTemplateResult {
     readonly id?: string;
 }
 
-export function getFlowTemplateOutput(args?: GetFlowTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowTemplateResult> {
+export function getFlowTemplateOutput(args: GetFlowTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowTemplateResult> {
     return pulumi.output(args).apply(a => getFlowTemplate(a, opts))
 }
 
 export interface GetFlowTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudWatch::AnomalyDetector
  */
-export function getAnomalyDetector(args?: GetAnomalyDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalyDetectorResult> {
-    args = args || {};
+export function getAnomalyDetector(args: GetAnomalyDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalyDetectorResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAnomalyDetector(args?: GetAnomalyDetectorArgs, opts?: pulumi.
 }
 
 export interface GetAnomalyDetectorArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAnomalyDetectorResult {
@@ -29,10 +28,10 @@ export interface GetAnomalyDetectorResult {
     readonly id?: string;
 }
 
-export function getAnomalyDetectorOutput(args?: GetAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyDetectorResult> {
+export function getAnomalyDetectorOutput(args: GetAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyDetectorResult> {
     return pulumi.output(args).apply(a => getAnomalyDetector(a, opts))
 }
 
 export interface GetAnomalyDetectorOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

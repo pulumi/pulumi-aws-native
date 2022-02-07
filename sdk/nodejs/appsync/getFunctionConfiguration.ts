@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppSync::FunctionConfiguration
  */
-export function getFunctionConfiguration(args?: GetFunctionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionConfigurationResult> {
-    args = args || {};
+export function getFunctionConfiguration(args: GetFunctionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFunctionConfiguration(args?: GetFunctionConfigurationArgs, op
 }
 
 export interface GetFunctionConfigurationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetFunctionConfigurationResult {
@@ -40,10 +39,10 @@ export interface GetFunctionConfigurationResult {
     readonly syncConfig?: outputs.appsync.FunctionConfigurationSyncConfig;
 }
 
-export function getFunctionConfigurationOutput(args?: GetFunctionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionConfigurationResult> {
+export function getFunctionConfigurationOutput(args: GetFunctionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionConfigurationResult> {
     return pulumi.output(args).apply(a => getFunctionConfiguration(a, opts))
 }
 
 export interface GetFunctionConfigurationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

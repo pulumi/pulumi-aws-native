@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GameLift::MatchmakingConfiguration
  */
-export function getMatchmakingConfiguration(args?: GetMatchmakingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMatchmakingConfigurationResult> {
-    args = args || {};
+export function getMatchmakingConfiguration(args: GetMatchmakingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMatchmakingConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getMatchmakingConfiguration(args?: GetMatchmakingConfigurationAr
 }
 
 export interface GetMatchmakingConfigurationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMatchmakingConfigurationResult {
@@ -43,10 +42,10 @@ export interface GetMatchmakingConfigurationResult {
     readonly tags?: outputs.gamelift.MatchmakingConfigurationTag[];
 }
 
-export function getMatchmakingConfigurationOutput(args?: GetMatchmakingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchmakingConfigurationResult> {
+export function getMatchmakingConfigurationOutput(args: GetMatchmakingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchmakingConfigurationResult> {
     return pulumi.output(args).apply(a => getMatchmakingConfiguration(a, opts))
 }
 
 export interface GetMatchmakingConfigurationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An label for fraud detector.
  */
-export function getLabel(args?: GetLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelResult> {
-    args = args || {};
+export function getLabel(args: GetLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLabelArgs {
     /**
      * The label ARN.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetLabelResult {
@@ -50,7 +49,7 @@ export interface GetLabelResult {
     readonly tags?: outputs.frauddetector.LabelTag[];
 }
 
-export function getLabelOutput(args?: GetLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelResult> {
+export function getLabelOutput(args: GetLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelResult> {
     return pulumi.output(args).apply(a => getLabel(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetLabelOutputArgs {
     /**
      * The label ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

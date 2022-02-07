@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
  */
-export function getInfrastructureConfiguration(args?: GetInfrastructureConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationResult> {
-    args = args || {};
+export function getInfrastructureConfiguration(args: GetInfrastructureConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetInfrastructureConfigurationArgs {
     /**
      * The Amazon Resource Name (ARN) of the infrastructure configuration.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetInfrastructureConfigurationResult {
@@ -82,7 +81,7 @@ export interface GetInfrastructureConfigurationResult {
     readonly terminateInstanceOnFailure?: boolean;
 }
 
-export function getInfrastructureConfigurationOutput(args?: GetInfrastructureConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationResult> {
+export function getInfrastructureConfigurationOutput(args: GetInfrastructureConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationResult> {
     return pulumi.output(args).apply(a => getInfrastructureConfiguration(a, opts))
 }
 
@@ -90,5 +89,5 @@ export interface GetInfrastructureConfigurationOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the infrastructure configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

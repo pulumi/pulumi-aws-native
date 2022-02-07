@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RDS::DBSecurityGroup
  */
-export function getDBSecurityGroup(args?: GetDBSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSecurityGroupResult> {
-    args = args || {};
+export function getDBSecurityGroup(args: GetDBSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSecurityGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDBSecurityGroup(args?: GetDBSecurityGroupArgs, opts?: pulumi.
 }
 
 export interface GetDBSecurityGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDBSecurityGroupResult {
@@ -30,10 +29,10 @@ export interface GetDBSecurityGroupResult {
     readonly tags?: outputs.rds.DBSecurityGroupTag[];
 }
 
-export function getDBSecurityGroupOutput(args?: GetDBSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSecurityGroupResult> {
+export function getDBSecurityGroupOutput(args: GetDBSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSecurityGroupResult> {
     return pulumi.output(args).apply(a => getDBSecurityGroup(a, opts))
 }
 
 export interface GetDBSecurityGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

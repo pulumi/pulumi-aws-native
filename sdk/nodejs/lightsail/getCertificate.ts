@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    args = args || {};
+export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetCertificateArgs {
     /**
      * The name for the certificate.
      */
-    certificateName?: string;
+    certificateName: string;
 }
 
 export interface GetCertificateResult {
@@ -39,7 +38,7 @@ export interface GetCertificateResult {
     readonly tags?: outputs.lightsail.CertificateTag[];
 }
 
-export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply(a => getCertificate(a, opts))
 }
 
@@ -47,5 +46,5 @@ export interface GetCertificateOutputArgs {
     /**
      * The name for the certificate.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName: pulumi.Input<string>;
 }

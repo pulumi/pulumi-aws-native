@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Schema for ResourceGroups::Group
  */
-export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-    args = args || {};
+export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetGroupArgs {
     /**
      * The name of the resource group
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetGroupResult {
@@ -42,7 +41,7 @@ export interface GetGroupResult {
     readonly tags?: outputs.resourcegroups.GroupTag[];
 }
 
-export function getGroupOutput(args?: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply(a => getGroup(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetGroupOutputArgs {
     /**
      * The name of the resource group
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

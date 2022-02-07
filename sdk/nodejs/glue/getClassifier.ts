@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::Classifier
  */
-export function getClassifier(args?: GetClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetClassifierResult> {
-    args = args || {};
+export function getClassifier(args: GetClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetClassifierResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getClassifier(args?: GetClassifierArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetClassifierArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetClassifierResult {
@@ -32,10 +31,10 @@ export interface GetClassifierResult {
     readonly xMLClassifier?: outputs.glue.ClassifierXMLClassifier;
 }
 
-export function getClassifierOutput(args?: GetClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClassifierResult> {
+export function getClassifierOutput(args: GetClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClassifierResult> {
     return pulumi.output(args).apply(a => getClassifier(a, opts))
 }
 
 export interface GetClassifierOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::Instance
  */
-export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-    args = args || {};
+export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetInstanceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetInstanceResult {
@@ -53,10 +52,10 @@ export interface GetInstanceResult {
     readonly volumes?: outputs.ec2.InstanceVolume[];
 }
 
-export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply(a => getInstance(a, opts))
 }
 
 export interface GetInstanceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

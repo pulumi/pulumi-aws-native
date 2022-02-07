@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
  */
-export function getRegexPatternSet(args?: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
-    args = args || {};
+export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -26,15 +25,15 @@ export interface GetRegexPatternSetArgs {
     /**
      * Id of the RegexPatternSet
      */
-    id?: string;
+    id: string;
     /**
      * Name of the RegexPatternSet.
      */
-    name?: string;
+    name: string;
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
-    scope?: enums.wafv2.RegexPatternSetScope;
+    scope: enums.wafv2.RegexPatternSetScope;
 }
 
 export interface GetRegexPatternSetResult {
@@ -54,7 +53,7 @@ export interface GetRegexPatternSetResult {
     readonly tags?: outputs.wafv2.RegexPatternSetTag[];
 }
 
-export function getRegexPatternSetOutput(args?: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegexPatternSetResult> {
+export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegexPatternSetResult> {
     return pulumi.output(args).apply(a => getRegexPatternSet(a, opts))
 }
 
@@ -62,13 +61,13 @@ export interface GetRegexPatternSetOutputArgs {
     /**
      * Id of the RegexPatternSet
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
     /**
      * Name of the RegexPatternSet.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
-    scope?: pulumi.Input<enums.wafv2.RegexPatternSetScope>;
+    scope: pulumi.Input<enums.wafv2.RegexPatternSetScope>;
 }

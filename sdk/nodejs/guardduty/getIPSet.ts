@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GuardDuty::IPSet
  */
-export function getIPSet(args?: GetIPSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIPSetResult> {
-    args = args || {};
+export function getIPSet(args: GetIPSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIPSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getIPSet(args?: GetIPSetArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetIPSetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetIPSetResult {
@@ -30,10 +29,10 @@ export interface GetIPSetResult {
     readonly name?: string;
 }
 
-export function getIPSetOutput(args?: GetIPSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSetResult> {
+export function getIPSetOutput(args: GetIPSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSetResult> {
     return pulumi.output(args).apply(a => getIPSet(a, opts))
 }
 
 export interface GetIPSetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

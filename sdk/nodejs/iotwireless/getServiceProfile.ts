@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getServiceProfile(args?: GetServiceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceProfileResult> {
-    args = args || {};
+export function getServiceProfile(args: GetServiceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetServiceProfileArgs {
     /**
      * Service profile Id. Returned after successful create.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetServiceProfileResult {
@@ -50,7 +49,7 @@ export interface GetServiceProfileResult {
     readonly tags?: outputs.iotwireless.ServiceProfileTag[];
 }
 
-export function getServiceProfileOutput(args?: GetServiceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceProfileResult> {
+export function getServiceProfileOutput(args: GetServiceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceProfileResult> {
     return pulumi.output(args).apply(a => getServiceProfile(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetServiceProfileOutputArgs {
     /**
      * Service profile Id. Returned after successful create.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

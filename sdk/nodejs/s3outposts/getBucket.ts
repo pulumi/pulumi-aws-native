@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type Definition for AWS::S3Outposts::Bucket
  */
-export function getBucket(args?: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
-    args = args || {};
+export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetBucketArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified bucket.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetBucketResult {
@@ -42,7 +41,7 @@ export interface GetBucketResult {
     readonly tags?: outputs.s3outposts.BucketTag[];
 }
 
-export function getBucketOutput(args?: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
+export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
     return pulumi.output(args).apply(a => getBucket(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetBucketOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the specified bucket.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

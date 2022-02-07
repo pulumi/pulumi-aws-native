@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
  */
-export function getAnalyzer(args?: GetAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyzerResult> {
-    args = args || {};
+export function getAnalyzer(args: GetAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyzerResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAnalyzerArgs {
     /**
      * Amazon Resource Name (ARN) of the analyzer
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetAnalyzerResult {
@@ -39,7 +38,7 @@ export interface GetAnalyzerResult {
     readonly tags?: outputs.accessanalyzer.AnalyzerTag[];
 }
 
-export function getAnalyzerOutput(args?: GetAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyzerResult> {
+export function getAnalyzerOutput(args: GetAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyzerResult> {
     return pulumi.output(args).apply(a => getAnalyzer(a, opts))
 }
 
@@ -47,5 +46,5 @@ export interface GetAnalyzerOutputArgs {
     /**
      * Amazon Resource Name (ARN) of the analyzer
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

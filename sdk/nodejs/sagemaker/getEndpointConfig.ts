@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::EndpointConfig
  */
-export function getEndpointConfig(args?: GetEndpointConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointConfigResult> {
-    args = args || {};
+export function getEndpointConfig(args: GetEndpointConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getEndpointConfig(args?: GetEndpointConfigArgs, opts?: pulumi.In
 }
 
 export interface GetEndpointConfigArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEndpointConfigResult {
@@ -29,10 +28,10 @@ export interface GetEndpointConfigResult {
     readonly tags?: outputs.sagemaker.EndpointConfigTag[];
 }
 
-export function getEndpointConfigOutput(args?: GetEndpointConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointConfigResult> {
+export function getEndpointConfigOutput(args: GetEndpointConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointConfigResult> {
     return pulumi.output(args).apply(a => getEndpointConfig(a, opts))
 }
 
 export interface GetEndpointConfigOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

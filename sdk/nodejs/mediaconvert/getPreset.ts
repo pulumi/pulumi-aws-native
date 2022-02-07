@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MediaConvert::Preset
  */
-export function getPreset(args?: GetPresetArgs, opts?: pulumi.InvokeOptions): Promise<GetPresetResult> {
-    args = args || {};
+export function getPreset(args: GetPresetArgs, opts?: pulumi.InvokeOptions): Promise<GetPresetResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getPreset(args?: GetPresetArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetPresetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPresetResult {
@@ -32,10 +31,10 @@ export interface GetPresetResult {
     readonly tags?: any;
 }
 
-export function getPresetOutput(args?: GetPresetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPresetResult> {
+export function getPresetOutput(args: GetPresetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPresetResult> {
     return pulumi.output(args).apply(a => getPreset(a, opts))
 }
 
 export interface GetPresetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

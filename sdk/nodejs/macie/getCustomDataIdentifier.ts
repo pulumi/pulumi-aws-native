@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Macie CustomDataIdentifier resource schema
  */
-export function getCustomDataIdentifier(args?: GetCustomDataIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDataIdentifierResult> {
-    args = args || {};
+export function getCustomDataIdentifier(args: GetCustomDataIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDataIdentifierResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetCustomDataIdentifierArgs {
     /**
      * Custom data identifier ID.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetCustomDataIdentifierResult {
@@ -37,7 +36,7 @@ export interface GetCustomDataIdentifierResult {
     readonly id?: string;
 }
 
-export function getCustomDataIdentifierOutput(args?: GetCustomDataIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDataIdentifierResult> {
+export function getCustomDataIdentifierOutput(args: GetCustomDataIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDataIdentifierResult> {
     return pulumi.output(args).apply(a => getCustomDataIdentifier(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetCustomDataIdentifierOutputArgs {
     /**
      * Custom data identifier ID.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

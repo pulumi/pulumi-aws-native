@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::Alias
  */
-export function getAlias(args?: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-    args = args || {};
+export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAlias(args?: GetAliasArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetAliasArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAliasResult {
@@ -32,10 +31,10 @@ export interface GetAliasResult {
     readonly routingConfig?: outputs.lambda.AliasRoutingConfiguration;
 }
 
-export function getAliasOutput(args?: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
     return pulumi.output(args).apply(a => getAlias(a, opts))
 }
 
 export interface GetAliasOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

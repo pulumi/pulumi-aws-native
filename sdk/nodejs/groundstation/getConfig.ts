@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Ground Station config resource type for CloudFormation.
  */
-export function getConfig(args?: GetConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigResult> {
-    args = args || {};
+export function getConfig(args: GetConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConfig(args?: GetConfigArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetConfigArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetConfigResult {
@@ -33,10 +32,10 @@ export interface GetConfigResult {
     readonly type?: string;
 }
 
-export function getConfigOutput(args?: GetConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigResult> {
+export function getConfigOutput(args: GetConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigResult> {
     return pulumi.output(args).apply(a => getConfig(a, opts))
 }
 
 export interface GetConfigOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

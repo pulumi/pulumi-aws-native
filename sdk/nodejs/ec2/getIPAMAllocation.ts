@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema of AWS::EC2::IPAMAllocation Type
  */
-export function getIPAMAllocation(args?: GetIPAMAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMAllocationResult> {
-    args = args || {};
+export function getIPAMAllocation(args: GetIPAMAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMAllocationResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,15 +21,15 @@ export function getIPAMAllocation(args?: GetIPAMAllocationArgs, opts?: pulumi.In
 }
 
 export interface GetIPAMAllocationArgs {
-    cidr?: string;
+    cidr: string;
     /**
      * Id of the allocation.
      */
-    ipamPoolAllocationId?: string;
+    ipamPoolAllocationId: string;
     /**
      * Id of the IPAM Pool.
      */
-    ipamPoolId?: string;
+    ipamPoolId: string;
 }
 
 export interface GetIPAMAllocationResult {
@@ -40,18 +39,18 @@ export interface GetIPAMAllocationResult {
     readonly ipamPoolAllocationId?: string;
 }
 
-export function getIPAMAllocationOutput(args?: GetIPAMAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMAllocationResult> {
+export function getIPAMAllocationOutput(args: GetIPAMAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMAllocationResult> {
     return pulumi.output(args).apply(a => getIPAMAllocation(a, opts))
 }
 
 export interface GetIPAMAllocationOutputArgs {
-    cidr?: pulumi.Input<string>;
+    cidr: pulumi.Input<string>;
     /**
      * Id of the allocation.
      */
-    ipamPoolAllocationId?: pulumi.Input<string>;
+    ipamPoolAllocationId: pulumi.Input<string>;
     /**
      * Id of the IPAM Pool.
      */
-    ipamPoolId?: pulumi.Input<string>;
+    ipamPoolId: pulumi.Input<string>;
 }

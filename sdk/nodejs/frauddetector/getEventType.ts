@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A resource schema for an EventType in Amazon Fraud Detector.
  */
-export function getEventType(args?: GetEventTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEventTypeResult> {
-    args = args || {};
+export function getEventType(args: GetEventTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEventTypeResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetEventTypeArgs {
     /**
      * The ARN of the event type.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetEventTypeResult {
@@ -53,7 +52,7 @@ export interface GetEventTypeResult {
     readonly tags?: outputs.frauddetector.EventTypeTag[];
 }
 
-export function getEventTypeOutput(args?: GetEventTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventTypeResult> {
+export function getEventTypeOutput(args: GetEventTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventTypeResult> {
     return pulumi.output(args).apply(a => getEventType(a, opts))
 }
 
@@ -61,5 +60,5 @@ export interface GetEventTypeOutputArgs {
     /**
      * The ARN of the event type.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

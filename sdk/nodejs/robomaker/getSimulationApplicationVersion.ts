@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getSimulationApplicationVersion(args?: GetSimulationApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationVersionResult> {
-    args = args || {};
+export function getSimulationApplicationVersion(args: GetSimulationApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getSimulationApplicationVersion(args?: GetSimulationApplicationV
 }
 
 export interface GetSimulationApplicationVersionArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetSimulationApplicationVersionResult {
@@ -28,10 +27,10 @@ export interface GetSimulationApplicationVersionResult {
     readonly arn?: string;
 }
 
-export function getSimulationApplicationVersionOutput(args?: GetSimulationApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationVersionResult> {
+export function getSimulationApplicationVersionOutput(args: GetSimulationApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationVersionResult> {
     return pulumi.output(args).apply(a => getSimulationApplicationVersion(a, opts))
 }
 
 export interface GetSimulationApplicationVersionOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

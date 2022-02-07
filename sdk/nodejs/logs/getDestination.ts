@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Logs::Destination
  */
-export function getDestination(args?: GetDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetDestinationResult> {
-    args = args || {};
+export function getDestination(args: GetDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetDestinationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDestination(args?: GetDestinationArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetDestinationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDestinationResult {
@@ -31,10 +30,10 @@ export interface GetDestinationResult {
     readonly targetArn?: string;
 }
 
-export function getDestinationOutput(args?: GetDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDestinationResult> {
+export function getDestinationOutput(args: GetDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDestinationResult> {
     return pulumi.output(args).apply(a => getDestination(a, opts))
 }
 
 export interface GetDestinationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

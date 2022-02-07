@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WAFRegional::SqlInjectionMatchSet
  */
-export function getSqlInjectionMatchSet(args?: GetSqlInjectionMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlInjectionMatchSetResult> {
-    args = args || {};
+export function getSqlInjectionMatchSet(args: GetSqlInjectionMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlInjectionMatchSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSqlInjectionMatchSet(args?: GetSqlInjectionMatchSetArgs, opts
 }
 
 export interface GetSqlInjectionMatchSetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSqlInjectionMatchSetResult {
@@ -29,10 +28,10 @@ export interface GetSqlInjectionMatchSetResult {
     readonly sqlInjectionMatchTuples?: outputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple[];
 }
 
-export function getSqlInjectionMatchSetOutput(args?: GetSqlInjectionMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlInjectionMatchSetResult> {
+export function getSqlInjectionMatchSetOutput(args: GetSqlInjectionMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlInjectionMatchSetResult> {
     return pulumi.output(args).apply(a => getSqlInjectionMatchSet(a, opts))
 }
 
 export interface GetSqlInjectionMatchSetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

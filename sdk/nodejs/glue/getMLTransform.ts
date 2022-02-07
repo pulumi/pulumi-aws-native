@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::MLTransform
  */
-export function getMLTransform(args?: GetMLTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetMLTransformResult> {
-    args = args || {};
+export function getMLTransform(args: GetMLTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetMLTransformResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getMLTransform(args?: GetMLTransformArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetMLTransformArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMLTransformResult {
@@ -40,10 +39,10 @@ export interface GetMLTransformResult {
     readonly workerType?: string;
 }
 
-export function getMLTransformOutput(args?: GetMLTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLTransformResult> {
+export function getMLTransformOutput(args: GetMLTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLTransformResult> {
     return pulumi.output(args).apply(a => getMLTransform(a, opts))
 }
 
 export interface GetMLTransformOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

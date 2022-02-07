@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MemoryDB::ACL
  */
-export function getACL(args?: GetACLArgs, opts?: pulumi.InvokeOptions): Promise<GetACLResult> {
-    args = args || {};
+export function getACL(args: GetACLArgs, opts?: pulumi.InvokeOptions): Promise<GetACLResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetACLArgs {
     /**
      * The name of the acl.
      */
-    aCLName?: string;
+    aCLName: string;
 }
 
 export interface GetACLResult {
@@ -46,7 +45,7 @@ export interface GetACLResult {
     readonly userNames?: string[];
 }
 
-export function getACLOutput(args?: GetACLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACLResult> {
+export function getACLOutput(args: GetACLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACLResult> {
     return pulumi.output(args).apply(a => getACL(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetACLOutputArgs {
     /**
      * The name of the acl.
      */
-    aCLName?: pulumi.Input<string>;
+    aCLName: pulumi.Input<string>;
 }

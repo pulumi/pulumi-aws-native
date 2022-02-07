@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for Metric Stream
  */
-export function getMetricStream(args?: GetMetricStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricStreamResult> {
-    args = args || {};
+export function getMetricStream(args: GetMetricStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricStreamResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetMetricStreamArgs {
     /**
      * Name of the metric stream.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetMetricStreamResult {
@@ -66,7 +65,7 @@ export interface GetMetricStreamResult {
     readonly state?: string;
 }
 
-export function getMetricStreamOutput(args?: GetMetricStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricStreamResult> {
+export function getMetricStreamOutput(args: GetMetricStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricStreamResult> {
     return pulumi.output(args).apply(a => getMetricStream(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetMetricStreamOutputArgs {
     /**
      * Name of the metric stream.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

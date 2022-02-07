@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceCatalog::TagOption
  */
-export function getTagOption(args?: GetTagOptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTagOptionResult> {
-    args = args || {};
+export function getTagOption(args: GetTagOptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTagOptionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getTagOption(args?: GetTagOptionArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetTagOptionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTagOptionResult {
@@ -28,10 +27,10 @@ export interface GetTagOptionResult {
     readonly id?: string;
 }
 
-export function getTagOptionOutput(args?: GetTagOptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagOptionResult> {
+export function getTagOptionOutput(args: GetTagOptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagOptionResult> {
     return pulumi.output(args).apply(a => getTagOption(a, opts))
 }
 
 export interface GetTagOptionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IoT1Click::Device
  */
-export function getDevice(args?: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-    args = args || {};
+export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDevice(args?: GetDeviceArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetDeviceArgs {
-    deviceId?: string;
+    deviceId: string;
 }
 
 export interface GetDeviceResult {
@@ -28,10 +27,10 @@ export interface GetDeviceResult {
     readonly enabled?: boolean;
 }
 
-export function getDeviceOutput(args?: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
+export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply(a => getDevice(a, opts))
 }
 
 export interface GetDeviceOutputArgs {
-    deviceId?: pulumi.Input<string>;
+    deviceId: pulumi.Input<string>;
 }

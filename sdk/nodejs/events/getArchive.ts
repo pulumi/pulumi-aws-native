@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Events::Archive
  */
-export function getArchive(args?: GetArchiveArgs, opts?: pulumi.InvokeOptions): Promise<GetArchiveResult> {
-    args = args || {};
+export function getArchive(args: GetArchiveArgs, opts?: pulumi.InvokeOptions): Promise<GetArchiveResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getArchive(args?: GetArchiveArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetArchiveArgs {
-    archiveName?: string;
+    archiveName: string;
 }
 
 export interface GetArchiveResult {
@@ -30,10 +29,10 @@ export interface GetArchiveResult {
     readonly retentionDays?: number;
 }
 
-export function getArchiveOutput(args?: GetArchiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchiveResult> {
+export function getArchiveOutput(args: GetArchiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchiveResult> {
     return pulumi.output(args).apply(a => getArchive(a, opts))
 }
 
 export interface GetArchiveOutputArgs {
-    archiveName?: pulumi.Input<string>;
+    archiveName: pulumi.Input<string>;
 }

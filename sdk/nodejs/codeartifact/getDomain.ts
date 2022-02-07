@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The resource schema to create a CodeArtifact domain.
  */
-export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    args = args || {};
+export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDomainArgs {
     /**
      * The ARN of the domain.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetDomainResult {
@@ -50,7 +49,7 @@ export interface GetDomainResult {
     readonly tags?: outputs.codeartifact.DomainTag[];
 }
 
-export function getDomainOutput(args?: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply(a => getDomain(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetDomainOutputArgs {
     /**
      * The ARN of the domain.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

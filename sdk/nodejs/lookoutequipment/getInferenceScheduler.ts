@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for LookoutEquipment InferenceScheduler.
  */
-export function getInferenceScheduler(args?: GetInferenceSchedulerArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceSchedulerResult> {
-    args = args || {};
+export function getInferenceScheduler(args: GetInferenceSchedulerArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceSchedulerResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetInferenceSchedulerArgs {
     /**
      * The name of the inference scheduler being created.
      */
-    inferenceSchedulerName?: string;
+    inferenceSchedulerName: string;
 }
 
 export interface GetInferenceSchedulerResult {
@@ -58,7 +57,7 @@ export interface GetInferenceSchedulerResult {
     readonly tags?: outputs.lookoutequipment.InferenceSchedulerTag[];
 }
 
-export function getInferenceSchedulerOutput(args?: GetInferenceSchedulerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceSchedulerResult> {
+export function getInferenceSchedulerOutput(args: GetInferenceSchedulerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceSchedulerResult> {
     return pulumi.output(args).apply(a => getInferenceScheduler(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetInferenceSchedulerOutputArgs {
     /**
      * The name of the inference scheduler being created.
      */
-    inferenceSchedulerName?: pulumi.Input<string>;
+    inferenceSchedulerName: pulumi.Input<string>;
 }

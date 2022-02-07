@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AmazonMQ::Broker
  */
-export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
-    args = args || {};
+export function getBroker(args: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetBrokerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetBrokerResult {
@@ -47,10 +46,10 @@ export interface GetBrokerResult {
     readonly wssEndpoints?: string[];
 }
 
-export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
+export function getBrokerOutput(args: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
     return pulumi.output(args).apply(a => getBroker(a, opts))
 }
 
 export interface GetBrokerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

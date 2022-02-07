@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RDS::GlobalCluster
  */
-export function getGlobalCluster(args?: GetGlobalClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalClusterResult> {
-    args = args || {};
+export function getGlobalCluster(args: GetGlobalClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetGlobalClusterArgs {
     /**
      * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
      */
-    globalClusterIdentifier?: string;
+    globalClusterIdentifier: string;
 }
 
 export interface GetGlobalClusterResult {
@@ -33,7 +32,7 @@ export interface GetGlobalClusterResult {
     readonly deletionProtection?: boolean;
 }
 
-export function getGlobalClusterOutput(args?: GetGlobalClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalClusterResult> {
+export function getGlobalClusterOutput(args: GetGlobalClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalClusterResult> {
     return pulumi.output(args).apply(a => getGlobalCluster(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetGlobalClusterOutputArgs {
     /**
      * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
      */
-    globalClusterIdentifier?: pulumi.Input<string>;
+    globalClusterIdentifier: pulumi.Input<string>;
 }

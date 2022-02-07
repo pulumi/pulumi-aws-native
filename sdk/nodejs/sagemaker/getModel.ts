@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::Model
  */
-export function getModel(args?: GetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetModelResult> {
-    args = args || {};
+export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetModelResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getModel(args?: GetModelArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetModelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetModelResult {
@@ -29,10 +28,10 @@ export interface GetModelResult {
     readonly tags?: outputs.sagemaker.ModelTag[];
 }
 
-export function getModelOutput(args?: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
+export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
     return pulumi.output(args).apply(a => getModel(a, opts))
 }
 
 export interface GetModelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

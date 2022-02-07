@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Aws Route53 Recovery Readiness Check Schema and API specification.
  */
-export function getReadinessCheck(args?: GetReadinessCheckArgs, opts?: pulumi.InvokeOptions): Promise<GetReadinessCheckResult> {
-    args = args || {};
+export function getReadinessCheck(args: GetReadinessCheckArgs, opts?: pulumi.InvokeOptions): Promise<GetReadinessCheckResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetReadinessCheckArgs {
     /**
      * Name of the ReadinessCheck to create.
      */
-    readinessCheckName?: string;
+    readinessCheckName: string;
 }
 
 export interface GetReadinessCheckResult {
@@ -42,7 +41,7 @@ export interface GetReadinessCheckResult {
     readonly tags?: outputs.route53recoveryreadiness.ReadinessCheckTag[];
 }
 
-export function getReadinessCheckOutput(args?: GetReadinessCheckOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadinessCheckResult> {
+export function getReadinessCheckOutput(args: GetReadinessCheckOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadinessCheckResult> {
     return pulumi.output(args).apply(a => getReadinessCheck(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetReadinessCheckOutputArgs {
     /**
      * Name of the ReadinessCheck to create.
      */
-    readinessCheckName?: pulumi.Input<string>;
+    readinessCheckName: pulumi.Input<string>;
 }

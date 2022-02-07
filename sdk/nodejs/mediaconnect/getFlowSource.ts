@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaConnect::FlowSource
  */
-export function getFlowSource(args?: GetFlowSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowSourceResult> {
-    args = args || {};
+export function getFlowSource(args: GetFlowSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowSourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFlowSourceArgs {
     /**
      * The ARN of the source.
      */
-    sourceArn?: string;
+    sourceArn: string;
 }
 
 export interface GetFlowSourceResult {
@@ -86,7 +85,7 @@ export interface GetFlowSourceResult {
     readonly whitelistCidr?: string;
 }
 
-export function getFlowSourceOutput(args?: GetFlowSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowSourceResult> {
+export function getFlowSourceOutput(args: GetFlowSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowSourceResult> {
     return pulumi.output(args).apply(a => getFlowSource(a, opts))
 }
 
@@ -94,5 +93,5 @@ export interface GetFlowSourceOutputArgs {
     /**
      * The ARN of the source.
      */
-    sourceArn?: pulumi.Input<string>;
+    sourceArn: pulumi.Input<string>;
 }

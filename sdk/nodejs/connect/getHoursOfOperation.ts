@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Connect::HoursOfOperation
  */
-export function getHoursOfOperation(args?: GetHoursOfOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHoursOfOperationResult> {
-    args = args || {};
+export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHoursOfOperationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetHoursOfOperationArgs {
     /**
      * The Amazon Resource Name (ARN) for the hours of operation.
      */
-    hoursOfOperationArn?: string;
+    hoursOfOperationArn: string;
 }
 
 export interface GetHoursOfOperationResult {
@@ -58,7 +57,7 @@ export interface GetHoursOfOperationResult {
     readonly timeZone?: string;
 }
 
-export function getHoursOfOperationOutput(args?: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHoursOfOperationResult> {
+export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHoursOfOperationResult> {
     return pulumi.output(args).apply(a => getHoursOfOperation(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetHoursOfOperationOutputArgs {
     /**
      * The Amazon Resource Name (ARN) for the hours of operation.
      */
-    hoursOfOperationArn?: pulumi.Input<string>;
+    hoursOfOperationArn: pulumi.Input<string>;
 }

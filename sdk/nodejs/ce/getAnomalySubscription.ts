@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
  */
-export function getAnomalySubscription(args?: GetAnomalySubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalySubscriptionResult> {
-    args = args || {};
+export function getAnomalySubscription(args: GetAnomalySubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalySubscriptionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAnomalySubscription(args?: GetAnomalySubscriptionArgs, opts?:
 }
 
 export interface GetAnomalySubscriptionArgs {
-    subscriptionArn?: string;
+    subscriptionArn: string;
 }
 
 export interface GetAnomalySubscriptionResult {
@@ -52,10 +51,10 @@ export interface GetAnomalySubscriptionResult {
     readonly threshold?: number;
 }
 
-export function getAnomalySubscriptionOutput(args?: GetAnomalySubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalySubscriptionResult> {
+export function getAnomalySubscriptionOutput(args: GetAnomalySubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalySubscriptionResult> {
     return pulumi.output(args).apply(a => getAnomalySubscription(a, opts))
 }
 
 export interface GetAnomalySubscriptionOutputArgs {
-    subscriptionArn?: pulumi.Input<string>;
+    subscriptionArn: pulumi.Input<string>;
 }

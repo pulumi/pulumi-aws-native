@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Route53::RecordSetGroup
  */
-export function getRecordSetGroup(args?: GetRecordSetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetGroupResult> {
-    args = args || {};
+export function getRecordSetGroup(args: GetRecordSetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRecordSetGroup(args?: GetRecordSetGroupArgs, opts?: pulumi.In
 }
 
 export interface GetRecordSetGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRecordSetGroupResult {
@@ -30,10 +29,10 @@ export interface GetRecordSetGroupResult {
     readonly recordSets?: outputs.route53.RecordSetGroupRecordSet[];
 }
 
-export function getRecordSetGroupOutput(args?: GetRecordSetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetGroupResult> {
+export function getRecordSetGroupOutput(args: GetRecordSetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetGroupResult> {
     return pulumi.output(args).apply(a => getRecordSetGroup(a, opts))
 }
 
 export interface GetRecordSetGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

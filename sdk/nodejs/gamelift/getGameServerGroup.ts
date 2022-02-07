@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
  */
-export function getGameServerGroup(args?: GetGameServerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGameServerGroupResult> {
-    args = args || {};
+export function getGameServerGroup(args: GetGameServerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGameServerGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetGameServerGroupArgs {
     /**
      * A generated unique ID for the game server group.
      */
-    gameServerGroupArn?: string;
+    gameServerGroupArn: string;
 }
 
 export interface GetGameServerGroupResult {
@@ -82,7 +81,7 @@ export interface GetGameServerGroupResult {
     readonly vpcSubnets?: string[];
 }
 
-export function getGameServerGroupOutput(args?: GetGameServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameServerGroupResult> {
+export function getGameServerGroupOutput(args: GetGameServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameServerGroupResult> {
     return pulumi.output(args).apply(a => getGameServerGroup(a, opts))
 }
 
@@ -90,5 +89,5 @@ export interface GetGameServerGroupOutputArgs {
     /**
      * A generated unique ID for the game server group.
      */
-    gameServerGroupArn?: pulumi.Input<string>;
+    gameServerGroupArn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::Image
  */
-export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-    args = args || {};
+export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetImageArgs {
-    imageArn?: string;
+    imageArn: string;
 }
 
 export interface GetImageResult {
@@ -35,10 +34,10 @@ export interface GetImageResult {
     readonly tags?: outputs.sagemaker.ImageTag[];
 }
 
-export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
+export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply(a => getImage(a, opts))
 }
 
 export interface GetImageOutputArgs {
-    imageArn?: pulumi.Input<string>;
+    imageArn: pulumi.Input<string>;
 }

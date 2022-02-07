@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Backup::BackupSelection
  */
-export function getBackupSelection(args?: GetBackupSelectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupSelectionResult> {
-    args = args || {};
+export function getBackupSelection(args: GetBackupSelectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupSelectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getBackupSelection(args?: GetBackupSelectionArgs, opts?: pulumi.
 }
 
 export interface GetBackupSelectionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetBackupSelectionResult {
@@ -28,10 +27,10 @@ export interface GetBackupSelectionResult {
     readonly selectionId?: string;
 }
 
-export function getBackupSelectionOutput(args?: GetBackupSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupSelectionResult> {
+export function getBackupSelectionOutput(args: GetBackupSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupSelectionResult> {
     return pulumi.output(args).apply(a => getBackupSelection(a, opts))
 }
 
 export interface GetBackupSelectionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

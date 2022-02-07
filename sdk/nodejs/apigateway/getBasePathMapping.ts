@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::BasePathMapping
  */
-export function getBasePathMapping(args?: GetBasePathMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBasePathMappingResult> {
-    args = args || {};
+export function getBasePathMapping(args: GetBasePathMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBasePathMappingResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetBasePathMappingArgs {
     /**
      * The base path name that callers of the API must provide in the URL after the domain name.
      */
-    basePath?: string;
+    basePath: string;
     /**
      * The DomainName of an AWS::ApiGateway::DomainName resource.
      */
-    domainName?: string;
+    domainName: string;
 }
 
 export interface GetBasePathMappingResult {
@@ -43,7 +42,7 @@ export interface GetBasePathMappingResult {
     readonly stage?: string;
 }
 
-export function getBasePathMappingOutput(args?: GetBasePathMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBasePathMappingResult> {
+export function getBasePathMappingOutput(args: GetBasePathMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBasePathMappingResult> {
     return pulumi.output(args).apply(a => getBasePathMapping(a, opts))
 }
 
@@ -51,9 +50,9 @@ export interface GetBasePathMappingOutputArgs {
     /**
      * The base path name that callers of the API must provide in the URL after the domain name.
      */
-    basePath?: pulumi.Input<string>;
+    basePath: pulumi.Input<string>;
     /**
      * The DomainName of an AWS::ApiGateway::DomainName resource.
      */
-    domainName?: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
 }

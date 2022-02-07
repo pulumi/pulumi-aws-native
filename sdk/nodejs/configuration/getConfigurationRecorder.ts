@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Config::ConfigurationRecorder
  */
-export function getConfigurationRecorder(args?: GetConfigurationRecorderArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationRecorderResult> {
-    args = args || {};
+export function getConfigurationRecorder(args: GetConfigurationRecorderArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationRecorderResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConfigurationRecorder(args?: GetConfigurationRecorderArgs, op
 }
 
 export interface GetConfigurationRecorderArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetConfigurationRecorderResult {
@@ -30,10 +29,10 @@ export interface GetConfigurationRecorderResult {
     readonly roleARN?: string;
 }
 
-export function getConfigurationRecorderOutput(args?: GetConfigurationRecorderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationRecorderResult> {
+export function getConfigurationRecorderOutput(args: GetConfigurationRecorderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationRecorderResult> {
     return pulumi.output(args).apply(a => getConfigurationRecorder(a, opts))
 }
 
 export interface GetConfigurationRecorderOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

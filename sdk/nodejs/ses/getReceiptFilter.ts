@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SES::ReceiptFilter
  */
-export function getReceiptFilter(args?: GetReceiptFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetReceiptFilterResult> {
-    args = args || {};
+export function getReceiptFilter(args: GetReceiptFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetReceiptFilterResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getReceiptFilter(args?: GetReceiptFilterArgs, opts?: pulumi.Invo
 }
 
 export interface GetReceiptFilterArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetReceiptFilterResult {
     readonly id?: string;
 }
 
-export function getReceiptFilterOutput(args?: GetReceiptFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceiptFilterResult> {
+export function getReceiptFilterOutput(args: GetReceiptFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceiptFilterResult> {
     return pulumi.output(args).apply(a => getReceiptFilter(a, opts))
 }
 
 export interface GetReceiptFilterOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

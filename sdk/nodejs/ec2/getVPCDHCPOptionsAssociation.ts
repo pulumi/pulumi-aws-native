@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
  */
-export function getVPCDHCPOptionsAssociation(args?: GetVPCDHCPOptionsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCDHCPOptionsAssociationResult> {
-    args = args || {};
+export function getVPCDHCPOptionsAssociation(args: GetVPCDHCPOptionsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCDHCPOptionsAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetVPCDHCPOptionsAssociationArgs {
     /**
      * The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
      */
-    dhcpOptionsId?: string;
+    dhcpOptionsId: string;
     /**
      * The ID of the VPC.
      */
-    vpcId?: string;
+    vpcId: string;
 }
 
 export interface GetVPCDHCPOptionsAssociationResult {
@@ -38,7 +37,7 @@ export interface GetVPCDHCPOptionsAssociationResult {
     readonly id?: string;
 }
 
-export function getVPCDHCPOptionsAssociationOutput(args?: GetVPCDHCPOptionsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCDHCPOptionsAssociationResult> {
+export function getVPCDHCPOptionsAssociationOutput(args: GetVPCDHCPOptionsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCDHCPOptionsAssociationResult> {
     return pulumi.output(args).apply(a => getVPCDHCPOptionsAssociation(a, opts))
 }
 
@@ -46,9 +45,9 @@ export interface GetVPCDHCPOptionsAssociationOutputArgs {
     /**
      * The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
      */
-    dhcpOptionsId?: pulumi.Input<string>;
+    dhcpOptionsId: pulumi.Input<string>;
     /**
      * The ID of the VPC.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

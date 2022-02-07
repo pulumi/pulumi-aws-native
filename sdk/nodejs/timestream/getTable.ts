@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::Timestream::Table resource creates a Timestream Table.
  */
-export function getTable(args?: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    args = args || {};
+export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetTableArgs {
     /**
      * The name for the database which the table to be created belongs to.
      */
-    databaseName?: string;
+    databaseName: string;
     /**
      * The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
      */
-    tableName?: string;
+    tableName: string;
 }
 
 export interface GetTableResult {
@@ -48,7 +47,7 @@ export interface GetTableResult {
     readonly tags?: outputs.timestream.TableTag[];
 }
 
-export function getTableOutput(args?: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
+export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply(a => getTable(a, opts))
 }
 
@@ -56,9 +55,9 @@ export interface GetTableOutputArgs {
     /**
      * The name for the database which the table to be created belongs to.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
      */
-    tableName?: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
 }

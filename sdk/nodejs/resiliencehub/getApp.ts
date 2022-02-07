@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type Definition for AWS::ResilienceHub::App.
  */
-export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    args = args || {};
+export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAppArgs {
     /**
      * Amazon Resource Name (ARN) of the App.
      */
-    appArn?: string;
+    appArn: string;
 }
 
 export interface GetAppResult {
@@ -51,7 +50,7 @@ export interface GetAppResult {
     readonly tags?: outputs.resiliencehub.AppTagMap;
 }
 
-export function getAppOutput(args?: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
+export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply(a => getApp(a, opts))
 }
 
@@ -59,5 +58,5 @@ export interface GetAppOutputArgs {
     /**
      * Amazon Resource Name (ARN) of the App.
      */
-    appArn?: pulumi.Input<string>;
+    appArn: pulumi.Input<string>;
 }

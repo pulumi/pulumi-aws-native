@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An Amazon Lookout for Metrics Detector
  */
-export function getAnomalyDetector(args?: GetAnomalyDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalyDetectorResult> {
-    args = args || {};
+export function getAnomalyDetector(args: GetAnomalyDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalyDetectorResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAnomalyDetector(args?: GetAnomalyDetectorArgs, opts?: pulumi.
 }
 
 export interface GetAnomalyDetectorArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetAnomalyDetectorResult {
@@ -44,10 +43,10 @@ export interface GetAnomalyDetectorResult {
     readonly metricSetList?: outputs.lookoutmetrics.AnomalyDetectorMetricSet[];
 }
 
-export function getAnomalyDetectorOutput(args?: GetAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyDetectorResult> {
+export function getAnomalyDetectorOutput(args: GetAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyDetectorResult> {
     return pulumi.output(args).apply(a => getAnomalyDetector(a, opts))
 }
 
 export interface GetAnomalyDetectorOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::DirectoryService::MicrosoftAD
  */
-export function getMicrosoftAD(args?: GetMicrosoftADArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftADResult> {
-    args = args || {};
+export function getMicrosoftAD(args: GetMicrosoftADArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftADResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getMicrosoftAD(args?: GetMicrosoftADArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetMicrosoftADArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMicrosoftADResult {
@@ -30,10 +29,10 @@ export interface GetMicrosoftADResult {
     readonly id?: string;
 }
 
-export function getMicrosoftADOutput(args?: GetMicrosoftADOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftADResult> {
+export function getMicrosoftADOutput(args: GetMicrosoftADOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftADResult> {
     return pulumi.output(args).apply(a => getMicrosoftAD(a, opts))
 }
 
 export interface GetMicrosoftADOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

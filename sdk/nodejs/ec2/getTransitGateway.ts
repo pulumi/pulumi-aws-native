@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::TransitGateway
  */
-export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> {
-    args = args || {};
+export function getTransitGateway(args: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.In
 }
 
 export interface GetTransitGatewayArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTransitGatewayResult {
@@ -38,10 +37,10 @@ export interface GetTransitGatewayResult {
     readonly vpnEcmpSupport?: string;
 }
 
-export function getTransitGatewayOutput(args?: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayResult> {
+export function getTransitGatewayOutput(args: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayResult> {
     return pulumi.output(args).apply(a => getTransitGateway(a, opts))
 }
 
 export interface GetTransitGatewayOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

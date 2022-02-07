@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::IntegrationResponse
  */
-export function getIntegrationResponse(args?: GetIntegrationResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResponseResult> {
-    args = args || {};
+export function getIntegrationResponse(args: GetIntegrationResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResponseResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getIntegrationResponse(args?: GetIntegrationResponseArgs, opts?:
 }
 
 export interface GetIntegrationResponseArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetIntegrationResponseResult {
@@ -34,10 +33,10 @@ export interface GetIntegrationResponseResult {
     readonly templateSelectionExpression?: string;
 }
 
-export function getIntegrationResponseOutput(args?: GetIntegrationResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResponseResult> {
+export function getIntegrationResponseOutput(args: GetIntegrationResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResponseResult> {
     return pulumi.output(args).apply(a => getIntegrationResponse(a, opts))
 }
 
 export interface GetIntegrationResponseOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

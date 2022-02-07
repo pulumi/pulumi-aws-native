@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
  */
-export function getReplicationConfiguration(args?: GetReplicationConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationConfigurationResult> {
-    args = args || {};
+export function getReplicationConfiguration(args: GetReplicationConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetReplicationConfigurationArgs {
     /**
      * The RegistryId associated with the aws account.
      */
-    registryId?: string;
+    registryId: string;
 }
 
 export interface GetReplicationConfigurationResult {
@@ -35,7 +34,7 @@ export interface GetReplicationConfigurationResult {
     readonly replicationConfiguration?: outputs.ecr.ReplicationConfiguration;
 }
 
-export function getReplicationConfigurationOutput(args?: GetReplicationConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationConfigurationResult> {
+export function getReplicationConfigurationOutput(args: GetReplicationConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationConfigurationResult> {
     return pulumi.output(args).apply(a => getReplicationConfiguration(a, opts))
 }
 
@@ -43,5 +42,5 @@ export interface GetReplicationConfigurationOutputArgs {
     /**
      * The RegistryId associated with the aws account.
      */
-    registryId?: pulumi.Input<string>;
+    registryId: pulumi.Input<string>;
 }

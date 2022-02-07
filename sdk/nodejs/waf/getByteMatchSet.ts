@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WAF::ByteMatchSet
  */
-export function getByteMatchSet(args?: GetByteMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetByteMatchSetResult> {
-    args = args || {};
+export function getByteMatchSet(args: GetByteMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetByteMatchSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getByteMatchSet(args?: GetByteMatchSetArgs, opts?: pulumi.Invoke
 }
 
 export interface GetByteMatchSetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetByteMatchSetResult {
@@ -29,10 +28,10 @@ export interface GetByteMatchSetResult {
     readonly id?: string;
 }
 
-export function getByteMatchSetOutput(args?: GetByteMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetByteMatchSetResult> {
+export function getByteMatchSetOutput(args: GetByteMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetByteMatchSetResult> {
     return pulumi.output(args).apply(a => getByteMatchSet(a, opts))
 }
 
 export interface GetByteMatchSetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

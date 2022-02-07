@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Create and manage Multicast groups.
  */
-export function getMulticastGroup(args?: GetMulticastGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMulticastGroupResult> {
-    args = args || {};
+export function getMulticastGroup(args: GetMulticastGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMulticastGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetMulticastGroupArgs {
     /**
      * Multicast group id. Returned after successful create.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetMulticastGroupResult {
@@ -66,7 +65,7 @@ export interface GetMulticastGroupResult {
     readonly tags?: outputs.iotwireless.MulticastGroupTag[];
 }
 
-export function getMulticastGroupOutput(args?: GetMulticastGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMulticastGroupResult> {
+export function getMulticastGroupOutput(args: GetMulticastGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMulticastGroupResult> {
     return pulumi.output(args).apply(a => getMulticastGroup(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetMulticastGroupOutputArgs {
     /**
      * Multicast group id. Returned after successful create.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

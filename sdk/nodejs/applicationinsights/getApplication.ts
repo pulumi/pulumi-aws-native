@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::ApplicationInsights::Application
  */
-export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    args = args || {};
+export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetApplicationArgs {
     /**
      * The ARN of the ApplicationInsights application.
      */
-    applicationARN?: string;
+    applicationARN: string;
 }
 
 export interface GetApplicationResult {
@@ -66,7 +65,7 @@ export interface GetApplicationResult {
     readonly tags?: outputs.applicationinsights.ApplicationTag[];
 }
 
-export function getApplicationOutput(args?: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply(a => getApplication(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetApplicationOutputArgs {
     /**
      * The ARN of the ApplicationInsights application.
      */
-    applicationARN?: pulumi.Input<string>;
+    applicationARN: pulumi.Input<string>;
 }

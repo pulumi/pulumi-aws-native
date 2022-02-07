@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Connect::QuickConnect
  */
-export function getQuickConnect(args?: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
-    args = args || {};
+export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetQuickConnectArgs {
     /**
      * The Amazon Resource Name (ARN) for the quick connect.
      */
-    quickConnectArn?: string;
+    quickConnectArn: string;
 }
 
 export interface GetQuickConnectResult {
@@ -54,7 +53,7 @@ export interface GetQuickConnectResult {
     readonly tags?: outputs.connect.QuickConnectTag[];
 }
 
-export function getQuickConnectOutput(args?: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
+export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
     return pulumi.output(args).apply(a => getQuickConnect(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetQuickConnectOutputArgs {
     /**
      * The Amazon Resource Name (ARN) for the quick connect.
      */
-    quickConnectArn?: pulumi.Input<string>;
+    quickConnectArn: pulumi.Input<string>;
 }

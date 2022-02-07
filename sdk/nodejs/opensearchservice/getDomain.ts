@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    args = args || {};
+export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetDomainArgs {
-    domainName?: string;
+    domainName: string;
 }
 
 export interface GetDomainResult {
@@ -49,10 +48,10 @@ export interface GetDomainResult {
     readonly vPCOptions?: outputs.opensearchservice.DomainVPCOptions;
 }
 
-export function getDomainOutput(args?: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply(a => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {
-    domainName?: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
 }

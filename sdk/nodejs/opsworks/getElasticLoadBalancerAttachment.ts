@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
  */
-export function getElasticLoadBalancerAttachment(args?: GetElasticLoadBalancerAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticLoadBalancerAttachmentResult> {
-    args = args || {};
+export function getElasticLoadBalancerAttachment(args: GetElasticLoadBalancerAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticLoadBalancerAttachmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getElasticLoadBalancerAttachment(args?: GetElasticLoadBalancerAt
 }
 
 export interface GetElasticLoadBalancerAttachmentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetElasticLoadBalancerAttachmentResult {
@@ -29,10 +28,10 @@ export interface GetElasticLoadBalancerAttachmentResult {
     readonly layerId?: string;
 }
 
-export function getElasticLoadBalancerAttachmentOutput(args?: GetElasticLoadBalancerAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticLoadBalancerAttachmentResult> {
+export function getElasticLoadBalancerAttachmentOutput(args: GetElasticLoadBalancerAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticLoadBalancerAttachmentResult> {
     return pulumi.output(args).apply(a => getElasticLoadBalancerAttachment(a, opts))
 }
 
 export interface GetElasticLoadBalancerAttachmentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

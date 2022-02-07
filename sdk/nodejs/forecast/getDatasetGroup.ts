@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a dataset group that holds a collection of related datasets
  */
-export function getDatasetGroup(args?: GetDatasetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetGroupResult> {
-    args = args || {};
+export function getDatasetGroup(args: GetDatasetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDatasetGroupArgs {
     /**
      * The Amazon Resource Name (ARN) of the dataset group to delete.
      */
-    datasetGroupArn?: string;
+    datasetGroupArn: string;
 }
 
 export interface GetDatasetGroupResult {
@@ -46,7 +45,7 @@ export interface GetDatasetGroupResult {
     readonly tags?: outputs.forecast.DatasetGroupTag[];
 }
 
-export function getDatasetGroupOutput(args?: GetDatasetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetGroupResult> {
+export function getDatasetGroupOutput(args: GetDatasetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetGroupResult> {
     return pulumi.output(args).apply(a => getDatasetGroup(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetDatasetGroupOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the dataset group to delete.
      */
-    datasetGroupArn?: pulumi.Input<string>;
+    datasetGroupArn: pulumi.Input<string>;
 }

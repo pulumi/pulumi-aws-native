@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
  */
-export function getClientVpnAuthorizationRule(args?: GetClientVpnAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnAuthorizationRuleResult> {
-    args = args || {};
+export function getClientVpnAuthorizationRule(args: GetClientVpnAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnAuthorizationRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getClientVpnAuthorizationRule(args?: GetClientVpnAuthorizationRu
 }
 
 export interface GetClientVpnAuthorizationRuleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetClientVpnAuthorizationRuleResult {
     readonly id?: string;
 }
 
-export function getClientVpnAuthorizationRuleOutput(args?: GetClientVpnAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnAuthorizationRuleResult> {
+export function getClientVpnAuthorizationRuleOutput(args: GetClientVpnAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnAuthorizationRuleResult> {
     return pulumi.output(args).apply(a => getClientVpnAuthorizationRule(a, opts))
 }
 
 export interface GetClientVpnAuthorizationRuleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

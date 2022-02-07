@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Api
  */
-export function getApi(args?: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
-    args = args || {};
+export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApi(args?: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetApiArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetApiResult {
@@ -45,10 +44,10 @@ export interface GetApiResult {
     readonly version?: string;
 }
 
-export function getApiOutput(args?: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
+export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
     return pulumi.output(args).apply(a => getApi(a, opts))
 }
 
 export interface GetApiOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

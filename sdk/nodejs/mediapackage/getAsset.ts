@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaPackage::Asset
  */
-export function getAsset(args?: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
-    args = args || {};
+export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAssetArgs {
     /**
      * The unique identifier for the Asset.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetAssetResult {
@@ -66,7 +65,7 @@ export interface GetAssetResult {
     readonly tags?: outputs.mediapackage.AssetTag[];
 }
 
-export function getAssetOutput(args?: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
+export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     return pulumi.output(args).apply(a => getAsset(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetAssetOutputArgs {
     /**
      * The unique identifier for the Asset.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

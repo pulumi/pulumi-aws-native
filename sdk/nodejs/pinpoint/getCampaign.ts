@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::Campaign
  */
-export function getCampaign(args?: GetCampaignArgs, opts?: pulumi.InvokeOptions): Promise<GetCampaignResult> {
-    args = args || {};
+export function getCampaign(args: GetCampaignArgs, opts?: pulumi.InvokeOptions): Promise<GetCampaignResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCampaign(args?: GetCampaignArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetCampaignArgs {
-    campaignId?: string;
+    campaignId: string;
 }
 
 export interface GetCampaignResult {
@@ -44,10 +43,10 @@ export interface GetCampaignResult {
     readonly treatmentName?: string;
 }
 
-export function getCampaignOutput(args?: GetCampaignOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCampaignResult> {
+export function getCampaignOutput(args: GetCampaignOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCampaignResult> {
     return pulumi.output(args).apply(a => getCampaign(a, opts))
 }
 
 export interface GetCampaignOutputArgs {
-    campaignId?: pulumi.Input<string>;
+    campaignId: pulumi.Input<string>;
 }

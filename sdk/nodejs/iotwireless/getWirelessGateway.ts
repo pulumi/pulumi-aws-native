@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Create and manage wireless gateways, including LoRa gateways.
  */
-export function getWirelessGateway(args?: GetWirelessGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetWirelessGatewayResult> {
-    args = args || {};
+export function getWirelessGateway(args: GetWirelessGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetWirelessGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetWirelessGatewayArgs {
     /**
      * Id for Wireless Gateway. Returned upon successful create.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetWirelessGatewayResult {
@@ -66,7 +65,7 @@ export interface GetWirelessGatewayResult {
     readonly thingName?: string;
 }
 
-export function getWirelessGatewayOutput(args?: GetWirelessGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWirelessGatewayResult> {
+export function getWirelessGatewayOutput(args: GetWirelessGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWirelessGatewayResult> {
     return pulumi.output(args).apply(a => getWirelessGateway(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetWirelessGatewayOutputArgs {
     /**
      * Id for Wireless Gateway. Returned upon successful create.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

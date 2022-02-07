@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Creates a gateway task definition.
  */
-export function getTaskDefinition(args?: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
-    args = args || {};
+export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetTaskDefinitionArgs {
     /**
      * The ID of the new wireless gateway task definition
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetTaskDefinitionResult {
@@ -62,7 +61,7 @@ export interface GetTaskDefinitionResult {
     readonly update?: outputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreate;
 }
 
-export function getTaskDefinitionOutput(args?: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
+export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
     return pulumi.output(args).apply(a => getTaskDefinition(a, opts))
 }
 
@@ -70,5 +69,5 @@ export interface GetTaskDefinitionOutputArgs {
     /**
      * The ID of the new wireless gateway task definition
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

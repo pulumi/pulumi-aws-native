@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Events::Rule
  */
-export function getRule(args?: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
-    args = args || {};
+export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRule(args?: GetRuleArgs, opts?: pulumi.InvokeOptions): Promis
 }
 
 export interface GetRuleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRuleResult {
@@ -35,10 +34,10 @@ export interface GetRuleResult {
     readonly targets?: outputs.events.RuleTarget[];
 }
 
-export function getRuleOutput(args?: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
+export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply(a => getRule(a, opts))
 }
 
 export interface GetRuleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

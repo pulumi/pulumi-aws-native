@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type Definition for AWS::Forecast::Dataset
  */
-export function getDataset(args?: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-    args = args || {};
+export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDataset(args?: GetDatasetArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetDatasetArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetDatasetResult {
@@ -43,10 +42,10 @@ export interface GetDatasetResult {
     readonly tags?: outputs.forecast.TagsItemProperties[];
 }
 
-export function getDatasetOutput(args?: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
+export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
     return pulumi.output(args).apply(a => getDataset(a, opts))
 }
 
 export interface GetDatasetOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::AppImageConfig
  */
-export function getAppImageConfig(args?: GetAppImageConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetAppImageConfigResult> {
-    args = args || {};
+export function getAppImageConfig(args: GetAppImageConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetAppImageConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAppImageConfigArgs {
     /**
      * The Name of the AppImageConfig.
      */
-    appImageConfigName?: string;
+    appImageConfigName: string;
 }
 
 export interface GetAppImageConfigResult {
@@ -38,7 +37,7 @@ export interface GetAppImageConfigResult {
     readonly kernelGatewayImageConfig?: outputs.sagemaker.AppImageConfigKernelGatewayImageConfig;
 }
 
-export function getAppImageConfigOutput(args?: GetAppImageConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppImageConfigResult> {
+export function getAppImageConfigOutput(args: GetAppImageConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppImageConfigResult> {
     return pulumi.output(args).apply(a => getAppImageConfig(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetAppImageConfigOutputArgs {
     /**
      * The Name of the AppImageConfig.
      */
-    appImageConfigName?: pulumi.Input<string>;
+    appImageConfigName: pulumi.Input<string>;
 }

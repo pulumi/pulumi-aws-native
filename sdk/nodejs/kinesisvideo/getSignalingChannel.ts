@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type Definition for AWS::KinesisVideo::SignalingChannel
  */
-export function getSignalingChannel(args?: GetSignalingChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalingChannelResult> {
-    args = args || {};
+export function getSignalingChannel(args: GetSignalingChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalingChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetSignalingChannelArgs {
     /**
      * The name of the Kinesis Video Signaling Channel.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetSignalingChannelResult {
@@ -46,7 +45,7 @@ export interface GetSignalingChannelResult {
     readonly type?: enums.kinesisvideo.SignalingChannelType;
 }
 
-export function getSignalingChannelOutput(args?: GetSignalingChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalingChannelResult> {
+export function getSignalingChannelOutput(args: GetSignalingChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalingChannelResult> {
     return pulumi.output(args).apply(a => getSignalingChannel(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetSignalingChannelOutputArgs {
     /**
      * The name of the Kinesis Video Signaling Channel.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

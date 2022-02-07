@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EMR::InstanceGroupConfig
  */
-export function getInstanceGroupConfig(args?: GetInstanceGroupConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceGroupConfigResult> {
-    args = args || {};
+export function getInstanceGroupConfig(args: GetInstanceGroupConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceGroupConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getInstanceGroupConfig(args?: GetInstanceGroupConfigArgs, opts?:
 }
 
 export interface GetInstanceGroupConfigArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetInstanceGroupConfigResult {
@@ -30,10 +29,10 @@ export interface GetInstanceGroupConfigResult {
     readonly instanceCount?: number;
 }
 
-export function getInstanceGroupConfigOutput(args?: GetInstanceGroupConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceGroupConfigResult> {
+export function getInstanceGroupConfigOutput(args: GetInstanceGroupConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceGroupConfigResult> {
     return pulumi.output(args).apply(a => getInstanceGroupConfig(a, opts))
 }
 
 export interface GetInstanceGroupConfigOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

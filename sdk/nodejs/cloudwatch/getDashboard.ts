@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudWatch::Dashboard
  */
-export function getDashboard(args?: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
-    args = args || {};
+export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDashboard(args?: GetDashboardArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetDashboardArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDashboardResult {
@@ -28,10 +27,10 @@ export interface GetDashboardResult {
     readonly id?: string;
 }
 
-export function getDashboardOutput(args?: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
     return pulumi.output(args).apply(a => getDashboard(a, opts))
 }
 
 export interface GetDashboardOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

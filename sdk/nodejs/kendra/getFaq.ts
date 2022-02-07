@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A Kendra FAQ resource
  */
-export function getFaq(args?: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<GetFaqResult> {
-    args = args || {};
+export function getFaq(args: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<GetFaqResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,11 +21,11 @@ export function getFaq(args?: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetFaqArgs {
-    id?: string;
+    id: string;
     /**
      * Index ID
      */
-    indexId?: string;
+    indexId: string;
 }
 
 export interface GetFaqResult {
@@ -38,14 +37,14 @@ export interface GetFaqResult {
     readonly tags?: outputs.kendra.FaqTag[];
 }
 
-export function getFaqOutput(args?: GetFaqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFaqResult> {
+export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFaqResult> {
     return pulumi.output(args).apply(a => getFaq(a, opts))
 }
 
 export interface GetFaqOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
     /**
      * Index ID
      */
-    indexId?: pulumi.Input<string>;
+    indexId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SES::Template
  */
-export function getTemplate(args?: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
-    args = args || {};
+export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTemplate(args?: GetTemplateArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTemplateResult {
@@ -29,10 +28,10 @@ export interface GetTemplateResult {
     readonly template?: outputs.ses.Template;
 }
 
-export function getTemplateOutput(args?: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
+export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
     return pulumi.output(args).apply(a => getTemplate(a, opts))
 }
 
 export interface GetTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

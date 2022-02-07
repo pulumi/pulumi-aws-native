@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MediaConnect::Flow
  */
-export function getFlow(args?: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
-    args = args || {};
+export function getFlow(args: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFlowArgs {
     /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
-    flowArn?: string;
+    flowArn: string;
 }
 
 export interface GetFlowResult {
@@ -46,7 +45,7 @@ export interface GetFlowResult {
     readonly sourceFailoverConfig?: outputs.mediaconnect.FlowFailoverConfig;
 }
 
-export function getFlowOutput(args?: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
+export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
     return pulumi.output(args).apply(a => getFlow(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetFlowOutputArgs {
     /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
-    flowArn?: pulumi.Input<string>;
+    flowArn: pulumi.Input<string>;
 }

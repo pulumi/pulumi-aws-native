@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::IoTFleetHub::Application
  */
-export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    args = args || {};
+export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetApplicationArgs {
     /**
      * The ID of the application.
      */
-    applicationId?: string;
+    applicationId: string;
 }
 
 export interface GetApplicationResult {
@@ -78,7 +77,7 @@ export interface GetApplicationResult {
     readonly tags?: outputs.iotfleethub.ApplicationTag[];
 }
 
-export function getApplicationOutput(args?: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply(a => getApplication(a, opts))
 }
 
@@ -86,5 +85,5 @@ export interface GetApplicationOutputArgs {
     /**
      * The ID of the application.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId: pulumi.Input<string>;
 }

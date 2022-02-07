@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::CapacityReservation
  */
-export function getCapacityReservation(args?: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
-    args = args || {};
+export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getCapacityReservation(args?: GetCapacityReservationArgs, opts?:
 }
 
 export interface GetCapacityReservationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetCapacityReservationResult {
@@ -32,10 +31,10 @@ export interface GetCapacityReservationResult {
     readonly totalInstanceCount?: number;
 }
 
-export function getCapacityReservationOutput(args?: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
+export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
     return pulumi.output(args).apply(a => getCapacityReservation(a, opts))
 }
 
 export interface GetCapacityReservationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

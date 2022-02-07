@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
  */
-export function getTransitGatewayMulticastGroupSource(args?: GetTransitGatewayMulticastGroupSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastGroupSourceResult> {
-    args = args || {};
+export function getTransitGatewayMulticastGroupSource(args: GetTransitGatewayMulticastGroupSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastGroupSourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,15 +24,15 @@ export interface GetTransitGatewayMulticastGroupSourceArgs {
     /**
      * The IP address assigned to the transit gateway multicast group.
      */
-    groupIpAddress?: string;
+    groupIpAddress: string;
     /**
      * The ID of the transit gateway attachment.
      */
-    networkInterfaceId?: string;
+    networkInterfaceId: string;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    transitGatewayMulticastDomainId?: string;
+    transitGatewayMulticastDomainId: string;
 }
 
 export interface GetTransitGatewayMulticastGroupSourceResult {
@@ -71,7 +70,7 @@ export interface GetTransitGatewayMulticastGroupSourceResult {
     readonly transitGatewayAttachmentId?: string;
 }
 
-export function getTransitGatewayMulticastGroupSourceOutput(args?: GetTransitGatewayMulticastGroupSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastGroupSourceResult> {
+export function getTransitGatewayMulticastGroupSourceOutput(args: GetTransitGatewayMulticastGroupSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastGroupSourceResult> {
     return pulumi.output(args).apply(a => getTransitGatewayMulticastGroupSource(a, opts))
 }
 
@@ -79,13 +78,13 @@ export interface GetTransitGatewayMulticastGroupSourceOutputArgs {
     /**
      * The IP address assigned to the transit gateway multicast group.
      */
-    groupIpAddress?: pulumi.Input<string>;
+    groupIpAddress: pulumi.Input<string>;
     /**
      * The ID of the transit gateway attachment.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId: pulumi.Input<string>;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    transitGatewayMulticastDomainId?: pulumi.Input<string>;
+    transitGatewayMulticastDomainId: pulumi.Input<string>;
 }

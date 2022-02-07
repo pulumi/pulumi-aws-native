@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::DomainName
  */
-export function getDomainName(args?: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
-    args = args || {};
+export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDomainName(args?: GetDomainNameArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetDomainNameArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDomainNameResult {
@@ -33,10 +32,10 @@ export interface GetDomainNameResult {
     readonly tags?: any;
 }
 
-export function getDomainNameOutput(args?: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
+export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
     return pulumi.output(args).apply(a => getDomainName(a, opts))
 }
 
 export interface GetDomainNameOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

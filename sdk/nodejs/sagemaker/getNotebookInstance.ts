@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::NotebookInstance
  */
-export function getNotebookInstance(args?: GetNotebookInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookInstanceResult> {
-    args = args || {};
+export function getNotebookInstance(args: GetNotebookInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookInstanceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNotebookInstance(args?: GetNotebookInstanceArgs, opts?: pulum
 }
 
 export interface GetNotebookInstanceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetNotebookInstanceResult {
@@ -37,10 +36,10 @@ export interface GetNotebookInstanceResult {
     readonly volumeSizeInGB?: number;
 }
 
-export function getNotebookInstanceOutput(args?: GetNotebookInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookInstanceResult> {
+export function getNotebookInstanceOutput(args: GetNotebookInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookInstanceResult> {
     return pulumi.output(args).apply(a => getNotebookInstance(a, opts))
 }
 
 export interface GetNotebookInstanceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

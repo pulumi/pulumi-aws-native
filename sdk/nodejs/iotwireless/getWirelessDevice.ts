@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Create and manage wireless gateways, including LoRa gateways.
  */
-export function getWirelessDevice(args?: GetWirelessDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetWirelessDeviceResult> {
-    args = args || {};
+export function getWirelessDevice(args: GetWirelessDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetWirelessDeviceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetWirelessDeviceArgs {
     /**
      * Wireless device Id. Returned after successful create.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetWirelessDeviceResult {
@@ -74,7 +73,7 @@ export interface GetWirelessDeviceResult {
     readonly type?: enums.iotwireless.WirelessDeviceType;
 }
 
-export function getWirelessDeviceOutput(args?: GetWirelessDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWirelessDeviceResult> {
+export function getWirelessDeviceOutput(args: GetWirelessDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWirelessDeviceResult> {
     return pulumi.output(args).apply(a => getWirelessDevice(a, opts))
 }
 
@@ -82,5 +81,5 @@ export interface GetWirelessDeviceOutputArgs {
     /**
      * Wireless device Id. Returned after successful create.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

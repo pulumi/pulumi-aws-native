@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::Location::Tracker Resource Type
  */
-export function getTracker(args?: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
-    args = args || {};
+export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getTracker(args?: GetTrackerArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetTrackerArgs {
-    trackerName?: string;
+    trackerName: string;
 }
 
 export interface GetTrackerResult {
@@ -30,10 +29,10 @@ export interface GetTrackerResult {
     readonly updateTime?: string;
 }
 
-export function getTrackerOutput(args?: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
+export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
     return pulumi.output(args).apply(a => getTracker(a, opts))
 }
 
 export interface GetTrackerOutputArgs {
-    trackerName?: pulumi.Input<string>;
+    trackerName: pulumi.Input<string>;
 }

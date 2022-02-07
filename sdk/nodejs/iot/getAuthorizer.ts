@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Creates an authorizer.
  */
-export function getAuthorizer(args?: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
-    args = args || {};
+export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAuthorizer(args?: GetAuthorizerArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetAuthorizerArgs {
-    authorizerName?: string;
+    authorizerName: string;
 }
 
 export interface GetAuthorizerResult {
@@ -33,10 +32,10 @@ export interface GetAuthorizerResult {
     readonly tokenSigningPublicKeys?: any;
 }
 
-export function getAuthorizerOutput(args?: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
+export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
     return pulumi.output(args).apply(a => getAuthorizer(a, opts))
 }
 
 export interface GetAuthorizerOutputArgs {
-    authorizerName?: pulumi.Input<string>;
+    authorizerName: pulumi.Input<string>;
 }

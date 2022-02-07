@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::APNSVoipChannel
  */
-export function getAPNSVoipChannel(args?: GetAPNSVoipChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAPNSVoipChannelResult> {
-    args = args || {};
+export function getAPNSVoipChannel(args: GetAPNSVoipChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAPNSVoipChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAPNSVoipChannel(args?: GetAPNSVoipChannelArgs, opts?: pulumi.
 }
 
 export interface GetAPNSVoipChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAPNSVoipChannelResult {
@@ -35,10 +34,10 @@ export interface GetAPNSVoipChannelResult {
     readonly tokenKeyId?: string;
 }
 
-export function getAPNSVoipChannelOutput(args?: GetAPNSVoipChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPNSVoipChannelResult> {
+export function getAPNSVoipChannelOutput(args: GetAPNSVoipChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPNSVoipChannelResult> {
     return pulumi.output(args).apply(a => getAPNSVoipChannel(a, opts))
 }
 
 export interface GetAPNSVoipChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

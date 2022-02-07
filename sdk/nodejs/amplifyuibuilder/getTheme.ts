@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::AmplifyUIBuilder::Theme Resource Type
  */
-export function getTheme(args?: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
-    args = args || {};
+export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,9 +22,9 @@ export function getTheme(args?: GetThemeArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetThemeArgs {
-    appId?: string;
-    environmentName?: string;
-    id?: string;
+    appId: string;
+    environmentName: string;
+    id: string;
 }
 
 export interface GetThemeResult {
@@ -39,12 +38,12 @@ export interface GetThemeResult {
     readonly values?: outputs.amplifyuibuilder.ThemeValues[];
 }
 
-export function getThemeOutput(args?: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
+export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
     return pulumi.output(args).apply(a => getTheme(a, opts))
 }
 
 export interface GetThemeOutputArgs {
-    appId?: pulumi.Input<string>;
-    environmentName?: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

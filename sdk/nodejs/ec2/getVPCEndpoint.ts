@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPCEndpoint
  */
-export function getVPCEndpoint(args?: GetVPCEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointResult> {
-    args = args || {};
+export function getVPCEndpoint(args: GetVPCEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getVPCEndpoint(args?: GetVPCEndpointArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetVPCEndpointArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVPCEndpointResult {
@@ -35,10 +34,10 @@ export interface GetVPCEndpointResult {
     readonly subnetIds?: string[];
 }
 
-export function getVPCEndpointOutput(args?: GetVPCEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointResult> {
+export function getVPCEndpointOutput(args: GetVPCEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointResult> {
     return pulumi.output(args).apply(a => getVPCEndpoint(a, opts))
 }
 
 export interface GetVPCEndpointOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

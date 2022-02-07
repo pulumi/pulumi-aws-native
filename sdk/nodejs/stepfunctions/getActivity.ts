@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for Activity
  */
-export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
-    args = args || {};
+export function getActivity(args: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetActivityArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetActivityResult {
@@ -29,10 +28,10 @@ export interface GetActivityResult {
     readonly tags?: outputs.stepfunctions.ActivityTagsEntry[];
 }
 
-export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
+export function getActivityOutput(args: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
     return pulumi.output(args).apply(a => getActivity(a, opts))
 }
 
 export interface GetActivityOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

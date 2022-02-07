@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodeBuild::SourceCredential
  */
-export function getSourceCredential(args?: GetSourceCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceCredentialResult> {
-    args = args || {};
+export function getSourceCredential(args: GetSourceCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceCredentialResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getSourceCredential(args?: GetSourceCredentialArgs, opts?: pulum
 }
 
 export interface GetSourceCredentialArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSourceCredentialResult {
@@ -30,10 +29,10 @@ export interface GetSourceCredentialResult {
     readonly username?: string;
 }
 
-export function getSourceCredentialOutput(args?: GetSourceCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceCredentialResult> {
+export function getSourceCredentialOutput(args: GetSourceCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceCredentialResult> {
     return pulumi.output(args).apply(a => getSourceCredential(a, opts))
 }
 
 export interface GetSourceCredentialOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

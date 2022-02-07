@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodeDeploy::DeploymentGroup
  */
-export function getDeploymentGroup(args?: GetDeploymentGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentGroupResult> {
-    args = args || {};
+export function getDeploymentGroup(args: GetDeploymentGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDeploymentGroup(args?: GetDeploymentGroupArgs, opts?: pulumi.
 }
 
 export interface GetDeploymentGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDeploymentGroupResult {
@@ -43,10 +42,10 @@ export interface GetDeploymentGroupResult {
     readonly triggerConfigurations?: outputs.codedeploy.DeploymentGroupTriggerConfig[];
 }
 
-export function getDeploymentGroupOutput(args?: GetDeploymentGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentGroupResult> {
+export function getDeploymentGroupOutput(args: GetDeploymentGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentGroupResult> {
     return pulumi.output(args).apply(a => getDeploymentGroup(a, opts))
 }
 
 export interface GetDeploymentGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

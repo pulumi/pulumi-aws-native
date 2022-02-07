@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::QLDB::Ledger
  */
-export function getLedger(args?: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
-    args = args || {};
+export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getLedger(args?: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetLedgerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLedgerResult {
@@ -32,10 +31,10 @@ export interface GetLedgerResult {
     readonly tags?: outputs.qldb.LedgerTag[];
 }
 
-export function getLedgerOutput(args?: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
+export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
     return pulumi.output(args).apply(a => getLedger(a, opts))
 }
 
 export interface GetLedgerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

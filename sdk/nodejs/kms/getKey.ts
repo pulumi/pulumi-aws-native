@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
  */
-export function getKey(args?: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-    args = args || {};
+export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getKey(args?: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetKeyArgs {
-    keyId?: string;
+    keyId: string;
 }
 
 export interface GetKeyResult {
@@ -61,10 +60,10 @@ export interface GetKeyResult {
     readonly tags?: outputs.kms.KeyTag[];
 }
 
-export function getKeyOutput(args?: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
+export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
     return pulumi.output(args).apply(a => getKey(a, opts))
 }
 
 export interface GetKeyOutputArgs {
-    keyId?: pulumi.Input<string>;
+    keyId: pulumi.Input<string>;
 }

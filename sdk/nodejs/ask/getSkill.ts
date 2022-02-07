@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for Alexa::ASK::Skill
  */
-export function getSkill(args?: GetSkillArgs, opts?: pulumi.InvokeOptions): Promise<GetSkillResult> {
-    args = args || {};
+export function getSkill(args: GetSkillArgs, opts?: pulumi.InvokeOptions): Promise<GetSkillResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSkill(args?: GetSkillArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetSkillArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSkillResult {
@@ -30,10 +29,10 @@ export interface GetSkillResult {
     readonly skillPackage?: outputs.ask.SkillPackage;
 }
 
-export function getSkillOutput(args?: GetSkillOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkillResult> {
+export function getSkillOutput(args: GetSkillOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkillResult> {
     return pulumi.output(args).apply(a => getSkill(a, opts))
 }
 
 export interface GetSkillOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema describing various properties for ECS TaskDefinition
  */
-export function getTaskDefinition(args?: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
-    args = args || {};
+export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetTaskDefinitionArgs {
     /**
      * The Amazon Resource Name (ARN) of the Amazon ECS task definition
      */
-    taskDefinitionArn?: string;
+    taskDefinitionArn: string;
 }
 
 export interface GetTaskDefinitionResult {
@@ -35,7 +34,7 @@ export interface GetTaskDefinitionResult {
     readonly taskDefinitionArn?: string;
 }
 
-export function getTaskDefinitionOutput(args?: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
+export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
     return pulumi.output(args).apply(a => getTaskDefinition(a, opts))
 }
 
@@ -43,5 +42,5 @@ export interface GetTaskDefinitionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the Amazon ECS task definition
      */
-    taskDefinitionArn?: pulumi.Input<string>;
+    taskDefinitionArn: pulumi.Input<string>;
 }

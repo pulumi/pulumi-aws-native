@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MediaLive::Input
  */
-export function getInput(args?: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
-    args = args || {};
+export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getInput(args?: GetInputArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetInputArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetInputResult {
@@ -37,10 +36,10 @@ export interface GetInputResult {
     readonly tags?: any;
 }
 
-export function getInputOutput(args?: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
+export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
     return pulumi.output(args).apply(a => getInput(a, opts))
 }
 
 export interface GetInputOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

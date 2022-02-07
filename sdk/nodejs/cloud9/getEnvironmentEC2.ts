@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Cloud9::EnvironmentEC2
  */
-export function getEnvironmentEC2(args?: GetEnvironmentEC2Args, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentEC2Result> {
-    args = args || {};
+export function getEnvironmentEC2(args: GetEnvironmentEC2Args, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentEC2Result> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getEnvironmentEC2(args?: GetEnvironmentEC2Args, opts?: pulumi.In
 }
 
 export interface GetEnvironmentEC2Args {
-    id?: string;
+    id: string;
 }
 
 export interface GetEnvironmentEC2Result {
@@ -32,10 +31,10 @@ export interface GetEnvironmentEC2Result {
     readonly tags?: outputs.cloud9.EnvironmentEC2Tag[];
 }
 
-export function getEnvironmentEC2Output(args?: GetEnvironmentEC2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentEC2Result> {
+export function getEnvironmentEC2Output(args: GetEnvironmentEC2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentEC2Result> {
     return pulumi.output(args).apply(a => getEnvironmentEC2(a, opts))
 }
 
 export interface GetEnvironmentEC2OutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

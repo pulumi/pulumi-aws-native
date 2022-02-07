@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Schema for ApplicationInstance CloudFormation Resource
  */
-export function getApplicationInstance(args?: GetApplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationInstanceResult> {
-    args = args || {};
+export function getApplicationInstance(args: GetApplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationInstanceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApplicationInstance(args?: GetApplicationInstanceArgs, opts?:
 }
 
 export interface GetApplicationInstanceArgs {
-    applicationInstanceId?: string;
+    applicationInstanceId: string;
 }
 
 export interface GetApplicationInstanceResult {
@@ -38,10 +37,10 @@ export interface GetApplicationInstanceResult {
     readonly tags?: outputs.panorama.ApplicationInstanceTag[];
 }
 
-export function getApplicationInstanceOutput(args?: GetApplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationInstanceResult> {
+export function getApplicationInstanceOutput(args: GetApplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationInstanceResult> {
     return pulumi.output(args).apply(a => getApplicationInstance(a, opts))
 }
 
 export interface GetApplicationInstanceOutputArgs {
-    applicationInstanceId?: pulumi.Input<string>;
+    applicationInstanceId: pulumi.Input<string>;
 }

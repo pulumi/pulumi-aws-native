@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GuardDuty::Member
  */
-export function getMember(args?: GetMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetMemberResult> {
-    args = args || {};
+export function getMember(args: GetMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetMemberResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getMember(args?: GetMemberArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetMemberArgs {
-    memberId?: string;
+    memberId: string;
 }
 
 export interface GetMemberResult {
@@ -29,10 +28,10 @@ export interface GetMemberResult {
     readonly status?: string;
 }
 
-export function getMemberOutput(args?: GetMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMemberResult> {
+export function getMemberOutput(args: GetMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMemberResult> {
     return pulumi.output(args).apply(a => getMember(a, opts))
 }
 
 export interface GetMemberOutputArgs {
-    memberId?: pulumi.Input<string>;
+    memberId: pulumi.Input<string>;
 }

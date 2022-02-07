@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A module that has been registered in the CloudFormation registry.
  */
-export function getModuleVersion(args?: GetModuleVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleVersionResult> {
-    args = args || {};
+export function getModuleVersion(args: GetModuleVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetModuleVersionArgs {
     /**
      * The Amazon Resource Name (ARN) of the module.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetModuleVersionResult {
@@ -66,7 +65,7 @@ export interface GetModuleVersionResult {
     readonly visibility?: enums.cloudformation.ModuleVersionVisibility;
 }
 
-export function getModuleVersionOutput(args?: GetModuleVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleVersionResult> {
+export function getModuleVersionOutput(args: GetModuleVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleVersionResult> {
     return pulumi.output(args).apply(a => getModuleVersion(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetModuleVersionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the module.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

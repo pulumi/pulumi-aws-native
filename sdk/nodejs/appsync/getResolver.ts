@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppSync::Resolver
  */
-export function getResolver(args?: GetResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverResult> {
-    args = args || {};
+export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getResolver(args?: GetResolverArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetResolverArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResolverResult {
@@ -39,10 +38,10 @@ export interface GetResolverResult {
     readonly syncConfig?: outputs.appsync.ResolverSyncConfig;
 }
 
-export function getResolverOutput(args?: GetResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverResult> {
+export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverResult> {
     return pulumi.output(args).apply(a => getResolver(a, opts))
 }
 
 export interface GetResolverOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

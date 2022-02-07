@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::ImageBuilder::ContainerRecipe
  */
-export function getContainerRecipe(args?: GetContainerRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipeResult> {
-    args = args || {};
+export function getContainerRecipe(args: GetContainerRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipeResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetContainerRecipeArgs {
     /**
      * The Amazon Resource Name (ARN) of the container recipe.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetContainerRecipeResult {
@@ -33,7 +32,7 @@ export interface GetContainerRecipeResult {
     readonly arn?: string;
 }
 
-export function getContainerRecipeOutput(args?: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipeResult> {
+export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipeResult> {
     return pulumi.output(args).apply(a => getContainerRecipe(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetContainerRecipeOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the container recipe.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

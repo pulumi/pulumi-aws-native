@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::RefactorSpaces::Application Resource Type
  */
-export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    args = args || {};
+export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetApplicationArgs {
-    applicationIdentifier?: string;
-    environmentIdentifier?: string;
+    applicationIdentifier: string;
+    environmentIdentifier: string;
 }
 
 export interface GetApplicationResult {
@@ -41,11 +40,11 @@ export interface GetApplicationResult {
     readonly vpcLinkId?: string;
 }
 
-export function getApplicationOutput(args?: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply(a => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {
-    applicationIdentifier?: pulumi.Input<string>;
-    environmentIdentifier?: pulumi.Input<string>;
+    applicationIdentifier: pulumi.Input<string>;
+    environmentIdentifier: pulumi.Input<string>;
 }

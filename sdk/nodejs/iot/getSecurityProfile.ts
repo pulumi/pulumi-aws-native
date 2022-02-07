@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A security profile defines a set of expected behaviors for devices in your account.
  */
-export function getSecurityProfile(args?: GetSecurityProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityProfileResult> {
-    args = args || {};
+export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetSecurityProfileArgs {
     /**
      * A unique identifier for the security profile.
      */
-    securityProfileName?: string;
+    securityProfileName: string;
 }
 
 export interface GetSecurityProfileResult {
@@ -58,7 +57,7 @@ export interface GetSecurityProfileResult {
     readonly targetArns?: string[];
 }
 
-export function getSecurityProfileOutput(args?: GetSecurityProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityProfileResult> {
+export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityProfileResult> {
     return pulumi.output(args).apply(a => getSecurityProfile(a, opts))
 }
 
@@ -66,5 +65,5 @@ export interface GetSecurityProfileOutputArgs {
     /**
      * A unique identifier for the security profile.
      */
-    securityProfileName?: pulumi.Input<string>;
+    securityProfileName: pulumi.Input<string>;
 }

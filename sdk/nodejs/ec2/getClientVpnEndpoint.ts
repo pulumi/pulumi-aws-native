@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::ClientVpnEndpoint
  */
-export function getClientVpnEndpoint(args?: GetClientVpnEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnEndpointResult> {
-    args = args || {};
+export function getClientVpnEndpoint(args: GetClientVpnEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnEndpointResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getClientVpnEndpoint(args?: GetClientVpnEndpointArgs, opts?: pul
 }
 
 export interface GetClientVpnEndpointArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetClientVpnEndpointResult {
@@ -40,10 +39,10 @@ export interface GetClientVpnEndpointResult {
     readonly vpnPort?: number;
 }
 
-export function getClientVpnEndpointOutput(args?: GetClientVpnEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnEndpointResult> {
+export function getClientVpnEndpointOutput(args: GetClientVpnEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnEndpointResult> {
     return pulumi.output(args).apply(a => getClientVpnEndpoint(a, opts))
 }
 
 export interface GetClientVpnEndpointOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

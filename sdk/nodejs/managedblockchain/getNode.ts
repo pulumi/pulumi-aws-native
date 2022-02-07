@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ManagedBlockchain::Node
  */
-export function getNode(args?: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeResult> {
-    args = args || {};
+export function getNode(args: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNode(args?: GetNodeArgs, opts?: pulumi.InvokeOptions): Promis
 }
 
 export interface GetNodeArgs {
-    nodeId?: string;
+    nodeId: string;
 }
 
 export interface GetNodeResult {
@@ -32,10 +31,10 @@ export interface GetNodeResult {
     readonly nodeId?: string;
 }
 
-export function getNodeOutput(args?: GetNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeResult> {
+export function getNodeOutput(args: GetNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeResult> {
     return pulumi.output(args).apply(a => getNode(a, opts))
 }
 
 export interface GetNodeOutputArgs {
-    nodeId?: pulumi.Input<string>;
+    nodeId: pulumi.Input<string>;
 }

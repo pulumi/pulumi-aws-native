@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WAFRegional::GeoMatchSet
  */
-export function getGeoMatchSet(args?: GetGeoMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoMatchSetResult> {
-    args = args || {};
+export function getGeoMatchSet(args: GetGeoMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoMatchSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getGeoMatchSet(args?: GetGeoMatchSetArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetGeoMatchSetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetGeoMatchSetResult {
@@ -29,10 +28,10 @@ export interface GetGeoMatchSetResult {
     readonly id?: string;
 }
 
-export function getGeoMatchSetOutput(args?: GetGeoMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoMatchSetResult> {
+export function getGeoMatchSetOutput(args: GetGeoMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoMatchSetResult> {
     return pulumi.output(args).apply(a => getGeoMatchSet(a, opts))
 }
 
 export interface GetGeoMatchSetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

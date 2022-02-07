@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::Distribution
  */
-export function getDistribution(args?: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
-    args = args || {};
+export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDistribution(args?: GetDistributionArgs, opts?: pulumi.Invoke
 }
 
 export interface GetDistributionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDistributionResult {
@@ -31,10 +30,10 @@ export interface GetDistributionResult {
     readonly tags?: outputs.cloudfront.DistributionTag[];
 }
 
-export function getDistributionOutput(args?: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
+export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
     return pulumi.output(args).apply(a => getDistribution(a, opts))
 }
 
 export interface GetDistributionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

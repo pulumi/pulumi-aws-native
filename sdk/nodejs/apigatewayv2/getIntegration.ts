@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Integration
  */
-export function getIntegration(args?: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
-    args = args || {};
+export function getIntegration(args: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getIntegration(args?: GetIntegrationArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetIntegrationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetIntegrationResult {
@@ -45,10 +44,10 @@ export interface GetIntegrationResult {
     readonly tlsConfig?: outputs.apigatewayv2.IntegrationTlsConfig;
 }
 
-export function getIntegrationOutput(args?: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
+export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
     return pulumi.output(args).apply(a => getIntegration(a, opts))
 }
 
 export interface GetIntegrationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

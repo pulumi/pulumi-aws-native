@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::DevEndpoint
  */
-export function getDevEndpoint(args?: GetDevEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDevEndpointResult> {
-    args = args || {};
+export function getDevEndpoint(args: GetDevEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDevEndpointResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDevEndpoint(args?: GetDevEndpointArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetDevEndpointArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDevEndpointResult {
@@ -41,10 +40,10 @@ export interface GetDevEndpointResult {
     readonly workerType?: string;
 }
 
-export function getDevEndpointOutput(args?: GetDevEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevEndpointResult> {
+export function getDevEndpointOutput(args: GetDevEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevEndpointResult> {
     return pulumi.output(args).apply(a => getDevEndpoint(a, opts))
 }
 
 export interface GetDevEndpointOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

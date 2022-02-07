@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::EC2::TransitGatewayPeeringAttachment type
  */
-export function getTransitGatewayPeeringAttachment(args?: GetTransitGatewayPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayPeeringAttachmentResult> {
-    args = args || {};
+export function getTransitGatewayPeeringAttachment(args: GetTransitGatewayPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayPeeringAttachmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetTransitGatewayPeeringAttachmentArgs {
     /**
      * The ID of the transit gateway peering attachment.
      */
-    transitGatewayAttachmentId?: string;
+    transitGatewayAttachmentId: string;
 }
 
 export interface GetTransitGatewayPeeringAttachmentResult {
@@ -50,7 +49,7 @@ export interface GetTransitGatewayPeeringAttachmentResult {
     readonly transitGatewayAttachmentId?: string;
 }
 
-export function getTransitGatewayPeeringAttachmentOutput(args?: GetTransitGatewayPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayPeeringAttachmentResult> {
+export function getTransitGatewayPeeringAttachmentOutput(args: GetTransitGatewayPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayPeeringAttachmentResult> {
     return pulumi.output(args).apply(a => getTransitGatewayPeeringAttachment(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetTransitGatewayPeeringAttachmentOutputArgs {
     /**
      * The ID of the transit gateway peering attachment.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId: pulumi.Input<string>;
 }

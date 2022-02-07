@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
  */
-export function getDedicatedIpPool(args?: GetDedicatedIpPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedIpPoolResult> {
-    args = args || {};
+export function getDedicatedIpPool(args: GetDedicatedIpPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedIpPoolResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDedicatedIpPool(args?: GetDedicatedIpPoolArgs, opts?: pulumi.
 }
 
 export interface GetDedicatedIpPoolArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDedicatedIpPoolResult {
@@ -29,10 +28,10 @@ export interface GetDedicatedIpPoolResult {
     readonly tags?: outputs.pinpointemail.DedicatedIpPoolTags[];
 }
 
-export function getDedicatedIpPoolOutput(args?: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedIpPoolResult> {
+export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedIpPoolResult> {
     return pulumi.output(args).apply(a => getDedicatedIpPool(a, opts))
 }
 
 export interface GetDedicatedIpPoolOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

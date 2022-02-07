@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
  */
-export function getInput(args?: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
-    args = args || {};
+export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetInputArgs {
     /**
      * The name of the input.
      */
-    inputName?: string;
+    inputName: string;
 }
 
 export interface GetInputResult {
@@ -41,7 +40,7 @@ export interface GetInputResult {
     readonly tags?: outputs.iotevents.InputTag[];
 }
 
-export function getInputOutput(args?: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
+export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
     return pulumi.output(args).apply(a => getInput(a, opts))
 }
 
@@ -49,5 +48,5 @@ export interface GetInputOutputArgs {
     /**
      * The name of the input.
      */
-    inputName?: pulumi.Input<string>;
+    inputName: pulumi.Input<string>;
 }

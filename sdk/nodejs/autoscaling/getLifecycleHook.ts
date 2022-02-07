@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AutoScaling::LifecycleHook
  */
-export function getLifecycleHook(args?: GetLifecycleHookArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecycleHookResult> {
-    args = args || {};
+export function getLifecycleHook(args: GetLifecycleHookArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecycleHookResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetLifecycleHookArgs {
     /**
      * The name of the Auto Scaling group for the lifecycle hook.
      */
-    autoScalingGroupName?: string;
+    autoScalingGroupName: string;
     /**
      * The name of the lifecycle hook.
      */
-    lifecycleHookName?: string;
+    lifecycleHookName: string;
 }
 
 export interface GetLifecycleHookResult {
@@ -58,7 +57,7 @@ export interface GetLifecycleHookResult {
     readonly roleARN?: string;
 }
 
-export function getLifecycleHookOutput(args?: GetLifecycleHookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecycleHookResult> {
+export function getLifecycleHookOutput(args: GetLifecycleHookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecycleHookResult> {
     return pulumi.output(args).apply(a => getLifecycleHook(a, opts))
 }
 
@@ -66,9 +65,9 @@ export interface GetLifecycleHookOutputArgs {
     /**
      * The name of the Auto Scaling group for the lifecycle hook.
      */
-    autoScalingGroupName?: pulumi.Input<string>;
+    autoScalingGroupName: pulumi.Input<string>;
     /**
      * The name of the lifecycle hook.
      */
-    lifecycleHookName?: pulumi.Input<string>;
+    lifecycleHookName: pulumi.Input<string>;
 }

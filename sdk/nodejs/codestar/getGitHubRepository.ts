@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CodeStar::GitHubRepository
  */
-export function getGitHubRepository(args?: GetGitHubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubRepositoryResult> {
-    args = args || {};
+export function getGitHubRepository(args: GetGitHubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubRepositoryResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getGitHubRepository(args?: GetGitHubRepositoryArgs, opts?: pulum
 }
 
 export interface GetGitHubRepositoryArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetGitHubRepositoryResult {
@@ -36,10 +35,10 @@ export interface GetGitHubRepositoryResult {
     readonly repositoryOwner?: string;
 }
 
-export function getGitHubRepositoryOutput(args?: GetGitHubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubRepositoryResult> {
+export function getGitHubRepositoryOutput(args: GetGitHubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubRepositoryResult> {
     return pulumi.output(args).apply(a => getGitHubRepository(a, opts))
 }
 
 export interface GetGitHubRepositoryOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

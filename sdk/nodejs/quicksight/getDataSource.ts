@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of the AWS::QuickSight::DataSource Resource Type.
  */
-export function getDataSource(args?: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
-    args = args || {};
+export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getDataSource(args?: GetDataSourceArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetDataSourceArgs {
-    awsAccountId?: string;
-    dataSourceId?: string;
+    awsAccountId: string;
+    dataSourceId: string;
 }
 
 export interface GetDataSourceResult {
@@ -70,11 +69,11 @@ export interface GetDataSourceResult {
     readonly vpcConnectionProperties?: outputs.quicksight.DataSourceVpcConnectionProperties;
 }
 
-export function getDataSourceOutput(args?: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
+export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
     return pulumi.output(args).apply(a => getDataSource(a, opts))
 }
 
 export interface GetDataSourceOutputArgs {
-    awsAccountId?: pulumi.Input<string>;
-    dataSourceId?: pulumi.Input<string>;
+    awsAccountId: pulumi.Input<string>;
+    dataSourceId: pulumi.Input<string>;
 }

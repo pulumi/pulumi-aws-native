@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Config::ConfigurationAggregator
  */
-export function getConfigurationAggregator(args?: GetConfigurationAggregatorArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAggregatorResult> {
-    args = args || {};
+export function getConfigurationAggregator(args: GetConfigurationAggregatorArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAggregatorResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetConfigurationAggregatorArgs {
     /**
      * The name of the aggregator.
      */
-    configurationAggregatorName?: string;
+    configurationAggregatorName: string;
 }
 
 export interface GetConfigurationAggregatorResult {
@@ -40,7 +39,7 @@ export interface GetConfigurationAggregatorResult {
     readonly tags?: outputs.configuration.ConfigurationAggregatorTag[];
 }
 
-export function getConfigurationAggregatorOutput(args?: GetConfigurationAggregatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAggregatorResult> {
+export function getConfigurationAggregatorOutput(args: GetConfigurationAggregatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAggregatorResult> {
     return pulumi.output(args).apply(a => getConfigurationAggregator(a, opts))
 }
 
@@ -48,5 +47,5 @@ export interface GetConfigurationAggregatorOutputArgs {
     /**
      * The name of the aggregator.
      */
-    configurationAggregatorName?: pulumi.Input<string>;
+    configurationAggregatorName: pulumi.Input<string>;
 }

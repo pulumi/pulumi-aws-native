@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::DMS::ReplicationTask
  */
-export function getReplicationTask(args?: GetReplicationTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationTaskResult> {
-    args = args || {};
+export function getReplicationTask(args: GetReplicationTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationTaskResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getReplicationTask(args?: GetReplicationTaskArgs, opts?: pulumi.
 }
 
 export interface GetReplicationTaskArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetReplicationTaskResult {
@@ -35,10 +34,10 @@ export interface GetReplicationTaskResult {
     readonly taskData?: string;
 }
 
-export function getReplicationTaskOutput(args?: GetReplicationTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationTaskResult> {
+export function getReplicationTaskOutput(args: GetReplicationTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationTaskResult> {
     return pulumi.output(args).apply(a => getReplicationTask(a, opts))
 }
 
 export interface GetReplicationTaskOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

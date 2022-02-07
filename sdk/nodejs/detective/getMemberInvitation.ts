@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Detective::MemberInvitation
  */
-export function getMemberInvitation(args?: GetMemberInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetMemberInvitationResult> {
-    args = args || {};
+export function getMemberInvitation(args: GetMemberInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetMemberInvitationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetMemberInvitationArgs {
     /**
      * The ARN of the graph to which the member account will be invited
      */
-    graphArn?: string;
+    graphArn: string;
     /**
      * The AWS account ID to be invited to join the graph as a member
      */
-    memberId?: string;
+    memberId: string;
 }
 
 export interface GetMemberInvitationResult {
@@ -46,7 +45,7 @@ export interface GetMemberInvitationResult {
     readonly message?: string;
 }
 
-export function getMemberInvitationOutput(args?: GetMemberInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMemberInvitationResult> {
+export function getMemberInvitationOutput(args: GetMemberInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMemberInvitationResult> {
     return pulumi.output(args).apply(a => getMemberInvitation(a, opts))
 }
 
@@ -54,9 +53,9 @@ export interface GetMemberInvitationOutputArgs {
     /**
      * The ARN of the graph to which the member account will be invited
      */
-    graphArn?: pulumi.Input<string>;
+    graphArn: pulumi.Input<string>;
     /**
      * The AWS account ID to be invited to join the graph as a member
      */
-    memberId?: pulumi.Input<string>;
+    memberId: pulumi.Input<string>;
 }

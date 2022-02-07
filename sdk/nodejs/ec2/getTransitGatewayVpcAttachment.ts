@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
  */
-export function getTransitGatewayVpcAttachment(args?: GetTransitGatewayVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayVpcAttachmentResult> {
-    args = args || {};
+export function getTransitGatewayVpcAttachment(args: GetTransitGatewayVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayVpcAttachmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTransitGatewayVpcAttachment(args?: GetTransitGatewayVpcAttach
 }
 
 export interface GetTransitGatewayVpcAttachmentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTransitGatewayVpcAttachmentResult {
@@ -35,10 +34,10 @@ export interface GetTransitGatewayVpcAttachmentResult {
     readonly tags?: outputs.ec2.TransitGatewayVpcAttachmentTag[];
 }
 
-export function getTransitGatewayVpcAttachmentOutput(args?: GetTransitGatewayVpcAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayVpcAttachmentResult> {
+export function getTransitGatewayVpcAttachmentOutput(args: GetTransitGatewayVpcAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayVpcAttachmentResult> {
     return pulumi.output(args).apply(a => getTransitGatewayVpcAttachment(a, opts))
 }
 
 export interface GetTransitGatewayVpcAttachmentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

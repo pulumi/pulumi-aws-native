@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Elasticsearch::Domain
  */
-export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    args = args || {};
+export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetDomainArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDomainResult {
@@ -44,10 +43,10 @@ export interface GetDomainResult {
     readonly vPCOptions?: outputs.elasticsearch.DomainVPCOptions;
 }
 
-export function getDomainOutput(args?: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply(a => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

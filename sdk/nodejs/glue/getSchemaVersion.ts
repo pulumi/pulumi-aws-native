@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * This resource represents an individual schema version of a schema defined in Glue Schema Registry.
  */
-export function getSchemaVersion(args?: GetSchemaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaVersionResult> {
-    args = args || {};
+export function getSchemaVersion(args: GetSchemaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetSchemaVersionArgs {
     /**
      * Represents the version ID associated with the schema version.
      */
-    versionId?: string;
+    versionId: string;
 }
 
 export interface GetSchemaVersionResult {
@@ -33,7 +32,7 @@ export interface GetSchemaVersionResult {
     readonly versionId?: string;
 }
 
-export function getSchemaVersionOutput(args?: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaVersionResult> {
+export function getSchemaVersionOutput(args: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaVersionResult> {
     return pulumi.output(args).apply(a => getSchemaVersion(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetSchemaVersionOutputArgs {
     /**
      * Represents the version ID associated with the schema version.
      */
-    versionId?: pulumi.Input<string>;
+    versionId: pulumi.Input<string>;
 }

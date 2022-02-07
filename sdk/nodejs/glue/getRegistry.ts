@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
  */
-export function getRegistry(args?: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
-    args = args || {};
+export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRegistryArgs {
     /**
      * Amazon Resource Name for the created Registry.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetRegistryResult {
@@ -42,7 +41,7 @@ export interface GetRegistryResult {
     readonly tags?: outputs.glue.RegistryTag[];
 }
 
-export function getRegistryOutput(args?: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
+export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
     return pulumi.output(args).apply(a => getRegistry(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetRegistryOutputArgs {
     /**
      * Amazon Resource Name for the created Registry.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

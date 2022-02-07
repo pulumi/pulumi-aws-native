@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::RAM::ResourceShare
  */
-export function getResourceShare(args?: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
-    args = args || {};
+export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getResourceShare(args?: GetResourceShareArgs, opts?: pulumi.Invo
 }
 
 export interface GetResourceShareArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResourceShareResult {
@@ -35,10 +34,10 @@ export interface GetResourceShareResult {
     readonly tags?: outputs.ram.ResourceShareTag[];
 }
 
-export function getResourceShareOutput(args?: GetResourceShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceShareResult> {
+export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceShareResult> {
     return pulumi.output(args).apply(a => getResourceShare(a, opts))
 }
 
 export interface GetResourceShareOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

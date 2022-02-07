@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceDiscovery::PublicDnsNamespace
  */
-export function getPublicDnsNamespace(args?: GetPublicDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicDnsNamespaceResult> {
-    args = args || {};
+export function getPublicDnsNamespace(args: GetPublicDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicDnsNamespaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPublicDnsNamespace(args?: GetPublicDnsNamespaceArgs, opts?: p
 }
 
 export interface GetPublicDnsNamespaceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPublicDnsNamespaceResult {
@@ -33,10 +32,10 @@ export interface GetPublicDnsNamespaceResult {
     readonly tags?: outputs.servicediscovery.PublicDnsNamespaceTag[];
 }
 
-export function getPublicDnsNamespaceOutput(args?: GetPublicDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicDnsNamespaceResult> {
+export function getPublicDnsNamespaceOutput(args: GetPublicDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicDnsNamespaceResult> {
     return pulumi.output(args).apply(a => getPublicDnsNamespace(a, opts))
 }
 
 export interface GetPublicDnsNamespaceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

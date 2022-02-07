@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::Location::RouteCalculator Resource Type
  */
-export function getRouteCalculator(args?: GetRouteCalculatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteCalculatorResult> {
-    args = args || {};
+export function getRouteCalculator(args: GetRouteCalculatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteCalculatorResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getRouteCalculator(args?: GetRouteCalculatorArgs, opts?: pulumi.
 }
 
 export interface GetRouteCalculatorArgs {
-    calculatorName?: string;
+    calculatorName: string;
 }
 
 export interface GetRouteCalculatorResult {
@@ -30,10 +29,10 @@ export interface GetRouteCalculatorResult {
     readonly updateTime?: string;
 }
 
-export function getRouteCalculatorOutput(args?: GetRouteCalculatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteCalculatorResult> {
+export function getRouteCalculatorOutput(args: GetRouteCalculatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteCalculatorResult> {
     return pulumi.output(args).apply(a => getRouteCalculator(a, opts))
 }
 
 export interface GetRouteCalculatorOutputArgs {
-    calculatorName?: pulumi.Input<string>;
+    calculatorName: pulumi.Input<string>;
 }

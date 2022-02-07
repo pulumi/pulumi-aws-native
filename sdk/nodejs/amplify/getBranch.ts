@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::Amplify::Branch resource creates a new branch within an app.
  */
-export function getBranch(args?: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
-    args = args || {};
+export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getBranch(args?: GetBranchArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetBranchArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetBranchResult {
@@ -37,10 +36,10 @@ export interface GetBranchResult {
     readonly tags?: outputs.amplify.BranchTag[];
 }
 
-export function getBranchOutput(args?: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
+export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
     return pulumi.output(args).apply(a => getBranch(a, opts))
 }
 
 export interface GetBranchOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

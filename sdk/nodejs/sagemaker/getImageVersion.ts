@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::ImageVersion
  */
-export function getImageVersion(args?: GetImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetImageVersionResult> {
-    args = args || {};
+export function getImageVersion(args: GetImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetImageVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getImageVersion(args?: GetImageVersionArgs, opts?: pulumi.Invoke
 }
 
 export interface GetImageVersionArgs {
-    imageVersionArn?: string;
+    imageVersionArn: string;
 }
 
 export interface GetImageVersionResult {
@@ -30,10 +29,10 @@ export interface GetImageVersionResult {
     readonly version?: number;
 }
 
-export function getImageVersionOutput(args?: GetImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageVersionResult> {
+export function getImageVersionOutput(args: GetImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageVersionResult> {
     return pulumi.output(args).apply(a => getImageVersion(a, opts))
 }
 
 export interface GetImageVersionOutputArgs {
-    imageVersionArn?: pulumi.Input<string>;
+    imageVersionArn: pulumi.Input<string>;
 }

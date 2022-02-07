@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
  */
-export function getWebACL(args?: GetWebACLArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLResult> {
-    args = args || {};
+export function getWebACL(args: GetWebACLArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,9 +22,9 @@ export function getWebACL(args?: GetWebACLArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetWebACLArgs {
-    id?: string;
-    name?: string;
-    scope?: enums.wafv2.WebACLScope;
+    id: string;
+    name: string;
+    scope: enums.wafv2.WebACLScope;
 }
 
 export interface GetWebACLResult {
@@ -45,12 +44,12 @@ export interface GetWebACLResult {
     readonly visibilityConfig?: outputs.wafv2.WebACLVisibilityConfig;
 }
 
-export function getWebACLOutput(args?: GetWebACLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLResult> {
+export function getWebACLOutput(args: GetWebACLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLResult> {
     return pulumi.output(args).apply(a => getWebACL(a, opts))
 }
 
 export interface GetWebACLOutputArgs {
-    id?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    scope?: pulumi.Input<enums.wafv2.WebACLScope>;
+    id: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    scope: pulumi.Input<enums.wafv2.WebACLScope>;
 }

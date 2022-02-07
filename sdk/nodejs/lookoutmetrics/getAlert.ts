@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::LookoutMetrics::Alert
  */
-export function getAlert(args?: GetAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertResult> {
-    args = args || {};
+export function getAlert(args: GetAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetAlertArgs {
     /**
      * ARN assigned to the alert.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetAlertResult {
@@ -33,7 +32,7 @@ export interface GetAlertResult {
     readonly arn?: string;
 }
 
-export function getAlertOutput(args?: GetAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertResult> {
+export function getAlertOutput(args: GetAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertResult> {
     return pulumi.output(args).apply(a => getAlert(a, opts))
 }
 
@@ -41,5 +40,5 @@ export interface GetAlertOutputArgs {
     /**
      * ARN assigned to the alert.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

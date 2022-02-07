@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Backup::BackupVault
  */
-export function getBackupVault(args?: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
-    args = args || {};
+export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getBackupVault(args?: GetBackupVaultArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetBackupVaultArgs {
-    backupVaultName?: string;
+    backupVaultName: string;
 }
 
 export interface GetBackupVaultResult {
@@ -32,10 +31,10 @@ export interface GetBackupVaultResult {
     readonly notifications?: outputs.backup.BackupVaultNotificationObjectType;
 }
 
-export function getBackupVaultOutput(args?: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
+export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
     return pulumi.output(args).apply(a => getBackupVault(a, opts))
 }
 
 export interface GetBackupVaultOutputArgs {
-    backupVaultName?: pulumi.Input<string>;
+    backupVaultName: pulumi.Input<string>;
 }

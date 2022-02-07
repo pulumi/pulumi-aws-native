@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::AccessKey
  */
-export function getAccessKey(args?: GetAccessKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessKeyResult> {
-    args = args || {};
+export function getAccessKey(args: GetAccessKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAccessKey(args?: GetAccessKeyArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetAccessKeyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAccessKeyResult {
@@ -29,10 +28,10 @@ export interface GetAccessKeyResult {
     readonly status?: string;
 }
 
-export function getAccessKeyOutput(args?: GetAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessKeyResult> {
+export function getAccessKeyOutput(args: GetAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessKeyResult> {
     return pulumi.output(args).apply(a => getAccessKey(a, opts))
 }
 
 export interface GetAccessKeyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

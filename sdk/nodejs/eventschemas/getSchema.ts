@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EventSchemas::Schema
  */
-export function getSchema(args?: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
-    args = args || {};
+export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSchema(args?: GetSchemaArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetSchemaArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSchemaResult {
@@ -34,10 +33,10 @@ export interface GetSchemaResult {
     readonly type?: string;
 }
 
-export function getSchemaOutput(args?: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
+export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
     return pulumi.output(args).apply(a => getSchema(a, opts))
 }
 
 export interface GetSchemaOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

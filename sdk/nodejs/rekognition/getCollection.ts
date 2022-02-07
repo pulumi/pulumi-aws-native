@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
  */
-export function getCollection(args?: GetCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectionResult> {
-    args = args || {};
+export function getCollection(args: GetCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getCollection(args?: GetCollectionArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetCollectionArgs {
-    collectionId?: string;
+    collectionId: string;
 }
 
 export interface GetCollectionResult {
@@ -32,10 +31,10 @@ export interface GetCollectionResult {
     readonly tags?: outputs.rekognition.CollectionTag[];
 }
 
-export function getCollectionOutput(args?: GetCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectionResult> {
+export function getCollectionOutput(args: GetCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectionResult> {
     return pulumi.output(args).apply(a => getCollection(a, opts))
 }
 
 export interface GetCollectionOutputArgs {
-    collectionId?: pulumi.Input<string>;
+    collectionId: pulumi.Input<string>;
 }

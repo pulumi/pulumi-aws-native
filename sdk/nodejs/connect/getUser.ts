@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Connect::User
  */
-export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    args = args || {};
+export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetUserArgs {
     /**
      * The Amazon Resource Name (ARN) for the user.
      */
-    userArn?: string;
+    userArn: string;
 }
 
 export interface GetUserResult {
@@ -70,7 +69,7 @@ export interface GetUserResult {
     readonly username?: string;
 }
 
-export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply(a => getUser(a, opts))
 }
 
@@ -78,5 +77,5 @@ export interface GetUserOutputArgs {
     /**
      * The Amazon Resource Name (ARN) for the user.
      */
-    userArn?: pulumi.Input<string>;
+    userArn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EFS::FileSystem
  */
-export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
-    args = args || {};
+export function getFileSystem(args: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetFileSystemArgs {
-    fileSystemId?: string;
+    fileSystemId: string;
 }
 
 export interface GetFileSystemResult {
@@ -35,10 +34,10 @@ export interface GetFileSystemResult {
     readonly throughputMode?: string;
 }
 
-export function getFileSystemOutput(args?: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
+export function getFileSystemOutput(args: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
     return pulumi.output(args).apply(a => getFileSystem(a, opts))
 }
 
 export interface GetFileSystemOutputArgs {
-    fileSystemId?: pulumi.Input<string>;
+    fileSystemId: pulumi.Input<string>;
 }

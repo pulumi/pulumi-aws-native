@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A resource schema for a Detector in Amazon Fraud Detector.
  */
-export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
-    args = args || {};
+export function getDetector(args: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDetectorArgs {
     /**
      * The ARN of the detector.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetDetectorResult {
@@ -68,7 +67,7 @@ export interface GetDetectorResult {
     readonly tags?: outputs.frauddetector.DetectorTag[];
 }
 
-export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
+export function getDetectorOutput(args: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
     return pulumi.output(args).apply(a => getDetector(a, opts))
 }
 
@@ -76,5 +75,5 @@ export interface GetDetectorOutputArgs {
     /**
      * The ARN of the detector.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

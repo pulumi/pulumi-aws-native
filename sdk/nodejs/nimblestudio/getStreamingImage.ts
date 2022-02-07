@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a streaming session machine image that can be used to launch a streaming session
  */
-export function getStreamingImage(args?: GetStreamingImageArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingImageResult> {
-    args = args || {};
+export function getStreamingImage(args: GetStreamingImageArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingImageResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,11 +21,11 @@ export function getStreamingImage(args?: GetStreamingImageArgs, opts?: pulumi.In
 }
 
 export interface GetStreamingImageArgs {
-    streamingImageId?: string;
+    streamingImageId: string;
     /**
      * <p>The studioId. </p>
      */
-    studioId?: string;
+    studioId: string;
 }
 
 export interface GetStreamingImageResult {
@@ -54,14 +53,14 @@ export interface GetStreamingImageResult {
     readonly streamingImageId?: string;
 }
 
-export function getStreamingImageOutput(args?: GetStreamingImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingImageResult> {
+export function getStreamingImageOutput(args: GetStreamingImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingImageResult> {
     return pulumi.output(args).apply(a => getStreamingImage(a, opts))
 }
 
 export interface GetStreamingImageOutputArgs {
-    streamingImageId?: pulumi.Input<string>;
+    streamingImageId: pulumi.Input<string>;
     /**
      * <p>The studioId. </p>
      */
-    studioId?: pulumi.Input<string>;
+    studioId: pulumi.Input<string>;
 }

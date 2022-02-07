@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Route53::HostedZone.
  */
-export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
-    args = args || {};
+export function getHostedZone(args: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetHostedZoneArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetHostedZoneResult {
@@ -41,10 +40,10 @@ export interface GetHostedZoneResult {
     readonly vPCs?: outputs.route53.HostedZoneVPC[];
 }
 
-export function getHostedZoneOutput(args?: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
+export function getHostedZoneOutput(args: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
     return pulumi.output(args).apply(a => getHostedZone(a, opts))
 }
 
 export interface GetHostedZoneOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

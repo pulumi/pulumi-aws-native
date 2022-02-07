@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Contains detailed information about a report plan in AWS Backup Audit Manager.
  */
-export function getReportPlan(args?: GetReportPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReportPlanResult> {
-    args = args || {};
+export function getReportPlan(args: GetReportPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReportPlanResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetReportPlanArgs {
     /**
      * An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
      */
-    reportPlanArn?: string;
+    reportPlanArn: string;
 }
 
 export interface GetReportPlanResult {
@@ -50,7 +49,7 @@ export interface GetReportPlanResult {
     readonly reportSetting?: outputs.backup.ReportSettingProperties;
 }
 
-export function getReportPlanOutput(args?: GetReportPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportPlanResult> {
+export function getReportPlanOutput(args: GetReportPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportPlanResult> {
     return pulumi.output(args).apply(a => getReportPlan(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetReportPlanOutputArgs {
     /**
      * An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
      */
-    reportPlanArn?: pulumi.Input<string>;
+    reportPlanArn: pulumi.Input<string>;
 }

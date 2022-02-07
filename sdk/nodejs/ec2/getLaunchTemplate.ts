@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::LaunchTemplate
  */
-export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
-    args = args || {};
+export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.In
 }
 
 export interface GetLaunchTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetLaunchTemplateResult {
@@ -32,10 +31,10 @@ export interface GetLaunchTemplateResult {
     readonly tagSpecifications?: outputs.ec2.LaunchTemplateTagSpecification[];
 }
 
-export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
+export function getLaunchTemplateOutput(args: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
     return pulumi.output(args).apply(a => getLaunchTemplate(a, opts))
 }
 
 export interface GetLaunchTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
  */
-export function getFramework(args?: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
-    args = args || {};
+export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFrameworkArgs {
     /**
      * An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
      */
-    frameworkArn?: string;
+    frameworkArn: string;
 }
 
 export interface GetFrameworkResult {
@@ -66,7 +65,7 @@ export interface GetFrameworkResult {
     readonly frameworkTags?: outputs.backup.FrameworkTag[];
 }
 
-export function getFrameworkOutput(args?: GetFrameworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrameworkResult> {
+export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrameworkResult> {
     return pulumi.output(args).apply(a => getFramework(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetFrameworkOutputArgs {
     /**
      * An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
      */
-    frameworkArn?: pulumi.Input<string>;
+    frameworkArn: pulumi.Input<string>;
 }

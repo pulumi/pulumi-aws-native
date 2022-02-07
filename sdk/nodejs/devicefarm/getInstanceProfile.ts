@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
  */
-export function getInstanceProfile(args?: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
-    args = args || {};
+export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getInstanceProfile(args?: GetInstanceProfileArgs, opts?: pulumi.
 }
 
 export interface GetInstanceProfileArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetInstanceProfileResult {
@@ -34,10 +33,10 @@ export interface GetInstanceProfileResult {
     readonly tags?: outputs.devicefarm.InstanceProfileTag[];
 }
 
-export function getInstanceProfileOutput(args?: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
+export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
     return pulumi.output(args).apply(a => getInstanceProfile(a, opts))
 }
 
 export interface GetInstanceProfileOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

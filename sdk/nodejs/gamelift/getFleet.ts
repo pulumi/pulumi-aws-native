@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
  */
-export function getFleet(args?: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
-    args = args || {};
+export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFleetArgs {
     /**
      * Unique fleet ID
      */
-    fleetId?: string;
+    fleetId: string;
 }
 
 export interface GetFleetResult {
@@ -77,7 +76,7 @@ export interface GetFleetResult {
     readonly runtimeConfiguration?: outputs.gamelift.FleetRuntimeConfiguration;
 }
 
-export function getFleetOutput(args?: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
+export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
     return pulumi.output(args).apply(a => getFleet(a, opts))
 }
 
@@ -85,5 +84,5 @@ export interface GetFleetOutputArgs {
     /**
      * Unique fleet ID
      */
-    fleetId?: pulumi.Input<string>;
+    fleetId: pulumi.Input<string>;
 }

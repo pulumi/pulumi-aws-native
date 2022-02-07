@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::SubnetCidrBlock
  */
-export function getSubnetCidrBlock(args?: GetSubnetCidrBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetCidrBlockResult> {
-    args = args || {};
+export function getSubnetCidrBlock(args: GetSubnetCidrBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetCidrBlockResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getSubnetCidrBlock(args?: GetSubnetCidrBlockArgs, opts?: pulumi.
 }
 
 export interface GetSubnetCidrBlockArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSubnetCidrBlockResult {
     readonly id?: string;
 }
 
-export function getSubnetCidrBlockOutput(args?: GetSubnetCidrBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetCidrBlockResult> {
+export function getSubnetCidrBlockOutput(args: GetSubnetCidrBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetCidrBlockResult> {
     return pulumi.output(args).apply(a => getSubnetCidrBlock(a, opts))
 }
 
 export interface GetSubnetCidrBlockOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

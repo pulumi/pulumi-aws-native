@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Cognito::UserPoolGroup
  */
-export function getUserPoolGroup(args?: GetUserPoolGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolGroupResult> {
-    args = args || {};
+export function getUserPoolGroup(args: GetUserPoolGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getUserPoolGroup(args?: GetUserPoolGroupArgs, opts?: pulumi.Invo
 }
 
 export interface GetUserPoolGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetUserPoolGroupResult {
@@ -30,10 +29,10 @@ export interface GetUserPoolGroupResult {
     readonly roleArn?: string;
 }
 
-export function getUserPoolGroupOutput(args?: GetUserPoolGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolGroupResult> {
+export function getUserPoolGroupOutput(args: GetUserPoolGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolGroupResult> {
     return pulumi.output(args).apply(a => getUserPoolGroup(a, opts))
 }
 
 export interface GetUserPoolGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

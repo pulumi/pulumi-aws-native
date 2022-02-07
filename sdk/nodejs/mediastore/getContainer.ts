@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MediaStore::Container
  */
-export function getContainer(args?: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
-    args = args || {};
+export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getContainer(args?: GetContainerArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetContainerArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetContainerResult {
@@ -35,10 +34,10 @@ export interface GetContainerResult {
     readonly tags?: outputs.mediastore.ContainerTag[];
 }
 
-export function getContainerOutput(args?: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
+export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
     return pulumi.output(args).apply(a => getContainer(a, opts))
 }
 
 export interface GetContainerOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

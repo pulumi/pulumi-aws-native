@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPCGatewayAttachment
  */
-export function getVPCGatewayAttachment(args?: GetVPCGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCGatewayAttachmentResult> {
-    args = args || {};
+export function getVPCGatewayAttachment(args: GetVPCGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCGatewayAttachmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getVPCGatewayAttachment(args?: GetVPCGatewayAttachmentArgs, opts
 }
 
 export interface GetVPCGatewayAttachmentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVPCGatewayAttachmentResult {
@@ -30,10 +29,10 @@ export interface GetVPCGatewayAttachmentResult {
     readonly vpnGatewayId?: string;
 }
 
-export function getVPCGatewayAttachmentOutput(args?: GetVPCGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCGatewayAttachmentResult> {
+export function getVPCGatewayAttachmentOutput(args: GetVPCGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCGatewayAttachmentResult> {
     return pulumi.output(args).apply(a => getVPCGatewayAttachment(a, opts))
 }
 
 export interface GetVPCGatewayAttachmentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

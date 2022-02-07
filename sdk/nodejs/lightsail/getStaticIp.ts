@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::StaticIp
  */
-export function getStaticIp(args?: GetStaticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticIpResult> {
-    args = args || {};
+export function getStaticIp(args: GetStaticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticIpResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetStaticIpArgs {
     /**
      * The name of the static IP address.
      */
-    staticIpName?: string;
+    staticIpName: string;
 }
 
 export interface GetStaticIpResult {
@@ -42,7 +41,7 @@ export interface GetStaticIpResult {
     readonly staticIpArn?: string;
 }
 
-export function getStaticIpOutput(args?: GetStaticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticIpResult> {
+export function getStaticIpOutput(args: GetStaticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticIpResult> {
     return pulumi.output(args).apply(a => getStaticIp(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetStaticIpOutputArgs {
     /**
      * The name of the static IP address.
      */
-    staticIpName?: pulumi.Input<string>;
+    staticIpName: pulumi.Input<string>;
 }

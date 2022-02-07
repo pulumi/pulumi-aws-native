@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IVS::RecordingConfiguration
  */
-export function getRecordingConfiguration(args?: GetRecordingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordingConfigurationResult> {
-    args = args || {};
+export function getRecordingConfiguration(args: GetRecordingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordingConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRecordingConfigurationArgs {
     /**
      * Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetRecordingConfigurationResult {
@@ -42,7 +41,7 @@ export interface GetRecordingConfigurationResult {
     readonly tags?: outputs.ivs.RecordingConfigurationTag[];
 }
 
-export function getRecordingConfigurationOutput(args?: GetRecordingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordingConfigurationResult> {
+export function getRecordingConfigurationOutput(args: GetRecordingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordingConfigurationResult> {
     return pulumi.output(args).apply(a => getRecordingConfiguration(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetRecordingConfigurationOutputArgs {
     /**
      * Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

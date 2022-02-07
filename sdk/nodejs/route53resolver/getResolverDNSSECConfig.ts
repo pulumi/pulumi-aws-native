@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
  */
-export function getResolverDNSSECConfig(args?: GetResolverDNSSECConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverDNSSECConfigResult> {
-    args = args || {};
+export function getResolverDNSSECConfig(args: GetResolverDNSSECConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverDNSSECConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResolverDNSSECConfigArgs {
     /**
      * Id
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetResolverDNSSECConfigResult {
@@ -42,7 +41,7 @@ export interface GetResolverDNSSECConfigResult {
     readonly validationStatus?: enums.route53resolver.ResolverDNSSECConfigValidationStatus;
 }
 
-export function getResolverDNSSECConfigOutput(args?: GetResolverDNSSECConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverDNSSECConfigResult> {
+export function getResolverDNSSECConfigOutput(args: GetResolverDNSSECConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverDNSSECConfigResult> {
     return pulumi.output(args).apply(a => getResolverDNSSECConfig(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetResolverDNSSECConfigOutputArgs {
     /**
      * Id
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

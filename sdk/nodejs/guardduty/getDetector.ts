@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GuardDuty::Detector
  */
-export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
-    args = args || {};
+export function getDetector(args: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetDetectorArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDetectorResult {
@@ -31,10 +30,10 @@ export interface GetDetectorResult {
     readonly id?: string;
 }
 
-export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
+export function getDetectorOutput(args: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
     return pulumi.output(args).apply(a => getDetector(a, opts))
 }
 
 export interface GetDetectorOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

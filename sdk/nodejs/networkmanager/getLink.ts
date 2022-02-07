@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::NetworkManager::Link type describes a link.
  */
-export function getLink(args?: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
-    args = args || {};
+export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetLinkArgs {
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: string;
+    globalNetworkId: string;
     /**
      * The ID of the link.
      */
-    linkId?: string;
+    linkId: string;
 }
 
 export interface GetLinkResult {
@@ -63,7 +62,7 @@ export interface GetLinkResult {
     readonly type?: string;
 }
 
-export function getLinkOutput(args?: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
+export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
     return pulumi.output(args).apply(a => getLink(a, opts))
 }
 
@@ -71,9 +70,9 @@ export interface GetLinkOutputArgs {
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId: pulumi.Input<string>;
     /**
      * The ID of the link.
      */
-    linkId?: pulumi.Input<string>;
+    linkId: pulumi.Input<string>;
 }

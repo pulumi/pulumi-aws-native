@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::Instance
  */
-export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-    args = args || {};
+export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetInstanceArgs {
     /**
      * The names to use for your new Lightsail instance.
      */
-    instanceName?: string;
+    instanceName: string;
 }
 
 export interface GetInstanceResult {
@@ -79,7 +78,7 @@ export interface GetInstanceResult {
     readonly userName?: string;
 }
 
-export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply(a => getInstance(a, opts))
 }
 
@@ -87,5 +86,5 @@ export interface GetInstanceOutputArgs {
     /**
      * The names to use for your new Lightsail instance.
      */
-    instanceName?: pulumi.Input<string>;
+    instanceName: pulumi.Input<string>;
 }

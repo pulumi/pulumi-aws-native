@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Neptune::DBSubnetGroup
  */
-export function getDBSubnetGroup(args?: GetDBSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSubnetGroupResult> {
-    args = args || {};
+export function getDBSubnetGroup(args: GetDBSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSubnetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDBSubnetGroup(args?: GetDBSubnetGroupArgs, opts?: pulumi.Invo
 }
 
 export interface GetDBSubnetGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDBSubnetGroupResult {
@@ -31,10 +30,10 @@ export interface GetDBSubnetGroupResult {
     readonly tags?: outputs.neptune.DBSubnetGroupTag[];
 }
 
-export function getDBSubnetGroupOutput(args?: GetDBSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSubnetGroupResult> {
+export function getDBSubnetGroupOutput(args: GetDBSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSubnetGroupResult> {
     return pulumi.output(args).apply(a => getDBSubnetGroup(a, opts))
 }
 
 export interface GetDBSubnetGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

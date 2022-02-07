@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    args = args || {};
+export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetEnvironmentArgs {
     /**
      * Unique identifier for representing FinSpace Environment
      */
-    environmentId?: string;
+    environmentId: string;
 }
 
 export interface GetEnvironmentResult {
@@ -71,7 +70,7 @@ export interface GetEnvironmentResult {
     readonly status?: enums.finspace.EnvironmentStatus;
 }
 
-export function getEnvironmentOutput(args?: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
+export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply(a => getEnvironment(a, opts))
 }
 
@@ -79,5 +78,5 @@ export interface GetEnvironmentOutputArgs {
     /**
      * Unique identifier for representing FinSpace Environment
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId: pulumi.Input<string>;
 }

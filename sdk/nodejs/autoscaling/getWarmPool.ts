@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::AutoScaling::WarmPool.
  */
-export function getWarmPool(args?: GetWarmPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetWarmPoolResult> {
-    args = args || {};
+export function getWarmPool(args: GetWarmPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetWarmPoolResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getWarmPool(args?: GetWarmPoolArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetWarmPoolArgs {
-    autoScalingGroupName?: string;
+    autoScalingGroupName: string;
 }
 
 export interface GetWarmPoolResult {
@@ -31,10 +30,10 @@ export interface GetWarmPoolResult {
     readonly poolState?: string;
 }
 
-export function getWarmPoolOutput(args?: GetWarmPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWarmPoolResult> {
+export function getWarmPoolOutput(args: GetWarmPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWarmPoolResult> {
     return pulumi.output(args).apply(a => getWarmPool(a, opts))
 }
 
 export interface GetWarmPoolOutputArgs {
-    autoScalingGroupName?: pulumi.Input<string>;
+    autoScalingGroupName: pulumi.Input<string>;
 }

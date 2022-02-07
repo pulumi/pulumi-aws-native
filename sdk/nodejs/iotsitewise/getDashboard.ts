@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::IoTSiteWise::Dashboard
  */
-export function getDashboard(args?: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
-    args = args || {};
+export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDashboardArgs {
     /**
      * The ID of the dashboard.
      */
-    dashboardId?: string;
+    dashboardId: string;
 }
 
 export interface GetDashboardResult {
@@ -54,7 +53,7 @@ export interface GetDashboardResult {
     readonly tags?: outputs.iotsitewise.DashboardTag[];
 }
 
-export function getDashboardOutput(args?: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
     return pulumi.output(args).apply(a => getDashboard(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetDashboardOutputArgs {
     /**
      * The ID of the dashboard.
      */
-    dashboardId?: pulumi.Input<string>;
+    dashboardId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Events::EventBusPolicy
  */
-export function getEventBusPolicy(args?: GetEventBusPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEventBusPolicyResult> {
-    args = args || {};
+export function getEventBusPolicy(args: GetEventBusPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEventBusPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getEventBusPolicy(args?: GetEventBusPolicyArgs, opts?: pulumi.In
 }
 
 export interface GetEventBusPolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEventBusPolicyResult {
@@ -32,10 +31,10 @@ export interface GetEventBusPolicyResult {
     readonly statement?: any;
 }
 
-export function getEventBusPolicyOutput(args?: GetEventBusPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusPolicyResult> {
+export function getEventBusPolicyOutput(args: GetEventBusPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusPolicyResult> {
     return pulumi.output(args).apply(a => getEventBusPolicy(a, opts))
 }
 
 export interface GetEventBusPolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

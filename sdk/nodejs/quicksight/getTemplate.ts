@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of the AWS::QuickSight::Template Resource Type.
  */
-export function getTemplate(args?: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
-    args = args || {};
+export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getTemplate(args?: GetTemplateArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetTemplateArgs {
-    awsAccountId?: string;
-    templateId?: string;
+    awsAccountId: string;
+    templateId: string;
 }
 
 export interface GetTemplateResult {
@@ -45,11 +44,11 @@ export interface GetTemplateResult {
     readonly tags?: outputs.quicksight.TemplateTag[];
 }
 
-export function getTemplateOutput(args?: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
+export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
     return pulumi.output(args).apply(a => getTemplate(a, opts))
 }
 
 export interface GetTemplateOutputArgs {
-    awsAccountId?: pulumi.Input<string>;
-    templateId?: pulumi.Input<string>;
+    awsAccountId: pulumi.Input<string>;
+    templateId: pulumi.Input<string>;
 }

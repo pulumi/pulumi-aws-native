@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
  */
-export function getResourceCollection(args?: GetResourceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceCollectionResult> {
-    args = args || {};
+export function getResourceCollection(args: GetResourceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceCollectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResourceCollectionArgs {
     /**
      * The type of ResourceCollection
      */
-    resourceCollectionType?: enums.devopsguru.ResourceCollectionType;
+    resourceCollectionType: enums.devopsguru.ResourceCollectionType;
 }
 
 export interface GetResourceCollectionResult {
@@ -35,7 +34,7 @@ export interface GetResourceCollectionResult {
     readonly resourceCollectionType?: enums.devopsguru.ResourceCollectionType;
 }
 
-export function getResourceCollectionOutput(args?: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceCollectionResult> {
+export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceCollectionResult> {
     return pulumi.output(args).apply(a => getResourceCollection(a, opts))
 }
 
@@ -43,5 +42,5 @@ export interface GetResourceCollectionOutputArgs {
     /**
      * The type of ResourceCollection
      */
-    resourceCollectionType?: pulumi.Input<enums.devopsguru.ResourceCollectionType>;
+    resourceCollectionType: pulumi.Input<enums.devopsguru.ResourceCollectionType>;
 }

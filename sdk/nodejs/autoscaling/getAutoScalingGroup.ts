@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AutoScaling::AutoScalingGroup
  */
-export function getAutoScalingGroup(args?: GetAutoScalingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScalingGroupResult> {
-    args = args || {};
+export function getAutoScalingGroup(args: GetAutoScalingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScalingGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAutoScalingGroup(args?: GetAutoScalingGroupArgs, opts?: pulum
 }
 
 export interface GetAutoScalingGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAutoScalingGroupResult {
@@ -54,10 +53,10 @@ export interface GetAutoScalingGroupResult {
     readonly vPCZoneIdentifier?: string[];
 }
 
-export function getAutoScalingGroupOutput(args?: GetAutoScalingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScalingGroupResult> {
+export function getAutoScalingGroupOutput(args: GetAutoScalingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScalingGroupResult> {
     return pulumi.output(args).apply(a => getAutoScalingGroup(a, opts))
 }
 
 export interface GetAutoScalingGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

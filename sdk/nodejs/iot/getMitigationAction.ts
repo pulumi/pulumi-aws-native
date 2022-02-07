@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
  */
-export function getMitigationAction(args?: GetMitigationActionArgs, opts?: pulumi.InvokeOptions): Promise<GetMitigationActionResult> {
-    args = args || {};
+export function getMitigationAction(args: GetMitigationActionArgs, opts?: pulumi.InvokeOptions): Promise<GetMitigationActionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetMitigationActionArgs {
     /**
      * A unique identifier for the mitigation action.
      */
-    actionName?: string;
+    actionName: string;
 }
 
 export interface GetMitigationActionResult {
@@ -38,7 +37,7 @@ export interface GetMitigationActionResult {
     readonly tags?: outputs.iot.MitigationActionTag[];
 }
 
-export function getMitigationActionOutput(args?: GetMitigationActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMitigationActionResult> {
+export function getMitigationActionOutput(args: GetMitigationActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMitigationActionResult> {
     return pulumi.output(args).apply(a => getMitigationAction(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetMitigationActionOutputArgs {
     /**
      * A unique identifier for the mitigation action.
      */
-    actionName?: pulumi.Input<string>;
+    actionName: pulumi.Input<string>;
 }

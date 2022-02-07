@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
  */
-export function getAlias(args?: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-    args = args || {};
+export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAliasArgs {
     /**
      * Unique alias ID
      */
-    aliasId?: string;
+    aliasId: string;
 }
 
 export interface GetAliasResult {
@@ -46,7 +45,7 @@ export interface GetAliasResult {
     readonly routingStrategy?: outputs.gamelift.AliasRoutingStrategy;
 }
 
-export function getAliasOutput(args?: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
     return pulumi.output(args).apply(a => getAlias(a, opts))
 }
 
@@ -54,5 +53,5 @@ export interface GetAliasOutputArgs {
     /**
      * Unique alias ID
      */
-    aliasId?: pulumi.Input<string>;
+    aliasId: pulumi.Input<string>;
 }

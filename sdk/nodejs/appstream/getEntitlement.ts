@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppStream::Entitlement
  */
-export function getEntitlement(args?: GetEntitlementArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitlementResult> {
-    args = args || {};
+export function getEntitlement(args: GetEntitlementArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitlementResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getEntitlement(args?: GetEntitlementArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetEntitlementArgs {
-    name?: string;
-    stackName?: string;
+    name: string;
+    stackName: string;
 }
 
 export interface GetEntitlementResult {
@@ -34,11 +33,11 @@ export interface GetEntitlementResult {
     readonly lastModifiedTime?: string;
 }
 
-export function getEntitlementOutput(args?: GetEntitlementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitlementResult> {
+export function getEntitlementOutput(args: GetEntitlementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitlementResult> {
     return pulumi.output(args).apply(a => getEntitlement(a, opts))
 }
 
 export interface GetEntitlementOutputArgs {
-    name?: pulumi.Input<string>;
-    stackName?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    stackName: pulumi.Input<string>;
 }

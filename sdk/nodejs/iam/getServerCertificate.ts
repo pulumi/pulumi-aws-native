@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::ServerCertificate
  */
-export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
-    args = args || {};
+export function getServerCertificate(args: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pul
 }
 
 export interface GetServerCertificateArgs {
-    serverCertificateName?: string;
+    serverCertificateName: string;
 }
 
 export interface GetServerCertificateResult {
@@ -33,10 +32,10 @@ export interface GetServerCertificateResult {
     readonly tags?: outputs.iam.ServerCertificateTag[];
 }
 
-export function getServerCertificateOutput(args?: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {
+export function getServerCertificateOutput(args: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {
     return pulumi.output(args).apply(a => getServerCertificate(a, opts))
 }
 
 export interface GetServerCertificateOutputArgs {
-    serverCertificateName?: pulumi.Input<string>;
+    serverCertificateName: pulumi.Input<string>;
 }

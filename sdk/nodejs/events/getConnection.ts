@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Events::Connection.
  */
-export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
-    args = args || {};
+export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetConnectionArgs {
     /**
      * Name of the connection.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetConnectionResult {
@@ -44,7 +43,7 @@ export interface GetConnectionResult {
     readonly secretArn?: string;
 }
 
-export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply(a => getConnection(a, opts))
 }
 
@@ -52,5 +51,5 @@ export interface GetConnectionOutputArgs {
     /**
      * Name of the connection.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

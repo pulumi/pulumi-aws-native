@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Create and manage partner account
  */
-export function getPartnerAccount(args?: GetPartnerAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerAccountResult> {
-    args = args || {};
+export function getPartnerAccount(args: GetPartnerAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerAccountResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetPartnerAccountArgs {
     /**
      * The partner account ID to disassociate from the AWS account
      */
-    partnerAccountId?: string;
+    partnerAccountId: string;
 }
 
 export interface GetPartnerAccountResult {
@@ -62,7 +61,7 @@ export interface GetPartnerAccountResult {
     readonly tags?: outputs.iotwireless.PartnerAccountTag[];
 }
 
-export function getPartnerAccountOutput(args?: GetPartnerAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerAccountResult> {
+export function getPartnerAccountOutput(args: GetPartnerAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerAccountResult> {
     return pulumi.output(args).apply(a => getPartnerAccount(a, opts))
 }
 
@@ -70,5 +69,5 @@ export interface GetPartnerAccountOutputArgs {
     /**
      * The partner account ID to disassociate from the AWS account
      */
-    partnerAccountId?: pulumi.Input<string>;
+    partnerAccountId: pulumi.Input<string>;
 }

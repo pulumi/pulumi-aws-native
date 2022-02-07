@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SSMContacts::Contact
  */
-export function getContact(args?: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
-    args = args || {};
+export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetContactArgs {
     /**
      * The Amazon Resource Name (ARN) of the contact.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetContactResult {
@@ -37,7 +36,7 @@ export interface GetContactResult {
     readonly displayName?: string;
 }
 
-export function getContactOutput(args?: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
+export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
     return pulumi.output(args).apply(a => getContact(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetContactOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the contact.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

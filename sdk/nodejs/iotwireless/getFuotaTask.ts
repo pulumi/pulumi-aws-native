@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Create and manage FUOTA tasks.
  */
-export function getFuotaTask(args?: GetFuotaTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetFuotaTaskResult> {
-    args = args || {};
+export function getFuotaTask(args: GetFuotaTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetFuotaTaskResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetFuotaTaskArgs {
     /**
      * FUOTA task id. Returned after successful create.
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetFuotaTaskResult {
@@ -82,7 +81,7 @@ export interface GetFuotaTaskResult {
     readonly tags?: outputs.iotwireless.FuotaTaskTag[];
 }
 
-export function getFuotaTaskOutput(args?: GetFuotaTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFuotaTaskResult> {
+export function getFuotaTaskOutput(args: GetFuotaTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFuotaTaskResult> {
     return pulumi.output(args).apply(a => getFuotaTask(a, opts))
 }
 
@@ -90,5 +89,5 @@ export interface GetFuotaTaskOutputArgs {
     /**
      * FUOTA task id. Returned after successful create.
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

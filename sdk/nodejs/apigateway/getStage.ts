@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::Stage
  */
-export function getStage(args?: GetStageArgs, opts?: pulumi.InvokeOptions): Promise<GetStageResult> {
-    args = args || {};
+export function getStage(args: GetStageArgs, opts?: pulumi.InvokeOptions): Promise<GetStageResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetStageArgs {
     /**
      * The ID of the RestApi resource that you're deploying with this stage.
      */
-    restApiId?: string;
+    restApiId: string;
     /**
      * The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
      */
-    stageName?: string;
+    stageName: string;
 }
 
 export interface GetStageResult {
@@ -83,7 +82,7 @@ export interface GetStageResult {
     readonly variables?: any;
 }
 
-export function getStageOutput(args?: GetStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStageResult> {
+export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStageResult> {
     return pulumi.output(args).apply(a => getStage(a, opts))
 }
 
@@ -91,9 +90,9 @@ export interface GetStageOutputArgs {
     /**
      * The ID of the RestApi resource that you're deploying with this stage.
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
     /**
      * The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
      */
-    stageName?: pulumi.Input<string>;
+    stageName: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WAF::WebACL
  */
-export function getWebACL(args?: GetWebACLArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLResult> {
-    args = args || {};
+export function getWebACL(args: GetWebACLArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getWebACL(args?: GetWebACLArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetWebACLArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetWebACLResult {
@@ -30,10 +29,10 @@ export interface GetWebACLResult {
     readonly rules?: outputs.waf.WebACLActivatedRule[];
 }
 
-export function getWebACLOutput(args?: GetWebACLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLResult> {
+export function getWebACLOutput(args: GetWebACLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLResult> {
     return pulumi.output(args).apply(a => getWebACL(a, opts))
 }
 
 export interface GetWebACLOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

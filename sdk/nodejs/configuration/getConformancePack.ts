@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
  */
-export function getConformancePack(args?: GetConformancePackArgs, opts?: pulumi.InvokeOptions): Promise<GetConformancePackResult> {
-    args = args || {};
+export function getConformancePack(args: GetConformancePackArgs, opts?: pulumi.InvokeOptions): Promise<GetConformancePackResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetConformancePackArgs {
     /**
      * Name of the conformance pack which will be assigned as the unique identifier.
      */
-    conformancePackName?: string;
+    conformancePackName: string;
 }
 
 export interface GetConformancePackResult {
@@ -42,7 +41,7 @@ export interface GetConformancePackResult {
     readonly deliveryS3KeyPrefix?: string;
 }
 
-export function getConformancePackOutput(args?: GetConformancePackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConformancePackResult> {
+export function getConformancePackOutput(args: GetConformancePackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConformancePackResult> {
     return pulumi.output(args).apply(a => getConformancePack(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetConformancePackOutputArgs {
     /**
      * Name of the conformance pack which will be assigned as the unique identifier.
      */
-    conformancePackName?: pulumi.Input<string>;
+    conformancePackName: pulumi.Input<string>;
 }

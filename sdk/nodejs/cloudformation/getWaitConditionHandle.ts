@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFormation::WaitConditionHandle
  */
-export function getWaitConditionHandle(args?: GetWaitConditionHandleArgs, opts?: pulumi.InvokeOptions): Promise<GetWaitConditionHandleResult> {
-    args = args || {};
+export function getWaitConditionHandle(args: GetWaitConditionHandleArgs, opts?: pulumi.InvokeOptions): Promise<GetWaitConditionHandleResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getWaitConditionHandle(args?: GetWaitConditionHandleArgs, opts?:
 }
 
 export interface GetWaitConditionHandleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetWaitConditionHandleResult {
     readonly id?: string;
 }
 
-export function getWaitConditionHandleOutput(args?: GetWaitConditionHandleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWaitConditionHandleResult> {
+export function getWaitConditionHandleOutput(args: GetWaitConditionHandleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWaitConditionHandleResult> {
     return pulumi.output(args).apply(a => getWaitConditionHandle(a, opts))
 }
 
 export interface GetWaitConditionHandleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

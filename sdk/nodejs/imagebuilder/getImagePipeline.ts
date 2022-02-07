@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::ImageBuilder::ImagePipeline
  */
-export function getImagePipeline(args?: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
-    args = args || {};
+export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetImagePipelineArgs {
     /**
      * The Amazon Resource Name (ARN) of the image pipeline.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetImagePipelineResult {
@@ -74,7 +73,7 @@ export interface GetImagePipelineResult {
     readonly tags?: any;
 }
 
-export function getImagePipelineOutput(args?: GetImagePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelineResult> {
+export function getImagePipelineOutput(args: GetImagePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelineResult> {
     return pulumi.output(args).apply(a => getImagePipeline(a, opts))
 }
 
@@ -82,5 +81,5 @@ export interface GetImagePipelineOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the image pipeline.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

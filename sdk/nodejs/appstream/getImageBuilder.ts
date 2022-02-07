@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppStream::ImageBuilder
  */
-export function getImageBuilder(args?: GetImageBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetImageBuilderResult> {
-    args = args || {};
+export function getImageBuilder(args: GetImageBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetImageBuilderResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getImageBuilder(args?: GetImageBuilderArgs, opts?: pulumi.Invoke
 }
 
 export interface GetImageBuilderArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetImageBuilderResult {
@@ -42,10 +41,10 @@ export interface GetImageBuilderResult {
     readonly vpcConfig?: outputs.appstream.ImageBuilderVpcConfig;
 }
 
-export function getImageBuilderOutput(args?: GetImageBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageBuilderResult> {
+export function getImageBuilderOutput(args: GetImageBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageBuilderResult> {
     return pulumi.output(args).apply(a => getImageBuilder(a, opts))
 }
 
 export interface GetImageBuilderOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

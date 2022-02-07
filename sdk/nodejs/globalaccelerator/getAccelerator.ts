@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GlobalAccelerator::Accelerator
  */
-export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAcceleratorResult> {
-    args = args || {};
+export function getAccelerator(args: GetAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAcceleratorResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAcceleratorArgs {
     /**
      * The Amazon Resource Name (ARN) of the accelerator.
      */
-    acceleratorArn?: string;
+    acceleratorArn: string;
 }
 
 export interface GetAcceleratorResult {
@@ -55,7 +54,7 @@ export interface GetAcceleratorResult {
     readonly tags?: outputs.globalaccelerator.AcceleratorTag[];
 }
 
-export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
+export function getAcceleratorOutput(args: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
     return pulumi.output(args).apply(a => getAccelerator(a, opts))
 }
 
@@ -63,5 +62,5 @@ export interface GetAcceleratorOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the accelerator.
      */
-    acceleratorArn?: pulumi.Input<string>;
+    acceleratorArn: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
  */
-export function getConfigurationTemplate(args?: GetConfigurationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationTemplateResult> {
-    args = args || {};
+export function getConfigurationTemplate(args: GetConfigurationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationTemplateResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getConfigurationTemplate(args?: GetConfigurationTemplateArgs, op
 }
 
 export interface GetConfigurationTemplateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetConfigurationTemplateResult {
@@ -30,10 +29,10 @@ export interface GetConfigurationTemplateResult {
     readonly optionSettings?: outputs.elasticbeanstalk.ConfigurationTemplateConfigurationOptionSetting[];
 }
 
-export function getConfigurationTemplateOutput(args?: GetConfigurationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationTemplateResult> {
+export function getConfigurationTemplateOutput(args: GetConfigurationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationTemplateResult> {
     return pulumi.output(args).apply(a => getConfigurationTemplate(a, opts))
 }
 
 export interface GetConfigurationTemplateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

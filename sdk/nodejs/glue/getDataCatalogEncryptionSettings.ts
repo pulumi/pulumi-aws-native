@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
  */
-export function getDataCatalogEncryptionSettings(args?: GetDataCatalogEncryptionSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogEncryptionSettingsResult> {
-    args = args || {};
+export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogEncryptionSettingsResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDataCatalogEncryptionSettings(args?: GetDataCatalogEncryption
 }
 
 export interface GetDataCatalogEncryptionSettingsArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDataCatalogEncryptionSettingsResult {
@@ -29,10 +28,10 @@ export interface GetDataCatalogEncryptionSettingsResult {
     readonly id?: string;
 }
 
-export function getDataCatalogEncryptionSettingsOutput(args?: GetDataCatalogEncryptionSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogEncryptionSettingsResult> {
+export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncryptionSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogEncryptionSettingsResult> {
     return pulumi.output(args).apply(a => getDataCatalogEncryptionSettings(a, opts))
 }
 
 export interface GetDataCatalogEncryptionSettingsOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

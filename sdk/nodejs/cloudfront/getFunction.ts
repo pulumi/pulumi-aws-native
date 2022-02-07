@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudFront::Function
  */
-export function getFunction(args?: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
-    args = args || {};
+export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFunction(args?: GetFunctionArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetFunctionArgs {
-    functionARN?: string;
+    functionARN: string;
 }
 
 export interface GetFunctionResult {
@@ -32,10 +31,10 @@ export interface GetFunctionResult {
     readonly stage?: string;
 }
 
-export function getFunctionOutput(args?: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
+export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
     return pulumi.output(args).apply(a => getFunction(a, opts))
 }
 
 export interface GetFunctionOutputArgs {
-    functionARN?: pulumi.Input<string>;
+    functionARN: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElastiCache::SecurityGroup
  */
-export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> {
-    args = args || {};
+export function getSecurityGroup(args: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.Invo
 }
 
 export interface GetSecurityGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSecurityGroupResult {
@@ -30,10 +29,10 @@ export interface GetSecurityGroupResult {
     readonly tags?: outputs.elasticache.SecurityGroupTag[];
 }
 
-export function getSecurityGroupOutput(args?: GetSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupResult> {
+export function getSecurityGroupOutput(args: GetSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupResult> {
     return pulumi.output(args).apply(a => getSecurityGroup(a, opts))
 }
 
 export interface GetSecurityGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

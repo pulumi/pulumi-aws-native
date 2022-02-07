@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppSync::GraphQLSchema
  */
-export function getGraphQLSchema(args?: GetGraphQLSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLSchemaResult> {
-    args = args || {};
+export function getGraphQLSchema(args: GetGraphQLSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLSchemaResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getGraphQLSchema(args?: GetGraphQLSchemaArgs, opts?: pulumi.Invo
 }
 
 export interface GetGraphQLSchemaArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetGraphQLSchemaResult {
@@ -29,10 +28,10 @@ export interface GetGraphQLSchemaResult {
     readonly id?: string;
 }
 
-export function getGraphQLSchemaOutput(args?: GetGraphQLSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLSchemaResult> {
+export function getGraphQLSchemaOutput(args: GetGraphQLSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLSchemaResult> {
     return pulumi.output(args).apply(a => getGraphQLSchema(a, opts))
 }
 
 export interface GetGraphQLSchemaOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

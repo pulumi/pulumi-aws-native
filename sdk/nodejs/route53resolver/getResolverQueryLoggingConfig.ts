@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
  */
-export function getResolverQueryLoggingConfig(args?: GetResolverQueryLoggingConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverQueryLoggingConfigResult> {
-    args = args || {};
+export function getResolverQueryLoggingConfig(args: GetResolverQueryLoggingConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverQueryLoggingConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResolverQueryLoggingConfigArgs {
     /**
      * ResourceId
      */
-    id?: string;
+    id: string;
 }
 
 export interface GetResolverQueryLoggingConfigResult {
@@ -62,7 +61,7 @@ export interface GetResolverQueryLoggingConfigResult {
     readonly status?: enums.route53resolver.ResolverQueryLoggingConfigStatus;
 }
 
-export function getResolverQueryLoggingConfigOutput(args?: GetResolverQueryLoggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverQueryLoggingConfigResult> {
+export function getResolverQueryLoggingConfigOutput(args: GetResolverQueryLoggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverQueryLoggingConfigResult> {
     return pulumi.output(args).apply(a => getResolverQueryLoggingConfig(a, opts))
 }
 
@@ -70,5 +69,5 @@ export interface GetResolverQueryLoggingConfigOutputArgs {
     /**
      * ResourceId
      */
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

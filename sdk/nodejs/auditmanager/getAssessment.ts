@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An entity that defines the scope of audit evidence collected by AWS Audit Manager.
  */
-export function getAssessment(args?: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    args = args || {};
+export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAssessment(args?: GetAssessmentArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetAssessmentArgs {
-    assessmentId?: string;
+    assessmentId: string;
 }
 
 export interface GetAssessmentResult {
@@ -45,10 +44,10 @@ export interface GetAssessmentResult {
     readonly tags?: outputs.auditmanager.AssessmentTag[];
 }
 
-export function getAssessmentOutput(args?: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
+export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
     return pulumi.output(args).apply(a => getAssessment(a, opts))
 }
 
 export interface GetAssessmentOutputArgs {
-    assessmentId?: pulumi.Input<string>;
+    assessmentId: pulumi.Input<string>;
 }

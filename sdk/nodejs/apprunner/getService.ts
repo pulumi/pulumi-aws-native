@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::AppRunner::Service resource specifies an AppRunner Service.
  */
-export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    args = args || {};
+export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetServiceArgs {
     /**
      * The Amazon Resource Name (ARN) of the AppRunner Service.
      */
-    serviceArn?: string;
+    serviceArn: string;
 }
 
 export interface GetServiceResult {
@@ -49,7 +48,7 @@ export interface GetServiceResult {
     readonly status?: string;
 }
 
-export function getServiceOutput(args?: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply(a => getService(a, opts))
 }
 
@@ -57,5 +56,5 @@ export interface GetServiceOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the AppRunner Service.
      */
-    serviceArn?: pulumi.Input<string>;
+    serviceArn: pulumi.Input<string>;
 }

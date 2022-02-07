@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
  */
-export function getTagOptionAssociation(args?: GetTagOptionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTagOptionAssociationResult> {
-    args = args || {};
+export function getTagOptionAssociation(args: GetTagOptionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTagOptionAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getTagOptionAssociation(args?: GetTagOptionAssociationArgs, opts
 }
 
 export interface GetTagOptionAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTagOptionAssociationResult {
     readonly id?: string;
 }
 
-export function getTagOptionAssociationOutput(args?: GetTagOptionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagOptionAssociationResult> {
+export function getTagOptionAssociationOutput(args: GetTagOptionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagOptionAssociationResult> {
     return pulumi.output(args).apply(a => getTagOptionAssociation(a, opts))
 }
 
 export interface GetTagOptionAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::VirtualMFADevice
  */
-export function getVirtualMFADevice(args?: GetVirtualMFADeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMFADeviceResult> {
-    args = args || {};
+export function getVirtualMFADevice(args: GetVirtualMFADeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMFADeviceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVirtualMFADevice(args?: GetVirtualMFADeviceArgs, opts?: pulum
 }
 
 export interface GetVirtualMFADeviceArgs {
-    serialNumber?: string;
+    serialNumber: string;
 }
 
 export interface GetVirtualMFADeviceResult {
@@ -30,10 +29,10 @@ export interface GetVirtualMFADeviceResult {
     readonly users?: string[];
 }
 
-export function getVirtualMFADeviceOutput(args?: GetVirtualMFADeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMFADeviceResult> {
+export function getVirtualMFADeviceOutput(args: GetVirtualMFADeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMFADeviceResult> {
     return pulumi.output(args).apply(a => getVirtualMFADevice(a, opts))
 }
 
 export interface GetVirtualMFADeviceOutputArgs {
-    serialNumber?: pulumi.Input<string>;
+    serialNumber: pulumi.Input<string>;
 }

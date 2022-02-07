@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointService
  */
-export function getVPCEndpointService(args?: GetVPCEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointServiceResult> {
-    args = args || {};
+export function getVPCEndpointService(args: GetVPCEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointServiceResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getVPCEndpointService(args?: GetVPCEndpointServiceArgs, opts?: p
 }
 
 export interface GetVPCEndpointServiceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVPCEndpointServiceResult {
@@ -31,10 +30,10 @@ export interface GetVPCEndpointServiceResult {
     readonly payerResponsibility?: string;
 }
 
-export function getVPCEndpointServiceOutput(args?: GetVPCEndpointServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointServiceResult> {
+export function getVPCEndpointServiceOutput(args: GetVPCEndpointServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointServiceResult> {
     return pulumi.output(args).apply(a => getVPCEndpointService(a, opts))
 }
 
 export interface GetVPCEndpointServiceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

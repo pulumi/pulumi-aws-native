@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
  */
-export function getTestGridProject(args?: GetTestGridProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetTestGridProjectResult> {
-    args = args || {};
+export function getTestGridProject(args: GetTestGridProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetTestGridProjectResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTestGridProject(args?: GetTestGridProjectArgs, opts?: pulumi.
 }
 
 export interface GetTestGridProjectArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetTestGridProjectResult {
@@ -31,10 +30,10 @@ export interface GetTestGridProjectResult {
     readonly tags?: outputs.devicefarm.TestGridProjectTag[];
 }
 
-export function getTestGridProjectOutput(args?: GetTestGridProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestGridProjectResult> {
+export function getTestGridProjectOutput(args: GetTestGridProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestGridProjectResult> {
     return pulumi.output(args).apply(a => getTestGridProject(a, opts))
 }
 
 export interface GetTestGridProjectOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

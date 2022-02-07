@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
  */
-export function getUserPoolIdentityProvider(args?: GetUserPoolIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolIdentityProviderResult> {
-    args = args || {};
+export function getUserPoolIdentityProvider(args: GetUserPoolIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolIdentityProviderResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getUserPoolIdentityProvider(args?: GetUserPoolIdentityProviderAr
 }
 
 export interface GetUserPoolIdentityProviderArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetUserPoolIdentityProviderResult {
@@ -30,10 +29,10 @@ export interface GetUserPoolIdentityProviderResult {
     readonly providerDetails?: any;
 }
 
-export function getUserPoolIdentityProviderOutput(args?: GetUserPoolIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolIdentityProviderResult> {
+export function getUserPoolIdentityProviderOutput(args: GetUserPoolIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolIdentityProviderResult> {
     return pulumi.output(args).apply(a => getUserPoolIdentityProvider(a, opts))
 }
 
 export interface GetUserPoolIdentityProviderOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

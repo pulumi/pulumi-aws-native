@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::RDS::DBProxy
  */
-export function getDBProxy(args?: GetDBProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetDBProxyResult> {
-    args = args || {};
+export function getDBProxy(args: GetDBProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetDBProxyResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDBProxyArgs {
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    dBProxyName?: string;
+    dBProxyName: string;
 }
 
 export interface GetDBProxyResult {
@@ -66,7 +65,7 @@ export interface GetDBProxyResult {
     readonly vpcSecurityGroupIds?: string[];
 }
 
-export function getDBProxyOutput(args?: GetDBProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBProxyResult> {
+export function getDBProxyOutput(args: GetDBProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBProxyResult> {
     return pulumi.output(args).apply(a => getDBProxy(a, opts))
 }
 
@@ -74,5 +73,5 @@ export interface GetDBProxyOutputArgs {
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    dBProxyName?: pulumi.Input<string>;
+    dBProxyName: pulumi.Input<string>;
 }

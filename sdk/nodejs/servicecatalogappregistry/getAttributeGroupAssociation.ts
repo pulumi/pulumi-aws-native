@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
  */
-export function getAttributeGroupAssociation(args?: GetAttributeGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttributeGroupAssociationResult> {
-    args = args || {};
+export function getAttributeGroupAssociation(args: GetAttributeGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttributeGroupAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getAttributeGroupAssociation(args?: GetAttributeGroupAssociation
 }
 
 export interface GetAttributeGroupAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAttributeGroupAssociationResult {
@@ -37,10 +36,10 @@ export interface GetAttributeGroupAssociationResult {
     readonly id?: string;
 }
 
-export function getAttributeGroupAssociationOutput(args?: GetAttributeGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttributeGroupAssociationResult> {
+export function getAttributeGroupAssociationOutput(args: GetAttributeGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttributeGroupAssociationResult> {
     return pulumi.output(args).apply(a => getAttributeGroupAssociation(a, opts))
 }
 
 export interface GetAttributeGroupAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

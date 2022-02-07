@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
  */
-export function getSchemaVersionMetadata(args?: GetSchemaVersionMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaVersionMetadataResult> {
-    args = args || {};
+export function getSchemaVersionMetadata(args: GetSchemaVersionMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaVersionMetadataResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,21 +24,21 @@ export interface GetSchemaVersionMetadataArgs {
     /**
      * Metadata key
      */
-    key?: string;
+    key: string;
     /**
      * Represents the version ID associated with the schema version.
      */
-    schemaVersionId?: string;
+    schemaVersionId: string;
     /**
      * Metadata value
      */
-    value?: string;
+    value: string;
 }
 
 export interface GetSchemaVersionMetadataResult {
 }
 
-export function getSchemaVersionMetadataOutput(args?: GetSchemaVersionMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaVersionMetadataResult> {
+export function getSchemaVersionMetadataOutput(args: GetSchemaVersionMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaVersionMetadataResult> {
     return pulumi.output(args).apply(a => getSchemaVersionMetadata(a, opts))
 }
 
@@ -47,13 +46,13 @@ export interface GetSchemaVersionMetadataOutputArgs {
     /**
      * Metadata key
      */
-    key?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
     /**
      * Represents the version ID associated with the schema version.
      */
-    schemaVersionId?: pulumi.Input<string>;
+    schemaVersionId: pulumi.Input<string>;
     /**
      * Metadata value
      */
-    value?: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

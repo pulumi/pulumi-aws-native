@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::RouteResponse
  */
-export function getRouteResponse(args?: GetRouteResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResponseResult> {
-    args = args || {};
+export function getRouteResponse(args: GetRouteResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResponseResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getRouteResponse(args?: GetRouteResponseArgs, opts?: pulumi.Invo
 }
 
 export interface GetRouteResponseArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRouteResponseResult {
@@ -31,10 +30,10 @@ export interface GetRouteResponseResult {
     readonly routeResponseKey?: string;
 }
 
-export function getRouteResponseOutput(args?: GetRouteResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResponseResult> {
+export function getRouteResponseOutput(args: GetRouteResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResponseResult> {
     return pulumi.output(args).apply(a => getRouteResponse(a, opts))
 }
 
 export interface GetRouteResponseOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

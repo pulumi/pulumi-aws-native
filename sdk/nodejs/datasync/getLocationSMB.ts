@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataSync::LocationSMB.
  */
-export function getLocationSMB(args?: GetLocationSMBArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationSMBResult> {
-    args = args || {};
+export function getLocationSMB(args: GetLocationSMBArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationSMBResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetLocationSMBArgs {
     /**
      * The Amazon Resource Name (ARN) of the SMB location that is created.
      */
-    locationArn?: string;
+    locationArn: string;
 }
 
 export interface GetLocationSMBResult {
@@ -55,7 +54,7 @@ export interface GetLocationSMBResult {
     readonly user?: string;
 }
 
-export function getLocationSMBOutput(args?: GetLocationSMBOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationSMBResult> {
+export function getLocationSMBOutput(args: GetLocationSMBOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationSMBResult> {
     return pulumi.output(args).apply(a => getLocationSMB(a, opts))
 }
 
@@ -63,5 +62,5 @@ export interface GetLocationSMBOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the SMB location that is created.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn: pulumi.Input<string>;
 }

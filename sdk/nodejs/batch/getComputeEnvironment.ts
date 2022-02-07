@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Batch::ComputeEnvironment
  */
-export function getComputeEnvironment(args?: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
-    args = args || {};
+export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getComputeEnvironment(args?: GetComputeEnvironmentArgs, opts?: p
 }
 
 export interface GetComputeEnvironmentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetComputeEnvironmentResult {
@@ -32,10 +31,10 @@ export interface GetComputeEnvironmentResult {
     readonly unmanagedvCpus?: number;
 }
 
-export function getComputeEnvironmentOutput(args?: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
+export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
     return pulumi.output(args).apply(a => getComputeEnvironment(a, opts))
 }
 
 export interface GetComputeEnvironmentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

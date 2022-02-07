@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::Model
  */
-export function getModel(args?: GetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetModelResult> {
-    args = args || {};
+export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetModelResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +23,11 @@ export interface GetModelArgs {
     /**
      * A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
      */
-    name?: string;
+    name: string;
     /**
      * The ID of a REST API with which to associate this model.
      */
-    restApiId?: string;
+    restApiId: string;
 }
 
 export interface GetModelResult {
@@ -42,7 +41,7 @@ export interface GetModelResult {
     readonly schema?: any;
 }
 
-export function getModelOutput(args?: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
+export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
     return pulumi.output(args).apply(a => getModel(a, opts))
 }
 
@@ -50,9 +49,9 @@ export interface GetModelOutputArgs {
     /**
      * A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The ID of a REST API with which to associate this model.
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
 }

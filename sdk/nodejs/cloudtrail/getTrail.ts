@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
  */
-export function getTrail(args?: GetTrailArgs, opts?: pulumi.InvokeOptions): Promise<GetTrailResult> {
-    args = args || {};
+export function getTrail(args: GetTrailArgs, opts?: pulumi.InvokeOptions): Promise<GetTrailResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTrail(args?: GetTrailArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetTrailArgs {
-    trailName?: string;
+    trailName: string;
 }
 
 export interface GetTrailResult {
@@ -82,10 +81,10 @@ export interface GetTrailResult {
     readonly tags?: outputs.cloudtrail.TrailTag[];
 }
 
-export function getTrailOutput(args?: GetTrailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrailResult> {
+export function getTrailOutput(args: GetTrailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrailResult> {
     return pulumi.output(args).apply(a => getTrail(a, opts))
 }
 
 export interface GetTrailOutputArgs {
-    trailName?: pulumi.Input<string>;
+    trailName: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for SSO assignmet
  */
-export function getAssignment(args?: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
-    args = args || {};
+export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -29,33 +28,33 @@ export interface GetAssignmentArgs {
     /**
      * The sso instance that the permission set is owned.
      */
-    instanceArn?: string;
+    instanceArn: string;
     /**
      * The permission set that the assignemt will be assigned
      */
-    permissionSetArn?: string;
+    permissionSetArn: string;
     /**
      * The assignee's identifier, user id/group id
      */
-    principalId?: string;
+    principalId: string;
     /**
      * The assignee's type, user/group
      */
-    principalType?: enums.sso.AssignmentPrincipalType;
+    principalType: enums.sso.AssignmentPrincipalType;
     /**
      * The account id to be provisioned.
      */
-    targetId?: string;
+    targetId: string;
     /**
      * The type of resource to be provsioned to, only aws account now
      */
-    targetType?: enums.sso.AssignmentTargetType;
+    targetType: enums.sso.AssignmentTargetType;
 }
 
 export interface GetAssignmentResult {
 }
 
-export function getAssignmentOutput(args?: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
+export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
     return pulumi.output(args).apply(a => getAssignment(a, opts))
 }
 
@@ -63,25 +62,25 @@ export interface GetAssignmentOutputArgs {
     /**
      * The sso instance that the permission set is owned.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn: pulumi.Input<string>;
     /**
      * The permission set that the assignemt will be assigned
      */
-    permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn: pulumi.Input<string>;
     /**
      * The assignee's identifier, user id/group id
      */
-    principalId?: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * The assignee's type, user/group
      */
-    principalType?: pulumi.Input<enums.sso.AssignmentPrincipalType>;
+    principalType: pulumi.Input<enums.sso.AssignmentPrincipalType>;
     /**
      * The account id to be provisioned.
      */
-    targetId?: pulumi.Input<string>;
+    targetId: pulumi.Input<string>;
     /**
      * The type of resource to be provsioned to, only aws account now
      */
-    targetType?: pulumi.Input<enums.sso.AssignmentTargetType>;
+    targetType: pulumi.Input<enums.sso.AssignmentTargetType>;
 }

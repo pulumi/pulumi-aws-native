@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SNS::TopicPolicy
  */
-export function getTopicPolicy(args?: GetTopicPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicPolicyResult> {
-    args = args || {};
+export function getTopicPolicy(args: GetTopicPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getTopicPolicy(args?: GetTopicPolicyArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetTopicPolicyArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTopicPolicyResult {
@@ -29,10 +28,10 @@ export interface GetTopicPolicyResult {
     readonly topics?: string[];
 }
 
-export function getTopicPolicyOutput(args?: GetTopicPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicPolicyResult> {
+export function getTopicPolicyOutput(args: GetTopicPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicPolicyResult> {
     return pulumi.output(args).apply(a => getTopicPolicy(a, opts))
 }
 
 export interface GetTopicPolicyOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

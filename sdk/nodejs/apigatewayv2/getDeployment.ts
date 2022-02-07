@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Deployment
  */
-export function getDeployment(args?: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
-    args = args || {};
+export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getDeployment(args?: GetDeploymentArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetDeploymentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDeploymentResult {
@@ -29,10 +28,10 @@ export interface GetDeploymentResult {
     readonly stageName?: string;
 }
 
-export function getDeploymentOutput(args?: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply(a => getDeployment(a, opts))
 }
 
 export interface GetDeploymentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

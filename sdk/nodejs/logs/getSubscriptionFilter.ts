@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Logs::SubscriptionFilter
  */
-export function getSubscriptionFilter(args?: GetSubscriptionFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionFilterResult> {
-    args = args || {};
+export function getSubscriptionFilter(args: GetSubscriptionFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionFilterResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getSubscriptionFilter(args?: GetSubscriptionFilterArgs, opts?: p
 }
 
 export interface GetSubscriptionFilterArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSubscriptionFilterResult {
     readonly id?: string;
 }
 
-export function getSubscriptionFilterOutput(args?: GetSubscriptionFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFilterResult> {
+export function getSubscriptionFilterOutput(args: GetSubscriptionFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFilterResult> {
     return pulumi.output(args).apply(a => getSubscriptionFilter(a, opts))
 }
 
 export interface GetSubscriptionFilterOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

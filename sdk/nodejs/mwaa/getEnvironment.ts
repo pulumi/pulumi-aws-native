@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::MWAA::Environment
  */
-export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    args = args || {};
+export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetEnvironmentArgs {
-    name?: string;
+    name: string;
 }
 
 export interface GetEnvironmentResult {
@@ -61,10 +60,10 @@ export interface GetEnvironmentResult {
     readonly weeklyMaintenanceWindowStart?: string;
 }
 
-export function getEnvironmentOutput(args?: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
+export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply(a => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IVS::StreamKey
  */
-export function getStreamKey(args?: GetStreamKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamKeyResult> {
-    args = args || {};
+export function getStreamKey(args: GetStreamKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetStreamKeyArgs {
     /**
      * Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetStreamKeyResult {
@@ -42,7 +41,7 @@ export interface GetStreamKeyResult {
     readonly value?: string;
 }
 
-export function getStreamKeyOutput(args?: GetStreamKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamKeyResult> {
+export function getStreamKeyOutput(args: GetStreamKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamKeyResult> {
     return pulumi.output(args).apply(a => getStreamKey(a, opts))
 }
 
@@ -50,5 +49,5 @@ export interface GetStreamKeyOutputArgs {
     /**
      * Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

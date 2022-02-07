@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Route53Resolver::ResolverRule
  */
-export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
-    args = args || {};
+export function getResolverRule(args: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetResolverRuleArgs {
     /**
      * The ID of the endpoint that the rule is associated with.
      */
-    resolverRuleId?: string;
+    resolverRuleId: string;
 }
 
 export interface GetResolverRuleResult {
@@ -54,7 +53,7 @@ export interface GetResolverRuleResult {
     readonly targetIps?: outputs.route53resolver.ResolverRuleTargetAddress[];
 }
 
-export function getResolverRuleOutput(args?: GetResolverRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleResult> {
+export function getResolverRuleOutput(args: GetResolverRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleResult> {
     return pulumi.output(args).apply(a => getResolverRule(a, opts))
 }
 
@@ -62,5 +61,5 @@ export interface GetResolverRuleOutputArgs {
     /**
      * The ID of the endpoint that the rule is associated with.
      */
-    resolverRuleId?: pulumi.Input<string>;
+    resolverRuleId: pulumi.Input<string>;
 }

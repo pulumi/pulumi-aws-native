@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type Definition for AWS::S3Outposts::Endpoint
  */
-export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    args = args || {};
+export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetEndpointArgs {
     /**
      * The Amazon Resource Name (ARN) of the endpoint.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetEndpointResult {
@@ -51,7 +50,7 @@ export interface GetEndpointResult {
     readonly status?: enums.s3outposts.EndpointStatus;
 }
 
-export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply(a => getEndpoint(a, opts))
 }
 
@@ -59,5 +58,5 @@ export interface GetEndpointOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the endpoint.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

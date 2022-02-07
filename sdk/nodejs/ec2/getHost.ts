@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::Host
  */
-export function getHost(args?: GetHostArgs, opts?: pulumi.InvokeOptions): Promise<GetHostResult> {
-    args = args || {};
+export function getHost(args: GetHostArgs, opts?: pulumi.InvokeOptions): Promise<GetHostResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetHostArgs {
     /**
      * Id of the host created.
      */
-    hostId?: string;
+    hostId: string;
 }
 
 export interface GetHostResult {
@@ -41,7 +40,7 @@ export interface GetHostResult {
     readonly hostRecovery?: string;
 }
 
-export function getHostOutput(args?: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
+export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
     return pulumi.output(args).apply(a => getHost(a, opts))
 }
 
@@ -49,5 +48,5 @@ export interface GetHostOutputArgs {
     /**
      * Id of the host created.
      */
-    hostId?: pulumi.Input<string>;
+    hostId: pulumi.Input<string>;
 }

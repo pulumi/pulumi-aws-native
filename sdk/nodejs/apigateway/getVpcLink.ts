@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGateway::VpcLink
  */
-export function getVpcLink(args?: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
-    args = args || {};
+export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVpcLink(args?: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): 
 }
 
 export interface GetVpcLinkArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVpcLinkResult {
@@ -31,10 +30,10 @@ export interface GetVpcLinkResult {
     readonly tags?: outputs.apigateway.VpcLinkTag[];
 }
 
-export function getVpcLinkOutput(args?: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
+export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
     return pulumi.output(args).apply(a => getVpcLink(a, opts))
 }
 
 export interface GetVpcLinkOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

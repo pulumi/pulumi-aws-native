@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppMesh::VirtualRouter
  */
-export function getVirtualRouter(args?: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
-    args = args || {};
+export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVirtualRouter(args?: GetVirtualRouterArgs, opts?: pulumi.Invo
 }
 
 export interface GetVirtualRouterArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVirtualRouterResult {
@@ -33,10 +32,10 @@ export interface GetVirtualRouterResult {
     readonly uid?: string;
 }
 
-export function getVirtualRouterOutput(args?: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
+export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
     return pulumi.output(args).apply(a => getVirtualRouter(a, opts))
 }
 
 export interface GetVirtualRouterOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Connect::UserHierarchyGroup
  */
-export function getUserHierarchyGroup(args?: GetUserHierarchyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyGroupResult> {
-    args = args || {};
+export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetUserHierarchyGroupArgs {
     /**
      * The Amazon Resource Name (ARN) for the user hierarchy group.
      */
-    userHierarchyGroupArn?: string;
+    userHierarchyGroupArn: string;
 }
 
 export interface GetUserHierarchyGroupResult {
@@ -41,7 +40,7 @@ export interface GetUserHierarchyGroupResult {
     readonly userHierarchyGroupArn?: string;
 }
 
-export function getUserHierarchyGroupOutput(args?: GetUserHierarchyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyGroupResult> {
+export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyGroupResult> {
     return pulumi.output(args).apply(a => getUserHierarchyGroup(a, opts))
 }
 
@@ -49,5 +48,5 @@ export interface GetUserHierarchyGroupOutputArgs {
     /**
      * The Amazon Resource Name (ARN) for the user hierarchy group.
      */
-    userHierarchyGroupArn?: pulumi.Input<string>;
+    userHierarchyGroupArn: pulumi.Input<string>;
 }

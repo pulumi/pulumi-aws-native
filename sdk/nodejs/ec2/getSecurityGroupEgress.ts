@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::SecurityGroupEgress
  */
-export function getSecurityGroupEgress(args?: GetSecurityGroupEgressArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupEgressResult> {
-    args = args || {};
+export function getSecurityGroupEgress(args: GetSecurityGroupEgressArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupEgressResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getSecurityGroupEgress(args?: GetSecurityGroupEgressArgs, opts?:
 }
 
 export interface GetSecurityGroupEgressArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetSecurityGroupEgressResult {
@@ -28,10 +27,10 @@ export interface GetSecurityGroupEgressResult {
     readonly id?: string;
 }
 
-export function getSecurityGroupEgressOutput(args?: GetSecurityGroupEgressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupEgressResult> {
+export function getSecurityGroupEgressOutput(args: GetSecurityGroupEgressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupEgressResult> {
     return pulumi.output(args).apply(a => getSecurityGroupEgress(a, opts))
 }
 
 export interface GetSecurityGroupEgressOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

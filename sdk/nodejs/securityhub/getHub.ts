@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SecurityHub::Hub
  */
-export function getHub(args?: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-    args = args || {};
+export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getHub(args?: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetHubArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetHubResult {
@@ -28,10 +27,10 @@ export interface GetHubResult {
     readonly tags?: any;
 }
 
-export function getHubOutput(args?: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
+export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
     return pulumi.output(args).apply(a => getHub(a, opts))
 }
 
 export interface GetHubOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

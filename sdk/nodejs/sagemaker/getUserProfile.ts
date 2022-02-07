@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::UserProfile
  */
-export function getUserProfile(args?: GetUserProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetUserProfileResult> {
-    args = args || {};
+export function getUserProfile(args: GetUserProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetUserProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,11 +24,11 @@ export interface GetUserProfileArgs {
     /**
      * The ID of the associated Domain.
      */
-    domainId?: string;
+    domainId: string;
     /**
      * A name for the UserProfile.
      */
-    userProfileName?: string;
+    userProfileName: string;
 }
 
 export interface GetUserProfileResult {
@@ -43,7 +42,7 @@ export interface GetUserProfileResult {
     readonly userSettings?: outputs.sagemaker.UserProfileUserSettings;
 }
 
-export function getUserProfileOutput(args?: GetUserProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileResult> {
+export function getUserProfileOutput(args: GetUserProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileResult> {
     return pulumi.output(args).apply(a => getUserProfile(a, opts))
 }
 
@@ -51,9 +50,9 @@ export interface GetUserProfileOutputArgs {
     /**
      * The ID of the associated Domain.
      */
-    domainId?: pulumi.Input<string>;
+    domainId: pulumi.Input<string>;
     /**
      * A name for the UserProfile.
      */
-    userProfileName?: pulumi.Input<string>;
+    userProfileName: pulumi.Input<string>;
 }

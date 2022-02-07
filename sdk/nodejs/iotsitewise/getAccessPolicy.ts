@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::IoTSiteWise::AccessPolicy
  */
-export function getAccessPolicy(args?: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
-    args = args || {};
+export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetAccessPolicyArgs {
     /**
      * The ID of the access policy.
      */
-    accessPolicyId?: string;
+    accessPolicyId: string;
 }
 
 export interface GetAccessPolicyResult {
@@ -50,7 +49,7 @@ export interface GetAccessPolicyResult {
     readonly accessPolicyResource?: outputs.iotsitewise.AccessPolicyResource;
 }
 
-export function getAccessPolicyOutput(args?: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
+export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
     return pulumi.output(args).apply(a => getAccessPolicy(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetAccessPolicyOutputArgs {
     /**
      * The ID of the access policy.
      */
-    accessPolicyId?: pulumi.Input<string>;
+    accessPolicyId: pulumi.Input<string>;
 }

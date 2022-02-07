@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
  */
-export function getDevicePool(args?: GetDevicePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicePoolResult> {
-    args = args || {};
+export function getDevicePool(args: GetDevicePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicePoolResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getDevicePool(args?: GetDevicePoolArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetDevicePoolArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetDevicePoolResult {
@@ -33,10 +32,10 @@ export interface GetDevicePoolResult {
     readonly tags?: outputs.devicefarm.DevicePoolTag[];
 }
 
-export function getDevicePoolOutput(args?: GetDevicePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicePoolResult> {
+export function getDevicePoolOutput(args: GetDevicePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicePoolResult> {
     return pulumi.output(args).apply(a => getDevicePool(a, opts))
 }
 
 export interface GetDevicePoolOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

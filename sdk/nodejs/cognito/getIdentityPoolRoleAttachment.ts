@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
  */
-export function getIdentityPoolRoleAttachment(args?: GetIdentityPoolRoleAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolRoleAttachmentResult> {
-    args = args || {};
+export function getIdentityPoolRoleAttachment(args: GetIdentityPoolRoleAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolRoleAttachmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getIdentityPoolRoleAttachment(args?: GetIdentityPoolRoleAttachme
 }
 
 export interface GetIdentityPoolRoleAttachmentArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetIdentityPoolRoleAttachmentResult {
@@ -29,10 +28,10 @@ export interface GetIdentityPoolRoleAttachmentResult {
     readonly roles?: any;
 }
 
-export function getIdentityPoolRoleAttachmentOutput(args?: GetIdentityPoolRoleAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolRoleAttachmentResult> {
+export function getIdentityPoolRoleAttachmentOutput(args: GetIdentityPoolRoleAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolRoleAttachmentResult> {
     return pulumi.output(args).apply(a => getIdentityPoolRoleAttachment(a, opts))
 }
 
 export interface GetIdentityPoolRoleAttachmentOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

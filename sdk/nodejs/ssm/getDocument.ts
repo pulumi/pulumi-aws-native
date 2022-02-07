@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
  */
-export function getDocument(args?: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
-    args = args || {};
+export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDocumentArgs {
     /**
      * A name for the Systems Manager document.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetDocumentResult {
@@ -34,7 +33,7 @@ export interface GetDocumentResult {
     readonly tags?: outputs.ssm.DocumentTag[];
 }
 
-export function getDocumentOutput(args?: GetDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentResult> {
+export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentResult> {
     return pulumi.output(args).apply(a => getDocument(a, opts))
 }
 
@@ -42,5 +41,5 @@ export interface GetDocumentOutputArgs {
     /**
      * A name for the Systems Manager document.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

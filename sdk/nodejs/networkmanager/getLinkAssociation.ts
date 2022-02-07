@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
  */
-export function getLinkAssociation(args?: GetLinkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkAssociationResult> {
-    args = args || {};
+export function getLinkAssociation(args: GetLinkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -25,21 +24,21 @@ export interface GetLinkAssociationArgs {
     /**
      * The ID of the device
      */
-    deviceId?: string;
+    deviceId: string;
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: string;
+    globalNetworkId: string;
     /**
      * The ID of the link
      */
-    linkId?: string;
+    linkId: string;
 }
 
 export interface GetLinkAssociationResult {
 }
 
-export function getLinkAssociationOutput(args?: GetLinkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkAssociationResult> {
+export function getLinkAssociationOutput(args: GetLinkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkAssociationResult> {
     return pulumi.output(args).apply(a => getLinkAssociation(a, opts))
 }
 
@@ -47,13 +46,13 @@ export interface GetLinkAssociationOutputArgs {
     /**
      * The ID of the device
      */
-    deviceId?: pulumi.Input<string>;
+    deviceId: pulumi.Input<string>;
     /**
      * The ID of the global network.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId: pulumi.Input<string>;
     /**
      * The ID of the link
      */
-    linkId?: pulumi.Input<string>;
+    linkId: pulumi.Input<string>;
 }

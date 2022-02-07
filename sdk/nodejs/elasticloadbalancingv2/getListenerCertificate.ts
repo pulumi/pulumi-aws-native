@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
  */
-export function getListenerCertificate(args?: GetListenerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerCertificateResult> {
-    args = args || {};
+export function getListenerCertificate(args: GetListenerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerCertificateResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getListenerCertificate(args?: GetListenerCertificateArgs, opts?:
 }
 
 export interface GetListenerCertificateArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetListenerCertificateResult {
     readonly id?: string;
 }
 
-export function getListenerCertificateOutput(args?: GetListenerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerCertificateResult> {
+export function getListenerCertificateOutput(args: GetListenerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerCertificateResult> {
     return pulumi.output(args).apply(a => getListenerCertificate(a, opts))
 }
 
 export interface GetListenerCertificateOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

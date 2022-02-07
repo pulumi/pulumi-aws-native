@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getSuiteDefinition(args?: GetSuiteDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuiteDefinitionResult> {
-    args = args || {};
+export function getSuiteDefinition(args: GetSuiteDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuiteDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetSuiteDefinitionArgs {
     /**
      * The unique identifier for the suite definition.
      */
-    suiteDefinitionId?: string;
+    suiteDefinitionId: string;
 }
 
 export interface GetSuiteDefinitionResult {
@@ -47,7 +46,7 @@ export interface GetSuiteDefinitionResult {
     readonly tags?: outputs.iotcoredeviceadvisor.SuiteDefinitionTag[];
 }
 
-export function getSuiteDefinitionOutput(args?: GetSuiteDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuiteDefinitionResult> {
+export function getSuiteDefinitionOutput(args: GetSuiteDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuiteDefinitionResult> {
     return pulumi.output(args).apply(a => getSuiteDefinition(a, opts))
 }
 
@@ -55,5 +54,5 @@ export interface GetSuiteDefinitionOutputArgs {
     /**
      * The unique identifier for the suite definition.
      */
-    suiteDefinitionId?: pulumi.Input<string>;
+    suiteDefinitionId: pulumi.Input<string>;
 }

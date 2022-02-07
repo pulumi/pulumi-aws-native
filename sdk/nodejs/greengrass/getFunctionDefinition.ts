@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::FunctionDefinition
  */
-export function getFunctionDefinition(args?: GetFunctionDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionDefinitionResult> {
-    args = args || {};
+export function getFunctionDefinition(args: GetFunctionDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getFunctionDefinition(args?: GetFunctionDefinitionArgs, opts?: p
 }
 
 export interface GetFunctionDefinitionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetFunctionDefinitionResult {
@@ -31,10 +30,10 @@ export interface GetFunctionDefinitionResult {
     readonly tags?: any;
 }
 
-export function getFunctionDefinitionOutput(args?: GetFunctionDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionDefinitionResult> {
+export function getFunctionDefinitionOutput(args: GetFunctionDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionDefinitionResult> {
     return pulumi.output(args).apply(a => getFunctionDefinition(a, opts))
 }
 
 export interface GetFunctionDefinitionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

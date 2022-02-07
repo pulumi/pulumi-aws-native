@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * An outcome for rule evaluation.
  */
-export function getOutcome(args?: GetOutcomeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutcomeResult> {
-    args = args || {};
+export function getOutcome(args: GetOutcomeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutcomeResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetOutcomeArgs {
     /**
      * The outcome ARN.
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetOutcomeResult {
@@ -50,7 +49,7 @@ export interface GetOutcomeResult {
     readonly tags?: outputs.frauddetector.OutcomeTag[];
 }
 
-export function getOutcomeOutput(args?: GetOutcomeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutcomeResult> {
+export function getOutcomeOutput(args: GetOutcomeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutcomeResult> {
     return pulumi.output(args).apply(a => getOutcome(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetOutcomeOutputArgs {
     /**
      * The outcome ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

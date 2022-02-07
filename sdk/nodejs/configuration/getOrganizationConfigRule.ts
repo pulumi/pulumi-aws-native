@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Config::OrganizationConfigRule
  */
-export function getOrganizationConfigRule(args?: GetOrganizationConfigRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationConfigRuleResult> {
-    args = args || {};
+export function getOrganizationConfigRule(args: GetOrganizationConfigRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationConfigRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getOrganizationConfigRule(args?: GetOrganizationConfigRuleArgs, 
 }
 
 export interface GetOrganizationConfigRuleArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetOrganizationConfigRuleResult {
@@ -31,10 +30,10 @@ export interface GetOrganizationConfigRuleResult {
     readonly organizationManagedRuleMetadata?: outputs.configuration.OrganizationConfigRuleOrganizationManagedRuleMetadata;
 }
 
-export function getOrganizationConfigRuleOutput(args?: GetOrganizationConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationConfigRuleResult> {
+export function getOrganizationConfigRuleOutput(args: GetOrganizationConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationConfigRuleResult> {
     return pulumi.output(args).apply(a => getOrganizationConfigRule(a, opts))
 }
 
 export interface GetOrganizationConfigRuleOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

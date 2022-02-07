@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GameLift::GameSessionQueue
  */
-export function getGameSessionQueue(args?: GetGameSessionQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetGameSessionQueueResult> {
-    args = args || {};
+export function getGameSessionQueue(args: GetGameSessionQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetGameSessionQueueResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getGameSessionQueue(args?: GetGameSessionQueueArgs, opts?: pulum
 }
 
 export interface GetGameSessionQueueArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetGameSessionQueueResult {
@@ -37,10 +36,10 @@ export interface GetGameSessionQueueResult {
     readonly timeoutInSeconds?: number;
 }
 
-export function getGameSessionQueueOutput(args?: GetGameSessionQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameSessionQueueResult> {
+export function getGameSessionQueueOutput(args: GetGameSessionQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameSessionQueueResult> {
     return pulumi.output(args).apply(a => getGameSessionQueue(a, opts))
 }
 
 export interface GetGameSessionQueueOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

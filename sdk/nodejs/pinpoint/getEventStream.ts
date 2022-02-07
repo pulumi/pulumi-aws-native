@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::EventStream
  */
-export function getEventStream(args?: GetEventStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetEventStreamResult> {
-    args = args || {};
+export function getEventStream(args: GetEventStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetEventStreamResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getEventStream(args?: GetEventStreamArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetEventStreamArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetEventStreamResult {
@@ -29,10 +28,10 @@ export interface GetEventStreamResult {
     readonly roleArn?: string;
 }
 
-export function getEventStreamOutput(args?: GetEventStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventStreamResult> {
+export function getEventStreamOutput(args: GetEventStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventStreamResult> {
     return pulumi.output(args).apply(a => getEventStream(a, opts))
 }
 
 export interface GetEventStreamOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

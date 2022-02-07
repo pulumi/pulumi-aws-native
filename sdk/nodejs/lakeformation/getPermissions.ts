@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::LakeFormation::Permissions
  */
-export function getPermissions(args?: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
-    args = args || {};
+export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getPermissions(args?: GetPermissionsArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetPermissionsArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPermissionsResult {
@@ -32,10 +31,10 @@ export interface GetPermissionsResult {
     readonly resource?: outputs.lakeformation.PermissionsResource;
 }
 
-export function getPermissionsOutput(args?: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
+export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
     return pulumi.output(args).apply(a => getPermissions(a, opts))
 }
 
 export interface GetPermissionsOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

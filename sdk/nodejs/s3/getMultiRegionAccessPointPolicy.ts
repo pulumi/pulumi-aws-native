@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The policy to be attached to a Multi Region Access Point
  */
-export function getMultiRegionAccessPointPolicy(args?: GetMultiRegionAccessPointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetMultiRegionAccessPointPolicyResult> {
-    args = args || {};
+export function getMultiRegionAccessPointPolicy(args: GetMultiRegionAccessPointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetMultiRegionAccessPointPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetMultiRegionAccessPointPolicyArgs {
     /**
      * The name of the Multi Region Access Point to apply policy
      */
-    mrapName?: string;
+    mrapName: string;
 }
 
 export interface GetMultiRegionAccessPointPolicyResult {
@@ -38,7 +37,7 @@ export interface GetMultiRegionAccessPointPolicyResult {
     readonly policyStatus?: outputs.s3.PolicyStatusProperties;
 }
 
-export function getMultiRegionAccessPointPolicyOutput(args?: GetMultiRegionAccessPointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointPolicyResult> {
+export function getMultiRegionAccessPointPolicyOutput(args: GetMultiRegionAccessPointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointPolicyResult> {
     return pulumi.output(args).apply(a => getMultiRegionAccessPointPolicy(a, opts))
 }
 
@@ -46,5 +45,5 @@ export interface GetMultiRegionAccessPointPolicyOutputArgs {
     /**
      * The name of the Multi Region Access Point to apply policy
      */
-    mrapName?: pulumi.Input<string>;
+    mrapName: pulumi.Input<string>;
 }

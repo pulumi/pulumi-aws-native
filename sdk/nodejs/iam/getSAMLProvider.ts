@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::IAM::SAMLProvider
  */
-export function getSAMLProvider(args?: GetSAMLProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSAMLProviderResult> {
-    args = args || {};
+export function getSAMLProvider(args: GetSAMLProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSAMLProviderResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetSAMLProviderArgs {
     /**
      * Amazon Resource Name (ARN) of the SAML provider
      */
-    arn?: string;
+    arn: string;
 }
 
 export interface GetSAMLProviderResult {
@@ -36,7 +35,7 @@ export interface GetSAMLProviderResult {
     readonly tags?: outputs.iam.SAMLProviderTag[];
 }
 
-export function getSAMLProviderOutput(args?: GetSAMLProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAMLProviderResult> {
+export function getSAMLProviderOutput(args: GetSAMLProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAMLProviderResult> {
     return pulumi.output(args).apply(a => getSAMLProvider(a, opts))
 }
 
@@ -44,5 +43,5 @@ export interface GetSAMLProviderOutputArgs {
     /**
      * Amazon Resource Name (ARN) of the SAML provider
      */
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

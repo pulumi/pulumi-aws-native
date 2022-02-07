@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Inspector::ResourceGroup
  */
-export function getResourceGroup(args?: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
-    args = args || {};
+export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getResourceGroup(args?: GetResourceGroupArgs, opts?: pulumi.Invo
 }
 
 export interface GetResourceGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResourceGroupResult {
@@ -28,10 +27,10 @@ export interface GetResourceGroupResult {
     readonly id?: string;
 }
 
-export function getResourceGroupOutput(args?: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
+export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
     return pulumi.output(args).apply(a => getResourceGroup(a, opts))
 }
 
 export interface GetResourceGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

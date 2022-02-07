@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MediaLive::InputSecurityGroup
  */
-export function getInputSecurityGroup(args?: GetInputSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInputSecurityGroupResult> {
-    args = args || {};
+export function getInputSecurityGroup(args: GetInputSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInputSecurityGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getInputSecurityGroup(args?: GetInputSecurityGroupArgs, opts?: p
 }
 
 export interface GetInputSecurityGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetInputSecurityGroupResult {
@@ -31,10 +30,10 @@ export interface GetInputSecurityGroupResult {
     readonly whitelistRules?: outputs.medialive.InputSecurityGroupInputWhitelistRuleCidr[];
 }
 
-export function getInputSecurityGroupOutput(args?: GetInputSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputSecurityGroupResult> {
+export function getInputSecurityGroupOutput(args: GetInputSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputSecurityGroupResult> {
     return pulumi.output(args).apply(a => getInputSecurityGroup(a, opts))
 }
 
 export interface GetInputSecurityGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

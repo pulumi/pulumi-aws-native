@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::CloudWatch::Alarm
  */
-export function getAlarm(args?: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmResult> {
-    args = args || {};
+export function getAlarm(args: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getAlarm(args?: GetAlarmArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetAlarmArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetAlarmResult {
@@ -49,10 +48,10 @@ export interface GetAlarmResult {
     readonly unit?: string;
 }
 
-export function getAlarmOutput(args?: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
+export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
     return pulumi.output(args).apply(a => getAlarm(a, opts))
 }
 
 export interface GetAlarmOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

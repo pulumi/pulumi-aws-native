@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::GuardDuty::Filter
  */
-export function getFilter(args?: GetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFilterResult> {
-    args = args || {};
+export function getFilter(args: GetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFilterResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getFilter(args?: GetFilterArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetFilterArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetFilterResult {
@@ -32,10 +31,10 @@ export interface GetFilterResult {
     readonly rank?: number;
 }
 
-export function getFilterOutput(args?: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {
+export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {
     return pulumi.output(args).apply(a => getFilter(a, opts))
 }
 
 export interface GetFilterOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

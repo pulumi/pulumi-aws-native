@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::NetworkInterfacePermission
  */
-export function getNetworkInterfacePermission(args?: GetNetworkInterfacePermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacePermissionResult> {
-    args = args || {};
+export function getNetworkInterfacePermission(args: GetNetworkInterfacePermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacePermissionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getNetworkInterfacePermission(args?: GetNetworkInterfacePermissi
 }
 
 export interface GetNetworkInterfacePermissionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetNetworkInterfacePermissionResult {
     readonly id?: string;
 }
 
-export function getNetworkInterfacePermissionOutput(args?: GetNetworkInterfacePermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfacePermissionResult> {
+export function getNetworkInterfacePermissionOutput(args: GetNetworkInterfacePermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfacePermissionResult> {
     return pulumi.output(args).apply(a => getNetworkInterfacePermission(a, opts))
 }
 
 export interface GetNetworkInterfacePermissionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

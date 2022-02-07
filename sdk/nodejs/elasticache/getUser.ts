@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElastiCache::User
  */
-export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    args = args || {};
+export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetUserArgs {
     /**
      * The ID of the user.
      */
-    userId?: string;
+    userId: string;
 }
 
 export interface GetUserResult {
@@ -37,7 +36,7 @@ export interface GetUserResult {
     readonly status?: string;
 }
 
-export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply(a => getUser(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetUserOutputArgs {
     /**
      * The ID of the user.
      */
-    userId?: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

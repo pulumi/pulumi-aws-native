@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AutoScalingPlans::ScalingPlan
  */
-export function getScalingPlan(args?: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
-    args = args || {};
+export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getScalingPlan(args?: GetScalingPlanArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetScalingPlanArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetScalingPlanResult {
@@ -32,10 +31,10 @@ export interface GetScalingPlanResult {
     readonly scalingPlanVersion?: string;
 }
 
-export function getScalingPlanOutput(args?: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
+export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
     return pulumi.output(args).apply(a => getScalingPlan(a, opts))
 }
 
 export interface GetScalingPlanOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

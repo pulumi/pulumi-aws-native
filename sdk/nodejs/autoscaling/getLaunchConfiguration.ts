@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
  */
-export function getLaunchConfiguration(args?: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
-    args = args || {};
+export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,13 +22,13 @@ export interface GetLaunchConfigurationArgs {
     /**
      * The name of the launch configuration. This name must be unique per Region per account.
      */
-    launchConfigurationName?: string;
+    launchConfigurationName: string;
 }
 
 export interface GetLaunchConfigurationResult {
 }
 
-export function getLaunchConfigurationOutput(args?: GetLaunchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchConfigurationResult> {
+export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchConfigurationResult> {
     return pulumi.output(args).apply(a => getLaunchConfiguration(a, opts))
 }
 
@@ -37,5 +36,5 @@ export interface GetLaunchConfigurationOutputArgs {
     /**
      * The name of the launch configuration. This name must be unique per Region per account.
      */
-    launchConfigurationName?: pulumi.Input<string>;
+    launchConfigurationName: pulumi.Input<string>;
 }

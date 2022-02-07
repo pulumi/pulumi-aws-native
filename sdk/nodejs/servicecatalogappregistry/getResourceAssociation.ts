@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
  */
-export function getResourceAssociation(args?: GetResourceAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceAssociationResult> {
-    args = args || {};
+export function getResourceAssociation(args: GetResourceAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getResourceAssociation(args?: GetResourceAssociationArgs, opts?:
 }
 
 export interface GetResourceAssociationArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetResourceAssociationResult {
@@ -42,10 +41,10 @@ export interface GetResourceAssociationResult {
     readonly resourceType?: enums.servicecatalogappregistry.ResourceAssociationResourceType;
 }
 
-export function getResourceAssociationOutput(args?: GetResourceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceAssociationResult> {
+export function getResourceAssociationOutput(args: GetResourceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceAssociationResult> {
     return pulumi.output(args).apply(a => getResourceAssociation(a, opts))
 }
 
 export interface GetResourceAssociationOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

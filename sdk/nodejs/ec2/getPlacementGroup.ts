@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::PlacementGroup
  */
-export function getPlacementGroup(args?: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
-    args = args || {};
+export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getPlacementGroup(args?: GetPlacementGroupArgs, opts?: pulumi.In
 }
 
 export interface GetPlacementGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPlacementGroupResult {
     readonly id?: string;
 }
 
-export function getPlacementGroupOutput(args?: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
+export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
     return pulumi.output(args).apply(a => getPlacementGroup(a, opts))
 }
 
 export interface GetPlacementGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

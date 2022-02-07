@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema of AWS::EC2::IPAMScope Type
  */
-export function getIPAMScope(args?: GetIPAMScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMScopeResult> {
-    args = args || {};
+export function getIPAMScope(args: GetIPAMScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMScopeResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetIPAMScopeArgs {
     /**
      * Id of the IPAM scope.
      */
-    ipamScopeId?: string;
+    ipamScopeId: string;
 }
 
 export interface GetIPAMScopeResult {
@@ -59,7 +58,7 @@ export interface GetIPAMScopeResult {
     readonly tags?: outputs.ec2.IPAMScopeTag[];
 }
 
-export function getIPAMScopeOutput(args?: GetIPAMScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMScopeResult> {
+export function getIPAMScopeOutput(args: GetIPAMScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMScopeResult> {
     return pulumi.output(args).apply(a => getIPAMScope(a, opts))
 }
 
@@ -67,5 +66,5 @@ export interface GetIPAMScopeOutputArgs {
     /**
      * Id of the IPAM scope.
      */
-    ipamScopeId?: pulumi.Input<string>;
+    ipamScopeId: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WAFRegional::XssMatchSet
  */
-export function getXssMatchSet(args?: GetXssMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetXssMatchSetResult> {
-    args = args || {};
+export function getXssMatchSet(args: GetXssMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetXssMatchSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getXssMatchSet(args?: GetXssMatchSetArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetXssMatchSetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetXssMatchSetResult {
@@ -29,10 +28,10 @@ export interface GetXssMatchSetResult {
     readonly xssMatchTuples?: outputs.wafregional.XssMatchSetXssMatchTuple[];
 }
 
-export function getXssMatchSetOutput(args?: GetXssMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetXssMatchSetResult> {
+export function getXssMatchSetOutput(args: GetXssMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetXssMatchSetResult> {
     return pulumi.output(args).apply(a => getXssMatchSet(a, opts))
 }
 
 export interface GetXssMatchSetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

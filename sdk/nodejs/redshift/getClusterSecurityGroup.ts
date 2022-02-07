@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Redshift::ClusterSecurityGroup
  */
-export function getClusterSecurityGroup(args?: GetClusterSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSecurityGroupResult> {
-    args = args || {};
+export function getClusterSecurityGroup(args: GetClusterSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSecurityGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getClusterSecurityGroup(args?: GetClusterSecurityGroupArgs, opts
 }
 
 export interface GetClusterSecurityGroupArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetClusterSecurityGroupResult {
@@ -29,10 +28,10 @@ export interface GetClusterSecurityGroupResult {
     readonly tags?: outputs.redshift.ClusterSecurityGroupTag[];
 }
 
-export function getClusterSecurityGroupOutput(args?: GetClusterSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSecurityGroupResult> {
+export function getClusterSecurityGroupOutput(args: GetClusterSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSecurityGroupResult> {
     return pulumi.output(args).apply(a => getClusterSecurityGroup(a, opts))
 }
 
 export interface GetClusterSecurityGroupOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

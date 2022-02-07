@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Create an Elastic Container Service (ECS) cluster.
  */
-export function getCluster(args?: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    args = args || {};
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetClusterArgs {
     /**
      * A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
      */
-    clusterName?: string;
+    clusterName: string;
 }
 
 export interface GetClusterResult {
@@ -39,7 +38,7 @@ export interface GetClusterResult {
     readonly tags?: outputs.ecs.ClusterTag[];
 }
 
-export function getClusterOutput(args?: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply(a => getCluster(a, opts))
 }
 
@@ -47,5 +46,5 @@ export interface GetClusterOutputArgs {
     /**
      * A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
 }

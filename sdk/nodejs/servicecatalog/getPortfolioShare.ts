@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceCatalog::PortfolioShare
  */
-export function getPortfolioShare(args?: GetPortfolioShareArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioShareResult> {
-    args = args || {};
+export function getPortfolioShare(args: GetPortfolioShareArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioShareResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getPortfolioShare(args?: GetPortfolioShareArgs, opts?: pulumi.In
 }
 
 export interface GetPortfolioShareArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetPortfolioShareResult {
@@ -28,10 +27,10 @@ export interface GetPortfolioShareResult {
     readonly shareTagOptions?: boolean;
 }
 
-export function getPortfolioShareOutput(args?: GetPortfolioShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioShareResult> {
+export function getPortfolioShareOutput(args: GetPortfolioShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioShareResult> {
     return pulumi.output(args).apply(a => getPortfolioShare(a, opts))
 }
 
 export interface GetPortfolioShareOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

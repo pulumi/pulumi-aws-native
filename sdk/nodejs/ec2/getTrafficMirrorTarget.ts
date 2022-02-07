@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::TrafficMirrorTarget
  */
-export function getTrafficMirrorTarget(args?: GetTrafficMirrorTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficMirrorTargetResult> {
-    args = args || {};
+export function getTrafficMirrorTarget(args: GetTrafficMirrorTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficMirrorTargetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getTrafficMirrorTarget(args?: GetTrafficMirrorTargetArgs, opts?:
 }
 
 export interface GetTrafficMirrorTargetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetTrafficMirrorTargetResult {
@@ -29,10 +28,10 @@ export interface GetTrafficMirrorTargetResult {
     readonly tags?: outputs.ec2.TrafficMirrorTargetTag[];
 }
 
-export function getTrafficMirrorTargetOutput(args?: GetTrafficMirrorTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficMirrorTargetResult> {
+export function getTrafficMirrorTargetOutput(args: GetTrafficMirrorTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficMirrorTargetResult> {
     return pulumi.output(args).apply(a => getTrafficMirrorTarget(a, opts))
 }
 
 export interface GetTrafficMirrorTargetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

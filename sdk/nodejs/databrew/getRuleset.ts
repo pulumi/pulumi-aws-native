@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::DataBrew::Ruleset.
  */
-export function getRuleset(args?: GetRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesetResult> {
-    args = args || {};
+export function getRuleset(args: GetRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesetResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetRulesetArgs {
     /**
      * Name of the Ruleset
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetRulesetResult {
@@ -39,7 +38,7 @@ export interface GetRulesetResult {
     readonly tags?: outputs.databrew.RulesetTag[];
 }
 
-export function getRulesetOutput(args?: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
+export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
     return pulumi.output(args).apply(a => getRuleset(a, opts))
 }
 
@@ -47,5 +46,5 @@ export interface GetRulesetOutputArgs {
     /**
      * Name of the Ruleset
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

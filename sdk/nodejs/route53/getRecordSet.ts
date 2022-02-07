@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Route53::RecordSet
  */
-export function getRecordSet(args?: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
-    args = args || {};
+export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getRecordSet(args?: GetRecordSetArgs, opts?: pulumi.InvokeOption
 }
 
 export interface GetRecordSetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetRecordSetResult {
@@ -40,10 +39,10 @@ export interface GetRecordSetResult {
     readonly weight?: number;
 }
 
-export function getRecordSetOutput(args?: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
+export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
     return pulumi.output(args).apply(a => getRecordSet(a, opts))
 }
 
 export interface GetRecordSetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

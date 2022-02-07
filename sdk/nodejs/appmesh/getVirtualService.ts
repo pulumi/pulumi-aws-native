@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppMesh::VirtualService
  */
-export function getVirtualService(args?: GetVirtualServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualServiceResult> {
-    args = args || {};
+export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualServiceResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getVirtualService(args?: GetVirtualServiceArgs, opts?: pulumi.In
 }
 
 export interface GetVirtualServiceArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetVirtualServiceResult {
@@ -33,10 +32,10 @@ export interface GetVirtualServiceResult {
     readonly uid?: string;
 }
 
-export function getVirtualServiceOutput(args?: GetVirtualServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualServiceResult> {
+export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualServiceResult> {
     return pulumi.output(args).apply(a => getVirtualService(a, opts))
 }
 
 export interface GetVirtualServiceOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

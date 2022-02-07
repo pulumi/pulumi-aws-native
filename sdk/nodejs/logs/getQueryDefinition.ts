@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The resource schema for AWSLogs QueryDefinition
  */
-export function getQueryDefinition(args?: GetQueryDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryDefinitionResult> {
-    args = args || {};
+export function getQueryDefinition(args: GetQueryDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetQueryDefinitionArgs {
     /**
      * Unique identifier of a query definition
      */
-    queryDefinitionId?: string;
+    queryDefinitionId: string;
 }
 
 export interface GetQueryDefinitionResult {
@@ -45,7 +44,7 @@ export interface GetQueryDefinitionResult {
     readonly queryString?: string;
 }
 
-export function getQueryDefinitionOutput(args?: GetQueryDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryDefinitionResult> {
+export function getQueryDefinitionOutput(args: GetQueryDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryDefinitionResult> {
     return pulumi.output(args).apply(a => getQueryDefinition(a, opts))
 }
 
@@ -53,5 +52,5 @@ export interface GetQueryDefinitionOutputArgs {
     /**
      * Unique identifier of a query definition
      */
-    queryDefinitionId?: pulumi.Input<string>;
+    queryDefinitionId: pulumi.Input<string>;
 }

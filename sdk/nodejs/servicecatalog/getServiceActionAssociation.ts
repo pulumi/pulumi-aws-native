@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
  */
-export function getServiceActionAssociation(args?: GetServiceActionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceActionAssociationResult> {
-    args = args || {};
+export function getServiceActionAssociation(args: GetServiceActionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceActionAssociationResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,20 +21,20 @@ export function getServiceActionAssociation(args?: GetServiceActionAssociationAr
 }
 
 export interface GetServiceActionAssociationArgs {
-    productId?: string;
-    provisioningArtifactId?: string;
-    serviceActionId?: string;
+    productId: string;
+    provisioningArtifactId: string;
+    serviceActionId: string;
 }
 
 export interface GetServiceActionAssociationResult {
 }
 
-export function getServiceActionAssociationOutput(args?: GetServiceActionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceActionAssociationResult> {
+export function getServiceActionAssociationOutput(args: GetServiceActionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceActionAssociationResult> {
     return pulumi.output(args).apply(a => getServiceActionAssociation(a, opts))
 }
 
 export interface GetServiceActionAssociationOutputArgs {
-    productId?: pulumi.Input<string>;
-    provisioningArtifactId?: pulumi.Input<string>;
-    serviceActionId?: pulumi.Input<string>;
+    productId: pulumi.Input<string>;
+    provisioningArtifactId: pulumi.Input<string>;
+    serviceActionId: pulumi.Input<string>;
 }

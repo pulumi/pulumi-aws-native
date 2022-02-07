@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::NatGateway
  */
-export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
-    args = args || {};
+export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetNatGatewayArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetNatGatewayResult {
@@ -29,10 +28,10 @@ export interface GetNatGatewayResult {
     readonly tags?: outputs.ec2.NatGatewayTag[];
 }
 
-export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
+export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
     return pulumi.output(args).apply(a => getNatGateway(a, opts))
 }
 
 export interface GetNatGatewayOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Logs::MetricFilter
  */
-export function getMetricFilter(args?: GetMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricFilterResult> {
-    args = args || {};
+export function getMetricFilter(args: GetMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricFilterResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getMetricFilter(args?: GetMetricFilterArgs, opts?: pulumi.Invoke
 }
 
 export interface GetMetricFilterArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetMetricFilterResult {
@@ -30,10 +29,10 @@ export interface GetMetricFilterResult {
     readonly metricTransformations?: outputs.logs.MetricFilterMetricTransformation[];
 }
 
-export function getMetricFilterOutput(args?: GetMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricFilterResult> {
+export function getMetricFilterOutput(args: GetMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricFilterResult> {
     return pulumi.output(args).apply(a => getMetricFilter(a, opts))
 }
 
 export interface GetMetricFilterOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
  */
-export function getScheduledQuery(args?: GetScheduledQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryResult> {
-    args = args || {};
+export function getScheduledQuery(args: GetScheduledQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getScheduledQuery(args?: GetScheduledQueryArgs, opts?: pulumi.In
 }
 
 export interface GetScheduledQueryArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetScheduledQueryResult {
@@ -61,10 +60,10 @@ export interface GetScheduledQueryResult {
     readonly tags?: outputs.timestream.ScheduledQueryTag[];
 }
 
-export function getScheduledQueryOutput(args?: GetScheduledQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryResult> {
+export function getScheduledQueryOutput(args: GetScheduledQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryResult> {
     return pulumi.output(args).apply(a => getScheduledQuery(a, opts))
 }
 
 export interface GetScheduledQueryOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

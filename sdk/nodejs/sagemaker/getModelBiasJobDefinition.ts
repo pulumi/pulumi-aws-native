@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
  */
-export function getModelBiasJobDefinition(args?: GetModelBiasJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelBiasJobDefinitionResult> {
-    args = args || {};
+export function getModelBiasJobDefinition(args: GetModelBiasJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelBiasJobDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetModelBiasJobDefinitionArgs {
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    jobDefinitionArn?: string;
+    jobDefinitionArn: string;
 }
 
 export interface GetModelBiasJobDefinitionResult {
@@ -37,7 +36,7 @@ export interface GetModelBiasJobDefinitionResult {
     readonly jobDefinitionArn?: string;
 }
 
-export function getModelBiasJobDefinitionOutput(args?: GetModelBiasJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelBiasJobDefinitionResult> {
+export function getModelBiasJobDefinitionOutput(args: GetModelBiasJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelBiasJobDefinitionResult> {
     return pulumi.output(args).apply(a => getModelBiasJobDefinition(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetModelBiasJobDefinitionOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    jobDefinitionArn?: pulumi.Input<string>;
+    jobDefinitionArn: pulumi.Input<string>;
 }

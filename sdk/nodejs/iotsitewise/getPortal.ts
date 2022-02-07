@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::IoTSiteWise::Portal
  */
-export function getPortal(args?: GetPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetPortalResult> {
-    args = args || {};
+export function getPortal(args: GetPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetPortalResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetPortalArgs {
     /**
      * The ID of the portal.
      */
-    portalId?: string;
+    portalId: string;
 }
 
 export interface GetPortalResult {
@@ -70,7 +69,7 @@ export interface GetPortalResult {
     readonly roleArn?: string;
 }
 
-export function getPortalOutput(args?: GetPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortalResult> {
+export function getPortalOutput(args: GetPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortalResult> {
     return pulumi.output(args).apply(a => getPortal(a, opts))
 }
 
@@ -78,5 +77,5 @@ export interface GetPortalOutputArgs {
     /**
      * The ID of the portal.
      */
-    portalId?: pulumi.Input<string>;
+    portalId: pulumi.Input<string>;
 }

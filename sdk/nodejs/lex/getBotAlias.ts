@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
  */
-export function getBotAlias(args?: GetBotAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAliasResult> {
-    args = args || {};
+export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAliasResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getBotAlias(args?: GetBotAliasArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetBotAliasArgs {
-    botAliasId?: string;
-    botId?: string;
+    botAliasId: string;
+    botId: string;
 }
 
 export interface GetBotAliasResult {
@@ -41,11 +40,11 @@ export interface GetBotAliasResult {
     readonly sentimentAnalysisSettings?: outputs.lex.SentimentAnalysisSettingsProperties;
 }
 
-export function getBotAliasOutput(args?: GetBotAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAliasResult> {
+export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAliasResult> {
     return pulumi.output(args).apply(a => getBotAlias(a, opts))
 }
 
 export interface GetBotAliasOutputArgs {
-    botAliasId?: pulumi.Input<string>;
-    botId?: pulumi.Input<string>;
+    botAliasId: pulumi.Input<string>;
+    botId: pulumi.Input<string>;
 }

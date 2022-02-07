@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::MediaConvert::Queue
  */
-export function getQueue(args?: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-    args = args || {};
+export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getQueue(args?: GetQueueArgs, opts?: pulumi.InvokeOptions): Prom
 }
 
 export interface GetQueueArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetQueueResult {
@@ -32,10 +31,10 @@ export interface GetQueueResult {
     readonly tags?: any;
 }
 
-export function getQueueOutput(args?: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
+export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply(a => getQueue(a, opts))
 }
 
 export interface GetQueueOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

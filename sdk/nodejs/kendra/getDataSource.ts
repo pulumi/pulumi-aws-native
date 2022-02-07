@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Kendra DataSource
  */
-export function getDataSource(args?: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
-    args = args || {};
+export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
     if (!opts) {
         opts = {}
     }
@@ -22,8 +21,8 @@ export function getDataSource(args?: GetDataSourceArgs, opts?: pulumi.InvokeOpti
 }
 
 export interface GetDataSourceArgs {
-    id?: string;
-    indexId?: string;
+    id: string;
+    indexId: string;
 }
 
 export interface GetDataSourceResult {
@@ -41,11 +40,11 @@ export interface GetDataSourceResult {
     readonly tags?: outputs.kendra.DataSourceTag[];
 }
 
-export function getDataSourceOutput(args?: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
+export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
     return pulumi.output(args).apply(a => getDataSource(a, opts))
 }
 
 export interface GetDataSourceOutputArgs {
-    id?: pulumi.Input<string>;
-    indexId?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
+    indexId: pulumi.Input<string>;
 }

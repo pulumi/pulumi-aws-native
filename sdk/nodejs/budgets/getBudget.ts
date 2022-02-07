@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Budgets::Budget
  */
-export function getBudget(args?: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
-    args = args || {};
+export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getBudget(args?: GetBudgetArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetBudgetArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetBudgetResult {
@@ -29,10 +28,10 @@ export interface GetBudgetResult {
     readonly id?: string;
 }
 
-export function getBudgetOutput(args?: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
+export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
     return pulumi.output(args).apply(a => getBudget(a, opts))
 }
 
 export interface GetBudgetOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

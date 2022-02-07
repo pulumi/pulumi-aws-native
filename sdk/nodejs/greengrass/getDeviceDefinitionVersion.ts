@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::DeviceDefinitionVersion
  */
-export function getDeviceDefinitionVersion(args?: GetDeviceDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceDefinitionVersionResult> {
-    args = args || {};
+export function getDeviceDefinitionVersion(args: GetDeviceDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceDefinitionVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getDeviceDefinitionVersion(args?: GetDeviceDefinitionVersionArgs
 }
 
 export interface GetDeviceDefinitionVersionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetDeviceDefinitionVersionResult {
     readonly id?: string;
 }
 
-export function getDeviceDefinitionVersionOutput(args?: GetDeviceDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceDefinitionVersionResult> {
+export function getDeviceDefinitionVersionOutput(args: GetDeviceDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceDefinitionVersionResult> {
     return pulumi.output(args).apply(a => getDeviceDefinitionVersion(a, opts))
 }
 
 export interface GetDeviceDefinitionVersionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

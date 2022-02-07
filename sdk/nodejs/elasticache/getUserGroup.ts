@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ElastiCache::UserGroup
  */
-export function getUserGroup(args?: GetUserGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserGroupResult> {
-    args = args || {};
+export function getUserGroup(args: GetUserGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -23,7 +22,7 @@ export interface GetUserGroupArgs {
     /**
      * The ID of the user group.
      */
-    userGroupId?: string;
+    userGroupId: string;
 }
 
 export interface GetUserGroupResult {
@@ -41,7 +40,7 @@ export interface GetUserGroupResult {
     readonly userIds?: string[];
 }
 
-export function getUserGroupOutput(args?: GetUserGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserGroupResult> {
+export function getUserGroupOutput(args: GetUserGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserGroupResult> {
     return pulumi.output(args).apply(a => getUserGroup(a, opts))
 }
 
@@ -49,5 +48,5 @@ export interface GetUserGroupOutputArgs {
     /**
      * The ID of the user group.
      */
-    userGroupId?: pulumi.Input<string>;
+    userGroupId: pulumi.Input<string>;
 }

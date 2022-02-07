@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Synthetics::Canary
  */
-export function getCanary(args?: GetCanaryArgs, opts?: pulumi.InvokeOptions): Promise<GetCanaryResult> {
-    args = args || {};
+export function getCanary(args: GetCanaryArgs, opts?: pulumi.InvokeOptions): Promise<GetCanaryResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetCanaryArgs {
     /**
      * Name of the canary.
      */
-    name?: string;
+    name: string;
 }
 
 export interface GetCanaryResult {
@@ -87,7 +86,7 @@ export interface GetCanaryResult {
     readonly visualReference?: outputs.synthetics.CanaryVisualReference;
 }
 
-export function getCanaryOutput(args?: GetCanaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCanaryResult> {
+export function getCanaryOutput(args: GetCanaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCanaryResult> {
     return pulumi.output(args).apply(a => getCanary(a, opts))
 }
 
@@ -95,5 +94,5 @@ export interface GetCanaryOutputArgs {
     /**
      * Name of the canary.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

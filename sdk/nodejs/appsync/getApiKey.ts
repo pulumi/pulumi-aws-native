@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::AppSync::ApiKey
  */
-export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
-    args = args || {};
+export function getApiKey(args: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Pr
 }
 
 export interface GetApiKeyArgs {
-    apiKeyId?: string;
+    apiKeyId: string;
 }
 
 export interface GetApiKeyResult {
@@ -31,10 +30,10 @@ export interface GetApiKeyResult {
     readonly expires?: number;
 }
 
-export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
+export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
     return pulumi.output(args).apply(a => getApiKey(a, opts))
 }
 
 export interface GetApiKeyOutputArgs {
-    apiKeyId?: pulumi.Input<string>;
+    apiKeyId: pulumi.Input<string>;
 }

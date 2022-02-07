@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Cognito::UserPoolDomain
  */
-export function getUserPoolDomain(args?: GetUserPoolDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolDomainResult> {
-    args = args || {};
+export function getUserPoolDomain(args: GetUserPoolDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolDomainResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getUserPoolDomain(args?: GetUserPoolDomainArgs, opts?: pulumi.In
 }
 
 export interface GetUserPoolDomainArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetUserPoolDomainResult {
@@ -29,10 +28,10 @@ export interface GetUserPoolDomainResult {
     readonly id?: string;
 }
 
-export function getUserPoolDomainOutput(args?: GetUserPoolDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolDomainResult> {
+export function getUserPoolDomainOutput(args: GetUserPoolDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolDomainResult> {
     return pulumi.output(args).apply(a => getUserPoolDomain(a, opts))
 }
 
 export interface GetUserPoolDomainOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

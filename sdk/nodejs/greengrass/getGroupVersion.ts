@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::GroupVersion
  */
-export function getGroupVersion(args?: GetGroupVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupVersionResult> {
-    args = args || {};
+export function getGroupVersion(args: GetGroupVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupVersionResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,17 +19,17 @@ export function getGroupVersion(args?: GetGroupVersionArgs, opts?: pulumi.Invoke
 }
 
 export interface GetGroupVersionArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetGroupVersionResult {
     readonly id?: string;
 }
 
-export function getGroupVersionOutput(args?: GetGroupVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupVersionResult> {
+export function getGroupVersionOutput(args: GetGroupVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupVersionResult> {
     return pulumi.output(args).apply(a => getGroupVersion(a, opts))
 }
 
 export interface GetGroupVersionOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

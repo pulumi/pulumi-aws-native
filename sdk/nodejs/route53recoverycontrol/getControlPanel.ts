@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * AWS Route53 Recovery Control Control Panel resource schema .
  */
-export function getControlPanel(args?: GetControlPanelArgs, opts?: pulumi.InvokeOptions): Promise<GetControlPanelResult> {
-    args = args || {};
+export function getControlPanel(args: GetControlPanelArgs, opts?: pulumi.InvokeOptions): Promise<GetControlPanelResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetControlPanelArgs {
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    controlPanelArn?: string;
+    controlPanelArn: string;
 }
 
 export interface GetControlPanelResult {
@@ -50,7 +49,7 @@ export interface GetControlPanelResult {
     readonly status?: enums.route53recoverycontrol.ControlPanelStatus;
 }
 
-export function getControlPanelOutput(args?: GetControlPanelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlPanelResult> {
+export function getControlPanelOutput(args: GetControlPanelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlPanelResult> {
     return pulumi.output(args).apply(a => getControlPanel(a, opts))
 }
 
@@ -58,5 +57,5 @@ export interface GetControlPanelOutputArgs {
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    controlPanelArn?: pulumi.Input<string>;
+    controlPanelArn: pulumi.Input<string>;
 }

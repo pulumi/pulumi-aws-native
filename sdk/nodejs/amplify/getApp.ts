@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
  */
-export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    args = args || {};
+export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +20,7 @@ export function getApp(args?: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetAppArgs {
-    arn?: string;
+    arn: string;
 }
 
 export interface GetAppResult {
@@ -41,10 +40,10 @@ export interface GetAppResult {
     readonly tags?: outputs.amplify.AppTag[];
 }
 
-export function getAppOutput(args?: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
+export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply(a => getApp(a, opts))
 }
 
 export interface GetAppOutputArgs {
-    arn?: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

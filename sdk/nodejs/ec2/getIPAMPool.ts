@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Schema of AWS::EC2::IPAMPool Type
  */
-export function getIPAMPool(args?: GetIPAMPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMPoolResult> {
-    args = args || {};
+export function getIPAMPool(args: GetIPAMPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMPoolResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetIPAMPoolArgs {
     /**
      * Id of the IPAM Pool.
      */
-    ipamPoolId?: string;
+    ipamPoolId: string;
 }
 
 export interface GetIPAMPoolResult {
@@ -91,7 +90,7 @@ export interface GetIPAMPoolResult {
     readonly tags?: outputs.ec2.IPAMPoolTag[];
 }
 
-export function getIPAMPoolOutput(args?: GetIPAMPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMPoolResult> {
+export function getIPAMPoolOutput(args: GetIPAMPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMPoolResult> {
     return pulumi.output(args).apply(a => getIPAMPool(a, opts))
 }
 
@@ -99,5 +98,5 @@ export interface GetIPAMPoolOutputArgs {
     /**
      * Id of the IPAM Pool.
      */
-    ipamPoolId?: pulumi.Input<string>;
+    ipamPoolId: pulumi.Input<string>;
 }

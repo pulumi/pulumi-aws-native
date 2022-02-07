@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::BaiduChannel
  */
-export function getBaiduChannel(args?: GetBaiduChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetBaiduChannelResult> {
-    args = args || {};
+export function getBaiduChannel(args: GetBaiduChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetBaiduChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -20,7 +19,7 @@ export function getBaiduChannel(args?: GetBaiduChannelArgs, opts?: pulumi.Invoke
 }
 
 export interface GetBaiduChannelArgs {
-    id?: string;
+    id: string;
 }
 
 export interface GetBaiduChannelResult {
@@ -30,10 +29,10 @@ export interface GetBaiduChannelResult {
     readonly secretKey?: string;
 }
 
-export function getBaiduChannelOutput(args?: GetBaiduChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBaiduChannelResult> {
+export function getBaiduChannelOutput(args: GetBaiduChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBaiduChannelResult> {
     return pulumi.output(args).apply(a => getBaiduChannel(a, opts))
 }
 
 export interface GetBaiduChannelOutputArgs {
-    id?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

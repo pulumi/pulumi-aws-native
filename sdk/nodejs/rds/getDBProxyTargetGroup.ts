@@ -8,8 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource schema for AWS::RDS::DBProxyTargetGroup
  */
-export function getDBProxyTargetGroup(args?: GetDBProxyTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBProxyTargetGroupResult> {
-    args = args || {};
+export function getDBProxyTargetGroup(args: GetDBProxyTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBProxyTargetGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +23,7 @@ export interface GetDBProxyTargetGroupArgs {
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
-    targetGroupArn?: string;
+    targetGroupArn: string;
 }
 
 export interface GetDBProxyTargetGroupResult {
@@ -37,7 +36,7 @@ export interface GetDBProxyTargetGroupResult {
     readonly targetGroupArn?: string;
 }
 
-export function getDBProxyTargetGroupOutput(args?: GetDBProxyTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBProxyTargetGroupResult> {
+export function getDBProxyTargetGroupOutput(args: GetDBProxyTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBProxyTargetGroupResult> {
     return pulumi.output(args).apply(a => getDBProxyTargetGroup(a, opts))
 }
 
@@ -45,5 +44,5 @@ export interface GetDBProxyTargetGroupOutputArgs {
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
-    targetGroupArn?: pulumi.Input<string>;
+    targetGroupArn: pulumi.Input<string>;
 }
