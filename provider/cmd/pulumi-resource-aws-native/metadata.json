@@ -69486,5 +69486,2981 @@
                 }
             }
         }
+    },
+    "functions": {
+        "aws-native:accessanalyzer:getAnalyzer": {
+            "cf": "AWS::AccessAnalyzer::Analyzer",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:acmpca:getCertificate": {
+            "cf": "AWS::ACMPCA::Certificate",
+            "ids": [
+                "arn",
+                "certificateAuthorityArn"
+            ]
+        },
+        "aws-native:acmpca:getCertificateAuthority": {
+            "cf": "AWS::ACMPCA::CertificateAuthority",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:acmpca:getCertificateAuthorityActivation": {
+            "cf": "AWS::ACMPCA::CertificateAuthorityActivation",
+            "ids": [
+                "certificateAuthorityArn"
+            ]
+        },
+        "aws-native:acmpca:getPermission": {
+            "cf": "AWS::ACMPCA::Permission",
+            "ids": [
+                "certificateAuthorityArn",
+                "principal"
+            ]
+        },
+        "aws-native:amplify:getApp": {
+            "cf": "AWS::Amplify::App",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:amplify:getBranch": {
+            "cf": "AWS::Amplify::Branch",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:amplify:getDomain": {
+            "cf": "AWS::Amplify::Domain",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:amplifyuibuilder:getComponent": {
+            "cf": "AWS::AmplifyUIBuilder::Component",
+            "ids": [
+                "appId",
+                "environmentName",
+                "id"
+            ]
+        },
+        "aws-native:amplifyuibuilder:getTheme": {
+            "cf": "AWS::AmplifyUIBuilder::Theme",
+            "ids": [
+                "appId",
+                "environmentName",
+                "id"
+            ]
+        },
+        "aws-native:apigateway:getAccount": {
+            "cf": "AWS::ApiGateway::Account",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:apigateway:getApiKey": {
+            "cf": "AWS::ApiGateway::ApiKey",
+            "ids": [
+                "aPIKeyId"
+            ]
+        },
+        "aws-native:apigateway:getAuthorizer": {
+            "cf": "AWS::ApiGateway::Authorizer",
+            "ids": [
+                "restApiId",
+                "authorizerId"
+            ]
+        },
+        "aws-native:apigateway:getBasePathMapping": {
+            "cf": "AWS::ApiGateway::BasePathMapping",
+            "ids": [
+                "domainName",
+                "basePath"
+            ]
+        },
+        "aws-native:apigateway:getClientCertificate": {
+            "cf": "AWS::ApiGateway::ClientCertificate",
+            "ids": [
+                "clientCertificateId"
+            ]
+        },
+        "aws-native:apigateway:getDeployment": {
+            "cf": "AWS::ApiGateway::Deployment",
+            "ids": [
+                "deploymentId",
+                "restApiId"
+            ]
+        },
+        "aws-native:apigateway:getDocumentationVersion": {
+            "cf": "AWS::ApiGateway::DocumentationVersion",
+            "ids": [
+                "documentationVersion",
+                "restApiId"
+            ]
+        },
+        "aws-native:apigateway:getDomainName": {
+            "cf": "AWS::ApiGateway::DomainName",
+            "ids": [
+                "domainName"
+            ]
+        },
+        "aws-native:apigateway:getMethod": {
+            "cf": "AWS::ApiGateway::Method",
+            "ids": [
+                "restApiId",
+                "resourceId",
+                "httpMethod"
+            ]
+        },
+        "aws-native:apigateway:getModel": {
+            "cf": "AWS::ApiGateway::Model",
+            "ids": [
+                "restApiId",
+                "name"
+            ]
+        },
+        "aws-native:apigateway:getRequestValidator": {
+            "cf": "AWS::ApiGateway::RequestValidator",
+            "ids": [
+                "restApiId",
+                "requestValidatorId"
+            ]
+        },
+        "aws-native:apigateway:getResource": {
+            "cf": "AWS::ApiGateway::Resource",
+            "ids": [
+                "restApiId",
+                "resourceId"
+            ]
+        },
+        "aws-native:apigateway:getStage": {
+            "cf": "AWS::ApiGateway::Stage",
+            "ids": [
+                "restApiId",
+                "stageName"
+            ]
+        },
+        "aws-native:apigateway:getUsagePlan": {
+            "cf": "AWS::ApiGateway::UsagePlan",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:apigateway:getUsagePlanKey": {
+            "cf": "AWS::ApiGateway::UsagePlanKey",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:appflow:getConnectorProfile": {
+            "cf": "AWS::AppFlow::ConnectorProfile",
+            "ids": [
+                "connectorProfileName"
+            ]
+        },
+        "aws-native:appflow:getFlow": {
+            "cf": "AWS::AppFlow::Flow",
+            "ids": [
+                "flowName"
+            ]
+        },
+        "aws-native:appintegrations:getEventIntegration": {
+            "cf": "AWS::AppIntegrations::EventIntegration",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:applicationinsights:getApplication": {
+            "cf": "AWS::ApplicationInsights::Application",
+            "ids": [
+                "applicationARN"
+            ]
+        },
+        "aws-native:apprunner:getService": {
+            "cf": "AWS::AppRunner::Service",
+            "ids": [
+                "serviceArn"
+            ]
+        },
+        "aws-native:appstream:getAppBlock": {
+            "cf": "AWS::AppStream::AppBlock",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:appstream:getApplication": {
+            "cf": "AWS::AppStream::Application",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:appstream:getApplicationEntitlementAssociation": {
+            "cf": "AWS::AppStream::ApplicationEntitlementAssociation",
+            "ids": [
+                "stackName",
+                "entitlementName",
+                "applicationIdentifier"
+            ]
+        },
+        "aws-native:appstream:getApplicationFleetAssociation": {
+            "cf": "AWS::AppStream::ApplicationFleetAssociation",
+            "ids": [
+                "fleetName",
+                "applicationArn"
+            ]
+        },
+        "aws-native:appstream:getEntitlement": {
+            "cf": "AWS::AppStream::Entitlement",
+            "ids": [
+                "stackName",
+                "name"
+            ]
+        },
+        "aws-native:appsync:getDomainName": {
+            "cf": "AWS::AppSync::DomainName",
+            "ids": [
+                "domainName"
+            ]
+        },
+        "aws-native:appsync:getDomainNameApiAssociation": {
+            "cf": "AWS::AppSync::DomainNameApiAssociation",
+            "ids": [
+                "apiAssociationIdentifier"
+            ]
+        },
+        "aws-native:aps:getRuleGroupsNamespace": {
+            "cf": "AWS::APS::RuleGroupsNamespace",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:aps:getWorkspace": {
+            "cf": "AWS::APS::Workspace",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:athena:getDataCatalog": {
+            "cf": "AWS::Athena::DataCatalog",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:athena:getNamedQuery": {
+            "cf": "AWS::Athena::NamedQuery",
+            "ids": [
+                "namedQueryId"
+            ]
+        },
+        "aws-native:athena:getPreparedStatement": {
+            "cf": "AWS::Athena::PreparedStatement",
+            "ids": [
+                "statementName",
+                "workGroup"
+            ]
+        },
+        "aws-native:athena:getWorkGroup": {
+            "cf": "AWS::Athena::WorkGroup",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:auditmanager:getAssessment": {
+            "cf": "AWS::AuditManager::Assessment",
+            "ids": [
+                "assessmentId"
+            ]
+        },
+        "aws-native:autoscaling:getLaunchConfiguration": {
+            "cf": "AWS::AutoScaling::LaunchConfiguration",
+            "ids": [
+                "launchConfigurationName"
+            ]
+        },
+        "aws-native:autoscaling:getLifecycleHook": {
+            "cf": "AWS::AutoScaling::LifecycleHook",
+            "ids": [
+                "autoScalingGroupName",
+                "lifecycleHookName"
+            ]
+        },
+        "aws-native:autoscaling:getWarmPool": {
+            "cf": "AWS::AutoScaling::WarmPool",
+            "ids": [
+                "autoScalingGroupName"
+            ]
+        },
+        "aws-native:backup:getBackupPlan": {
+            "cf": "AWS::Backup::BackupPlan",
+            "ids": [
+                "backupPlanId"
+            ]
+        },
+        "aws-native:backup:getBackupSelection": {
+            "cf": "AWS::Backup::BackupSelection",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:backup:getBackupVault": {
+            "cf": "AWS::Backup::BackupVault",
+            "ids": [
+                "backupVaultName"
+            ]
+        },
+        "aws-native:backup:getFramework": {
+            "cf": "AWS::Backup::Framework",
+            "ids": [
+                "frameworkArn"
+            ]
+        },
+        "aws-native:backup:getReportPlan": {
+            "cf": "AWS::Backup::ReportPlan",
+            "ids": [
+                "reportPlanArn"
+            ]
+        },
+        "aws-native:batch:getSchedulingPolicy": {
+            "cf": "AWS::Batch::SchedulingPolicy",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:budgets:getBudgetsAction": {
+            "cf": "AWS::Budgets::BudgetsAction",
+            "ids": [
+                "actionId",
+                "budgetName"
+            ]
+        },
+        "aws-native:cassandra:getKeyspace": {
+            "cf": "AWS::Cassandra::Keyspace",
+            "ids": [
+                "keyspaceName"
+            ]
+        },
+        "aws-native:cassandra:getTable": {
+            "cf": "AWS::Cassandra::Table",
+            "ids": [
+                "keyspaceName",
+                "tableName"
+            ]
+        },
+        "aws-native:ce:getCostCategory": {
+            "cf": "AWS::CE::CostCategory",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:certificatemanager:getAccount": {
+            "cf": "AWS::CertificateManager::Account",
+            "ids": [
+                "accountId"
+            ]
+        },
+        "aws-native:chatbot:getSlackChannelConfiguration": {
+            "cf": "AWS::Chatbot::SlackChannelConfiguration",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:cloudformation:getModuleDefaultVersion": {
+            "cf": "AWS::CloudFormation::ModuleDefaultVersion",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:cloudformation:getModuleVersion": {
+            "cf": "AWS::CloudFormation::ModuleVersion",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:cloudformation:getPublicTypeVersion": {
+            "cf": "AWS::CloudFormation::PublicTypeVersion",
+            "ids": [
+                "publicTypeArn"
+            ]
+        },
+        "aws-native:cloudformation:getPublisher": {
+            "cf": "AWS::CloudFormation::Publisher",
+            "ids": [
+                "publisherId"
+            ]
+        },
+        "aws-native:cloudformation:getResourceDefaultVersion": {
+            "cf": "AWS::CloudFormation::ResourceDefaultVersion",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:cloudformation:getResourceVersion": {
+            "cf": "AWS::CloudFormation::ResourceVersion",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:cloudformation:getStackSet": {
+            "cf": "AWS::CloudFormation::StackSet",
+            "ids": [
+                "stackSetId"
+            ]
+        },
+        "aws-native:cloudformation:getTypeActivation": {
+            "cf": "AWS::CloudFormation::TypeActivation",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:cloudfront:getCachePolicy": {
+            "cf": "AWS::CloudFront::CachePolicy",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:cloudfront:getCloudFrontOriginAccessIdentity": {
+            "cf": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:cloudfront:getDistribution": {
+            "cf": "AWS::CloudFront::Distribution",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:cloudfront:getFunction": {
+            "cf": "AWS::CloudFront::Function",
+            "ids": [
+                "functionARN"
+            ]
+        },
+        "aws-native:cloudfront:getKeyGroup": {
+            "cf": "AWS::CloudFront::KeyGroup",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:cloudfront:getOriginRequestPolicy": {
+            "cf": "AWS::CloudFront::OriginRequestPolicy",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:cloudfront:getPublicKey": {
+            "cf": "AWS::CloudFront::PublicKey",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:cloudfront:getRealtimeLogConfig": {
+            "cf": "AWS::CloudFront::RealtimeLogConfig",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:cloudfront:getResponseHeadersPolicy": {
+            "cf": "AWS::CloudFront::ResponseHeadersPolicy",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:cloudtrail:getTrail": {
+            "cf": "AWS::CloudTrail::Trail",
+            "ids": [
+                "trailName"
+            ]
+        },
+        "aws-native:cloudwatch:getCompositeAlarm": {
+            "cf": "AWS::CloudWatch::CompositeAlarm",
+            "ids": [
+                "alarmName"
+            ]
+        },
+        "aws-native:cloudwatch:getMetricStream": {
+            "cf": "AWS::CloudWatch::MetricStream",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:codeartifact:getDomain": {
+            "cf": "AWS::CodeArtifact::Domain",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:codeartifact:getRepository": {
+            "cf": "AWS::CodeArtifact::Repository",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:codeguruprofiler:getProfilingGroup": {
+            "cf": "AWS::CodeGuruProfiler::ProfilingGroup",
+            "ids": [
+                "profilingGroupName"
+            ]
+        },
+        "aws-native:codegurureviewer:getRepositoryAssociation": {
+            "cf": "AWS::CodeGuruReviewer::RepositoryAssociation",
+            "ids": [
+                "associationArn"
+            ]
+        },
+        "aws-native:codestarconnections:getConnection": {
+            "cf": "AWS::CodeStarConnections::Connection",
+            "ids": [
+                "connectionArn"
+            ]
+        },
+        "aws-native:codestarnotifications:getNotificationRule": {
+            "cf": "AWS::CodeStarNotifications::NotificationRule",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:configuration:getAggregationAuthorization": {
+            "cf": "AWS::Config::AggregationAuthorization",
+            "ids": [
+                "aggregationAuthorizationArn"
+            ]
+        },
+        "aws-native:configuration:getConfigurationAggregator": {
+            "cf": "AWS::Config::ConfigurationAggregator",
+            "ids": [
+                "configurationAggregatorName"
+            ]
+        },
+        "aws-native:configuration:getConformancePack": {
+            "cf": "AWS::Config::ConformancePack",
+            "ids": [
+                "conformancePackName"
+            ]
+        },
+        "aws-native:configuration:getOrganizationConformancePack": {
+            "cf": "AWS::Config::OrganizationConformancePack",
+            "ids": [
+                "organizationConformancePackName"
+            ]
+        },
+        "aws-native:configuration:getStoredQuery": {
+            "cf": "AWS::Config::StoredQuery",
+            "ids": [
+                "queryName"
+            ]
+        },
+        "aws-native:connect:getContactFlow": {
+            "cf": "AWS::Connect::ContactFlow",
+            "ids": [
+                "contactFlowArn"
+            ]
+        },
+        "aws-native:connect:getContactFlowModule": {
+            "cf": "AWS::Connect::ContactFlowModule",
+            "ids": [
+                "contactFlowModuleArn"
+            ]
+        },
+        "aws-native:connect:getHoursOfOperation": {
+            "cf": "AWS::Connect::HoursOfOperation",
+            "ids": [
+                "hoursOfOperationArn"
+            ]
+        },
+        "aws-native:connect:getQuickConnect": {
+            "cf": "AWS::Connect::QuickConnect",
+            "ids": [
+                "quickConnectArn"
+            ]
+        },
+        "aws-native:connect:getUser": {
+            "cf": "AWS::Connect::User",
+            "ids": [
+                "userArn"
+            ]
+        },
+        "aws-native:connect:getUserHierarchyGroup": {
+            "cf": "AWS::Connect::UserHierarchyGroup",
+            "ids": [
+                "userHierarchyGroupArn"
+            ]
+        },
+        "aws-native:customerprofiles:getDomain": {
+            "cf": "AWS::CustomerProfiles::Domain",
+            "ids": [
+                "domainName"
+            ]
+        },
+        "aws-native:customerprofiles:getIntegration": {
+            "cf": "AWS::CustomerProfiles::Integration",
+            "ids": [
+                "domainName",
+                "uri"
+            ]
+        },
+        "aws-native:customerprofiles:getObjectType": {
+            "cf": "AWS::CustomerProfiles::ObjectType",
+            "ids": [
+                "domainName",
+                "objectTypeName"
+            ]
+        },
+        "aws-native:databrew:getDataset": {
+            "cf": "AWS::DataBrew::Dataset",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:databrew:getJob": {
+            "cf": "AWS::DataBrew::Job",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:databrew:getProject": {
+            "cf": "AWS::DataBrew::Project",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:databrew:getRecipe": {
+            "cf": "AWS::DataBrew::Recipe",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:databrew:getRuleset": {
+            "cf": "AWS::DataBrew::Ruleset",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:databrew:getSchedule": {
+            "cf": "AWS::DataBrew::Schedule",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:datasync:getAgent": {
+            "cf": "AWS::DataSync::Agent",
+            "ids": [
+                "agentArn"
+            ]
+        },
+        "aws-native:datasync:getLocationEFS": {
+            "cf": "AWS::DataSync::LocationEFS",
+            "ids": [
+                "locationArn"
+            ]
+        },
+        "aws-native:datasync:getLocationFSxWindows": {
+            "cf": "AWS::DataSync::LocationFSxWindows",
+            "ids": [
+                "locationArn"
+            ]
+        },
+        "aws-native:datasync:getLocationHDFS": {
+            "cf": "AWS::DataSync::LocationHDFS",
+            "ids": [
+                "locationArn"
+            ]
+        },
+        "aws-native:datasync:getLocationNFS": {
+            "cf": "AWS::DataSync::LocationNFS",
+            "ids": [
+                "locationArn"
+            ]
+        },
+        "aws-native:datasync:getLocationObjectStorage": {
+            "cf": "AWS::DataSync::LocationObjectStorage",
+            "ids": [
+                "locationArn"
+            ]
+        },
+        "aws-native:datasync:getLocationS3": {
+            "cf": "AWS::DataSync::LocationS3",
+            "ids": [
+                "locationArn"
+            ]
+        },
+        "aws-native:datasync:getLocationSMB": {
+            "cf": "AWS::DataSync::LocationSMB",
+            "ids": [
+                "locationArn"
+            ]
+        },
+        "aws-native:datasync:getTask": {
+            "cf": "AWS::DataSync::Task",
+            "ids": [
+                "taskArn"
+            ]
+        },
+        "aws-native:detective:getGraph": {
+            "cf": "AWS::Detective::Graph",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:detective:getMemberInvitation": {
+            "cf": "AWS::Detective::MemberInvitation",
+            "ids": [
+                "graphArn",
+                "memberId"
+            ]
+        },
+        "aws-native:devicefarm:getDevicePool": {
+            "cf": "AWS::DeviceFarm::DevicePool",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:devicefarm:getInstanceProfile": {
+            "cf": "AWS::DeviceFarm::InstanceProfile",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:devicefarm:getNetworkProfile": {
+            "cf": "AWS::DeviceFarm::NetworkProfile",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:devicefarm:getProject": {
+            "cf": "AWS::DeviceFarm::Project",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:devicefarm:getTestGridProject": {
+            "cf": "AWS::DeviceFarm::TestGridProject",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:devicefarm:getVPCEConfiguration": {
+            "cf": "AWS::DeviceFarm::VPCEConfiguration",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:devopsguru:getNotificationChannel": {
+            "cf": "AWS::DevOpsGuru::NotificationChannel",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:devopsguru:getResourceCollection": {
+            "cf": "AWS::DevOpsGuru::ResourceCollection",
+            "ids": [
+                "resourceCollectionType"
+            ]
+        },
+        "aws-native:dynamodb:getGlobalTable": {
+            "cf": "AWS::DynamoDB::GlobalTable",
+            "ids": [
+                "tableName"
+            ]
+        },
+        "aws-native:ec2:getCapacityReservationFleet": {
+            "cf": "AWS::EC2::CapacityReservationFleet",
+            "ids": [
+                "capacityReservationFleetId"
+            ]
+        },
+        "aws-native:ec2:getCarrierGateway": {
+            "cf": "AWS::EC2::CarrierGateway",
+            "ids": [
+                "carrierGatewayId"
+            ]
+        },
+        "aws-native:ec2:getDHCPOptions": {
+            "cf": "AWS::EC2::DHCPOptions",
+            "ids": [
+                "dhcpOptionsId"
+            ]
+        },
+        "aws-native:ec2:getEC2Fleet": {
+            "cf": "AWS::EC2::EC2Fleet",
+            "ids": [
+                "fleetId"
+            ]
+        },
+        "aws-native:ec2:getEgressOnlyInternetGateway": {
+            "cf": "AWS::EC2::EgressOnlyInternetGateway",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getEnclaveCertificateIamRoleAssociation": {
+            "cf": "AWS::EC2::EnclaveCertificateIamRoleAssociation",
+            "ids": [
+                "certificateArn",
+                "roleArn"
+            ]
+        },
+        "aws-native:ec2:getFlowLog": {
+            "cf": "AWS::EC2::FlowLog",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getGatewayRouteTableAssociation": {
+            "cf": "AWS::EC2::GatewayRouteTableAssociation",
+            "ids": [
+                "gatewayId"
+            ]
+        },
+        "aws-native:ec2:getHost": {
+            "cf": "AWS::EC2::Host",
+            "ids": [
+                "hostId"
+            ]
+        },
+        "aws-native:ec2:getIPAM": {
+            "cf": "AWS::EC2::IPAM",
+            "ids": [
+                "ipamId"
+            ]
+        },
+        "aws-native:ec2:getIPAMAllocation": {
+            "cf": "AWS::EC2::IPAMAllocation",
+            "ids": [
+                "ipamPoolId",
+                "ipamPoolAllocationId",
+                "cidr"
+            ]
+        },
+        "aws-native:ec2:getIPAMPool": {
+            "cf": "AWS::EC2::IPAMPool",
+            "ids": [
+                "ipamPoolId"
+            ]
+        },
+        "aws-native:ec2:getIPAMScope": {
+            "cf": "AWS::EC2::IPAMScope",
+            "ids": [
+                "ipamScopeId"
+            ]
+        },
+        "aws-native:ec2:getInternetGateway": {
+            "cf": "AWS::EC2::InternetGateway",
+            "ids": [
+                "internetGatewayId"
+            ]
+        },
+        "aws-native:ec2:getLocalGatewayRoute": {
+            "cf": "AWS::EC2::LocalGatewayRoute",
+            "ids": [
+                "destinationCidrBlock",
+                "localGatewayRouteTableId"
+            ]
+        },
+        "aws-native:ec2:getLocalGatewayRouteTableVPCAssociation": {
+            "cf": "AWS::EC2::LocalGatewayRouteTableVPCAssociation",
+            "ids": [
+                "localGatewayRouteTableVpcAssociationId"
+            ]
+        },
+        "aws-native:ec2:getNetworkAcl": {
+            "cf": "AWS::EC2::NetworkAcl",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getNetworkInsightsAccessScope": {
+            "cf": "AWS::EC2::NetworkInsightsAccessScope",
+            "ids": [
+                "networkInsightsAccessScopeId"
+            ]
+        },
+        "aws-native:ec2:getNetworkInsightsAccessScopeAnalysis": {
+            "cf": "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
+            "ids": [
+                "networkInsightsAccessScopeAnalysisId"
+            ]
+        },
+        "aws-native:ec2:getNetworkInsightsAnalysis": {
+            "cf": "AWS::EC2::NetworkInsightsAnalysis",
+            "ids": [
+                "networkInsightsAnalysisId"
+            ]
+        },
+        "aws-native:ec2:getNetworkInsightsPath": {
+            "cf": "AWS::EC2::NetworkInsightsPath",
+            "ids": [
+                "networkInsightsPathId"
+            ]
+        },
+        "aws-native:ec2:getNetworkInterface": {
+            "cf": "AWS::EC2::NetworkInterface",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getPrefixList": {
+            "cf": "AWS::EC2::PrefixList",
+            "ids": [
+                "prefixListId"
+            ]
+        },
+        "aws-native:ec2:getRouteTable": {
+            "cf": "AWS::EC2::RouteTable",
+            "ids": [
+                "routeTableId"
+            ]
+        },
+        "aws-native:ec2:getSpotFleet": {
+            "cf": "AWS::EC2::SpotFleet",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getSubnet": {
+            "cf": "AWS::EC2::Subnet",
+            "ids": [
+                "subnetId"
+            ]
+        },
+        "aws-native:ec2:getSubnetNetworkAclAssociation": {
+            "cf": "AWS::EC2::SubnetNetworkAclAssociation",
+            "ids": [
+                "associationId"
+            ]
+        },
+        "aws-native:ec2:getSubnetRouteTableAssociation": {
+            "cf": "AWS::EC2::SubnetRouteTableAssociation",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getTransitGateway": {
+            "cf": "AWS::EC2::TransitGateway",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayConnect": {
+            "cf": "AWS::EC2::TransitGatewayConnect",
+            "ids": [
+                "transitGatewayAttachmentId"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayMulticastDomain": {
+            "cf": "AWS::EC2::TransitGatewayMulticastDomain",
+            "ids": [
+                "transitGatewayMulticastDomainId"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayMulticastDomainAssociation": {
+            "cf": "AWS::EC2::TransitGatewayMulticastDomainAssociation",
+            "ids": [
+                "transitGatewayMulticastDomainId",
+                "transitGatewayAttachmentId",
+                "subnetId"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayMulticastGroupMember": {
+            "cf": "AWS::EC2::TransitGatewayMulticastGroupMember",
+            "ids": [
+                "transitGatewayMulticastDomainId",
+                "groupIpAddress",
+                "networkInterfaceId"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayMulticastGroupSource": {
+            "cf": "AWS::EC2::TransitGatewayMulticastGroupSource",
+            "ids": [
+                "transitGatewayMulticastDomainId",
+                "groupIpAddress",
+                "networkInterfaceId"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayPeeringAttachment": {
+            "cf": "AWS::EC2::TransitGatewayPeeringAttachment",
+            "ids": [
+                "transitGatewayAttachmentId"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayVpcAttachment": {
+            "cf": "AWS::EC2::TransitGatewayVpcAttachment",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ec2:getVPC": {
+            "cf": "AWS::EC2::VPC",
+            "ids": [
+                "vpcId"
+            ]
+        },
+        "aws-native:ec2:getVPCDHCPOptionsAssociation": {
+            "cf": "AWS::EC2::VPCDHCPOptionsAssociation",
+            "ids": [
+                "dhcpOptionsId",
+                "vpcId"
+            ]
+        },
+        "aws-native:ecr:getRegistryPolicy": {
+            "cf": "AWS::ECR::RegistryPolicy",
+            "ids": [
+                "registryId"
+            ]
+        },
+        "aws-native:ecr:getReplicationConfiguration": {
+            "cf": "AWS::ECR::ReplicationConfiguration",
+            "ids": [
+                "registryId"
+            ]
+        },
+        "aws-native:ecr:getRepository": {
+            "cf": "AWS::ECR::Repository",
+            "ids": [
+                "repositoryName"
+            ]
+        },
+        "aws-native:ecs:getCapacityProvider": {
+            "cf": "AWS::ECS::CapacityProvider",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:ecs:getCluster": {
+            "cf": "AWS::ECS::Cluster",
+            "ids": [
+                "clusterName"
+            ]
+        },
+        "aws-native:ecs:getClusterCapacityProviderAssociations": {
+            "cf": "AWS::ECS::ClusterCapacityProviderAssociations",
+            "ids": [
+                "cluster"
+            ]
+        },
+        "aws-native:ecs:getPrimaryTaskSet": {
+            "cf": "AWS::ECS::PrimaryTaskSet",
+            "ids": [
+                "cluster",
+                "service"
+            ]
+        },
+        "aws-native:ecs:getService": {
+            "cf": "AWS::ECS::Service",
+            "ids": [
+                "serviceArn",
+                "cluster"
+            ]
+        },
+        "aws-native:ecs:getTaskDefinition": {
+            "cf": "AWS::ECS::TaskDefinition",
+            "ids": [
+                "taskDefinitionArn"
+            ]
+        },
+        "aws-native:ecs:getTaskSet": {
+            "cf": "AWS::ECS::TaskSet",
+            "ids": [
+                "cluster",
+                "service",
+                "id"
+            ]
+        },
+        "aws-native:efs:getAccessPoint": {
+            "cf": "AWS::EFS::AccessPoint",
+            "ids": [
+                "accessPointId"
+            ]
+        },
+        "aws-native:efs:getFileSystem": {
+            "cf": "AWS::EFS::FileSystem",
+            "ids": [
+                "fileSystemId"
+            ]
+        },
+        "aws-native:efs:getMountTarget": {
+            "cf": "AWS::EFS::MountTarget",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:eks:getAddon": {
+            "cf": "AWS::EKS::Addon",
+            "ids": [
+                "clusterName",
+                "addonName"
+            ]
+        },
+        "aws-native:eks:getCluster": {
+            "cf": "AWS::EKS::Cluster",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:eks:getFargateProfile": {
+            "cf": "AWS::EKS::FargateProfile",
+            "ids": [
+                "clusterName",
+                "fargateProfileName"
+            ]
+        },
+        "aws-native:elasticache:getGlobalReplicationGroup": {
+            "cf": "AWS::ElastiCache::GlobalReplicationGroup",
+            "ids": [
+                "globalReplicationGroupId"
+            ]
+        },
+        "aws-native:elasticache:getUser": {
+            "cf": "AWS::ElastiCache::User",
+            "ids": [
+                "userId"
+            ]
+        },
+        "aws-native:elasticache:getUserGroup": {
+            "cf": "AWS::ElastiCache::UserGroup",
+            "ids": [
+                "userGroupId"
+            ]
+        },
+        "aws-native:elasticloadbalancingv2:getListener": {
+            "cf": "AWS::ElasticLoadBalancingV2::Listener",
+            "ids": [
+                "listenerArn"
+            ]
+        },
+        "aws-native:elasticloadbalancingv2:getListenerRule": {
+            "cf": "AWS::ElasticLoadBalancingV2::ListenerRule",
+            "ids": [
+                "ruleArn"
+            ]
+        },
+        "aws-native:emr:getStudio": {
+            "cf": "AWS::EMR::Studio",
+            "ids": [
+                "studioId"
+            ]
+        },
+        "aws-native:emr:getStudioSessionMapping": {
+            "cf": "AWS::EMR::StudioSessionMapping",
+            "ids": [
+                "studioId",
+                "identityType",
+                "identityName"
+            ]
+        },
+        "aws-native:emrcontainers:getVirtualCluster": {
+            "cf": "AWS::EMRContainers::VirtualCluster",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:events:getApiDestination": {
+            "cf": "AWS::Events::ApiDestination",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:events:getArchive": {
+            "cf": "AWS::Events::Archive",
+            "ids": [
+                "archiveName"
+            ]
+        },
+        "aws-native:events:getConnection": {
+            "cf": "AWS::Events::Connection",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:eventschemas:getRegistryPolicy": {
+            "cf": "AWS::EventSchemas::RegistryPolicy",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:evidently:getExperiment": {
+            "cf": "AWS::Evidently::Experiment",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:evidently:getFeature": {
+            "cf": "AWS::Evidently::Feature",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:evidently:getLaunch": {
+            "cf": "AWS::Evidently::Launch",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:evidently:getProject": {
+            "cf": "AWS::Evidently::Project",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:finspace:getEnvironment": {
+            "cf": "AWS::FinSpace::Environment",
+            "ids": [
+                "environmentId"
+            ]
+        },
+        "aws-native:fis:getExperimentTemplate": {
+            "cf": "AWS::FIS::ExperimentTemplate",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:fms:getNotificationChannel": {
+            "cf": "AWS::FMS::NotificationChannel",
+            "ids": [
+                "snsTopicArn"
+            ]
+        },
+        "aws-native:fms:getPolicy": {
+            "cf": "AWS::FMS::Policy",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:forecast:getDataset": {
+            "cf": "AWS::Forecast::Dataset",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:forecast:getDatasetGroup": {
+            "cf": "AWS::Forecast::DatasetGroup",
+            "ids": [
+                "datasetGroupArn"
+            ]
+        },
+        "aws-native:frauddetector:getDetector": {
+            "cf": "AWS::FraudDetector::Detector",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:frauddetector:getEntityType": {
+            "cf": "AWS::FraudDetector::EntityType",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:frauddetector:getEventType": {
+            "cf": "AWS::FraudDetector::EventType",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:frauddetector:getLabel": {
+            "cf": "AWS::FraudDetector::Label",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:frauddetector:getOutcome": {
+            "cf": "AWS::FraudDetector::Outcome",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:frauddetector:getVariable": {
+            "cf": "AWS::FraudDetector::Variable",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:gamelift:getAlias": {
+            "cf": "AWS::GameLift::Alias",
+            "ids": [
+                "aliasId"
+            ]
+        },
+        "aws-native:gamelift:getFleet": {
+            "cf": "AWS::GameLift::Fleet",
+            "ids": [
+                "fleetId"
+            ]
+        },
+        "aws-native:gamelift:getGameServerGroup": {
+            "cf": "AWS::GameLift::GameServerGroup",
+            "ids": [
+                "gameServerGroupArn"
+            ]
+        },
+        "aws-native:globalaccelerator:getAccelerator": {
+            "cf": "AWS::GlobalAccelerator::Accelerator",
+            "ids": [
+                "acceleratorArn"
+            ]
+        },
+        "aws-native:globalaccelerator:getEndpointGroup": {
+            "cf": "AWS::GlobalAccelerator::EndpointGroup",
+            "ids": [
+                "endpointGroupArn"
+            ]
+        },
+        "aws-native:globalaccelerator:getListener": {
+            "cf": "AWS::GlobalAccelerator::Listener",
+            "ids": [
+                "listenerArn"
+            ]
+        },
+        "aws-native:glue:getRegistry": {
+            "cf": "AWS::Glue::Registry",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:glue:getSchema": {
+            "cf": "AWS::Glue::Schema",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:glue:getSchemaVersion": {
+            "cf": "AWS::Glue::SchemaVersion",
+            "ids": [
+                "versionId"
+            ]
+        },
+        "aws-native:glue:getSchemaVersionMetadata": {
+            "cf": "AWS::Glue::SchemaVersionMetadata",
+            "ids": [
+                "schemaVersionId",
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:greengrassv2:getComponentVersion": {
+            "cf": "AWS::GreengrassV2::ComponentVersion",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:groundstation:getConfig": {
+            "cf": "AWS::GroundStation::Config",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:groundstation:getDataflowEndpointGroup": {
+            "cf": "AWS::GroundStation::DataflowEndpointGroup",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:groundstation:getMissionProfile": {
+            "cf": "AWS::GroundStation::MissionProfile",
+            "ids": [
+                "id",
+                "arn"
+            ]
+        },
+        "aws-native:healthlake:getFHIRDatastore": {
+            "cf": "AWS::HealthLake::FHIRDatastore",
+            "ids": [
+                "datastoreId"
+            ]
+        },
+        "aws-native:iam:getOIDCProvider": {
+            "cf": "AWS::IAM::OIDCProvider",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:iam:getRole": {
+            "cf": "AWS::IAM::Role",
+            "ids": [
+                "roleName"
+            ]
+        },
+        "aws-native:iam:getSAMLProvider": {
+            "cf": "AWS::IAM::SAMLProvider",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:iam:getServerCertificate": {
+            "cf": "AWS::IAM::ServerCertificate",
+            "ids": [
+                "serverCertificateName"
+            ]
+        },
+        "aws-native:iam:getVirtualMFADevice": {
+            "cf": "AWS::IAM::VirtualMFADevice",
+            "ids": [
+                "serialNumber"
+            ]
+        },
+        "aws-native:imagebuilder:getComponent": {
+            "cf": "AWS::ImageBuilder::Component",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:imagebuilder:getContainerRecipe": {
+            "cf": "AWS::ImageBuilder::ContainerRecipe",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:imagebuilder:getDistributionConfiguration": {
+            "cf": "AWS::ImageBuilder::DistributionConfiguration",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:imagebuilder:getImage": {
+            "cf": "AWS::ImageBuilder::Image",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:imagebuilder:getImagePipeline": {
+            "cf": "AWS::ImageBuilder::ImagePipeline",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:imagebuilder:getImageRecipe": {
+            "cf": "AWS::ImageBuilder::ImageRecipe",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:imagebuilder:getInfrastructureConfiguration": {
+            "cf": "AWS::ImageBuilder::InfrastructureConfiguration",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:inspectorv2:getFilter": {
+            "cf": "AWS::InspectorV2::Filter",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:iot:getAccountAuditConfiguration": {
+            "cf": "AWS::IoT::AccountAuditConfiguration",
+            "ids": [
+                "accountId"
+            ]
+        },
+        "aws-native:iot:getAuthorizer": {
+            "cf": "AWS::IoT::Authorizer",
+            "ids": [
+                "authorizerName"
+            ]
+        },
+        "aws-native:iot:getCertificate": {
+            "cf": "AWS::IoT::Certificate",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:iot:getCustomMetric": {
+            "cf": "AWS::IoT::CustomMetric",
+            "ids": [
+                "metricName"
+            ]
+        },
+        "aws-native:iot:getDimension": {
+            "cf": "AWS::IoT::Dimension",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:iot:getDomainConfiguration": {
+            "cf": "AWS::IoT::DomainConfiguration",
+            "ids": [
+                "domainConfigurationName"
+            ]
+        },
+        "aws-native:iot:getFleetMetric": {
+            "cf": "AWS::IoT::FleetMetric",
+            "ids": [
+                "metricName"
+            ]
+        },
+        "aws-native:iot:getJobTemplate": {
+            "cf": "AWS::IoT::JobTemplate",
+            "ids": [
+                "jobTemplateId"
+            ]
+        },
+        "aws-native:iot:getLogging": {
+            "cf": "AWS::IoT::Logging",
+            "ids": [
+                "accountId"
+            ]
+        },
+        "aws-native:iot:getMitigationAction": {
+            "cf": "AWS::IoT::MitigationAction",
+            "ids": [
+                "actionName"
+            ]
+        },
+        "aws-native:iot:getProvisioningTemplate": {
+            "cf": "AWS::IoT::ProvisioningTemplate",
+            "ids": [
+                "templateName"
+            ]
+        },
+        "aws-native:iot:getResourceSpecificLogging": {
+            "cf": "AWS::IoT::ResourceSpecificLogging",
+            "ids": [
+                "targetId"
+            ]
+        },
+        "aws-native:iot:getScheduledAudit": {
+            "cf": "AWS::IoT::ScheduledAudit",
+            "ids": [
+                "scheduledAuditName"
+            ]
+        },
+        "aws-native:iot:getSecurityProfile": {
+            "cf": "AWS::IoT::SecurityProfile",
+            "ids": [
+                "securityProfileName"
+            ]
+        },
+        "aws-native:iot:getTopicRule": {
+            "cf": "AWS::IoT::TopicRule",
+            "ids": [
+                "ruleName"
+            ]
+        },
+        "aws-native:iot:getTopicRuleDestination": {
+            "cf": "AWS::IoT::TopicRuleDestination",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:iotanalytics:getChannel": {
+            "cf": "AWS::IoTAnalytics::Channel",
+            "ids": [
+                "channelName"
+            ]
+        },
+        "aws-native:iotanalytics:getDataset": {
+            "cf": "AWS::IoTAnalytics::Dataset",
+            "ids": [
+                "datasetName"
+            ]
+        },
+        "aws-native:iotanalytics:getDatastore": {
+            "cf": "AWS::IoTAnalytics::Datastore",
+            "ids": [
+                "datastoreName"
+            ]
+        },
+        "aws-native:iotanalytics:getPipeline": {
+            "cf": "AWS::IoTAnalytics::Pipeline",
+            "ids": [
+                "pipelineName"
+            ]
+        },
+        "aws-native:iotcoredeviceadvisor:getSuiteDefinition": {
+            "cf": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
+            "ids": [
+                "suiteDefinitionId"
+            ]
+        },
+        "aws-native:iotevents:getDetectorModel": {
+            "cf": "AWS::IoTEvents::DetectorModel",
+            "ids": [
+                "detectorModelName"
+            ]
+        },
+        "aws-native:iotevents:getInput": {
+            "cf": "AWS::IoTEvents::Input",
+            "ids": [
+                "inputName"
+            ]
+        },
+        "aws-native:iotfleethub:getApplication": {
+            "cf": "AWS::IoTFleetHub::Application",
+            "ids": [
+                "applicationId"
+            ]
+        },
+        "aws-native:iotsitewise:getAccessPolicy": {
+            "cf": "AWS::IoTSiteWise::AccessPolicy",
+            "ids": [
+                "accessPolicyId"
+            ]
+        },
+        "aws-native:iotsitewise:getAsset": {
+            "cf": "AWS::IoTSiteWise::Asset",
+            "ids": [
+                "assetId"
+            ]
+        },
+        "aws-native:iotsitewise:getAssetModel": {
+            "cf": "AWS::IoTSiteWise::AssetModel",
+            "ids": [
+                "assetModelId"
+            ]
+        },
+        "aws-native:iotsitewise:getDashboard": {
+            "cf": "AWS::IoTSiteWise::Dashboard",
+            "ids": [
+                "dashboardId"
+            ]
+        },
+        "aws-native:iotsitewise:getGateway": {
+            "cf": "AWS::IoTSiteWise::Gateway",
+            "ids": [
+                "gatewayId"
+            ]
+        },
+        "aws-native:iotsitewise:getPortal": {
+            "cf": "AWS::IoTSiteWise::Portal",
+            "ids": [
+                "portalId"
+            ]
+        },
+        "aws-native:iotsitewise:getProject": {
+            "cf": "AWS::IoTSiteWise::Project",
+            "ids": [
+                "projectId"
+            ]
+        },
+        "aws-native:iotwireless:getDestination": {
+            "cf": "AWS::IoTWireless::Destination",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:iotwireless:getDeviceProfile": {
+            "cf": "AWS::IoTWireless::DeviceProfile",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:iotwireless:getFuotaTask": {
+            "cf": "AWS::IoTWireless::FuotaTask",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:iotwireless:getMulticastGroup": {
+            "cf": "AWS::IoTWireless::MulticastGroup",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:iotwireless:getServiceProfile": {
+            "cf": "AWS::IoTWireless::ServiceProfile",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:iotwireless:getTaskDefinition": {
+            "cf": "AWS::IoTWireless::TaskDefinition",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:iotwireless:getWirelessDevice": {
+            "cf": "AWS::IoTWireless::WirelessDevice",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:iotwireless:getWirelessGateway": {
+            "cf": "AWS::IoTWireless::WirelessGateway",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ivs:getChannel": {
+            "cf": "AWS::IVS::Channel",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:ivs:getPlaybackKeyPair": {
+            "cf": "AWS::IVS::PlaybackKeyPair",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:ivs:getRecordingConfiguration": {
+            "cf": "AWS::IVS::RecordingConfiguration",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:ivs:getStreamKey": {
+            "cf": "AWS::IVS::StreamKey",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:kafkaconnect:getConnector": {
+            "cf": "AWS::KafkaConnect::Connector",
+            "ids": [
+                "connectorArn"
+            ]
+        },
+        "aws-native:kendra:getDataSource": {
+            "cf": "AWS::Kendra::DataSource",
+            "ids": [
+                "id",
+                "indexId"
+            ]
+        },
+        "aws-native:kendra:getFaq": {
+            "cf": "AWS::Kendra::Faq",
+            "ids": [
+                "id",
+                "indexId"
+            ]
+        },
+        "aws-native:kendra:getIndex": {
+            "cf": "AWS::Kendra::Index",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:kinesis:getStream": {
+            "cf": "AWS::Kinesis::Stream",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:kinesisfirehose:getDeliveryStream": {
+            "cf": "AWS::KinesisFirehose::DeliveryStream",
+            "ids": [
+                "deliveryStreamName"
+            ]
+        },
+        "aws-native:kinesisvideo:getSignalingChannel": {
+            "cf": "AWS::KinesisVideo::SignalingChannel",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:kinesisvideo:getStream": {
+            "cf": "AWS::KinesisVideo::Stream",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:kms:getAlias": {
+            "cf": "AWS::KMS::Alias",
+            "ids": [
+                "aliasName"
+            ]
+        },
+        "aws-native:kms:getKey": {
+            "cf": "AWS::KMS::Key",
+            "ids": [
+                "keyId"
+            ]
+        },
+        "aws-native:kms:getReplicaKey": {
+            "cf": "AWS::KMS::ReplicaKey",
+            "ids": [
+                "keyId"
+            ]
+        },
+        "aws-native:lambda:getCodeSigningConfig": {
+            "cf": "AWS::Lambda::CodeSigningConfig",
+            "ids": [
+                "codeSigningConfigArn"
+            ]
+        },
+        "aws-native:lambda:getEventSourceMapping": {
+            "cf": "AWS::Lambda::EventSourceMapping",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:lambda:getFunction": {
+            "cf": "AWS::Lambda::Function",
+            "ids": [
+                "functionName"
+            ]
+        },
+        "aws-native:lex:getBot": {
+            "cf": "AWS::Lex::Bot",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:lex:getBotAlias": {
+            "cf": "AWS::Lex::BotAlias",
+            "ids": [
+                "botAliasId",
+                "botId"
+            ]
+        },
+        "aws-native:lex:getBotVersion": {
+            "cf": "AWS::Lex::BotVersion",
+            "ids": [
+                "botId",
+                "botVersion"
+            ]
+        },
+        "aws-native:lex:getResourcePolicy": {
+            "cf": "AWS::Lex::ResourcePolicy",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:licensemanager:getGrant": {
+            "cf": "AWS::LicenseManager::Grant",
+            "ids": [
+                "grantArn"
+            ]
+        },
+        "aws-native:licensemanager:getLicense": {
+            "cf": "AWS::LicenseManager::License",
+            "ids": [
+                "licenseArn"
+            ]
+        },
+        "aws-native:lightsail:getAlarm": {
+            "cf": "AWS::Lightsail::Alarm",
+            "ids": [
+                "alarmName"
+            ]
+        },
+        "aws-native:lightsail:getBucket": {
+            "cf": "AWS::Lightsail::Bucket",
+            "ids": [
+                "bucketName"
+            ]
+        },
+        "aws-native:lightsail:getCertificate": {
+            "cf": "AWS::Lightsail::Certificate",
+            "ids": [
+                "certificateName"
+            ]
+        },
+        "aws-native:lightsail:getContainer": {
+            "cf": "AWS::Lightsail::Container",
+            "ids": [
+                "serviceName"
+            ]
+        },
+        "aws-native:lightsail:getDatabase": {
+            "cf": "AWS::Lightsail::Database",
+            "ids": [
+                "relationalDatabaseName"
+            ]
+        },
+        "aws-native:lightsail:getDisk": {
+            "cf": "AWS::Lightsail::Disk",
+            "ids": [
+                "diskName"
+            ]
+        },
+        "aws-native:lightsail:getInstance": {
+            "cf": "AWS::Lightsail::Instance",
+            "ids": [
+                "instanceName"
+            ]
+        },
+        "aws-native:lightsail:getLoadBalancer": {
+            "cf": "AWS::Lightsail::LoadBalancer",
+            "ids": [
+                "loadBalancerName"
+            ]
+        },
+        "aws-native:lightsail:getLoadBalancerTlsCertificate": {
+            "cf": "AWS::Lightsail::LoadBalancerTlsCertificate",
+            "ids": [
+                "certificateName",
+                "loadBalancerName"
+            ]
+        },
+        "aws-native:lightsail:getStaticIp": {
+            "cf": "AWS::Lightsail::StaticIp",
+            "ids": [
+                "staticIpName"
+            ]
+        },
+        "aws-native:location:getGeofenceCollection": {
+            "cf": "AWS::Location::GeofenceCollection",
+            "ids": [
+                "collectionName"
+            ]
+        },
+        "aws-native:location:getMap": {
+            "cf": "AWS::Location::Map",
+            "ids": [
+                "mapName"
+            ]
+        },
+        "aws-native:location:getPlaceIndex": {
+            "cf": "AWS::Location::PlaceIndex",
+            "ids": [
+                "indexName"
+            ]
+        },
+        "aws-native:location:getRouteCalculator": {
+            "cf": "AWS::Location::RouteCalculator",
+            "ids": [
+                "calculatorName"
+            ]
+        },
+        "aws-native:location:getTracker": {
+            "cf": "AWS::Location::Tracker",
+            "ids": [
+                "trackerName"
+            ]
+        },
+        "aws-native:location:getTrackerConsumer": {
+            "cf": "AWS::Location::TrackerConsumer",
+            "ids": [
+                "trackerName",
+                "consumerArn"
+            ]
+        },
+        "aws-native:logs:getLogGroup": {
+            "cf": "AWS::Logs::LogGroup",
+            "ids": [
+                "logGroupName"
+            ]
+        },
+        "aws-native:logs:getQueryDefinition": {
+            "cf": "AWS::Logs::QueryDefinition",
+            "ids": [
+                "queryDefinitionId"
+            ]
+        },
+        "aws-native:logs:getResourcePolicy": {
+            "cf": "AWS::Logs::ResourcePolicy",
+            "ids": [
+                "policyName"
+            ]
+        },
+        "aws-native:lookoutmetrics:getAlert": {
+            "cf": "AWS::LookoutMetrics::Alert",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:lookoutmetrics:getAnomalyDetector": {
+            "cf": "AWS::LookoutMetrics::AnomalyDetector",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:lookoutvision:getProject": {
+            "cf": "AWS::LookoutVision::Project",
+            "ids": [
+                "projectName"
+            ]
+        },
+        "aws-native:macie:getCustomDataIdentifier": {
+            "cf": "AWS::Macie::CustomDataIdentifier",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:macie:getFindingsFilter": {
+            "cf": "AWS::Macie::FindingsFilter",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:macie:getSession": {
+            "cf": "AWS::Macie::Session",
+            "ids": [
+                "awsAccountId"
+            ]
+        },
+        "aws-native:mediaconnect:getFlow": {
+            "cf": "AWS::MediaConnect::Flow",
+            "ids": [
+                "flowArn"
+            ]
+        },
+        "aws-native:mediaconnect:getFlowEntitlement": {
+            "cf": "AWS::MediaConnect::FlowEntitlement",
+            "ids": [
+                "entitlementArn"
+            ]
+        },
+        "aws-native:mediaconnect:getFlowSource": {
+            "cf": "AWS::MediaConnect::FlowSource",
+            "ids": [
+                "sourceArn"
+            ]
+        },
+        "aws-native:mediaconnect:getFlowVpcInterface": {
+            "cf": "AWS::MediaConnect::FlowVpcInterface",
+            "ids": [
+                "flowArn",
+                "name"
+            ]
+        },
+        "aws-native:mediapackage:getAsset": {
+            "cf": "AWS::MediaPackage::Asset",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:mediapackage:getChannel": {
+            "cf": "AWS::MediaPackage::Channel",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:mediapackage:getOriginEndpoint": {
+            "cf": "AWS::MediaPackage::OriginEndpoint",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:mediapackage:getPackagingConfiguration": {
+            "cf": "AWS::MediaPackage::PackagingConfiguration",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:mediapackage:getPackagingGroup": {
+            "cf": "AWS::MediaPackage::PackagingGroup",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:memorydb:getACL": {
+            "cf": "AWS::MemoryDB::ACL",
+            "ids": [
+                "aCLName"
+            ]
+        },
+        "aws-native:memorydb:getCluster": {
+            "cf": "AWS::MemoryDB::Cluster",
+            "ids": [
+                "clusterName"
+            ]
+        },
+        "aws-native:memorydb:getParameterGroup": {
+            "cf": "AWS::MemoryDB::ParameterGroup",
+            "ids": [
+                "parameterGroupName"
+            ]
+        },
+        "aws-native:memorydb:getSubnetGroup": {
+            "cf": "AWS::MemoryDB::SubnetGroup",
+            "ids": [
+                "subnetGroupName"
+            ]
+        },
+        "aws-native:memorydb:getUser": {
+            "cf": "AWS::MemoryDB::User",
+            "ids": [
+                "userName"
+            ]
+        },
+        "aws-native:mwaa:getEnvironment": {
+            "cf": "AWS::MWAA::Environment",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:networkfirewall:getFirewall": {
+            "cf": "AWS::NetworkFirewall::Firewall",
+            "ids": [
+                "firewallArn"
+            ]
+        },
+        "aws-native:networkfirewall:getFirewallPolicy": {
+            "cf": "AWS::NetworkFirewall::FirewallPolicy",
+            "ids": [
+                "firewallPolicyArn"
+            ]
+        },
+        "aws-native:networkfirewall:getLoggingConfiguration": {
+            "cf": "AWS::NetworkFirewall::LoggingConfiguration",
+            "ids": [
+                "firewallArn"
+            ]
+        },
+        "aws-native:networkfirewall:getRuleGroup": {
+            "cf": "AWS::NetworkFirewall::RuleGroup",
+            "ids": [
+                "ruleGroupArn"
+            ]
+        },
+        "aws-native:networkmanager:getCustomerGatewayAssociation": {
+            "cf": "AWS::NetworkManager::CustomerGatewayAssociation",
+            "ids": [
+                "globalNetworkId",
+                "customerGatewayArn"
+            ]
+        },
+        "aws-native:networkmanager:getDevice": {
+            "cf": "AWS::NetworkManager::Device",
+            "ids": [
+                "globalNetworkId",
+                "deviceId"
+            ]
+        },
+        "aws-native:networkmanager:getGlobalNetwork": {
+            "cf": "AWS::NetworkManager::GlobalNetwork",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:networkmanager:getLink": {
+            "cf": "AWS::NetworkManager::Link",
+            "ids": [
+                "globalNetworkId",
+                "linkId"
+            ]
+        },
+        "aws-native:networkmanager:getLinkAssociation": {
+            "cf": "AWS::NetworkManager::LinkAssociation",
+            "ids": [
+                "globalNetworkId",
+                "deviceId",
+                "linkId"
+            ]
+        },
+        "aws-native:networkmanager:getSite": {
+            "cf": "AWS::NetworkManager::Site",
+            "ids": [
+                "globalNetworkId",
+                "siteId"
+            ]
+        },
+        "aws-native:networkmanager:getTransitGatewayRegistration": {
+            "cf": "AWS::NetworkManager::TransitGatewayRegistration",
+            "ids": [
+                "globalNetworkId",
+                "transitGatewayArn"
+            ]
+        },
+        "aws-native:nimblestudio:getLaunchProfile": {
+            "cf": "AWS::NimbleStudio::LaunchProfile",
+            "ids": [
+                "launchProfileId",
+                "studioId"
+            ]
+        },
+        "aws-native:nimblestudio:getStreamingImage": {
+            "cf": "AWS::NimbleStudio::StreamingImage",
+            "ids": [
+                "studioId",
+                "streamingImageId"
+            ]
+        },
+        "aws-native:nimblestudio:getStudio": {
+            "cf": "AWS::NimbleStudio::Studio",
+            "ids": [
+                "studioId"
+            ]
+        },
+        "aws-native:nimblestudio:getStudioComponent": {
+            "cf": "AWS::NimbleStudio::StudioComponent",
+            "ids": [
+                "studioComponentId",
+                "studioId"
+            ]
+        },
+        "aws-native:opensearchservice:getDomain": {
+            "cf": "AWS::OpenSearchService::Domain",
+            "ids": [
+                "domainName"
+            ]
+        },
+        "aws-native:opsworkscm:getServer": {
+            "cf": "AWS::OpsWorksCM::Server",
+            "ids": [
+                "serverName"
+            ]
+        },
+        "aws-native:panorama:getApplicationInstance": {
+            "cf": "AWS::Panorama::ApplicationInstance",
+            "ids": [
+                "applicationInstanceId"
+            ]
+        },
+        "aws-native:panorama:getPackage": {
+            "cf": "AWS::Panorama::Package",
+            "ids": [
+                "packageId"
+            ]
+        },
+        "aws-native:panorama:getPackageVersion": {
+            "cf": "AWS::Panorama::PackageVersion",
+            "ids": [
+                "packageId",
+                "packageVersion",
+                "patchVersion"
+            ]
+        },
+        "aws-native:pinpoint:getInAppTemplate": {
+            "cf": "AWS::Pinpoint::InAppTemplate",
+            "ids": [
+                "templateName"
+            ]
+        },
+        "aws-native:qldb:getStream": {
+            "cf": "AWS::QLDB::Stream",
+            "ids": [
+                "ledgerName",
+                "id"
+            ]
+        },
+        "aws-native:quicksight:getAnalysis": {
+            "cf": "AWS::QuickSight::Analysis",
+            "ids": [
+                "analysisId",
+                "awsAccountId"
+            ]
+        },
+        "aws-native:quicksight:getDashboard": {
+            "cf": "AWS::QuickSight::Dashboard",
+            "ids": [
+                "awsAccountId",
+                "dashboardId"
+            ]
+        },
+        "aws-native:quicksight:getDataSet": {
+            "cf": "AWS::QuickSight::DataSet",
+            "ids": [
+                "awsAccountId",
+                "dataSetId"
+            ]
+        },
+        "aws-native:quicksight:getDataSource": {
+            "cf": "AWS::QuickSight::DataSource",
+            "ids": [
+                "awsAccountId",
+                "dataSourceId"
+            ]
+        },
+        "aws-native:quicksight:getTemplate": {
+            "cf": "AWS::QuickSight::Template",
+            "ids": [
+                "awsAccountId",
+                "templateId"
+            ]
+        },
+        "aws-native:quicksight:getTheme": {
+            "cf": "AWS::QuickSight::Theme",
+            "ids": [
+                "themeId",
+                "awsAccountId"
+            ]
+        },
+        "aws-native:rds:getDBProxy": {
+            "cf": "AWS::RDS::DBProxy",
+            "ids": [
+                "dBProxyName"
+            ]
+        },
+        "aws-native:rds:getDBProxyEndpoint": {
+            "cf": "AWS::RDS::DBProxyEndpoint",
+            "ids": [
+                "dBProxyEndpointName"
+            ]
+        },
+        "aws-native:rds:getDBProxyTargetGroup": {
+            "cf": "AWS::RDS::DBProxyTargetGroup",
+            "ids": [
+                "targetGroupArn"
+            ]
+        },
+        "aws-native:rds:getGlobalCluster": {
+            "cf": "AWS::RDS::GlobalCluster",
+            "ids": [
+                "globalClusterIdentifier"
+            ]
+        },
+        "aws-native:redshift:getCluster": {
+            "cf": "AWS::Redshift::Cluster",
+            "ids": [
+                "clusterIdentifier"
+            ]
+        },
+        "aws-native:redshift:getEndpointAccess": {
+            "cf": "AWS::Redshift::EndpointAccess",
+            "ids": [
+                "endpointName"
+            ]
+        },
+        "aws-native:redshift:getEndpointAuthorization": {
+            "cf": "AWS::Redshift::EndpointAuthorization",
+            "ids": [
+                "clusterIdentifier",
+                "account"
+            ]
+        },
+        "aws-native:redshift:getEventSubscription": {
+            "cf": "AWS::Redshift::EventSubscription",
+            "ids": [
+                "subscriptionName"
+            ]
+        },
+        "aws-native:redshift:getScheduledAction": {
+            "cf": "AWS::Redshift::ScheduledAction",
+            "ids": [
+                "scheduledActionName"
+            ]
+        },
+        "aws-native:refactorspaces:getApplication": {
+            "cf": "AWS::RefactorSpaces::Application",
+            "ids": [
+                "environmentIdentifier",
+                "applicationIdentifier"
+            ]
+        },
+        "aws-native:refactorspaces:getEnvironment": {
+            "cf": "AWS::RefactorSpaces::Environment",
+            "ids": [
+                "environmentIdentifier"
+            ]
+        },
+        "aws-native:refactorspaces:getRoute": {
+            "cf": "AWS::RefactorSpaces::Route",
+            "ids": [
+                "environmentIdentifier",
+                "applicationIdentifier",
+                "routeIdentifier"
+            ]
+        },
+        "aws-native:refactorspaces:getService": {
+            "cf": "AWS::RefactorSpaces::Service",
+            "ids": [
+                "environmentIdentifier",
+                "applicationIdentifier",
+                "serviceIdentifier"
+            ]
+        },
+        "aws-native:rekognition:getCollection": {
+            "cf": "AWS::Rekognition::Collection",
+            "ids": [
+                "collectionId"
+            ]
+        },
+        "aws-native:rekognition:getProject": {
+            "cf": "AWS::Rekognition::Project",
+            "ids": [
+                "projectName"
+            ]
+        },
+        "aws-native:resiliencehub:getApp": {
+            "cf": "AWS::ResilienceHub::App",
+            "ids": [
+                "appArn"
+            ]
+        },
+        "aws-native:resiliencehub:getResiliencyPolicy": {
+            "cf": "AWS::ResilienceHub::ResiliencyPolicy",
+            "ids": [
+                "policyArn"
+            ]
+        },
+        "aws-native:resourcegroups:getGroup": {
+            "cf": "AWS::ResourceGroups::Group",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:robomaker:getFleet": {
+            "cf": "AWS::RoboMaker::Fleet",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:robomaker:getRobot": {
+            "cf": "AWS::RoboMaker::Robot",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:robomaker:getRobotApplicationVersion": {
+            "cf": "AWS::RoboMaker::RobotApplicationVersion",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:robomaker:getSimulationApplication": {
+            "cf": "AWS::RoboMaker::SimulationApplication",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:robomaker:getSimulationApplicationVersion": {
+            "cf": "AWS::RoboMaker::SimulationApplicationVersion",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:route53:getDNSSEC": {
+            "cf": "AWS::Route53::DNSSEC",
+            "ids": [
+                "hostedZoneId"
+            ]
+        },
+        "aws-native:route53:getHealthCheck": {
+            "cf": "AWS::Route53::HealthCheck",
+            "ids": [
+                "healthCheckId"
+            ]
+        },
+        "aws-native:route53:getHostedZone": {
+            "cf": "AWS::Route53::HostedZone",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:route53:getKeySigningKey": {
+            "cf": "AWS::Route53::KeySigningKey",
+            "ids": [
+                "hostedZoneId",
+                "name"
+            ]
+        },
+        "aws-native:route53recoverycontrol:getCluster": {
+            "cf": "AWS::Route53RecoveryControl::Cluster",
+            "ids": [
+                "clusterArn"
+            ]
+        },
+        "aws-native:route53recoverycontrol:getControlPanel": {
+            "cf": "AWS::Route53RecoveryControl::ControlPanel",
+            "ids": [
+                "controlPanelArn"
+            ]
+        },
+        "aws-native:route53recoverycontrol:getRoutingControl": {
+            "cf": "AWS::Route53RecoveryControl::RoutingControl",
+            "ids": [
+                "routingControlArn"
+            ]
+        },
+        "aws-native:route53recoverycontrol:getSafetyRule": {
+            "cf": "AWS::Route53RecoveryControl::SafetyRule",
+            "ids": [
+                "safetyRuleArn"
+            ]
+        },
+        "aws-native:route53recoveryreadiness:getCell": {
+            "cf": "AWS::Route53RecoveryReadiness::Cell",
+            "ids": [
+                "cellName"
+            ]
+        },
+        "aws-native:route53recoveryreadiness:getReadinessCheck": {
+            "cf": "AWS::Route53RecoveryReadiness::ReadinessCheck",
+            "ids": [
+                "readinessCheckName"
+            ]
+        },
+        "aws-native:route53recoveryreadiness:getRecoveryGroup": {
+            "cf": "AWS::Route53RecoveryReadiness::RecoveryGroup",
+            "ids": [
+                "recoveryGroupName"
+            ]
+        },
+        "aws-native:route53recoveryreadiness:getResourceSet": {
+            "cf": "AWS::Route53RecoveryReadiness::ResourceSet",
+            "ids": [
+                "resourceSetName"
+            ]
+        },
+        "aws-native:route53resolver:getFirewallDomainList": {
+            "cf": "AWS::Route53Resolver::FirewallDomainList",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:route53resolver:getFirewallRuleGroup": {
+            "cf": "AWS::Route53Resolver::FirewallRuleGroup",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:route53resolver:getFirewallRuleGroupAssociation": {
+            "cf": "AWS::Route53Resolver::FirewallRuleGroupAssociation",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:route53resolver:getResolverConfig": {
+            "cf": "AWS::Route53Resolver::ResolverConfig",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:route53resolver:getResolverDNSSECConfig": {
+            "cf": "AWS::Route53Resolver::ResolverDNSSECConfig",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:route53resolver:getResolverQueryLoggingConfig": {
+            "cf": "AWS::Route53Resolver::ResolverQueryLoggingConfig",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:route53resolver:getResolverQueryLoggingConfigAssociation": {
+            "cf": "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:route53resolver:getResolverRule": {
+            "cf": "AWS::Route53Resolver::ResolverRule",
+            "ids": [
+                "resolverRuleId"
+            ]
+        },
+        "aws-native:route53resolver:getResolverRuleAssociation": {
+            "cf": "AWS::Route53Resolver::ResolverRuleAssociation",
+            "ids": [
+                "resolverRuleAssociationId"
+            ]
+        },
+        "aws-native:rum:getAppMonitor": {
+            "cf": "AWS::RUM::AppMonitor",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:s3:getAccessPoint": {
+            "cf": "AWS::S3::AccessPoint",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:s3:getBucket": {
+            "cf": "AWS::S3::Bucket",
+            "ids": [
+                "bucketName"
+            ]
+        },
+        "aws-native:s3:getMultiRegionAccessPoint": {
+            "cf": "AWS::S3::MultiRegionAccessPoint",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:s3:getMultiRegionAccessPointPolicy": {
+            "cf": "AWS::S3::MultiRegionAccessPointPolicy",
+            "ids": [
+                "mrapName"
+            ]
+        },
+        "aws-native:s3objectlambda:getAccessPoint": {
+            "cf": "AWS::S3ObjectLambda::AccessPoint",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:s3objectlambda:getAccessPointPolicy": {
+            "cf": "AWS::S3ObjectLambda::AccessPointPolicy",
+            "ids": [
+                "objectLambdaAccessPoint"
+            ]
+        },
+        "aws-native:s3outposts:getAccessPoint": {
+            "cf": "AWS::S3Outposts::AccessPoint",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:s3outposts:getBucket": {
+            "cf": "AWS::S3Outposts::Bucket",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:s3outposts:getBucketPolicy": {
+            "cf": "AWS::S3Outposts::BucketPolicy",
+            "ids": [
+                "bucket"
+            ]
+        },
+        "aws-native:s3outposts:getEndpoint": {
+            "cf": "AWS::S3Outposts::Endpoint",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:sagemaker:getApp": {
+            "cf": "AWS::SageMaker::App",
+            "ids": [
+                "appName",
+                "appType",
+                "domainId",
+                "userProfileName"
+            ]
+        },
+        "aws-native:sagemaker:getAppImageConfig": {
+            "cf": "AWS::SageMaker::AppImageConfig",
+            "ids": [
+                "appImageConfigName"
+            ]
+        },
+        "aws-native:sagemaker:getDataQualityJobDefinition": {
+            "cf": "AWS::SageMaker::DataQualityJobDefinition",
+            "ids": [
+                "jobDefinitionArn"
+            ]
+        },
+        "aws-native:sagemaker:getDevice": {
+            "cf": "AWS::SageMaker::Device",
+            "ids": [
+                "deviceFleetName"
+            ]
+        },
+        "aws-native:sagemaker:getDeviceFleet": {
+            "cf": "AWS::SageMaker::DeviceFleet",
+            "ids": [
+                "deviceFleetName"
+            ]
+        },
+        "aws-native:sagemaker:getDomain": {
+            "cf": "AWS::SageMaker::Domain",
+            "ids": [
+                "domainId"
+            ]
+        },
+        "aws-native:sagemaker:getFeatureGroup": {
+            "cf": "AWS::SageMaker::FeatureGroup",
+            "ids": [
+                "featureGroupName"
+            ]
+        },
+        "aws-native:sagemaker:getImage": {
+            "cf": "AWS::SageMaker::Image",
+            "ids": [
+                "imageArn"
+            ]
+        },
+        "aws-native:sagemaker:getImageVersion": {
+            "cf": "AWS::SageMaker::ImageVersion",
+            "ids": [
+                "imageVersionArn"
+            ]
+        },
+        "aws-native:sagemaker:getModelBiasJobDefinition": {
+            "cf": "AWS::SageMaker::ModelBiasJobDefinition",
+            "ids": [
+                "jobDefinitionArn"
+            ]
+        },
+        "aws-native:sagemaker:getModelExplainabilityJobDefinition": {
+            "cf": "AWS::SageMaker::ModelExplainabilityJobDefinition",
+            "ids": [
+                "jobDefinitionArn"
+            ]
+        },
+        "aws-native:sagemaker:getModelPackageGroup": {
+            "cf": "AWS::SageMaker::ModelPackageGroup",
+            "ids": [
+                "modelPackageGroupArn"
+            ]
+        },
+        "aws-native:sagemaker:getModelQualityJobDefinition": {
+            "cf": "AWS::SageMaker::ModelQualityJobDefinition",
+            "ids": [
+                "jobDefinitionArn"
+            ]
+        },
+        "aws-native:sagemaker:getMonitoringSchedule": {
+            "cf": "AWS::SageMaker::MonitoringSchedule",
+            "ids": [
+                "monitoringScheduleArn"
+            ]
+        },
+        "aws-native:sagemaker:getPipeline": {
+            "cf": "AWS::SageMaker::Pipeline",
+            "ids": [
+                "pipelineName"
+            ]
+        },
+        "aws-native:sagemaker:getProject": {
+            "cf": "AWS::SageMaker::Project",
+            "ids": [
+                "projectArn"
+            ]
+        },
+        "aws-native:sagemaker:getUserProfile": {
+            "cf": "AWS::SageMaker::UserProfile",
+            "ids": [
+                "userProfileName",
+                "domainId"
+            ]
+        },
+        "aws-native:servicecatalog:getCloudFormationProvisionedProduct": {
+            "cf": "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
+            "ids": [
+                "provisionedProductId"
+            ]
+        },
+        "aws-native:servicecatalog:getServiceAction": {
+            "cf": "AWS::ServiceCatalog::ServiceAction",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:servicecatalog:getServiceActionAssociation": {
+            "cf": "AWS::ServiceCatalog::ServiceActionAssociation",
+            "ids": [
+                "productId",
+                "provisioningArtifactId",
+                "serviceActionId"
+            ]
+        },
+        "aws-native:servicecatalogappregistry:getApplication": {
+            "cf": "AWS::ServiceCatalogAppRegistry::Application",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:servicecatalogappregistry:getAttributeGroup": {
+            "cf": "AWS::ServiceCatalogAppRegistry::AttributeGroup",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:servicecatalogappregistry:getAttributeGroupAssociation": {
+            "cf": "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:servicecatalogappregistry:getResourceAssociation": {
+            "cf": "AWS::ServiceCatalogAppRegistry::ResourceAssociation",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:ses:getConfigurationSet": {
+            "cf": "AWS::SES::ConfigurationSet",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:ses:getContactList": {
+            "cf": "AWS::SES::ContactList",
+            "ids": [
+                "contactListName"
+            ]
+        },
+        "aws-native:signer:getProfilePermission": {
+            "cf": "AWS::Signer::ProfilePermission",
+            "ids": [
+                "statementId",
+                "profileName"
+            ]
+        },
+        "aws-native:signer:getSigningProfile": {
+            "cf": "AWS::Signer::SigningProfile",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:ssm:getAssociation": {
+            "cf": "AWS::SSM::Association",
+            "ids": [
+                "associationId"
+            ]
+        },
+        "aws-native:ssm:getDocument": {
+            "cf": "AWS::SSM::Document",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:ssm:getResourceDataSync": {
+            "cf": "AWS::SSM::ResourceDataSync",
+            "ids": [
+                "syncName"
+            ]
+        },
+        "aws-native:ssmcontacts:getContact": {
+            "cf": "AWS::SSMContacts::Contact",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:ssmcontacts:getContactChannel": {
+            "cf": "AWS::SSMContacts::ContactChannel",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:ssmincidents:getReplicationSet": {
+            "cf": "AWS::SSMIncidents::ReplicationSet",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:ssmincidents:getResponsePlan": {
+            "cf": "AWS::SSMIncidents::ResponsePlan",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:sso:getAssignment": {
+            "cf": "AWS::SSO::Assignment",
+            "ids": [
+                "instanceArn",
+                "targetId",
+                "targetType",
+                "permissionSetArn",
+                "principalType",
+                "principalId"
+            ]
+        },
+        "aws-native:sso:getInstanceAccessControlAttributeConfiguration": {
+            "cf": "AWS::SSO::InstanceAccessControlAttributeConfiguration",
+            "ids": [
+                "instanceArn"
+            ]
+        },
+        "aws-native:sso:getPermissionSet": {
+            "cf": "AWS::SSO::PermissionSet",
+            "ids": [
+                "instanceArn",
+                "permissionSetArn"
+            ]
+        },
+        "aws-native:stepfunctions:getActivity": {
+            "cf": "AWS::StepFunctions::Activity",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:stepfunctions:getStateMachine": {
+            "cf": "AWS::StepFunctions::StateMachine",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:synthetics:getCanary": {
+            "cf": "AWS::Synthetics::Canary",
+            "ids": [
+                "name"
+            ]
+        },
+        "aws-native:timestream:getDatabase": {
+            "cf": "AWS::Timestream::Database",
+            "ids": [
+                "databaseName"
+            ]
+        },
+        "aws-native:timestream:getScheduledQuery": {
+            "cf": "AWS::Timestream::ScheduledQuery",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:timestream:getTable": {
+            "cf": "AWS::Timestream::Table",
+            "ids": [
+                "databaseName",
+                "tableName"
+            ]
+        },
+        "aws-native:transfer:getWorkflow": {
+            "cf": "AWS::Transfer::Workflow",
+            "ids": [
+                "workflowId"
+            ]
+        },
+        "aws-native:wafv2:getIPSet": {
+            "cf": "AWS::WAFv2::IPSet",
+            "ids": [
+                "name",
+                "id",
+                "scope"
+            ]
+        },
+        "aws-native:wafv2:getLoggingConfiguration": {
+            "cf": "AWS::WAFv2::LoggingConfiguration",
+            "ids": [
+                "resourceArn"
+            ]
+        },
+        "aws-native:wafv2:getRegexPatternSet": {
+            "cf": "AWS::WAFv2::RegexPatternSet",
+            "ids": [
+                "name",
+                "id",
+                "scope"
+            ]
+        },
+        "aws-native:wafv2:getRuleGroup": {
+            "cf": "AWS::WAFv2::RuleGroup",
+            "ids": [
+                "name",
+                "id",
+                "scope"
+            ]
+        },
+        "aws-native:wafv2:getWebACL": {
+            "cf": "AWS::WAFv2::WebACL",
+            "ids": [
+                "name",
+                "id",
+                "scope"
+            ]
+        },
+        "aws-native:wafv2:getWebACLAssociation": {
+            "cf": "AWS::WAFv2::WebACLAssociation",
+            "ids": [
+                "resourceArn",
+                "webACLArn"
+            ]
+        },
+        "aws-native:wisdom:getAssistant": {
+            "cf": "AWS::Wisdom::Assistant",
+            "ids": [
+                "assistantId"
+            ]
+        },
+        "aws-native:wisdom:getAssistantAssociation": {
+            "cf": "AWS::Wisdom::AssistantAssociation",
+            "ids": [
+                "assistantAssociationId",
+                "assistantId"
+            ]
+        },
+        "aws-native:wisdom:getKnowledgeBase": {
+            "cf": "AWS::Wisdom::KnowledgeBase",
+            "ids": [
+                "knowledgeBaseId"
+            ]
+        },
+        "aws-native:workspaces:getConnectionAlias": {
+            "cf": "AWS::WorkSpaces::ConnectionAlias",
+            "ids": [
+                "aliasId"
+            ]
+        },
+        "aws-native:xray:getGroup": {
+            "cf": "AWS::XRay::Group",
+            "ids": [
+                "groupARN"
+            ]
+        },
+        "aws-native:xray:getSamplingRule": {
+            "cf": "AWS::XRay::SamplingRule",
+            "ids": [
+                "ruleARN"
+            ]
+        }
     }
 }
