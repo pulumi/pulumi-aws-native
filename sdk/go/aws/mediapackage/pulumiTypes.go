@@ -189,6 +189,40 @@ func (o ChannelHlsIngestOutput) IngestEndpoints() ChannelIngestEndpointArrayOutp
 	return o.ApplyT(func(v ChannelHlsIngest) []ChannelIngestEndpoint { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
 }
 
+type ChannelHlsIngestPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelHlsIngestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelHlsIngest)(nil)).Elem()
+}
+
+func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+	return o
+}
+
+func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+	return o
+}
+
+func (o ChannelHlsIngestPtrOutput) Elem() ChannelHlsIngestOutput {
+	return o.ApplyT(func(v *ChannelHlsIngest) ChannelHlsIngest {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelHlsIngest
+		return ret
+	}).(ChannelHlsIngestOutput)
+}
+
+// A list of endpoints to which the source stream should be sent.
+func (o ChannelHlsIngestPtrOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
+	return o.ApplyT(func(v *ChannelHlsIngest) []ChannelIngestEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.IngestEndpoints
+	}).(ChannelIngestEndpointArrayOutput)
+}
+
 // An endpoint for ingesting source content for a Channel.
 type ChannelIngestEndpoint struct {
 	// The system generated unique identifier for the IngestEndpoint
@@ -5796,6 +5830,7 @@ func init() {
 	pulumi.RegisterOutputType(AssetTagOutput{})
 	pulumi.RegisterOutputType(AssetTagArrayOutput{})
 	pulumi.RegisterOutputType(ChannelHlsIngestOutput{})
+	pulumi.RegisterOutputType(ChannelHlsIngestPtrOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ChannelLogConfigurationOutput{})

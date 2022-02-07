@@ -221,6 +221,57 @@ func (o LicenseConsumptionConfigurationOutput) RenewType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LicenseConsumptionConfiguration) *string { return v.RenewType }).(pulumi.StringPtrOutput)
 }
 
+type LicenseConsumptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseConsumptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseConsumptionConfiguration)(nil)).Elem()
+}
+
+func (o LicenseConsumptionConfigurationPtrOutput) ToLicenseConsumptionConfigurationPtrOutput() LicenseConsumptionConfigurationPtrOutput {
+	return o
+}
+
+func (o LicenseConsumptionConfigurationPtrOutput) ToLicenseConsumptionConfigurationPtrOutputWithContext(ctx context.Context) LicenseConsumptionConfigurationPtrOutput {
+	return o
+}
+
+func (o LicenseConsumptionConfigurationPtrOutput) Elem() LicenseConsumptionConfigurationOutput {
+	return o.ApplyT(func(v *LicenseConsumptionConfiguration) LicenseConsumptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseConsumptionConfiguration
+		return ret
+	}).(LicenseConsumptionConfigurationOutput)
+}
+
+func (o LicenseConsumptionConfigurationPtrOutput) BorrowConfiguration() LicenseBorrowConfigurationPtrOutput {
+	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *LicenseBorrowConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BorrowConfiguration
+	}).(LicenseBorrowConfigurationPtrOutput)
+}
+
+func (o LicenseConsumptionConfigurationPtrOutput) ProvisionalConfiguration() LicenseProvisionalConfigurationPtrOutput {
+	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *LicenseProvisionalConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionalConfiguration
+	}).(LicenseProvisionalConfigurationPtrOutput)
+}
+
+func (o LicenseConsumptionConfigurationPtrOutput) RenewType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RenewType
+	}).(pulumi.StringPtrOutput)
+}
+
 type LicenseEntitlement struct {
 	AllowCheckIn *bool   `pulumi:"allowCheckIn"`
 	MaxCount     *int    `pulumi:"maxCount"`
@@ -398,6 +449,48 @@ func (o LicenseIssuerDataOutput) Name() pulumi.StringOutput {
 
 func (o LicenseIssuerDataOutput) SignKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LicenseIssuerData) *string { return v.SignKey }).(pulumi.StringPtrOutput)
+}
+
+type LicenseIssuerDataPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseIssuerDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseIssuerData)(nil)).Elem()
+}
+
+func (o LicenseIssuerDataPtrOutput) ToLicenseIssuerDataPtrOutput() LicenseIssuerDataPtrOutput {
+	return o
+}
+
+func (o LicenseIssuerDataPtrOutput) ToLicenseIssuerDataPtrOutputWithContext(ctx context.Context) LicenseIssuerDataPtrOutput {
+	return o
+}
+
+func (o LicenseIssuerDataPtrOutput) Elem() LicenseIssuerDataOutput {
+	return o.ApplyT(func(v *LicenseIssuerData) LicenseIssuerData {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseIssuerData
+		return ret
+	}).(LicenseIssuerDataOutput)
+}
+
+func (o LicenseIssuerDataPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseIssuerData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LicenseIssuerDataPtrOutput) SignKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseIssuerData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type LicenseMetadata struct {
@@ -694,6 +787,50 @@ func (o LicenseValidityDateFormatOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseValidityDateFormat) string { return v.End }).(pulumi.StringOutput)
 }
 
+type LicenseValidityDateFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseValidityDateFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseValidityDateFormat)(nil)).Elem()
+}
+
+func (o LicenseValidityDateFormatPtrOutput) ToLicenseValidityDateFormatPtrOutput() LicenseValidityDateFormatPtrOutput {
+	return o
+}
+
+func (o LicenseValidityDateFormatPtrOutput) ToLicenseValidityDateFormatPtrOutputWithContext(ctx context.Context) LicenseValidityDateFormatPtrOutput {
+	return o
+}
+
+func (o LicenseValidityDateFormatPtrOutput) Elem() LicenseValidityDateFormatOutput {
+	return o.ApplyT(func(v *LicenseValidityDateFormat) LicenseValidityDateFormat {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseValidityDateFormat
+		return ret
+	}).(LicenseValidityDateFormatOutput)
+}
+
+// Validity begin date for the license.
+func (o LicenseValidityDateFormatPtrOutput) Begin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseValidityDateFormat) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Begin
+	}).(pulumi.StringPtrOutput)
+}
+
+// Validity begin date for the license.
+func (o LicenseValidityDateFormatPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseValidityDateFormat) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.End
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseBorrowConfigurationInput)(nil)).Elem(), LicenseBorrowConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseBorrowConfigurationPtrInput)(nil)).Elem(), LicenseBorrowConfigurationArgs{})
@@ -709,12 +846,15 @@ func init() {
 	pulumi.RegisterOutputType(LicenseBorrowConfigurationOutput{})
 	pulumi.RegisterOutputType(LicenseBorrowConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LicenseConsumptionConfigurationOutput{})
+	pulumi.RegisterOutputType(LicenseConsumptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LicenseEntitlementOutput{})
 	pulumi.RegisterOutputType(LicenseEntitlementArrayOutput{})
 	pulumi.RegisterOutputType(LicenseIssuerDataOutput{})
+	pulumi.RegisterOutputType(LicenseIssuerDataPtrOutput{})
 	pulumi.RegisterOutputType(LicenseMetadataOutput{})
 	pulumi.RegisterOutputType(LicenseMetadataArrayOutput{})
 	pulumi.RegisterOutputType(LicenseProvisionalConfigurationOutput{})
 	pulumi.RegisterOutputType(LicenseProvisionalConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LicenseValidityDateFormatOutput{})
+	pulumi.RegisterOutputType(LicenseValidityDateFormatPtrOutput{})
 }

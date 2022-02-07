@@ -75,6 +75,57 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedTerminationProtec
 	}).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
 }
 
+type CapacityProviderAutoScalingGroupProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAutoScalingGroupProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderAutoScalingGroupProvider)(nil)).Elem()
+}
+
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ToCapacityProviderAutoScalingGroupProviderPtrOutput() CapacityProviderAutoScalingGroupProviderPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) Elem() CapacityProviderAutoScalingGroupProviderOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) CapacityProviderAutoScalingGroupProvider {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderAutoScalingGroupProvider
+		return ret
+	}).(CapacityProviderAutoScalingGroupProviderOutput)
+}
+
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoScalingGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() CapacityProviderManagedScalingPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderManagedScaling {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedScaling
+	}).(CapacityProviderManagedScalingPtrOutput)
+}
+
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationProtection() CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedTerminationProtection
+	}).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
+}
+
 // The managed scaling settings for the Auto Scaling group capacity provider.
 type CapacityProviderManagedScaling struct {
 	InstanceWarmupPeriod   *int                                  `pulumi:"instanceWarmupPeriod"`
@@ -7741,6 +7792,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetServiceRegistryInput)(nil)).Elem(), TaskSetServiceRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetServiceRegistryArrayInput)(nil)).Elem(), TaskSetServiceRegistryArray{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderOutput{})
+	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderTagOutput{})

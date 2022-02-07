@@ -458,6 +458,50 @@ func (o LinkBandwidthOutput) UploadSpeed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkBandwidth) *int { return v.UploadSpeed }).(pulumi.IntPtrOutput)
 }
 
+type LinkBandwidthPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkBandwidthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkBandwidth)(nil)).Elem()
+}
+
+func (o LinkBandwidthPtrOutput) ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutput {
+	return o
+}
+
+func (o LinkBandwidthPtrOutput) ToLinkBandwidthPtrOutputWithContext(ctx context.Context) LinkBandwidthPtrOutput {
+	return o
+}
+
+func (o LinkBandwidthPtrOutput) Elem() LinkBandwidthOutput {
+	return o.ApplyT(func(v *LinkBandwidth) LinkBandwidth {
+		if v != nil {
+			return *v
+		}
+		var ret LinkBandwidth
+		return ret
+	}).(LinkBandwidthOutput)
+}
+
+// Download speed in Mbps.
+func (o LinkBandwidthPtrOutput) DownloadSpeed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinkBandwidth) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DownloadSpeed
+	}).(pulumi.IntPtrOutput)
+}
+
+// Upload speed in Mbps.
+func (o LinkBandwidthPtrOutput) UploadSpeed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinkBandwidth) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UploadSpeed
+	}).(pulumi.IntPtrOutput)
+}
+
 // A key-value pair to associate with a link resource.
 type LinkTag struct {
 	Key   *string `pulumi:"key"`
@@ -863,6 +907,7 @@ func init() {
 	pulumi.RegisterOutputType(GlobalNetworkTagOutput{})
 	pulumi.RegisterOutputType(GlobalNetworkTagArrayOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthOutput{})
+	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
 	pulumi.RegisterOutputType(LinkTagOutput{})
 	pulumi.RegisterOutputType(LinkTagArrayOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})

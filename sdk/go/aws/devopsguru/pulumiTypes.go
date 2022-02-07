@@ -392,6 +392,39 @@ func (o ResourceCollectionFilterOutput) CloudFormation() ResourceCollectionCloud
 	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
+type ResourceCollectionFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceCollectionFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceCollectionFilter)(nil)).Elem()
+}
+
+func (o ResourceCollectionFilterPtrOutput) ToResourceCollectionFilterPtrOutput() ResourceCollectionFilterPtrOutput {
+	return o
+}
+
+func (o ResourceCollectionFilterPtrOutput) ToResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionFilterPtrOutput {
+	return o
+}
+
+func (o ResourceCollectionFilterPtrOutput) Elem() ResourceCollectionFilterOutput {
+	return o.ApplyT(func(v *ResourceCollectionFilter) ResourceCollectionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceCollectionFilter
+		return ret
+	}).(ResourceCollectionFilterOutput)
+}
+
+func (o ResourceCollectionFilterPtrOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
+	return o.ApplyT(func(v *ResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
+		if v == nil {
+			return nil
+		}
+		return v.CloudFormation
+	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelConfigInput)(nil)).Elem(), NotificationChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelSnsChannelConfigInput)(nil)).Elem(), NotificationChannelSnsChannelConfigArgs{})
@@ -405,4 +438,5 @@ func init() {
 	pulumi.RegisterOutputType(ResourceCollectionCloudFormationCollectionFilterOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionCloudFormationCollectionFilterPtrOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionFilterOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionFilterPtrOutput{})
 }

@@ -83,6 +83,75 @@ func (o SuiteDefinitionConfigurationPropertiesOutput) SuiteDefinitionName() pulu
 	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) *string { return v.SuiteDefinitionName }).(pulumi.StringPtrOutput)
 }
 
+type SuiteDefinitionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SuiteDefinitionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuiteDefinitionConfigurationProperties)(nil)).Elem()
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Elem() SuiteDefinitionConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) SuiteDefinitionConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SuiteDefinitionConfigurationProperties
+		return ret
+	}).(SuiteDefinitionConfigurationPropertiesOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) DevicePermissionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DevicePermissionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Devices() SuiteDefinitionDeviceUnderTestArrayOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) []SuiteDefinitionDeviceUnderTest {
+		if v == nil {
+			return nil
+		}
+		return v.Devices
+	}).(SuiteDefinitionDeviceUnderTestArrayOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) IntendedForQualification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IntendedForQualification
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) RootGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) SuiteDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuiteDefinitionName
+	}).(pulumi.StringPtrOutput)
+}
+
 type SuiteDefinitionDeviceUnderTest struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	ThingArn       *string `pulumi:"thingArn"`
@@ -299,6 +368,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionTagInput)(nil)).Elem(), SuiteDefinitionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionTagArrayInput)(nil)).Elem(), SuiteDefinitionTagArray{})
 	pulumi.RegisterOutputType(SuiteDefinitionConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(SuiteDefinitionConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionDeviceUnderTestOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionDeviceUnderTestArrayOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionTagOutput{})

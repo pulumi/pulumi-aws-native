@@ -422,6 +422,39 @@ func (o SchemaPropertiesOutput) Attributes() AttributesItemPropertiesArrayOutput
 	return o.ApplyT(func(v SchemaProperties) []AttributesItemProperties { return v.Attributes }).(AttributesItemPropertiesArrayOutput)
 }
 
+type SchemaPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaProperties)(nil)).Elem()
+}
+
+func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
+	return o.ApplyT(func(v *SchemaProperties) SchemaProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaProperties
+		return ret
+	}).(SchemaPropertiesOutput)
+}
+
+func (o SchemaPropertiesPtrOutput) Attributes() AttributesItemPropertiesArrayOutput {
+	return o.ApplyT(func(v *SchemaProperties) []AttributesItemProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(AttributesItemPropertiesArrayOutput)
+}
+
 // A key-value pair to associate with a resource.
 type TagsItemProperties struct {
 	Key   string `pulumi:"key"`
@@ -542,6 +575,7 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchemaPropertiesOutput{})
+	pulumi.RegisterOutputType(SchemaPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TagsItemPropertiesOutput{})
 	pulumi.RegisterOutputType(TagsItemPropertiesArrayOutput{})
 }

@@ -91,6 +91,84 @@ func (o CachePolicyConfigOutput) ParametersInCacheKeyAndForwardedToOrigin() Cach
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
 }
 
+type CachePolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyConfig)(nil)).Elem()
+}
+
+func (o CachePolicyConfigPtrOutput) ToCachePolicyConfigPtrOutput() CachePolicyConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyConfigPtrOutput) ToCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyConfigPtrOutput) Elem() CachePolicyConfigOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) CachePolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyConfig
+		return ret
+	}).(CachePolicyConfigOutput)
+}
+
+func (o CachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyConfigPtrOutput) DefaultTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultTTL
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CachePolicyConfigPtrOutput) MaxTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxTTL
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CachePolicyConfigPtrOutput) MinTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinTTL
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyConfigPtrOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		if v == nil {
+			return nil
+		}
+		return &v.ParametersInCacheKeyAndForwardedToOrigin
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
+}
+
 type CachePolicyCookiesConfig struct {
 	CookieBehavior string   `pulumi:"cookieBehavior"`
 	Cookies        []string `pulumi:"cookies"`
@@ -146,6 +224,48 @@ func (o CachePolicyCookiesConfigOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyCookiesConfig) []string { return v.Cookies }).(pulumi.StringArrayOutput)
 }
 
+type CachePolicyCookiesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyCookiesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o CachePolicyCookiesConfigPtrOutput) ToCachePolicyCookiesConfigPtrOutput() CachePolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyCookiesConfigPtrOutput) ToCachePolicyCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyCookiesConfigPtrOutput) Elem() CachePolicyCookiesConfigOutput {
+	return o.ApplyT(func(v *CachePolicyCookiesConfig) CachePolicyCookiesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyCookiesConfig
+		return ret
+	}).(CachePolicyCookiesConfigOutput)
+}
+
+func (o CachePolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyCookiesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CookieBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyCookiesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(pulumi.StringArrayOutput)
+}
+
 type CachePolicyHeadersConfig struct {
 	HeaderBehavior string   `pulumi:"headerBehavior"`
 	Headers        []string `pulumi:"headers"`
@@ -199,6 +319,48 @@ func (o CachePolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
 
 func (o CachePolicyHeadersConfigOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyHeadersConfig) []string { return v.Headers }).(pulumi.StringArrayOutput)
+}
+
+type CachePolicyHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o CachePolicyHeadersConfigPtrOutput) ToCachePolicyHeadersConfigPtrOutput() CachePolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyHeadersConfigPtrOutput) ToCachePolicyHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyHeadersConfigPtrOutput) Elem() CachePolicyHeadersConfigOutput {
+	return o.ApplyT(func(v *CachePolicyHeadersConfig) CachePolicyHeadersConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyHeadersConfig
+		return ret
+	}).(CachePolicyHeadersConfigOutput)
+}
+
+func (o CachePolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyHeadersConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyHeadersConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
@@ -280,6 +442,75 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) QueryStringsC
 	}).(CachePolicyQueryStringsConfigOutput)
 }
 
+type CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyParametersInCacheKeyAndForwardedToOrigin
+		return ret
+	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesConfig() CachePolicyCookiesConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyCookiesConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.CookiesConfig
+	}).(CachePolicyCookiesConfigPtrOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAcceptEncodingBrotli
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableAcceptEncodingGzip
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersConfig() CachePolicyHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.HeadersConfig
+	}).(CachePolicyHeadersConfigPtrOutput)
+}
+
+func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStringsConfig() CachePolicyQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyQueryStringsConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringsConfig
+	}).(CachePolicyQueryStringsConfigPtrOutput)
+}
+
 type CachePolicyQueryStringsConfig struct {
 	QueryStringBehavior string   `pulumi:"queryStringBehavior"`
 	QueryStrings        []string `pulumi:"queryStrings"`
@@ -335,6 +566,48 @@ func (o CachePolicyQueryStringsConfigOutput) QueryStrings() pulumi.StringArrayOu
 	return o.ApplyT(func(v CachePolicyQueryStringsConfig) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
 }
 
+type CachePolicyQueryStringsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CachePolicyQueryStringsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o CachePolicyQueryStringsConfigPtrOutput) ToCachePolicyQueryStringsConfigPtrOutput() CachePolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyQueryStringsConfigPtrOutput) ToCachePolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o CachePolicyQueryStringsConfigPtrOutput) Elem() CachePolicyQueryStringsConfigOutput {
+	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) CachePolicyQueryStringsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyQueryStringsConfig
+		return ret
+	}).(CachePolicyQueryStringsConfigOutput)
+}
+
+func (o CachePolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CachePolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(pulumi.StringArrayOutput)
+}
+
 type CloudFrontOriginAccessIdentityConfig struct {
 	Comment string `pulumi:"comment"`
 }
@@ -382,6 +655,39 @@ func (o CloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIden
 
 func (o CloudFrontOriginAccessIdentityConfigOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFrontOriginAccessIdentityConfig) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+type CloudFrontOriginAccessIdentityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudFrontOriginAccessIdentityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFrontOriginAccessIdentityConfig)(nil)).Elem()
+}
+
+func (o CloudFrontOriginAccessIdentityConfigPtrOutput) ToCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityConfigPtrOutput {
+	return o
+}
+
+func (o CloudFrontOriginAccessIdentityConfigPtrOutput) ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityConfigPtrOutput {
+	return o
+}
+
+func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Elem() CloudFrontOriginAccessIdentityConfigOutput {
+	return o.ApplyT(func(v *CloudFrontOriginAccessIdentityConfig) CloudFrontOriginAccessIdentityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFrontOriginAccessIdentityConfig
+		return ret
+	}).(CloudFrontOriginAccessIdentityConfigOutput)
+}
+
+func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFrontOriginAccessIdentityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comment
+	}).(pulumi.StringPtrOutput)
 }
 
 type DistributionCacheBehavior struct {
@@ -749,6 +1055,201 @@ func (o DistributionConfigOutput) ViewerCertificate() DistributionViewerCertific
 
 func (o DistributionConfigOutput) WebACLId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.WebACLId }).(pulumi.StringPtrOutput)
+}
+
+type DistributionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfig)(nil)).Elem()
+}
+
+func (o DistributionConfigPtrOutput) ToDistributionConfigPtrOutput() DistributionConfigPtrOutput {
+	return o
+}
+
+func (o DistributionConfigPtrOutput) ToDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionConfigPtrOutput {
+	return o
+}
+
+func (o DistributionConfigPtrOutput) Elem() DistributionConfigOutput {
+	return o.ApplyT(func(v *DistributionConfig) DistributionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfig
+		return ret
+	}).(DistributionConfigOutput)
+}
+
+func (o DistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aliases
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) CNAMEs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CNAMEs
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []DistributionCacheBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.CacheBehaviors
+	}).(DistributionCacheBehaviorArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []DistributionCustomErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CustomErrorResponses
+	}).(DistributionCustomErrorResponseArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionLegacyCustomOrigin {
+		if v == nil {
+			return nil
+		}
+		return v.CustomOrigin
+	}).(DistributionLegacyCustomOriginPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionDefaultCacheBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultCacheBehavior
+	}).(DistributionDefaultCacheBehaviorPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) DefaultRootObject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultRootObject
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) IPV6Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IPV6Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Logging() DistributionLoggingPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(DistributionLoggingPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) OriginGroups() DistributionOriginGroupsPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionOriginGroups {
+		if v == nil {
+			return nil
+		}
+		return v.OriginGroups
+	}).(DistributionOriginGroupsPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Origins() DistributionOriginArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []DistributionOrigin {
+		if v == nil {
+			return nil
+		}
+		return v.Origins
+	}).(DistributionOriginArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceClass
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Restrictions() DistributionRestrictionsPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionRestrictions {
+		if v == nil {
+			return nil
+		}
+		return v.Restrictions
+	}).(DistributionRestrictionsPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionLegacyS3Origin {
+		if v == nil {
+			return nil
+		}
+		return v.S3Origin
+	}).(DistributionLegacyS3OriginPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionViewerCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.ViewerCertificate
+	}).(DistributionViewerCertificatePtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) WebACLId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebACLId
+	}).(pulumi.StringPtrOutput)
 }
 
 type DistributionCookies struct {
@@ -4460,6 +4961,57 @@ func (o KeyGroupConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyGroupConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+type KeyGroupConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyGroupConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupConfig)(nil)).Elem()
+}
+
+func (o KeyGroupConfigPtrOutput) ToKeyGroupConfigPtrOutput() KeyGroupConfigPtrOutput {
+	return o
+}
+
+func (o KeyGroupConfigPtrOutput) ToKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupConfigPtrOutput {
+	return o
+}
+
+func (o KeyGroupConfigPtrOutput) Elem() KeyGroupConfigOutput {
+	return o.ApplyT(func(v *KeyGroupConfig) KeyGroupConfig {
+		if v != nil {
+			return *v
+		}
+		var ret KeyGroupConfig
+		return ret
+	}).(KeyGroupConfigOutput)
+}
+
+func (o KeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KeyGroupConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type OriginRequestPolicyConfig struct {
 	Comment            *string                               `pulumi:"comment"`
 	CookiesConfig      OriginRequestPolicyCookiesConfig      `pulumi:"cookiesConfig"`
@@ -4533,6 +5085,75 @@ func (o OriginRequestPolicyConfigOutput) QueryStringsConfig() OriginRequestPolic
 	return o.ApplyT(func(v OriginRequestPolicyConfig) OriginRequestPolicyQueryStringsConfig { return v.QueryStringsConfig }).(OriginRequestPolicyQueryStringsConfigOutput)
 }
 
+type OriginRequestPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) ToOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) ToOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) Elem() OriginRequestPolicyConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) OriginRequestPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyConfig
+		return ret
+	}).(OriginRequestPolicyConfigOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) CookiesConfig() OriginRequestPolicyCookiesConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyCookiesConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.CookiesConfig
+	}).(OriginRequestPolicyCookiesConfigPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) HeadersConfig() OriginRequestPolicyHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.HeadersConfig
+	}).(OriginRequestPolicyHeadersConfigPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyQueryStringsConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringsConfig
+	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
+}
+
 type OriginRequestPolicyCookiesConfig struct {
 	CookieBehavior string   `pulumi:"cookieBehavior"`
 	Cookies        []string `pulumi:"cookies"`
@@ -4586,6 +5207,48 @@ func (o OriginRequestPolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOu
 
 func (o OriginRequestPolicyCookiesConfigOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) []string { return v.Cookies }).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyCookiesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyCookiesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyCookiesConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) Elem() OriginRequestPolicyCookiesConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) OriginRequestPolicyCookiesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyCookiesConfig
+		return ret
+	}).(OriginRequestPolicyCookiesConfigOutput)
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CookieBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(pulumi.StringArrayOutput)
 }
 
 type OriginRequestPolicyHeadersConfig struct {
@@ -4643,6 +5306,48 @@ func (o OriginRequestPolicyHeadersConfigOutput) Headers() pulumi.StringArrayOutp
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
 
+type OriginRequestPolicyHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyHeadersConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) Elem() OriginRequestPolicyHeadersConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) OriginRequestPolicyHeadersConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyHeadersConfig
+		return ret
+	}).(OriginRequestPolicyHeadersConfigOutput)
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
 type OriginRequestPolicyQueryStringsConfig struct {
 	QueryStringBehavior string   `pulumi:"queryStringBehavior"`
 	QueryStrings        []string `pulumi:"queryStrings"`
@@ -4696,6 +5401,48 @@ func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStringBehavior() pulum
 
 func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
+}
+
+type OriginRequestPolicyQueryStringsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyQueryStringsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) Elem() OriginRequestPolicyQueryStringsConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) OriginRequestPolicyQueryStringsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyQueryStringsConfig
+		return ret
+	}).(OriginRequestPolicyQueryStringsConfigOutput)
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(pulumi.StringArrayOutput)
 }
 
 type PublicKeyConfig struct {
@@ -4763,6 +5510,66 @@ func (o PublicKeyConfigOutput) EncodedKey() pulumi.StringOutput {
 
 func (o PublicKeyConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicKeyConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PublicKeyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PublicKeyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyConfig)(nil)).Elem()
+}
+
+func (o PublicKeyConfigPtrOutput) ToPublicKeyConfigPtrOutput() PublicKeyConfigPtrOutput {
+	return o
+}
+
+func (o PublicKeyConfigPtrOutput) ToPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyConfigPtrOutput {
+	return o
+}
+
+func (o PublicKeyConfigPtrOutput) Elem() PublicKeyConfigOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) PublicKeyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PublicKeyConfig
+		return ret
+	}).(PublicKeyConfigOutput)
+}
+
+func (o PublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CallerReference
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncodedKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PublicKeyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type RealtimeLogConfigEndPoint struct {
@@ -5525,6 +6332,75 @@ func (o ResponseHeadersPolicyConfigOutput) Name() pulumi.StringOutput {
 
 func (o ResponseHeadersPolicyConfigOutput) SecurityHeadersConfig() ResponseHeadersPolicySecurityHeadersConfigPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *ResponseHeadersPolicySecurityHeadersConfig {
+		return v.SecurityHeadersConfig
+	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
+}
+
+type ResponseHeadersPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyConfig)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) ToResponseHeadersPolicyConfigPtrOutput() ResponseHeadersPolicyConfigPtrOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) ToResponseHeadersPolicyConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyConfigPtrOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) Elem() ResponseHeadersPolicyConfigOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) ResponseHeadersPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResponseHeadersPolicyConfig
+		return ret
+	}).(ResponseHeadersPolicyConfigOutput)
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) CorsConfig() ResponseHeadersPolicyCorsConfigPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicyCorsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CorsConfig
+	}).(ResponseHeadersPolicyCorsConfigPtrOutput)
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) CustomHeadersConfig() ResponseHeadersPolicyCustomHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicyCustomHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomHeadersConfig
+	}).(ResponseHeadersPolicyCustomHeadersConfigPtrOutput)
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponseHeadersPolicyConfigPtrOutput) SecurityHeadersConfig() ResponseHeadersPolicySecurityHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicySecurityHeadersConfig {
+		if v == nil {
+			return nil
+		}
 		return v.SecurityHeadersConfig
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
 }
@@ -7237,6 +8113,93 @@ func (o StreamingDistributionConfigOutput) TrustedSigners() StreamingDistributio
 	return o.ApplyT(func(v StreamingDistributionConfig) StreamingDistributionTrustedSigners { return v.TrustedSigners }).(StreamingDistributionTrustedSignersOutput)
 }
 
+type StreamingDistributionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionConfig)(nil)).Elem()
+}
+
+func (o StreamingDistributionConfigPtrOutput) ToStreamingDistributionConfigPtrOutput() StreamingDistributionConfigPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionConfigPtrOutput) ToStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionConfigPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionConfigPtrOutput) Elem() StreamingDistributionConfigOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) StreamingDistributionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionConfig
+		return ret
+	}).(StreamingDistributionConfigOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aliases
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) Logging() StreamingDistributionLoggingPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *StreamingDistributionLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(StreamingDistributionLoggingPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceClass
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) S3Origin() StreamingDistributionS3OriginPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *StreamingDistributionS3Origin {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Origin
+	}).(StreamingDistributionS3OriginPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) TrustedSigners() StreamingDistributionTrustedSignersPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *StreamingDistributionTrustedSigners {
+		if v == nil {
+			return nil
+		}
+		return &v.TrustedSigners
+	}).(StreamingDistributionTrustedSignersPtrOutput)
+}
+
 type StreamingDistributionLogging struct {
 	Bucket  string `pulumi:"bucket"`
 	Enabled bool   `pulumi:"enabled"`
@@ -7455,6 +8418,48 @@ func (o StreamingDistributionS3OriginOutput) OriginAccessIdentity() pulumi.Strin
 	return o.ApplyT(func(v StreamingDistributionS3Origin) string { return v.OriginAccessIdentity }).(pulumi.StringOutput)
 }
 
+type StreamingDistributionS3OriginPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionS3OriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) Elem() StreamingDistributionS3OriginOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) StreamingDistributionS3Origin {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionS3Origin
+		return ret
+	}).(StreamingDistributionS3OriginOutput)
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OriginAccessIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 type StreamingDistributionTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -7610,6 +8615,48 @@ func (o StreamingDistributionTrustedSignersOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StreamingDistributionTrustedSigners) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+type StreamingDistributionTrustedSignersPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionTrustedSignersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) Elem() StreamingDistributionTrustedSignersOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) StreamingDistributionTrustedSigners {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionTrustedSigners
+		return ret
+	}).(StreamingDistributionTrustedSignersOutput)
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) AwsAccountNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyConfigInput)(nil)).Elem(), CachePolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyCookiesConfigInput)(nil)).Elem(), CachePolicyCookiesConfigArgs{})
@@ -7715,14 +8762,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionTagArrayInput)(nil)).Elem(), StreamingDistributionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionTrustedSignersInput)(nil)).Elem(), StreamingDistributionTrustedSignersArgs{})
 	pulumi.RegisterOutputType(CachePolicyConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyCookiesConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyCookiesConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyHeadersConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput{})
+	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyQueryStringsConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityConfigOutput{})
+	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigOutput{})
+	pulumi.RegisterOutputType(DistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCookiesOutput{})
 	pulumi.RegisterOutputType(DistributionCookiesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})
@@ -7773,11 +8827,17 @@ func init() {
 	pulumi.RegisterOutputType(FunctionMetadataOutput{})
 	pulumi.RegisterOutputType(FunctionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(KeyGroupConfigOutput{})
+	pulumi.RegisterOutputType(KeyGroupConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(PublicKeyConfigOutput{})
+	pulumi.RegisterOutputType(PublicKeyConfigPtrOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigEndPointOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigEndPointArrayOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigKinesisStreamConfigOutput{})
@@ -7790,6 +8850,7 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicyAccessControlExposeHeadersOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyConfigOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyContentSecurityPolicyOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyContentSecurityPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyContentTypeOptionsOutput{})
@@ -7811,10 +8872,13 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicyXSSProtectionOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyXSSProtectionPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionConfigOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionLoggingOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionLoggingPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionS3OriginOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionS3OriginPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionTagOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersPtrOutput{})
 }

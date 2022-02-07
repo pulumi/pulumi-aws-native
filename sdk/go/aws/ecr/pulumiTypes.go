@@ -174,6 +174,40 @@ func (o ReplicationConfigurationTypeOutput) Rules() ReplicationConfigurationRepl
 	return o.ApplyT(func(v ReplicationConfigurationType) []ReplicationConfigurationReplicationRule { return v.Rules }).(ReplicationConfigurationReplicationRuleArrayOutput)
 }
 
+type ReplicationConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationType)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTypePtrOutput) ToReplicationConfigurationTypePtrOutput() ReplicationConfigurationTypePtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTypePtrOutput) ToReplicationConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTypePtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTypePtrOutput) Elem() ReplicationConfigurationTypeOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationType) ReplicationConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationType
+		return ret
+	}).(ReplicationConfigurationTypeOutput)
+}
+
+// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
+func (o ReplicationConfigurationTypePtrOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationType) []ReplicationConfigurationReplicationRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(ReplicationConfigurationReplicationRuleArrayOutput)
+}
+
 // An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationDestination struct {
 	Region     string `pulumi:"region"`
@@ -1273,6 +1307,7 @@ func init() {
 	pulumi.RegisterOutputType(PublicRepositoryTagOutput{})
 	pulumi.RegisterOutputType(PublicRepositoryTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleOutput{})

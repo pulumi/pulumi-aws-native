@@ -326,6 +326,75 @@ func (o CanaryCodeOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
 
+type CanaryCodePtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryCode)(nil)).Elem()
+}
+
+func (o CanaryCodePtrOutput) ToCanaryCodePtrOutput() CanaryCodePtrOutput {
+	return o
+}
+
+func (o CanaryCodePtrOutput) ToCanaryCodePtrOutputWithContext(ctx context.Context) CanaryCodePtrOutput {
+	return o
+}
+
+func (o CanaryCodePtrOutput) Elem() CanaryCodeOutput {
+	return o.ApplyT(func(v *CanaryCode) CanaryCode {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryCode
+		return ret
+	}).(CanaryCodeOutput)
+}
+
+func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryCode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Handler
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CanaryCodePtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryCode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CanaryCodePtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryCode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CanaryCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryCode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CanaryCodePtrOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryCode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Script
+	}).(pulumi.StringPtrOutput)
+}
+
 type CanaryRunConfig struct {
 	// Enable active tracing if set to true
 	ActiveTracing *bool `pulumi:"activeTracing"`
@@ -729,6 +798,48 @@ func (o CanaryScheduleOutput) DurationInSeconds() pulumi.StringPtrOutput {
 
 func (o CanaryScheduleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CanarySchedule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type CanarySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (CanarySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanarySchedule)(nil)).Elem()
+}
+
+func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
+	return o
+}
+
+func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
+	return o
+}
+
+func (o CanarySchedulePtrOutput) Elem() CanaryScheduleOutput {
+	return o.ApplyT(func(v *CanarySchedule) CanarySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret CanarySchedule
+		return ret
+	}).(CanaryScheduleOutput)
+}
+
+func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanarySchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DurationInSeconds
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanarySchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1181,11 +1292,13 @@ func init() {
 	pulumi.RegisterOutputType(CanaryBaseScreenshotOutput{})
 	pulumi.RegisterOutputType(CanaryBaseScreenshotArrayOutput{})
 	pulumi.RegisterOutputType(CanaryCodeOutput{})
+	pulumi.RegisterOutputType(CanaryCodePtrOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryS3EncryptionOutput{})
 	pulumi.RegisterOutputType(CanaryS3EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(CanaryScheduleOutput{})
+	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
 	pulumi.RegisterOutputType(CanaryTagOutput{})
 	pulumi.RegisterOutputType(CanaryTagArrayOutput{})
 	pulumi.RegisterOutputType(CanaryVPCConfigOutput{})

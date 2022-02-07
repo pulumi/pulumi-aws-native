@@ -1548,6 +1548,66 @@ func (o DatasetInputTypeOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v DatasetInputType) *DatasetS3Location { return v.S3InputDefinition }).(DatasetS3LocationPtrOutput)
 }
 
+type DatasetInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetInputType)(nil)).Elem()
+}
+
+func (o DatasetInputTypePtrOutput) ToDatasetInputTypePtrOutput() DatasetInputTypePtrOutput {
+	return o
+}
+
+func (o DatasetInputTypePtrOutput) ToDatasetInputTypePtrOutputWithContext(ctx context.Context) DatasetInputTypePtrOutput {
+	return o
+}
+
+func (o DatasetInputTypePtrOutput) Elem() DatasetInputTypeOutput {
+	return o.ApplyT(func(v *DatasetInputType) DatasetInputType {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetInputType
+		return ret
+	}).(DatasetInputTypeOutput)
+}
+
+func (o DatasetInputTypePtrOutput) DataCatalogInputDefinition() DatasetDataCatalogInputDefinitionPtrOutput {
+	return o.ApplyT(func(v *DatasetInputType) *DatasetDataCatalogInputDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.DataCatalogInputDefinition
+	}).(DatasetDataCatalogInputDefinitionPtrOutput)
+}
+
+func (o DatasetInputTypePtrOutput) DatabaseInputDefinition() DatasetDatabaseInputDefinitionPtrOutput {
+	return o.ApplyT(func(v *DatasetInputType) *DatasetDatabaseInputDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseInputDefinition
+	}).(DatasetDatabaseInputDefinitionPtrOutput)
+}
+
+func (o DatasetInputTypePtrOutput) Metadata() DatasetMetadataPtrOutput {
+	return o.ApplyT(func(v *DatasetInputType) *DatasetMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(DatasetMetadataPtrOutput)
+}
+
+func (o DatasetInputTypePtrOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
+	return o.ApplyT(func(v *DatasetInputType) *DatasetS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputDefinition
+	}).(DatasetS3LocationPtrOutput)
+}
+
 // Json options
 type DatasetJsonOptions struct {
 	MultiLine *bool `pulumi:"multiLine"`
@@ -6746,6 +6806,7 @@ func init() {
 	pulumi.RegisterOutputType(DatasetFormatOptionsOutput{})
 	pulumi.RegisterOutputType(DatasetFormatOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DatasetInputTypeOutput{})
+	pulumi.RegisterOutputType(DatasetInputTypePtrOutput{})
 	pulumi.RegisterOutputType(DatasetJsonOptionsOutput{})
 	pulumi.RegisterOutputType(DatasetJsonOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DatasetMetadataOutput{})

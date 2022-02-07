@@ -905,6 +905,50 @@ func (o DetectorModelDefinitionOutput) States() DetectorModelStateTypeArrayOutpu
 	return o.ApplyT(func(v DetectorModelDefinition) []DetectorModelStateType { return v.States }).(DetectorModelStateTypeArrayOutput)
 }
 
+type DetectorModelDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorModelDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorModelDefinition)(nil)).Elem()
+}
+
+func (o DetectorModelDefinitionPtrOutput) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
+	return o
+}
+
+func (o DetectorModelDefinitionPtrOutput) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
+	return o
+}
+
+func (o DetectorModelDefinitionPtrOutput) Elem() DetectorModelDefinitionOutput {
+	return o.ApplyT(func(v *DetectorModelDefinition) DetectorModelDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorModelDefinition
+		return ret
+	}).(DetectorModelDefinitionOutput)
+}
+
+// The state that is entered at the creation of each detector (instance).
+func (o DetectorModelDefinitionPtrOutput) InitialStateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InitialStateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the states of the detector.
+func (o DetectorModelDefinitionPtrOutput) States() DetectorModelStateTypeArrayOutput {
+	return o.ApplyT(func(v *DetectorModelDefinition) []DetectorModelStateType {
+		if v == nil {
+			return nil
+		}
+		return v.States
+	}).(DetectorModelStateTypeArrayOutput)
+}
+
 // Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDB struct {
 	// The name of the hash key (also called the partition key).
@@ -4349,6 +4393,40 @@ func (o InputDefinitionOutput) Attributes() InputAttributeArrayOutput {
 	return o.ApplyT(func(v InputDefinition) []InputAttribute { return v.Attributes }).(InputAttributeArrayOutput)
 }
 
+type InputDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (InputDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputDefinition)(nil)).Elem()
+}
+
+func (o InputDefinitionPtrOutput) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
+	return o
+}
+
+func (o InputDefinitionPtrOutput) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
+	return o
+}
+
+func (o InputDefinitionPtrOutput) Elem() InputDefinitionOutput {
+	return o.ApplyT(func(v *InputDefinition) InputDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret InputDefinition
+		return ret
+	}).(InputDefinitionOutput)
+}
+
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+func (o InputDefinitionPtrOutput) Attributes() InputAttributeArrayOutput {
+	return o.ApplyT(func(v *InputDefinition) []InputAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(InputAttributeArrayOutput)
+}
+
 // Tags to be applied to Input.
 type InputTag struct {
 	// Key of the Tag.
@@ -4526,6 +4604,7 @@ func init() {
 	pulumi.RegisterOutputType(DetectorModelClearTimerOutput{})
 	pulumi.RegisterOutputType(DetectorModelClearTimerPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDefinitionOutput{})
+	pulumi.RegisterOutputType(DetectorModelDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBv2Output{})
@@ -4569,6 +4648,7 @@ func init() {
 	pulumi.RegisterOutputType(InputAttributeOutput{})
 	pulumi.RegisterOutputType(InputAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InputDefinitionOutput{})
+	pulumi.RegisterOutputType(InputDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(InputTagOutput{})
 	pulumi.RegisterOutputType(InputTagArrayOutput{})
 }

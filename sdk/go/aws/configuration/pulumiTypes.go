@@ -358,6 +358,57 @@ func (o ConfigRuleSourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
 }
 
+type ConfigRuleSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigRuleSource)(nil)).Elem()
+}
+
+func (o ConfigRuleSourcePtrOutput) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
+	return o
+}
+
+func (o ConfigRuleSourcePtrOutput) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
+	return o
+}
+
+func (o ConfigRuleSourcePtrOutput) Elem() ConfigRuleSourceOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) ConfigRuleSource {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigRuleSource
+		return ret
+	}).(ConfigRuleSourceOutput)
+}
+
+func (o ConfigRuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigRuleSourcePtrOutput) SourceDetails() ConfigRuleSourceDetailArrayOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) []ConfigRuleSourceDetail {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDetails
+	}).(ConfigRuleSourceDetailArrayOutput)
+}
+
+func (o ConfigRuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigRuleSourceDetail struct {
 	EventSource               string  `pulumi:"eventSource"`
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
@@ -2270,6 +2321,7 @@ func init() {
 	pulumi.RegisterOutputType(ConfigRuleScopeOutput{})
 	pulumi.RegisterOutputType(ConfigRuleScopePtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleSourceOutput{})
+	pulumi.RegisterOutputType(ConfigRuleSourcePtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleSourceDetailOutput{})
 	pulumi.RegisterOutputType(ConfigRuleSourceDetailArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceOutput{})

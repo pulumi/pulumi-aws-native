@@ -424,6 +424,48 @@ func (o SecurityServicePolicyDataPropertiesOutput) Type() PolicySecurityServiceP
 	}).(PolicySecurityServicePolicyDataPropertiesTypeOutput)
 }
 
+type SecurityServicePolicyDataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityServicePolicyDataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityServicePolicyDataProperties)(nil)).Elem()
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
+	return o
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
+	return o
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) Elem() SecurityServicePolicyDataPropertiesOutput {
+	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) SecurityServicePolicyDataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityServicePolicyDataProperties
+		return ret
+	}).(SecurityServicePolicyDataPropertiesOutput)
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) ManagedServiceData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedServiceData
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) Type() PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
+	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) *PolicySecurityServicePolicyDataPropertiesType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(PolicySecurityServicePolicyDataPropertiesTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapInput)(nil)).Elem(), PolicyIEMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapPtrInput)(nil)).Elem(), PolicyIEMapArgs{})
@@ -439,4 +481,5 @@ func init() {
 	pulumi.RegisterOutputType(PolicyTagOutput{})
 	pulumi.RegisterOutputType(PolicyTagArrayOutput{})
 	pulumi.RegisterOutputType(SecurityServicePolicyDataPropertiesOutput{})
+	pulumi.RegisterOutputType(SecurityServicePolicyDataPropertiesPtrOutput{})
 }

@@ -150,6 +150,102 @@ func (o LaunchProfileStreamConfigurationOutput) StreamingImageIds() pulumi.Strin
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.StreamingImageIds }).(pulumi.StringArrayOutput)
 }
 
+type LaunchProfileStreamConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileStreamConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileStreamConfiguration)(nil)).Elem()
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) ToLaunchProfileStreamConfigurationPtrOutput() LaunchProfileStreamConfigurationPtrOutput {
+	return o
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) ToLaunchProfileStreamConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationPtrOutput {
+	return o
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) Elem() LaunchProfileStreamConfigurationOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) LaunchProfileStreamConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchProfileStreamConfiguration
+		return ret
+	}).(LaunchProfileStreamConfigurationOutput)
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() LaunchProfileStreamingClipboardModePtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamingClipboardMode {
+		if v == nil {
+			return nil
+		}
+		return &v.ClipboardMode
+	}).(LaunchProfileStreamingClipboardModePtrOutput)
+}
+
+// <p>The EC2 instance types that users can select from when launching a streaming session
+//             with this launch profile.</p>
+func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() LaunchProfileStreamingInstanceTypeArrayOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []LaunchProfileStreamingInstanceType {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2InstanceTypes
+	}).(LaunchProfileStreamingInstanceTypeArrayOutput)
+}
+
+// <p>The length of time, in minutes, that a streaming session can be active before it is
+//             stopped or terminated. After this point, Nimble Studio automatically terminates or
+//             stops the session. The default length of time is 690 minutes, and the maximum length of
+//             time is 30 days.</p>
+func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSessionLengthInMinutes
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>Integer that determines if you can start and stop your sessions and how long a session
+//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+//             StopStreamingSession, the session fails. If the time that a session stays in the READY
+//             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+//             terminated by AWS (instead of stopped).</p>
+//         <p>If the value is set to a positive number, the session can be stopped. You can call
+//             StopStreamingSession to stop sessions in the READY state. If the time that a session
+//             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+//             automatically be stopped by AWS (instead of terminated).</p>
+func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxStoppedSessionLengthInMinutes
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
+		if v == nil {
+			return nil
+		}
+		return v.SessionStorage
+	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
+}
+
+// <p>The streaming images that users can select from when launching a streaming session
+//             with this launch profile.</p>
+func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamingImageIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // <p>The configuration for a streaming session’s upload storage.</p>
 type LaunchProfileStreamConfigurationSessionStorage struct {
 	// <p>Allows artists to upload files to their workstations. The only valid option is
@@ -624,6 +720,49 @@ func (o StreamingImageEncryptionConfigurationOutput) KeyType() StreamingImageEnc
 	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) StreamingImageEncryptionConfigurationKeyType {
 		return v.KeyType
 	}).(StreamingImageEncryptionConfigurationKeyTypeOutput)
+}
+
+type StreamingImageEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingImageEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingImageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o StreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageEncryptionConfigurationPtrOutput() StreamingImageEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o StreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o StreamingImageEncryptionConfigurationPtrOutput) Elem() StreamingImageEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) StreamingImageEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingImageEncryptionConfiguration
+		return ret
+	}).(StreamingImageEncryptionConfigurationOutput)
+}
+
+// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+func (o StreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingImageEncryptionConfigurationPtrOutput) KeyType() StreamingImageEncryptionConfigurationKeyTypePtrOutput {
+	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *StreamingImageEncryptionConfigurationKeyType {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
+	}).(StreamingImageEncryptionConfigurationKeyTypePtrOutput)
 }
 
 type StreamingImageTags struct {
@@ -2395,6 +2534,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagsInput)(nil)).Elem(), StudioTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioTagsPtrInput)(nil)).Elem(), StudioTagsArgs{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationOutput{})
+	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationSessionStorageOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationSessionStoragePtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageRootOutput{})
@@ -2402,6 +2542,7 @@ func init() {
 	pulumi.RegisterOutputType(LaunchProfileTagsOutput{})
 	pulumi.RegisterOutputType(LaunchProfileTagsPtrOutput{})
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamingImageTagsOutput{})
 	pulumi.RegisterOutputType(StreamingImageTagsPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeOutput{})

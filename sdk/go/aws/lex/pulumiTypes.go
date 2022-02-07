@@ -7775,6 +7775,39 @@ func (o DataPrivacyPropertiesOutput) ChildDirected() pulumi.BoolOutput {
 	return o.ApplyT(func(v DataPrivacyProperties) bool { return v.ChildDirected }).(pulumi.BoolOutput)
 }
 
+type DataPrivacyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataPrivacyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataPrivacyProperties)(nil)).Elem()
+}
+
+func (o DataPrivacyPropertiesPtrOutput) ToDataPrivacyPropertiesPtrOutput() DataPrivacyPropertiesPtrOutput {
+	return o
+}
+
+func (o DataPrivacyPropertiesPtrOutput) ToDataPrivacyPropertiesPtrOutputWithContext(ctx context.Context) DataPrivacyPropertiesPtrOutput {
+	return o
+}
+
+func (o DataPrivacyPropertiesPtrOutput) Elem() DataPrivacyPropertiesOutput {
+	return o.ApplyT(func(v *DataPrivacyProperties) DataPrivacyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataPrivacyProperties
+		return ret
+	}).(DataPrivacyPropertiesOutput)
+}
+
+func (o DataPrivacyPropertiesPtrOutput) ChildDirected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataPrivacyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ChildDirected
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
 type ResourcePolicyPolicy struct {
 }
@@ -7819,6 +7852,30 @@ func (o ResourcePolicyPolicyOutput) ToResourcePolicyPolicyOutput() ResourcePolic
 
 func (o ResourcePolicyPolicyOutput) ToResourcePolicyPolicyOutputWithContext(ctx context.Context) ResourcePolicyPolicyOutput {
 	return o
+}
+
+type ResourcePolicyPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourcePolicyPolicy)(nil)).Elem()
+}
+
+func (o ResourcePolicyPolicyPtrOutput) ToResourcePolicyPolicyPtrOutput() ResourcePolicyPolicyPtrOutput {
+	return o
+}
+
+func (o ResourcePolicyPolicyPtrOutput) ToResourcePolicyPolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPolicyPtrOutput {
+	return o
+}
+
+func (o ResourcePolicyPolicyPtrOutput) Elem() ResourcePolicyPolicyOutput {
+	return o.ApplyT(func(v *ResourcePolicyPolicy) ResourcePolicyPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ResourcePolicyPolicy
+		return ret
+	}).(ResourcePolicyPolicyOutput)
 }
 
 // Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
@@ -8187,7 +8244,9 @@ func init() {
 	pulumi.RegisterOutputType(BotWaitAndContinueSpecificationOutput{})
 	pulumi.RegisterOutputType(BotWaitAndContinueSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(DataPrivacyPropertiesOutput{})
+	pulumi.RegisterOutputType(DataPrivacyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyPolicyOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SentimentAnalysisSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(SentimentAnalysisSettingsPropertiesPtrOutput{})
 }

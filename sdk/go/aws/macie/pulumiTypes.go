@@ -180,6 +180,39 @@ func (o FindingsFilterFindingCriteriaOutput) Criterion() FindingsFilterCriterion
 	return o.ApplyT(func(v FindingsFilterFindingCriteria) *FindingsFilterCriterion { return v.Criterion }).(FindingsFilterCriterionPtrOutput)
 }
 
+type FindingsFilterFindingCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (FindingsFilterFindingCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FindingsFilterFindingCriteria)(nil)).Elem()
+}
+
+func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
+	return o
+}
+
+func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
+	return o
+}
+
+func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCriteriaOutput {
+	return o.ApplyT(func(v *FindingsFilterFindingCriteria) FindingsFilterFindingCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret FindingsFilterFindingCriteria
+		return ret
+	}).(FindingsFilterFindingCriteriaOutput)
+}
+
+func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriterionPtrOutput {
+	return o.ApplyT(func(v *FindingsFilterFindingCriteria) *FindingsFilterCriterion {
+		if v == nil {
+			return nil
+		}
+		return v.Criterion
+	}).(FindingsFilterCriterionPtrOutput)
+}
+
 // Returned by ListHandler representing filter name and ID.
 type FindingsFilterListItem struct {
 	Id   *string `pulumi:"id"`
@@ -236,6 +269,7 @@ func init() {
 	pulumi.RegisterOutputType(FindingsFilterCriterionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})
+	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterListItemOutput{})
 	pulumi.RegisterOutputType(FindingsFilterListItemArrayOutput{})
 }

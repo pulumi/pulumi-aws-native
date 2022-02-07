@@ -319,6 +319,183 @@ func (o HealthCheckConfigPropertiesOutput) Type() HealthCheckConfigPropertiesTyp
 	return o.ApplyT(func(v HealthCheckConfigProperties) HealthCheckConfigPropertiesType { return v.Type }).(HealthCheckConfigPropertiesTypeOutput)
 }
 
+type HealthCheckConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckConfigProperties)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Elem() HealthCheckConfigPropertiesOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) HealthCheckConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HealthCheckConfigProperties
+		return ret
+	}).(HealthCheckConfigPropertiesOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) AlarmIdentifier() HealthCheckAlarmIdentifierPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckAlarmIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmIdentifier
+	}).(HealthCheckAlarmIdentifierPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) ChildHealthChecks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ChildHealthChecks
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) EnableSNI() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSNI
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FullyQualifiedDomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) HealthThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) IPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IPAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) InsufficientDataHealthStatus() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckConfigPropertiesInsufficientDataHealthStatus {
+		if v == nil {
+			return nil
+		}
+		return v.InsufficientDataHealthStatus
+	}).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Inverted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Inverted
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) MeasureLatency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MeasureLatency
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) RequestInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequestInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) ResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcePath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) RoutingControlArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingControlArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) SearchString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchString
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Type() HealthCheckConfigPropertiesTypePtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckConfigPropertiesType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(HealthCheckConfigPropertiesTypePtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type HealthCheckTag struct {
 	// The key name of the tag.
@@ -1789,6 +1966,7 @@ func init() {
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierOutput{})
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckTagOutput{})
 	pulumi.RegisterOutputType(HealthCheckTagArrayOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigOutput{})

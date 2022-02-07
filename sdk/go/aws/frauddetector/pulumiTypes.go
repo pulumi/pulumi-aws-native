@@ -273,6 +273,126 @@ func (o DetectorEventTypeOutput) Tags() DetectorTagArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
+type DetectorEventTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorEventTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorEventType)(nil)).Elem()
+}
+
+func (o DetectorEventTypePtrOutput) ToDetectorEventTypePtrOutput() DetectorEventTypePtrOutput {
+	return o
+}
+
+func (o DetectorEventTypePtrOutput) ToDetectorEventTypePtrOutputWithContext(ctx context.Context) DetectorEventTypePtrOutput {
+	return o
+}
+
+func (o DetectorEventTypePtrOutput) Elem() DetectorEventTypeOutput {
+	return o.ApplyT(func(v *DetectorEventType) DetectorEventType {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorEventType
+		return ret
+	}).(DetectorEventTypeOutput)
+}
+
+// The ARN of the event type.
+func (o DetectorEventTypePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorEventType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time when the event type was created.
+func (o DetectorEventTypePtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorEventType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the event type.
+func (o DetectorEventTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorEventType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DetectorEventTypePtrOutput) EntityTypes() DetectorEntityTypeArrayOutput {
+	return o.ApplyT(func(v *DetectorEventType) []DetectorEntityType {
+		if v == nil {
+			return nil
+		}
+		return v.EntityTypes
+	}).(DetectorEntityTypeArrayOutput)
+}
+
+func (o DetectorEventTypePtrOutput) EventVariables() DetectorEventVariableArrayOutput {
+	return o.ApplyT(func(v *DetectorEventType) []DetectorEventVariable {
+		if v == nil {
+			return nil
+		}
+		return v.EventVariables
+	}).(DetectorEventVariableArrayOutput)
+}
+
+func (o DetectorEventTypePtrOutput) Inline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DetectorEventType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Inline
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DetectorEventTypePtrOutput) Labels() DetectorLabelArrayOutput {
+	return o.ApplyT(func(v *DetectorEventType) []DetectorLabel {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(DetectorLabelArrayOutput)
+}
+
+// The time when the event type was last updated.
+func (o DetectorEventTypePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorEventType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastUpdatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name for the event type
+func (o DetectorEventTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorEventType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tags associated with this event type.
+func (o DetectorEventTypePtrOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v *DetectorEventType) []DetectorTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(DetectorTagArrayOutput)
+}
+
 type DetectorEventVariable struct {
 	Arn *string `pulumi:"arn"`
 	// The time when the event variable was created.
@@ -2071,6 +2191,7 @@ func init() {
 	pulumi.RegisterOutputType(DetectorEntityTypeOutput{})
 	pulumi.RegisterOutputType(DetectorEntityTypeArrayOutput{})
 	pulumi.RegisterOutputType(DetectorEventTypeOutput{})
+	pulumi.RegisterOutputType(DetectorEventTypePtrOutput{})
 	pulumi.RegisterOutputType(DetectorEventVariableOutput{})
 	pulumi.RegisterOutputType(DetectorEventVariableArrayOutput{})
 	pulumi.RegisterOutputType(DetectorLabelOutput{})

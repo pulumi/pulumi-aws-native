@@ -891,6 +891,57 @@ func (o CodeRepositoryGitConfigOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
+type CodeRepositoryGitConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryGitConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepositoryGitConfig)(nil)).Elem()
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) Elem() CodeRepositoryGitConfigOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) CodeRepositoryGitConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepositoryGitConfig
+		return ret
+	}).(CodeRepositoryGitConfigOutput)
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type CodeRepositoryTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2877,6 +2928,50 @@ func (o DeviceFleetEdgeOutputConfigOutput) S3OutputLocation() pulumi.StringOutpu
 	return o.ApplyT(func(v DeviceFleetEdgeOutputConfig) string { return v.S3OutputLocation }).(pulumi.StringOutput)
 }
 
+type DeviceFleetEdgeOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DeviceFleetEdgeOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceFleetEdgeOutputConfig)(nil)).Elem()
+}
+
+func (o DeviceFleetEdgeOutputConfigPtrOutput) ToDeviceFleetEdgeOutputConfigPtrOutput() DeviceFleetEdgeOutputConfigPtrOutput {
+	return o
+}
+
+func (o DeviceFleetEdgeOutputConfigPtrOutput) ToDeviceFleetEdgeOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetEdgeOutputConfigPtrOutput {
+	return o
+}
+
+func (o DeviceFleetEdgeOutputConfigPtrOutput) Elem() DeviceFleetEdgeOutputConfigOutput {
+	return o.ApplyT(func(v *DeviceFleetEdgeOutputConfig) DeviceFleetEdgeOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeviceFleetEdgeOutputConfig
+		return ret
+	}).(DeviceFleetEdgeOutputConfigOutput)
+}
+
+// The KMS key id used for encryption on the S3 bucket
+func (o DeviceFleetEdgeOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceFleetEdgeOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Simple Storage (S3) bucket URI
+func (o DeviceFleetEdgeOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceFleetEdgeOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputLocation
+	}).(pulumi.StringPtrOutput)
+}
+
 // Key-value pair to associate as a tag for the resource
 type DeviceFleetTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -4049,6 +4144,80 @@ func (o DomainUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 // The sharing settings.
 func (o DomainUserSettingsOutput) SharingSettings() DomainSharingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainSharingSettings { return v.SharingSettings }).(DomainSharingSettingsPtrOutput)
+}
+
+type DomainUserSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainUserSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUserSettings)(nil)).Elem()
+}
+
+func (o DomainUserSettingsPtrOutput) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
+	return o
+}
+
+func (o DomainUserSettingsPtrOutput) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
+	return o
+}
+
+func (o DomainUserSettingsPtrOutput) Elem() DomainUserSettingsOutput {
+	return o.ApplyT(func(v *DomainUserSettings) DomainUserSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainUserSettings
+		return ret
+	}).(DomainUserSettingsOutput)
+}
+
+// The user profile Amazon Resource Name (ARN).
+func (o DomainUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Jupyter server's app settings.
+func (o DomainUserSettingsPtrOutput) JupyterServerAppSettings() DomainJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainJupyterServerAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterServerAppSettings
+	}).(DomainJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings.
+func (o DomainUserSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainKernelGatewayAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KernelGatewayAppSettings
+	}).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+func (o DomainUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainUserSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The sharing settings.
+func (o DomainUserSettingsPtrOutput) SharingSettings() DomainSharingSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainSharingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SharingSettings
+	}).(DomainSharingSettingsPtrOutput)
 }
 
 type EndpointAlarm struct {
@@ -13596,6 +13765,67 @@ func (o MonitoringScheduleConfigOutput) ScheduleConfig() MonitoringScheduleSched
 	return o.ApplyT(func(v MonitoringScheduleConfig) *MonitoringScheduleScheduleConfig { return v.ScheduleConfig }).(MonitoringScheduleScheduleConfigPtrOutput)
 }
 
+type MonitoringScheduleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleConfigPtrOutput) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleConfigPtrOutput) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleConfigPtrOutput) Elem() MonitoringScheduleConfigOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) MonitoringScheduleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleConfig
+		return ret
+	}).(MonitoringScheduleConfigOutput)
+}
+
+func (o MonitoringScheduleConfigPtrOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleMonitoringJobDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringJobDefinition
+	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
+}
+
+// Name of the job definition
+func (o MonitoringScheduleConfigPtrOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringJobDefinitionName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MonitoringScheduleConfigPtrOutput) MonitoringType() MonitoringScheduleMonitoringTypePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleMonitoringType {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringType
+	}).(MonitoringScheduleMonitoringTypePtrOutput)
+}
+
+func (o MonitoringScheduleConfigPtrOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleScheduleConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleConfig
+	}).(MonitoringScheduleScheduleConfigPtrOutput)
+}
+
 // The baseline constraints resource for a monitoring job.
 type MonitoringScheduleConstraintsResource struct {
 	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
@@ -16997,6 +17227,48 @@ func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ProvisionedProd
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) Elem() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) ServiceCatalogProvisionedProductDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceCatalogProvisionedProductDetailsProperties
+		return ret
+	}).(ServiceCatalogProvisionedProductDetailsPropertiesOutput)
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ProvisionedProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedProductId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ProvisionedProductStatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedProductStatusMessage
+	}).(pulumi.StringPtrOutput)
+}
+
 // Input ServiceCatalog Provisioning Details
 type ServiceCatalogProvisioningDetailsProperties struct {
 	PathId                 *string `pulumi:"pathId"`
@@ -18823,6 +19095,7 @@ func init() {
 	pulumi.RegisterOutputType(AppTagOutput{})
 	pulumi.RegisterOutputType(AppTagArrayOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryTagOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryTagArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigOutput{})
@@ -18851,6 +19124,7 @@ func init() {
 	pulumi.RegisterOutputType(DeviceTypeOutput{})
 	pulumi.RegisterOutputType(DeviceTypePtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigOutput{})
+	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetTagOutput{})
 	pulumi.RegisterOutputType(DeviceFleetTagArrayOutput{})
 	pulumi.RegisterOutputType(DeviceTagOutput{})
@@ -18868,6 +19142,7 @@ func init() {
 	pulumi.RegisterOutputType(DomainTagOutput{})
 	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsOutput{})
+	pulumi.RegisterOutputType(DomainUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointAlarmOutput{})
 	pulumi.RegisterOutputType(EndpointAlarmArrayOutput{})
 	pulumi.RegisterOutputType(EndpointAutoRollbackConfigOutput{})
@@ -19003,6 +19278,7 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleClusterConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConfigOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputOutput{})
@@ -19050,6 +19326,7 @@ func init() {
 	pulumi.RegisterOutputType(ProjectTagOutput{})
 	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageArrayOutput{})

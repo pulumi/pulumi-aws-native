@@ -1715,6 +1715,60 @@ func (o VpcEndpointPropertiesOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointProperties) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
+type VpcEndpointPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointProperties)(nil)).Elem()
+}
+
+func (o VpcEndpointPropertiesPtrOutput) ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput {
+	return o
+}
+
+func (o VpcEndpointPropertiesPtrOutput) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
+	return o
+}
+
+func (o VpcEndpointPropertiesPtrOutput) Elem() VpcEndpointPropertiesOutput {
+	return o.ApplyT(func(v *VpcEndpointProperties) VpcEndpointProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointProperties
+		return ret
+	}).(VpcEndpointPropertiesOutput)
+}
+
+// One or more network interfaces of the endpoint. Also known as an interface endpoint.
+func (o VpcEndpointPropertiesPtrOutput) NetworkInterfaces() EndpointAccessNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointProperties) []EndpointAccessNetworkInterface {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaces
+	}).(EndpointAccessNetworkInterfaceArrayOutput)
+}
+
+// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+func (o VpcEndpointPropertiesPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The VPC identifier that the endpoint is associated.
+func (o VpcEndpointPropertiesPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), ClusterEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointPtrInput)(nil)).Elem(), ClusterEndpointArgs{})
@@ -1769,4 +1823,5 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledActionTypeOutput{})
 	pulumi.RegisterOutputType(ScheduledActionTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointPropertiesOutput{})
+	pulumi.RegisterOutputType(VpcEndpointPropertiesPtrOutput{})
 }

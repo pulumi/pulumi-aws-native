@@ -1387,6 +1387,39 @@ func (o ApplicationOutputResourceDestinationSchemaOutput) RecordFormatType() pul
 	return o.ApplyT(func(v ApplicationOutputResourceDestinationSchema) *string { return v.RecordFormatType }).(pulumi.StringPtrOutput)
 }
 
+type ApplicationOutputResourceDestinationSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationOutputResourceDestinationSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceDestinationSchema)(nil)).Elem()
+}
+
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return o
+}
+
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return o
+}
+
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) Elem() ApplicationOutputResourceDestinationSchemaOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceDestinationSchema) ApplicationOutputResourceDestinationSchema {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationOutputResourceDestinationSchema
+		return ret
+	}).(ApplicationOutputResourceDestinationSchemaOutput)
+}
+
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceDestinationSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecordFormatType
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationOutputResourceKinesisFirehoseOutput struct {
 	ResourceARN string `pulumi:"resourceARN"`
 	RoleARN     string `pulumi:"roleARN"`
@@ -1910,6 +1943,75 @@ func (o ApplicationOutputResourceOutputTypeOutput) LambdaOutput() ApplicationOut
 
 func (o ApplicationOutputResourceOutputTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationOutputResourceOutputType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationOutputResourceOutputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationOutputResourceOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceOutputType)(nil)).Elem()
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
+	return o
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
+	return o
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) Elem() ApplicationOutputResourceOutputTypeOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) ApplicationOutputResourceOutputType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationOutputResourceOutputType
+		return ret
+	}).(ApplicationOutputResourceOutputTypeOutput)
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) DestinationSchema() ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceDestinationSchema {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationSchema
+	}).(ApplicationOutputResourceDestinationSchemaPtrOutput)
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) KinesisFirehoseOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceKinesisFirehoseOutput {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisFirehoseOutput
+	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) KinesisStreamsOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceKinesisStreamsOutput {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisStreamsOutput
+	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) LambdaOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceLambdaOutput {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaOutput
+	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
+}
+
+func (o ApplicationOutputResourceOutputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationRecordColumn struct {
@@ -2669,6 +2771,48 @@ func (o ApplicationReferenceDataSourceRecordFormatOutput) RecordFormatType() pul
 	return o.ApplyT(func(v ApplicationReferenceDataSourceRecordFormat) string { return v.RecordFormatType }).(pulumi.StringOutput)
 }
 
+type ApplicationReferenceDataSourceRecordFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationReferenceDataSourceRecordFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationReferenceDataSourceRecordFormat)(nil)).Elem()
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToApplicationReferenceDataSourceRecordFormatPtrOutput() ApplicationReferenceDataSourceRecordFormatPtrOutput {
+	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) ToApplicationReferenceDataSourceRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceRecordFormatPtrOutput {
+	return o
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) Elem() ApplicationReferenceDataSourceRecordFormatOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceRecordFormat) ApplicationReferenceDataSourceRecordFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationReferenceDataSourceRecordFormat
+		return ret
+	}).(ApplicationReferenceDataSourceRecordFormatOutput)
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) MappingParameters() ApplicationReferenceDataSourceMappingParametersPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceRecordFormat) *ApplicationReferenceDataSourceMappingParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MappingParameters
+	}).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
+}
+
+func (o ApplicationReferenceDataSourceRecordFormatPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceRecordFormat) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordFormatType
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationReferenceDataSourceReferenceDataSource struct {
 	ReferenceSchema       ApplicationReferenceDataSourceReferenceSchema        `pulumi:"referenceSchema"`
 	S3ReferenceDataSource *ApplicationReferenceDataSourceS3ReferenceDataSource `pulumi:"s3ReferenceDataSource"`
@@ -2734,6 +2878,57 @@ func (o ApplicationReferenceDataSourceReferenceDataSourceOutput) TableName() pul
 	return o.ApplyT(func(v ApplicationReferenceDataSourceReferenceDataSource) *string { return v.TableName }).(pulumi.StringPtrOutput)
 }
 
+type ApplicationReferenceDataSourceReferenceDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationReferenceDataSourceReferenceDataSource)(nil)).Elem()
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutput() ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
+	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ToApplicationReferenceDataSourceReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceDataSourcePtrOutput {
+	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) Elem() ApplicationReferenceDataSourceReferenceDataSourceOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceDataSource) ApplicationReferenceDataSourceReferenceDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationReferenceDataSourceReferenceDataSource
+		return ret
+	}).(ApplicationReferenceDataSourceReferenceDataSourceOutput)
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) ReferenceSchema() ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceDataSource) *ApplicationReferenceDataSourceReferenceSchema {
+		if v == nil {
+			return nil
+		}
+		return &v.ReferenceSchema
+	}).(ApplicationReferenceDataSourceReferenceSchemaPtrOutput)
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) S3ReferenceDataSource() ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceDataSource) *ApplicationReferenceDataSourceS3ReferenceDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.S3ReferenceDataSource
+	}).(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
+}
+
+func (o ApplicationReferenceDataSourceReferenceDataSourcePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationReferenceDataSourceReferenceSchema struct {
 	RecordColumns  []ApplicationReferenceDataSourceRecordColumn `pulumi:"recordColumns"`
 	RecordEncoding *string                                      `pulumi:"recordEncoding"`
@@ -2797,6 +2992,57 @@ func (o ApplicationReferenceDataSourceReferenceSchemaOutput) RecordFormat() Appl
 	return o.ApplyT(func(v ApplicationReferenceDataSourceReferenceSchema) ApplicationReferenceDataSourceRecordFormat {
 		return v.RecordFormat
 	}).(ApplicationReferenceDataSourceRecordFormatOutput)
+}
+
+type ApplicationReferenceDataSourceReferenceSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationReferenceDataSourceReferenceSchema)(nil)).Elem()
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationReferenceDataSourceReferenceSchemaPtrOutput() ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
+	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceReferenceSchemaPtrOutput {
+	return o
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) Elem() ApplicationReferenceDataSourceReferenceSchemaOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceSchema) ApplicationReferenceDataSourceReferenceSchema {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationReferenceDataSourceReferenceSchema
+		return ret
+	}).(ApplicationReferenceDataSourceReferenceSchemaOutput)
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) RecordColumns() ApplicationReferenceDataSourceRecordColumnArrayOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceSchema) []ApplicationReferenceDataSourceRecordColumn {
+		if v == nil {
+			return nil
+		}
+		return v.RecordColumns
+	}).(ApplicationReferenceDataSourceRecordColumnArrayOutput)
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) RecordEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecordEncoding
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) RecordFormat() ApplicationReferenceDataSourceRecordFormatPtrOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSourceReferenceSchema) *ApplicationReferenceDataSourceRecordFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordFormat
+	}).(ApplicationReferenceDataSourceRecordFormatPtrOutput)
 }
 
 type ApplicationReferenceDataSourceS3ReferenceDataSource struct {
@@ -3026,6 +3272,7 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationMappingParametersOutput{})
 	pulumi.RegisterOutputType(ApplicationMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceDestinationSchemaOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceDestinationSchemaPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisFirehoseOutputOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisStreamsOutputOutput{})
@@ -3033,6 +3280,7 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationOutputResourceLambdaOutputOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceLambdaOutputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceOutputTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceOutputTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordColumnOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordColumnArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordFormatOutput{})
@@ -3045,8 +3293,11 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordColumnOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordColumnArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordFormatOutput{})
+	pulumi.RegisterOutputType(ApplicationReferenceDataSourceRecordFormatPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceDataSourceOutput{})
+	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceSchemaOutput{})
+	pulumi.RegisterOutputType(ApplicationReferenceDataSourceReferenceSchemaPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceS3ReferenceDataSourceOutput{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput{})
 }

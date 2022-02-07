@@ -71,6 +71,57 @@ func (o SkillAuthenticationConfigurationOutput) RefreshToken() pulumi.StringOutp
 	return o.ApplyT(func(v SkillAuthenticationConfiguration) string { return v.RefreshToken }).(pulumi.StringOutput)
 }
 
+type SkillAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SkillAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkillAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o SkillAuthenticationConfigurationPtrOutput) ToSkillAuthenticationConfigurationPtrOutput() SkillAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o SkillAuthenticationConfigurationPtrOutput) ToSkillAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) SkillAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o SkillAuthenticationConfigurationPtrOutput) Elem() SkillAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *SkillAuthenticationConfiguration) SkillAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SkillAuthenticationConfiguration
+		return ret
+	}).(SkillAuthenticationConfigurationOutput)
+}
+
+func (o SkillAuthenticationConfigurationPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SkillAuthenticationConfigurationPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SkillAuthenticationConfigurationPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
 type SkillOverrides struct {
 	Manifest interface{} `pulumi:"manifest"`
 }
@@ -277,13 +328,84 @@ func (o SkillPackageOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkillPackage) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
+type SkillPackagePtrOutput struct{ *pulumi.OutputState }
+
+func (SkillPackagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkillPackage)(nil)).Elem()
+}
+
+func (o SkillPackagePtrOutput) ToSkillPackagePtrOutput() SkillPackagePtrOutput {
+	return o
+}
+
+func (o SkillPackagePtrOutput) ToSkillPackagePtrOutputWithContext(ctx context.Context) SkillPackagePtrOutput {
+	return o
+}
+
+func (o SkillPackagePtrOutput) Elem() SkillPackageOutput {
+	return o.ApplyT(func(v *SkillPackage) SkillPackage {
+		if v != nil {
+			return *v
+		}
+		var ret SkillPackage
+		return ret
+	}).(SkillPackageOutput)
+}
+
+func (o SkillPackagePtrOutput) Overrides() SkillOverridesPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *SkillOverrides {
+		if v == nil {
+			return nil
+		}
+		return v.Overrides
+	}).(SkillOverridesPtrOutput)
+}
+
+func (o SkillPackagePtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SkillPackagePtrOutput) S3BucketRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SkillPackagePtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SkillPackagePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SkillAuthenticationConfigurationInput)(nil)).Elem(), SkillAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkillOverridesInput)(nil)).Elem(), SkillOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkillOverridesPtrInput)(nil)).Elem(), SkillOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SkillPackageInput)(nil)).Elem(), SkillPackageArgs{})
 	pulumi.RegisterOutputType(SkillAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(SkillAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SkillOverridesOutput{})
 	pulumi.RegisterOutputType(SkillOverridesPtrOutput{})
 	pulumi.RegisterOutputType(SkillPackageOutput{})
+	pulumi.RegisterOutputType(SkillPackagePtrOutput{})
 }

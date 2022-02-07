@@ -198,6 +198,48 @@ func (o ExperimentOnlineAbConfigObjectOutput) TreatmentWeights() ExperimentTreat
 	return o.ApplyT(func(v ExperimentOnlineAbConfigObject) []ExperimentTreatmentToWeight { return v.TreatmentWeights }).(ExperimentTreatmentToWeightArrayOutput)
 }
 
+type ExperimentOnlineAbConfigObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentOnlineAbConfigObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentOnlineAbConfigObject)(nil)).Elem()
+}
+
+func (o ExperimentOnlineAbConfigObjectPtrOutput) ToExperimentOnlineAbConfigObjectPtrOutput() ExperimentOnlineAbConfigObjectPtrOutput {
+	return o
+}
+
+func (o ExperimentOnlineAbConfigObjectPtrOutput) ToExperimentOnlineAbConfigObjectPtrOutputWithContext(ctx context.Context) ExperimentOnlineAbConfigObjectPtrOutput {
+	return o
+}
+
+func (o ExperimentOnlineAbConfigObjectPtrOutput) Elem() ExperimentOnlineAbConfigObjectOutput {
+	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) ExperimentOnlineAbConfigObject {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentOnlineAbConfigObject
+		return ret
+	}).(ExperimentOnlineAbConfigObjectOutput)
+}
+
+func (o ExperimentOnlineAbConfigObjectPtrOutput) ControlTreatmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ControlTreatmentName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExperimentOnlineAbConfigObjectPtrOutput) TreatmentWeights() ExperimentTreatmentToWeightArrayOutput {
+	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) []ExperimentTreatmentToWeight {
+		if v == nil {
+			return nil
+		}
+		return v.TreatmentWeights
+	}).(ExperimentTreatmentToWeightArrayOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ExperimentTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1837,6 +1879,7 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentMetricGoalObjectOutput{})
 	pulumi.RegisterOutputType(ExperimentMetricGoalObjectArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentOnlineAbConfigObjectOutput{})
+	pulumi.RegisterOutputType(ExperimentOnlineAbConfigObjectPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTagOutput{})
 	pulumi.RegisterOutputType(ExperimentTagArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTreatmentObjectOutput{})

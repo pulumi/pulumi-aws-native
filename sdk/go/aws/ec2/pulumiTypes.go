@@ -1250,6 +1250,57 @@ func (o ClientVpnEndpointConnectionLogOptionsOutput) Enabled() pulumi.BoolOutput
 	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+type ClientVpnEndpointConnectionLogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointConnectionLogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Elem() ClientVpnEndpointConnectionLogOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) ClientVpnEndpointConnectionLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointConnectionLogOptions
+		return ret
+	}).(ClientVpnEndpointConnectionLogOptionsOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogStream
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ClientVpnEndpointDirectoryServiceAuthenticationRequest struct {
 	DirectoryId string `pulumi:"directoryId"`
 }
@@ -5235,6 +5286,75 @@ func (o EC2FleetTargetCapacitySpecificationRequestOutput) TargetCapacityUnitType
 
 func (o EC2FleetTargetCapacitySpecificationRequestOutput) TotalTargetCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) int { return v.TotalTargetCapacity }).(pulumi.IntOutput)
+}
+
+type EC2FleetTargetCapacitySpecificationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetTargetCapacitySpecificationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetTargetCapacitySpecificationRequest)(nil)).Elem()
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) ToEC2FleetTargetCapacitySpecificationRequestPtrOutput() EC2FleetTargetCapacitySpecificationRequestPtrOutput {
+	return o
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) ToEC2FleetTargetCapacitySpecificationRequestPtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestPtrOutput {
+	return o
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) Elem() EC2FleetTargetCapacitySpecificationRequestOutput {
+	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) EC2FleetTargetCapacitySpecificationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetTargetCapacitySpecificationRequest
+		return ret
+	}).(EC2FleetTargetCapacitySpecificationRequestOutput)
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) DefaultTargetCapacityType() EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
+	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTargetCapacityType
+	}).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandTargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) SpotTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotTargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TargetCapacityUnitType() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
+		if v == nil {
+			return nil
+		}
+		return v.TargetCapacityUnitType
+	}).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalTargetCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 type EC2FleetTotalLocalStorageGBRequest struct {
@@ -21612,6 +21732,228 @@ func (o SpotFleetRequestConfigDataOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }
 
+type SpotFleetRequestConfigDataPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestConfigData)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) Elem() SpotFleetRequestConfigDataOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) SpotFleetRequestConfigData {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestConfigData
+		return ret
+	}).(SpotFleetRequestConfigDataOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) AllocationStrategy() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataAllocationStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ExcessCapacityTerminationPolicy() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ExcessCapacityTerminationPolicy
+	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) IamFleetRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamFleetRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavior() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataInstanceInterruptionBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstancePoolsToUseCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) LaunchSpecifications() SpotFleetLaunchSpecificationArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetLaunchSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchSpecifications
+	}).(SpotFleetLaunchSpecificationArrayOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) LaunchTemplateConfigs() SpotFleetLaunchTemplateConfigArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetLaunchTemplateConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateConfigs
+	}).(SpotFleetLaunchTemplateConfigArrayOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) LoadBalancersConfig() SpotFleetLoadBalancersConfigPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetLoadBalancersConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancersConfig
+	}).(SpotFleetLoadBalancersConfigPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandAllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxTotalPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandTargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaceUnhealthyInstances
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaintenanceStrategies
+	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxTotalPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacityUnitType() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataTargetCapacityUnitType {
+		if v == nil {
+			return nil
+		}
+		return v.TargetCapacityUnitType
+	}).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TerminateInstancesWithExpiration
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) Type() SpotFleetRequestConfigDataTypePtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(SpotFleetRequestConfigDataTypePtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ValidFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidUntil
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpotFleetSpotCapacityRebalance struct {
 	ReplacementStrategy *SpotFleetSpotCapacityRebalanceReplacementStrategy `pulumi:"replacementStrategy"`
 	TerminationDelay    *int                                               `pulumi:"terminationDelay"`
@@ -23861,6 +24203,50 @@ func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput) Message() 
 	return o.ApplyT(func(v TransitGatewayPeeringAttachmentPeeringAttachmentStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
+type TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPeeringAttachmentPeeringAttachmentStatus)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput() TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) ToTransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) Elem() TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentPeeringAttachmentStatus) TransitGatewayPeeringAttachmentPeeringAttachmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayPeeringAttachmentPeeringAttachmentStatus
+		return ret
+	}).(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput)
+}
+
+// The status code.
+func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentPeeringAttachmentStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status message, if applicable.
+func (o TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentPeeringAttachmentStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
 type TransitGatewayPeeringAttachmentTag struct {
 	// The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
 	Key *string `pulumi:"key"`
@@ -25231,6 +25617,7 @@ func init() {
 	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointFederatedAuthenticationRequestOutput{})
@@ -25282,6 +25669,7 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationOutput{})
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestOutput{})
+	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetTotalLocalStorageGBRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetTotalLocalStorageGBRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetVCpuCountRangeRequestOutput{})
@@ -25519,6 +25907,7 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalanceOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalancePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotMaintenanceStrategiesOutput{})
@@ -25557,6 +25946,7 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableTagOutput{})

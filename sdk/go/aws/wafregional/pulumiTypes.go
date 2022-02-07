@@ -968,6 +968,39 @@ func (o WebACLActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLAction) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type WebACLActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAction)(nil)).Elem()
+}
+
+func (o WebACLActionPtrOutput) ToWebACLActionPtrOutput() WebACLActionPtrOutput {
+	return o
+}
+
+func (o WebACLActionPtrOutput) ToWebACLActionPtrOutputWithContext(ctx context.Context) WebACLActionPtrOutput {
+	return o
+}
+
+func (o WebACLActionPtrOutput) Elem() WebACLActionOutput {
+	return o.ApplyT(func(v *WebACLAction) WebACLAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLAction
+		return ret
+	}).(WebACLActionOutput)
+}
+
+func (o WebACLActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebACLRule struct {
 	Action   WebACLAction `pulumi:"action"`
 	Priority int          `pulumi:"priority"`
@@ -1271,6 +1304,7 @@ func init() {
 	pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTupleOutput{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput{})
 	pulumi.RegisterOutputType(WebACLActionOutput{})
+	pulumi.RegisterOutputType(WebACLActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRuleOutput{})
 	pulumi.RegisterOutputType(WebACLRuleArrayOutput{})
 	pulumi.RegisterOutputType(XssMatchSetFieldToMatchOutput{})

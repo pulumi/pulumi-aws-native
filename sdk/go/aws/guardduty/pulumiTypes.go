@@ -524,6 +524,48 @@ func (o FilterFindingCriteriaOutput) ItemType() FilterConditionPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteria) *FilterCondition { return v.ItemType }).(FilterConditionPtrOutput)
 }
 
+type FilterFindingCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (FilterFindingCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilterFindingCriteria)(nil)).Elem()
+}
+
+func (o FilterFindingCriteriaPtrOutput) ToFilterFindingCriteriaPtrOutput() FilterFindingCriteriaPtrOutput {
+	return o
+}
+
+func (o FilterFindingCriteriaPtrOutput) ToFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FilterFindingCriteriaPtrOutput {
+	return o
+}
+
+func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
+	return o.ApplyT(func(v *FilterFindingCriteria) FilterFindingCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret FilterFindingCriteria
+		return ret
+	}).(FilterFindingCriteriaOutput)
+}
+
+func (o FilterFindingCriteriaPtrOutput) Criterion() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FilterFindingCriteria) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Criterion
+	}).(pulumi.AnyOutput)
+}
+
+func (o FilterFindingCriteriaPtrOutput) ItemType() FilterConditionPtrOutput {
+	return o.ApplyT(func(v *FilterFindingCriteria) *FilterCondition {
+		if v == nil {
+			return nil
+		}
+		return v.ItemType
+	}).(FilterConditionPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNDataSourceConfigurationsInput)(nil)).Elem(), DetectorCFNDataSourceConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNDataSourceConfigurationsPtrInput)(nil)).Elem(), DetectorCFNDataSourceConfigurationsArgs{})
@@ -539,4 +581,5 @@ func init() {
 	pulumi.RegisterOutputType(FilterConditionOutput{})
 	pulumi.RegisterOutputType(FilterConditionPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})
+	pulumi.RegisterOutputType(FilterFindingCriteriaPtrOutput{})
 }

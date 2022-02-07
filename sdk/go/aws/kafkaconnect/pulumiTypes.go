@@ -337,6 +337,48 @@ func (o ConnectorCapacityOutput) ProvisionedCapacity() ConnectorProvisionedCapac
 	return o.ApplyT(func(v ConnectorCapacity) *ConnectorProvisionedCapacity { return v.ProvisionedCapacity }).(ConnectorProvisionedCapacityPtrOutput)
 }
 
+type ConnectorCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorCapacity)(nil)).Elem()
+}
+
+func (o ConnectorCapacityPtrOutput) ToConnectorCapacityPtrOutput() ConnectorCapacityPtrOutput {
+	return o
+}
+
+func (o ConnectorCapacityPtrOutput) ToConnectorCapacityPtrOutputWithContext(ctx context.Context) ConnectorCapacityPtrOutput {
+	return o
+}
+
+func (o ConnectorCapacityPtrOutput) Elem() ConnectorCapacityOutput {
+	return o.ApplyT(func(v *ConnectorCapacity) ConnectorCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorCapacity
+		return ret
+	}).(ConnectorCapacityOutput)
+}
+
+func (o ConnectorCapacityPtrOutput) AutoScaling() ConnectorAutoScalingPtrOutput {
+	return o.ApplyT(func(v *ConnectorCapacity) *ConnectorAutoScaling {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScaling
+	}).(ConnectorAutoScalingPtrOutput)
+}
+
+func (o ConnectorCapacityPtrOutput) ProvisionedCapacity() ConnectorProvisionedCapacityPtrOutput {
+	return o.ApplyT(func(v *ConnectorCapacity) *ConnectorProvisionedCapacity {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedCapacity
+	}).(ConnectorProvisionedCapacityPtrOutput)
+}
+
 // Details about delivering logs to Amazon CloudWatch Logs.
 type ConnectorCloudWatchLogsLogDelivery struct {
 	// Specifies whether the logs get sent to the specified CloudWatch Logs destination.
@@ -2152,6 +2194,7 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorAutoScalingOutput{})
 	pulumi.RegisterOutputType(ConnectorAutoScalingPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCapacityOutput{})
+	pulumi.RegisterOutputType(ConnectorCapacityPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCloudWatchLogsLogDeliveryOutput{})
 	pulumi.RegisterOutputType(ConnectorCloudWatchLogsLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCustomPluginOutput{})

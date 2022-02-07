@@ -239,6 +239,309 @@ func (o FilterCriteriaOutput) VulnerablePackages() FilterPackageFilterArrayOutpu
 	return o.ApplyT(func(v FilterCriteria) []FilterPackageFilter { return v.VulnerablePackages }).(FilterPackageFilterArrayOutput)
 }
 
+type FilterCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (FilterCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilterCriteria)(nil)).Elem()
+}
+
+func (o FilterCriteriaPtrOutput) ToFilterCriteriaPtrOutput() FilterCriteriaPtrOutput {
+	return o
+}
+
+func (o FilterCriteriaPtrOutput) ToFilterCriteriaPtrOutputWithContext(ctx context.Context) FilterCriteriaPtrOutput {
+	return o
+}
+
+func (o FilterCriteriaPtrOutput) Elem() FilterCriteriaOutput {
+	return o.ApplyT(func(v *FilterCriteria) FilterCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret FilterCriteria
+		return ret
+	}).(FilterCriteriaOutput)
+}
+
+func (o FilterCriteriaPtrOutput) AwsAccountId() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountId
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) ComponentId() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ComponentId
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) ComponentType() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ComponentType
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) Ec2InstanceImageId() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2InstanceImageId
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) Ec2InstanceSubnetId() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2InstanceSubnetId
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) Ec2InstanceVpcId() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2InstanceVpcId
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) EcrImageArchitecture() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImageArchitecture
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) EcrImageHash() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImageHash
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) EcrImagePushedAt() FilterDateFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImagePushedAt
+	}).(FilterDateFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) EcrImageRegistry() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImageRegistry
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) EcrImageRepositoryName() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImageRepositoryName
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) EcrImageTags() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EcrImageTags
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) FindingArn() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingArn
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) FindingStatus() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingStatus
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) FindingType() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingType
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) FirstObservedAt() FilterDateFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FirstObservedAt
+	}).(FilterDateFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) InspectorScore() FilterNumberFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.InspectorScore
+	}).(FilterNumberFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) LastObservedAt() FilterDateFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LastObservedAt
+	}).(FilterDateFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) NetworkProtocol() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkProtocol
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) PortRange() FilterPortRangeFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterPortRangeFilter {
+		if v == nil {
+			return nil
+		}
+		return v.PortRange
+	}).(FilterPortRangeFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) RelatedVulnerabilities() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.RelatedVulnerabilities
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) ResourceId() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) ResourceTags() FilterMapFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterMapFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTags
+	}).(FilterMapFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) ResourceType() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) Severity() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) Title() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) UpdatedAt() FilterDateFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatedAt
+	}).(FilterDateFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) VendorSeverity() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.VendorSeverity
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) VulnerabilityId() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.VulnerabilityId
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) VulnerabilitySource() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.VulnerabilitySource
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) VulnerablePackages() FilterPackageFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterPackageFilter {
+		if v == nil {
+			return nil
+		}
+		return v.VulnerablePackages
+	}).(FilterPackageFilterArrayOutput)
+}
+
 type FilterDateFilter struct {
 	EndInclusive   *int `pulumi:"endInclusive"`
 	StartInclusive *int `pulumi:"startInclusive"`
@@ -1072,6 +1375,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterStringFilterPtrInput)(nil)).Elem(), FilterStringFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterStringFilterArrayInput)(nil)).Elem(), FilterStringFilterArray{})
 	pulumi.RegisterOutputType(FilterCriteriaOutput{})
+	pulumi.RegisterOutputType(FilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FilterDateFilterOutput{})
 	pulumi.RegisterOutputType(FilterDateFilterArrayOutput{})
 	pulumi.RegisterOutputType(FilterMapFilterOutput{})

@@ -43,6 +43,50 @@ func (o FHIRDatastoreCreatedAtOutput) Seconds() pulumi.StringOutput {
 	return o.ApplyT(func(v FHIRDatastoreCreatedAt) string { return v.Seconds }).(pulumi.StringOutput)
 }
 
+type FHIRDatastoreCreatedAtPtrOutput struct{ *pulumi.OutputState }
+
+func (FHIRDatastoreCreatedAtPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FHIRDatastoreCreatedAt)(nil)).Elem()
+}
+
+func (o FHIRDatastoreCreatedAtPtrOutput) ToFHIRDatastoreCreatedAtPtrOutput() FHIRDatastoreCreatedAtPtrOutput {
+	return o
+}
+
+func (o FHIRDatastoreCreatedAtPtrOutput) ToFHIRDatastoreCreatedAtPtrOutputWithContext(ctx context.Context) FHIRDatastoreCreatedAtPtrOutput {
+	return o
+}
+
+func (o FHIRDatastoreCreatedAtPtrOutput) Elem() FHIRDatastoreCreatedAtOutput {
+	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) FHIRDatastoreCreatedAt {
+		if v != nil {
+			return *v
+		}
+		var ret FHIRDatastoreCreatedAt
+		return ret
+	}).(FHIRDatastoreCreatedAtOutput)
+}
+
+// Nanoseconds.
+func (o FHIRDatastoreCreatedAtPtrOutput) Nanos() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Nanos
+	}).(pulumi.IntPtrOutput)
+}
+
+// Seconds since epoch.
+func (o FHIRDatastoreCreatedAtPtrOutput) Seconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastoreCreatedAt) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Seconds
+	}).(pulumi.StringPtrOutput)
+}
+
 // The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
 type FHIRDatastoreKmsEncryptionConfig struct {
 	// The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
@@ -599,6 +643,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagInput)(nil)).Elem(), FHIRDatastoreTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagArrayInput)(nil)).Elem(), FHIRDatastoreTagArray{})
 	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtOutput{})
+	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastorePreloadDataConfigOutput{})

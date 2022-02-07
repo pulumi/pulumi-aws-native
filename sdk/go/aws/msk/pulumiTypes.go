@@ -252,6 +252,84 @@ func (o ClusterBrokerNodeGroupInfoOutput) StorageInfo() ClusterStorageInfoPtrOut
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterStorageInfo { return v.StorageInfo }).(ClusterStorageInfoPtrOutput)
 }
 
+type ClusterBrokerNodeGroupInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfo)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) ToClusterBrokerNodeGroupInfoPtrOutput() ClusterBrokerNodeGroupInfoPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) ClusterBrokerNodeGroupInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfo
+		return ret
+	}).(ClusterBrokerNodeGroupInfoOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) BrokerAZDistribution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BrokerAZDistribution
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSubnets
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterConnectivityInfoPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterConnectivityInfo {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectivityInfo
+	}).(ClusterConnectivityInfoPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterStorageInfoPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterStorageInfo {
+		if v == nil {
+			return nil
+		}
+		return v.StorageInfo
+	}).(ClusterStorageInfoPtrOutput)
+}
+
 type ClusterClientAuthentication struct {
 	Sasl            *ClusterSasl            `pulumi:"sasl"`
 	Tls             *ClusterTls             `pulumi:"tls"`
@@ -3409,6 +3487,7 @@ func init() {
 	pulumi.RegisterOutputType(ClusterBrokerLogsOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerLogsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCloudWatchLogsOutput{})

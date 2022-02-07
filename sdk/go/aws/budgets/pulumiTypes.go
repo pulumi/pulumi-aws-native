@@ -384,6 +384,102 @@ func (o BudgetDataOutput) TimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetData) string { return v.TimeUnit }).(pulumi.StringOutput)
 }
 
+type BudgetDataPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetData)(nil)).Elem()
+}
+
+func (o BudgetDataPtrOutput) ToBudgetDataPtrOutput() BudgetDataPtrOutput {
+	return o
+}
+
+func (o BudgetDataPtrOutput) ToBudgetDataPtrOutputWithContext(ctx context.Context) BudgetDataPtrOutput {
+	return o
+}
+
+func (o BudgetDataPtrOutput) Elem() BudgetDataOutput {
+	return o.ApplyT(func(v *BudgetData) BudgetData {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetData
+		return ret
+	}).(BudgetDataOutput)
+}
+
+func (o BudgetDataPtrOutput) BudgetLimit() BudgetSpendPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *BudgetSpend {
+		if v == nil {
+			return nil
+		}
+		return v.BudgetLimit
+	}).(BudgetSpendPtrOutput)
+}
+
+func (o BudgetDataPtrOutput) BudgetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BudgetName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BudgetDataPtrOutput) BudgetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BudgetType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BudgetDataPtrOutput) CostFilters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BudgetData) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.CostFilters
+	}).(pulumi.AnyOutput)
+}
+
+func (o BudgetDataPtrOutput) CostTypes() BudgetCostTypesPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *BudgetCostTypes {
+		if v == nil {
+			return nil
+		}
+		return v.CostTypes
+	}).(BudgetCostTypesPtrOutput)
+}
+
+func (o BudgetDataPtrOutput) PlannedBudgetLimits() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BudgetData) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PlannedBudgetLimits
+	}).(pulumi.AnyOutput)
+}
+
+func (o BudgetDataPtrOutput) TimePeriod() BudgetTimePeriodPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *BudgetTimePeriod {
+		if v == nil {
+			return nil
+		}
+		return v.TimePeriod
+	}).(BudgetTimePeriodPtrOutput)
+}
+
+func (o BudgetDataPtrOutput) TimeUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeUnit
+	}).(pulumi.StringPtrOutput)
+}
+
 type BudgetNotification struct {
 	ComparisonOperator string  `pulumi:"comparisonOperator"`
 	NotificationType   string  `pulumi:"notificationType"`
@@ -1002,6 +1098,48 @@ func (o BudgetsActionActionThresholdOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v BudgetsActionActionThreshold) float64 { return v.Value }).(pulumi.Float64Output)
 }
 
+type BudgetsActionActionThresholdPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetsActionActionThresholdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetsActionActionThreshold)(nil)).Elem()
+}
+
+func (o BudgetsActionActionThresholdPtrOutput) ToBudgetsActionActionThresholdPtrOutput() BudgetsActionActionThresholdPtrOutput {
+	return o
+}
+
+func (o BudgetsActionActionThresholdPtrOutput) ToBudgetsActionActionThresholdPtrOutputWithContext(ctx context.Context) BudgetsActionActionThresholdPtrOutput {
+	return o
+}
+
+func (o BudgetsActionActionThresholdPtrOutput) Elem() BudgetsActionActionThresholdOutput {
+	return o.ApplyT(func(v *BudgetsActionActionThreshold) BudgetsActionActionThreshold {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetsActionActionThreshold
+		return ret
+	}).(BudgetsActionActionThresholdOutput)
+}
+
+func (o BudgetsActionActionThresholdPtrOutput) Type() BudgetsActionActionThresholdTypePtrOutput {
+	return o.ApplyT(func(v *BudgetsActionActionThreshold) *BudgetsActionActionThresholdType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(BudgetsActionActionThresholdTypePtrOutput)
+}
+
+func (o BudgetsActionActionThresholdPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BudgetsActionActionThreshold) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
 type BudgetsActionDefinition struct {
 	IamActionDefinition *BudgetsActionIamActionDefinition `pulumi:"iamActionDefinition"`
 	ScpActionDefinition *BudgetsActionScpActionDefinition `pulumi:"scpActionDefinition"`
@@ -1061,6 +1199,57 @@ func (o BudgetsActionDefinitionOutput) ScpActionDefinition() BudgetsActionScpAct
 
 func (o BudgetsActionDefinitionOutput) SsmActionDefinition() BudgetsActionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetsActionDefinition) *BudgetsActionSsmActionDefinition { return v.SsmActionDefinition }).(BudgetsActionSsmActionDefinitionPtrOutput)
+}
+
+type BudgetsActionDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetsActionDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetsActionDefinition)(nil)).Elem()
+}
+
+func (o BudgetsActionDefinitionPtrOutput) ToBudgetsActionDefinitionPtrOutput() BudgetsActionDefinitionPtrOutput {
+	return o
+}
+
+func (o BudgetsActionDefinitionPtrOutput) ToBudgetsActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetsActionDefinitionPtrOutput {
+	return o
+}
+
+func (o BudgetsActionDefinitionPtrOutput) Elem() BudgetsActionDefinitionOutput {
+	return o.ApplyT(func(v *BudgetsActionDefinition) BudgetsActionDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetsActionDefinition
+		return ret
+	}).(BudgetsActionDefinitionOutput)
+}
+
+func (o BudgetsActionDefinitionPtrOutput) IamActionDefinition() BudgetsActionIamActionDefinitionPtrOutput {
+	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionIamActionDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.IamActionDefinition
+	}).(BudgetsActionIamActionDefinitionPtrOutput)
+}
+
+func (o BudgetsActionDefinitionPtrOutput) ScpActionDefinition() BudgetsActionScpActionDefinitionPtrOutput {
+	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionScpActionDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.ScpActionDefinition
+	}).(BudgetsActionScpActionDefinitionPtrOutput)
+}
+
+func (o BudgetsActionDefinitionPtrOutput) SsmActionDefinition() BudgetsActionSsmActionDefinitionPtrOutput {
+	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionSsmActionDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.SsmActionDefinition
+	}).(BudgetsActionSsmActionDefinitionPtrOutput)
 }
 
 type BudgetsActionIamActionDefinition struct {
@@ -1678,6 +1867,7 @@ func init() {
 	pulumi.RegisterOutputType(BudgetCostTypesOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesPtrOutput{})
 	pulumi.RegisterOutputType(BudgetDataOutput{})
+	pulumi.RegisterOutputType(BudgetDataPtrOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationWithSubscribersOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationWithSubscribersArrayOutput{})
@@ -1688,7 +1878,9 @@ func init() {
 	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionActionThresholdOutput{})
+	pulumi.RegisterOutputType(BudgetsActionActionThresholdPtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionDefinitionOutput{})
+	pulumi.RegisterOutputType(BudgetsActionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionIamActionDefinitionOutput{})
 	pulumi.RegisterOutputType(BudgetsActionIamActionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionScpActionDefinitionOutput{})

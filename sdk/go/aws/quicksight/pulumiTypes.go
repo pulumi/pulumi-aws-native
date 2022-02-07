@@ -12857,6 +12857,109 @@ func (o ThemeVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ThemeVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
 }
 
+type ThemeVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeVersion)(nil)).Elem()
+}
+
+func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
+	return o
+}
+
+func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
+	return o
+}
+
+func (o ThemeVersionPtrOutput) Elem() ThemeVersionOutput {
+	return o.ApplyT(func(v *ThemeVersion) ThemeVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeVersion
+		return ret
+	}).(ThemeVersionOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o ThemeVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+//             themes initially inherit from a default QuickSight theme.</p>
+func (o ThemeVersionPtrOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseThemeId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionPtrOutput) Configuration() ThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *ThemeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(ThemeConfigurationPtrOutput)
+}
+
+// <p>The date and time that this theme version was created.</p>
+func (o ThemeVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The description of the theme.</p>
+func (o ThemeVersionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with the theme.</p>
+func (o ThemeVersionPtrOutput) Errors() ThemeErrorArrayOutput {
+	return o.ApplyT(func(v *ThemeVersion) []ThemeError {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(ThemeErrorArrayOutput)
+}
+
+func (o ThemeVersionPtrOutput) Status() ThemeResourceStatusPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *ThemeResourceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(ThemeResourceStatusPtrOutput)
+}
+
+// <p>The version number of the theme.</p>
+func (o ThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDataSetReferenceInput)(nil)).Elem(), AnalysisDataSetReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDataSetReferenceArrayInput)(nil)).Elem(), AnalysisDataSetReferenceArray{})
@@ -13201,4 +13304,5 @@ func init() {
 	pulumi.RegisterOutputType(ThemeUIColorPaletteOutput{})
 	pulumi.RegisterOutputType(ThemeUIColorPalettePtrOutput{})
 	pulumi.RegisterOutputType(ThemeVersionOutput{})
+	pulumi.RegisterOutputType(ThemeVersionPtrOutput{})
 }

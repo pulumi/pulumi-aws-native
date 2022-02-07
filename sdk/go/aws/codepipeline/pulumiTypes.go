@@ -1742,6 +1742,48 @@ func (o WebhookAuthConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
 }
 
+type WebhookAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebhookAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookAuthConfiguration)(nil)).Elem()
+}
+
+func (o WebhookAuthConfigurationPtrOutput) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o WebhookAuthConfigurationPtrOutput) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o WebhookAuthConfigurationPtrOutput) Elem() WebhookAuthConfigurationOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) WebhookAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookAuthConfiguration
+		return ret
+	}).(WebhookAuthConfigurationOutput)
+}
+
+func (o WebhookAuthConfigurationPtrOutput) AllowedIPRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedIPRange
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebhookAuthConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretToken
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebhookFilterRule struct {
 	JsonPath    string  `pulumi:"jsonPath"`
 	MatchEquals *string `pulumi:"matchEquals"`
@@ -1903,6 +1945,7 @@ func init() {
 	pulumi.RegisterOutputType(PipelineTagOutput{})
 	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
 	pulumi.RegisterOutputType(WebhookAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(WebhookAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebhookFilterRuleOutput{})
 	pulumi.RegisterOutputType(WebhookFilterRuleArrayOutput{})
 }

@@ -277,6 +277,30 @@ func (o ExperimentTemplateTargetMapOutput) ToExperimentTemplateTargetMapOutputWi
 	return o
 }
 
+type ExperimentTemplateTargetMapPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateTargetMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateTargetMap)(nil)).Elem()
+}
+
+func (o ExperimentTemplateTargetMapPtrOutput) ToExperimentTemplateTargetMapPtrOutput() ExperimentTemplateTargetMapPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateTargetMapPtrOutput) ToExperimentTemplateTargetMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateTargetMapPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateTargetMapPtrOutput) Elem() ExperimentTemplateTargetMapOutput {
+	return o.ApplyT(func(v *ExperimentTemplateTargetMap) ExperimentTemplateTargetMap {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateTargetMap
+		return ret
+	}).(ExperimentTemplateTargetMapOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapInput)(nil)).Elem(), ExperimentTemplateActionMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapPtrInput)(nil)).Elem(), ExperimentTemplateActionMapArgs{})
@@ -288,4 +312,5 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentTemplateStopConditionOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateStopConditionArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateTargetMapOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateTargetMapPtrOutput{})
 }

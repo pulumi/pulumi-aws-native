@@ -1167,6 +1167,48 @@ func (o ConfigurationAssociationConfigurationIdOutput) Revision() pulumi.IntOutp
 	return o.ApplyT(func(v ConfigurationAssociationConfigurationId) int { return v.Revision }).(pulumi.IntOutput)
 }
 
+type ConfigurationAssociationConfigurationIdPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationAssociationConfigurationIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationAssociationConfigurationId)(nil)).Elem()
+}
+
+func (o ConfigurationAssociationConfigurationIdPtrOutput) ToConfigurationAssociationConfigurationIdPtrOutput() ConfigurationAssociationConfigurationIdPtrOutput {
+	return o
+}
+
+func (o ConfigurationAssociationConfigurationIdPtrOutput) ToConfigurationAssociationConfigurationIdPtrOutputWithContext(ctx context.Context) ConfigurationAssociationConfigurationIdPtrOutput {
+	return o
+}
+
+func (o ConfigurationAssociationConfigurationIdPtrOutput) Elem() ConfigurationAssociationConfigurationIdOutput {
+	return o.ApplyT(func(v *ConfigurationAssociationConfigurationId) ConfigurationAssociationConfigurationId {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationAssociationConfigurationId
+		return ret
+	}).(ConfigurationAssociationConfigurationIdOutput)
+}
+
+func (o ConfigurationAssociationConfigurationIdPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAssociationConfigurationId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationAssociationConfigurationIdPtrOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAssociationConfigurationId) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Revision
+	}).(pulumi.IntPtrOutput)
+}
+
 type ConfigurationTagsEntry struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1300,6 +1342,7 @@ func init() {
 	pulumi.RegisterOutputType(BrokerUserOutput{})
 	pulumi.RegisterOutputType(BrokerUserArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAssociationConfigurationIdOutput{})
+	pulumi.RegisterOutputType(ConfigurationAssociationConfigurationIdPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTagsEntryOutput{})
 	pulumi.RegisterOutputType(ConfigurationTagsEntryArrayOutput{})
 }
