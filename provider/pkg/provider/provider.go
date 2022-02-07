@@ -469,15 +469,15 @@ func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc
 		for i, v := range cf.Identifiers {
 			pv, ok := inputs[resource.PropertyKey(v)]
 			if !ok {
-				return nil, errors.Errorf("missing identifier property '%s'", v)
+				return nil, errors.Errorf("missing identifier property %q", v)
 			}
 			if !pv.IsString() {
-				return nil, errors.Errorf("identifier property '%s', expected type string, found %s", v, pv.TypeString())
+				return nil, errors.Errorf("identifier property %q, expected type string, found %q", v, pv.TypeString())
 			}
 			idParts[i] = pv.StringValue()
 		}
 		identifier := strings.Join(idParts, "|")
-		fmt.Printf("Invoking %s", cf.CfType)
+		glog.V(9).Infof("%s invoking", cf.CfType)
 		outputs, err := p.readResourceState(ctx, cf.CfType, identifier)
 		if err != nil {
 			return nil, err

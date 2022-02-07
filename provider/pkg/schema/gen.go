@@ -590,7 +590,7 @@ func (ctx *context) gatherInvoke() error {
 		sdkName := ToSdkName(n)
 		s, ok := ctx.resourceSpec.Properties[n]
 		if !ok {
-			// TODO: Probably a nested property
+			fmt.Printf("Unable to find primary identifier %q for resource %s, skipping\n", n, resourceTypeName)
 			return nil
 		}
 

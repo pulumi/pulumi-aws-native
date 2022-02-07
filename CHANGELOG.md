@@ -1,6 +1,7 @@
 ## HEAD (Unreleased)
 
 - Implement get functions for all resources
+  [#346](https://github.com/pulumi/pulumi-aws-native/pull/346)
 - Update Pulumi dependencies to v3.23.0
 - Use sequence numbers to generate deterministic autonames.
   [#341](https://github.com/pulumi/pulumi-aws-native/pull/341)
