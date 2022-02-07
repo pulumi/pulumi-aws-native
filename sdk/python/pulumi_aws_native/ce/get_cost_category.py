@@ -121,7 +121,7 @@ def get_cost_category(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_cost_category)
-def get_cost_category_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_cost_category_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
     Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.

@@ -216,7 +216,7 @@ def get_domain(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_domain)
-def get_domain_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_domain_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     Resource Type definition for AWS::Elasticsearch::Domain

@@ -140,7 +140,7 @@ def get_usage_plan(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_usage_plan)
-def get_usage_plan_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_usage_plan_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsagePlanResult]:
     """
     Resource Type definition for AWS::ApiGateway::UsagePlan

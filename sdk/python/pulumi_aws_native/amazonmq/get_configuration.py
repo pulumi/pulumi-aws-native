@@ -106,7 +106,7 @@ def get_configuration(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_configuration)
-def get_configuration_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_configuration_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Resource Type definition for AWS::AmazonMQ::Configuration

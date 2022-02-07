@@ -95,7 +95,7 @@ def get_api_key(api_key_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_api_key)
-def get_api_key_output(api_key_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_api_key_output(api_key_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Resource Type definition for AWS::AppSync::ApiKey

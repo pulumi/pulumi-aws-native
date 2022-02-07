@@ -196,7 +196,7 @@ def get_image_builder(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_image_builder)
-def get_image_builder_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_image_builder_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageBuilderResult]:
     """
     Resource Type definition for AWS::AppStream::ImageBuilder

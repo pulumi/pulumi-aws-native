@@ -66,7 +66,7 @@ def get_custom_action_type(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_custom_action_type)
-def get_custom_action_type_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_custom_action_type_output(id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomActionTypeResult]:
     """
     Resource Type definition for AWS::CodePipeline::CustomActionType

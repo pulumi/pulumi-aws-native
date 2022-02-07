@@ -75,7 +75,7 @@ def get_access_key(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_access_key)
-def get_access_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_access_key_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessKeyResult]:
     """
     Resource Type definition for AWS::IAM::AccessKey

@@ -190,7 +190,7 @@ def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[str
 
 
 @_utilities.lift_output_func(get_cloud_formation_provisioned_product)
-def get_cloud_formation_provisioned_product_output(provisioned_product_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_cloud_formation_provisioned_product_output(provisioned_product_id: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFormationProvisionedProductResult]:
     """
     Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct

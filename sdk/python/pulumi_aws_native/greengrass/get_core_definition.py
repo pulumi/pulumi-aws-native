@@ -95,7 +95,7 @@ def get_core_definition(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_core_definition)
-def get_core_definition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_core_definition_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoreDefinitionResult]:
     """
     Resource Type definition for AWS::Greengrass::CoreDefinition

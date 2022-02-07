@@ -256,7 +256,7 @@ def get_user_pool_client(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_pool_client)
-def get_user_pool_client_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_user_pool_client_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolClient

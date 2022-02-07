@@ -143,8 +143,8 @@ def get_link(global_network_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_link)
-def get_link_output(global_network_id: Optional[pulumi.Input[Optional[str]]] = None,
-                    link_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
+                    link_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkResult]:
     """
     The AWS::NetworkManager::Link type describes a link.

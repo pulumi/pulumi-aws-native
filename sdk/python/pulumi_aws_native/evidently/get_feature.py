@@ -120,7 +120,7 @@ def get_feature(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_feature)
-def get_feature_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_feature_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeatureResult]:
     """
     Resource Type definition for AWS::Evidently::Feature.

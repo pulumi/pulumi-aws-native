@@ -66,7 +66,7 @@ def get_partition(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_partition)
-def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_partition_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartitionResult]:
     """
     Resource Type definition for AWS::Glue::Partition

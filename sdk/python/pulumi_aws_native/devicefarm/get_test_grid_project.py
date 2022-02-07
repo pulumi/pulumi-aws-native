@@ -86,7 +86,7 @@ def get_test_grid_project(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_test_grid_project)
-def get_test_grid_project_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_test_grid_project_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestGridProjectResult]:
     """
     AWS::DeviceFarm::TestGridProject creates a new TestGrid Project

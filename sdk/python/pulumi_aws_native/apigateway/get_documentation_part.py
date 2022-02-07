@@ -65,7 +65,7 @@ def get_documentation_part(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_documentation_part)
-def get_documentation_part_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_documentation_part_output(id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationPartResult]:
     """
     Resource Type definition for AWS::ApiGateway::DocumentationPart

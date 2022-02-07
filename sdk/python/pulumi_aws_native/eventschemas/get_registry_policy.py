@@ -85,7 +85,7 @@ def get_registry_policy(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_registry_policy)
-def get_registry_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_registry_policy_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryPolicyResult]:
     """
     Resource Type definition for AWS::EventSchemas::RegistryPolicy

@@ -107,7 +107,7 @@ def get_device_pool(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_device_pool)
-def get_device_pool_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_device_pool_output(arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevicePoolResult]:
     """
     AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project

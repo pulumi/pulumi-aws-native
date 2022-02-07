@@ -81,8 +81,8 @@ def get_stream(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_stream)
-def get_stream_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                      ledger_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_stream_output(id: Optional[pulumi.Input[str]] = None,
+                      ledger_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
     """
     Resource schema for AWS::QLDB::Stream.

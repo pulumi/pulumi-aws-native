@@ -88,7 +88,7 @@ def get_registry(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_registry)
-def get_registry_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_registry_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
     """
     This resource creates a Registry for authoring schemas as part of Glue Schema Registry.

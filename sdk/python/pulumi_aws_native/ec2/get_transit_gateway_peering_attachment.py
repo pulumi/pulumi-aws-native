@@ -114,7 +114,7 @@ def get_transit_gateway_peering_attachment(transit_gateway_attachment_id: Option
 
 
 @_utilities.lift_output_func(get_transit_gateway_peering_attachment)
-def get_transit_gateway_peering_attachment_output(transit_gateway_attachment_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_transit_gateway_peering_attachment_output(transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayPeeringAttachmentResult]:
     """
     The AWS::EC2::TransitGatewayPeeringAttachment type

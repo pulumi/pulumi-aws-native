@@ -127,7 +127,7 @@ def get_dashboard(dashboard_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dashboard)
-def get_dashboard_output(dashboard_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dashboard_output(dashboard_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Resource schema for AWS::IoTSiteWise::Dashboard

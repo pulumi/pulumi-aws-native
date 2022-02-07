@@ -86,7 +86,7 @@ def get_warm_pool(auto_scaling_group_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_warm_pool)
-def get_warm_pool_output(auto_scaling_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_warm_pool_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWarmPoolResult]:
     """
     Resource schema for AWS::AutoScaling::WarmPool.

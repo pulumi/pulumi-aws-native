@@ -243,7 +243,7 @@ def get_instance(instance_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_instance)
-def get_instance_output(instance_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for AWS::Lightsail::Instance

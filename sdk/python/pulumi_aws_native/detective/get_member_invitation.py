@@ -90,8 +90,8 @@ def get_member_invitation(graph_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_member_invitation)
-def get_member_invitation_output(graph_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                                 member_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_member_invitation_output(graph_arn: Optional[pulumi.Input[str]] = None,
+                                 member_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMemberInvitationResult]:
     """
     Resource schema for AWS::Detective::MemberInvitation

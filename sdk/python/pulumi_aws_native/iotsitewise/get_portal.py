@@ -179,7 +179,7 @@ def get_portal(portal_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_portal)
-def get_portal_output(portal_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_portal_output(portal_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortalResult]:
     """
     Resource schema for AWS::IoTSiteWise::Portal

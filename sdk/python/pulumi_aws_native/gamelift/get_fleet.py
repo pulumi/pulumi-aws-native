@@ -205,7 +205,7 @@ def get_fleet(fleet_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_fleet)
-def get_fleet_output(fleet_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
     The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.

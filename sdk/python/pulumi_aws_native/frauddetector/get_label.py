@@ -114,7 +114,7 @@ def get_label(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_label)
-def get_label_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_label_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabelResult]:
     """
     An label for fraud detector.

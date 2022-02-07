@@ -88,7 +88,7 @@ def get_conformance_pack(conformance_pack_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_conformance_pack)
-def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConformancePackResult]:
     """
     A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.

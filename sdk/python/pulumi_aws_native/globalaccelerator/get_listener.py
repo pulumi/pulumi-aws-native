@@ -99,7 +99,7 @@ def get_listener(listener_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_listener)
-def get_listener_output(listener_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::Listener

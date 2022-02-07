@@ -141,7 +141,7 @@ def get_hours_of_operation(hours_of_operation_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_hours_of_operation)
-def get_hours_of_operation_output(hours_of_operation_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_hours_of_operation_output(hours_of_operation_arn: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHoursOfOperationResult]:
     """
     Resource Type definition for AWS::Connect::HoursOfOperation

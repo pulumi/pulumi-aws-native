@@ -66,7 +66,7 @@ def get_security_configuration(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_security_configuration)
-def get_security_configuration_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_security_configuration_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityConfigurationResult]:
     """
     Resource Type definition for AWS::Glue::SecurityConfiguration

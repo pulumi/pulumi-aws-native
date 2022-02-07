@@ -75,7 +75,7 @@ def get_resource_specific_logging(target_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resource_specific_logging)
-def get_resource_specific_logging_output(target_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resource_specific_logging_output(target_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSpecificLoggingResult]:
     """
     Resource-specific logging allows you to specify a logging level for a specific thing group.

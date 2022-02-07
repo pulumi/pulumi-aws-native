@@ -75,8 +75,8 @@ def get_fargate_profile(cluster_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_fargate_profile)
-def get_fargate_profile_output(cluster_name: Optional[pulumi.Input[Optional[str]]] = None,
-                               fargate_profile_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_fargate_profile_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                               fargate_profile_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFargateProfileResult]:
     """
     Resource Schema for AWS::EKS::FargateProfile

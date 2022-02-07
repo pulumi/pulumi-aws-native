@@ -86,7 +86,7 @@ def get_ruleset(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_ruleset)
-def get_ruleset_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesetResult]:
     """
     Resource schema for AWS::DataBrew::Ruleset.

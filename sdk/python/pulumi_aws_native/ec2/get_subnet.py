@@ -116,7 +116,7 @@ def get_subnet(subnet_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_subnet)
-def get_subnet_output(subnet_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_subnet_output(subnet_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Resource Type definition for AWS::EC2::Subnet

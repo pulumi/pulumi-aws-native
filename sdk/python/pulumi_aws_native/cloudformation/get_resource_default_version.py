@@ -102,7 +102,7 @@ def get_resource_default_version(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resource_default_version)
-def get_resource_default_version_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resource_default_version_output(arn: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceDefaultVersionResult]:
     """
     The default version of a resource that has been registered in the CloudFormation Registry.

@@ -215,7 +215,7 @@ def get_fleet_metric(metric_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_fleet_metric)
-def get_fleet_metric_output(metric_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_fleet_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetMetricResult]:
     """
     An aggregated metric of certain devices in your fleet

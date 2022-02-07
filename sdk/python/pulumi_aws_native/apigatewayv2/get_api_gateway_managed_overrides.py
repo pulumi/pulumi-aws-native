@@ -86,7 +86,7 @@ def get_api_gateway_managed_overrides(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_api_gateway_managed_overrides)
-def get_api_gateway_managed_overrides_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_api_gateway_managed_overrides_output(id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiGatewayManagedOverridesResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides

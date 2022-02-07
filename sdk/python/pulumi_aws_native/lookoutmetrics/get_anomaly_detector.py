@@ -109,7 +109,7 @@ def get_anomaly_detector(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_anomaly_detector)
-def get_anomaly_detector_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_anomaly_detector_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalyDetectorResult]:
     """
     An Amazon Lookout for Metrics Detector

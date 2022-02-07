@@ -190,9 +190,9 @@ def get_component(app_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_component)
-def get_component_output(app_id: Optional[pulumi.Input[Optional[str]]] = None,
-                         environment_name: Optional[pulumi.Input[Optional[str]]] = None,
-                         id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_component_output(app_id: Optional[pulumi.Input[str]] = None,
+                         environment_name: Optional[pulumi.Input[str]] = None,
+                         id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Component Resource Type

@@ -49,7 +49,7 @@ def get_dnssec(hosted_zone_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dnssec)
-def get_dnssec_output(hosted_zone_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dnssec_output(hosted_zone_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDNSSECResult]:
     """
     Resource used to control (enable/disable) DNSSEC in a specific hosted zone.

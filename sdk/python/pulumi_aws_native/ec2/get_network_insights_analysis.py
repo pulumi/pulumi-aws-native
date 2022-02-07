@@ -157,7 +157,7 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[str] = 
 
 
 @_utilities.lift_output_func(get_network_insights_analysis)
-def get_network_insights_analysis_output(network_insights_analysis_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_network_insights_analysis_output(network_insights_analysis_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAnalysis

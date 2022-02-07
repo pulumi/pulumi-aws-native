@@ -154,7 +154,7 @@ def get_asset_model(asset_model_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_asset_model)
-def get_asset_model_output(asset_model_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_asset_model_output(asset_model_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetModelResult]:
     """
     Resource schema for AWS::IoTSiteWise::AssetModel

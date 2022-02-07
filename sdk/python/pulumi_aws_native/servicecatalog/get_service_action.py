@@ -107,7 +107,7 @@ def get_service_action(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_service_action)
-def get_service_action_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_service_action_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceActionResult]:
     """
     Resource Schema for AWS::ServiceCatalog::ServiceAction

@@ -77,8 +77,8 @@ def get_model(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_model)
-def get_model_output(name: Optional[pulumi.Input[Optional[str]]] = None,
-                     rest_api_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_model_output(name: Optional[pulumi.Input[str]] = None,
+                     rest_api_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
     """
     Resource Type definition for AWS::ApiGateway::Model

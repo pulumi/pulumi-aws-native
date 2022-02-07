@@ -106,7 +106,7 @@ def get_model_package_group(model_package_group_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_model_package_group)
-def get_model_package_group_output(model_package_group_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_model_package_group_output(model_package_group_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelPackageGroupResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelPackageGroup

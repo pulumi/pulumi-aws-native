@@ -96,7 +96,7 @@ def get_discoverer(discoverer_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_discoverer)
-def get_discoverer_output(discoverer_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_discoverer_output(discoverer_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiscovererResult]:
     """
     Resource Type definition for AWS::EventSchemas::Discoverer

@@ -176,7 +176,7 @@ def get_channel(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_channel)
-def get_channel_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_channel_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
     Resource Type definition for AWS::MediaLive::Channel

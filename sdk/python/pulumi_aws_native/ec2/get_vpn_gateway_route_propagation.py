@@ -81,7 +81,7 @@ def get_vpn_gateway_route_propagation(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_vpn_gateway_route_propagation)
-def get_vpn_gateway_route_propagation_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_vpn_gateway_route_propagation_output(id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPNGatewayRoutePropagationResult]:
     """
     Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation

@@ -102,7 +102,7 @@ def get_alias(alias_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_alias)
-def get_alias_output(alias_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_alias_output(alias_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.

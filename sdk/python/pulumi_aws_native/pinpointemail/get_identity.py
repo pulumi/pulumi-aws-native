@@ -156,7 +156,7 @@ def get_identity(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_identity)
-def get_identity_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_identity_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityResult]:
     """
     Resource Type definition for AWS::PinpointEmail::Identity

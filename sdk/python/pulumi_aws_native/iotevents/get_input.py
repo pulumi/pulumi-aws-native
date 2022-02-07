@@ -87,7 +87,7 @@ def get_input(input_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_input)
-def get_input_output(input_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInputResult]:
     """
     The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.

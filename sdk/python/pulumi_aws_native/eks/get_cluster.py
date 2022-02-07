@@ -173,7 +173,7 @@ def get_cluster(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_cluster)
-def get_cluster_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     An object representing an Amazon EKS cluster.

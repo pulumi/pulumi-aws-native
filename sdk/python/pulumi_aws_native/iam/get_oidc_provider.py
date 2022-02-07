@@ -92,7 +92,7 @@ def get_oidc_provider(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_oidc_provider)
-def get_oidc_provider_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_oidc_provider_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOIDCProviderResult]:
     """
     Resource Type definition for AWS::IAM::OIDCProvider

@@ -76,7 +76,7 @@ def get_access_point(access_point_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_access_point)
-def get_access_point_output(access_point_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     Resource Type definition for AWS::EFS::AccessPoint

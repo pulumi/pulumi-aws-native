@@ -116,7 +116,7 @@ def get_secret(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_secret)
-def get_secret_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_secret_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
     Resource Type definition for AWS::SecretsManager::Secret

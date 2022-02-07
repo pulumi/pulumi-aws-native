@@ -76,7 +76,7 @@ def get_multi_region_access_point_policy(mrap_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_multi_region_access_point_policy)
-def get_multi_region_access_point_policy_output(mrap_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_multi_region_access_point_policy_output(mrap_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiRegionAccessPointPolicyResult]:
     """
     The policy to be attached to a Multi Region Access Point

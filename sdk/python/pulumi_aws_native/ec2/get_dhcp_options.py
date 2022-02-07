@@ -69,7 +69,7 @@ def get_dhcp_options(dhcp_options_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dhcp_options)
-def get_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDHCPOptionsResult]:
     """
     Resource Type definition for AWS::EC2::DHCPOptions

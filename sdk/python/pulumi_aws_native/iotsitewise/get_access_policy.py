@@ -114,7 +114,7 @@ def get_access_policy(access_policy_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_access_policy)
-def get_access_policy_output(access_policy_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_access_policy_output(access_policy_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Resource schema for AWS::IoTSiteWise::AccessPolicy

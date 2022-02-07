@@ -118,7 +118,7 @@ def get_api_destination(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_api_destination)
-def get_api_destination_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_api_destination_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiDestinationResult]:
     """
     Resource Type definition for AWS::Events::ApiDestination.

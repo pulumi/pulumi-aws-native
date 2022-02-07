@@ -138,7 +138,7 @@ def get_accelerator(accelerator_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_accelerator)
-def get_accelerator_output(accelerator_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_accelerator_output(accelerator_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::Accelerator

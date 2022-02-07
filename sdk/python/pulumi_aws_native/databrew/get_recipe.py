@@ -72,7 +72,7 @@ def get_recipe(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_recipe)
-def get_recipe_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_recipe_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecipeResult]:
     """
     Resource schema for AWS::DataBrew::Recipe.

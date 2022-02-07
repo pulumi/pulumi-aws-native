@@ -65,7 +65,7 @@ def get_placement(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_placement)
-def get_placement_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_placement_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementResult]:
     """
     Resource Type definition for AWS::IoT1Click::Placement

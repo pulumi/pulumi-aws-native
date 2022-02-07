@@ -87,7 +87,7 @@ def get_ec2_fleet(fleet_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_ec2_fleet)
-def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEC2FleetResult]:
     """
     Resource Type definition for AWS::EC2::EC2Fleet

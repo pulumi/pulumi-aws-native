@@ -127,7 +127,7 @@ def get_domain(domain_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_domain)
-def get_domain_output(domain_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     A domain defined for 3rd party data source in Profile Service

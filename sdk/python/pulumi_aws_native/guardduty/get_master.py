@@ -46,7 +46,7 @@ def get_master(master_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_master)
-def get_master_output(master_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_master_output(master_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMasterResult]:
     """
     Resource Type definition for AWS::GuardDuty::Master

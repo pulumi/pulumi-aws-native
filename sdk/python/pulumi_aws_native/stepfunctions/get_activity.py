@@ -66,7 +66,7 @@ def get_activity(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_activity)
-def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_activity_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityResult]:
     """
     Resource schema for Activity

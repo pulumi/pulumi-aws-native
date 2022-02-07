@@ -106,7 +106,7 @@ def get_experiment_template(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_experiment_template)
-def get_experiment_template_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_experiment_template_output(id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentTemplateResult]:
     """
     Resource schema for AWS::FIS::ExperimentTemplate

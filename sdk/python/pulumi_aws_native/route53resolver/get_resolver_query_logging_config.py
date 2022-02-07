@@ -153,7 +153,7 @@ def get_resolver_query_logging_config(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resolver_query_logging_config)
-def get_resolver_query_logging_config_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resolver_query_logging_config_output(id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverQueryLoggingConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.

@@ -88,7 +88,7 @@ def get_routing_control(routing_control_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_routing_control)
-def get_routing_control_output(routing_control_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_routing_control_output(routing_control_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingControlResult]:
     """
     AWS Route53 Recovery Control Routing Control resource schema .

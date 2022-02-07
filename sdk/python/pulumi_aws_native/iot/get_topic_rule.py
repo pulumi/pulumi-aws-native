@@ -77,7 +77,7 @@ def get_topic_rule(rule_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_topic_rule)
-def get_topic_rule_output(rule_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_topic_rule_output(rule_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicRuleResult]:
     """
     Resource Type definition for AWS::IoT::TopicRule

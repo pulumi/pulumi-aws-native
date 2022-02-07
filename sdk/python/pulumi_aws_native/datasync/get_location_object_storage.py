@@ -141,7 +141,7 @@ def get_location_object_storage(location_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_location_object_storage)
-def get_location_object_storage_output(location_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_location_object_storage_output(location_arn: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationObjectStorageResult]:
     """
     Resource schema for AWS::DataSync::LocationObjectStorage.

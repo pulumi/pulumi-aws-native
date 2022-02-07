@@ -55,7 +55,7 @@ def get_hosted_configuration_version(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_hosted_configuration_version)
-def get_hosted_configuration_version_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_hosted_configuration_version_output(id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedConfigurationVersionResult]:
     """
     Resource Type definition for AWS::AppConfig::HostedConfigurationVersion

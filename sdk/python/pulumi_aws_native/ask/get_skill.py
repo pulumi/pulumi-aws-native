@@ -76,7 +76,7 @@ def get_skill(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_skill)
-def get_skill_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_skill_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkillResult]:
     """
     Resource Type definition for Alexa::ASK::Skill

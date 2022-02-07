@@ -141,7 +141,7 @@ def get_inference_scheduler(inference_scheduler_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_inference_scheduler)
-def get_inference_scheduler_output(inference_scheduler_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_inference_scheduler_output(inference_scheduler_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceSchedulerResult]:
     """
     Resource schema for LookoutEquipment InferenceScheduler.

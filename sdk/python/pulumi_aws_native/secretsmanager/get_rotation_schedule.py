@@ -86,7 +86,7 @@ def get_rotation_schedule(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_rotation_schedule)
-def get_rotation_schedule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_rotation_schedule_output(id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRotationScheduleResult]:
     """
     Resource Type definition for AWS::SecretsManager::RotationSchedule

@@ -167,7 +167,7 @@ def get_prefix_list(prefix_list_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_prefix_list)
-def get_prefix_list_output(prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_prefix_list_output(prefix_list_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListResult]:
     """
     Resource schema of AWS::EC2::PrefixList Type

@@ -84,8 +84,8 @@ def get_faq(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_faq)
-def get_faq_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                   index_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_faq_output(id: Optional[pulumi.Input[str]] = None,
+                   index_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFaqResult]:
     """
     A Kendra FAQ resource

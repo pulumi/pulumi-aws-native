@@ -128,7 +128,7 @@ def get_destination(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_destination)
-def get_destination_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_destination_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDestinationResult]:
     """
     Destination's resource schema demonstrating some basic constructs and validation rules.

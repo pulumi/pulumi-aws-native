@@ -98,7 +98,7 @@ def get_certificate_authority(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_certificate_authority)
-def get_certificate_authority_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
     Private certificate authority.

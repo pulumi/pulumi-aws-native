@@ -75,7 +75,7 @@ def get_image_recipe(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_image_recipe)
-def get_image_recipe_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipeResult]:
     """
     Resource schema for AWS::ImageBuilder::ImageRecipe

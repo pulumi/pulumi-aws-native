@@ -85,7 +85,7 @@ def get_user_pool_identity_provider(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_pool_identity_provider)
-def get_user_pool_identity_provider_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_user_pool_identity_provider_output(id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolIdentityProviderResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolIdentityProvider

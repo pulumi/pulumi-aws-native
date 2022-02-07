@@ -95,7 +95,7 @@ def get_destination(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_destination)
-def get_destination_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_destination_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDestinationResult]:
     """
     Resource Type definition for AWS::Logs::Destination

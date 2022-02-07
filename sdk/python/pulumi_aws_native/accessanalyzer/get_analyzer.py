@@ -85,7 +85,7 @@ def get_analyzer(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_analyzer)
-def get_analyzer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_analyzer_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyzerResult]:
     """
     The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account

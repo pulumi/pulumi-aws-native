@@ -86,7 +86,7 @@ def get_vpc_link(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_vpc_link)
-def get_vpc_link_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_vpc_link_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
     Resource Type definition for AWS::ApiGateway::VpcLink

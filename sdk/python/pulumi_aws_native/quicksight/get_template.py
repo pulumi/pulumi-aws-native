@@ -100,8 +100,8 @@ def get_template(aws_account_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_template)
-def get_template_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
-                        template_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_template_output(aws_account_id: Optional[pulumi.Input[str]] = None,
+                        template_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Definition of the AWS::QuickSight::Template Resource Type.

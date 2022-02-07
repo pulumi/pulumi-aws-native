@@ -86,7 +86,7 @@ def get_dataflow_endpoint_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dataflow_endpoint_group)
-def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataflowEndpointGroupResult]:
     """
     AWS Ground Station DataflowEndpointGroup schema for CloudFormation

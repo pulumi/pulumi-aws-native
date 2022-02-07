@@ -104,8 +104,8 @@ def get_integration(domain_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_integration)
-def get_integration_output(domain_name: Optional[pulumi.Input[Optional[str]]] = None,
-                           uri: Optional[pulumi.Input[Optional[str]]] = None,
+def get_integration_output(domain_name: Optional[pulumi.Input[str]] = None,
+                           uri: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     The resource schema for creating an Amazon Connect Customer Profiles Integration.

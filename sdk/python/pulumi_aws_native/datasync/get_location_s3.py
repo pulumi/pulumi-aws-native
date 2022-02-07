@@ -88,7 +88,7 @@ def get_location_s3(location_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_location_s3)
-def get_location_s3_output(location_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_location_s3_output(location_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationS3Result]:
     """
     Resource schema for AWS::DataSync::LocationS3

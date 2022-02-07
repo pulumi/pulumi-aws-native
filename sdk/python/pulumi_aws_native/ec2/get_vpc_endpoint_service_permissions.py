@@ -65,7 +65,7 @@ def get_vpc_endpoint_service_permissions(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_vpc_endpoint_service_permissions)
-def get_vpc_endpoint_service_permissions_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_vpc_endpoint_service_permissions_output(id: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCEndpointServicePermissionsResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointServicePermissions

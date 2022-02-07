@@ -307,7 +307,7 @@ def get_function(function_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_function)
-def get_function_output(function_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Resource Type definition for AWS::Lambda::Function

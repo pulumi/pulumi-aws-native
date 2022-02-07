@@ -142,8 +142,8 @@ def get_bot_alias(bot_alias_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_bot_alias)
-def get_bot_alias_output(bot_alias_id: Optional[pulumi.Input[Optional[str]]] = None,
-                         bot_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_bot_alias_output(bot_alias_id: Optional[pulumi.Input[str]] = None,
+                         bot_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotAliasResult]:
     """
     A Bot Alias enables you to change the version of a bot without updating applications that use the bot

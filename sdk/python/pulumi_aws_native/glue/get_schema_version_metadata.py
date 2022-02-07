@@ -55,9 +55,9 @@ def get_schema_version_metadata(key: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_schema_version_metadata)
-def get_schema_version_metadata_output(key: Optional[pulumi.Input[Optional[str]]] = None,
-                                       schema_version_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                       value: Optional[pulumi.Input[Optional[str]]] = None,
+def get_schema_version_metadata_output(key: Optional[pulumi.Input[str]] = None,
+                                       schema_version_id: Optional[pulumi.Input[str]] = None,
+                                       value: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaVersionMetadataResult]:
     """
     This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.

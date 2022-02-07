@@ -49,7 +49,7 @@ def get_launch_configuration(launch_configuration_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_launch_configuration)
-def get_launch_configuration_output(launch_configuration_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_launch_configuration_output(launch_configuration_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
     """
     The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.

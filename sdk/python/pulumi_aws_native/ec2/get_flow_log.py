@@ -75,7 +75,7 @@ def get_flow_log(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_flow_log)
-def get_flow_log_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_flow_log_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowLogResult]:
     """
     Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.

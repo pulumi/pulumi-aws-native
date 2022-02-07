@@ -218,8 +218,8 @@ def get_data_set(aws_account_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_data_set)
-def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
-                        data_set_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
+                        data_set_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
     """
     Definition of the AWS::QuickSight::DataSet Resource Type.

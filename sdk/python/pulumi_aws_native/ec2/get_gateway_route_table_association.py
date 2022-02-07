@@ -74,7 +74,7 @@ def get_gateway_route_table_association(gateway_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_gateway_route_table_association)
-def get_gateway_route_table_association_output(gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_gateway_route_table_association_output(gateway_id: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayRouteTableAssociationResult]:
     """
     Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.

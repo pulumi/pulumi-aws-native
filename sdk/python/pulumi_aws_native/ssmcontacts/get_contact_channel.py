@@ -100,7 +100,7 @@ def get_contact_channel(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_contact_channel)
-def get_contact_channel_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactChannelResult]:
     """
     Resource Type definition for AWS::SSMContacts::ContactChannel

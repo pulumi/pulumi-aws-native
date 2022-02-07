@@ -85,7 +85,7 @@ def get_vpc_gateway_attachment(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_vpc_gateway_attachment)
-def get_vpc_gateway_attachment_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_vpc_gateway_attachment_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCGatewayAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::VPCGatewayAttachment

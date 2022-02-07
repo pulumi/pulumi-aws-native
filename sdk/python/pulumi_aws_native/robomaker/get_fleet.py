@@ -66,7 +66,7 @@ def get_fleet(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_fleet)
-def get_fleet_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
     AWS::RoboMaker::Fleet resource creates an AWS RoboMaker fleet. Fleets contain robots and can receive deployments.

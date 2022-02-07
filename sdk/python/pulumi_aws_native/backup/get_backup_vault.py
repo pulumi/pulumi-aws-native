@@ -96,7 +96,7 @@ def get_backup_vault(backup_vault_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_backup_vault)
-def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Resource Type definition for AWS::Backup::BackupVault

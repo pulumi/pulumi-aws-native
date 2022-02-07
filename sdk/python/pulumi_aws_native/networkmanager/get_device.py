@@ -182,8 +182,8 @@ def get_device(device_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_device)
-def get_device_output(device_id: Optional[pulumi.Input[Optional[str]]] = None,
-                      global_network_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
+                      global_network_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
     The AWS::NetworkManager::Device type describes a device.

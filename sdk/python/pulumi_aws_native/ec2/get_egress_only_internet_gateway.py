@@ -61,7 +61,7 @@ def get_egress_only_internet_gateway(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_egress_only_internet_gateway)
-def get_egress_only_internet_gateway_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_egress_only_internet_gateway_output(id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEgressOnlyInternetGatewayResult]:
     """
     Resource Type definition for AWS::EC2::EgressOnlyInternetGateway

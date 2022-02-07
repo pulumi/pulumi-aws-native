@@ -114,7 +114,7 @@ def get_detector_model(detector_model_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_detector_model)
-def get_detector_model_output(detector_model_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_detector_model_output(detector_model_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorModelResult]:
     """
     The AWS::IoTEvents::DetectorModel resource creates a detector model. You create a *detector model* (a model of your equipment or process) using *states*. For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.

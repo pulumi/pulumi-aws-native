@@ -66,7 +66,7 @@ def get_scheduling_policy(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_scheduling_policy)
-def get_scheduling_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
     Resource Type schema for AWS::Batch::SchedulingPolicy

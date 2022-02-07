@@ -61,7 +61,7 @@ def get_repository_association(association_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_repository_association)
-def get_repository_association_output(association_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_repository_association_output(association_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryAssociationResult]:
     """
     This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.

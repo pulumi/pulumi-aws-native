@@ -55,7 +55,7 @@ def get_vpn_connection_route(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_vpn_connection_route)
-def get_vpn_connection_route_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_vpn_connection_route_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPNConnectionRouteResult]:
     """
     Resource Type definition for AWS::EC2::VPNConnectionRoute

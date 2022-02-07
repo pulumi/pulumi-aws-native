@@ -88,7 +88,7 @@ def get_client_certificate(client_certificate_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_client_certificate)
-def get_client_certificate_output(client_certificate_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_client_certificate_output(client_certificate_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientCertificateResult]:
     """
     Resource Type definition for AWS::ApiGateway::ClientCertificate

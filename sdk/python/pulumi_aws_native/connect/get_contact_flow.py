@@ -141,7 +141,7 @@ def get_contact_flow(contact_flow_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_contact_flow)
-def get_contact_flow_output(contact_flow_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_contact_flow_output(contact_flow_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactFlowResult]:
     """
     Resource Type definition for AWS::Connect::ContactFlow

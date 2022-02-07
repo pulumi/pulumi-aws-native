@@ -102,7 +102,7 @@ def get_dataset_group(dataset_group_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dataset_group)
-def get_dataset_group_output(dataset_group_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dataset_group_output(dataset_group_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetGroupResult]:
     """
     Represents a dataset group that holds a collection of related datasets

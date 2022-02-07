@@ -87,7 +87,7 @@ def get_host(host_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_host)
-def get_host_output(host_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_host_output(host_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostResult]:
     """
     Resource Type definition for AWS::EC2::Host

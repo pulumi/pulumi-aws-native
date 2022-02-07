@@ -85,7 +85,7 @@ def get_capacity_reservation_fleet(capacity_reservation_fleet_id: Optional[str] 
 
 
 @_utilities.lift_output_func(get_capacity_reservation_fleet)
-def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationFleetResult]:
     """
     Resource Type definition for AWS::EC2::CapacityReservationFleet

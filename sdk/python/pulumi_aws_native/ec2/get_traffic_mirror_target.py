@@ -66,7 +66,7 @@ def get_traffic_mirror_target(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_traffic_mirror_target)
-def get_traffic_mirror_target_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_traffic_mirror_target_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficMirrorTargetResult]:
     """
     Resource Type definition for AWS::EC2::TrafficMirrorTarget

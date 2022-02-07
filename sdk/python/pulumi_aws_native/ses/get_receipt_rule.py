@@ -76,7 +76,7 @@ def get_receipt_rule(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_receipt_rule)
-def get_receipt_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_receipt_rule_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReceiptRuleResult]:
     """
     Resource Type definition for AWS::SES::ReceiptRule

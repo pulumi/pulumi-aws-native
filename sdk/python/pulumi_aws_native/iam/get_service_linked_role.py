@@ -65,7 +65,7 @@ def get_service_linked_role(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_service_linked_role)
-def get_service_linked_role_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_service_linked_role_output(id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLinkedRoleResult]:
     """
     Resource Type definition for AWS::IAM::ServiceLinkedRole

@@ -95,7 +95,7 @@ def get_device_definition(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_device_definition)
-def get_device_definition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_device_definition_output(id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceDefinitionResult]:
     """
     Resource Type definition for AWS::Greengrass::DeviceDefinition

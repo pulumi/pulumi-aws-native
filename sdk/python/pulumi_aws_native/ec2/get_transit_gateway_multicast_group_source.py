@@ -158,9 +158,9 @@ def get_transit_gateway_multicast_group_source(group_ip_address: Optional[str] =
 
 
 @_utilities.lift_output_func(get_transit_gateway_multicast_group_source)
-def get_transit_gateway_multicast_group_source_output(group_ip_address: Optional[pulumi.Input[Optional[str]]] = None,
-                                                      network_interface_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                                      transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_transit_gateway_multicast_group_source_output(group_ip_address: Optional[pulumi.Input[str]] = None,
+                                                      network_interface_id: Optional[pulumi.Input[str]] = None,
+                                                      transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayMulticastGroupSourceResult]:
     """
     The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group

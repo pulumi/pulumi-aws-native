@@ -116,7 +116,7 @@ def get_mesh(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_mesh)
-def get_mesh_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_mesh_output(id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMeshResult]:
     """
     Resource Type definition for AWS::AppMesh::Mesh

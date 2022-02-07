@@ -74,7 +74,7 @@ def get_custom_data_identifier(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_custom_data_identifier)
-def get_custom_data_identifier_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_custom_data_identifier_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDataIdentifierResult]:
     """
     Macie CustomDataIdentifier resource schema

@@ -103,7 +103,7 @@ def get_mitigation_action(action_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_mitigation_action)
-def get_mitigation_action_output(action_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_mitigation_action_output(action_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMitigationActionResult]:
     """
     Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.

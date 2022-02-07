@@ -127,7 +127,7 @@ def get_api_key(a_pi_key_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_api_key)
-def get_api_key_output(a_pi_key_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_api_key_output(a_pi_key_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Resource Type definition for AWS::ApiGateway::ApiKey

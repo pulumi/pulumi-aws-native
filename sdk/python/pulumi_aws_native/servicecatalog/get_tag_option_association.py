@@ -55,7 +55,7 @@ def get_tag_option_association(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_tag_option_association)
-def get_tag_option_association_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_tag_option_association_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagOptionAssociationResult]:
     """
     Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation

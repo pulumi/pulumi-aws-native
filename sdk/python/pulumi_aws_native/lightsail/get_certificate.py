@@ -85,7 +85,7 @@ def get_certificate(certificate_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_certificate)
-def get_certificate_output(certificate_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

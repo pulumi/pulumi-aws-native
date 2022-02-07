@@ -88,7 +88,7 @@ def get_dimension(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dimension)
-def get_dimension_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dimension_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDimensionResult]:
     """
     A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.

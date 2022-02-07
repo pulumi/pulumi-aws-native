@@ -66,7 +66,7 @@ def get_user_pool_domain(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_pool_domain)
-def get_user_pool_domain_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolDomainResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain

@@ -67,7 +67,7 @@ def get_job_template(job_template_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_job_template)
-def get_job_template_output(job_template_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_job_template_output(job_template_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobTemplateResult]:
     """
     Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.

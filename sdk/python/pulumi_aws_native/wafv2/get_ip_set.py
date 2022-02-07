@@ -114,9 +114,9 @@ def get_ip_set(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_ip_set)
-def get_ip_set_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                      name: Optional[pulumi.Input[Optional[str]]] = None,
-                      scope: Optional[pulumi.Input[Optional['IPSetScope']]] = None,
+def get_ip_set_output(id: Optional[pulumi.Input[str]] = None,
+                      name: Optional[pulumi.Input[str]] = None,
+                      scope: Optional[pulumi.Input['IPSetScope']] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPSetResult]:
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually

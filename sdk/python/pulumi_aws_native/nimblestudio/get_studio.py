@@ -145,7 +145,7 @@ def get_studio(studio_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_studio)
-def get_studio_output(studio_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioResult]:
     """
     Represents a studio that contains other Nimble Studio resources

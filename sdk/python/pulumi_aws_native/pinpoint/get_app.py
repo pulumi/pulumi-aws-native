@@ -75,7 +75,7 @@ def get_app(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_app)
-def get_app_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_app_output(id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     Resource Type definition for AWS::Pinpoint::App

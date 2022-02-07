@@ -186,7 +186,7 @@ def get_app(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_app)
-def get_app_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_app_output(arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.

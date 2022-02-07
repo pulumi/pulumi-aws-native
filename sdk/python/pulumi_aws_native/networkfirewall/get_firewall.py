@@ -146,7 +146,7 @@ def get_firewall(firewall_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_firewall)
-def get_firewall_output(firewall_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_firewall_output(firewall_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Resource type definition for AWS::NetworkFirewall::Firewall

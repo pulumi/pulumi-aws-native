@@ -127,7 +127,7 @@ def get_stream(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_stream)
-def get_stream_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_stream_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
     """
     Resource Type Definition for AWS::KinesisVideo::Stream

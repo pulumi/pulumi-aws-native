@@ -119,8 +119,8 @@ def get_budgets_action(action_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_budgets_action)
-def get_budgets_action_output(action_id: Optional[pulumi.Input[Optional[str]]] = None,
-                              budget_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_budgets_action_output(action_id: Optional[pulumi.Input[str]] = None,
+                              budget_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetsActionResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

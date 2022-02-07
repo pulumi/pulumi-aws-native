@@ -96,7 +96,7 @@ def get_listener_rule(rule_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_listener_rule)
-def get_listener_rule_output(rule_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_listener_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule

@@ -96,7 +96,7 @@ def get_environment_ec2(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_environment_ec2)
-def get_environment_ec2_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_environment_ec2_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentEC2Result]:
     """
     Resource Type definition for AWS::Cloud9::EnvironmentEC2

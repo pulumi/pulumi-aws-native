@@ -157,7 +157,7 @@ def get_module_version(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_module_version)
-def get_module_version_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_module_version_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModuleVersionResult]:
     """
     A module that has been registered in the CloudFormation registry.

@@ -137,7 +137,7 @@ def get_database(relational_database_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_database)
-def get_database_output(relational_database_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_database_output(relational_database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Resource Type definition for AWS::Lightsail::Database

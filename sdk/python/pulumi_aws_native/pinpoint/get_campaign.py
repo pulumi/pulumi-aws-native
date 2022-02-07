@@ -216,7 +216,7 @@ def get_campaign(campaign_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_campaign)
-def get_campaign_output(campaign_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_campaign_output(campaign_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCampaignResult]:
     """
     Resource Type definition for AWS::Pinpoint::Campaign

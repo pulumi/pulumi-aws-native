@@ -100,7 +100,7 @@ def get_query_definition(query_definition_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_query_definition)
-def get_query_definition_output(query_definition_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_query_definition_output(query_definition_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryDefinitionResult]:
     """
     The resource schema for AWSLogs QueryDefinition

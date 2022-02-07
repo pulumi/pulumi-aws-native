@@ -101,7 +101,7 @@ def get_profiling_group(profiling_group_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_profiling_group)
-def get_profiling_group_output(profiling_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_profiling_group_output(profiling_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfilingGroupResult]:
     """
     This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.

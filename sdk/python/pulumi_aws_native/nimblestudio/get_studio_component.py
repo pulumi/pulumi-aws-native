@@ -147,8 +147,8 @@ def get_studio_component(studio_component_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_studio_component)
-def get_studio_component_output(studio_component_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                studio_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_studio_component_output(studio_component_id: Optional[pulumi.Input[str]] = None,
+                                studio_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioComponentResult]:
     """
     Represents a studio component which connects a non-Nimble Studio resource in your account to your studio

@@ -88,7 +88,7 @@ def get_component(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_component)
-def get_component_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_component_output(arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
     """
     Resource schema for AWS::ImageBuilder::Component

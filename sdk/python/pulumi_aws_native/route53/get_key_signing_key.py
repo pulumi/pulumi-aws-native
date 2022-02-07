@@ -65,8 +65,8 @@ def get_key_signing_key(hosted_zone_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_key_signing_key)
-def get_key_signing_key_output(hosted_zone_id: Optional[pulumi.Input[Optional[str]]] = None,
-                               name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_key_signing_key_output(hosted_zone_id: Optional[pulumi.Input[str]] = None,
+                               name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeySigningKeyResult]:
     """
     Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.

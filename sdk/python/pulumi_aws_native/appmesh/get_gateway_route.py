@@ -106,7 +106,7 @@ def get_gateway_route(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_gateway_route)
-def get_gateway_route_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_gateway_route_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayRouteResult]:
     """
     Resource Type definition for AWS::AppMesh::GatewayRoute

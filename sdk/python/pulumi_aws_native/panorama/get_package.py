@@ -96,7 +96,7 @@ def get_package(package_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_package)
-def get_package_output(package_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_package_output(package_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
     """
     Schema for Package CloudFormation Resource

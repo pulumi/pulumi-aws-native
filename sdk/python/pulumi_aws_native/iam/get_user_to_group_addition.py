@@ -75,7 +75,7 @@ def get_user_to_group_addition(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_to_group_addition)
-def get_user_to_group_addition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_user_to_group_addition_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserToGroupAdditionResult]:
     """
     Resource Type definition for AWS::IAM::UserToGroupAddition

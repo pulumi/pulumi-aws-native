@@ -96,7 +96,7 @@ def get_filter(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_filter)
-def get_filter_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_filter_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFilterResult]:
     """
     Resource Type definition for AWS::GuardDuty::Filter

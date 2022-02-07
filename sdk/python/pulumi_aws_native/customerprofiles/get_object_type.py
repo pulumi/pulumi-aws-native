@@ -183,8 +183,8 @@ def get_object_type(domain_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_object_type)
-def get_object_type_output(domain_name: Optional[pulumi.Input[Optional[str]]] = None,
-                           object_type_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_object_type_output(domain_name: Optional[pulumi.Input[str]] = None,
+                           object_type_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectTypeResult]:
     """
     An ObjectType resource of Amazon Connect Customer Profiles

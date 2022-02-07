@@ -161,7 +161,7 @@ def get_monitoring_schedule(monitoring_schedule_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_monitoring_schedule)
-def get_monitoring_schedule_output(monitoring_schedule_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_monitoring_schedule_output(monitoring_schedule_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringScheduleResult]:
     """
     Resource Type definition for AWS::SageMaker::MonitoringSchedule

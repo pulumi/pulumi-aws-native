@@ -126,7 +126,7 @@ def get_resource_share(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resource_share)
-def get_resource_share_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resource_share_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceShareResult]:
     """
     Resource Type definition for AWS::RAM::ResourceShare

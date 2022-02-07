@@ -61,7 +61,7 @@ def get_alias(alias_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_alias)
-def get_alias_output(alias_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     The AWS::KMS::Alias resource specifies a display name for a customer master key (CMK) in AWS Key Management Service (AWS KMS). You can use an alias to identify a CMK in cryptographic operations.

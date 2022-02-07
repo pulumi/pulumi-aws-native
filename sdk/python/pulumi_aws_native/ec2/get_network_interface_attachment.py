@@ -95,7 +95,7 @@ def get_network_interface_attachment(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_network_interface_attachment)
-def get_network_interface_attachment_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_network_interface_attachment_output(id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::NetworkInterfaceAttachment

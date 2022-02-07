@@ -102,7 +102,7 @@ def get_data_catalog(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_data_catalog)
-def get_data_catalog_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_data_catalog_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCatalogResult]:
     """
     Resource schema for AWS::Athena::DataCatalog

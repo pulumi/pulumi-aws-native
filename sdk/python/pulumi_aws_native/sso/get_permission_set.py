@@ -137,8 +137,8 @@ def get_permission_set(instance_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_permission_set)
-def get_permission_set_output(instance_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                              permission_set_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_permission_set_output(instance_arn: Optional[pulumi.Input[str]] = None,
+                              permission_set_arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
     Resource Type definition for SSO PermissionSet

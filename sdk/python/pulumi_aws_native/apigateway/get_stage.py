@@ -208,8 +208,8 @@ def get_stage(rest_api_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_stage)
-def get_stage_output(rest_api_id: Optional[pulumi.Input[Optional[str]]] = None,
-                     stage_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_stage_output(rest_api_id: Optional[pulumi.Input[str]] = None,
+                     stage_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStageResult]:
     """
     Resource Type definition for AWS::ApiGateway::Stage

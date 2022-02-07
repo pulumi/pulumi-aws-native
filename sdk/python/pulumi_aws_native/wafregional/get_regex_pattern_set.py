@@ -65,7 +65,7 @@ def get_regex_pattern_set(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_regex_pattern_set)
-def get_regex_pattern_set_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_regex_pattern_set_output(id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegexPatternSetResult]:
     """
     Resource Type definition for AWS::WAFRegional::RegexPatternSet

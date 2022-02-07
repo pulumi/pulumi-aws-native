@@ -73,7 +73,7 @@ def get_resource_collection(resource_collection_type: Optional['ResourceCollecti
 
 
 @_utilities.lift_output_func(get_resource_collection)
-def get_resource_collection_output(resource_collection_type: Optional[pulumi.Input[Optional['ResourceCollectionType']]] = None,
+def get_resource_collection_output(resource_collection_type: Optional[pulumi.Input['ResourceCollectionType']] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
     This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.

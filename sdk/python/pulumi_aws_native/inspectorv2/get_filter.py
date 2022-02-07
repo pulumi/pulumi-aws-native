@@ -115,7 +115,7 @@ def get_filter(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_filter)
-def get_filter_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_filter_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFilterResult]:
     """
     Inspector Filter resource schema

@@ -107,7 +107,7 @@ def get_authorizer(authorizer_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_authorizer)
-def get_authorizer_output(authorizer_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_authorizer_output(authorizer_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     Creates an authorizer.

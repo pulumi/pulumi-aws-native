@@ -176,7 +176,7 @@ def get_record_set(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_record_set)
-def get_record_set_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_record_set_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordSetResult]:
     """
     Resource Type definition for AWS::Route53::RecordSet

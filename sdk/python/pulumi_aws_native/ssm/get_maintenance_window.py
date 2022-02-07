@@ -166,7 +166,7 @@ def get_maintenance_window(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_maintenance_window)
-def get_maintenance_window_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_maintenance_window_output(id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceWindowResult]:
     """
     Resource Type definition for AWS::SSM::MaintenanceWindow

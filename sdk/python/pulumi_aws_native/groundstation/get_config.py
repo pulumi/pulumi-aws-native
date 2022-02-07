@@ -107,7 +107,7 @@ def get_config(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_config)
-def get_config_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_config_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigResult]:
     """
     AWS Ground Station config resource type for CloudFormation.

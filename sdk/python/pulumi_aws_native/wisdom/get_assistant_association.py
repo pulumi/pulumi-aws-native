@@ -77,8 +77,8 @@ def get_assistant_association(assistant_association_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_assistant_association)
-def get_assistant_association_output(assistant_association_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                     assistant_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_assistant_association_output(assistant_association_id: Optional[pulumi.Input[str]] = None,
+                                     assistant_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssistantAssociationResult]:
     """
     Definition of AWS::Wisdom::AssistantAssociation Resource Type

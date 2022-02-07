@@ -105,7 +105,7 @@ def get_eipassociation(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_eipassociation)
-def get_eipassociation_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_eipassociation_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEIPAssociationResult]:
     """
     Resource Type definition for AWS::EC2::EIPAssociation

@@ -61,7 +61,7 @@ def get_alert(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_alert)
-def get_alert_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_alert_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertResult]:
     """
     Resource Type definition for AWS::LookoutMetrics::Alert

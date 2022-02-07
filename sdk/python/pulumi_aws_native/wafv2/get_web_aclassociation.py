@@ -48,8 +48,8 @@ def get_web_aclassociation(resource_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_web_aclassociation)
-def get_web_aclassociation_output(resource_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                                  web_acl_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_web_aclassociation_output(resource_arn: Optional[pulumi.Input[str]] = None,
+                                  web_acl_arn: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebACLAssociationResult]:
     """
     Associates WebACL to Application Load Balancer, CloudFront or API Gateway.

@@ -146,7 +146,7 @@ def get_game_session_queue(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_game_session_queue)
-def get_game_session_queue_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_game_session_queue_output(id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGameSessionQueueResult]:
     """
     Resource Type definition for AWS::GameLift::GameSessionQueue

@@ -149,8 +149,8 @@ def get_theme(aws_account_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_theme)
-def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
-                     theme_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_theme_output(aws_account_id: Optional[pulumi.Input[str]] = None,
+                     theme_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemeResult]:
     """
     Definition of the AWS::QuickSight::Theme Resource Type.

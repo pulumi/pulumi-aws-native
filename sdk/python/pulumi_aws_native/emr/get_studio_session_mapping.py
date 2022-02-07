@@ -68,9 +68,9 @@ def get_studio_session_mapping(identity_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_studio_session_mapping)
-def get_studio_session_mapping_output(identity_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                      identity_type: Optional[pulumi.Input[Optional['StudioSessionMappingIdentityType']]] = None,
-                                      studio_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_studio_session_mapping_output(identity_name: Optional[pulumi.Input[str]] = None,
+                                      identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
+                                      studio_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioSessionMappingResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

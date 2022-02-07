@@ -75,7 +75,7 @@ def get_internet_gateway(internet_gateway_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_internet_gateway)
-def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
     Resource Type definition for AWS::EC2::InternetGateway

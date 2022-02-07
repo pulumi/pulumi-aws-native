@@ -93,9 +93,9 @@ def get_route(application_identifier: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_route)
-def get_route_output(application_identifier: Optional[pulumi.Input[Optional[str]]] = None,
-                     environment_identifier: Optional[pulumi.Input[Optional[str]]] = None,
-                     route_identifier: Optional[pulumi.Input[Optional[str]]] = None,
+def get_route_output(application_identifier: Optional[pulumi.Input[str]] = None,
+                     environment_identifier: Optional[pulumi.Input[str]] = None,
+                     route_identifier: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     Definition of AWS::RefactorSpaces::Route Resource Type

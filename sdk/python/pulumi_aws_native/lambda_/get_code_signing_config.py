@@ -115,7 +115,7 @@ def get_code_signing_config(code_signing_config_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_code_signing_config)
-def get_code_signing_config_output(code_signing_config_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_code_signing_config_output(code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
     Resource Type definition for AWS::Lambda::CodeSigningConfig.

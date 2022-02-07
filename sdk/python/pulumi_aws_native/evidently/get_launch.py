@@ -119,7 +119,7 @@ def get_launch(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_launch)
-def get_launch_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_launch_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchResult]:
     """
     Resource Type definition for AWS::Evidently::Launch.

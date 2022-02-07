@@ -76,7 +76,7 @@ def get_knowledge_base(knowledge_base_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_knowledge_base)
-def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
     """
     Definition of AWS::Wisdom::KnowledgeBase Resource Type

@@ -85,7 +85,7 @@ def get_simple_ad(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_simple_ad)
-def get_simple_ad_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_simple_ad_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimpleADResult]:
     """
     Resource Type definition for AWS::DirectoryService::SimpleAD

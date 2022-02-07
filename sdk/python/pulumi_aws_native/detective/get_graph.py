@@ -72,7 +72,7 @@ def get_graph(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_graph)
-def get_graph_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_graph_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphResult]:
     """
     Resource schema for AWS::Detective::Graph

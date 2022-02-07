@@ -87,7 +87,7 @@ def get_user_group(user_group_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_group)
-def get_user_group_output(user_group_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_user_group_output(user_group_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::UserGroup

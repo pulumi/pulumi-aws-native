@@ -116,7 +116,7 @@ def get_endpoint(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_endpoint)
-def get_endpoint_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_endpoint_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Resource Type definition for AWS::SageMaker::Endpoint

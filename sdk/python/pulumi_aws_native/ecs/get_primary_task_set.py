@@ -64,8 +64,8 @@ def get_primary_task_set(cluster: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_primary_task_set)
-def get_primary_task_set_output(cluster: Optional[pulumi.Input[Optional[str]]] = None,
-                                service: Optional[pulumi.Input[Optional[str]]] = None,
+def get_primary_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
+                                service: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrimaryTaskSetResult]:
     """
     A pseudo-resource that manages which of your ECS task sets is primary.

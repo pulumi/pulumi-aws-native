@@ -49,7 +49,7 @@ def get_configuration_set(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_configuration_set)
-def get_configuration_set_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_configuration_set_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationSetResult]:
     """
     Resource schema for AWS::SES::ConfigurationSet.

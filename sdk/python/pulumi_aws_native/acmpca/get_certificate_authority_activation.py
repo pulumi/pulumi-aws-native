@@ -74,7 +74,7 @@ def get_certificate_authority_activation(certificate_authority_arn: Optional[str
 
 
 @_utilities.lift_output_func(get_certificate_authority_activation)
-def get_certificate_authority_activation_output(certificate_authority_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_certificate_authority_activation_output(certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateAuthorityActivationResult]:
     """
     Used to install the certificate authority certificate and update the certificate authority status.

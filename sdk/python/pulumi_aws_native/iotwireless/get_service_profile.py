@@ -114,7 +114,7 @@ def get_service_profile(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_service_profile)
-def get_service_profile_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_service_profile_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceProfileResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

@@ -86,7 +86,7 @@ def get_event_invoke_config(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_event_invoke_config)
-def get_event_invoke_config_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_event_invoke_config_output(id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventInvokeConfigResult]:
     """
     Resource Type definition for AWS::Lambda::EventInvokeConfig

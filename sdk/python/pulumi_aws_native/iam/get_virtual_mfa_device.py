@@ -76,7 +76,7 @@ def get_virtual_mfa_device(serial_number: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_virtual_mfa_device)
-def get_virtual_mfa_device_output(serial_number: Optional[pulumi.Input[Optional[str]]] = None,
+def get_virtual_mfa_device_output(serial_number: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMFADeviceResult]:
     """
     Resource Type definition for AWS::IAM::VirtualMFADevice

@@ -82,9 +82,9 @@ def get_task_set(cluster: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_task_set)
-def get_task_set_output(cluster: Optional[pulumi.Input[Optional[str]]] = None,
-                        id: Optional[pulumi.Input[Optional[str]]] = None,
-                        service: Optional[pulumi.Input[Optional[str]]] = None,
+def get_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
+                        id: Optional[pulumi.Input[str]] = None,
+                        service: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskSetResult]:
     """
     Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.

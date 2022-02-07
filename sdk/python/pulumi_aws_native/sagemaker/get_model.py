@@ -66,7 +66,7 @@ def get_model(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_model)
-def get_model_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_model_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
     """
     Resource Type definition for AWS::SageMaker::Model

@@ -86,7 +86,7 @@ def get_streaming_distribution(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_streaming_distribution)
-def get_streaming_distribution_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_streaming_distribution_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingDistributionResult]:
     """
     Resource Type definition for AWS::CloudFront::StreamingDistribution

@@ -66,7 +66,7 @@ def get_geo_match_set(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_geo_match_set)
-def get_geo_match_set_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_geo_match_set_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeoMatchSetResult]:
     """
     Resource Type definition for AWS::WAFRegional::GeoMatchSet

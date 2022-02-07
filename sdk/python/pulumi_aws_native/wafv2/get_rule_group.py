@@ -170,9 +170,9 @@ def get_rule_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_rule_group)
-def get_rule_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                          name: Optional[pulumi.Input[Optional[str]]] = None,
-                          scope: Optional[pulumi.Input[Optional['RuleGroupScope']]] = None,
+def get_rule_group_output(id: Optional[pulumi.Input[str]] = None,
+                          name: Optional[pulumi.Input[str]] = None,
+                          scope: Optional[pulumi.Input['RuleGroupScope']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleGroupResult]:
     """
     Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.

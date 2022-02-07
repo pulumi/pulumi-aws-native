@@ -129,7 +129,7 @@ def get_repository(repository_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_repository)
-def get_repository_output(repository_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html

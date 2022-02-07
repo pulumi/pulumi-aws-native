@@ -76,7 +76,7 @@ def get_metric_filter(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_metric_filter)
-def get_metric_filter_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_metric_filter_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricFilterResult]:
     """
     Resource Type definition for AWS::Logs::MetricFilter

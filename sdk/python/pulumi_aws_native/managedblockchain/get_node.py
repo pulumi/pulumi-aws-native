@@ -96,7 +96,7 @@ def get_node(node_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_node)
-def get_node_output(node_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_node_output(node_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeResult]:
     """
     Resource Type definition for AWS::ManagedBlockchain::Node

@@ -86,7 +86,7 @@ def get_registry(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_registry)
-def get_registry_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_registry_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Resource Type definition for AWS::EventSchemas::Registry

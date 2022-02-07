@@ -50,9 +50,9 @@ def get_service_action_association(product_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_service_action_association)
-def get_service_action_association_output(product_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                          provisioning_artifact_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                          service_action_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_service_action_association_output(product_id: Optional[pulumi.Input[str]] = None,
+                                          provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
+                                          service_action_id: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceActionAssociationResult]:
     """
     Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation

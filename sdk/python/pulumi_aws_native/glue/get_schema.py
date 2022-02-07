@@ -125,7 +125,7 @@ def get_schema(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_schema)
-def get_schema_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_schema_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
     """
     This resource represents a schema of Glue Schema Registry.

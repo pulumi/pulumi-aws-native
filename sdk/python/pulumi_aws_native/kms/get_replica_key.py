@@ -118,7 +118,7 @@ def get_replica_key(key_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_replica_key)
-def get_replica_key_output(key_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_replica_key_output(key_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicaKeyResult]:
     """
     The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).

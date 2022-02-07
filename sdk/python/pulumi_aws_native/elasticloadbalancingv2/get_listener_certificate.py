@@ -55,7 +55,7 @@ def get_listener_certificate(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_listener_certificate)
-def get_listener_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_listener_certificate_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerCertificateResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate

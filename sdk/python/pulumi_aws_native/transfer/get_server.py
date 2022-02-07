@@ -166,7 +166,7 @@ def get_server(server_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_server)
-def get_server_output(server_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
     Resource Type definition for AWS::Transfer::Server

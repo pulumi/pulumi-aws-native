@@ -55,7 +55,7 @@ def get_user_pool_user_to_group_attachment(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_pool_user_to_group_attachment)
-def get_user_pool_user_to_group_attachment_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_user_pool_user_to_group_attachment_output(id: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolUserToGroupAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment

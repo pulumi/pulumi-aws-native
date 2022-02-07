@@ -116,7 +116,7 @@ def get_instance_profile(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_instance_profile)
-def get_instance_profile_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_instance_profile_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile

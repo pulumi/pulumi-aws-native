@@ -271,7 +271,7 @@ def get_event_source_mapping(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_event_source_mapping)
-def get_event_source_mapping_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_event_source_mapping_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceMappingResult]:
     """
     Resource Type definition for AWS::Lambda::EventSourceMapping

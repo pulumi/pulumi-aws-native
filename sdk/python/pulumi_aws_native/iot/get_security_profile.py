@@ -141,7 +141,7 @@ def get_security_profile(security_profile_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_security_profile)
-def get_security_profile_output(security_profile_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_security_profile_output(security_profile_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
     A security profile defines a set of expected behaviors for devices in your account.

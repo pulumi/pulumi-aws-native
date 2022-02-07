@@ -137,8 +137,8 @@ def get_streaming_image(streaming_image_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_streaming_image)
-def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[Optional[str]]] = None,
-                               studio_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[str]] = None,
+                               studio_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingImageResult]:
     """
     Represents a streaming session machine image that can be used to launch a streaming session

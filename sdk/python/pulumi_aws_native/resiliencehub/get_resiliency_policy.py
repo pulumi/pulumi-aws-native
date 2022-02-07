@@ -135,7 +135,7 @@ def get_resiliency_policy(policy_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resiliency_policy)
-def get_resiliency_policy_output(policy_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resiliency_policy_output(policy_arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResiliencyPolicyResult]:
     """
     Resource Type Definition for Resiliency Policy.

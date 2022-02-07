@@ -114,7 +114,7 @@ def get_report_plan(report_plan_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_report_plan)
-def get_report_plan_output(report_plan_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_report_plan_output(report_plan_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportPlanResult]:
     """
     Contains detailed information about a report plan in AWS Backup Audit Manager.

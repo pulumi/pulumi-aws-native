@@ -122,7 +122,7 @@ def get_bot(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_bot)
-def get_bot_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_bot_output(id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
     Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.

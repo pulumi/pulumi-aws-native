@@ -106,7 +106,7 @@ def get_domain_name(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_domain_name)
-def get_domain_name_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_domain_name_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::DomainName

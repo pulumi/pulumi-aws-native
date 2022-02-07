@@ -74,7 +74,7 @@ def get_model_bias_job_definition(job_definition_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_model_bias_job_definition)
-def get_model_bias_job_definition_output(job_definition_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_model_bias_job_definition_output(job_definition_arn: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelBiasJobDefinitionResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition

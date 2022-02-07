@@ -101,7 +101,7 @@ def get_connection(connection_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_connection)
-def get_connection_output(connection_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_connection_output(connection_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline

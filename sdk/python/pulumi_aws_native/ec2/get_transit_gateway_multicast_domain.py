@@ -127,7 +127,7 @@ def get_transit_gateway_multicast_domain(transit_gateway_multicast_domain_id: Op
 
 
 @_utilities.lift_output_func(get_transit_gateway_multicast_domain)
-def get_transit_gateway_multicast_domain_output(transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_transit_gateway_multicast_domain_output(transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayMulticastDomainResult]:
     """
     The AWS::EC2::TransitGatewayMulticastDomain type

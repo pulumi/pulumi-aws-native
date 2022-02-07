@@ -146,7 +146,7 @@ def get_notebook_instance(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_notebook_instance)
-def get_notebook_instance_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_notebook_instance_output(id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotebookInstanceResult]:
     """
     Resource Type definition for AWS::SageMaker::NotebookInstance

@@ -95,7 +95,7 @@ def get_wait_condition(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_wait_condition)
-def get_wait_condition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_wait_condition_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWaitConditionResult]:
     """
     Resource Type definition for AWS::CloudFormation::WaitCondition

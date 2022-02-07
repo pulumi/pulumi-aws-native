@@ -65,7 +65,7 @@ def get_robot_application_version(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_robot_application_version)
-def get_robot_application_version_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_robot_application_version_output(arn: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotApplicationVersionResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

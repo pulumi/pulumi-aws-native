@@ -98,8 +98,8 @@ def get_entitlement(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_entitlement)
-def get_entitlement_output(name: Optional[pulumi.Input[Optional[str]]] = None,
-                           stack_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_entitlement_output(name: Optional[pulumi.Input[str]] = None,
+                           stack_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntitlementResult]:
     """
     Resource Type definition for AWS::AppStream::Entitlement

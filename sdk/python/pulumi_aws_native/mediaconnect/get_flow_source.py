@@ -232,7 +232,7 @@ def get_flow_source(source_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_flow_source)
-def get_flow_source_output(source_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_flow_source_output(source_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowSourceResult]:
     """
     Resource schema for AWS::MediaConnect::FlowSource

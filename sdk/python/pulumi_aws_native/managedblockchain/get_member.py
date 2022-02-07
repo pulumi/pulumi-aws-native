@@ -96,7 +96,7 @@ def get_member(member_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_member)
-def get_member_output(member_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_member_output(member_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMemberResult]:
     """
     Resource Type definition for AWS::ManagedBlockchain::Member

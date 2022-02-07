@@ -61,7 +61,7 @@ def get_schema_version(version_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_schema_version)
-def get_schema_version_output(version_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_schema_version_output(version_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaVersionResult]:
     """
     This resource represents an individual schema version of a schema defined in Glue Schema Registry.

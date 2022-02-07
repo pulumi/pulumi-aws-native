@@ -114,7 +114,7 @@ def get_device_profile(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_device_profile)
-def get_device_profile_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_device_profile_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceProfileResult]:
     """
     Device Profile's resource schema demonstrating some basic constructs and validation rules.

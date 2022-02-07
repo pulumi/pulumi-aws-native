@@ -101,7 +101,7 @@ def get_organization_conformance_pack(organization_conformance_pack_name: Option
 
 
 @_utilities.lift_output_func(get_organization_conformance_pack)
-def get_organization_conformance_pack_output(organization_conformance_pack_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_organization_conformance_pack_output(organization_conformance_pack_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationConformancePackResult]:
     """
     Resource schema for AWS::Config::OrganizationConformancePack.

@@ -156,7 +156,7 @@ def get_data_source(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_data_source)
-def get_data_source_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_data_source_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Resource Type definition for AWS::AppSync::DataSource

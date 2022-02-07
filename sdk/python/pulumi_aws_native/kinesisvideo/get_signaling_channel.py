@@ -102,7 +102,7 @@ def get_signaling_channel(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_signaling_channel)
-def get_signaling_channel_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_signaling_channel_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalingChannelResult]:
     """
     Resource Type Definition for AWS::KinesisVideo::SignalingChannel

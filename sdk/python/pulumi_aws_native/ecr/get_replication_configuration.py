@@ -73,7 +73,7 @@ def get_replication_configuration(registry_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_replication_configuration)
-def get_replication_configuration_output(registry_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_replication_configuration_output(registry_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationConfigurationResult]:
     """
     The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html

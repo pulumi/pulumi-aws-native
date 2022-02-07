@@ -147,7 +147,7 @@ def get_branch(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_branch)
-def get_branch_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_branch_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBranchResult]:
     """
     The AWS::Amplify::Branch resource creates a new branch within an app.

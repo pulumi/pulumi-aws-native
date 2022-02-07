@@ -64,8 +64,8 @@ def get_vpcdhcp_options_association(dhcp_options_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_vpcdhcp_options_association)
-def get_vpcdhcp_options_association_output(dhcp_options_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                           vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_vpcdhcp_options_association_output(dhcp_options_id: Optional[pulumi.Input[str]] = None,
+                                           vpc_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCDHCPOptionsAssociationResult]:
     """
     Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.

@@ -95,7 +95,7 @@ def get_map(map_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_map)
-def get_map_output(map_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
     """
     Definition of AWS::Location::Map Resource Type

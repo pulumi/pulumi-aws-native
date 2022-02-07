@@ -138,7 +138,7 @@ def get_location_smb(location_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_location_smb)
-def get_location_smb_output(location_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_location_smb_output(location_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationSMBResult]:
     """
     Resource schema for AWS::DataSync::LocationSMB.

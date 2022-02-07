@@ -115,9 +115,9 @@ def get_regex_pattern_set(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_regex_pattern_set)
-def get_regex_pattern_set_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                                 name: Optional[pulumi.Input[Optional[str]]] = None,
-                                 scope: Optional[pulumi.Input[Optional['RegexPatternSetScope']]] = None,
+def get_regex_pattern_set_output(id: Optional[pulumi.Input[str]] = None,
+                                 name: Optional[pulumi.Input[str]] = None,
+                                 scope: Optional[pulumi.Input['RegexPatternSetScope']] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegexPatternSetResult]:
     """
     Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .

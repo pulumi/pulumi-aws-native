@@ -52,8 +52,8 @@ def get_transit_gateway_registration(global_network_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_transit_gateway_registration)
-def get_transit_gateway_registration_output(global_network_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                            transit_gateway_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_transit_gateway_registration_output(global_network_id: Optional[pulumi.Input[str]] = None,
+                                            transit_gateway_arn: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayRegistrationResult]:
     """
     The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.

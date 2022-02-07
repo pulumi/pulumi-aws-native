@@ -71,7 +71,7 @@ def get_schedule(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_schedule)
-def get_schedule_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Resource schema for AWS::DataBrew::Schedule.

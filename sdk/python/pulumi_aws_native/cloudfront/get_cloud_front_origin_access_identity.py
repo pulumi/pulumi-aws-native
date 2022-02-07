@@ -76,7 +76,7 @@ def get_cloud_front_origin_access_identity(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_cloud_front_origin_access_identity)
-def get_cloud_front_origin_access_identity_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_cloud_front_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFrontOriginAccessIdentityResult]:
     """
     Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity

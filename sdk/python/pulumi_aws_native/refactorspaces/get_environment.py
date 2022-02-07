@@ -89,7 +89,7 @@ def get_environment(environment_identifier: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_environment)
-def get_environment_output(environment_identifier: Optional[pulumi.Input[Optional[str]]] = None,
+def get_environment_output(environment_identifier: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Definition of AWS::RefactorSpaces::Environment Resource Type

@@ -87,8 +87,8 @@ def get_base_path_mapping(base_path: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_base_path_mapping)
-def get_base_path_mapping_output(base_path: Optional[pulumi.Input[Optional[str]]] = None,
-                                 domain_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_base_path_mapping_output(base_path: Optional[pulumi.Input[str]] = None,
+                                 domain_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBasePathMappingResult]:
     """
     Resource Type definition for AWS::ApiGateway::BasePathMapping

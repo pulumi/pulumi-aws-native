@@ -193,7 +193,7 @@ def get_stack_set(stack_set_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_stack_set)
-def get_stack_set_output(stack_set_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_stack_set_output(stack_set_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackSetResult]:
     """
     StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances

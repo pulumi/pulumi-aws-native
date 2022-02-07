@@ -95,7 +95,7 @@ def get_macro(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_macro)
-def get_macro_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_macro_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMacroResult]:
     """
     Resource Type definition for AWS::CloudFormation::Macro

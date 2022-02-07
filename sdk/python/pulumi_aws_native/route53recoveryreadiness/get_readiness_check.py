@@ -88,7 +88,7 @@ def get_readiness_check(readiness_check_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_readiness_check)
-def get_readiness_check_output(readiness_check_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_readiness_check_output(readiness_check_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadinessCheckResult]:
     """
     Aws Route53 Recovery Readiness Check Schema and API specification.

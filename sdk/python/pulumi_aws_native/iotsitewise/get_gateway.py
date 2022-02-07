@@ -101,7 +101,7 @@ def get_gateway(gateway_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_gateway)
-def get_gateway_output(gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_gateway_output(gateway_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Resource schema for AWS::IoTSiteWise::Gateway

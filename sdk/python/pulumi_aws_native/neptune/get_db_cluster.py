@@ -196,7 +196,7 @@ def get_db_cluster(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_db_cluster)
-def get_db_cluster_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_db_cluster_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterResult]:
     """
     Resource Type definition for AWS::Neptune::DBCluster

@@ -96,7 +96,7 @@ def get_security_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_security_group)
-def get_security_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_security_group_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupResult]:
     """
     Resource Type definition for AWS::EC2::SecurityGroup

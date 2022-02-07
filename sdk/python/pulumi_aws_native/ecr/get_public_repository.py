@@ -98,7 +98,7 @@ def get_public_repository(repository_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_public_repository)
-def get_public_repository_output(repository_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_public_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicRepositoryResult]:
     """
     The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Public Registry (Amazon Public ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR

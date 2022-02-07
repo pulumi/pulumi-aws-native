@@ -75,7 +75,7 @@ def get_app_image_config(app_image_config_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_app_image_config)
-def get_app_image_config_output(app_image_config_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_app_image_config_output(app_image_config_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppImageConfigResult]:
     """
     Resource Type definition for AWS::SageMaker::AppImageConfig

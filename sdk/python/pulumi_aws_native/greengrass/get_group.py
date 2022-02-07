@@ -115,7 +115,7 @@ def get_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_group)
-def get_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_group_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Resource Type definition for AWS::Greengrass::Group

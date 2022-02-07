@@ -66,7 +66,7 @@ def get_vpc_peering_connection(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_vpc_peering_connection)
-def get_vpc_peering_connection_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_vpc_peering_connection_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCPeeringConnectionResult]:
     """
     Resource Type definition for AWS::EC2::VPCPeeringConnection

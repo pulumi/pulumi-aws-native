@@ -66,7 +66,7 @@ def get_robot(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_robot)
-def get_robot_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_robot_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotResult]:
     """
     AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.

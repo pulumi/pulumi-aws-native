@@ -100,7 +100,7 @@ def get_image(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_image)
-def get_image_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_image_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Resource schema for AWS::ImageBuilder::Image

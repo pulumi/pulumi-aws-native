@@ -104,8 +104,8 @@ def get_addon(addon_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_addon)
-def get_addon_output(addon_name: Optional[pulumi.Input[Optional[str]]] = None,
-                     cluster_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
+                     cluster_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
     """
     Resource Schema for AWS::EKS::Addon

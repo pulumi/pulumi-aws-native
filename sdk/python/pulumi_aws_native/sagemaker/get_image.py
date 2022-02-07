@@ -99,7 +99,7 @@ def get_image(image_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_image)
-def get_image_output(image_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_image_output(image_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Resource Type definition for AWS::SageMaker::Image

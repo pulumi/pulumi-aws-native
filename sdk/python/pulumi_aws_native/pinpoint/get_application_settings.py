@@ -96,7 +96,7 @@ def get_application_settings(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_application_settings)
-def get_application_settings_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_application_settings_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationSettingsResult]:
     """
     Resource Type definition for AWS::Pinpoint::ApplicationSettings

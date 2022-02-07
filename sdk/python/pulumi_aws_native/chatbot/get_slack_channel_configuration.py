@@ -139,7 +139,7 @@ def get_slack_channel_configuration(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_slack_channel_configuration)
-def get_slack_channel_configuration_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_slack_channel_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlackChannelConfigurationResult]:
     """
     Resource schema for AWS::Chatbot::SlackChannelConfiguration.

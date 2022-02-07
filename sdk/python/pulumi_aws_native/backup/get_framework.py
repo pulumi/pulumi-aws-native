@@ -148,7 +148,7 @@ def get_framework(framework_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_framework)
-def get_framework_output(framework_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_framework_output(framework_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:
     """
     Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.

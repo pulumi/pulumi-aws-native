@@ -68,7 +68,7 @@ def get_registry_policy(registry_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_registry_policy)
-def get_registry_policy_output(registry_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_registry_policy_output(registry_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryPolicyResult]:
     """
     The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html

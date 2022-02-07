@@ -76,7 +76,7 @@ def get_matchmaking_rule_set(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_matchmaking_rule_set)
-def get_matchmaking_rule_set_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_matchmaking_rule_set_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMatchmakingRuleSetResult]:
     """
     Resource Type definition for AWS::GameLift::MatchmakingRuleSet

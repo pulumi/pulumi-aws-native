@@ -61,7 +61,7 @@ def get_named_query(named_query_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_named_query)
-def get_named_query_output(named_query_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_named_query_output(named_query_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedQueryResult]:
     """
     Resource schema for AWS::Athena::NamedQuery

@@ -160,8 +160,8 @@ def get_mission_profile(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_mission_profile)
-def get_mission_profile_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
-                               id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_mission_profile_output(arn: Optional[pulumi.Input[str]] = None,
+                               id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMissionProfileResult]:
     """
     AWS Ground Station Mission Profile resource type for CloudFormation.

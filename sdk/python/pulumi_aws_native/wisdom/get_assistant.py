@@ -65,7 +65,7 @@ def get_assistant(assistant_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_assistant)
-def get_assistant_output(assistant_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_assistant_output(assistant_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssistantResult]:
     """
     Definition of AWS::Wisdom::Assistant Resource Type

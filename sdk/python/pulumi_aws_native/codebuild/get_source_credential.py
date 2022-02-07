@@ -85,7 +85,7 @@ def get_source_credential(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_source_credential)
-def get_source_credential_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_source_credential_output(id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceCredentialResult]:
     """
     Resource Type definition for AWS::CodeBuild::SourceCredential

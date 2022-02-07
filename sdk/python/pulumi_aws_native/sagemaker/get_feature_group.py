@@ -49,7 +49,7 @@ def get_feature_group(feature_group_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_feature_group)
-def get_feature_group_output(feature_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_feature_group_output(feature_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeatureGroupResult]:
     """
     Resource Type definition for AWS::SageMaker::FeatureGroup

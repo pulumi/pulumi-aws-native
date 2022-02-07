@@ -85,7 +85,7 @@ def get_launch_notification_constraint(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_launch_notification_constraint)
-def get_launch_notification_constraint_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_launch_notification_constraint_output(id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchNotificationConstraintResult]:
     """
     Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint

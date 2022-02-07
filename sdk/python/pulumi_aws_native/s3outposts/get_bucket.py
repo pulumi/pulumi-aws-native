@@ -89,7 +89,7 @@ def get_bucket(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_bucket)
-def get_bucket_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_bucket_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
     """
     Resource Type Definition for AWS::S3Outposts::Bucket

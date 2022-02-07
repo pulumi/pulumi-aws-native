@@ -140,7 +140,7 @@ def get_repository(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_repository)
-def get_repository_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_repository_output(arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     The resource schema to create a CodeArtifact repository.

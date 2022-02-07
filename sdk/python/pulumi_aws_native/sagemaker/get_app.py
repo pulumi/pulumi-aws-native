@@ -85,10 +85,10 @@ def get_app(app_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_app)
-def get_app_output(app_name: Optional[pulumi.Input[Optional[str]]] = None,
-                   app_type: Optional[pulumi.Input[Optional['AppType']]] = None,
-                   domain_id: Optional[pulumi.Input[Optional[str]]] = None,
-                   user_profile_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
+                   app_type: Optional[pulumi.Input['AppType']] = None,
+                   domain_id: Optional[pulumi.Input[str]] = None,
+                   user_profile_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     Resource Type definition for AWS::SageMaker::App

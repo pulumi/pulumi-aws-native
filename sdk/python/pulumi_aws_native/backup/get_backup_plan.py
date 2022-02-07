@@ -96,7 +96,7 @@ def get_backup_plan(backup_plan_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_backup_plan)
-def get_backup_plan_output(backup_plan_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_backup_plan_output(backup_plan_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPlanResult]:
     """
     Resource Type definition for AWS::Backup::BackupPlan

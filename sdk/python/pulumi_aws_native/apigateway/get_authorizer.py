@@ -177,8 +177,8 @@ def get_authorizer(authorizer_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_authorizer)
-def get_authorizer_output(authorizer_id: Optional[pulumi.Input[Optional[str]]] = None,
-                          rest_api_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
+                          rest_api_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.

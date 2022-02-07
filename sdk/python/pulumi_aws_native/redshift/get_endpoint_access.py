@@ -140,7 +140,7 @@ def get_endpoint_access(endpoint_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_endpoint_access)
-def get_endpoint_access_output(endpoint_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_endpoint_access_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointAccessResult]:
     """
     Resource schema for a Redshift-managed VPC endpoint.

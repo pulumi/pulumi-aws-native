@@ -241,7 +241,7 @@ def get_canary(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_canary)
-def get_canary_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_canary_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCanaryResult]:
     """
     Resource Type definition for AWS::Synthetics::Canary

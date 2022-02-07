@@ -88,7 +88,7 @@ def get_recovery_group(recovery_group_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_recovery_group)
-def get_recovery_group_output(recovery_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_recovery_group_output(recovery_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecoveryGroupResult]:
     """
     AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.

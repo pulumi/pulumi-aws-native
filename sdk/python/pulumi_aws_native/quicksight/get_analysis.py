@@ -159,8 +159,8 @@ def get_analysis(analysis_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_analysis)
-def get_analysis_output(analysis_id: Optional[pulumi.Input[Optional[str]]] = None,
-                        aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
+                        aws_account_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalysisResult]:
     """
     Definition of the AWS::QuickSight::Analysis Resource Type.

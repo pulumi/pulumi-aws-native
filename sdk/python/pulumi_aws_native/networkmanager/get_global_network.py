@@ -101,7 +101,7 @@ def get_global_network(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_global_network)
-def get_global_network_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_global_network_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalNetworkResult]:
     """
     The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account

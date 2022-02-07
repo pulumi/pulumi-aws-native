@@ -366,7 +366,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_replication_group)
-def get_replication_group_output(replication_group_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::ReplicationGroup

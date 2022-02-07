@@ -50,9 +50,9 @@ def get_application_entitlement_association(application_identifier: Optional[str
 
 
 @_utilities.lift_output_func(get_application_entitlement_association)
-def get_application_entitlement_association_output(application_identifier: Optional[pulumi.Input[Optional[str]]] = None,
-                                                   entitlement_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                                   stack_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_application_entitlement_association_output(application_identifier: Optional[pulumi.Input[str]] = None,
+                                                   entitlement_name: Optional[pulumi.Input[str]] = None,
+                                                   stack_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationEntitlementAssociationResult]:
     """
     Resource Type definition for AWS::AppStream::ApplicationEntitlementAssociation

@@ -176,7 +176,7 @@ def get_identity_pool(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_identity_pool)
-def get_identity_pool_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_identity_pool_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPool

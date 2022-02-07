@@ -76,7 +76,7 @@ def get_record_set_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_record_set_group)
-def get_record_set_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_record_set_group_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordSetGroupResult]:
     """
     Resource Type definition for AWS::Route53::RecordSetGroup

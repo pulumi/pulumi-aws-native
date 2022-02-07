@@ -101,7 +101,7 @@ def get_device_fleet(device_fleet_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_device_fleet)
-def get_device_fleet_output(device_fleet_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_device_fleet_output(device_fleet_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceFleetResult]:
     """
     Resource schema for AWS::SageMaker::DeviceFleet

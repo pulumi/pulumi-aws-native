@@ -166,7 +166,7 @@ def get_role(role_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_role)
-def get_role_output(role_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_role_output(role_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
     """
     Resource Type definition for AWS::IAM::Role

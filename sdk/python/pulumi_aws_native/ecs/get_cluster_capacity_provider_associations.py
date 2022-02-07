@@ -67,7 +67,7 @@ def get_cluster_capacity_provider_associations(cluster: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_cluster_capacity_provider_associations)
-def get_cluster_capacity_provider_associations_output(cluster: Optional[pulumi.Input[Optional[str]]] = None,
+def get_cluster_capacity_provider_associations_output(cluster: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterCapacityProviderAssociationsResult]:
     """
     Associate a set of ECS Capacity Providers with a specified ECS Cluster

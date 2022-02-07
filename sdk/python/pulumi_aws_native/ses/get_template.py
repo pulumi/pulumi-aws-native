@@ -66,7 +66,7 @@ def get_template(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_template)
-def get_template_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_template_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Resource Type definition for AWS::SES::Template

@@ -57,7 +57,7 @@ def get_logging_configuration(firewall_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_logging_configuration)
-def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
     Resource type definition for AWS::NetworkFirewall::LoggingConfiguration

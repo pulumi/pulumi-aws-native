@@ -107,7 +107,7 @@ def get_domain_configuration(domain_configuration_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_domain_configuration)
-def get_domain_configuration_output(domain_configuration_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_domain_configuration_output(domain_configuration_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainConfigurationResult]:
     """
     Create and manage a Domain Configuration

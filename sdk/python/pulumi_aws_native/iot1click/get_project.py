@@ -86,7 +86,7 @@ def get_project(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_project)
-def get_project_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_project_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource Type definition for AWS::IoT1Click::Project

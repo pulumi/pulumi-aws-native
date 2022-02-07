@@ -75,7 +75,7 @@ def get_replication_subnet_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_replication_subnet_group)
-def get_replication_subnet_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_replication_subnet_group_output(id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationSubnetGroupResult]:
     """
     Resource Type definition for AWS::DMS::ReplicationSubnetGroup

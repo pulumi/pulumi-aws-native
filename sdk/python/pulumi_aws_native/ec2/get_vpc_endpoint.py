@@ -135,7 +135,7 @@ def get_vpc_endpoint(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_vpc_endpoint)
-def get_vpc_endpoint_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCEndpointResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpoint

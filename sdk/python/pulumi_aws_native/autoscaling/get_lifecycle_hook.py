@@ -129,8 +129,8 @@ def get_lifecycle_hook(auto_scaling_group_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_lifecycle_hook)
-def get_lifecycle_hook_output(auto_scaling_group_name: Optional[pulumi.Input[Optional[str]]] = None,
-                              lifecycle_hook_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_lifecycle_hook_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
+                              lifecycle_hook_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLifecycleHookResult]:
     """
     Resource Type definition for AWS::AutoScaling::LifecycleHook

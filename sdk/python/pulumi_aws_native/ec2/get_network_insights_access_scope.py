@@ -96,7 +96,7 @@ def get_network_insights_access_scope(network_insights_access_scope_id: Optional
 
 
 @_utilities.lift_output_func(get_network_insights_access_scope)
-def get_network_insights_access_scope_output(network_insights_access_scope_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_network_insights_access_scope_output(network_insights_access_scope_id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScope

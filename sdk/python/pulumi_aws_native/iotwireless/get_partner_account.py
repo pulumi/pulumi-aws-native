@@ -154,7 +154,7 @@ def get_partner_account(partner_account_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_partner_account)
-def get_partner_account_output(partner_account_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_partner_account_output(partner_account_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerAccountResult]:
     """
     Create and manage partner account

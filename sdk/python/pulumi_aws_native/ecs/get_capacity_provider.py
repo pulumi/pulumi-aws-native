@@ -67,7 +67,7 @@ def get_capacity_provider(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_capacity_provider)
-def get_capacity_provider_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_capacity_provider_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityProviderResult]:
     """
     Resource Type definition for AWS::ECS::CapacityProvider.

@@ -75,7 +75,7 @@ def get_event_stream(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_event_stream)
-def get_event_stream_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_event_stream_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventStreamResult]:
     """
     Resource Type definition for AWS::Pinpoint::EventStream

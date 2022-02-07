@@ -72,7 +72,7 @@ def get_instance_access_control_attribute_configuration(instance_arn: Optional[s
 
 
 @_utilities.lift_output_func(get_instance_access_control_attribute_configuration)
-def get_instance_access_control_attribute_configuration_output(instance_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_instance_access_control_attribute_configuration_output(instance_arn: Optional[pulumi.Input[str]] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceAccessControlAttributeConfigurationResult]:
     """
     Resource Type definition for SSO InstanceAccessControlAttributeConfiguration

@@ -48,8 +48,8 @@ def get_tracker_consumer(consumer_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_tracker_consumer)
-def get_tracker_consumer_output(consumer_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                                tracker_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_tracker_consumer_output(consumer_arn: Optional[pulumi.Input[str]] = None,
+                                tracker_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerConsumerResult]:
     """
     Definition of AWS::Location::TrackerConsumer Resource Type

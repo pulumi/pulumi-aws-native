@@ -87,8 +87,8 @@ def get_load_balancer_tls_certificate(certificate_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_load_balancer_tls_certificate)
-def get_load_balancer_tls_certificate_output(certificate_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                             load_balancer_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_load_balancer_tls_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
+                                             load_balancer_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerTlsCertificateResult]:
     """
     Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate

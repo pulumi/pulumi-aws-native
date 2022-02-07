@@ -52,8 +52,8 @@ def get_permission(certificate_authority_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_permission)
-def get_permission_output(certificate_authority_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                          principal: Optional[pulumi.Input[Optional[str]]] = None,
+def get_permission_output(certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+                          principal: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionResult]:
     """
     Permission set on private certificate authority

@@ -306,7 +306,7 @@ def get_instance(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_instance)
-def get_instance_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_instance_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for AWS::EC2::Instance

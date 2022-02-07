@@ -101,7 +101,7 @@ def get_cell(cell_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_cell)
-def get_cell_output(cell_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_cell_output(cell_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCellResult]:
     """
     The API Schema for AWS Route53 Recovery Readiness Cells.

@@ -66,7 +66,7 @@ def get_account(account_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_account)
-def get_account_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_account_output(account_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Resource schema for AWS::CertificateManager::Account.

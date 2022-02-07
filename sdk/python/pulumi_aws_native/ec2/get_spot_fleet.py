@@ -67,7 +67,7 @@ def get_spot_fleet(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_spot_fleet)
-def get_spot_fleet_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_spot_fleet_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpotFleetResult]:
     """
     Resource Type definition for AWS::EC2::SpotFleet

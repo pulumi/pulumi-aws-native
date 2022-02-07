@@ -206,7 +206,7 @@ def get_target_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_target_group)
-def get_target_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_target_group_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup

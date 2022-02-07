@@ -88,7 +88,7 @@ def get_location_f_sx_windows(location_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_location_f_sx_windows)
-def get_location_f_sx_windows_output(location_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_location_f_sx_windows_output(location_arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationFSxWindowsResult]:
     """
     Resource schema for AWS::DataSync::LocationFSxWindows.

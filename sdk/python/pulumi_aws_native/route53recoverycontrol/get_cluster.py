@@ -89,7 +89,7 @@ def get_cluster(cluster_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_cluster)
-def get_cluster_output(cluster_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     AWS Route53 Recovery Control Cluster resource schema

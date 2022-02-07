@@ -244,7 +244,7 @@ def get_association(association_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_association)
-def get_association_output(association_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_association_output(association_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationResult]:
     """
     The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.

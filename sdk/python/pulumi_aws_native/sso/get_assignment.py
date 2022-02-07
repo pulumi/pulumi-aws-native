@@ -65,12 +65,12 @@ def get_assignment(instance_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_assignment)
-def get_assignment_output(instance_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                          permission_set_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                          principal_id: Optional[pulumi.Input[Optional[str]]] = None,
-                          principal_type: Optional[pulumi.Input[Optional['AssignmentPrincipalType']]] = None,
-                          target_id: Optional[pulumi.Input[Optional[str]]] = None,
-                          target_type: Optional[pulumi.Input[Optional['AssignmentTargetType']]] = None,
+def get_assignment_output(instance_arn: Optional[pulumi.Input[str]] = None,
+                          permission_set_arn: Optional[pulumi.Input[str]] = None,
+                          principal_id: Optional[pulumi.Input[str]] = None,
+                          principal_type: Optional[pulumi.Input['AssignmentPrincipalType']] = None,
+                          target_id: Optional[pulumi.Input[str]] = None,
+                          target_type: Optional[pulumi.Input['AssignmentTargetType']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
     """
     Resource Type definition for SSO assignmet

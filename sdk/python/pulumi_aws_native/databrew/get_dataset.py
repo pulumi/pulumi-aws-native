@@ -102,7 +102,7 @@ def get_dataset(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dataset)
-def get_dataset_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dataset_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource schema for AWS::DataBrew::Dataset.

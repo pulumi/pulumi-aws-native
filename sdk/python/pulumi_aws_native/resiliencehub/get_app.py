@@ -124,7 +124,7 @@ def get_app(app_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_app)
-def get_app_output(app_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_app_output(app_arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     Resource Type Definition for AWS::ResilienceHub::App.

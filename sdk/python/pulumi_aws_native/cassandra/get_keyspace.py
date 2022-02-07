@@ -59,7 +59,7 @@ def get_keyspace(keyspace_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_keyspace)
-def get_keyspace_output(keyspace_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_keyspace_output(keyspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyspaceResult]:
     """
     Resource schema for AWS::Cassandra::Keyspace

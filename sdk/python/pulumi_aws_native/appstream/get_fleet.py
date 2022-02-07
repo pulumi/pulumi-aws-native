@@ -236,7 +236,7 @@ def get_fleet(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_fleet)
-def get_fleet_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_fleet_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
     Resource Type definition for AWS::AppStream::Fleet

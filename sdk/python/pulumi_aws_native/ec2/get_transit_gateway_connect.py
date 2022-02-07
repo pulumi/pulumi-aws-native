@@ -114,7 +114,7 @@ def get_transit_gateway_connect(transit_gateway_attachment_id: Optional[str] = N
 
 
 @_utilities.lift_output_func(get_transit_gateway_connect)
-def get_transit_gateway_connect_output(transit_gateway_attachment_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_transit_gateway_connect_output(transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayConnectResult]:
     """
     The AWS::EC2::TransitGatewayConnect type

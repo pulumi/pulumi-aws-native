@@ -125,7 +125,7 @@ def get_stack_set_constraint(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_stack_set_constraint)
-def get_stack_set_constraint_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_stack_set_constraint_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackSetConstraintResult]:
     """
     Resource Type definition for AWS::ServiceCatalog::StackSetConstraint

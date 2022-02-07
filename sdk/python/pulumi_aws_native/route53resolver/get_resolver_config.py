@@ -88,7 +88,7 @@ def get_resolver_config(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resolver_config)
-def get_resolver_config_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resolver_config_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverConfig.

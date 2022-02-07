@@ -76,7 +76,7 @@ def get_web_acl(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_web_acl)
-def get_web_acl_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebACLResult]:
     """
     Resource Type definition for AWS::WAF::WebACL

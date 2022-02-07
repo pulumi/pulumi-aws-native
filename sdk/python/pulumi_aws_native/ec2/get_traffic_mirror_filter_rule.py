@@ -146,7 +146,7 @@ def get_traffic_mirror_filter_rule(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_traffic_mirror_filter_rule)
-def get_traffic_mirror_filter_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_traffic_mirror_filter_rule_output(id: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficMirrorFilterRuleResult]:
     """
     Resource Type definition for AWS::EC2::TrafficMirrorFilterRule

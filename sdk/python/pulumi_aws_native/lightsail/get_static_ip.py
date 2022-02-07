@@ -97,7 +97,7 @@ def get_static_ip(static_ip_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_static_ip)
-def get_static_ip_output(static_ip_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_static_ip_output(static_ip_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticIpResult]:
     """
     Resource Type definition for AWS::Lightsail::StaticIp

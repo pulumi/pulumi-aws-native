@@ -85,7 +85,7 @@ def get_place_index(index_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_place_index)
-def get_place_index_output(index_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
     Definition of AWS::Location::PlaceIndex Resource Type

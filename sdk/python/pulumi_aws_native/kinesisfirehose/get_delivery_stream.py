@@ -147,7 +147,7 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_delivery_stream)
-def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryStreamResult]:
     """
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream

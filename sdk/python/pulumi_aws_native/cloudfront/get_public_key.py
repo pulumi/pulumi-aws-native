@@ -76,7 +76,7 @@ def get_public_key(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_public_key)
-def get_public_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_public_key_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
     Resource Type definition for AWS::CloudFront::PublicKey

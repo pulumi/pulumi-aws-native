@@ -65,7 +65,7 @@ def get_backup_selection(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_backup_selection)
-def get_backup_selection_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_backup_selection_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupSelectionResult]:
     """
     Resource Type definition for AWS::Backup::BackupSelection

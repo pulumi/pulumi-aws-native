@@ -85,7 +85,7 @@ def get_virtual_cluster(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_virtual_cluster)
-def get_virtual_cluster_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_virtual_cluster_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
     Resource Schema of AWS::EMRContainers::VirtualCluster Type

@@ -55,7 +55,7 @@ def get_step(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_step)
-def get_step_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_step_output(id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStepResult]:
     """
     Resource Type definition for AWS::EMR::Step

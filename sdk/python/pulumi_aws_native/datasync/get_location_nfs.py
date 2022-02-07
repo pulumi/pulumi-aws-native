@@ -109,7 +109,7 @@ def get_location_nfs(location_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_location_nfs)
-def get_location_nfs_output(location_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_location_nfs_output(location_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationNFSResult]:
     """
     Resource schema for AWS::DataSync::LocationNFS

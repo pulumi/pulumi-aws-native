@@ -103,8 +103,8 @@ def get_flow_vpc_interface(flow_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_flow_vpc_interface)
-def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                                  name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[str]] = None,
+                                  name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowVpcInterfaceResult]:
     """
     Resource schema for AWS::MediaConnect::FlowVpcInterface

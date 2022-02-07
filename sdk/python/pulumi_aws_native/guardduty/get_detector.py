@@ -86,7 +86,7 @@ def get_detector(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_detector)
-def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_detector_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
     """
     Resource Type definition for AWS::GuardDuty::Detector

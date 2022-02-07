@@ -88,7 +88,7 @@ def get_connector_profile(connector_profile_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_connector_profile)
-def get_connector_profile_output(connector_profile_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_connector_profile_output(connector_profile_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorProfileResult]:
     """
     Resource Type definition for AWS::AppFlow::ConnectorProfile

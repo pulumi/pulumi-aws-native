@@ -76,7 +76,7 @@ def get_key_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_key_group)
-def get_key_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_key_group_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyGroupResult]:
     """
     Resource Type definition for AWS::CloudFront::KeyGroup

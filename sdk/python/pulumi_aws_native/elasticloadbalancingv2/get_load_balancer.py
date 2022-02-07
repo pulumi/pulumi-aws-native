@@ -156,7 +156,7 @@ def get_load_balancer(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_load_balancer)
-def get_load_balancer_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_load_balancer_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer

@@ -127,7 +127,7 @@ def get_dataset(dataset_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dataset)
-def get_dataset_output(dataset_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Dataset

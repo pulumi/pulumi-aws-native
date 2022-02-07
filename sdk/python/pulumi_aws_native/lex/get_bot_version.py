@@ -67,8 +67,8 @@ def get_bot_version(bot_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_bot_version)
-def get_bot_version_output(bot_id: Optional[pulumi.Input[Optional[str]]] = None,
-                           bot_version: Optional[pulumi.Input[Optional[str]]] = None,
+def get_bot_version_output(bot_id: Optional[pulumi.Input[str]] = None,
+                           bot_version: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotVersionResult]:
     """
     A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.

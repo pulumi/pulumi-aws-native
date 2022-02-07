@@ -190,7 +190,7 @@ def get_environment(environment_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_environment)
-def get_environment_output(environment_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_environment_output(environment_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

@@ -106,7 +106,7 @@ def get_configuration_profile(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_configuration_profile)
-def get_configuration_profile_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_configuration_profile_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
     Resource Type definition for AWS::AppConfig::ConfigurationProfile

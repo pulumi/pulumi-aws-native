@@ -166,7 +166,7 @@ def get_wireless_gateway(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_wireless_gateway)
-def get_wireless_gateway_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_wireless_gateway_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWirelessGatewayResult]:
     """
     Create and manage wireless gateways, including LoRa gateways.

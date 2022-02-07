@@ -86,7 +86,7 @@ def get_subnet_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_subnet_group)
-def get_subnet_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_subnet_group_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::SubnetGroup

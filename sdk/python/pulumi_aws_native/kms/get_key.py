@@ -171,7 +171,7 @@ def get_key(key_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_key)
-def get_key_output(key_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_key_output(key_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
     The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.

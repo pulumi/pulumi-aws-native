@@ -95,7 +95,7 @@ def get_configuration_aggregator(configuration_aggregator_name: Optional[str] = 
 
 
 @_utilities.lift_output_func(get_configuration_aggregator)
-def get_configuration_aggregator_output(configuration_aggregator_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_configuration_aggregator_output(configuration_aggregator_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAggregatorResult]:
     """
     Resource Type definition for AWS::Config::ConfigurationAggregator

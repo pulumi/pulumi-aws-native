@@ -146,7 +146,7 @@ def get_file_system(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_file_system)
-def get_file_system_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_file_system_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileSystemResult]:
     """
     Resource Type definition for AWS::FSx::FileSystem

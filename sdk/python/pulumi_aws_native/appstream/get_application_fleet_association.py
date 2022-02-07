@@ -48,8 +48,8 @@ def get_application_fleet_association(application_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_application_fleet_association)
-def get_application_fleet_association_output(application_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                                             fleet_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_application_fleet_association_output(application_arn: Optional[pulumi.Input[str]] = None,
+                                             fleet_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationFleetAssociationResult]:
     """
     Resource Type definition for AWS::AppStream::ApplicationFleetAssociation

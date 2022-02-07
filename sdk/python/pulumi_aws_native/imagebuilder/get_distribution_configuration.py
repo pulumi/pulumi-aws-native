@@ -102,7 +102,7 @@ def get_distribution_configuration(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_distribution_configuration)
-def get_distribution_configuration_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
     """
     Resource schema for AWS::ImageBuilder::DistributionConfiguration

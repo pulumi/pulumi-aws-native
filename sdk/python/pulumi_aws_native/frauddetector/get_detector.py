@@ -187,7 +187,7 @@ def get_detector(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_detector)
-def get_detector_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_detector_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
     """
     A resource schema for a Detector in Amazon Fraud Detector.

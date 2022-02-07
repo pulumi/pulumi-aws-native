@@ -77,8 +77,8 @@ def get_local_gateway_route(destination_cidr_block: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_local_gateway_route)
-def get_local_gateway_route_output(destination_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
-                                   local_gateway_route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_local_gateway_route_output(destination_cidr_block: Optional[pulumi.Input[str]] = None,
+                                   local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteResult]:
     """
     Describes a route for a local gateway route table.

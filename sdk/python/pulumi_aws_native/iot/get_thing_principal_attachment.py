@@ -55,7 +55,7 @@ def get_thing_principal_attachment(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_thing_principal_attachment)
-def get_thing_principal_attachment_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_thing_principal_attachment_output(id: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingPrincipalAttachmentResult]:
     """
     Resource Type definition for AWS::IoT::ThingPrincipalAttachment

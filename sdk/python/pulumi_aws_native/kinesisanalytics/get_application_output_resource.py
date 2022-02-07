@@ -66,7 +66,7 @@ def get_application_output_resource(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_application_output_resource)
-def get_application_output_resource_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_application_output_resource_output(id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationOutputResourceResult]:
     """
     Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput

@@ -85,7 +85,7 @@ def get_image_version(image_version_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_image_version)
-def get_image_version_output(image_version_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_image_version_output(image_version_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageVersionResult]:
     """
     Resource Type definition for AWS::SageMaker::ImageVersion

@@ -266,7 +266,7 @@ def get_alarm(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_alarm)
-def get_alarm_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_alarm_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlarmResult]:
     """
     Resource Type definition for AWS::CloudWatch::Alarm

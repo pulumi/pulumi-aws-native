@@ -154,7 +154,7 @@ def get_findings_filter(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_findings_filter)
-def get_findings_filter_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_findings_filter_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFindingsFilterResult]:
     """
     Macie FindingsFilter resource schema.

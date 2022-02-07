@@ -130,9 +130,9 @@ def get_package_version(package_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_package_version)
-def get_package_version_output(package_id: Optional[pulumi.Input[Optional[str]]] = None,
-                               package_version: Optional[pulumi.Input[Optional[str]]] = None,
-                               patch_version: Optional[pulumi.Input[Optional[str]]] = None,
+def get_package_version_output(package_id: Optional[pulumi.Input[str]] = None,
+                               package_version: Optional[pulumi.Input[str]] = None,
+                               patch_version: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageVersionResult]:
     """
     Schema for PackageVersion Resource Type

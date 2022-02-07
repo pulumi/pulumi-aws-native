@@ -85,7 +85,7 @@ def get_tracker(tracker_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_tracker)
-def get_tracker_output(tracker_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_tracker_output(tracker_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerResult]:
     """
     Definition of AWS::Location::Tracker Resource Type

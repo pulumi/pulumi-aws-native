@@ -76,7 +76,7 @@ def get_certificate(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_certificate)
-def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_certificate_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.

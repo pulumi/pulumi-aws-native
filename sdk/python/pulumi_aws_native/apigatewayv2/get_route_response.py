@@ -95,7 +95,7 @@ def get_route_response(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_route_response)
-def get_route_response_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_route_response_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResponseResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::RouteResponse

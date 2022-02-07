@@ -61,7 +61,7 @@ def get_resolver_rule_association(resolver_rule_association_id: Optional[str] = 
 
 
 @_utilities.lift_output_func(get_resolver_rule_association)
-def get_resolver_rule_association_output(resolver_rule_association_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resolver_rule_association_output(resolver_rule_association_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRuleAssociationResult]:
     """
     Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation

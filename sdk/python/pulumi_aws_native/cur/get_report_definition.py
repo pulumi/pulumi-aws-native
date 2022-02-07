@@ -140,7 +140,7 @@ def get_report_definition(report_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_report_definition)
-def get_report_definition_output(report_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportDefinitionResult]:
     """
     The AWS::CUR::ReportDefinition resource creates a Cost & Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.

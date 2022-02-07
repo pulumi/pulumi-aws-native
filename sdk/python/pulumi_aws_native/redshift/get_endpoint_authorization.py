@@ -168,8 +168,8 @@ def get_endpoint_authorization(account: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_endpoint_authorization)
-def get_endpoint_authorization_output(account: Optional[pulumi.Input[Optional[str]]] = None,
-                                      cluster_identifier: Optional[pulumi.Input[Optional[str]]] = None,
+def get_endpoint_authorization_output(account: Optional[pulumi.Input[str]] = None,
+                                      cluster_identifier: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointAuthorizationResult]:
     """
     Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.

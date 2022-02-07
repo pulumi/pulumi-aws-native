@@ -96,7 +96,7 @@ def get_ledger(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_ledger)
-def get_ledger_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_ledger_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLedgerResult]:
     """
     Resource Type definition for AWS::QLDB::Ledger

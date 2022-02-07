@@ -239,7 +239,7 @@ def get_domain(domain_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_domain)
-def get_domain_output(domain_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

@@ -86,7 +86,7 @@ def get_resource_policy(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resource_policy)
-def get_resource_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resource_policy_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     A resource policy with specified policy statements that attaches to a Lex bot or bot alias.

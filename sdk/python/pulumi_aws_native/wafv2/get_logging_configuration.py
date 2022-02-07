@@ -102,7 +102,7 @@ def get_logging_configuration(resource_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_logging_configuration)
-def get_logging_configuration_output(resource_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_logging_configuration_output(resource_arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
     A WAFv2 Logging Configuration Resource Provider

@@ -180,7 +180,7 @@ def get_firewall_domain_list(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_firewall_domain_list)
-def get_firewall_domain_list_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_firewall_domain_list_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallDomainListResult]:
     """
     Resource schema for AWS::Route53Resolver::FirewallDomainList.

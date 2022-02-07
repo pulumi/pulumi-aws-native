@@ -145,7 +145,7 @@ def get_simulation_application(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_simulation_application)
-def get_simulation_application_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_simulation_application_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationApplicationResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

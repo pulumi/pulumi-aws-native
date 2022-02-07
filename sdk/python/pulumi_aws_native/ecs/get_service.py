@@ -159,8 +159,8 @@ def get_service(cluster: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_service)
-def get_service_output(cluster: Optional[pulumi.Input[Optional[str]]] = None,
-                       service_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
+                       service_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Resource Type definition for AWS::ECS::Service

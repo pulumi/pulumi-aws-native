@@ -101,7 +101,7 @@ def get_rule_groups_namespace(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_rule_groups_namespace)
-def get_rule_groups_namespace_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_rule_groups_namespace_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleGroupsNamespaceResult]:
     """
     RuleGroupsNamespace schema for cloudformation.

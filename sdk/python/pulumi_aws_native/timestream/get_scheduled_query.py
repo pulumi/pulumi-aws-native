@@ -170,7 +170,7 @@ def get_scheduled_query(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_scheduled_query)
-def get_scheduled_query_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_scheduled_query_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryResult]:
     """
     The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.

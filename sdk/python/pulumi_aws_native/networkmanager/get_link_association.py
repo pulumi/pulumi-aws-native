@@ -55,9 +55,9 @@ def get_link_association(device_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_link_association)
-def get_link_association_output(device_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                global_network_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                link_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_link_association_output(device_id: Optional[pulumi.Input[str]] = None,
+                                global_network_id: Optional[pulumi.Input[str]] = None,
+                                link_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkAssociationResult]:
     """
     The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.

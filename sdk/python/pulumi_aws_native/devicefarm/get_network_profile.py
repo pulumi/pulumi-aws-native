@@ -166,7 +166,7 @@ def get_network_profile(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_network_profile)
-def get_network_profile_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_network_profile_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
     AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile

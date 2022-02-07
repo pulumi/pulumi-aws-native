@@ -76,7 +76,7 @@ def get_cluster_parameter_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_cluster_parameter_group)
-def get_cluster_parameter_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_cluster_parameter_group_output(id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
     """
     Resource Type definition for AWS::Redshift::ClusterParameterGroup

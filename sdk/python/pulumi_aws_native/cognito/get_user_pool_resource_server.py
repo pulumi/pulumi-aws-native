@@ -76,7 +76,7 @@ def get_user_pool_resource_server(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_pool_resource_server)
-def get_user_pool_resource_server_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_user_pool_resource_server_output(id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResourceServerResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer

@@ -88,7 +88,7 @@ def get_topic_rule_destination(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_topic_rule_destination)
-def get_topic_rule_destination_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_topic_rule_destination_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicRuleDestinationResult]:
     """
     Resource Type definition for AWS::IoT::TopicRuleDestination

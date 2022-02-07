@@ -146,7 +146,7 @@ def get_environment(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_environment)
-def get_environment_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_environment_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource Type definition for AWS::ElasticBeanstalk::Environment

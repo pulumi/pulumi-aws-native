@@ -52,8 +52,8 @@ def get_customer_gateway_association(customer_gateway_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_customer_gateway_association)
-def get_customer_gateway_association_output(customer_gateway_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                                            global_network_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_customer_gateway_association_output(customer_gateway_arn: Optional[pulumi.Input[str]] = None,
+                                            global_network_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayAssociationResult]:
     """
     The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.

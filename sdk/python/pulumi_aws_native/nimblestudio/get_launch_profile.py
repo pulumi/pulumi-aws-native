@@ -126,8 +126,8 @@ def get_launch_profile(launch_profile_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_launch_profile)
-def get_launch_profile_output(launch_profile_id: Optional[pulumi.Input[Optional[str]]] = None,
-                              studio_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_launch_profile_output(launch_profile_id: Optional[pulumi.Input[str]] = None,
+                              studio_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchProfileResult]:
     """
     Represents a launch profile which delegates access to a collection of studio components to studio users

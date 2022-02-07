@@ -101,7 +101,7 @@ def get_carrier_gateway(carrier_gateway_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_carrier_gateway)
-def get_carrier_gateway_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_carrier_gateway_output(carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCarrierGatewayResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

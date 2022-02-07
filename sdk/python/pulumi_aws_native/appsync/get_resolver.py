@@ -166,7 +166,7 @@ def get_resolver(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resolver)
-def get_resolver_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resolver_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverResult]:
     """
     Resource Type definition for AWS::AppSync::Resolver

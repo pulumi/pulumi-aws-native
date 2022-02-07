@@ -206,7 +206,7 @@ def get_matchmaking_configuration(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_matchmaking_configuration)
-def get_matchmaking_configuration_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_matchmaking_configuration_output(id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMatchmakingConfigurationResult]:
     """
     Resource Type definition for AWS::GameLift::MatchmakingConfiguration

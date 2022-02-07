@@ -105,7 +105,7 @@ def get_api_cache(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_api_cache)
-def get_api_cache_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_api_cache_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiCacheResult]:
     """
     Resource Type definition for AWS::AppSync::ApiCache

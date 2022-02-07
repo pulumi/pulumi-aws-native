@@ -88,7 +88,7 @@ def get_user(user_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user)
-def get_user_output(user_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_user_output(user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Resource Type definition for AWS::MemoryDB::User

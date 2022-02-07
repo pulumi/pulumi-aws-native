@@ -114,7 +114,7 @@ def get_control_panel(control_panel_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_control_panel)
-def get_control_panel_output(control_panel_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_control_panel_output(control_panel_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlPanelResult]:
     """
     AWS Route53 Recovery Control Control Panel resource schema .

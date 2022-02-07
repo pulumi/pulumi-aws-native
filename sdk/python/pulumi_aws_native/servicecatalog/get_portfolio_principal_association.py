@@ -55,7 +55,7 @@ def get_portfolio_principal_association(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_portfolio_principal_association)
-def get_portfolio_principal_association_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_portfolio_principal_association_output(id: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortfolioPrincipalAssociationResult]:
     """
     Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation

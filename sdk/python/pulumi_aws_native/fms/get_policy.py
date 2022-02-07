@@ -177,7 +177,7 @@ def get_policy(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_policy)
-def get_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_policy_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Creates an AWS Firewall Manager policy.

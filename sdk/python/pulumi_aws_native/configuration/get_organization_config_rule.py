@@ -86,7 +86,7 @@ def get_organization_config_rule(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_organization_config_rule)
-def get_organization_config_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_organization_config_rule_output(id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationConfigRuleResult]:
     """
     Resource Type definition for AWS::Config::OrganizationConfigRule

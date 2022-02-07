@@ -111,7 +111,7 @@ def get_suite_definition(suite_definition_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_suite_definition)
-def get_suite_definition_output(suite_definition_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_suite_definition_output(suite_definition_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSuiteDefinitionResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

@@ -79,7 +79,7 @@ def get_server_certificate(server_certificate_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_server_certificate)
-def get_server_certificate_output(server_certificate_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_server_certificate_output(server_certificate_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCertificateResult]:
     """
     Resource Type definition for AWS::IAM::ServerCertificate

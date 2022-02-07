@@ -108,7 +108,7 @@ def get_access_point(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_access_point)
-def get_access_point_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_access_point_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions

@@ -65,7 +65,7 @@ def get_domain_name_api_association(api_association_identifier: Optional[str] = 
 
 
 @_utilities.lift_output_func(get_domain_name_api_association)
-def get_domain_name_api_association_output(api_association_identifier: Optional[pulumi.Input[Optional[str]]] = None,
+def get_domain_name_api_association_output(api_association_identifier: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameApiAssociationResult]:
     """
     Resource Type definition for AWS::AppSync::DomainNameApiAssociation

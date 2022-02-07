@@ -193,7 +193,7 @@ def get_image_pipeline(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_image_pipeline)
-def get_image_pipeline_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
     Resource schema for AWS::ImageBuilder::ImagePipeline

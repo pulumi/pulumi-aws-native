@@ -75,7 +75,7 @@ def get_logging(account_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_logging)
-def get_logging_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_logging_output(account_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingResult]:
     """
     Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.

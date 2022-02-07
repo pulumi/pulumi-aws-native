@@ -128,7 +128,7 @@ def get_scheduled_audit(scheduled_audit_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_scheduled_audit)
-def get_scheduled_audit_output(scheduled_audit_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_scheduled_audit_output(scheduled_audit_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledAuditResult]:
     """
     Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.

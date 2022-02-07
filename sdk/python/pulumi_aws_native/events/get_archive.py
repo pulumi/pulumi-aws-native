@@ -85,7 +85,7 @@ def get_archive(archive_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_archive)
-def get_archive_output(archive_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_archive_output(archive_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArchiveResult]:
     """
     Resource Type definition for AWS::Events::Archive

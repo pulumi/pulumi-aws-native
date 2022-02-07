@@ -61,7 +61,7 @@ def get_resource_policy(policy_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resource_policy)
-def get_resource_policy_output(policy_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resource_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     The resource schema for AWSLogs ResourcePolicy

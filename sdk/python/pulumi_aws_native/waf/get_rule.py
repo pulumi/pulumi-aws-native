@@ -66,7 +66,7 @@ def get_rule(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_rule)
-def get_rule_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_rule_output(id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
     Resource Type definition for AWS::WAF::Rule

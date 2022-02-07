@@ -85,7 +85,7 @@ def get_microsoft_ad(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_microsoft_ad)
-def get_microsoft_ad_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_microsoft_ad_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftADResult]:
     """
     Resource Type definition for AWS::DirectoryService::MicrosoftAD

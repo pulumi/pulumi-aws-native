@@ -105,7 +105,7 @@ def get_queue(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_queue)
-def get_queue_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_queue_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
     Resource Type definition for AWS::MediaConvert::Queue

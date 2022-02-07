@@ -96,7 +96,7 @@ def get_workteam(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_workteam)
-def get_workteam_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_workteam_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkteamResult]:
     """
     Resource Type definition for AWS::SageMaker::Workteam

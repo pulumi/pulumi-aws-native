@@ -198,8 +198,8 @@ def get_data_source(aws_account_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_data_source)
-def get_data_source_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
-                           data_source_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_data_source_output(aws_account_id: Optional[pulumi.Input[str]] = None,
+                           data_source_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of the AWS::QuickSight::DataSource Resource Type.

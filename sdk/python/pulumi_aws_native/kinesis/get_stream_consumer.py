@@ -85,7 +85,7 @@ def get_stream_consumer(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_stream_consumer)
-def get_stream_consumer_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_stream_consumer_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamConsumerResult]:
     """
     Resource Type definition for AWS::Kinesis::StreamConsumer

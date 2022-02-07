@@ -99,7 +99,7 @@ def get_transit_gateway_vpc_attachment(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_transit_gateway_vpc_attachment)
-def get_transit_gateway_vpc_attachment_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_transit_gateway_vpc_attachment_output(id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayVpcAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment

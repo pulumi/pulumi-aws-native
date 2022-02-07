@@ -255,7 +255,7 @@ def get_ipam_pool(ipam_pool_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_ipam_pool)
-def get_ipam_pool_output(ipam_pool_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_ipam_pool_output(ipam_pool_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPAMPoolResult]:
     """
     Resource Schema of AWS::EC2::IPAMPool Type

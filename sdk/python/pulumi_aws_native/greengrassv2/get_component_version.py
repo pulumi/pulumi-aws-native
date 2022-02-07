@@ -85,7 +85,7 @@ def get_component_version(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_component_version)
-def get_component_version_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_component_version_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentVersionResult]:
     """
     Resource for Greengrass component version.

@@ -61,7 +61,7 @@ def get_usage_plan_key(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_usage_plan_key)
-def get_usage_plan_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_usage_plan_key_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsagePlanKeyResult]:
     """
     Resource Type definition for AWS::ApiGateway::UsagePlanKey

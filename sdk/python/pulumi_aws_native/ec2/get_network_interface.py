@@ -192,7 +192,7 @@ def get_network_interface(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_network_interface)
-def get_network_interface_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_network_interface_output(id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     The AWS::EC2::NetworkInterface resource creates network interface

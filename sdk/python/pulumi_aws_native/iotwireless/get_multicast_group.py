@@ -166,7 +166,7 @@ def get_multicast_group(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_multicast_group)
-def get_multicast_group_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_multicast_group_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMulticastGroupResult]:
     """
     Create and manage Multicast groups.

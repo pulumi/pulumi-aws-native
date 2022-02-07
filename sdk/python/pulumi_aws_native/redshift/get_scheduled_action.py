@@ -167,7 +167,7 @@ def get_scheduled_action(scheduled_action_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_scheduled_action)
-def get_scheduled_action_output(scheduled_action_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_scheduled_action_output(scheduled_action_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
     The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.

@@ -105,7 +105,7 @@ def get_preset(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_preset)
-def get_preset_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_preset_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPresetResult]:
     """
     Resource Type definition for AWS::MediaConvert::Preset

@@ -150,7 +150,7 @@ def get_container(service_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_container)
-def get_container_output(service_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_container_output(service_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerResult]:
     """
     Resource Type definition for AWS::Lightsail::Container

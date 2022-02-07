@@ -230,7 +230,7 @@ def get_origin_endpoint(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_origin_endpoint)
-def get_origin_endpoint_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_origin_endpoint_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginEndpointResult]:
     """
     Resource schema for AWS::MediaPackage::OriginEndpoint

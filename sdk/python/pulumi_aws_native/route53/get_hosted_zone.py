@@ -114,7 +114,7 @@ def get_hosted_zone(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_hosted_zone)
-def get_hosted_zone_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_hosted_zone_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneResult]:
     """
     Resource schema for AWS::Route53::HostedZone.

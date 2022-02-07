@@ -65,7 +65,7 @@ def get_voice_channel(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_voice_channel)
-def get_voice_channel_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_voice_channel_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVoiceChannelResult]:
     """
     Resource Type definition for AWS::Pinpoint::VoiceChannel

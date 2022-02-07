@@ -201,7 +201,7 @@ def get_task(task_arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_task)
-def get_task_output(task_arn: Optional[pulumi.Input[Optional[str]]] = None,
+def get_task_output(task_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskResult]:
     """
     Resource schema for AWS::DataSync::Task.

@@ -176,7 +176,7 @@ def get_patch_baseline(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_patch_baseline)
-def get_patch_baseline_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_patch_baseline_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
     Resource Type definition for AWS::SSM::PatchBaseline

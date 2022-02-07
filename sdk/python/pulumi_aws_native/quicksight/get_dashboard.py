@@ -118,8 +118,8 @@ def get_dashboard(aws_account_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_dashboard)
-def get_dashboard_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
-                         dashboard_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_dashboard_output(aws_account_id: Optional[pulumi.Input[str]] = None,
+                         dashboard_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Definition of the AWS::QuickSight::Dashboard Resource Type.

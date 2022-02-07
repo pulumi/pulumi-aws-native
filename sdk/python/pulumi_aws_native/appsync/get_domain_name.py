@@ -75,7 +75,7 @@ def get_domain_name(domain_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_domain_name)
-def get_domain_name_output(domain_name: Optional[pulumi.Input[Optional[str]]] = None,
+def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     Resource Type definition for AWS::AppSync::DomainName

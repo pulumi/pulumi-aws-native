@@ -101,7 +101,7 @@ def get_local_gateway_route_table_vpcassociation(local_gateway_route_table_vpc_a
 
 
 @_utilities.lift_output_func(get_local_gateway_route_table_vpcassociation)
-def get_local_gateway_route_table_vpcassociation_output(local_gateway_route_table_vpc_association_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_local_gateway_route_table_vpcassociation_output(local_gateway_route_table_vpc_association_id: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTableVPCAssociationResult]:
     """
     Describes an association between a local gateway route table and a VPC.

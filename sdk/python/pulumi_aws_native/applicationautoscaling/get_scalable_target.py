@@ -106,7 +106,7 @@ def get_scalable_target(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_scalable_target)
-def get_scalable_target_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_scalable_target_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalableTargetResult]:
     """
     Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
